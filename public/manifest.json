@@ -1,0 +1,21 @@
+{
+  "name": "RuinStars Companion App",
+  "short_name": "RuinStars",
+  "start_url": "/me",
+  "display": "standalone",
+  "background_color": "#0f0f0f",
+  "theme_color": "#b3441b",
+  "description": "A squad manager for RuinStars players.",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

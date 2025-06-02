@@ -1,0 +1,41 @@
+{
+  "name": "ruinstars-app",
+  "version": "0.1.0",
+  "private": true,
+  "license": "LicenseRef-Ruinstars-Proprietary",
+  "scripts": {
+    "seed:dev": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/seed.ts dev",
+    "seed:prod": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/seed.ts prod",
+    "dev": "PORT=5000 next dev",
+    "build": "next build",
+    "start": "PORT=4000 next start",
+    "genseed": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/rebuildseeddata-core.ts"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.1",
+    "@prisma/client": "^6.5.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/bcryptjs": "^2.4.6",
+    "bcryptjs": "^2.4.3",
+    "clsx": "^2.1.1",
+    "nanoid": "^4.0.2",
+    "next": "latest",
+    "next-auth": "^4.24.11",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-icons": "^5.5.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "22.13.14",
+    "@types/react": "19.0.12",
+    "@types/react-dom": "^19.1.1",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}

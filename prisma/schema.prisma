@@ -1,0 +1,175 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  userId   String  @id @db.VarChar(20)
+  email    String? @db.VarChar(250)
+  userName String  @unique @db.VarChar(250)
+  password String  @db.VarChar(250)
+  squads   Squad[]
+}
+
+model Faction {
+  factionId   String     @id @db.VarChar(20)
+  seq         Int        @default(0)
+  factionName String     @db.VarChar(250)
+  description String     @db.Text
+  squads      Squad[]
+  unitTypes   UnitType[]
+}
+
+model UnitType {
+  unitTypeId   String  @id @db.VarChar(20)
+  factionId    String  @db.VarChar(20)
+  seq          Int     @default(0)
+  unitTypeName String  @db.VarChar(250)
+  ACT          Int
+  MOV          Int
+  MSK          Int
+  RSK          Int
+  ARM          Int
+  HIT          Int
+  special      String  @db.VarChar(250)
+  GP           Int
+  nameType     String  @db.VarChar(250)
+  gearIds      String? @db.Text
+  Unit         Unit[]
+  faction      Faction @relation(fields: [factionId], references: [factionId], onDelete: Cascade)
+
+  @@index([factionId], map: "UnitType_factionId_fkey")
+}
+
+model GearCategory {
+  gearCategoryId   String  @id @db.VarChar(20)
+  gearCategoryName String  @db.VarChar(250)
+  seq              Int     @default(0)
+  isNarrative      Boolean @default(false)
+  gears            Gear[]
+}
+
+model Gear {
+  gearId         String       @id @db.VarChar(20)
+  gearName       String       @db.VarChar(250)
+  description    String       @db.Text
+  gearType       String       @db.VarChar(1)
+  gearCategoryId String       @db.VarChar(20)
+  seq            Int          @default(0)
+  GP             Int
+  TYP            String?      @db.VarChar(1)
+  ROA            Int?
+  ATT            Int?
+  ACT            Int?
+  TO             Int?
+  effects        String?      @db.Text
+  special        String?      @db.Text
+  isDefault      Boolean      @default(false)
+  gearCategory   GearCategory @relation(fields: [gearCategoryId], references: [gearCategoryId], onDelete: Cascade)
+
+  @@index([gearCategoryId], map: "Gear_gearCategoryId_fkey")
+}
+
+model Squad {
+  squadId           String   @id @db.VarChar(20)
+  userId            String   @db.VarChar(20)
+  factionId         String   @db.VarChar(20)
+  seq               Int      @default(0)
+  squadName         String   @db.VarChar(250)
+  description       String?  @db.Text
+  hasCustomPortrait Boolean  @default(false)
+  portraitUrl       String?  @db.Text
+  viewCount         Int      @default(0)
+  importCount       Int      @default(0)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  turn              Int      @default(1)
+  MP                Int      @default(0)
+  TO                Int      @default(0)
+  maxGP             Int      @default(100)
+  faction           Faction  @relation(fields: [factionId], references: [factionId], onDelete: Cascade)
+  user              User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  units             Unit[]
+
+  @@index([factionId], map: "Squad_factionId_fkey")
+  @@index([userId], map: "Squad_userId_fkey")
+}
+
+model Unit {
+  unitId            String   @id @db.VarChar(20)
+  squadId           String   @db.VarChar(20)
+  seq               Int      @default(0)
+  unitName          String   @db.VarChar(250)
+  unitTypeId        String   @db.VarChar(20)
+  currHIT           Int
+  isActivated       Boolean  @default(false)
+  hasCustomPortrait Boolean  @default(false)
+  portraitUrl       String?  @db.Text
+  gearIds           String?  @db.Text
+  squad             Squad    @relation(fields: [squadId], references: [squadId], onDelete: Cascade)
+  unitType          UnitType @relation(fields: [unitTypeId], references: [unitTypeId], onDelete: Cascade)
+
+  @@index([squadId], map: "Unit_squadId_fkey")
+  @@index([unitTypeId], map: "Unit_unitTypeId_fkey")
+}
+
+model Special {
+  specialId   String  @id @db.VarChar(20)
+  scope       String  @db.VarChar(1)
+  code        String  @db.VarChar(250)
+  specialName String  @db.VarChar(250)
+  description String? @db.Text
+}
+
+model Mission {
+  missionId     Int    @id
+  missionType   String @db.VarChar(25)
+  seq           Int
+  title         String @db.VarChar(250)
+  description   String @db.Text
+  setup         String @db.Text
+  deployment    String @db.Text
+  special       String @db.Text
+  victory       String @db.Text
+}
+
+model Battlefield {
+  battlefieldId Int    @id
+  title         String @db.VarChar(250)
+  description   String @db.Text
+  setup         String @db.Text
+  effects       String @db.Text
+}
+
+model Medal {
+  medalId     String @id @db.VarChar(20)
+  title       String @db.VarChar(250)
+  description String @db.Text
+  XP          Int
+}
+
+model WebEvent {
+  eventId      Int      @id @default(autoincrement())
+  datestamp    DateTime @default(now())
+  sessionType  String   @db.VarChar(50)
+  userId       String?  @db.VarChar(45)
+  eventType    String?  @db.VarChar(50)
+  action       String?  @db.VarChar(45)
+  label        String?  @db.VarChar(45)
+  var1         String?  @db.VarChar(45)
+  var2         String?  @db.VarChar(45)
+  var3         String?  @db.VarChar(45)
+  url          String   @db.VarChar(500)
+  userIp       String   @db.VarChar(250)
+  userAgent    String   @db.VarChar(500)
+  referrer     String?  @db.VarChar(500)
+
+  @@index([userId, eventType, action, label], name: "IX_TAL")
+  @@index([var1, eventType, action, label], name: "IX_VAR1")
+  @@index([userId], name: "IX_USER")
+  @@index([datestamp], name: "IX_datestamp")
+}

@@ -1,0 +1,24 @@
+{
+  "users": [
+    { "userId": "u1", "userName": "TestUser1", "password": "testpass" }
+  ],
+  "squads": [
+    {"userId": "u1", "squadId": "u1s1", "seq": 1, "squadName": "Void Raptors", "factionId": "ST"},
+    {"userId": "u1", "squadId": "u1s2", "seq": 2, "squadName": "Death Swarm", "factionId": "SWARM"}
+  ],
+  "units": [
+    { "squadId": "u1s1", "unitId": "u1s1u1", "seq": 1, "unitName": "Toland Strak", "unitTypeId": "ST-STRP", "isActivated": false, "currHIT": 6, "gearIds": "ST-CK,ST-AR,FT-SHD,ST-LDR"},
+    { "squadId": "u1s1", "unitId": "u1s1u2", "seq": 2, "unitName": "Corvius", "unitTypeId": "ST-STRP", "isActivated": false, "currHIT": 5, "gearIds": "ST-F,ST-HR,FT-SHD"},
+    { "squadId": "u1s1", "unitId": "u1s1u3", "seq": 3, "unitName": "Castius", "unitTypeId": "ST-STRP", "isActivated": false, "currHIT": 5, "gearIds": "ST-CK,ST-CR,FT-SHD,ST-MED,ST-TECH"},
+    { "squadId": "u1s1", "unitId": "u1s1u4", "seq": 4, "unitName": "Andronicos", "unitTypeId": "ST-STRP", "isActivated": false, "currHIT": 5, "gearIds": "ST-CK,ST-SR,FT-SHD,ST-RO"},
+    { "squadId": "u1s1", "unitId": "u1s1u5", "seq": 5, "unitName": "Decaeta", "unitTypeId": "ST-ATRP", "isActivated": false, "currHIT": 5, "gearIds": "ST-PH,ST-SA,FT-DUT,ST-BRU"},
+    { "squadId": "u1s2", "unitId": "u1s2u1", "seq": 1, "unitName": "Mother", "unitTypeId": "SWARM-BM", "isActivated": false, "currHIT": 6, "gearIds": "SWARM-CLW,SWARM-AS,SWARM-BT,FT-HIV,SWARM-OR,SWARM-INF"},
+    { "squadId": "u1s2", "unitId": "u1s2u2", "seq": 2, "unitName": "Arzurraes", "unitTypeId": "SWARM-RNR", "isActivated": false, "currHIT": 4, "gearIds": "SWARM-DBLCLW,SWARM-SPT,FT-HIV,SWARM-CLB,SWARM-ML,SWARM-FD"},
+    { "squadId": "u1s2", "unitId": "u1s2u3", "seq": 3, "unitName": "Bazeraz", "unitTypeId": "SWARM-RNR", "isActivated": false, "currHIT": 4, "gearIds": "SWARM-DBLCLW,SWARM-SPT,FT-HIV,SWARM-CLB,SWARM-ML,SWARM-FD"},
+    { "squadId": "u1s2", "unitId": "u1s2u4", "seq": 4, "unitName": "Cazhara", "unitTypeId": "SWARM-RNR", "isActivated": false, "currHIT": 4, "gearIds": "SWARM-DBLCLW,SWARM-SPT,FT-HIV,SWARM-CLB,SWARM-ML,SWARM-FD"},
+    { "squadId": "u1s2", "unitId": "u1s2u5", "seq": 5, "unitName": "Drazrizar", "unitTypeId": "SWARM-RNR", "isActivated": false, "currHIT": 4, "gearIds": "SWARM-DBLCLW,SWARM-SPT,FT-HIV,SWARM-CLB,SWARM-ML,SWARM-FD"},
+    { "squadId": "u1s2", "unitId": "u1s2u6", "seq": 6, "unitName": "Erzanyr", "unitTypeId": "SWARM-RNR", "isActivated": false, "currHIT": 4, "gearIds": "SWARM-DBLCLW,SWARM-SPT,FT-HIV,SWARM-CLB,SWARM-ML,SWARM-FD"},
+    { "squadId": "u1s2", "unitId": "u1s2u7", "seq": 7, "unitName": "Fraezhan", "unitTypeId": "SWARM-RNR", "isActivated": false, "currHIT": 4, "gearIds": "SWARM-DBLCLW,SWARM-SPT,FT-HIV,SWARM-CLB,SWARM-ML,SWARM-FD"},
+    { "squadId": "u1s2", "unitId": "u1s2u8", "seq": 8, "unitName": "Garubryn", "unitTypeId": "SWARM-RNR", "isActivated": false, "currHIT": 4, "gearIds": "SWARM-DBLCLW,SWARM-SPT,FT-HIV,SWARM-CLB,SWARM-ML,SWARM-FD"}
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "date": "2025-06-02",
+    "title": "Published!",
+    "description": "Ruinstars is officially published! You can now find the game on [itch.io](https://ruinstars.itch.io/ruinstars)."
+  },
+  {
+    "date": "2025-05-18",
+    "title": "Ankh Revenants Updates",
+    "description": "After thorough playtesting of the [Ankh Revenants](/factions/ANKH) faction, updated them for better balance."
+  },
+  {
+    "date": "2025-05-17",
+    "title": "Secondary Missions",
+    "description": "Added support for secondary secret missions. You can now add secondary missions to your main mission, and they will be displayed in the mission list."
+  },
+  {
+    "date": "2025-05-10",
+    "title": "Version 1.0.5",
+    "description": "First public release and availability!"
+  }
+]

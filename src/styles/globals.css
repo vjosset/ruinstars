@@ -1,0 +1,307 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+Font notes:
+	| Font             | Title |Heading| Stats | Notes           |
+	|------------------|-------|-------|-------|-----------------|
+	| CGFLocust        |   N   |   N   |   Y   | Wide            |
+	| Closeness        |   Y   |   Y   |   N   | Clean/Simple    |
+	| Geizer           |   Y   |   N   |   N   | Small           |
+	| GovtAgentBB      |   Y   |   Y   |   Y   |                 |
+	| Goma No Continue |   Y   |   N   |   N   |                 |
+	| Goma Octagon     |   Y   |   N   |   Y   |                 |
+	| Goma Tall Block  |   Y   |   N   |   N   |                 |
+	| Jacinto          |   Y   |   N   |   Y   | Wide            |
+	| KirstyBold       |   Y   |   N   |   m   |                 |
+	| LongShot         |   Y   |   N   |   Y   |                 |
+	| No Continue      |   Y   |   N   |   N   |                 |
+	| Origicide        |   Y   |   N   |   N   |                 |
+	| Quantico         |   N   |   Y   |   Y   | Not bold        |
+	| Suggested        |   Y   |   N   |   m   | Angled/Metal    |
+	| Younger than me  |   Y   |   N   |   Y   | Slight Drip     |
+	| Waruna           |   Y   |   N   |   N   |                 |
+
+	Waruna is good for game title but not headings or stats
+	Geizer is nive but scaled small, solid for game title and stats, but not headings
+*/
+
+@font-face {
+  font-family: 'title';
+  src: url('/fonts/GovtAgentBB.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'heading';
+  src: url('/fonts/GovtAgentBB.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'stat';
+  src: url('/fonts/GovtAgentBB.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'main';
+  src: url('/fonts/Oswald.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  background-color: theme('colors.background.DEFAULT');
+	background-size: 100%;
+  color: theme('colors.foreground.DEFAULT');
+  @apply font-main;
+}
+
+.grunge {
+  /* Grunge/stamp style */
+	mask-image: url('/img/ui/grunge_sm.png');
+	-webkit-mask-image: url('/img/ui/grunge_sm.png');
+	mask-size: 500px 300px;
+	-webkit-mask-size: 500px 300px;
+	mix-blend-mode: alpha;
+}
+
+.hastip::after {
+	/*content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox=\'0 0 24 24\'><circle cx=\'12\' cy=\'12\' r=\'10\' stroke=\'currentColor\' stroke-width=\'2\' fill=\'none\'/><text x=\'12\' y=\'16\' text-anchor=\'middle\' font-family=\'serif\' font-size=\'12\' fill=\'currentColor\'>i</text></svg>');*/
+	/*width: 0.8em;*/
+	/*height: 0.8em;*/
+
+  content: 'ⓘ'; /* or any symbol like ⓘ or ℹ️ */
+  font-size: 0.8em; /* smaller size for superscript look */
+	
+  display: inline;
+  vertical-align: super; /* position it like <sup> */
+  margin-left: 0.2em; /* small spacing */
+  color: inherit; /* inherits current text color */
+  opacity: 0.6; /* slightly faded like typical info icons */
+  cursor: pointer; /* optional: shows pointer on hover */
+	font-style: normal; /* remove other styles like italics */
+}
+
+.stat {
+  @apply font-stat uppercase;
+  font-weight: normal;
+}
+
+h1 {
+  @apply font-heading uppercase text-5xl font-title text-main grunge;
+  font-weight: normal;
+  color: theme('colors.foreground.DEFAULT');
+}
+
+h2, h3, h4, h5, h6 {
+  @apply font-main uppercase grunge;
+  font-weight: bold;
+}
+
+h2 { @apply text-4xl; }
+h3 { @apply text-3xl; }
+h4 { @apply text-2xl; }
+h5 { @apply text-xl; }
+
+@layer base {
+  ul, ol {
+    list-style: revert;
+    padding-left: 1.25rem; /* smaller than the default ~2rem */
+  }
+
+	ol {
+		list-style: decimal;
+	}
+}
+
+table {
+	width: 100%;
+}
+
+th {
+	text-align: left;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+td {
+	vertical-align: top;
+}
+
+thead {
+	@apply border-b border-border;
+}
+
+hr {
+	@apply my-12 mx-12 border-border;
+}
+
+.markdown td, .markdown th {
+	margin: 0;
+	padding: 2px;
+}
+
+.flavor {
+	@apply relative font-serif text-sm leading-relaxed bg-zinc-900 italic border border-zinc-700 rounded-md p-6 shadow-lg overflow-hidden;
+
+	background-image: radial-gradient(ellipse at top left, rgba(255,255,255,0.02), transparent),
+										radial-gradient(ellipse at bottom right, rgba(255,255,255,0.01), transparent),
+										url('/img/ui/grunge-texture03.webp');
+	background-size: cover;
+	background-blend-mode: overlay;
+}
+
+.flavor::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: repeating-linear-gradient(
+		0deg,
+		transparent,
+		transparent 2px,
+		rgba(255, 255, 255, 0.020) 4px
+	);
+	pointer-events: none;
+}
+
+.flavor_old {
+	@apply mx-4 text-base sm:text-base leading-relaxed text-muted font-mono tracking-wide italic border-l-4 pl-4 border-orange-800 bg-zinc-950/30 rounded-md p-4 shadow-inner;
+	background-color: theme('colors.card.DEFAULT');
+	font-family: Flavor, serif;
+}
+
+.flavor a, .flavor a:link, .flavor a:visited, .flavor a:hover, .flavor a:active {
+	color: var(--maincolor);
+}
+
+/********/
+/* GLOW */
+/********/
+.glowtext {
+	text-shadow: 0 0 10px theme('colors.main.DEFAULT'), 0 0 20px theme('colors.main.DEFAULT');
+	mix-blend-mode: unset !important;
+	mask-image: unset !important;
+	-webkit-mask-image: unset !important;
+}
+
+.glowbox {
+	outline: none;
+	border-color: theme('colors.main.DEFAULT');
+	box-shadow: 0 0 15px theme('colors.main.DEFAULT');
+}
+
+.glowimage {
+	-webkit-filter:
+		drop-shadow(1px 0px 0 theme('colors.main.DEFAULT'))
+		drop-shadow(-1px 0px 0 theme('colors.main.DEFAULT'))
+		drop-shadow(0px 1px 0 theme('colors.main.DEFAULT'))
+		drop-shadow(0px -1px 0 theme('colors.main.DEFAULT'));
+	filter:
+		drop-shadow(1px 0px 0 theme('colors.main.DEFAULT'))
+		drop-shadow(-1px 0px 0 theme('colors.main.DEFAULT'))
+		drop-shadow(0px 1px 0 theme('colors.main.DEFAULT'))
+		drop-shadow(0px -1px 0 theme('colors.main.DEFAULT'));
+}
+
+/*********/
+/* RULES */
+/*********/
+
+.rules h1 {
+	@apply text-5xl text-center pt-4;
+  color: theme('colors.main.DEFAULT');
+	column-span: all;
+}
+.rules h2 {
+	@apply text-3xl text-center pt-2;
+  color: theme('colors.main.DEFAULT');
+}
+.rules h3 {
+	@apply text-2xl pt-2;
+  color: theme('colors.main.DEFAULT');
+}
+.rules > h4 {
+	@apply text-xl pt-2;
+}
+
+.twocols { columns: 2; }
+.rules .twocols {
+	column-width: 400px;
+	text-align: justify;
+}
+.section {
+	page-break-inside: avoid;
+	page-break-before: auto;
+}
+
+code {
+  color: theme('colors.main.DEFAULT');
+}
+
+.section {
+	page-break-inside: avoid;
+	page-break-before: auto;
+}
+
+.printonly { display: none; }
+
+@media print {
+  :root {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+  }
+
+	@page {
+    size: 8.5in 11in !important;
+		margin: 0.5in !important;
+  }
+
+	body {
+		zoom: 66%;
+		background-image: url(/img/ui/mech02.png);
+		background-size: 12.8in 16.7in;
+	}
+	
+	.noprint {
+		display: none !important;
+	}
+
+	.printonly {
+		display: inline;
+	}
+
+  .text-main {
+    @apply text-main-print;
+  }
+
+  .bg-card {
+    @apply bg-card-print;
+  }
+
+  .border-border {
+    @apply border-border-print;
+  }
+	
+  .flavor {
+    background: none !important;
+    border: 1px solid #666 !important;
+    color: black !important;
+    text-shadow: none !important;
+  }
+
+  /* Remove special effects that might interfere with print */
+  .flavor::before {
+    display: none !important;
+  }
+	
+	.hastip::after {
+    display: none !important;
+	}
+}

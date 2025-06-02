@@ -1,0 +1,8 @@
+export { UserService } from './user.service'
+export { SquadService } from './squad.service'
+export { UnitService } from './unit.service'
+export { FactionService } from './faction.service'
+export { UnitTypeService } from './unitType.service'
+export { GearService } from './gear.service'
+export { GearCategoryService } from './gearCategory.service'
+export { SpecialService } from './special.service'
