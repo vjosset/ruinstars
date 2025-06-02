@@ -16,6 +16,7 @@ export default function Resources() {
         <ul>
           <li><Link href="https://discord.gg/Rh8vJzkCrT" target="_blank" className="underline">Discord</Link></li>
           <li><Link href="https://ruinstars.itch.io/ruinstars" target="_blank" className="underline">itch.io</Link></li>
+          <li><Link href="https://github.com/vjosset/ruinstars" target="_blank" className="underline">GitHub</Link></li>
         </ul>
       </div>
       <div className="section">
