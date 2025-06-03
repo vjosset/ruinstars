@@ -54,7 +54,7 @@ export default function SquadCard({
                 src={`/img/factions/${squad.faction?.factionId}-icon.webp`} 
                 alt=""
               />
-              <h5 className="font-heading text-main truncate mx-2">
+              <h5 className="font-heading text-main mx-2"> {/* Add  truncate w-0 flex-1 to allow text truncation + ellipsis */}
                 {squad.squadName}
               </h5>
             </Link>
