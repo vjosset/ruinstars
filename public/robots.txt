@@ -7,10 +7,6 @@ Disallow: /users$
 Disallow: /api/
 Disallow: /me/
 
-# Block service worker and manifest
-Disallow: /service-worker.js
-Disallow: /manifest.json
-
 # Sitemap
 Sitemap: https://ruinstars.com/sitemap.xml
 
