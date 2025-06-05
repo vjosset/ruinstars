@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react'
 import UnitCard from '../../components/unit/UnitCard'
 import AddUnitForm from '../../components/unit/AddUnitForm'
-import { UnitPlain, SquadPlain } from '@/types'
+import { UnitPlain, SquadPlain, Medal } from '@/types'
 import { SpecialRule } from '@/lib/utils/specialRules'
 import Link from 'next/link'
 import { FiUser, FiEdit2, FiRotateCcw, FiInfo } from 'react-icons/fi'
@@ -22,6 +22,7 @@ export default function SquadPageClient({
   const [units, setUnits] = useState<UnitPlain[]>(initialSquad.units ?? [])
   const [squad, setSquad] = useState(initialSquad)
   const [allSpecials, setSpecials] = useState<SpecialRule[] | null>(null)
+  const [allMedals, setMedals] = useState<Medal[] | null>(null)
   const formRef = useRef<{ handleSubmit: () => void }>(null)
   const { showModal, hideModal } = useModal()
 
@@ -30,6 +31,11 @@ export default function SquadPageClient({
       .then(res => res.json())
       .then(data => setSpecials(data))
       .catch(err => console.error('Failed to fetch specials', err))
+    
+    fetch('/api/medals')
+      .then(res => res.json())
+      .then(data => setMedals(data))
+      .catch(err => console.error('Failed to fetch medals', err))
   }, [])
 
   useEffect(() => {
@@ -313,6 +319,7 @@ export default function SquadPageClient({
             unit={unit}
             isOwner={isOwner}
             allSpecials={allSpecials ?? []}
+            allMedals={allMedals ?? []}
             onUnitUpdated={updateUnit}
             onUnitDeleted={deleteUnit}
             onMoveUp={isOwner ? () => moveUnit(idx, idx - 1) : () => {}}

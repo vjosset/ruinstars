@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { UnitPlain, UnitTypePlain } from '@/types'
+import { Medal, UnitPlain, UnitTypePlain } from '@/types'
 import WeaponTable from '@/src/components/shared/WeaponTable'
 import GearGroupList from '@/src/components/shared/GearGroupList'
 import UnitEditorModal from './UnitEditorModal'
@@ -17,6 +17,7 @@ type UnitCardProps = {
   seq: Number
   isOwner: Boolean
   allSpecials: SpecialRule[]
+  allMedals: Medal[]
   onUnitUpdated?: (u: UnitPlain) => void
   onMoveUp?: () => void
   onMoveFirst?: () => void
@@ -31,6 +32,7 @@ export default function UnitCard({
   seq,
   isOwner,
   allSpecials,
+  allMedals,
   onUnitUpdated,
   onMoveUp,
   onMoveFirst,
@@ -42,6 +44,7 @@ export default function UnitCard({
   const [showHITModal, setShowHITModal] = useState(false)
   const [isActivated, setIsActivated] = useState(unit.isActivated ?? false)
   const [showUnitEditorModal, setShowUnitEditorModal] = useState(false)
+  const [showUnitMedalModal, setShowUnitMedalModal] = useState(false)
   const [newHIT, setNewHIT] = useState(unit.currHIT ?? 0)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [newActivated, setNewActivated] = useState(unit.isActivated ?? false)
