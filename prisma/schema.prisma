@@ -100,21 +100,23 @@ model Squad {
 }
 
 model Unit {
-  unitId            String   @id @db.VarChar(20)
-  squadId           String   @db.VarChar(20)
-  seq               Int      @default(0)
-  unitName          String   @db.VarChar(250)
-  unitTypeId        String   @db.VarChar(20)
+  unitId            String      @id @db.VarChar(20)
+  squadId           String      @db.VarChar(20)
+  seq               Int         @default(0)
+  unitName          String      @db.VarChar(250)
+  unitTypeId        String      @db.VarChar(20)
   currHIT           Int
-  isActivated       Boolean  @default(false)
-  hasCustomPortrait Boolean  @default(false)
-  portraitUrl       String?  @db.Text
-  gearIds           String?  @db.Text
-  squad             Squad    @relation(fields: [squadId], references: [squadId], onDelete: Cascade)
-  unitType          UnitType @relation(fields: [unitTypeId], references: [unitTypeId], onDelete: Cascade)
+  isActivated       Boolean     @default(false)
+  hasCustomPortrait Boolean     @default(false)
+  portraitUrl       String?     @db.Text
+  gearIds           String?     @db.Text
+  squad             Squad       @relation(fields: [squadId], references: [squadId], onDelete: Cascade)
+  unitType          UnitType    @relation(fields: [unitTypeId], references: [unitTypeId], onDelete: Cascade)
+  Medals            UnitMedal[]
 
   @@index([squadId], map: "Unit_squadId_fkey")
   @@index([unitTypeId], map: "Unit_unitTypeId_fkey")
+  @@index([unitId], map: "Unit_unitId_fkey")
 }
 
 model Special {
@@ -126,15 +128,15 @@ model Special {
 }
 
 model Mission {
-  missionId     Int    @id
-  missionType   String @db.VarChar(25)
-  seq           Int
-  title         String @db.VarChar(250)
-  description   String @db.Text
-  setup         String @db.Text
-  deployment    String @db.Text
-  special       String @db.Text
-  victory       String @db.Text
+  missionId   Int    @id
+  missionType String @db.VarChar(25)
+  seq         Int
+  title       String @db.VarChar(250)
+  description String @db.Text
+  setup       String @db.Text
+  deployment  String @db.Text
+  special     String @db.Text
+  victory     String @db.Text
 }
 
 model Battlefield {
@@ -146,30 +148,40 @@ model Battlefield {
 }
 
 model Medal {
-  medalId     String @id @db.VarChar(20)
-  title       String @db.VarChar(250)
-  description String @db.Text
+  medalId     String      @id @db.VarChar(20)
+  title       String      @db.VarChar(250)
+  description String      @db.Text
   XP          Int
+  UnitMedal   UnitMedal[]
 }
 
 model WebEvent {
-  eventId      Int      @id @default(autoincrement())
-  datestamp    DateTime @default(now())
-  sessionType  String   @db.VarChar(50)
-  userId       String?  @db.VarChar(45)
-  eventType    String?  @db.VarChar(50)
-  action       String?  @db.VarChar(45)
-  label        String?  @db.VarChar(45)
-  var1         String?  @db.VarChar(45)
-  var2         String?  @db.VarChar(45)
-  var3         String?  @db.VarChar(45)
-  url          String   @db.VarChar(500)
-  userIp       String   @db.VarChar(250)
-  userAgent    String   @db.VarChar(500)
-  referrer     String?  @db.VarChar(500)
+  eventId     Int      @id @default(autoincrement())
+  datestamp   DateTime @default(now())
+  sessionType String   @db.VarChar(50)
+  userId      String?  @db.VarChar(45)
+  eventType   String?  @db.VarChar(50)
+  action      String?  @db.VarChar(45)
+  label       String?  @db.VarChar(45)
+  var1        String?  @db.VarChar(45)
+  var2        String?  @db.VarChar(45)
+  var3        String?  @db.VarChar(45)
+  url         String   @db.VarChar(500)
+  userIp      String   @db.VarChar(250)
+  userAgent   String   @db.VarChar(500)
+  referrer    String?  @db.VarChar(500)
 
   @@index([userId, eventType, action, label], name: "IX_TAL")
   @@index([var1, eventType, action, label], name: "IX_VAR1")
   @@index([userId], name: "IX_USER")
   @@index([datestamp], name: "IX_datestamp")
+}
+
+model UnitMedal {
+  unitMedalId String @id @db.VarChar(20)
+  unitId      String
+  medalId     String
+
+  unit  Unit  @relation(fields: [unitId], references: [unitId], onDelete: Cascade)
+  medal Medal @relation(fields: [medalId], references: [medalId], onDelete: Cascade)
 }
