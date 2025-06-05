@@ -44,7 +44,7 @@ export default async function RulesCombat() {
                   If an Armor Save die result is equal to or lower than the Target&#39;s <code>ARM</code>, then the Target&#39;s Armor absorbs the damage from this strike.<br/>
                   Armor Save rolls of <code>1</code> are Critical Saves and count as two saves.
                 </li>
-                <li>If an Amor Save die result is higher than the target's <code>ARM</code>, the save is failed and the target loses 1 <code>HIT</code> for each failed save.</li>
+                <li>If an Armor Save die result is higher than the target's <code>ARM</code>, the save is failed and the target loses 1 <code>HIT</code> for each failed save.</li>
                 <li>If a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield.</li>
               </ol>
             </li>
@@ -148,7 +148,7 @@ export default async function RulesCombat() {
                   Armor Save rolls of <code>1</code> are Critical Saves. In Melee combat, a Critical Save counts as one save but inflicts 1 Melee Damage on the Attacker.<br/>
                   These Critical Saves can chain back and forth between the Attacker and the Target, so if the Attacker rolls a Critical Save, it can inflict 1 Damage on the Target, which in turn can roll a Critical Save and inflict 1 Damage on the Attacker, and so on.
                 </li>
-                <li>If an Amor Save die result is higher than the target's <code>ARM</code>, the save is failed and the target loses 1 <code>HIT</code> for each failed save.</li>
+                <li>If an Armor Save die result is higher than the target's <code>ARM</code>, the save is failed and the target loses 1 <code>HIT</code> for each failed save.</li>
                 <li>If a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield.</li>
               </ol>
             </li>

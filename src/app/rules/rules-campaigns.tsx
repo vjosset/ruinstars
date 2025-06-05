@@ -22,7 +22,7 @@ export default async function RulesCampaigns() {
       <div className="section">
         <h3>Operations</h3>
         Each Operation sees your Squad sent to a location to execute three Missions.
-        While on an Operation, your Squad is inthe field and cannot change its Units or Gear selections.
+        While on an Operation, your Squad is in the field and cannot change its Units or Gear selections.
         Once the third Mission of an Operation is done, your Squad returns to Homebase to heal Injuries, make new Gear selections, and recruit new Units.<br/>
         If you are playing a Campaign against NPC Squads, you may choose to increase the difficulty by selecting "Difficulty 2" for NPC Squads you face in Operation 2, and adding "Difficulty 3" for NPC Squads you face in Operation 3.
       </div>

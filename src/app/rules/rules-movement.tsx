@@ -9,7 +9,7 @@ export default async function RulesMovement() {
           <h3>Battlefield</h3>
           <p>
             The Battlefield is an area of 2'x2' (24"x24") or larger, divided into 9 equal tiles.<br/>
-            Some missions may describe their setup in terms of a Tile's position (e.g. "Western Tile", "Center Tile", "SouthEast Tile").
+            Some missions may describe their setup in terms of a Tile's position (e.g. "Western Tile", "Center Tile", "Southeast Tile").
             Before the mission, both players should agree which way is North on the Battlefield, then refer to this diagram to find the right Tile.
             <img src="/img/rules/Tiles.jpg" style={{width: "45%"}} />
           </p>

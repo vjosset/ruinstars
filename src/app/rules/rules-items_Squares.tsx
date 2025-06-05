@@ -26,7 +26,7 @@ export default async function RulesItems() {
               <strong>TO</strong>: The Unit's Squad immediately gains 1 TO.
             </li>
             <li>
-              <strong>Free Action</strong>: The Unit may immediately perform a fre Basic or Mission Action.
+              <strong>Free Action</strong>: The Unit may immediately perform a free Basic or Mission Action.
             </li>
             <li>
               <strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for 1 <code>ACT</code> during this Unit's activation. When used, the Unit or an Adjacent Squadmate regain 1D3 lost <code>HIT</code>. Once used, remove the MedPack from the Unit.
