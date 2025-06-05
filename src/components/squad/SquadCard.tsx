@@ -11,7 +11,7 @@ import { FiChevronDown } from 'react-icons/fi'
 
 type SquadCardProps = {
   squad: SquadPlain
-  isOwner: Boolean
+  isOwner: boolean
   onMoveUp: () => void
   onMoveFirst: () => void
   onMoveDown: () => void

@@ -11,11 +11,12 @@ import { SpecialRule } from '@/lib/utils/specialRules'
 import { useModal } from '@/components/ui/ModalContext'
 import { parseSpecialRules } from '@/lib/utils/specialRules'
 import { useLocalSettings } from '@/hooks/useLocalSettings'
+import UnitMedalModal from './UnitMedalModal'
 
 type UnitCardProps = {
   unit: UnitPlain | UnitTypePlain
   seq: Number
-  isOwner: Boolean
+  isOwner: boolean
   allSpecials: SpecialRule[]
   allMedals: Medal[]
   onUnitUpdated?: (u: UnitPlain) => void
@@ -174,7 +175,7 @@ export default function UnitCard({
                 </span>}
               </div>
               <div className="text-right whitespace-nowrap">
-                {!unit.isUnitType && <span>
+                {!unit.isUnitType && <span onClick={() => setShowUnitMedalModal(true)}>
                   {unit.totalMedalXP} XP
                 </span>}
               </div>
@@ -229,6 +230,24 @@ export default function UnitCard({
           onSave={(updated) => {
             onUnitUpdated?.(updated) // 💡 call back to parent
             setShowUnitEditorModal(false)
+          }}
+        />
+      )}
+
+      {/* Medal Modal */}
+      {showUnitMedalModal && !unit.isUnitType && (
+        <UnitMedalModal
+          key="editor-modal"
+          isOpen={true}
+          squadId={unit.squadId || ''}
+          factionId={unit.unitType?.factionId ?? ""}
+          unit={unit}
+          onClose={() => setShowUnitMedalModal(false)}
+          allMedals={allMedals}
+          isOwner={isOwner}
+          onSave={(updated) => {
+            onUnitUpdated?.(updated) // 💡 call back to parent
+            setShowUnitMedalModal(false)
           }}
         />
       )}
