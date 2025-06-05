@@ -175,7 +175,7 @@ export default function UnitCard({
                 </span>}
               </div>
               <div className="text-right whitespace-nowrap">
-                {!unit.isUnitType && <span onClick={() => setShowUnitMedalModal(true)}>
+                {!unit.isUnitType && <span onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
                   {unit.totalMedalXP} XP
                 </span>}
               </div>
