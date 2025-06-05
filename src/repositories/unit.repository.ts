@@ -26,6 +26,7 @@ export class UnitRepository extends BaseRepository {
         unitName: data.unitName ?? '',
         seq: data.seq,
         gearIds: data.gearIds,
+        medalIds: data.medalIds ?? '',
         squad: {
           connect: {
             squadId: data.squadId

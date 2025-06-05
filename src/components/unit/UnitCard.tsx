@@ -162,13 +162,17 @@ export default function UnitCard({
                         })
                       }}
                   > { " " }
-                    ({unit.special})
+                    ({unit.special}){ " "}
                   </span>
                 )}
+                {!unit.isUnitType && <span>
+                  { " | " }
+                  {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
+                </span>}
               </div>
               <div className="text-right whitespace-nowrap">
                 {!unit.isUnitType && <span>
-                  {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
+                  {unit.totalMedalXP} XP
                 </span>}
               </div>
             </div>

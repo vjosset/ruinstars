@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 import { UnitService, SquadService } from '@/src/services'
 
 export async function POST(req: Request) {
-  const { unitName, unitTypeId, squadId, gearIds, currHIT } = await req.json()
+  const { unitName, unitTypeId, squadId, gearIds, medalIds, currHIT } = await req.json()
 
   const session = await getAuthSession()
   if (!session?.user) return new NextResponse('Unauthorized', { status: 401 })
@@ -24,7 +24,8 @@ export async function POST(req: Request) {
     squadId,
     unitTypeId,
     seq,
-    gearIds
+    gearIds,
+    medalIds,
   })
 
   if (!unit) return new NextResponse('Failed to create unit', { status: 500 })

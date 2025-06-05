@@ -1,5 +1,5 @@
-import { GearPlain, UnitTypePlain, SquadPlain} from "."
-import { Gear, UnitType, Squad } from "."
+import { GearPlain, UnitTypePlain, SquadPlain, MedalPlain } from "."
+import { Gear, UnitType, Squad, Medal } from "."
 
 export type UnitPlain = {
   unitId: string
@@ -22,10 +22,13 @@ export type UnitPlain = {
   gears?: GearPlain[] | null
   weapons?: GearPlain[] | null
   skills?: GearPlain[] | null
+  medalIds?: string | null
+  medals?: MedalPlain[] | null
   unitType?: UnitTypePlain | null
   squad?: SquadPlain | null
   isUnitType: false
   totalGearGP: number
+  totalMedalXP: number
   unitTypeName?: string
   GP?: number
 };
@@ -51,6 +54,8 @@ export class Unit {
   gears?: Gear[] | []
   weapons?: Gear[] | null
   skills?: Gear[] | null
+  medalIds?: string | null
+  medals?: Medal[] | null
   unitType?: UnitType | null
   squad?: Squad | null
   isUnitType: boolean = false
@@ -69,6 +74,8 @@ export class Unit {
     gears?: Gear[] | null
     weapons?: Gear[] | null
     skills?: Gear[] | null
+    medalIds?: string | null
+    medals?: Medal[] | null
     unitType?: UnitType | null
     squad?: Squad | null
 
@@ -83,9 +90,12 @@ export class Unit {
     this.hasCustomPortrait = data.hasCustomPortrait;
     this.portraitUrl = data.portraitUrl;
     this.gearIds = data.gearIds;
+    this.medalIds = data.medalIds;
     this.gears = data.gears || []
     this.weapons = data.weapons || null
     this.skills = data.skills || null
+    this.medalIds = data.medalIds;
+    this.medals = data.medals || null
     this.unitType = data.unitType ? (data.unitType instanceof UnitType ? data.unitType : new UnitType(data.unitType)) : null
     this.squad = data.squad ? (data.squad instanceof Squad ? data.squad : new Squad(data.squad)) : null
     this.isUnitType = false
@@ -105,6 +115,11 @@ export class Unit {
   totalGearGP(): number {
     if (!this.gears) return 0;
     return this.gears.reduce((total, gear) => total + (gear.GP || 0), 0);
+  }
+
+  totalMedalXP(): number {
+    if (!this.medals) return 0;
+    return this.medals.reduce((total, medal) => total + (medal.XP || 0), 0);
   }
 
   toPlain(): UnitPlain {
@@ -132,7 +147,10 @@ export class Unit {
       gears: this.gears ? this.gears.map(gear => gear.toPlain()) : null,
       weapons: this.weapons ? this.weapons.map(gear => gear.toPlain()) : null,
       skills: this.skills ? this.skills.map(gear => gear.toPlain()) : null,
+      medalIds: this.medalIds,
+      medals: this.medals ? this.medals.map(medal => medal.toPlain()) : null,
       totalGearGP: this.totalGearGP(),
+      totalMedalXP: this.totalMedalXP(),
       unitTypeName: this.unitType?.unitTypeName,
       GP: this.unitType?.GP,
     };

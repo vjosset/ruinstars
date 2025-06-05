@@ -16,7 +16,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ unitId: 
 // Update a Unit
 export async function PATCH(req: Request, { params }: { params: Promise<{ unitId: string }> }) {
   const { unitId } = await params
-  const { unitName, unitTypeId, gearIds, currHIT, isActivated } = await req.json()
+  const { unitName, unitTypeId, gearIds, currHIT, isActivated, medalIds } = await req.json()
 
   const session = await getAuthSession()
   if (!session?.user) return new NextResponse('Unauthorized', { status: 401 })
@@ -35,12 +35,12 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ unitId
     gearIds,
     currHIT,
     isActivated,
+    medalIds
   }
 
   const newUnit = await UnitService.updateUnit(unitId, updates)
 
   if (!newUnit) return new NextResponse('Error', { status: 500 })
-  const model = new Unit(newUnit) //, gearMap)
 
   const finalUnit = await UnitService.getUnit(unitId)
   if (!finalUnit) return new NextResponse('Error', { status: 500 })

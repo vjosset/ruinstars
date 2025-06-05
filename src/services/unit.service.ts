@@ -1,8 +1,9 @@
 // @ts-nocheck
-import { Unit, Squad, UnitType } from '@/types'
+import { Unit, Squad, UnitType, Medal } from '@/types'
 import { UnitRepository } from '@/src/repositories/unit.repository'
 import { nanoid } from 'nanoid'
 import { GearService } from './gear.service'
+import { MedalService } from './medal.service'
 
 export class UnitService {
   private static repository = new UnitRepository()
@@ -18,6 +19,8 @@ export class UnitService {
 
     const unit = raw ? new Unit(raw) : null
     await GearService.loadUnitGear(unit)
+
+    await MedalService.loadUnitMedals(unit)
 
     unit.weapons = unit.gears.filter(gear => gear.gearType == "W")
     unit.skills = unit.gears.filter(gear => gear.gearType != "W")

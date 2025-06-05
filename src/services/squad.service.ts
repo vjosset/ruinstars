@@ -2,6 +2,7 @@
 import { Squad } from '@/types'
 import { SquadRepository } from '@/src/repositories/squad.repository'
 import { GearService } from './gear.service'
+import { MedalService } from './medal.service'
 import { UnitService } from './unit.service'
 import { nanoid } from 'nanoid'
 import { UserService } from './user.service'
@@ -20,6 +21,7 @@ export class SquadService {
     const squad = raw ? new Squad(raw) : null
     await Promise.all(squad.units.map(async unit => {
       await GearService.loadUnitGear(unit)
+      await MedalService.loadUnitMedals(unit)
       await UnitService.applyGearMods(unit)
     }))
     return squad
@@ -148,6 +150,7 @@ export class SquadService {
         unitTypeId: unit.unitTypeId,
         seq: unit.seq,
         gearIds: unit.gearIds,
+        medalIds: '', // Don't clone medals
         currHIT: unit.currHIT,
         isActivated: unit.isActivated
       }

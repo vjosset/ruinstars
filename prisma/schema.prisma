@@ -110,9 +110,9 @@ model Unit {
   hasCustomPortrait Boolean     @default(false)
   portraitUrl       String?     @db.Text
   gearIds           String?     @db.Text
+  medalIds          String?     @db.Text
   squad             Squad       @relation(fields: [squadId], references: [squadId], onDelete: Cascade)
   unitType          UnitType    @relation(fields: [unitTypeId], references: [unitTypeId], onDelete: Cascade)
-  Medals            UnitMedal[]
 
   @@index([squadId], map: "Unit_squadId_fkey")
   @@index([unitTypeId], map: "Unit_unitTypeId_fkey")
@@ -152,7 +152,6 @@ model Medal {
   title       String      @db.VarChar(250)
   description String      @db.Text
   XP          Int
-  UnitMedal   UnitMedal[]
 }
 
 model WebEvent {
@@ -175,13 +174,4 @@ model WebEvent {
   @@index([var1, eventType, action, label], name: "IX_VAR1")
   @@index([userId], name: "IX_USER")
   @@index([datestamp], name: "IX_datestamp")
-}
-
-model UnitMedal {
-  unitMedalId String @id @db.VarChar(20)
-  unitId      String
-  medalId     String
-
-  unit  Unit  @relation(fields: [unitId], references: [unitId], onDelete: Cascade)
-  medal Medal @relation(fields: [medalId], references: [medalId], onDelete: Cascade)
 }
