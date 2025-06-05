@@ -72,13 +72,8 @@ export default async function Home() {
       <hr />
       <RulesBattlefields />
 
-      {/* Hiding for now - Not ready
       <hr />
-      <h2 className="text-center py-3 font-title"   id="campaigns">
-        11. Campaigns
-      </h2>
       <RulesCampaigns />
-      */}
       
       <hr />
       <RulesItems />

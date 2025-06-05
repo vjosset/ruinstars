@@ -16,7 +16,7 @@ export default async function RulesStatCards() {
             Note that in the app and on the website, you can click or tap Specials to view what they mean, and Skills or Equipment to get their full description.
           </p>
           <div className="p-1">
-            <UnitCard unit={sampleUnit} seq={1} isOwner={false} allSpecials={allSpecials} />
+            <UnitCard unit={sampleUnit} seq={1} isOwner={false} allSpecials={allSpecials} allMedals={[]} />
           </div>
         </div>
         <br/><br/>

@@ -10,12 +10,14 @@ export default async function RulesCampaigns() {
 
   return (
     <div className="section twocols">
+      <h2 className="text-center py-3 font-title"   id="campaigns">
+        11. Campaigns
+      </h2>
       <div className="section">
         <h3>Campaign Structure</h3>
         A Campaign is composed of three Operations, and each Operation is composed of three Missions.<br/>
         At the end of each Operation, your Squad returns to Homebase to heal injuries, resupply, and recruit new Units into the Squad.<br/>
-        To build a Campaign, randomly select the nine missions from the list of <a href="">Standard Missions</a>
-        or use the <a href="/missions/campaigngenerator.php" target="_blank">Campaign Generator</a>.
+        To build a Campaign, randomly select the nine missions from the list of <a href="">Standard Missions</a>.
       </div>
       <div className="section">
         <h3>Operations</h3>
