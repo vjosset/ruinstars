@@ -1,6 +1,11 @@
 [
   {
     "date": "2025-06-05",
+    "title": "Campaign Mode",
+    "description": "Added Campaign Mode to Ruinstars! You can now play through a series of missions with your squad, gaining medals and experience and unlocking new abilities as you progress. This mode is designed to provide a more immersive and long-term gameplay experience."
+  },
+  {
+    "date": "2025-06-05",
     "title": "Squares and Inches",
     "description": "After careful consideration, we have decided to change the unit of measurement for Ruinstars from Squares to Inches. This will make it much easier for new players to get started using their own terrain, battlemats, etc."
   },

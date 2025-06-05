@@ -69,6 +69,7 @@ export default async function RulesFactions() {
                   unit={u.toPlain()}
                   isOwner={false}
                   allSpecials={allSpecials.map((spec) => spec.toPlain())}
+                  allMedals={[]}
                 />
               </div>
             ))}

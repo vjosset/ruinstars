@@ -61,6 +61,7 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
             unit={unitType.toPlain()}
             isOwner={false}
             allSpecials={allSpecials.map((spec) => spec.toPlain())}
+            allMedals={[]}
             />
         ))}
       </div>
