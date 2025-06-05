@@ -6,7 +6,7 @@ export default function QuickRef() {
       <h3>Crates</h3>
 
       <p>
-        If you choose to play with Crates, place 4 Crates in random spots on the battlefield.
+        If you choose to play with Crates, place 4 Crates on the battlefield in ramdom Squares.
         To open a crate, a Unit must occupy the same Square as the crate and spend 1 ACT to open it. This counts as a Mission action.
         When opened, roll 1D{GAME.DICE_BASIS} to determine the contents of that Crate:
       </p>
@@ -16,14 +16,14 @@ export default function QuickRef() {
         <li><strong>Stims</strong>: The Unit may immediately perform one free Basic or Mission Action.</li>
         <li><strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for 1 ACT during and of this Unit's activations. When used, the Unit or an Adjacent Squadmate regain 1D3 lost HIT. Once used, remove the MedPack from the Unit.</li>
         <li><strong>Nothing</strong>: The crate is empty. Nothing happens.</li>
-        <li><strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units within 2" of its position, then it is removed from the battlefield.</li>
+        <li><strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares, then it is removed from the battlefield.</li>
       </ol>
 
       <h3>Barrels</h3>
       <p>
         If you choose to play with Barrels, randomly place 5 on the battlefield.
         Barrels may be attacked in Ranged or Melee combat. The Barrel is a Unit that cannot roll Armor Saves; if it is attacked in combat and at least one strike is successful, it explodes.
-        When a Barrel explodes, it causes an explosion dealing 2 Ranged Damage to all Units within 2" of its position, then it is removed from the Battlefield.
+        When a Barrel explodes, it causes an explosion dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares, then it is removed from the Battlefield.
       </p>
       
       <div className="section">
@@ -78,7 +78,7 @@ export default function QuickRef() {
             </tr>
             <tr>
               <th className="px-1">High&nbsp;Ground</th>
-              <td className="px-1">If the Attacker is at least 4" higher than target, the Target does not benefit from Cover</td>
+              <td className="px-1">If the Attacker is at least 2 Squares higher than target, the Target does not benefit from Cover</td>
             </tr>
           </tbody>
         </table>

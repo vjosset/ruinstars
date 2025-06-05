@@ -14,7 +14,7 @@ export default async function RulesItems() {
         <div className="section">
           <h5>Crates</h5>
           <p>
-            If you choose to play with Crates, place 4 Crates in random spots on the battlefield.
+            If you choose to play with Crates, place 4 Crates on the battlefield in ramdom Squares.
             To open a crate, a Unit must occupy the same Square as the crate and spend 1 ACT to open it. This counts as a Mission action.
             When opened, roll 1D{GAME.DICE_BASIS} to determine the contents of that Crate:
           </p>
@@ -35,7 +35,7 @@ export default async function RulesItems() {
               <strong>Nothing</strong>: The Crate is empty, nothing happens.
             </li>
             <li>
-              <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units within 2" of its position, then it is removed from the battlefield.
+              <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares, then it is removed from the battlefield.
             </li>
           </ol>
         </div>
@@ -46,7 +46,7 @@ export default async function RulesItems() {
           If you choose to play with Barrels, randomly place 5 Barrels on the battlefield:<br/>
           <img src="/img/rules/BarrelPlacement.jpg" width="50%" /><br/>
           Barrels may be attacked in Ranged or Melee combat. The Barrel is a Unit that cannot roll Armor Saves; if it is attacked in combat and at least one strike is successful, it explodes.
-          When a Barrel explodes, it causes an explosion dealing 2 Ranged Damage to all Units within 2" of its position, then it is removed from the Battlefield.<br/>
+          When a Barrel explodes, it causes an explosion dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares, then it is removed from the Battlefield.<br/>
         </p>
       </div>
     </div>

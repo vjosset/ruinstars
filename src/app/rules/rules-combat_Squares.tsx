@@ -64,7 +64,7 @@ export default async function RulesCombat() {
               </tr>
               <tr>
                 <th className="px-1">High&nbsp;Ground</th>
-                <td className="px-1">If the Attacker is at least 4" higher than its Target, the Target does not benefit from Cover</td>
+                <td className="px-1">If the Attacker is at least 2 Squares higher than its Target, the Target does not benefit from Cover</td>
               </tr>
             </tbody>
           </table>

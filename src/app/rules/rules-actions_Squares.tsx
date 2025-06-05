@@ -22,7 +22,7 @@ export default async function RulesActions() {
             <tr className="line-bottom-light"><th>Action</th><th>&nbsp;&nbsp;ACT&nbsp;&nbsp;</th><th>Description</th></tr>
           </thead>
           <tbody>
-            <tr><th>Move</th><td className="text-center">1</td><td>The Unit <a href="#movement">moves</a> up to 6".</td></tr>
+            <tr><th>Move</th><td className="text-center">1</td><td>The Unit <a href="#movement">moves</a> up to <strong>3</strong> Squares.</td></tr>
             <tr><th>Dash</th><td className="text-center">1</td><td>The Unit moves up to <strong>1</strong> Square. This movement follows the same rules as a <a href="#movement">normal Move</a>.</td></tr>
             <tr><th>Ranged Combat</th><td className="text-center">1</td><td>The Unit attacks a valid target in <a href="#combat">Ranged Combat</a>.</td></tr>
             <tr><th>Melee Combat</th><td className="text-center">1</td><td>The Unit attacks a target in an Adjacent Square in <a href="#combat">Melee Combat</a>.</td></tr>
