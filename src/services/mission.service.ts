@@ -42,22 +42,27 @@ export class MissionService {
     
     const operationsCount = 3
     const missionsPerOperation = 3
+    const totalMissionsNeeded = operationsCount * missionsPerOperation
 
+    // Get all primary missions and shuffle them
+    const shuffledMissions = missions
+      .filter(m => m.missionType === 'Primary')
+      .sort(() => Math.random() - 0.5)
+
+    // Make sure we have enough missions
+    if (shuffledMissions.length < totalMissionsNeeded) return null
+
+    // Take first 9 missions
+    const selectedMissions = shuffledMissions.slice(0, totalMissionsNeeded)
+
+    // Create 3 operations with 3 missions each
     for (let i = 0; i < operationsCount; i++) {
-      const operationMissions = missions
-        .filter(m => m.missionType === 'Primary')
-        .sort(() => Math.random() - 0.5)
-        .slice(0, missionsPerOperation)
-
-      if (operationMissions.length === 0) return null
-
-      // Create new Operation object
       const operation: Operation = {
         operationName: `Operation ${i + 1}`,
-        missions: operationMissions.map(m => new Mission(m))
+        missions: selectedMissions
+          .slice(i * missionsPerOperation, (i + 1) * missionsPerOperation)
+          .map(m => new Mission(m))
       }
-
-      // Add operation to campaign
       campaign.operations.push(operation)
     }
 
