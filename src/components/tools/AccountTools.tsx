@@ -1,7 +1,7 @@
 'use client'
 
+import { Button, Input, Modal, SectionTitle } from '@/components/ui'
 import { signOut } from 'next-auth/react'
-import { Button, Input, Checkbox, Label, SectionTitle, Modal } from '@/components/ui'
 import { useState } from 'react'
 
 export default function AccountTools() {

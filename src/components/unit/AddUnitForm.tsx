@@ -1,13 +1,12 @@
 
 'use client'
 
-import { useState } from 'react'
-import { Button, Modal } from '../ui'
-import UnitEditorModal from './UnitEditorModal'
-import { useRouter } from 'next/navigation'
-import { useSession } from 'next-auth/react'
-import { UnitPlain } from '@/types/unit.model'
 import { SpecialRule } from '@/lib/utils/specialRules'
+import { UnitPlain } from '@/types/unit.model'
+import { useSession } from 'next-auth/react'
+import { useState } from 'react'
+import { Button } from '../ui'
+import UnitEditorModal from './UnitEditorModal'
 
 type AddUnitFormProps = {
   squad: {
@@ -21,8 +20,7 @@ type AddUnitFormProps = {
 
 export default function AddUnitForm({ squad: squad, onUnitAdded, allSpecials }: AddUnitFormProps) {
   const [showAddUnitModal, setShowAddUnitModal] = useState(false)
-  const router = useRouter()
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
   const userName = session?.user?.userName
 
   if (!userName) return null

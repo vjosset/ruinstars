@@ -1,17 +1,10 @@
 'use client'
 
-import React, { forwardRef, useImperativeHandle, useState } from 'react'
-import { Button, Input, Label } from '@/components/ui'
+import { Input, Label } from '@/components/ui'
+import { forwardRef, useImperativeHandle, useState } from 'react'
 
 export interface EditSquadFormRef {
   handleSubmit: () => void
-}
-
-interface EditSquadFormProps {
-  initialName: string
-  initialMaxGP: number
-  onSubmit: (name: string, maxGP: number) => void
-  onCancel: () => void
 }
 
 const EditSquadForm = forwardRef(function EditSquadForm(

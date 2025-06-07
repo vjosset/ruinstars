@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import GearItem from '@/components/shared/GearItem'
 import { GearPlain } from '@/types'
 import { Checkbox } from '../ui'

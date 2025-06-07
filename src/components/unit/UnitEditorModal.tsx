@@ -1,17 +1,17 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import Modal from '../ui/Modal'
-import { Button, Input, Label } from '../ui'
-import GearGroupList from '../shared/GearGroupList'
-import WeaponTable from '../shared/WeaponTable'
+import { useModal } from '@/components/ui/ModalContext'
+import { useLocalSettings } from '@/hooks/useLocalSettings'
+import { SpecialRule, parseSpecialRules } from '@/lib/utils/specialRules'
 import { UnitPlain, UnitTypePlain } from '@/types'
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
-import { FiCheck, FiChevronDown } from 'react-icons/fi'
-import { useModal } from '@/components/ui/ModalContext'
-import { SpecialRule, parseSpecialRules } from '@/lib/utils/specialRules'
-import { useLocalSettings } from '@/hooks/useLocalSettings'
+import { useEffect, useState } from 'react'
+import { FiChevronDown } from 'react-icons/fi'
 import { GiRollingDices } from 'react-icons/gi'
+import GearGroupList from '../shared/GearGroupList'
+import WeaponTable from '../shared/WeaponTable'
+import { Button, Label } from '../ui'
+import Modal from '../ui/Modal'
 
 interface UnitEditorModalProps {
   isOpen: boolean
@@ -215,7 +215,7 @@ export default function UnitEditorModal({
                       <ListboxOption
                         key={ut.unitTypeId}
                         value={ut.unitTypeId}
-                        className={({ active, selected }) =>
+                        className={({ active }) =>
                           `px-4 py-2 cursor-pointer z-50 ${
                             active ? 'text-main' : 'text-foreground'
                           }`

@@ -1,14 +1,14 @@
 'use client'
 
+import { GAME } from '@/lib/config/game_config'
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FiUsers, FiLogIn, FiUserPlus, FiSettings, FiList, FiBook, FiTool } from 'react-icons/fi'
-import { useSession } from 'next-auth/react'
-import { GAME } from '@/lib/config/game_config'
+import { FiBook, FiList, FiLogIn, FiTool, FiUserPlus, FiUsers } from 'react-icons/fi'
 
 export default function NavBarTop() {
   const pathname = usePathname()
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
   const userName = session?.user?.userName
 
 

@@ -1,12 +1,11 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useLocalSettings } from '@/hooks/useLocalSettings'
 import { Button, Checkbox, Label, SectionTitle } from '@/components/ui'
+import { useLocalSettings } from '@/hooks/useLocalSettings'
 import { GAME } from '@/lib/config/game_config'
+import { useEffect, useState } from 'react'
 
 export default function SettingsForm() {
-  const [showPortraits, setShowPortraits] = useState(true)
   const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null)
   const { settings, updateSettings } = useLocalSettings()
 

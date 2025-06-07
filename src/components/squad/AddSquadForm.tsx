@@ -1,14 +1,14 @@
 
 'use client'
 
-import { useEffect, useState } from 'react'
-import { Button, Label, Modal, Input, Checkbox } from '../ui'
-import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { Button, Checkbox, Input, Label, Modal } from '../ui'
 
 export default function AddSquadForm() {
   const router = useRouter()
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
   const [showAddSquadModal, setShowAddSquadModal] = useState(false)
   const [creatingSquad, setCreatingSquad] = useState(false)
   const [loading, setLoading] = useState(true)

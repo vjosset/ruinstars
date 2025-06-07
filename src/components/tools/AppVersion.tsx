@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 
 export default function AppVersion() {
-  const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null)
   const [versionStatus, setVersionStatus] = useState<'loading' | 'active' | 'unsupported'>('loading')
     
   const [version, setVersion] = useState<string>('unknown')

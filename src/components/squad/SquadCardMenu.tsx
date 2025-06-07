@@ -1,7 +1,7 @@
-import { Menu, MenuItems, MenuItem, MenuButton} from '@headlessui/react'
-import { FiTrash, FiEdit, FiChevronDown, FiChevronsDown, FiChevronUp, FiChevronsUp, FiCopy } from 'react-icons/fi'
-import { useRouter } from 'next/navigation'
-import clsx from 'clsx'
+import { MenuItem, MenuItems } from '@headlessui/react';
+import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
+import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiCopy, FiEdit, FiTrash } from 'react-icons/fi';
 
 export default function SquadCardMenu({
   squadId,

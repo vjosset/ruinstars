@@ -1,9 +1,8 @@
 'use client'
-import { GiRollingDices } from 'react-icons/gi'
-import { useEffect, useState } from 'react'
-import Markdown from '@/components/ui/Markdown'
-import BattlefieldBlock from '../shared/BattlefieldBlock'
 import { getRandom } from '@/lib/utils/utils'
+import { useEffect, useState } from 'react'
+import { GiRollingDices } from 'react-icons/gi'
+import BattlefieldBlock from '../shared/BattlefieldBlock'
 
 export default function BattlefieldSelector() {
   const [battlefields, setBattlefields] = useState<any[]>([])
