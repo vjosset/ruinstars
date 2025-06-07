@@ -27,16 +27,15 @@ export default async function RulesFactions() {
       <br/><br/><br/><br/><br/>
       
       {allFactions.map((faction) => (
-        <div className="mb-4">
+        <div className="mb-4" key={faction.factionId}>
           <FactionCard
-            key={faction.factionId}
             faction={faction}
           />
         </div>
       ))}
       
       {allFactions.map((faction) => (
-        <div className="section">
+        <div className="section" key={faction.factionId}>
           <div className="relative min-h-[150px] md:h-[200px] flex items-center justify-center py-12">
             <div 
               className="absolute inset-0 bg-cover bg-top"
@@ -53,17 +52,16 @@ export default async function RulesFactions() {
                 />
                 <h1 className="text-center text-4xl text-white mb-2">{faction.factionName}</h1>
               </div>
-              <p className="text-white max-w-2xl text-center">
-                {faction.description}
-              </p>
+              <div className="text-white max-w-2xl text-center">
+                <Markdown>{faction.description}</Markdown>
+              </div>
             </div>
           </div>
 
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto p-2">
             {faction.unitTypes.map((u) => (
-              <div>
+              <div key={u.unitTypeId}>
                 <UnitCard
-                  key={u.unitTypeId}
                   seq={1}
                   unit={u.toPlain()}
                   isOwner={false}
