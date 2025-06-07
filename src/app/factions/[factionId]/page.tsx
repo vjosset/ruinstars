@@ -3,6 +3,7 @@ import UnitCard from '@/components/unit/UnitCard'
 import { notFound } from 'next/navigation'
 import { UnitType } from '@/src/types'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
+import Markdown from '@/components/ui/Markdown'
 
 export async function generateMetadata({ params }: { params: Promise<{ factionId: string }>  }) {
   const { factionId } = await params
@@ -48,7 +49,7 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
             <h1 className="text-center text-4xl text-white mb-2">{faction.factionName}</h1>
           </div>
           <p className="text-white max-w-2xl text-center">
-            {faction.description}
+            <Markdown>{faction.description}</Markdown>
           </p>
         </div>
       </div>
