@@ -28,42 +28,53 @@ export default function QuickRef() {
       
       <div className="section">
         <h3>Ranged Combat</h3>
+        <h4>Sequence</h4>
         <ol>
           <li>
             <strong>Select Target</strong>
             <ol>
-              <li>Select one Ranged weapon</li>
+              <li>The Attacker selects one of their Ranged weapons to use</li>
               <li>
-                Select a valid target:<br/>
-                Not Adjacent to Attacker or its Squadmates, within the Weapon&#39;s range (<code>RNGx</code>), in the Attacker&#39;s Line Of Sight.<br/>
-                Note that a Unit may not perform this action if it is <a href="#adjacent">Adjacent</a> to any enemy Units.
+                The Attacker selects a valid Target. The Target must:
+                <ul>
+                  <li>Not be Adjacent to the Attacker or the Attacker's Squadmates</li>
+                  <li>Be within the Weapon&#39;s range (<code>RNGx</code>)</li>
+                  <li>Be in the Attacker&#39;s <a href="#line-of-sight">Line Of Sight</a></li>
+                </ul>
+                A Unit may not perform this action if it is <a href="#adjacent">Adjacent</a> to any enemy Units.
               </li>
             </ol>
           </li>
           <li>
             <strong>Roll Attacks</strong>
             <ol>
-              <li>Roll one die for each of the selected weapon&#39;s <code>ATT</code>.</li>
+              <li>Roll a number of dice equal to the weapon's <code>ATT</code> (Attacks).</li>
               <li>
-                Each Attack die result that is equal to or lower than the Weapon's <code>SKL</code>Skill is a successful strike.
-                Critical rolls count as two successful strikes.
+                Each die result equal to or less than the weapon's <code>SKL</code> (Skill) is a successful strike and inflicts 1 point of Damage on the Target.
+                <ul>
+                  <li>A roll of <code>1</code> is a <strong>Critical Strike</strong> and inflicts 2 points of Damage</li>
+                  <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
+                </ul>
               </li>
-              <li>Each successful strike inflicts 1 Damage on the Target.</li>
             </ol>
           </li>
           <li>
             <strong>Roll Armor Saves</strong>
             <ol>
-              <li>Target rolls one die for each point of Damage.</li>
+              <li>The Target rolls one die per point of Damage inflicted.</li>
               <li>
-                Armor rolls equal to or lower than the Target&#39;s <code>ARM</code> are successful.<br/>
-                Armor Save rolls of <code>1</code> are Critical Saves and count as two saves.
+                Each result equal to or less than the Target's <code>ARM</code> (Armor) is a successful Save.
+                <ul>
+                  <li>A roll of <code>1</code> is a <strong>Critical Save</strong> and counts as 2 Saves</li>
+                  <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
+                </ul>
               </li>
-              <li>Remove 1 <code>HIT</code> from the Target for each point of unsaved Damage.</li>
+              <li>Each unsaved point of Damage causes the Target to lose 1 <code>HIT</code></li>
+              <li>If a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield.</li>
             </ol>
           </li>
         </ol>
-        <h5>Modifiers</h5>
+        <h4>Modifiers</h4>
         <table>
           <thead>
             <tr className="line-bottom-light">
@@ -74,64 +85,103 @@ export default function QuickRef() {
           <tbody>
             <tr>
               <th className="px-1">Cover</th>
-              <td className="px-1">If the Target is in <a href="#cover">cover</a> (only partially visible to the Attacker), the Target gets one automatic Armor Save (without having to roll it)</td>
+              <td className="px-1">If the Target is in <a href="#cover">cover</a>, the Target gets one automatic Armor Save (without having to roll it)</td>
             </tr>
             <tr>
               <th className="px-1">High&nbsp;Ground</th>
-              <td className="px-1">If the Attacker is at least 4" higher than target, the Target does not benefit from Cover</td>
+              <td className="px-1">If the Attacker is at least 4" above the Target, the Target does not benefit from Cover</td>
             </tr>
           </tbody>
         </table>
+        
+        <div className="section">
+          <h4 id="line-of-sight">Line Of Sight</h4>
+          <p>
+            A Target is in an Attacker&#39;s <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one point of the Attacker's base to two opposite points of the Target's base.<br/>
+            A Unit cannot shoot through other Units.<br/>
+            <img src="/img/rules/LineOfSight.jpg" width="50%" />
+          </p>
+        </div>
+        <div className="section">
+          <h4 id="cover">Cover</h4>
+          A Target is in Cover if:
+          <ul>
+            <li>
+              A terrain element is Adjacent to the Target, and the Attacker can see no more than two of the following parts of the Target:
+              <ul>
+                <li>Target's Legs</li>
+                <li>Target's Torso</li>
+                <li>Target's Head</li>
+              </ul>
+              If none of these are visible in full, the Target cannot be targeted. If all three are visible, the target does not benefit from Cover.<br/>
+              Cover only applies to Ranged attacks; there is no Cover benefit for Melee attacks.
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div className="section">
-        <h3>Melee Combat</h3>
-        <ol>
-          <li>
-            <strong>Select Target</strong>
-            <ol>
-              <li>Select one Melee weapon</li>
-              <li>Select a valid target Adjacent to the Attacker.</li>
-            </ol>
-          </li>
-          <li>
-            <strong>Roll Attacks</strong>
-            <ol>
-              <li>Roll one die for each of the selected weapon&#39;s <code>ATT</code>.</li>
-              <li>
-                Each Attack die result that is equal to or lower than the Weapon's <code>SKL</code>Skill is a successful strike.
-                Critical rolls count as two successful strikes.
-              </li>
-              <li>Each successful strike inflicts 1 Damage on the Target.</li>
-            </ol>
-          </li>
-          <li>
-            <strong>Roll Armor Saves</strong> - Determine how much Damage the Attacker inflicted on the Target
-            <ol>
-              <li>Target rolls one die for each point of Damage.</li>
-              <li>
-                Armor rolls equal to or lower than the Target&#39;s <code>ARM</code> are successful.<br/>
-                Armor Save rolls of <code>1</code> are successful saves and deal 1 Melee Damage to the Attacker.
-              </li>
-              <li>Remove 1 <code>HIT</code> from the Target for each point of unsaved Damage.</li>
-            </ol>
-          </li>
-        </ol>
-        <h5>Modifiers</h5>
-        <table>
-          <thead>
-            <tr className="line-bottom-light">
-              <th className="px-1">Condition</th>
-              <th className="px-1">Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th className="px-1">Support</th>
-              <td className="px-1">For each of the Attacker&#39;s Squadmates Adjacent to the Target, the Attacker gets one automatic successful strike without having to roll it.</td>
-            </tr>
-          </tbody>
-        </table>
+          <h3>Melee Combat</h3>
+          <h4>Sequence</h4>
+          <ol>
+            <li>
+              <strong>Select Target</strong>
+              <ol>
+                <li>The Attacker selects one of their Ranged weapons to use</li>
+                <li>The Target must be Adjacent to the Attacker</li>
+              </ol>
+            </li>
+            <li>
+              <strong>Roll Attacks</strong>
+              <ol>
+                <li>Roll a number of dice equal to the weapon's <code>ATT</code> (Attacks).</li>
+                <li>
+                  Each die result equal to or less than the weapon's <code>SKL</code> (Skill) is a successful strike and inflicts 1 point of Damage on the Target.
+                  <ul>
+                    <li>A roll of <code>1</code> is a <strong>Critical Strike</strong> and inflicts 2 points of Damage</li>
+                    <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
+                  </ul>
+                </li>
+              </ol>
+            </li>
+            <li>
+              <strong>Roll Armor Saves</strong>
+              <ol>
+                <li>The Target rolls one die per point of Damage inflicted.</li>
+                <li>
+                  Each result equal to or less than the Target's <code>ARM</code> (Armor) is a successful Save.
+                  <ul>
+                    <li>
+                      A roll of <code>1</code> is a <strong>Critical Save</strong>:
+                      <ul>
+                        <li>It blocks 1 point of Damage, and</li>
+                        <li>Inflicts 1 point of Melee Damage on the Attacker. The Attacker then rolls their own Armor Saves for that returned Damage.</li>
+                        <li>This effect can chain: if the Attacker then rolls a Critical Save, they return damage to the Target, and so on.</li>
+                      </ul>
+                    </li>
+                    <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
+                  </ul>
+                </li>
+                <li>Each unsaved point of Damage causes the Target to lose 1 <code>HIT</code></li>
+                <li>If a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield.</li>
+              </ol>
+            </li>
+          </ol>
+          <h4>Modifiers</h4>
+          <table>
+            <thead>
+              <tr className="line-bottom-light">
+                <th className="px-1">Condition</th>
+                <th className="px-1">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th className="px-1">Support</th>
+                <td className="px-1">For each of the Attacker&#39;s Squadmates Adjacent to the Target, the Attacker may re-roll one Attack die.</td>
+              </tr>
+            </tbody>
+          </table>
       </div>
 
       <div className="section">
