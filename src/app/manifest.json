@@ -1,11 +1,11 @@
 {
-  "name": "RuinStars Companion App",
+  "name": "RuinStars",
   "short_name": "RuinStars",
   "start_url": "/me",
   "display": "standalone",
   "background_color": "#0f0f0f",
   "theme_color": "#b3441b",
-  "description": "A squad manager for RuinStars players.",
+  "description": "The official Ruinstars app to track squads, units, and missions in the free sci-fi skirmish wargame.",
   "icons": [
     {
       "src": "/icons/icon-192.png",
