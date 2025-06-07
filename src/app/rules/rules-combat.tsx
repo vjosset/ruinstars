@@ -19,8 +19,8 @@ export default async function RulesCombat() {
                   The Attacker selects a valid Target. The Target must:
                   <ul>
                     <li>Not be Adjacent to the Attacker or the Attacker's Squadmates</li>
-                    <li>Be within the Weapon&#39;s range (<code>RNGx</code>)</li>
-                    <li>Be in the Attacker&#39;s <a href="#line-of-sight">Line Of Sight</a></li>
+                    <li>Be within the Weapon's range (<code>RNGx</code>)</li>
+                    <li>Be in the Attacker's <a href="#line-of-sight">Line Of Sight</a></li>
                   </ul>
                   A Unit may not perform this action if it is <a href="#adjacent">Adjacent</a> to any enemy Units.
                 </li>
@@ -78,7 +78,7 @@ export default async function RulesCombat() {
           <div className="section">
             <h4 id="line-of-sight">Line Of Sight</h4>
             <p>
-              A Target is in an Attacker&#39;s <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one point of the Attacker's base to two opposite points of the Target's base.<br/>
+              A Target is in an Attacker's <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one point of the Attacker's base to two opposite points of the Target's base.<br/>
               A Unit cannot shoot through other Units.<br/>
               <img src="/img/rules/LineOfSight.jpg" width="50%" />
             </p>
@@ -177,7 +177,7 @@ export default async function RulesCombat() {
             <tbody>
               <tr>
                 <th className="px-1">Support</th>
-                <td className="px-1">For each of the Attacker&#39;s Squadmates Adjacent to the Target, the Attacker may re-roll one Attack die.</td>
+                <td className="px-1">For each of the Attacker's Squadmates Adjacent to the Target, the Attacker may re-roll one Attack die.</td>
               </tr>
             </tbody>
           </table>

@@ -1,8 +1,8 @@
-import { SectionTitle } from '../ui'
 import Link from 'next/link'
+import { SectionTitle } from '../ui'
 
 export default function Resources() {
-  return  (
+  return (
     <div className="space-y-4">
       <div className="section">
         <SectionTitle>Resources</SectionTitle>

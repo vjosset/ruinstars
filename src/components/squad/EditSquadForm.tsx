@@ -12,7 +12,6 @@ const EditSquadForm = forwardRef(function EditSquadForm(
     initialName,
     initialMaxGP,
     onSubmit,
-    onCancel,
   }: {
     initialName: string
     initialMaxGP: number

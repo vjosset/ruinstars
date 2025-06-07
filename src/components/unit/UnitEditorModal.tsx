@@ -61,7 +61,7 @@ export default function UnitEditorModal({
     return unitTypeGP + (gearGP > 0 ? `+${gearGP}` : '')
   }
 
-  const { settings, updateSettings } = useLocalSettings()
+  const { settings } = useLocalSettings()
 
   // Add effect to update totalGP when selections change
   useEffect(() => {

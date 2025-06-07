@@ -19,17 +19,17 @@ export default async function RulesCombat() {
                   The Attacker selects a valid target. The target must be:
                   <ul>
                     <li>Not Adjacent to the Attacker or the Attacker's Squadmates</li>
-                    <li>Within the Weapon&#39;s range (<code>RNGx</code>)</li>
-                    <li>In the Attacker&#39;s <a href="#line-of-sight">Line Of Sight</a></li>
+                    <li>Within the Weapon's range (<code>RNGx</code>)</li>
+                    <li>In the Attacker's <a href="#line-of-sight">Line Of Sight</a></li>
                   </ul>
                   Note that a Unit may not perform this action if it is <a href="#adjacent">Adjacent</a> to any enemy Units.
                 </li>
               </ol>
             </li>
             <li>
-              <strong>Roll Attacks</strong> - Determine if the Attacker&#39;s weapon reached the Target
+              <strong>Roll Attacks</strong> - Determine if the Attacker's weapon reached the Target
               <ol>
-                <li>Attacker rolls one Attack die for each of the selected weapon&#39;s <code>ATT</code> (Attacks).</li>
+                <li>Attacker rolls one Attack die for each of the selected weapon's <code>ATT</code> (Attacks).</li>
                 <li>
                   Each Attack die result that is equal to or lower than the Weapon's <code>SKL</code> Skill is a successful strike.
                   Attack rolls of <code>1</code> are Critical successes and count as two successful strikes, and die results of {GAME.DICE_BASIS} are always failures.
@@ -39,9 +39,9 @@ export default async function RulesCombat() {
             </li>
             <li>
               <strong>Roll Armor Saves</strong> - Determine how much Damage the Attacker inflicted on the Target<ol>
-                <li>The Target rolls one die for each point of Damage inflicted by the Attacker&#39;s weapon.</li>
+                <li>The Target rolls one die for each point of Damage inflicted by the Attacker's weapon.</li>
                 <li>
-                  If an Armor Save die result is equal to or lower than the Target&#39;s <code>ARM</code>, then the Target&#39;s Armor absorbs the damage from this strike.<br/>
+                  If an Armor Save die result is equal to or lower than the Target's <code>ARM</code>, then the Target's Armor absorbs the damage from this strike.<br/>
                   Armor Save rolls of <code>1</code> are Critical Saves and count as two saves.
                 </li>
                 <li>If an Armor Save die result is higher than the target's <code>ARM</code>, the save is failed and the target loses 1 <code>HIT</code> for each failed save.</li>
@@ -72,7 +72,7 @@ export default async function RulesCombat() {
           <div className="section">
             <h4 id="line-of-sight">Line Of Sight</h4>
             <p>
-              A Target is said to be in an Attacker&#39;s <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one of the corners of the Square occupied by the Attacker to the two closest corners of the Square occupied by the Target.<br/>
+              A Target is said to be in an Attacker's <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one of the corners of the Square occupied by the Attacker to the two closest corners of the Square occupied by the Target.<br/>
               A Unit cannot target an enemy Unit for Ranged Combat if there are other Units on that Line of Sight (i.e. a Unit cannot shoot &quot;through&quot; other Units).<br/>
               <img src="/img/rules/LineOfSight.jpg" width="50%" />
             </p>
@@ -129,9 +129,9 @@ export default async function RulesCombat() {
               </ol>
             </li>
             <li>
-              <strong>Roll Attacks</strong> - Determine if the Attacker&#39;s weapon reached the Target
+              <strong>Roll Attacks</strong> - Determine if the Attacker's weapon reached the Target
               <ol>
-                <li>Attacker rolls one Attack die for each of the selected weapon&#39;s <code>ATT</code> (Attacks).</li>
+                <li>Attacker rolls one Attack die for each of the selected weapon's <code>ATT</code> (Attacks).</li>
                 <li>
                   Each Attack die result that is equal to or lower than the Weapon's <code>SKL</code> Skill is a successful strike.
                   Attack rolls of <code>1</code> are Critical successes and count as two successful strikes, and die results of {GAME.DICE_BASIS} are always failures.
@@ -142,9 +142,9 @@ export default async function RulesCombat() {
             <li>
               <strong>Roll Armor Saves</strong> - Determine how much Damage the Attacker inflicted on the Target
               <ol>
-                <li>The Target rolls one die for each point of Damage inflicted by the Attacker&#39;s weapon.</li>
+                <li>The Target rolls one die for each point of Damage inflicted by the Attacker's weapon.</li>
                 <li>
-                  If an Armor Save die result is equal to or lower than the Target&#39;s <code>ARM</code>, then the Target&#39;s Armor absorbs the damage from this strike.<br/>
+                  If an Armor Save die result is equal to or lower than the Target's <code>ARM</code>, then the Target's Armor absorbs the damage from this strike.<br/>
                   Armor Save rolls of <code>1</code> are Critical Saves. In Melee combat, a Critical Save counts as one save but inflicts 1 Melee Damage on the Attacker.<br/>
                   These Critical Saves can chain back and forth between the Attacker and the Target, so if the Attacker rolls a Critical Save, it can inflict 1 Damage on the Target, which in turn can roll a Critical Save and inflict 1 Damage on the Attacker, and so on.
                 </li>
@@ -164,7 +164,7 @@ export default async function RulesCombat() {
             <tbody>
               <tr>
                 <th className="px-1">Support</th>
-                <td className="px-1">For each of the Attacker&#39;s Squadmates Adjacent to the Target, the Attacker may re-roll one Attack die.</td>
+                <td className="px-1">For each of the Attacker's Squadmates Adjacent to the Target, the Attacker may re-roll one Attack die.</td>
               </tr>
             </tbody>
           </table>

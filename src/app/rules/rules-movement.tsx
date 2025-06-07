@@ -32,7 +32,7 @@ export default async function RulesMovement() {
           <h4 id="distances-and-range">Distances And Range</h4>
           <p>To measure the distance between two Units or Items (for example, to check if a target is within the Range of a given Ranged Weapon), only measure on the Horizontal plane; ignore vertical distance.</p>
           <p>
-            The target is considered to be in range of that weapon if the distance is equal to or lower than the weapon&#39;s range.<br/>
+            The target is considered to be in range of that weapon if the distance is equal to or lower than the weapon's range.<br/>
             If a Ranged weapon does not have a specified Range (<code>RNGx</code>), its range is infinite.
           </p>
           <img src="/img/rules/Range.jpg" style={{width: '50%'}} /><br/>

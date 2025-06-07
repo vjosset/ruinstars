@@ -1,7 +1,7 @@
-import { MenuItem, MenuItems } from '@headlessui/react';
-import clsx from 'clsx';
-import { useRouter } from 'next/navigation';
-import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiCopy, FiEdit, FiTrash } from 'react-icons/fi';
+import { MenuItem, MenuItems } from '@headlessui/react'
+import clsx from 'clsx'
+import { useRouter } from 'next/navigation'
+import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiCopy, FiEdit, FiTrash } from 'react-icons/fi'
 
 export default function SquadCardMenu({
   squadId,
@@ -12,18 +12,18 @@ export default function SquadCardMenu({
   onMoveDown,
   onMoveLast
 }: {
-  squadId: string;
-  onEdit: () => void;
-  onDelete: () => void;
-  onMoveUp: () => void;
-  onMoveFirst: () => void;
-  onMoveDown: () => void;
+  squadId: string
+  onEdit: () => void
+  onDelete: () => void
+  onMoveUp: () => void
+  onMoveFirst: () => void
+  onMoveDown: () => void
   onMoveLast: () => void
 }) {
 
   const router = useRouter()
 
-  const onClone = async() => {
+  const onClone = async () => {
     try {
       const res = await fetch(`/api/squads/${squadId}/clone`, {
         method: 'POST',
@@ -45,7 +45,7 @@ export default function SquadCardMenu({
       <div className="flex flex-col py-1">
         <MenuItem>
           {({ focus }) => (
-            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground')}
               onClick={onEdit}
             >
               <FiEdit /> Edit
@@ -54,7 +54,7 @@ export default function SquadCardMenu({
         </MenuItem>
         <MenuItem>
           {({ focus }) => (
-            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground')}
               onClick={onClone}
             >
               <FiCopy /> Clone
@@ -63,7 +63,7 @@ export default function SquadCardMenu({
         </MenuItem>
         <MenuItem>
           {({ focus }) => (
-            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground')}
               onClick={onMoveUp}
             >
               <FiChevronUp /> Move Up
@@ -72,7 +72,7 @@ export default function SquadCardMenu({
         </MenuItem>
         <MenuItem>
           {({ focus }) => (
-            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground')}
               onClick={onMoveFirst}
             >
               <FiChevronsUp /> Move First
@@ -81,7 +81,7 @@ export default function SquadCardMenu({
         </MenuItem>
         <MenuItem>
           {({ focus }) => (
-            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground')}
               onClick={onMoveDown}
             >
               <FiChevronDown /> Move Down
@@ -90,7 +90,7 @@ export default function SquadCardMenu({
         </MenuItem>
         <MenuItem>
           {({ focus }) => (
-            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground')}
               onClick={onMoveLast}
             >
               <FiChevronsDown /> Move Last
@@ -99,7 +99,7 @@ export default function SquadCardMenu({
         </MenuItem>
         <MenuItem>
           {({ focus }) => (
-            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground')}
               onClick={onDelete}
             >
               <FiTrash /> Delete

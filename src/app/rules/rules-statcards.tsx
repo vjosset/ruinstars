@@ -38,7 +38,7 @@ export default async function RulesStatCards() {
             <li>
               {/*<img className="statsymbol inline highlightblack" style={{height: '1rem'}} src="/icons/white/HIT.png" />*/}
               <h6 className="inline">HIT</h6> - Hit Points<br/>
-              The Unit&#39;s number of Hit Points. When a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield (see <a href="#combat">Combat</a>).<br/>
+              The Unit's number of Hit Points. When a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield (see <a href="#combat">Combat</a>).<br/>
               If a Unit has at least 1 <code>HIT</code> remaining, it is considered to be Standing.
             </li>
             <li>
@@ -104,8 +104,8 @@ export default async function RulesStatCards() {
           <h5 id="skills">Skills</h5>
           <p>Some Units will have Skills listed on their StatCard. These are unique properties of that Unit that may allow them to perform a specific unique Action, or gain a bonus (or debuff) for certain game mechanics.</p>
           <ul>
-            <li>Skills that have a <code>ACT</code> cost can be performed using the Unit&#39;s <code>ACT</code> Stat or a <a href="#tactical-orders">Tactical Order</a>, or a combination of both.</li>
-            <li>Skills that have a <code>TO</code> cost cannot be performed using the Unit&#39;s <code>ACT</code> Stat; they must be performed by spending <a href="#tactical-orders">Tactical Orders</a>.</li>
+            <li>Skills that have a <code>ACT</code> cost can be performed using the Unit's <code>ACT</code> Stat or a <a href="#tactical-orders">Tactical Order</a>, or a combination of both.</li>
+            <li>Skills that have a <code>TO</code> cost cannot be performed using the Unit's <code>ACT</code> Stat; they must be performed by spending <a href="#tactical-orders">Tactical Orders</a>.</li>
             <li>Skills and Equipment that do not have an <code>ACT</code> or <code>TO</code> cost are passive skills that do not require spending an Action Point or Tactical Order.</li>
           </ul>
         </div>

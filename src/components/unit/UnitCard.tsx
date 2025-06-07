@@ -1,16 +1,15 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { Medal, UnitPlain, UnitTypePlain } from '@/types'
-import WeaponTable from '@/src/components/shared/WeaponTable'
+import { useModal } from '@/components/ui/ModalContext'
+import { useLocalSettings } from '@/hooks/useLocalSettings'
+import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
 import GearGroupList from '@/src/components/shared/GearGroupList'
-import UnitEditorModal from './UnitEditorModal'
+import WeaponTable from '@/src/components/shared/WeaponTable'
+import { Medal, UnitPlain, UnitTypePlain } from '@/types'
+import { useEffect, useState } from 'react'
 import { Button, Checkbox, Modal } from '../ui'
 import UnitCardMenu from './UnitCardMenu'
-import { SpecialRule } from '@/lib/utils/specialRules'
-import { useModal } from '@/components/ui/ModalContext'
-import { parseSpecialRules } from '@/lib/utils/specialRules'
-import { useLocalSettings } from '@/hooks/useLocalSettings'
+import UnitEditorModal from './UnitEditorModal'
 import UnitMedalModal from './UnitMedalModal'
 
 type UnitCardProps = {
@@ -52,7 +51,7 @@ export default function UnitCard({
   const [deleteError, setDeleteError] = useState('')
   const [deleting, setDeleting] = useState(false)
   
-  const { settings, updateSettings } = useLocalSettings()
+  const { settings } = useLocalSettings()
 
   useEffect(() => {
     setIsActivated(unit.isActivated ?? false)

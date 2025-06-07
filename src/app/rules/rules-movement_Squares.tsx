@@ -26,7 +26,7 @@ export default async function RulesMovement() {
           <h4 id="squares">Squares</h4>
           <p>All movement and distance measurements are measured in Squares. No need for tape measures, gauges, or rulers!<br/>
           Using a grid provides simplicity of movement and measurement and to avoid imprecision in moving miniatures and checking weapon ranges.
-          If you don&#39;t have a gridded play area, you can use a ruler and convert each Square to 2in.</p>
+          If you don't have a gridded play area, you can use a ruler and convert each Square to 2in.</p>
         </div>
         <div className="section">
           <h4 id="adjacent-squares">Adjacent Squares</h4>
@@ -38,7 +38,7 @@ export default async function RulesMovement() {
           <h4 id="distances-and-range">Distances And Range</h4>
           <p>To measure the distance between two Squares (for example, to check if a target is within the Range of a given Ranged Weapon), only measure on the Horizontal plane; ignore vertical distance.</p>
           <p>
-            The target is considered to be in range of that weapon if the distance in Squares is equal to or lower than the weapon&#39;s range.<br/>
+            The target is considered to be in range of that weapon if the distance in Squares is equal to or lower than the weapon's range.<br/>
             If a Ranged weapon does not have a specified Range (<code>RNGx</code>), its range is infinite.
           </p>
           <img src="/img/rules/Range.jpg" style={{width: '50%'}} /><br/>

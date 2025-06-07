@@ -35,7 +35,7 @@ export default function QuickRef() {
               <li>Select one Ranged weapon</li>
               <li>
                 Select a valid target:<br/>
-                Not Adjacent to Attacker or its Squadmates, within the Weapon&#39;s range (<code>RNGx</code>), in the Attacker&#39;s Line Of Sight.<br/>
+                Not Adjacent to Attacker or its Squadmates, within the Weapon's range (<code>RNGx</code>), in the Attacker's Line Of Sight.<br/>
                 Note that a Unit may not perform this action if it is <a href="#adjacent">Adjacent</a> to any enemy Units.
               </li>
             </ol>
@@ -43,7 +43,7 @@ export default function QuickRef() {
           <li>
             <strong>Roll Attacks</strong>
             <ol>
-              <li>Roll one die for each of the selected weapon&#39;s <code>ATT</code>.</li>
+              <li>Roll one die for each of the selected weapon's <code>ATT</code>.</li>
               <li>
                 Each Attack die result that is equal to or lower than the Weapon's <code>SKL</code>Skill is a successful strike.
                 Critical rolls count as two successful strikes.
@@ -56,7 +56,7 @@ export default function QuickRef() {
             <ol>
               <li>Target rolls one die for each point of Damage.</li>
               <li>
-                Armor rolls equal to or lower than the Target&#39;s <code>ARM</code> are successful.<br/>
+                Armor rolls equal to or lower than the Target's <code>ARM</code> are successful.<br/>
                 Armor Save rolls of <code>1</code> are Critical Saves and count as two saves.
               </li>
               <li>Remove 1 <code>HIT</code> from the Target for each point of unsaved Damage.</li>
@@ -97,7 +97,7 @@ export default function QuickRef() {
           <li>
             <strong>Roll Attacks</strong>
             <ol>
-              <li>Roll one die for each of the selected weapon&#39;s <code>ATT</code>.</li>
+              <li>Roll one die for each of the selected weapon's <code>ATT</code>.</li>
               <li>
                 Each Attack die result that is equal to or lower than the Weapon's <code>SKL</code>Skill is a successful strike.
                 Critical rolls count as two successful strikes.
@@ -110,7 +110,7 @@ export default function QuickRef() {
             <ol>
               <li>Target rolls one die for each point of Damage.</li>
               <li>
-                Armor rolls equal to or lower than the Target&#39;s <code>ARM</code> are successful.<br/>
+                Armor rolls equal to or lower than the Target's <code>ARM</code> are successful.<br/>
                 Armor Save rolls of <code>1</code> are successful saves and deal 1 Melee Damage to the Attacker.
               </li>
               <li>Remove 1 <code>HIT</code> from the Target for each point of unsaved Damage.</li>
@@ -128,7 +128,7 @@ export default function QuickRef() {
           <tbody>
             <tr>
               <th className="px-1">Support</th>
-              <td className="px-1">For each of the Attacker&#39;s Squadmates Adjacent to the Target, the Attacker gets one automatic successful strike without having to roll it.</td>
+              <td className="px-1">For each of the Attacker's Squadmates Adjacent to the Target, the Attacker gets one automatic successful strike without having to roll it.</td>
             </tr>
           </tbody>
         </table>

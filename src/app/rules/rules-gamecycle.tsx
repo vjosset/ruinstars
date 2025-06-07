@@ -19,7 +19,7 @@ export default async function RulesGameCycle() {
                 Select one of your Squads to take on the Mission
               </li>
               <li><strong>Prepare Battlefield</strong><br/>
-                Set up your Battlefield according to the Mission&#39;s briefing. This includes placing buildings and other terrain features, placing objectives, and any other actions defined by the selected Mission.
+                Set up your Battlefield according to the Mission's briefing. This includes placing buildings and other terrain features, placing objectives, and any other actions defined by the selected Mission.
               </li>
             </ol>
           </li>
@@ -52,7 +52,7 @@ export default async function RulesGameCycle() {
                 Lowest score wins Initiative and will Activate first; both sides re-roll any ties until a winner is determined
               </li>
               <li>Roll for <a href="#tactical-orders">Tactical Orders</a> for the Turn</li>
-              <li>The Squad with the Initiative rolls for the Mission&#39;s Events (if any) for this Turn</li>
+              <li>The Squad with the Initiative rolls for the Mission's Events (if any) for this Turn</li>
             </ol>
           </li>
           <li>
@@ -75,7 +75,7 @@ export default async function RulesGameCycle() {
         <div className="section">
           <h3 id="alternate-activations">Alternate Activations</h3>
           <p>{GAME.NAME} uses Alternate Activations:<br/>
-          During each turn, players take alternating turns to Activate their Squad&#39;s Units. So player 1 activates their first Unit, then player 2 activates their first Unit, followed by player 1 activating their second Unit etc. This ensures dynamic play and avoids having to wait long periods of time before you can actually <em>do</em> something with your Squad.</p>
+          During each turn, players take alternating turns to Activate their Squad's Units. So player 1 activates their first Unit, then player 2 activates their first Unit, followed by player 1 activating their second Unit etc. This ensures dynamic play and avoids having to wait long periods of time before you can actually <em>do</em> something with your Squad.</p>
           <p>Each player takes alternating turns activating the Units in their Squad. For example, in order:</p>
           <ol>
             <li>Player 1 activates their first Unit</li>

@@ -7,7 +7,7 @@ import { useState } from 'react'
 export default function AccountTools() {
   const [showConfirmLogOut, setShowConfirmLogOut] = useState(false)
 
-  return  (
+  return (
     <>
       <div className="space-y-4">
         <div className="flex items-center justify-between mb-2">
@@ -19,7 +19,7 @@ export default function AccountTools() {
         </div>
 
         {/* Change Password */}
-        <hr/>
+        <hr />
         <div>
           <SectionTitle>Change Password</SectionTitle>
           <Input type="password" placeholder="New password" />
@@ -29,8 +29,8 @@ export default function AccountTools() {
           </div>
         </div>
       </div>
-      
-      {showConfirmLogOut && 
+
+      {showConfirmLogOut &&
         <Modal
           title={'Log Out'}
           onClose={() => setShowConfirmLogOut(false)}
