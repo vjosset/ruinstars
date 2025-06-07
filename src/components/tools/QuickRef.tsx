@@ -98,8 +98,7 @@ export default function QuickRef() {
           <h4 id="line-of-sight">Line Of Sight</h4>
           <p>
             A Target is in an Attacker&#39;s <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one point of the Attacker's base to two opposite points of the Target's base.<br/>
-            A Unit cannot shoot through other Units.<br/>
-            <img src="/img/rules/LineOfSight.jpg" width="50%" />
+            A Unit cannot shoot through other Units.
           </p>
         </div>
         <div className="section">
