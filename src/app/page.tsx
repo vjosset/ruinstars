@@ -1,12 +1,12 @@
-import { GAME } from '@/lib/config/game_config'
 import FactionCard from '@/components/faction/FactionCard'
-import { FactionService } from '@/services/faction.service'
 import AuthButtons from '@/components/home/HomeAuthButtons'
-import RulesIntro from './rules/rules-intro'
-import NewsCard from '@/src/components/home/NewsCard'
 import news from '@/content/news.json'
+import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
+import { FactionService } from '@/services/faction.service'
+import NewsCard from '@/src/components/home/NewsCard'
 import Link from 'next/link'
+import RulesIntro from './rules/rules-intro'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -83,7 +83,7 @@ export default async function Home() {
       </div>
 
       {/* News */}
-      <div className="max-w-3xl mx-auto p-4">
+      <div className="max-w-3xl mx-auto p-4 news">
         <h3 className="text-main font-title mb-4">Latest News</h3>
         {news.map((item, idx) => (
           <NewsCard key={idx} item={item} />

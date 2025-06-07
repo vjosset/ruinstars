@@ -181,6 +181,10 @@ hr {
 	color: var(--maincolor);
 }
 
+.news a {
+	text-decoration: underline;
+}
+
 /********/
 /* GLOW */
 /********/
