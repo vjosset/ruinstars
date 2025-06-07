@@ -1,5 +1,5 @@
-import { BattlefieldService } from '@/services/battlefield.service'
 import BattlefieldBlock from '@/components/shared/BattlefieldBlock'
+import { BattlefieldService } from '@/services/battlefield.service'
 
 export default async function RulesBattlefields() {
   const battlefields = await(BattlefieldService.getAllBattlefields())
@@ -16,7 +16,7 @@ export default async function RulesBattlefields() {
         
         {/* Battlefields List */}
         {
-          battlefields.map((battlefield, idx) => (
+          battlefields.map((battlefield) => (
             <div className="section" key={battlefield.battlefieldId}>
               <BattlefieldBlock battlefield={battlefield} />
             </div>

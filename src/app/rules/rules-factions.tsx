@@ -2,7 +2,6 @@ import FactionCard from '@/components/faction/FactionCard'
 import Markdown from '@/components/ui/Markdown'
 import UnitCard from '@/components/unit/UnitCard'
 import { FactionService, SpecialService } from '@/services'
-import { UnitType } from '@/types'
 
 export default async function RulesFactions() {
   const factions = await FactionService.getAllFactions()

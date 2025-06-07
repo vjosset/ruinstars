@@ -1,7 +1,7 @@
+import Markdown from '@/components/ui/Markdown'
 import { GearCategoryService } from '@/services'
 import { MedalService } from '@/services/medal.service'
 import Link from 'next/link'
-import Markdown from '@/components/ui/Markdown'
 
 export default async function RulesCampaigns() {
   const medals = await MedalService.getAllMedals()
@@ -97,7 +97,7 @@ export default async function RulesCampaigns() {
         <ul>
           {/* Medals List */}
           {
-            medals.map((medal, idx) => (
+            medals.map((medal) => (
               <li key={medal.medalId}>
                 <h6>{medal.title} - {medal.XP} XP</h6>
                 <Markdown>{medal.description}</Markdown>

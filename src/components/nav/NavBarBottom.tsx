@@ -1,13 +1,13 @@
 'use client'
 
-import Link from 'next/link'
 import { useSession } from 'next-auth/react'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FiUsers, FiLogIn, FiUserPlus, FiSettings, FiList, FiHome, FiBook, FiTool } from 'react-icons/fi'
+import { FiBook, FiHome, FiList, FiLogIn, FiTool, FiUserPlus, FiUsers } from 'react-icons/fi'
 
 export default function NavBarBottom() {
   const pathname = usePathname()
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
   const userName = session?.user?.userName
 
   const links = [

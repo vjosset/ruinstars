@@ -1,16 +1,16 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
-import UnitCard from '../../components/unit/UnitCard'
-import AddUnitForm from '../../components/unit/AddUnitForm'
-import { UnitPlain, SquadPlain, Medal } from '@/types'
-import { SpecialRule } from '@/lib/utils/specialRules'
-import Link from 'next/link'
-import { FiUser, FiEdit2, FiRotateCcw, FiInfo } from 'react-icons/fi'
 import { Button } from '@/components/ui'
-import { useModal } from '../../components/ui/ModalContext'
+import { SpecialRule } from '@/lib/utils/specialRules'
+import { Medal, SquadPlain, UnitPlain } from '@/types'
+import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+import { FiEdit2, FiInfo, FiRotateCcw, FiUser } from 'react-icons/fi'
 import EditSquadForm from '../../components/squad/EditSquadForm'
 import SquadTools from '../../components/squad/SquadTools'
+import { useModal } from '../../components/ui/ModalContext'
+import AddUnitForm from '../../components/unit/AddUnitForm'
+import UnitCard from '../../components/unit/UnitCard'
 
 export default function SquadPageClient({
   initialSquad,
@@ -63,10 +63,6 @@ export default function SquadPageClient({
     const updatedUnits = [...units, newUnit]
     setUnits(updatedUnits)
     await updateUnitSeqs(updatedUnits)
-  }
-
-  const reorderUnits = async(newOrder: UnitPlain[]) => {
-    setUnits(newOrder)
   }
 
   const updateSquadField = async (field: string, value: number) => {

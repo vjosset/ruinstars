@@ -1,16 +1,13 @@
 // SPDX-License-Identifier: LicenseRef-Ruinstars-Proprietary
 
-import '@/src/styles/globals.css'
-import NavBarTop from '@/components/nav/NavBarTop'
 import NavBarBottom from '@/components/nav/NavBarBottom'
+import NavBarTop from '@/components/nav/NavBarTop'
 import ServiceWorkerRegister from '@/components/tools/ServiceWorkerRegister'
-import { Orbitron } from 'next/font/google'
 import { ClientProviders } from '@/components/ui/ClientProviders'
-import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
+import '@/src/styles/globals.css'
+import { getServerSession } from 'next-auth'
 import Script from 'next/script'
-
-const orbitron = Orbitron({ subsets: ['latin'], variable: '--font-orbitron' })
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions)

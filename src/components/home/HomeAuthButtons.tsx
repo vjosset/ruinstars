@@ -5,9 +5,9 @@ import { useSession } from 'next-auth/react'
 
 export default function HomeAuthButtons() {
 
-  const { data: session, status } = useSession()
-  const userName = session?.user?.userName
+  const { data: session } = useSession()
 
+  // If user is logged in, don't show auth buttons
   if (session && session.user) return null
 
   return (
