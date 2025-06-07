@@ -1,6 +1,6 @@
 // @ts-nocheck
-import { Unit, Squad, UnitType, Medal } from '@/types'
 import { UnitRepository } from '@/src/repositories/unit.repository'
+import { Unit } from '@/types'
 import { nanoid } from 'nanoid'
 import { GearService } from './gear.service'
 import { MedalService } from './medal.service'
@@ -22,8 +22,8 @@ export class UnitService {
 
     await MedalService.loadUnitMedals(unit)
 
-    unit.weapons = unit.gears.filter(gear => gear.gearType == "W")
-    unit.skills = unit.gears.filter(gear => gear.gearType != "W")
+    unit.weapons = unit.gears.filter(gear => gear.gearType == 'W')
+    unit.skills = unit.gears.filter(gear => gear.gearType != 'W')
     
     // Now that we have the unit's gear loaded, let's apply the mods
     this.applyGearMods(unit)
@@ -39,7 +39,7 @@ export class UnitService {
   }
 
   static async updateUnit(unitId: string, data: Partial<Unit>): Promise<Unit | null> {
-    const unit = await this.repository.updateUnit(unitId, data)
+    await this.repository.updateUnit(unitId, data)
     return await this.getUnit(unitId)
   }
 
@@ -67,63 +67,63 @@ export class UnitService {
         const params = effect.trim().split(':')
 
         switch (params[0]) {
-          case 'UNIT':
-            switch (params[1]) {
-              case 'ACT':
-                unit.ACT = Math.min(unit.ACT + Number(params[2]), 5)
-                break
-              case 'MOV':
-                unit.MOV = Math.min(unit.MOV + Number(params[2]), 5)
-                break
-              case 'MSK':
-                unit.MSK = Math.min(unit.MSK + Number(params[2]), 5)
-                break
-              case 'RSK':
-                unit.RSK = Math.min(unit.RSK + Number(params[2]), 5)
-                break
-              case 'ARM':
-                unit.ARM = Math.min(unit.ARM + Number(params[2]), 5)
-                break
-              case 'HIT':
-                unit.HIT += Number(params[2])
-                break
-              case 'SPECIAL':
-                if (params[2].startsWith('-')) {
-                  unit.special = unit.special?.replace(params[2].substring(1), '').trim()
-                } else {
-                  if (!unit.special?.includes(params[2])) {
-                    unit.special = `${unit.special || ''} ${params[2]}`.trim()
-                  }
-                }
-                break
+        case 'UNIT':
+          switch (params[1]) {
+          case 'ACT':
+            unit.ACT = Math.min(unit.ACT + Number(params[2]), 5)
+            break
+          case 'MOV':
+            unit.MOV = Math.min(unit.MOV + Number(params[2]), 5)
+            break
+          case 'MSK':
+            unit.MSK = Math.min(unit.MSK + Number(params[2]), 5)
+            break
+          case 'RSK':
+            unit.RSK = Math.min(unit.RSK + Number(params[2]), 5)
+            break
+          case 'ARM':
+            unit.ARM = Math.min(unit.ARM + Number(params[2]), 5)
+            break
+          case 'HIT':
+            unit.HIT += Number(params[2])
+            break
+          case 'SPECIAL':
+            if (params[2].startsWith('-')) {
+              unit.special = unit.special?.replace(params[2].substring(1), '').trim()
+            } else {
+              if (!unit.special?.includes(params[2])) {
+                unit.special = `${unit.special || ''} ${params[2]}`.trim()
+              }
             }
             break
+          }
+          break
 
-          case 'WEPTYPE':
-            unit.weapons?.forEach(weapon => {
-              if (weapon.gearType === 'W' && weapon.TYP === params[1]) {
-                this.applyWeaponMod(weapon, params[2], params[3])
-              }
-            })
-            break
+        case 'WEPTYPE':
+          unit.weapons?.forEach(weapon => {
+            if (weapon.gearType === 'W' && weapon.TYP === params[1]) {
+              this.applyWeaponMod(weapon, params[2], params[3])
+            }
+          })
+          break
 
-          case 'WEPNAME':
-            unit.weapons?.forEach(weapon => {
-              if (weapon.gearType === 'W' &&
+        case 'WEPNAME':
+          unit.weapons?.forEach(weapon => {
+            if (weapon.gearType === 'W' &&
                   weapon.gearName.toLowerCase().includes(params[1].toLowerCase())) {
-                this.applyWeaponMod(weapon, params[2], params[3])
-              }
-            })
-            break
+              this.applyWeaponMod(weapon, params[2], params[3])
+            }
+          })
+          break
 
-          case 'WEPID':
-            unit.weapons?.forEach(weapon => {
-              if (weapon.gearType === 'W' &&
+        case 'WEPID':
+          unit.weapons?.forEach(weapon => {
+            if (weapon.gearType === 'W' &&
                   weapon.gearId.toLowerCase().includes(params[1].toLowerCase())) {
-                this.applyWeaponMod(weapon, params[2], params[3])
-              }
-            })
-            break
+              this.applyWeaponMod(weapon, params[2], params[3])
+            }
+          })
+          break
         }
       })
     })
@@ -136,24 +136,24 @@ export class UnitService {
 
   private static applyWeaponMod(weapon: Gear, field: string, value: string): void {
     switch (field) {
-      case 'ROA':
-        weapon.ROA = (weapon.ROA || 0) + Number(value)
-        break
-      case 'SKL':
-        weapon.SKL = (weapon.SKL || 0) + Number(value)
-        break
-      case 'ATT':
-        weapon.ATT = (weapon.ATT || 0) + Number(value)
-        break
-      case 'SPECIAL':
-        if (value.startsWith('-')) {
-          weapon.special = weapon.special?.replace(value.substring(1), '').trim()
-        } else {
-          if (!weapon.special?.includes(value)) {
-            weapon.special = `${weapon.special || ''} ${value}`.trim()
-          }
+    case 'ROA':
+      weapon.ROA = (weapon.ROA || 0) + Number(value)
+      break
+    case 'SKL':
+      weapon.SKL = (weapon.SKL || 0) + Number(value)
+      break
+    case 'ATT':
+      weapon.ATT = (weapon.ATT || 0) + Number(value)
+      break
+    case 'SPECIAL':
+      if (value.startsWith('-')) {
+        weapon.special = weapon.special?.replace(value.substring(1), '').trim()
+      } else {
+        if (!weapon.special?.includes(value)) {
+          weapon.special = `${weapon.special || ''} ${value}`.trim()
         }
-        break
+      }
+      break
     }
   }
 }

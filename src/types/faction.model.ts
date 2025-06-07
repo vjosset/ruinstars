@@ -1,4 +1,4 @@
-import { UnitType, UnitTypePlain } from "."
+import { UnitType, UnitTypePlain } from '.'
 
 export type FactionPlain = {
   factionId: string

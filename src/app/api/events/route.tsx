@@ -1,16 +1,16 @@
 import { getAuthSession } from '@/lib/auth'
 import { NextResponse, userAgent } from 'next/server'
 import { prisma } from '@/src/lib/prisma'
-import { headers } from 'next/headers';
+import { headers } from 'next/headers'
 
 // Allow only POST requests
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
+    const body = await req.json()
     const session = await getAuthSession()
     const userId = session?.user.userId ?? '[anon]'
-    const headersList = await headers();
-    const userIp = headersList.get("x-forwarded-for") ?? ''
+    const headersList = await headers()
+    const userIp = headersList.get('x-forwarded-for') ?? ''
 
     const event = await prisma.webEvent.create({
       data: {

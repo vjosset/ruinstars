@@ -34,16 +34,16 @@ export default function SignUpPage() {
     setError('')
 
     if (userName.length < 3) {
-      setError("User name must be at least 4 characters long.")
+      setError('User name must be at least 4 characters long.')
       return
     }
 
     if (userName.includes('@')) {
-      setError("User name cannot contain '@'. Please do not use your email address as a username.")
+      setError('User name cannot contain \'@\'. Please do not use your email address as a username.')
     }
   
     if (password.length < 6) {
-      setError("Password must be at least 6 characters long.")
+      setError('Password must be at least 6 characters long.')
       return
     }
 

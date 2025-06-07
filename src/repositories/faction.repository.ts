@@ -14,8 +14,8 @@ export class FactionRepository extends BaseRepository {
       include: {
         unitTypes: {
           orderBy: [
-            {seq: "asc"},
-            {unitTypeName: "asc"}
+            {seq: 'asc'},
+            {unitTypeName: 'asc'}
           ]
         }
       }

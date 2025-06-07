@@ -1,8 +1,8 @@
-import { GAME } from "@/lib/config/game_config";
+import { GAME } from '@/lib/config/game_config'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { redirect } from "next/navigation";
-import ToolsPageClient from './ToolsPageClient';
+import { redirect } from 'next/navigation'
+import ToolsPageClient from './ToolsPageClient'
 
 export const metadata = {
   title: `Tools - ${GAME.NAME}`,

@@ -78,15 +78,15 @@ export function ModalProvider({ children }: { children: ReactNode }) {
             <div className="text-foreground overflow-y-auto px-2 ">
               {modalConfig.body}
             </div>
-              {modalConfig.footer ?? (
-                <div className="p-2 border-t border-border sticky bg-background z-10">
-                  <Button
-                    onClick={hideModal}
-                  >
-                    <h6>Close</h6>
-                  </Button>
-                </div>
-              )}
+            {modalConfig.footer ?? (
+              <div className="p-2 border-t border-border sticky bg-background z-10">
+                <Button
+                  onClick={hideModal}
+                >
+                  <h6>Close</h6>
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       )}

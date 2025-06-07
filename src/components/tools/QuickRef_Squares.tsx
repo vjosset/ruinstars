@@ -1,4 +1,4 @@
-import { GAME } from "@/lib/config/game_config";
+import { GAME } from '@/lib/config/game_config'
 
 export default function QuickRef() {
   return (

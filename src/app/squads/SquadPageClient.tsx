@@ -7,7 +7,7 @@ import { UnitPlain, SquadPlain, Medal } from '@/types'
 import { SpecialRule } from '@/lib/utils/specialRules'
 import Link from 'next/link'
 import { FiUser, FiEdit2, FiRotateCcw, FiInfo } from 'react-icons/fi'
-import { Button } from '@/components/ui';
+import { Button } from '@/components/ui'
 import { useModal } from '../../components/ui/ModalContext'
 import EditSquadForm from '../../components/squad/EditSquadForm'
 import SquadTools from '../../components/squad/SquadTools'
@@ -56,7 +56,7 @@ export default function SquadPageClient({
     setUnits(updatedUnits)
 
     // Update unit Seqs so they stay sequential and in order
-    await updateUnitSeqs(updatedUnits);
+    await updateUnitSeqs(updatedUnits)
   }
 
   const addUnit = async(newUnit: UnitPlain) => {
@@ -71,7 +71,7 @@ export default function SquadPageClient({
 
   const updateSquadField = async (field: string, value: number) => {
     if (value < 0) return
-    if (value < 1 && field == "turn") return
+    if (value < 1 && field == 'turn') return
 
     const patch: Partial<typeof squad> = { [field]: value }
 
@@ -111,7 +111,7 @@ export default function SquadPageClient({
   
   const handleResetClick = () => {
     showModal({
-      title: "Reset Game",
+      title: 'Reset Game',
       body: (
         <div className="space-y-4">
           <p>
@@ -192,7 +192,7 @@ export default function SquadPageClient({
     newUnits.splice(to, 0, moved)
     setUnits(newUnits)
 
-    await updateUnitSeqs(newUnits);
+    await updateUnitSeqs(newUnits)
   }
 
   const updateUnitSeqs = async(unitList: UnitPlain[]) => {
@@ -254,79 +254,79 @@ export default function SquadPageClient({
 
       {/* Trackers */}
       {isOwner && (
-      <div className="sticky top-0 lg:top-[3.5rem] max-w-xl mx-auto z-10 bg-background py-2 px-1 flex gap-2 items-center justify-between">
-        {[
-          { label: 'TURN', key: 'turn' },
-          { label: 'MP', key: 'MP' },
-          { label: 'TO', key: 'TO' },
-        ].map(({ label, key }) => (
-          <div key={key} className="flex flex-col items-center gap-1">
-            <h6 className="font-bold text-main">{label}:</h6>
-            <div className="flex items-center">
+        <div className="sticky top-0 lg:top-[3.5rem] max-w-xl mx-auto z-10 bg-background py-2 px-1 flex gap-2 items-center justify-between">
+          {[
+            { label: 'TURN', key: 'turn' },
+            { label: 'MP', key: 'MP' },
+            { label: 'TO', key: 'TO' },
+          ].map(({ label, key }) => (
+            <div key={key} className="flex flex-col items-center gap-1">
+              <h6 className="font-bold text-main">{label}:</h6>
+              <div className="flex items-center">
                 <button
-                className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
-                onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] - 1)}
-              >−</button>
-              <h4 className="stat w-7 text-center">{squad[key as 'turn' | 'MP' | 'TO']}</h4>
-              <button
-                className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
-                onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] + 1)}
-              >+</button>
+                  className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
+                  onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] - 1)}
+                >−</button>
+                <h4 className="stat w-7 text-center">{squad[key as 'turn' | 'MP' | 'TO']}</h4>
+                <button
+                  className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
+                  onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] + 1)}
+                >+</button>
+              </div>
             </div>
-          </div>
-        ))}
-        <div className="flex flex-col items-center gap-1">
-          <h6 className="font-bold text-main invisible">{totalGP}/{squad.maxGP}GP</h6>
-          <div key="resetEditSquad" className="flex items-center">
-            <div className="flex gap-2 items-center justify-center"> {/* Changed from grid to flex with gap */}
-              <button
-                className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
-                onClick={handleResetClick}
-              >
-                <FiRotateCcw/>
-              </button>
-              <button 
-                className="flex items-center justify-center rounded border border-border w-6 h-6"
-                onClick={handleEditSquadClick}
-                aria-label="Edit squad info"
-              >
-                <FiEdit2/>
-              </button>
-              <button 
-                className="flex items-center justify-center rounded border border-border w-6 h-6"
-                onClick={() => showModal({
-                  title: "Tools",
-                  body: (<div className="overflow-y-auto p-2 flex-1"><SquadTools /></div>),
-                  footer: (<></>)
-                })}
-                aria-label="Tools"
-              >
-                <FiInfo/>
-              </button>
+          ))}
+          <div className="flex flex-col items-center gap-1">
+            <h6 className="font-bold text-main invisible">{totalGP}/{squad.maxGP}GP</h6>
+            <div key="resetEditSquad" className="flex items-center">
+              <div className="flex gap-2 items-center justify-center"> {/* Changed from grid to flex with gap */}
+                <button
+                  className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
+                  onClick={handleResetClick}
+                >
+                  <FiRotateCcw/>
+                </button>
+                <button 
+                  className="flex items-center justify-center rounded border border-border w-6 h-6"
+                  onClick={handleEditSquadClick}
+                  aria-label="Edit squad info"
+                >
+                  <FiEdit2/>
+                </button>
+                <button 
+                  className="flex items-center justify-center rounded border border-border w-6 h-6"
+                  onClick={() => showModal({
+                    title: 'Tools',
+                    body: (<div className="overflow-y-auto p-2 flex-1"><SquadTools /></div>),
+                    footer: (<></>)
+                  })}
+                  aria-label="Tools"
+                >
+                  <FiInfo/>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )}
+      )}
 
       {/* UnitCards */}
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {units.map((unit, idx) => {
           return (
-          <UnitCard
-            key={unit.unitId}
-            seq={idx + 1}
-            unit={unit}
-            isOwner={isOwner}
-            allSpecials={allSpecials ?? []}
-            allMedals={allMedals ?? []}
-            onUnitUpdated={updateUnit}
-            onUnitDeleted={deleteUnit}
-            onMoveUp={isOwner ? () => moveUnit(idx, idx - 1) : () => {}}
-            onMoveDown={isOwner ? () => moveUnit(idx, idx + 1) : () => {}}
-            onMoveFirst={isOwner ? () => moveUnit(idx, 0) : () => {}}
-            onMoveLast={isOwner ? () => moveUnit(idx, units.length - 1) : () => {}}
-          />)
+            <UnitCard
+              key={unit.unitId}
+              seq={idx + 1}
+              unit={unit}
+              isOwner={isOwner}
+              allSpecials={allSpecials ?? []}
+              allMedals={allMedals ?? []}
+              onUnitUpdated={updateUnit}
+              onUnitDeleted={deleteUnit}
+              onMoveUp={isOwner ? () => moveUnit(idx, idx - 1) : () => {}}
+              onMoveDown={isOwner ? () => moveUnit(idx, idx + 1) : () => {}}
+              onMoveFirst={isOwner ? () => moveUnit(idx, 0) : () => {}}
+              onMoveLast={isOwner ? () => moveUnit(idx, units.length - 1) : () => {}}
+            />)
         })}
         
         {/* Add Unit Button */}

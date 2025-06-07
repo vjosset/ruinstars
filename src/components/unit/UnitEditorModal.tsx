@@ -47,10 +47,10 @@ export default function UnitEditorModal({
 
   const { showModal } = useModal()
 
-  const [totalGPString, setTotalGPString] = useState("")
+  const [totalGPString, setTotalGPString] = useState('')
   
   const getEditUnitTotalGPString = () => {
-    if (!selectedUnitType) return ""
+    if (!selectedUnitType) return ''
     
     const unitTypeGP = selectedUnitType.GP || 0
     const gearGP = [...(selectedUnitType.weapons ?? []), ...(selectedUnitType.skills ?? [])]
@@ -58,7 +58,7 @@ export default function UnitEditorModal({
       .reduce((sum, gear) => sum + (gear.GP || 0), 0)
       
     
-    return unitTypeGP + (gearGP > 0 ? `+${gearGP}` : '');
+    return unitTypeGP + (gearGP > 0 ? `+${gearGP}` : '')
   }
 
   const { settings, updateSettings } = useLocalSettings()
@@ -160,7 +160,7 @@ export default function UnitEditorModal({
               <span
                 className="cursor-pointer hover:text-main"
                 onClick={() => {
-                  const parsed = parseSpecialRules(allSpecials, "U", selectedUnitType?.special ?? '')
+                  const parsed = parseSpecialRules(allSpecials, 'U', selectedUnitType?.special ?? '')
                   showModal({
                     title: selectedUnitType?.unitTypeName + ' - Special',
                     body: (
@@ -182,7 +182,7 @@ export default function UnitEditorModal({
                 ({selectedUnitType?.special})
               </span>
             )}
-            { "  " }
+            { '  ' }
             <em>{totalGPString}GP</em>
           </div>
 

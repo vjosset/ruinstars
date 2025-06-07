@@ -16,10 +16,10 @@ export default async function RulesMovement() {
             The Battlefield should be divided into 9 equal Tiles, each composed of 5x5 Squares.<br/>
             Some missions may describe their setup in terms of a Tile's position (e.g. "Western Tile", "Center Tile", "SouthEast Tile").
             Before the mission, both players should agree which way is North on the Battlefield, then refer to this diagram to find the right Tile.
-            <img src="/img/rules/Tiles.jpg" style={{width: "45%"}} />
+            <img src="/img/rules/Tiles.jpg" style={{width: '45%'}} />
           </p>
           <p>When a Unit moves on the Battlefield, the maximum distance it can travel is <code>3</code> Squares. Movement can be done along any cardinal direction (North, South, East, West) or in diagonal (North-East, North-West, South-East, South-West).</p>
-          <img src="img/rules/Movement.jpg" style={{width: "45%"}} />
+          <img src="img/rules/Movement.jpg" style={{width: '45%'}} />
         </div>
         
         <div className="section">
@@ -41,7 +41,7 @@ export default async function RulesMovement() {
             The target is considered to be in range of that weapon if the distance in Squares is equal to or lower than the weapon&#39;s range.<br/>
             If a Ranged weapon does not have a specified Range (<code>RNGx</code>), its range is infinite.
           </p>
-          <img src="/img/rules/Range.jpg" style={{width: "50%"}} /><br/>
+          <img src="/img/rules/Range.jpg" style={{width: '50%'}} /><br/>
           <em>Remus' pistol has a range of 3 (<code>RNG3</code>). He can target the green unit in ranged combat, but not the red unit.</em>
         </div>
         <div className="section">
@@ -60,9 +60,9 @@ export default async function RulesMovement() {
           Climbing up vertical terrain costs 1 Square per vertical Square, plus 1 Square for the horizontal direction desired.<br/>
           Note that for a Unit to climb a wall, that wall must be mutually agreed by all players to be Climbable at the start of the battle. Generally these walls will be easily identifiable with a ladder or other visual marker indicating it is climbable.<br/>
           Climbing down a wall follows the same rules as climbing up, but vertical movement costs 1 less Square.</p>
-          <img className="inline px-2" src="/img/rules/ClimbUp.jpg" style={{width: "45%"}} />
-          <img className="inline px-2" src="/img/rules/ClimbDown.jpg" style={{width: "45%"}} />
+          <img className="inline px-2" src="/img/rules/ClimbUp.jpg" style={{width: '45%'}} />
+          <img className="inline px-2" src="/img/rules/ClimbDown.jpg" style={{width: '45%'}} />
         </div>
       </div>
     </div>
-)}
+  )}

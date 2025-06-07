@@ -28,9 +28,9 @@ export default function SquadCard({
   onMoveLast,
   onDelete
 }: SquadCardProps) {
-  const [deleteError, setDeleteError] = useState("");
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState('')
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
+  const [deleting, setDeleting] = useState(false)
 
   const router = useRouter()
   
@@ -99,22 +99,22 @@ export default function SquadCard({
               <Button
                 disabled={deleting}
                 onClick={async () => {
-                  setDeleting(true);
-                  setDeleteError("");
+                  setDeleting(true)
+                  setDeleteError('')
                 
                   try {
-                    const res = await fetch(`/api/squads/${squad.squadId}`, { method: 'DELETE' });
+                    const res = await fetch(`/api/squads/${squad.squadId}`, { method: 'DELETE' })
                 
                     if (!res.ok) {
-                      const body = await res.json().catch(() => ({}));
-                      throw new Error(body.message || 'Failed to delete squad');
+                      const body = await res.json().catch(() => ({}))
+                      throw new Error(body.message || 'Failed to delete squad')
                     }
-                    setShowDeleteConfirm(false);
-                    if (onDelete) onDelete(squad.squadId); // <-- Add this line
+                    setShowDeleteConfirm(false)
+                    if (onDelete) onDelete(squad.squadId) // <-- Add this line
                   } catch (err: any) {
-                    setDeleteError(err.message || 'Something went wrong');
+                    setDeleteError(err.message || 'Something went wrong')
                   } finally {
-                    setDeleting(false);
+                    setDeleting(false)
                   }
                 }}
               >

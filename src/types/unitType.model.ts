@@ -1,4 +1,4 @@
-import { Faction, FactionPlain, Gear, GearPlain } from "."
+import { Faction, FactionPlain, Gear, GearPlain } from '.'
 
 export type UnitTypePlain = {
   unitTypeId: string

@@ -17,19 +17,19 @@ export async function GET(req: Request, { params }: { params: Promise<{ nametype
   }
 
   switch (nametype) {
-    case 'AESBAER':
-      return new NextResponse(ucwords(name_aesbaer()), { status: 200, statusText: 'OK' })
-    case 'CORVIUS':
-      return new NextResponse(ucwords(name_corvius()), { status: 200, statusText: 'OK' })
-    case 'DECAETA':
-      return new NextResponse(ucwords(name_decaeta()), { status: 200, statusText: 'OK' })
-    case 'FYHUCHO':
-      return new NextResponse(ucwords(name_fyhucho()), { status: 200, statusText: 'OK' })
-    case 'BEARAXE':
-      return new NextResponse(ucwords(name_bearaxe()), { status: 200, statusText: 'OK' })
-    case 'CZIGHEO':
-      return new NextResponse(ucwords(name_czigheo()), { status: 200, statusText: 'OK' })
-    default:
-      return new NextResponse(nametype, { status: 200, statusText: 'OK' })
+  case 'AESBAER':
+    return new NextResponse(ucwords(name_aesbaer()), { status: 200, statusText: 'OK' })
+  case 'CORVIUS':
+    return new NextResponse(ucwords(name_corvius()), { status: 200, statusText: 'OK' })
+  case 'DECAETA':
+    return new NextResponse(ucwords(name_decaeta()), { status: 200, statusText: 'OK' })
+  case 'FYHUCHO':
+    return new NextResponse(ucwords(name_fyhucho()), { status: 200, statusText: 'OK' })
+  case 'BEARAXE':
+    return new NextResponse(ucwords(name_bearaxe()), { status: 200, statusText: 'OK' })
+  case 'CZIGHEO':
+    return new NextResponse(ucwords(name_czigheo()), { status: 200, statusText: 'OK' })
+  default:
+    return new NextResponse(nametype, { status: 200, statusText: 'OK' })
   }
 }

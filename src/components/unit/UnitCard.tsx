@@ -47,10 +47,10 @@ export default function UnitCard({
   const [showUnitEditorModal, setShowUnitEditorModal] = useState(false)
   const [showUnitMedalModal, setShowUnitMedalModal] = useState(false)
   const [newHIT, setNewHIT] = useState(unit.currHIT ?? 0)
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [newActivated, setNewActivated] = useState(unit.isActivated ?? false)
-  const [deleteError, setDeleteError] = useState("");
-  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState('')
+  const [deleting, setDeleting] = useState(false)
   
   const { settings, updateSettings } = useLocalSettings()
 
@@ -71,32 +71,32 @@ export default function UnitCard({
         {/* Name and Type */}
         <div className="flex justify-between">
           <div className="flex justify-between gap-x-2">
-          {!unit.isUnitType && isOwner && unit.currHIT !== 0 && (
-                <Checkbox
-                  checked={!!unit.isActivated}
-                  onChange={async (e) => {
-                    const res = await fetch(`/api/units/${unit.unitId}`, {
-                      method: 'PATCH',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ isActivated: !!e.target.checked }),
-                    });
+            {!unit.isUnitType && isOwner && unit.currHIT !== 0 && (
+              <Checkbox
+                checked={!!unit.isActivated}
+                onChange={async (e) => {
+                  const res = await fetch(`/api/units/${unit.unitId}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ isActivated: !!e.target.checked }),
+                  })
 
-                    if (!res.ok) {
-                      alert('Failed to update unit activation');
-                    } else {
-                      const updated = await res.json()
-                      // Inform the parent about the new activated state
-                      onUnitUpdated?.(updated)
-                      setNewActivated(updated.isActivated)
-                      unit.isActivated = updated.isActivated
-                    }
-                  }}
-                  className="accent-primary w-4 h-4 mt-2"
-                />
-              )}
+                  if (!res.ok) {
+                    alert('Failed to update unit activation')
+                  } else {
+                    const updated = await res.json()
+                    // Inform the parent about the new activated state
+                    onUnitUpdated?.(updated)
+                    setNewActivated(updated.isActivated)
+                    unit.isActivated = updated.isActivated
+                  }
+                }}
+                className="accent-primary w-4 h-4 mt-2"
+              />
+            )}
             <h4 className={`font-heading ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
               <div onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
-                {unit.isUnitType ? '' : `${seq}. `}{unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ""}
+                {unit.isUnitType ? '' : `${seq}. `}{unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ''}
               </div>
             </h4>
           </div>
@@ -125,7 +125,7 @@ export default function UnitCard({
           ) : (
             <h5 className="cursor-pointer" onClick={() => isOwner && setShowHITModal(true)}>
               HIT
-              { " " }
+              { ' ' }
               <span className="stat text-main text-3xl">{unit.currHIT}</span>
               <span className="stat text">/{unit.HIT}</span>
             </h5>
@@ -150,28 +150,28 @@ export default function UnitCard({
                   <span
                     className="italic cursor-pointer hover:text-main text-muted hastip"
                     onClick={() => {
-                        const parsed = parseSpecialRules(allSpecials, "U", unit.special ?? '')
-                        showModal({
-                          title: unit.unitName ?? unit.unitTypeName + ' - Special',
-                          body: (
-                            <div className="space-y-4">
-                              {parsed.map((rule, idx) => (
-                                <div key={idx}>
-                                  <span className="font-semibold text-muted">({rule.code}) {rule.specialName}:</span>
-                                  <p className="text-sm text-muted">{rule.description}</p>
-                                </div>
-                              ))}
-                            </div>
-                          ),
-                        })
-                      }}
-                  > { " " }
-                    ({unit.special}){ " "}
+                      const parsed = parseSpecialRules(allSpecials, 'U', unit.special ?? '')
+                      showModal({
+                        title: unit.unitName ?? unit.unitTypeName + ' - Special',
+                        body: (
+                          <div className="space-y-4">
+                            {parsed.map((rule, idx) => (
+                              <div key={idx}>
+                                <span className="font-semibold text-muted">({rule.code}) {rule.specialName}:</span>
+                                <p className="text-sm text-muted">{rule.description}</p>
+                              </div>
+                            ))}
+                          </div>
+                        ),
+                      })
+                    }}
+                  > { ' ' }
+                    ({unit.special}){ ' ' }
                   </span>
                 )}
                 {!unit.isUnitType && <span>
                   <span className="text-muted">
-                    { " " }
+                    { ' ' }
                     {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
                   </span>
                 </span>}
@@ -225,7 +225,7 @@ export default function UnitCard({
           key="editor-modal"
           isOpen={true}
           squadId={unit.squadId || ''}
-          factionId={unit.unitType?.factionId ?? ""}
+          factionId={unit.unitType?.factionId ?? ''}
           unit={unit}
           onClose={() => setShowUnitEditorModal(false)}
           allSpecials={allSpecials}
@@ -242,7 +242,7 @@ export default function UnitCard({
           key="editor-modal"
           isOpen={true}
           squadId={unit.squadId || ''}
-          factionId={unit.unitType?.factionId ?? ""}
+          factionId={unit.unitType?.factionId ?? ''}
           unit={unit}
           onClose={() => setShowUnitMedalModal(false)}
           allMedals={allMedals}
@@ -266,8 +266,8 @@ export default function UnitCard({
               </Button>
               <Button
                 onClick={async () => {
-                  setDeleting(true);
-                  setDeleteError("");
+                  setDeleting(true)
+                  setDeleteError('')
                 
                   try {
                     if (!unit.unitId) {
@@ -275,19 +275,19 @@ export default function UnitCard({
                       return
                     }
 
-                    const res = await fetch(`/api/units/${unit.unitId}`, { method: 'DELETE' });
+                    const res = await fetch(`/api/units/${unit.unitId}`, { method: 'DELETE' })
                 
                     if (!res.ok) {
-                      const body = await res.json().catch(() => ({}));
-                      throw new Error(body.message || 'Failed to delete unit');
+                      const body = await res.json().catch(() => ({}))
+                      throw new Error(body.message || 'Failed to delete unit')
                     }
 
                     onUnitDeleted?.(unit.unitId)
-                    setShowDeleteConfirm(false);
+                    setShowDeleteConfirm(false)
                   } catch (err: any) {
-                    setDeleteError(err.message || 'Something went wrong');
+                    setDeleteError(err.message || 'Something went wrong')
                   } finally {
-                    setDeleting(false);
+                    setDeleting(false)
                   }
                 }}
               >

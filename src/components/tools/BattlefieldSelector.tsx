@@ -1,9 +1,9 @@
 'use client'
-import { GiRollingDices } from "react-icons/gi";
+import { GiRollingDices } from 'react-icons/gi'
 import { useEffect, useState } from 'react'
 import Markdown from '@/components/ui/Markdown'
-import BattlefieldBlock from "../shared/BattlefieldBlock";
-import { getRandom } from "@/lib/utils/utils";
+import BattlefieldBlock from '../shared/BattlefieldBlock'
+import { getRandom } from '@/lib/utils/utils'
 
 export default function BattlefieldSelector() {
   const [battlefields, setBattlefields] = useState<any[]>([])
@@ -55,7 +55,7 @@ export default function BattlefieldSelector() {
           className="w-10 h-10 flex items-center justify-center text-lg border border-border border-l-0 rounded-r-md bg-zinc-900 hover:bg-zinc-800"
           onClick={() => {
             if (battlefields.length === 0) return
-            const currentBattlefieldId = selectedBattlefieldId;
+            const currentBattlefieldId = selectedBattlefieldId
             let randomBattlefield = getRandom(battlefields)
             
             // Make sure we give them a different battlefield

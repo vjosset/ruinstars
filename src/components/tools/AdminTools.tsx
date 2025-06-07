@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from "react"
-import { SectionTitle } from "../ui"
+import { useEffect, useState } from 'react'
+import { SectionTitle } from '../ui'
 
 export default function AdminTools() {
   const [stats, setStats] = useState<any | null>(null)

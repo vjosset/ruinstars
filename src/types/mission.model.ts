@@ -11,15 +11,15 @@ export type MissionPlain = {
 };
 
 export class Mission {
-  missionId: number;
-  missionType: string;
-  seq: number;
-  title: string;
-  description: string;
-  setup: string;
-  deployment: string;
-  victory: string;
-  special: string;
+  missionId: number
+  missionType: string
+  seq: number
+  title: string
+  description: string
+  setup: string
+  deployment: string
+  victory: string
+  special: string
 
   constructor(data: {
     missionId: number;
@@ -32,15 +32,15 @@ export class Mission {
     victory: string;
     special: string;
   }) {
-    this.missionId = data.missionId;
-    this.missionType = data.missionType;
-    this.seq = data.seq;
-    this.title = data.title;
-    this.description = data.description;
-    this.setup = data.setup;
-    this.deployment = data.deployment;
-    this.victory = data.victory;
-    this.special = data.special;
+    this.missionId = data.missionId
+    this.missionType = data.missionType
+    this.seq = data.seq
+    this.title = data.title
+    this.description = data.description
+    this.setup = data.setup
+    this.deployment = data.deployment
+    this.victory = data.victory
+    this.special = data.special
   }
 
   toPlain(): MissionPlain {
@@ -54,6 +54,6 @@ export class Mission {
       deployment: this.deployment,
       victory: this.victory,
       special: this.special,
-    };
+    }
   }
 }

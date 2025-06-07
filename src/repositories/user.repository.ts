@@ -43,7 +43,7 @@ export class UserRepository extends BaseRepository {
   async fixSquadSeqs(userId: string) {
     // Reorder/re-seq the user's squads
     if (!userId) {
-      throw "Missing required input userId"
+      throw 'Missing required input userId'
     }
     const squads = await this.prisma.squad.findMany({
       where: { userId: userId },

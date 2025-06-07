@@ -1,4 +1,4 @@
-import { GAME } from "@/lib/config/game_config";
+import { GAME } from '@/lib/config/game_config'
 
 export default async function RulesActions() {
   return (
@@ -10,7 +10,7 @@ export default async function RulesActions() {
         <p>
           During its activation, a Unit can perform a number of Actions up to its <code>ACT</code> stat <em>(see <a href="#stat-cards">StatCards</a>)</em>.<br/>
           Each Action costs a number of Action Points or <code>ACT</code>.</p>
-          <p>Actions with an <code>ACT</code> cost can be performed by spending the Unit&#39;s <code>ACT</code> Action Points or the Squad&#39;s <a href="#tactical-orders">Tactical Orders</a>, or any combination of the two (for example, if a Unit&#39;s skill costs <code>2 ACT</code>, you can spend 1 <code>ACT</code> + 1 <code>TO</code> to perform that action).<br/>
+        <p>Actions with an <code>ACT</code> cost can be performed by spending the Unit&#39;s <code>ACT</code> Action Points or the Squad&#39;s <a href="#tactical-orders">Tactical Orders</a>, or any combination of the two (for example, if a Unit&#39;s skill costs <code>2 ACT</code>, you can spend 1 <code>ACT</code> + 1 <code>TO</code> to perform that action).<br/>
           Actions with a <code>TO</code> cost can only be performed by spending the Squad&#39;s <a href="#tactical-orders">Tactical Orders</a>.<br/><br/>
           Each action costs its listed number of <code>ACT</code> the first time it is performed in a Unit's Activation. Each time that same action is repeated in the same Activation, it costs one additional <code>ACT</code>.<br/>
           For example, a Unit with 3 <code>ACT</code> may perform 2 Moves in its Activation. The first Move costs 1 <code>ACT</code>, and the second one costs 2 <code>ACT</code>.
@@ -57,4 +57,4 @@ export default async function RulesActions() {
         <p>Certain Missions will define special Actions that can be performed by Units. Read the Mission Briefing to determine if the Mission defines any such Actions.</p>
       </div>
     </div>
-)}
+  )}

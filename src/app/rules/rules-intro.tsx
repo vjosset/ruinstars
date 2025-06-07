@@ -1,4 +1,4 @@
-import { GAME } from "@/lib/config/game_config";
+import { GAME } from '@/lib/config/game_config'
 
 export default async function RulesIntro({ showTitle = false }) {
   return (
@@ -30,4 +30,4 @@ export default async function RulesIntro({ showTitle = false }) {
         </div>
       </div>
     </div>
-)}
+  )}

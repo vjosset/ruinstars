@@ -1,8 +1,8 @@
-import UnitCard from "@/components/unit/UnitCard";
-import { SpecialService, UnitService } from "@/services";
+import UnitCard from '@/components/unit/UnitCard'
+import { SpecialService, UnitService } from '@/services'
 
 export default async function RulesStatCards() {
-  const sampleUnit = (await UnitService.getUnit("ST-0"))!.toPlain()
+  const sampleUnit = (await UnitService.getUnit('ST-0'))!.toPlain()
   const allSpecials = (await SpecialService.getAllSpecials()).map((spec) => spec.toPlain())
   return (
     <div className="section">
@@ -92,9 +92,9 @@ export default async function RulesStatCards() {
           <br/>
           <strong>For example: </strong>
           <ul>
-            <li>{sampleUnit.unitName}'s <strong>{sampleUnit.weapons?.[1].gearName}</strong> is a {sampleUnit.weapons?.[1].TYP == "R" ? "Ranged" : "Melee"} weapon (<img className="inline highlightblack" src={`/icons/white/weptype${sampleUnit.weapons?.[1].TYP}.png`} width="13" />).</li>
+            <li>{sampleUnit.unitName}'s <strong>{sampleUnit.weapons?.[1].gearName}</strong> is a {sampleUnit.weapons?.[1].TYP == 'R' ? 'Ranged' : 'Melee'} weapon (<img className="inline highlightblack" src={`/icons/white/weptype${sampleUnit.weapons?.[1].TYP}.png`} width="13" />).</li>
             <li>Each time it is used, {sampleUnit.unitName} rolls {sampleUnit.weapons?.[1].ATT} dice (<code>ATT</code>).</li>
-            <li>Each result of {sampleUnit.weapons?.[1].TYP == "R" ? sampleUnit.RSK : sampleUnit.MSK} or less (<code>SKL</code>) is a success.</li>
+            <li>Each result of {sampleUnit.weapons?.[1].TYP == 'R' ? sampleUnit.RSK : sampleUnit.MSK} or less (<code>SKL</code>) is a success.</li>
             {/*<li>It has the <code>ACC1</code> (Accurate 1) and <code>HVY</code> (Heavy) <a href="#weapon-specials">specials</a>.</li>*/}
           </ul>
         </div>
@@ -111,4 +111,4 @@ export default async function RulesStatCards() {
         </div>
       </div>
     </div>
-)}
+  )}

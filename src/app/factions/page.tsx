@@ -1,4 +1,4 @@
-import { GAME } from "@/lib/config/game_config";
+import { GAME } from '@/lib/config/game_config'
 import { FactionService } from '@/services/faction.service'
 import FactionCard from '@/components/faction/FactionCard'
 
@@ -15,7 +15,7 @@ export default async function FactionsPage() {
       <div className="text-center mb-8">
         <h1>Factions</h1>
         <p className="text-muted mt-2 max-w-xl mx-auto">
-        {GAME.NAME} is home to rival powers vying for dominance. Each faction brings unique tactics, units, and strategies.
+          {GAME.NAME} is home to rival powers vying for dominance. Each faction brings unique tactics, units, and strategies.
         </p>
       </div>
 

@@ -1,4 +1,4 @@
-import { GearCategory, GearCategoryPlain } from "."
+import { GearCategory, GearCategoryPlain } from '.'
 
 export type GearPlain = {
   gearId: string

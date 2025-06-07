@@ -6,10 +6,10 @@ export type MedalPlain = {
 };
 
 export class Medal {
-  medalId: string;
-  title: string;
-  description: string;
-  XP: number;
+  medalId: string
+  title: string
+  description: string
+  XP: number
 
   constructor(data: {
     medalId: string;
@@ -17,10 +17,10 @@ export class Medal {
     description: string;
     XP: number;
   }) {
-    this.medalId = data.medalId;
-    this.title = data.title;
-    this.description = data.description;
-    this.XP = data.XP;
+    this.medalId = data.medalId
+    this.title = data.title
+    this.description = data.description
+    this.XP = data.XP
   }
 
   toPlain(): MedalPlain {
@@ -29,6 +29,6 @@ export class Medal {
       title: this.title,
       description: this.description,
       XP: this.XP,
-    };
+    }
   }
 }

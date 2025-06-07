@@ -1,7 +1,6 @@
 import { getAuthSession } from '@/lib/auth'
 import { NextResponse } from 'next/server'
 import { UnitService } from '@/services/unit.service'
-import { Unit } from '@/types'
 import { SquadService } from '@/services/squad.service'
 
 // Get a Unit

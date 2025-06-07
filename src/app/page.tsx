@@ -1,4 +1,4 @@
-import { GAME } from "@/lib/config/game_config";
+import { GAME } from '@/lib/config/game_config'
 import FactionCard from '@/components/faction/FactionCard'
 import { FactionService } from '@/services/faction.service'
 import AuthButtons from '@/components/home/HomeAuthButtons'
@@ -6,7 +6,7 @@ import RulesIntro from './rules/rules-intro'
 import NewsCard from '@/src/components/home/NewsCard'
 import news from '@/content/news.json'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import Link from "next/link";
+import Link from 'next/link'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -27,17 +27,17 @@ export default async function Home() {
       <div
         className="relative m-0 p-0"
         style={{
-          backgroundImage: "url('/img/hero01_wideB.webp')",
-          backgroundPosition: "center top",
-          WebkitBackgroundSize: "cover",
-          MozBackgroundSize: "cover",
-          backgroundSize: "cover",
+          backgroundImage: 'url(\'/img/hero01_wideB.webp\')',
+          backgroundPosition: 'center top',
+          WebkitBackgroundSize: 'cover',
+          MozBackgroundSize: 'cover',
+          backgroundSize: 'cover',
         }}>
         {/* Add an overlay div for the gradient */}
         <div className="absolute inset-0" 
           style={{
-            background: "linear-gradient(to bottom, rgba(16, 16, 16, 0.1), rgba(16, 16, 16, 0.75), rgba(16, 16, 16, 1))",
-            pointerEvents: "none",
+            background: 'linear-gradient(to bottom, rgba(16, 16, 16, 0.1), rgba(16, 16, 16, 0.75), rgba(16, 16, 16, 1))',
+            pointerEvents: 'none',
           }}
         />
         
@@ -55,9 +55,9 @@ export default async function Home() {
           
           <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
             Download the Rules:
-            { " " }
+            { ' ' }
             <Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250607.pdf">Easy Print</Link>
-            { " / " }
+            { ' / ' }
             <Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250607 - FullColor.pdf">Full Color</Link>
           </div>
           

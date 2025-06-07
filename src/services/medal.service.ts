@@ -24,16 +24,16 @@ export class MedalService {
 
     if (!unit.medalIds) return []
     
-    const medalIds = unit.medalIds.split(',').filter(medalId => medalId.trim());
+    const medalIds = unit.medalIds.split(',').filter(medalId => medalId.trim())
     
     if (medalIds.length === 0) return []
 
-    const allMedals = await this.getAllMedals();
+    const allMedals = await this.getAllMedals()
 
     unit.medals = medalIds
-        .map(medalId => allMedals.find(medal => medal.medalId === medalId))
-        .filter((medal): medal is Medal => medal !== undefined);
+      .map(medalId => allMedals.find(medal => medal.medalId === medalId))
+      .filter((medal): medal is Medal => medal !== undefined)
 
-    return unit.medals;
+    return unit.medals
   }
 }

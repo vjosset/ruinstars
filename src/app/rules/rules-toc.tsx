@@ -19,4 +19,4 @@ export default async function RulesToc() {
         <li><a href="#items">Items</a></li>
       </ol>
     </div>
-)}
+  )}

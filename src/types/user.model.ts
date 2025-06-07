@@ -1,4 +1,4 @@
-import { Squad, SquadPlain } from "."
+import { Squad, SquadPlain } from '.'
 
 export type UserPlain = {
   userId: string

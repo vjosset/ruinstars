@@ -1,5 +1,5 @@
-import { BattlefieldService } from "@/services/battlefield.service"
-import BattlefieldBlock from "@/components/shared/BattlefieldBlock"
+import { BattlefieldService } from '@/services/battlefield.service'
+import BattlefieldBlock from '@/components/shared/BattlefieldBlock'
 
 export default async function RulesBattlefields() {
   const battlefields = await(BattlefieldService.getAllBattlefields())
@@ -24,4 +24,4 @@ export default async function RulesBattlefields() {
         }
       </div>
     </div>
-)}
+  )}

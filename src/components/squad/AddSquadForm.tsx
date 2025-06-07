@@ -156,7 +156,7 @@ export default function AddSquadForm() {
                   checked={useDefaultSquad}
                   onChange={(e) => setUseDefaultSquad(e.target.checked)}
                 />
-                { " Import Default Squad" }
+                { ' Import Default Squad' }
               </div>
             </div>
           )}

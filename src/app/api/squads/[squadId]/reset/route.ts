@@ -4,7 +4,7 @@ import { SquadService } from '@/services'
 
 export async function POST(
   req: Request,
-   { params }: { params: Promise<{ squadId: string }> }
+  { params }: { params: Promise<{ squadId: string }> }
 ) {
   const session = await getAuthSession()
   if (!session?.user) return new NextResponse('Unauthorized', { status: 401 })

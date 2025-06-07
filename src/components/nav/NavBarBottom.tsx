@@ -75,7 +75,7 @@ export default function NavBarBottom() {
               <h4 className={`font-heading ${isActive ? 'text-main glowtext' : ''}`}>
                 {link.icon}
               </h4>
-              <span className={`font-heading ${isActive ? 'text-main glowtext' : ''}`} style={{textTransform: "uppercase"}}>{link.label}</span>
+              <span className={`font-heading ${isActive ? 'text-main glowtext' : ''}`} style={{textTransform: 'uppercase'}}>{link.label}</span>
             </Link>
           )
         })}

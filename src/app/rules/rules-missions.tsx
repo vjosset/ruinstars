@@ -1,5 +1,5 @@
-import { MissionService } from "@/services/mission.service"
-import MissionBlock from "@/components/shared/MissionBlock"
+import { MissionService } from '@/services/mission.service'
+import MissionBlock from '@/components/shared/MissionBlock'
 export default async function RulesMissions() {
   const missions = await MissionService.getAllMissions()
 
@@ -51,4 +51,4 @@ export default async function RulesMissions() {
         </div>
       </div>
     </div>
-)}
+  )}

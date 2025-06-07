@@ -10,5 +10,5 @@ export default async function UsersIndexPage() {
     redirect('/auth/login') // or show a 404 / error
   }
 
-  redirect(`/me`)
+  redirect('/me')
 }

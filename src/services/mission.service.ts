@@ -1,7 +1,6 @@
 // @ts-nocheck
 import { Mission } from '@/types'
 import { MissionRepository } from '@/src/repositories/mission.repository'
-import { MdCampaign } from 'react-icons/md'
 
 type Campaign = {
   campaignName?: string

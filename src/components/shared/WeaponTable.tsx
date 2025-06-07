@@ -20,7 +20,7 @@ export default function WeaponTable({
   selectedGearIds = [],
   allSpecials,
   onToggleGear,
- }: WeaponTableProps) {
+}: WeaponTableProps) {
   const { showModal } = useModal()
 
   // Sort the weapons
@@ -58,13 +58,13 @@ export default function WeaponTable({
                     onChange={() => onToggleGear(gear.gearId)}
                   />
                 )}
-                { " " }
+                { ' ' }
                 <img className="inline highlightblack" src={`/icons/white/weptype${gear.TYP}.png`} width="13" />
-                { " " }
+                { ' ' }
                 {gear.gearName}
                 {gear.special != '' &&
                   <em className="cursor-pointer hover:text-main text-muted hastip" onClick={() => {
-                    const parsed = parseSpecialRules(allSpecials, "W", gear.special ?? '')
+                    const parsed = parseSpecialRules(allSpecials, 'W', gear.special ?? '')
                     showModal({
                       title: gear.gearName,
                       body: (

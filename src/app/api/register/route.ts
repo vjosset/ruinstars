@@ -37,7 +37,7 @@ export async function POST(req: Request) {
   if (!user) return new NextResponse('Could not register new user', { status: 500 })
 
   // Now clone the default squad
-  SquadService.cloneSquad("ST", user.userId, "Sample Squad")
+  SquadService.cloneSquad('ST', user.userId, 'Sample Squad')
 
   return NextResponse.json({ success: true, userid: user.userId })
 }

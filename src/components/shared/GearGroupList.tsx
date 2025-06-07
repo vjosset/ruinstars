@@ -76,7 +76,7 @@ export default function GearGroupList({
                     onChange={() => onToggleGear(gear.gearId)}
                   />
                 )}
-                { " " }
+                { ' ' }
                 <GearItem gear={gear} />
               </div>
             ))}

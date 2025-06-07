@@ -8,7 +8,7 @@ import fs from 'fs/promises'
 const prisma = new PrismaClient()
 
 // Environment/what to seed
-const env = process.argv[2] ?? "dev"
+const env = process.argv[2] ?? 'dev'
 
 async function runSeed(seed: any) {
   // Users
@@ -107,7 +107,7 @@ async function runSeed(seed: any) {
     console.log('  Seeding Units...')
     for (const unit of seed.units) {
       // Seed unit
-      let u = JSON.parse(JSON.stringify(unit));
+      const u = JSON.parse(JSON.stringify(unit))
       await prisma.unit.upsert({
         where: { unitId: unit.unitId },
         update: {},
@@ -123,7 +123,7 @@ async function runSeed(seed: any) {
     console.log('  Seeding Specials...')
     for (const special of seed.specials) {
       // Seed special
-      let spec = JSON.parse(JSON.stringify(special));
+      const spec = JSON.parse(JSON.stringify(special))
       await prisma.special.upsert({
         where: { specialId: spec.specialId },
         update: {},
@@ -139,7 +139,7 @@ async function runSeed(seed: any) {
     console.log('  Seeding Medals...')
     for (const medal of seed.medals) {
       // Seed medal
-      let med = JSON.parse(JSON.stringify(medal));
+      const med = JSON.parse(JSON.stringify(medal))
       await prisma.medal.upsert({
         where: { medalId: med.medalId },
         update: {},
@@ -155,7 +155,7 @@ async function runSeed(seed: any) {
     console.log('  Seeding Missions...')
     for (const mission of seed.missions) {
       // Seed mission
-      let mis = JSON.parse(JSON.stringify(mission));
+      const mis = JSON.parse(JSON.stringify(mission))
       await prisma.mission.upsert({
         where: { missionId: mis.missionId },
         update: {},
@@ -171,7 +171,7 @@ async function runSeed(seed: any) {
     console.log('  Seeding Battlefields...')
     for (const battlefield of seed.battlefields) {
       // Seed battlefield
-      let bf = JSON.parse(JSON.stringify(battlefield));
+      const bf = JSON.parse(JSON.stringify(battlefield))
       await prisma.battlefield.upsert({
         where: { battlefieldId: bf.battlefieldId },
         update: {},
@@ -191,7 +191,7 @@ async function runSeed(seed: any) {
       where: {
         userId: {
           in: [
-            "ruinstars"
+            'ruinstars'
           ]
         }
       }

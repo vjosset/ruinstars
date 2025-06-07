@@ -7,11 +7,11 @@ export type SpecialPlain = {
 };
 
 export class Special {
-  specialId: string;
-  scope: string;
-  code: string;
-  specialName: string;
-  description: string;
+  specialId: string
+  scope: string
+  code: string
+  specialName: string
+  description: string
 
   constructor(data: {
     specialId: string
@@ -20,11 +20,11 @@ export class Special {
     specialName: string
     description: string
   }) {
-    this.specialId = data.specialId;
-    this.scope = data.scope;
-    this.code = data.code;
-    this.specialName = data.specialName;
-    this.description = data.description;
+    this.specialId = data.specialId
+    this.scope = data.scope
+    this.code = data.code
+    this.specialName = data.specialName
+    this.description = data.description
   }
 
   toPlain(): SpecialPlain {
@@ -34,6 +34,6 @@ export class Special {
       code: this.code,
       specialName: this.specialName,
       description: this.description,
-    };
+    }
   }
 }

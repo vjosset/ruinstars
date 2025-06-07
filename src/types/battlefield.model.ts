@@ -7,11 +7,11 @@ export type BattlefieldPlain = {
 };
 
 export class Battlefield {
-  battlefieldId: number;
-  title: string;
-  description: string;
-  setup: string;
-  effects: string;
+  battlefieldId: number
+  title: string
+  description: string
+  setup: string
+  effects: string
 
   constructor(data: {
     battlefieldId: number;
@@ -20,11 +20,11 @@ export class Battlefield {
     setup: string;
     effects: string;
   }) {
-    this.battlefieldId = data.battlefieldId;
-    this.title = data.title;
-    this.description = data.description;
-    this.setup = data.setup;
-    this.effects = data.effects;
+    this.battlefieldId = data.battlefieldId
+    this.title = data.title
+    this.description = data.description
+    this.setup = data.setup
+    this.effects = data.effects
   }
 
   toPlain(): BattlefieldPlain {
@@ -34,6 +34,6 @@ export class Battlefield {
       description: this.description,
       setup: this.setup,
       effects: this.effects,
-    };
+    }
   }
 }

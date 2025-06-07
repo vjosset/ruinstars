@@ -1,12 +1,12 @@
 'use client'
 
-import {  useState } from "react";
-import clsx from "clsx";
+import {  useState } from 'react'
+import clsx from 'clsx'
 import SettingsForm from '@/components/tools/SettingsForm'
-import AppVersion from '@/components/tools/AppVersion';
-import AdminTools from '@/components/tools/AdminTools';
-import AccountTools from '@/components/tools/AccountTools';
-import Resources from "@/components/tools/Resources";
+import AppVersion from '@/components/tools/AppVersion'
+import AdminTools from '@/components/tools/AdminTools'
+import AccountTools from '@/components/tools/AccountTools'
+import Resources from '@/components/tools/Resources'
 
 
 export default function ToolsPageClient({ userId }: { userId: string }) {
@@ -50,17 +50,17 @@ export default function ToolsPageClient({ userId }: { userId: string }) {
           </div>
     
           <div className="leading-relaxed max-h-[60vh] overflow-y-auto px-2 text-left">
-            <div className={"w-full max-w-md mx-auto " + (tab === 'settings' ? 'block' : 'hidden')}>
+            <div className={'w-full max-w-md mx-auto ' + (tab === 'settings' ? 'block' : 'hidden')}>
               <SettingsForm />
             </div>
-            <div className={"w-full max-w-md mx-auto " + (tab === 'account' ? 'block' : 'hidden')}>
+            <div className={'w-full max-w-md mx-auto ' + (tab === 'account' ? 'block' : 'hidden')}>
               <AccountTools />
             </div>
-            <div className={"w-full max-w-md mx-auto " + (tab === 'resources' ? 'block' : 'hidden')}>
+            <div className={'w-full max-w-md mx-auto ' + (tab === 'resources' ? 'block' : 'hidden')}>
               <Resources />
             </div>
             {userId == 'vince' && (
-              <div className={"w-full max-w-md mx-auto " + (tab === 'admin' ? 'block' : 'hidden')}>
+              <div className={'w-full max-w-md mx-auto ' + (tab === 'admin' ? 'block' : 'hidden')}>
                 <AdminTools />
               </div>
             )}

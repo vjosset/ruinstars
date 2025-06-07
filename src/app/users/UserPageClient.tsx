@@ -15,8 +15,8 @@ export default function UserPageClient({ squads: initialSquads, isOwner }: UserP
   const [squads, setSquads] = useState(initialSquads)
 
   const handleDelete = (squadId: string) => {
-    setSquads(squads => squads.filter(squad => squad.squadId !== squadId));
-  };
+    setSquads(squads => squads.filter(squad => squad.squadId !== squadId))
+  }
 
   // Move squad at index to newIndex
   const moveSquad = async (from: number, to: number) => {

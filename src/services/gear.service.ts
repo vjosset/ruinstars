@@ -33,20 +33,20 @@ export class GearService {
 
     if (!unit.gearIds) return []
     
-    const gearIds = unit.gearIds.split(',').filter(gearId => gearId.trim());
+    const gearIds = unit.gearIds.split(',').filter(gearId => gearId.trim())
     
     if (gearIds.length === 0) return []
 
-    const allGears = await this.getAllGears();
+    const allGears = await this.getAllGears()
 
     unit.gears = gearIds
-        .map(gearId => allGears.find(gear => gear.gearId === gearId))
-        .filter((gear): gear is Gear => gear !== undefined);
+      .map(gearId => allGears.find(gear => gear.gearId === gearId))
+      .filter((gear): gear is Gear => gear !== undefined)
     
-    unit.weapons = unit.gears.filter(gear => gear.gearType === "W");
-    unit.skills = unit.gears.filter(gear => gear.gearType !== "W");
+    unit.weapons = unit.gears.filter(gear => gear.gearType === 'W')
+    unit.skills = unit.gears.filter(gear => gear.gearType !== 'W')
 
-    return unit.gears;
+    return unit.gears
   }
 
   static async loadUnitTypeGear(unitType: UnitType): Promise<Gear[]> {
@@ -61,8 +61,8 @@ export class GearService {
       .map(gearId => allGears.find(gear => gear.gearId === gearId))
       .filter((gear): gear is Gear => gear !== undefined)
     
-    unit.weapons = unit.gears.filter(gear => gear.gearType == "W")
-    unit.skills = unit.gears.filter(gear => gear.gearType != "W")
+    unit.weapons = unit.gears.filter(gear => gear.gearType == 'W')
+    unit.skills = unit.gears.filter(gear => gear.gearType != 'W')
     
     return unitType.gears
   }

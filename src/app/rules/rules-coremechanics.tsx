@@ -1,4 +1,4 @@
-import { GAME } from "@/lib/config/game_config";
+import { GAME } from '@/lib/config/game_config'
 
 export default async function RulesCoreMechanics() {
   return (
@@ -40,4 +40,4 @@ export default async function RulesCoreMechanics() {
         </div>
       </div>
     </div>
-)}
+  )}

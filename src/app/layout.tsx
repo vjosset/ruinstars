@@ -24,7 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
         {/* Google Tag Manager (GA4) */}
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=G-18BMJ4QB5X`}
+          src={'https://www.googletagmanager.com/gtag/js?id=G-18BMJ4QB5X'}
           strategy="afterInteractive"
         />
         <Script id="ga4-init" strategy="afterInteractive">

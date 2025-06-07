@@ -1,4 +1,4 @@
-import { Faction, FactionPlain, Unit, UnitPlain, User, UserPlain } from "."
+import { Faction, FactionPlain, Unit, UnitPlain, User, UserPlain } from '.'
 
 export type SquadPlain = {
   squadId: string
@@ -17,6 +17,7 @@ export type SquadPlain = {
   MP: number
   TO: number
   maxGP: number
+  eloRating?: number
   units?: UnitPlain[]
   user?: UserPlain
   faction?: FactionPlain
@@ -39,6 +40,7 @@ export class Squad {
   MP: number
   TO: number
   maxGP: number
+  eloRating?: number
   units?: Unit[] | null
   user?: User | null
   faction?: Faction | null
@@ -60,6 +62,7 @@ export class Squad {
     MP: number
     TO: number
     maxGP: number
+    eloRating?: number
     units?: Unit[] | null
     user?: User | null
     faction?: Faction | null
@@ -80,6 +83,7 @@ export class Squad {
     this.MP = data.MP
     this.TO = data.TO
     this.maxGP = data.maxGP
+    this.eloRating = data.eloRating
     this.units = data.units?.map(unit => unit instanceof Unit ? unit : new Unit(unit))
     this.user = data.user ? (data.user instanceof User ? data.user : new User(data.user)) : null
     this.faction = data.faction ? (data.faction instanceof Faction ? data.faction : new Faction(data.faction)) : null
@@ -103,6 +107,7 @@ export class Squad {
       MP: this.MP,
       TO: this.TO,
       maxGP: this.maxGP,
+      eloRating: this.eloRating,
       units: this.units?.map(unit => unit.toPlain()),
       user: this.user?.toPlain(),
       faction: this.faction?.toPlain(),

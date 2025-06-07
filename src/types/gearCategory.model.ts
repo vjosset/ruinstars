@@ -1,5 +1,4 @@
-import { TbCheckupList } from "react-icons/tb";
-import { Gear, GearPlain } from ".";
+import { Gear, GearPlain } from '.'
 
 export type GearCategoryPlain = {
   gearCategoryId: string;
@@ -10,17 +9,17 @@ export type GearCategoryPlain = {
 };
 
 export class GearCategory {
-  gearCategoryId: string;
-  gearCategoryName: string;
-  seq: number;
-  isNarrative: boolean;
+  gearCategoryId: string
+  gearCategoryName: string
+  seq: number
+  isNarrative: boolean
   gears: Gear[]
 
   constructor(data: {gearCategoryId: string, gearCategoryName: string, seq: number, isNarrative: boolean, gears: Gear[]}) {
-    this.gearCategoryId = data.gearCategoryId;
-    this.gearCategoryName = data.gearCategoryName;
-    this.seq = data.seq;
-    this.isNarrative = data.isNarrative;
+    this.gearCategoryId = data.gearCategoryId
+    this.gearCategoryName = data.gearCategoryName
+    this.seq = data.seq
+    this.isNarrative = data.isNarrative
     this.gears = data.gears
   }
 
@@ -31,6 +30,6 @@ export class GearCategory {
       seq: this.seq,
       isNarrative: this.isNarrative,
       gears: this.gears?.map((gear) => gear.toPlain())
-    };
+    }
   }
 }

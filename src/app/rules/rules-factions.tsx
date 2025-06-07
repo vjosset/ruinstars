@@ -1,14 +1,14 @@
-import FactionCard from "@/components/faction/FactionCard"
-import Markdown from "@/components/ui/Markdown"
-import UnitCard from "@/components/unit/UnitCard"
-import { FactionService, SpecialService } from "@/services"
-import { UnitType } from "@/types"
+import FactionCard from '@/components/faction/FactionCard'
+import Markdown from '@/components/ui/Markdown'
+import UnitCard from '@/components/unit/UnitCard'
+import { FactionService, SpecialService } from '@/services'
+import { UnitType } from '@/types'
 
 export default async function RulesFactions() {
   const factions = await FactionService.getAllFactions()
   const allFactions = []
 
-  for (let faction of factions) {
+  for (const faction of factions) {
     allFactions.push(await FactionService.getFaction(faction.factionId) ?? faction)
   }
     
@@ -89,18 +89,18 @@ export default async function RulesFactions() {
                   .flatMap(u => u.skills || [])
                   .find(s => s?.gearId === gearId)
 
-                  if (skill?.gearCategory?.isNarrative) return
+                if (skill?.gearCategory?.isNarrative) return
 
-                  return (
-                    <li key={gearId} className="section">
-                      {skill?.gearName}<br/>
-                      <Markdown className="text-sm text-muted" children={skill?.description ?? ''} />
-                    </li>
-                  )
+                return (
+                  <li key={gearId} className="section">
+                    {skill?.gearName}<br/>
+                    <Markdown className="text-sm text-muted" children={skill?.description ?? ''} />
+                  </li>
+                )
               })}
             </ul>
           </div>
         </div>
       ))}
     </div>
-)}
+  )}

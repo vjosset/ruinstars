@@ -13,7 +13,7 @@ interface Props {
 export default function Markdown({ children, className }: Props) {
   return (
     <div className={clsx(
-      "max-w-none text-foreground markdown",
+      'max-w-none text-foreground markdown',
       className
     )}>
       <ReactMarkdown remarkPlugins={[remarkGfm]}>

@@ -1,5 +1,4 @@
 import { NextAuthOptions, getServerSession } from 'next-auth'
-import { User } from 'next-auth'
 
 declare module 'next-auth' {
   interface User {
@@ -27,22 +26,22 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials?.userName || !credentials?.password) {
-          return null;
+          return null
         }
 
         const user = await prisma.user.findUnique({
           where: { userName: credentials.userName },
         })
         if (!user) {
-          return null;
+          return null
         }
 
         const isValid = await compare(credentials.password, user.password)
         if (!isValid) {
-          return null;
+          return null
         }
 
-        return { id: user.userId, userId: user.userId, userName: user.userName };
+        return { id: user.userId, userId: user.userId, userName: user.userName }
       },
     }),
   ],

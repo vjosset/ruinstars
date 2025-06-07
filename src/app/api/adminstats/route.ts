@@ -1,10 +1,10 @@
 import { getAuthSession } from '@/lib/auth'
-import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { toLocalIsoDate } from '@/lib/utils/utils'
+import { NextResponse } from 'next/server'
 
 // Get the stats
-export async function GET(req: Request) {
+export async function GET() {
   const session = await getAuthSession()
   if (!session?.user || session.user.userId != 'vince') return new NextResponse('Unauthorized', { status: 401 })
 

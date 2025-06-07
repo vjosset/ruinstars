@@ -35,7 +35,7 @@ export default function LogInPage() {
     })
 
     if (res?.ok) {
-      router.push(`/me`)
+      router.push('/me')
     } else {
       const message =
         res?.error === 'CredentialsSignin'

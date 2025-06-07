@@ -1,5 +1,5 @@
-import FactionCard from "@/components/faction/FactionCard"
-import { FactionService } from "@/services"
+import FactionCard from '@/components/faction/FactionCard'
+import { FactionService } from '@/services'
 
 export default async function RulesYourSquad() {
   const factions = await FactionService.getAllFactions()
@@ -24,4 +24,4 @@ export default async function RulesYourSquad() {
         </div>
       </div>
     </div>
-)}
+  )}

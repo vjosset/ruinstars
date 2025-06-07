@@ -1,11 +1,11 @@
-import { getRandom, getRandomInt, ucwords } from "../utils/utils"
+import { getRandom, getRandomInt, ucwords } from '../utils/utils'
 
 export function name_fyhucho() {
   //Set the list of consonant phonemes
-  const con = ["", "", "", "", "'", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "th", "ph", "ch", "qu"]
+  const con = ['', '', '', '', '\'', 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z', 'th', 'ph', 'ch', 'qu']
   
   //Set the list of vowel phonemes
-  const vow = ["a", "e", "i", "o", "u", "y", ""]
+  const vow = ['a', 'e', 'i', 'o', 'u', 'y', '']
 
   const minlen = 5
   const maxlen = 10
@@ -17,7 +17,7 @@ export function name_fyhucho() {
 
   for (let i = 0; i < len || name.length < minlen; i++) {
     const chars = i % 2 == 1 ? vow : con
-    name += getRandom(chars);
+    name += getRandom(chars)
   }
   
   //Done

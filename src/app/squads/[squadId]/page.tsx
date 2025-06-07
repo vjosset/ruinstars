@@ -1,6 +1,6 @@
-import { GAME } from "@/lib/config/game_config";
+import { GAME } from '@/lib/config/game_config'
 import { SquadService } from '@/services'
-import { notFound } from 'next/navigation';
+import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import { getAuthSession } from '@/lib/auth'
 import SquadPageClient from '../SquadPageClient'

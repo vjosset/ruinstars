@@ -89,7 +89,7 @@ async function main() {
     {
       where: {
         userId: {
-          in: [ "ruinstars", "u1" ]
+          in: [ 'ruinstars', 'u1' ]
         }
       }
     }
@@ -99,7 +99,7 @@ async function main() {
     {
       where: {
         userId: {
-          in: [ "ruinstars", "u1" ]
+          in: [ 'ruinstars', 'u1' ]
         }
       },
       orderBy: [

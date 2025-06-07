@@ -1,12 +1,12 @@
-import { GearCategoryService } from "@/services"
-import { MedalService } from "@/services/medal.service"
-import Link from "next/link"
+import { GearCategoryService } from '@/services'
+import { MedalService } from '@/services/medal.service'
+import Link from 'next/link'
 import Markdown from '@/components/ui/Markdown'
 
 export default async function RulesCampaigns() {
   const medals = await MedalService.getAllMedals()
-  const injuries = await GearCategoryService.getGearCategory("INJ")
-  const spoilsOfWar = await GearCategoryService.getGearCategory("SOW")
+  const injuries = await GearCategoryService.getGearCategory('INJ')
+  const spoilsOfWar = await GearCategoryService.getGearCategory('SOW')
 
   return (
     <div className="section twocols">
@@ -95,16 +95,16 @@ export default async function RulesCampaigns() {
           Medals can only be claimed once per Unit.
         </p>
         <ul>
-        {/* Medals List */}
-        {
-          medals.map((medal, idx) => (
-            <li key={medal.medalId}>
-              <h6>{medal.title} - {medal.XP} XP</h6>
-              <Markdown>{medal.description}</Markdown>
-            </li>
-          ))
-        }
+          {/* Medals List */}
+          {
+            medals.map((medal, idx) => (
+              <li key={medal.medalId}>
+                <h6>{medal.title} - {medal.XP} XP</h6>
+                <Markdown>{medal.description}</Markdown>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
-)}
+  )}

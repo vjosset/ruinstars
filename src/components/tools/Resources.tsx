@@ -1,5 +1,5 @@
-import { SectionTitle } from "../ui"
-import Link from "next/link"
+import { SectionTitle } from '../ui'
+import Link from 'next/link'
 
 export default function Resources() {
   return  (

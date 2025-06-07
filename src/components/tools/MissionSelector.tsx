@@ -1,9 +1,9 @@
 'use client'
-import { GiRollingDices } from 'react-icons/gi';
+import { GiRollingDices } from 'react-icons/gi'
 import { useEffect, useState } from 'react'
 import MissionBlock from '@/components/shared/MissionBlock'
-import { Mission, MissionPlain } from '@/types';
-import { getRandom } from '@/lib/utils/utils';
+import { Mission, MissionPlain } from '@/types'
+import { getRandom } from '@/lib/utils/utils'
 
 export default function MissionSelector() {
   const [primaryMissions, setPrimaryMissions] = useState<Mission[]>([])
@@ -79,7 +79,7 @@ export default function MissionSelector() {
               className="w-8 h-8 flex items-center justify-center text-lg border border-border border-l-0 rounded-r-md bg-zinc-900 hover:bg-zinc-800"
               onClick={() => {
                 if (primaryMissions.length === 0) return
-                const currentMissionId = selectedPrimaryMissionId;
+                const currentMissionId = selectedPrimaryMissionId
                 let randomMission = getRandom(primaryMissions)
 
                 // Make sure we give them a different mission
@@ -115,7 +115,7 @@ export default function MissionSelector() {
               className="w-8 h-8 flex items-center justify-center text-lg border border-border border-l-0 rounded-r-md bg-zinc-900 hover:bg-zinc-800"
               onClick={() => {
                 if (secondaryMissions.length === 0) return
-                const currentMissionId = selectedSecondaryMissionId;
+                const currentMissionId = selectedSecondaryMissionId
                 let randomMission = getRandom(secondaryMissions)
                 
                 // Make sure we give them a different mission

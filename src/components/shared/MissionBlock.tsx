@@ -9,9 +9,9 @@ export default function MissionBlock({mission, showDescription}: { mission: Miss
       </h4>
       
       {showDescription && mission.description && (
-      <div className="flavor mx-4">
-        <Markdown>{mission.description}</Markdown>
-      </div>
+        <div className="flavor mx-4">
+          <Markdown>{mission.description}</Markdown>
+        </div>
       )}
       {mission.setup && (
         <>

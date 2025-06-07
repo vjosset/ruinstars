@@ -74,8 +74,8 @@ export default function SettingsForm() {
 }
 
 export function clearServiceWorkerCache(): Promise<boolean> {
-  console.log("Clearing SW cache...")
-  console.log("SW Controller:", navigator.serviceWorker.controller)
+  console.log('Clearing SW cache...')
+  console.log('SW Controller:', navigator.serviceWorker.controller)
   if (!navigator.serviceWorker?.controller) return Promise.resolve(false)
 
   return new Promise((resolve) => {
@@ -88,7 +88,7 @@ export function clearServiceWorkerCache(): Promise<boolean> {
     */
 
     channel.port1.onmessage = (event) => {
-      console.log("Reply from service worker:", event.data)
+      console.log('Reply from service worker:', event.data)
       resolve(event.data?.success ?? false)
     }
 

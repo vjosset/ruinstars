@@ -1,4 +1,4 @@
-import { GAME } from "@/lib/config/game_config";
+import { GAME } from '@/lib/config/game_config'
 import { notFound } from 'next/navigation'
 import { getAuthSession } from '@/src/lib/auth'
 import { UserService } from '@/services'

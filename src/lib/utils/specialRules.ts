@@ -21,20 +21,20 @@ export function parseSpecialRules(
     // Find matches - Either exact match or replace on param "_"
     const matched = allSpecials.find(rule =>
       rule.scope === scope &&
-      rule.code?.includes("_")
-        ? token.startsWith(rule.code.replace("_", ""))
+      rule.code?.includes('_')
+        ? token.startsWith(rule.code.replace('_', ''))
         : rule.code === token
     )
 
     if (matched && matched.code) {
       // Find the param if we have one (e.g. LDR2 would have param 2)
-      const param = matched.specialId.includes("_")
-        ? token.replace(matched.code.replace("_", ""), "")
+      const param = matched.specialId.includes('_')
+        ? token.replace(matched.code.replace('_', ''), '')
         : undefined
 
-      const code = matched.code.replaceAll("_", param || "")
-      const description =  matched.description.replaceAll("_", param || "")
-      const specialName = matched.specialName.replaceAll("_", param || "")
+      const code = matched.code.replaceAll('_', param || '')
+      const description =  matched.description.replaceAll('_', param || '')
+      const specialName = matched.specialName.replaceAll('_', param || '')
 
       parsed.push({
         specialId: matched.specialId,
@@ -49,7 +49,7 @@ export function parseSpecialRules(
         scope,
         code: token,
         specialName: token,
-        description: "(Unknown rule)",
+        description: '(Unknown rule)',
       })
     }
   }

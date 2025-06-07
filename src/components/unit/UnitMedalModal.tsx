@@ -85,17 +85,17 @@ export default function UnitMedalModal({
       footer={isOwner && (
         <div className="flex justify-between items-center">
           
-            <div className="text-muted">
+          <div className="text-muted">
               Total XP: {totalXP}
-            </div>
-            <div className="flex gap-2">
-              <Button variant="ghost" onClick={onClose}>
-                <h6>Cancel</h6>
-              </Button>
-              <Button onClick={handleSubmit}>
-                <h6>Save</h6>
-              </Button>
-            </div>
+          </div>
+          <div className="flex gap-2">
+            <Button variant="ghost" onClick={onClose}>
+              <h6>Cancel</h6>
+            </Button>
+            <Button onClick={handleSubmit}>
+              <h6>Save</h6>
+            </Button>
+          </div>
         </div>
       )}
     >
@@ -105,33 +105,33 @@ export default function UnitMedalModal({
             unit.medalIds?.split(',').includes(medal.medalId) || isOwner
           )
           .map((medal) => (
-          <div 
-            key={medal.medalId}
-            className="flex items-start gap-2"
-            onClick={(e) => {
-                  if (isOwner) {
-                    e.stopPropagation()
-                   toggleMedal(medal.medalId)
-                  }
-                }}
-          >
-            {isOwner && (
-              <input
-                type="checkbox"
-                checked={medalIds.includes(medal.medalId)}
-                className="mt-1"
+            <div 
+              key={medal.medalId}
+              className="flex items-start gap-2"
+              onClick={(e) => {
+                if (isOwner) {
+                  e.stopPropagation()
+                  toggleMedal(medal.medalId)
+                }
+              }}
+            >
+              {isOwner && (
+                <input
+                  type="checkbox"
+                  checked={medalIds.includes(medal.medalId)}
+                  className="mt-1"
                 // No onChange handler needed - click bubbles to parent div's onClick
-              />
-            )}
-            <div>
-              <div className="flex items-center gap-2">
-                <h6 className="text-main">{medal.title}</h6>
-                <span className="text-sm text-muted">({medal.XP} XP)</span>
+                />
+              )}
+              <div>
+                <div className="flex items-center gap-2">
+                  <h6 className="text-main">{medal.title}</h6>
+                  <span className="text-sm text-muted">({medal.XP} XP)</span>
+                </div>
+                <p className="text-sm text-muted">{medal.description}</p>
               </div>
-              <p className="text-sm text-muted">{medal.description}</p>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </Modal>
   )
