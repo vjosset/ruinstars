@@ -31,13 +31,12 @@ export default async function RulesCombat() {
               <ol>
                 <li>Roll a number of dice equal to the weapon's <code>ATT</code> (Attacks).</li>
                 <li>
-                  Each die result <strong>equal to or less</strong> than the weapon's <code>SKL</code> (Skill) is a successful strike.
+                  Each die result equal to or less than the weapon's <code>SKL</code> (Skill) is a successful strike and inflicts 1 point of Damage on the Target.
                   <ul>
-                    <li>A roll of <code>1</code> is a <em>Critical Strike</em> and counts as <strong>2 successful strikes</strong></li>
-                    <li>A roll of {GAME.DICE_BASIS} is always a <strong>failure</strong></li>
+                    <li>A roll of <code>1</code> is a <strong>Critical Strike</strong> and inflicts 2 points of Damage</li>
+                    <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
                   </ul>
                 </li>
-                <li>Each successful strike inflicts 1 point of Damage on the Target.</li>
               </ol>
             </li>
             <li>
@@ -45,13 +44,13 @@ export default async function RulesCombat() {
               <ol>
                 <li>The Target rolls one die per point of Damage inflicted.</li>
                 <li>
-                  Each result <strong>equal to or less</strong> than the Target's <code>ARM</code> (Armor) is a successful Save.
+                  Each result equal to or less than the Target's <code>ARM</code> (Armor) is a successful Save.
                   <ul>
-                    <li>A roll of <code>1</code> is a <em>Critical Save</em> and counts as <strong>2 Saves</strong></li>
-                    <li>A roll of {GAME.DICE_BASIS} is always a <strong>failure</strong></li>
+                    <li>A roll of <code>1</code> is a <strong>Critical Save</strong> and counts as 2 Saves</li>
+                    <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
                   </ul>
                 </li>
-                <li>Each failed Save causes the Target to lose 1 <code>HIT</code></li>
+                <li>Each unsaved point of Damage causes the Target to lose 1 <code>HIT</code></li>
                 <li>If a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield.</li>
               </ol>
             </li>
@@ -136,13 +135,12 @@ export default async function RulesCombat() {
               <ol>
                 <li>Roll a number of dice equal to the weapon's <code>ATT</code> (Attacks).</li>
                 <li>
-                  Each die result <strong>equal to or less</strong> than the weapon's <code>SKL</code> (Skill) is a successful strike.
+                  Each die result equal to or less than the weapon's <code>SKL</code> (Skill) is a successful strike and inflicts 1 point of Damage on the Target.
                   <ul>
-                    <li>A roll of <code>1</code> is a <em>Critical Strike</em> and counts as <strong>2 successful strikes</strong></li>
-                    <li>A roll of {GAME.DICE_BASIS} is always a <strong>failure</strong></li>
+                    <li>A roll of <code>1</code> is a <strong>Critical Strike</strong> and inflicts 2 points of Damage</li>
+                    <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
                   </ul>
                 </li>
-                <li>Each successful strike inflicts 1 point of Damage on the Target.</li>
               </ol>
             </li>
             <li>
@@ -150,20 +148,20 @@ export default async function RulesCombat() {
               <ol>
                 <li>The Target rolls one die per point of Damage inflicted.</li>
                 <li>
-                  Each result <strong>equal to or less</strong> than the Target's <code>ARM</code> (Armor) is a successful Save.
+                  Each result equal to or less than the Target's <code>ARM</code> (Armor) is a successful Save.
                   <ul>
                     <li>
-                      A roll of <code>1</code> is a <em>Critical Save</em>:
+                      A roll of <code>1</code> is a <strong>Critical Save</strong>:
                       <ul>
                         <li>It blocks 1 point of Damage, and</li>
-                        <li>Inflicts 1 point of Melee Damage on the Attacker</li>
+                        <li>Inflicts 1 point of Melee Damage on the Attacker. The Attacker then rolls their own Armor Saves for that returned Damage.</li>
                         <li>This effect can chain: if the Attacker then rolls a Critical Save, they return damage to the Target, and so on.</li>
                       </ul>
                     </li>
-                    <li>A roll of {GAME.DICE_BASIS} is always a <strong>failure</strong></li>
+                    <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
                   </ul>
                 </li>
-                <li>Each failed Save causes the Target to lose 1 <code>HIT</code></li>
+                <li>Each unsaved point of Damage causes the Target to lose 1 <code>HIT</code></li>
                 <li>If a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield.</li>
               </ol>
             </li>
