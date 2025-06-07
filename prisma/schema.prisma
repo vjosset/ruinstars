@@ -91,8 +91,12 @@ model Squad {
   MP                Int      @default(0)
   TO                Int      @default(0)
   maxGP             Int      @default(100)
+  eloRating         Int      @default(1000)
   faction           Faction  @relation(fields: [factionId], references: [factionId], onDelete: Cascade)
   user              User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  
+  matchesAsSquadA MissionResult[] @relation("SquadA")
+  matchesAsSquadB MissionResult[] @relation("SquadB")
   units             Unit[]
 
   @@index([factionId], map: "Squad_factionId_fkey")
@@ -137,6 +141,8 @@ model Mission {
   deployment  String @db.Text
   special     String @db.Text
   victory     String @db.Text
+
+  missionResults MissionResult[]
 }
 
 model Battlefield {
@@ -174,4 +180,27 @@ model WebEvent {
   @@index([var1, eventType, action, label], name: "IX_VAR1")
   @@index([userId], name: "IX_USER")
   @@index([datestamp], name: "IX_datestamp")
+}
+
+model MissionResult {
+  missionResultId Int      @id @default(autoincrement())
+  squadAId        String   @db.VarChar(20)
+  squadBId        String   @db.VarChar(20)
+  squadAScore     Int
+  squadBScore     Int
+  squadAConfirmed Boolean @default(true)
+  squadBConfirmed Boolean @default(false)
+  matchDate       DateTime @default(now())
+  eloBeforeA      Int
+  eloBeforeB      Int
+  eloAfterA       Int
+  eloAfterB       Int
+  missionId       Int
+  squadA          Squad    @relation("SquadA", fields: [squadAId], references: [squadId], onDelete: Cascade)
+  squadB          Squad    @relation("SquadB", fields: [squadBId], references: [squadId], onDelete: Cascade)
+  mission         Mission  @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
+
+  @@index([squadAId], map: "MissionResult_squadAId_fkey")
+  @@index([squadBId], map: "MissionResult_squadBId_fkey")
+  @@index([missionId], map: "MissionResult_missionId_fkey")
 }
