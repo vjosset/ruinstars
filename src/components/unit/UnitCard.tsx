@@ -40,19 +40,23 @@ export default function UnitCard({
   onMoveLast,
   onUnitDeleted
 }: UnitCardProps) {
-  // These states are used only for Units that the current user owns
+  // Modal visibility states
   const [showHITModal, setShowHITModal] = useState(false)
-  const [isActivated, setIsActivated] = useState(unit.isActivated ?? false)
   const [showUnitEditorModal, setShowUnitEditorModal] = useState(false)
   const [showUnitMedalModal, setShowUnitMedalModal] = useState(false)
-  const [newHIT, setNewHIT] = useState(unit.currHIT ?? 0)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
-  const [newActivated, setNewActivated] = useState(unit.isActivated ?? false)
+
+  // Unit state tracking
+  const [newHIT, setNewHIT] = useState(unit.currHIT ?? 0)
+  const [, setIsActivated] = useState(unit.isActivated ?? false)
+  
+  // Delete state
   const [deleteError, setDeleteError] = useState('')
-  const [deleting, setDeleting] = useState(false)
   
   const { settings } = useLocalSettings()
+  const { showModal } = useModal()
 
+  // Keep local state in sync with unit props
   useEffect(() => {
     setIsActivated(unit.isActivated ?? false)
   }, [unit.isActivated])
@@ -60,9 +64,6 @@ export default function UnitCard({
   useEffect(() => {
     setNewHIT(unit.currHIT ?? 0)
   }, [unit.currHIT])
-
-  // This state is universal
-  const { showModal } = useModal()
 
   return (
     <>
@@ -86,7 +87,7 @@ export default function UnitCard({
                     const updated = await res.json()
                     // Inform the parent about the new activated state
                     onUnitUpdated?.(updated)
-                    setNewActivated(updated.isActivated)
+                    setIsActivated(updated.isActivated)
                     unit.isActivated = updated.isActivated
                   }
                 }}
@@ -265,7 +266,6 @@ export default function UnitCard({
               </Button>
               <Button
                 onClick={async () => {
-                  setDeleting(true)
                   setDeleteError('')
                 
                   try {
@@ -285,8 +285,6 @@ export default function UnitCard({
                     setShowDeleteConfirm(false)
                   } catch (err: any) {
                     setDeleteError(err.message || 'Something went wrong')
-                  } finally {
-                    setDeleting(false)
                   }
                 }}
               >
