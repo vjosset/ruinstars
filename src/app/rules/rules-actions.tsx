@@ -23,14 +23,14 @@ export default async function RulesActions() {
           </thead>
           <tbody>
             <tr><th>Move</th><td className="text-center">1</td><td>The Unit <a href="#movement">moves</a> up to 6".</td></tr>
-            <tr><th>Dash</th><td className="text-center">1</td><td>The Unit moves up to <strong>1</strong> Square. This movement follows the same rules as a <a href="#movement">normal Move</a>.</td></tr>
-            <tr><th>Ranged Combat</th><td className="text-center">1</td><td>The Unit attacks a valid target in <a href="#combat">Ranged Combat</a>.</td></tr>
-            <tr><th>Melee Combat</th><td className="text-center">1</td><td>The Unit attacks a target in an Adjacent Square in <a href="#combat">Melee Combat</a>.</td></tr>
-            <tr><th>Pick Up</th><td className="text-center">1</td><td>The Unit picks up a marker or token in the Square it currently occupies.</td></tr>
-            <tr><th>Drop</th><td className="text-center">1</td><td>The Unit drops a marker or token it is carrying in the Square it currently occupies.</td></tr>
-            <tr><th>Give</th><td className="text-center">1</td><td>The Unit passes a marker or token to an Adjacent Squadmate. The Unit cannot perform this Action if it or its Squadmate are <a href="#adjacent">Adjacent</a> to any enemy Units.</td></tr>
-            <tr><th>Open/Close Door</th><td className="text-center">1</td><td>The Unit opens or closes a door that is on one of the edges of its current Square.</td></tr>
-            <tr><th>Mission Action</th><td className="text-center">-</td><td>Mission Actions are special mission-specific Actions that can be performed according to the Mission Briefing.</td></tr>
+            <tr><th>Dash</th><td className="text-center">1</td><td>The Unit moves up to 2", following the same rules as a <a href="#movement">Move</a>.</td></tr>
+            <tr><th>Ranged Combat</th><td className="text-center">1</td><td>The Unit makes a Ranged attack against a valid target. See <a href="#combat">Ranged Combat</a>.</td></tr>
+            <tr><th>Melee Combat</th><td className="text-center">1</td><td>The Unit makes a Melee attack against an Adjacent target. See <a href="#combat">Melee Combat</a>.</td></tr>
+            <tr><th>Pick Up</th><td className="text-center">1</td><td>The Unit picks up a marker or token that is Adjacent.</td></tr>
+            <tr><th>Drop</th><td className="text-center">1</td><td>The Unit drops a marker or token in an Adjacent space.</td></tr>
+            <tr><th>Give</th><td className="text-center">1</td><td>The Unit passes a marker or token to an Adjacent Squadmate. Neither Unit can be <a href="#adjacent">Adjacent</a> to any enemy Units.</td></tr>
+            <tr><th>Open/Close Door</th><td className="text-center">1</td><td>The Unit opens or closes an Adjacent door.</td></tr>
+            <tr><th>Mission Action</th><td className="text-center">-</td><td>A special action defined by the current the Mission Briefing.</td></tr>
           </tbody>
         </table>
         <h3 id="tactical-orders">Tactical Orders</h3>

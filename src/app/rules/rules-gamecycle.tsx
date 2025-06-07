@@ -97,7 +97,7 @@ export default async function RulesGameCycle() {
         <p>
           Mission Points (MP) determine the winner of the battle. Each Mission will define conditions under which a Squad can score Mission Points. At the end of the Mission, the Squad with the most MP wins.<br/>
           Each Battlefield will have Objectives placed on it. Depending on the mission, these Objectives may need to be controlled to score Mission Points.<br/>
-          A Unit is said to control an Objective if it occupies a Square that is touching that Objective and if the Unit is not <a href="#adjacent">Adjacent</a> to any enemy Units.<br/>
+          A Unit is said to control an Objective if it is Adjacent to that Objective and if the Unit is not <a href="#adjacent">Adjacent</a> to any enemy Units.<br/>
           At the end of each Turn, your Squad scores one Mission Point for each Objective that one of your Units controls.<br/>
           <img src="/img/rules/ObjectivePlacement.jpg" width="50%" />
         </p>

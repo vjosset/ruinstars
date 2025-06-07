@@ -15,7 +15,7 @@ export default async function RulesItems() {
           <h5>Crates</h5>
           <p>
             If you choose to play with Crates, place 4 Crates in random spots on the battlefield.
-            To open a crate, a Unit must occupy the same Square as the crate and spend 1 ACT to open it. This counts as a Mission action.
+            To open a crate, a Unit must be Adjacent to the crate and spend 1 ACT to open it. This counts as a Mission action.
             When opened, roll 1D{GAME.DICE_BASIS} to determine the contents of that Crate:
           </p>
           <ol>

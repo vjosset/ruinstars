@@ -39,7 +39,7 @@ export default async function RulesMovement() {
           <em>Remus' pistol has a range of 3 (<code>RNG3</code>). He can target the green unit in ranged combat, but not the red unit.</em>
         </div>
         <div className="section">
-          <h4 id="occupied-squares">Moving Through Units</h4>
+          <h4 id="move-through">Moving Through Units</h4>
           <p>Two Units cannot have their bases overlap.<br/>
           A Unit cannot move past an enemy Unit within 1". A Unit may move past a Squadmate within 1", but cannot end its move overlapping that Squadmate's base.
           A Unit may end their movement Adjacent to an enemy Unit (to prepare for Melee Combat).</p>
