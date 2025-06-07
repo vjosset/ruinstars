@@ -170,8 +170,10 @@ export default function UnitCard({
                   </span>
                 )}
                 {!unit.isUnitType && <span>
-                  { " | " }
-                  {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
+                  <span className="text-muted">
+                    { " " }
+                    {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
+                  </span>
                 </span>}
               </div>
               <div className="text-right whitespace-nowrap">
