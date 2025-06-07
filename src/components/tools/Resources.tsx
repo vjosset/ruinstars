@@ -13,8 +13,8 @@ export default function Resources() {
           <li>
             Rules:
             <ul>
-              <li><Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250523.pdf">Easy Print</Link></li>
-              <li><Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250523 - FullColor.pdf">Full Color</Link></li>
+              <li><Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250607.pdf">Easy Print</Link></li>
+              <li><Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250607 - FullColor.pdf">Full Color</Link></li>
             </ul>
           </li>
           <li>Battlefield PDFs: <em>Coming soon!</em></li>
