@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "PORT=4000 next start",
     "lint": "npx eslint \"src/**/*.ts\" --fix",
-    "genseed": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/rebuildseeddata-core.ts"
+    "genseed": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/generateSeedData.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.1",
