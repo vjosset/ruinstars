@@ -14,8 +14,8 @@ export default async function RulesItems() {
       definition: 'A die roll made when a Unit is hit in Combat to prevent Damage. A result equal to or less than the Unit\'s ARM stat is a success.'
     },
     {
-      key: 'Battlefield Tile',
-      definition: 'The game board is divided into 9 equal tiles (3x3 grid). Tiles are referenced during mission setup and battlefield effects.'
+      key: 'Battlefield',
+      definition: 'The game board on which the Mission is played.'
     },
     {
       key: 'Campaign',
@@ -120,10 +120,12 @@ export default async function RulesItems() {
         <ul>
           {
             definitions.map(def => (
-              <li>
-                <h6 className="text-main">{def.key}</h6>
-                <p>{def.definition}</p>
-              </li>
+              <>
+                <strong className="text-main">{def.key}</strong>
+                <p className="pl-2 pb-2">
+                  {def.definition}
+                </p>
+              </>
             ))
           }
         </ul>
