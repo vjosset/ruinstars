@@ -139,7 +139,7 @@ export default function UnitCard({
 
         {/* Skills */}
         {(unit.skills?.length ?? 0) > 0 && unit.currHIT !== 0 && (
-          <GearGroupList gearList={unit.skills ?? []} showNarrative={settings.showNarrative} />
+          <GearGroupList gearList={unit.skills ?? []} showNarrative={!unit.isUnitType} />
         )}
 
         {/* Footer */}

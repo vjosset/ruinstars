@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 interface LocalSettings {
   showPortraits: boolean
-  showNarrative: boolean
+  showNarrative: boolean // Deprecated, not in use
   theme: 'light' | 'dark'
 }
 

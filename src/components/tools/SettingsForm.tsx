@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Checkbox, Label, SectionTitle } from '@/components/ui'
+import { Button, SectionTitle } from '@/components/ui'
 import { useLocalSettings } from '@/hooks/useLocalSettings'
 import { GAME } from '@/lib/config/game_config'
 import { useEffect, useState } from 'react'
@@ -28,16 +28,15 @@ export default function SettingsForm() {
   return (
     <div className="space-y-4">
       {/* Display Settings */}
+      {/*
       <div>
         <SectionTitle>Display</SectionTitle>
-        {/*
         <div>
           <Checkbox id="showPortraits"
             checked={settings.showPortraits}
             onChange={() => updateSettings({ showPortraits: !settings.showPortraits })} />
           <Label htmlFor="showPortraits">Show Portraits</Label>
         </div>
-        */}
         <div>
           <Checkbox id="showNarrative"
             checked={settings.showNarrative}
@@ -45,6 +44,7 @@ export default function SettingsForm() {
           <Label htmlFor="showNarrative">Show Narrative Gear</Label>
         </div>
       </div>
+      */}
 
       {/* Install PWA */}
       {deferredPrompt && (
@@ -65,7 +65,9 @@ export default function SettingsForm() {
           } else {
             alert('Unable to clear cache.')
           }
-        }}>Clear Cache</Button>
+        }}>
+          <h6>Clear Cache</h6>
+        </Button>
       </div>
 
     </div>

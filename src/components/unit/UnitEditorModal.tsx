@@ -295,7 +295,7 @@ export default function UnitEditorModal({
                     onClick: () => toggleGear(g.gearId),
                   }))}
                   selectedGearIds={gearIds}
-                  showNarrative={settings.showNarrative}
+                  showNarrative={true}
                   onToggleGear={toggleGear}
                 />
               </div>
