@@ -62,8 +62,8 @@ export default async function RulesItems() {
       definition: 'A game element placed on the Battlefield that can be interacted with (e.g. Crates, Spawn Points, Barrels).'
     },
     {
-      key: 'Leader (LDRx)',
-      definition: 'A Unit with the LDRx Special Rule contributes extra dice to Tactical Orders each Turn and is often a high-value target.'
+      key: 'Leader',
+      definition: 'A single Unit in a given Squad that is the Squad\'s Leader. Leaders contribute extra dice to Tactical Orders each Turn and are often high-value targets.'
     },
     {
       key: 'Line of Sight (LoS)',

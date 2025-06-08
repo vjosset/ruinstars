@@ -34,7 +34,8 @@ export default async function RulesActions() {
           </tbody>
         </table>
         <h3 id="tactical-orders">Tactical Orders</h3>
-        <p>At the start of each turn, each player rolls <code>3D{GAME.DICE_BASIS}</code> and adds 1 die for each of the Squad's Units' <code>LDRx</code> Special Rule. For example, if your Leader is still in play and has the <code>LDR2</code> Special Rule, you would roll <code>5D{GAME.DICE_BASIS}</code> for Tactical Orders (3 base dice for Tactical Orders plus 2 dice provided by your Leader).<br/>If you do not have a Unit with the <code>LDRx</code> Special Rule on the Battlefield, you do not get their Tactical Order bonus and just roll <code>3D{GAME.DICE_BASIS}</code>.</p>
+        <p>At the start of each turn, each player rolls <code>3D{GAME.DICE_BASIS}</code> and adds 1 die for each of the Squad's Units' <code>Leader x</code> Special Rule. For example, if your Leader is still in play and has the <code>Leader 2</code> Special Rule, you would roll <code>5D{GAME.DICE_BASIS}</code> for Tactical Orders (3 base dice for Tactical Orders plus 2 dice provided by your Leader).<br/>
+        If you do not have a Unit with the <code>Leader</code> Special Rule on the Battlefield, you do not get their Tactical Order bonus and just roll <code>3D{GAME.DICE_BASIS}</code>.</p>
         <p>For each die result of <code>1-3</code>, you will have one Tactical Order. Tactical Orders allow Units to perform more Actions than their <code>ACT</code> Action limit.</p>
         <p>At the end of each Turn, any unused Tactical Orders are lost; they do not carry over to the following Turn.</p>
         <p>Note that rolling for Tactical Orders cannot be modified by using Tactical Orders.</p>
