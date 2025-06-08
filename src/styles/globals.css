@@ -37,21 +37,21 @@ Font notes:
 
 @font-face {
   font-family: 'title';
-  src: url('/fonts/KirstyBold.otf');
+  src: url('/fonts/gomarice_goma_octagon.ttf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'heading';
-  src: url('/fonts/KirstyBold.otf');
+  src: url('/fonts/gomarice_goma_octagon.ttf');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'stat';
-  src: url('/fonts/KirstyBold.otf');
+  src: url('/fonts/gomarice_goma_octagon.ttf');
   font-weight: normal;
   font-style: normal;
 }
