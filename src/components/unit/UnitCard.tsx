@@ -124,7 +124,7 @@ export default function UnitCard({
               HIT
               { ' ' }
               <span className="stat text-main text-3xl">{unit.currHIT}</span>
-              <span className="stat text">/{unit.HIT}</span>
+              <span className="stat text-muted">/{unit.HIT}</span>
             </h5>
           )}
         </div>

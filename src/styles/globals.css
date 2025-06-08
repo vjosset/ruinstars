@@ -8,7 +8,7 @@ Font notes:
 	|------------------|-------|-------|-------|-------------------------------------|
 	| Bocuma           |   N   |   N   |   N   |                                     |
 	| Fyodor           |   N   |   Y   |   N   |                                     |
-	| CGFLocust        |   N   |   N   |   Y   | Wide                                |
+	| CGFLocust        |   N   |   N   |   Y   | Wide, no special chars like /       |
 	| Closeness        |   Y   |   Y   |   N   | Clean/Simple                        |
 	| Compacta         |   Y   |   Y   |   N   |                                     |
 	| Geizer           |   Y   |   N   |   N   | Small                               |
@@ -37,22 +37,22 @@ Font notes:
 
 @font-face {
   font-family: 'title';
-  src: url('/fonts/vipnagorgialla.bold.otf');
-  font-weight: bold;
+  src: url('/fonts/KirstyBold.otf');
+  font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'heading';
-  src: url('/fonts/zeroes.three-regular.otf');
+  src: url('/fonts/KirstyBold.otf');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'stat';
-  src: url('/fonts/vipnagorgialla.bold.otf');
-  font-weight: bold;
+  src: url('/fonts/KirstyBold.otf');
+  font-weight: normal;
   font-style: normal;
 }
 
