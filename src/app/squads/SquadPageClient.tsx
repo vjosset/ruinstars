@@ -3,7 +3,9 @@
 import { Button } from '@/components/ui'
 import { SpecialRule } from '@/lib/utils/specialRules'
 import { Medal, SquadPlain, UnitPlain } from '@/types'
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { FiEdit2, FiInfo, FiRotateCcw, FiUser } from 'react-icons/fi'
 import EditSquadForm from '../../components/squad/EditSquadForm'
@@ -19,6 +21,9 @@ export default function SquadPageClient({
   initialSquad: SquadPlain
   isOwner: boolean
 }) {
+  const router = useRouter()
+  const { status } = useSession()
+
   const [units, setUnits] = useState<UnitPlain[]>(initialSquad.units ?? [])
   const [squad, setSquad] = useState(initialSquad)
   const [allSpecials, setSpecials] = useState<SpecialRule[] | null>(null)
@@ -244,6 +249,36 @@ export default function SquadPageClient({
               <span className="ml-1">{squad.user?.userName}</span>
             </Link>
             <span>({totalGP}/{squad.maxGP}GP)</span>
+            
+            {!isOwner && status === 'authenticated' && (
+              <>
+                <br/>
+                <span
+                  className="cursor-pointer"
+                  style={{textDecoration: 'underline'}}
+                  onClick={async () => {
+                    try {
+                      const res = await fetch(`/api/squads/${squad.squadId}/clone`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                          squadName: squad.squadName,
+                          factionId: squad.factionId,
+                        }),
+                      })
+
+                      if (!res.ok) throw new Error('Failed to import squad')
+
+                      const { squadId } = await res.json()
+                      router.push(`/squads/${squadId}`)
+                    } catch (err) {
+                      console.error(err)
+                    }
+                  }}>
+                  Import Squad
+                </span>
+              </>
+            )}
           </div>
         </div>
       </div>

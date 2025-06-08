@@ -2,6 +2,7 @@
 
 import GearItem from '@/components/shared/GearItem'
 import { GearPlain } from '@/types'
+import { useEffect, useState } from 'react'
 import { Checkbox } from '../ui'
 
 interface GearGroupListProps {
@@ -17,39 +18,38 @@ export default function GearGroupList({
   showNarrative = false,
   onToggleGear,
 }: GearGroupListProps) {
-  // Filter out narrative gear first
-  const filteredGearList = gearList.filter(gear => showNarrative || !gear.gearCategory?.isNarrative)
+  const [groupedGears, setGroupedGears] = useState<Record<string, GearPlain[]>>({})
 
-  // Then sort the filtered list by category.seq then gear.seq
-  const sortedGearList = [...filteredGearList].sort((a, b) => {
-    // First sort by category sequence
-    const categorySeqDiff = (a.gearCategory?.seq || 0) - (b.gearCategory?.seq || 0)
-    if (categorySeqDiff !== 0) return categorySeqDiff
-    
-    // Then by gear sequence
-    const seqDiff = (a.seq || 0) - (b.seq || 0)
-    if (seqDiff !== 0) return seqDiff
-    
-    // Finally by name
-    return (a.gearName || '').localeCompare(b.gearName || '')
-  })
+  useEffect(() => {
+    // We put all this in useEffect to avoid hydration issues due to showNarrative being pulled from user's localStorage.
+    const filteredGearList = gearList.filter(gear => showNarrative || !gear.gearCategory?.isNarrative)
 
-  const grouped = sortedGearList.reduce((acc, gear) => {
-    const categoryId = gear.gearCategory?.gearCategoryId
-    if (!categoryId) {
-      console.warn('⚠️ Gear with missing category:', gear)
-      return acc // Skip this gear if it lacks a category
-    }
-    if (!acc[categoryId]) {
-      acc[categoryId] = []
-    }
-    acc[categoryId].push(gear)
-    return acc
-  }, {} as Record<string, GearPlain[]>)
+    const sortedGearList = [...filteredGearList].sort((a, b) => {
+      const catA = a.gearCategory?.seq || 0
+      const catB = b.gearCategory?.seq || 0
+      if (catA !== catB) return catA - catB
+    
+      const seqA = a.seq || 0
+      const seqB = b.seq || 0
+      if (seqA !== seqB) return seqA - seqB
+    
+      return (a.gearName || '').localeCompare(b.gearName || '')
+    })
+
+    const grouped = sortedGearList.reduce((acc, gear) => {
+      const categoryId = gear.gearCategory?.gearCategoryId
+      if (!categoryId) return acc
+      if (!acc[categoryId]) acc[categoryId] = []
+      acc[categoryId].push(gear)
+      return acc
+    }, {} as Record<string, GearPlain[]>)
+
+    setGroupedGears(grouped)
+  }, [gearList, showNarrative])
 
   return (
     <>
-      {Object.entries(grouped).map(([categoryId, gears]) => {
+      {Object.entries(groupedGears).map(([categoryId, gears]) => {
         const sortedGears = gears.sort((a, b) => {
           const seqA = a.seq ?? 0
           const seqB = b.seq ?? 0
@@ -63,11 +63,11 @@ export default function GearGroupList({
 
         return (
           <div key={categoryId} className="grid grid-cols-2 border-t border-border">
-            <h6 className="text-muted">
+            <h6 className="text-muted flex items-center">
               {sortedGears[0].gearCategory?.gearCategoryName}
             </h6>
             {sortedGears.map((gear) => (
-              <div key={gear.gearId}>
+              <div key={gear.gearId} className="flex items-center gap-1">
                 {onToggleGear && (
                   <Checkbox
                     type="checkbox"
@@ -75,7 +75,6 @@ export default function GearGroupList({
                     onChange={() => onToggleGear(gear.gearId)}
                   />
                 )}
-                { ' ' }
                 <GearItem gear={gear} />
               </div>
             ))}
