@@ -186,11 +186,13 @@ export default function QuickRef() {
       <div className="section">
         <h3>Campaign Homebase</h3>
         <ul>
-          <li>Add 2 GP to your Squad's Max GP, plus 2 GP for each Victory in the previous Operation.</li>
-          <li>Remove all Injuries (except Deceased) from all Units</li>
-          <li>Recruit new Units into the Squad</li>
+          <li>Remove all Deceased Units from your Squad</li>
+          <li>Add 2 GP to your Squad's Max GP</li>
+          <li>Add 2 GP for each Victory in the previous Operation</li>
+          <li>Remove all Injuries from all Units</li>
           <li>Make changes to your Squad's selected Gear</li>
-          <li>Add Spoils Of War to eligible Units (one Spoil Of War per 5 XP)</li>
+          <li>Add Spoils Of War to eligible Units</li>
+          <li>Recruit new Units into the Squad</li>
         </ul>
       </div>
     </div>

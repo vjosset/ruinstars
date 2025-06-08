@@ -33,7 +33,7 @@ export default async function RulesCampaigns() {
           <li>Remove all Deceased Units from your Squad</li>
           <li>Add 2 GP to your Squad's Max GP</li>
           <li>Add 2 GP for each Victory in the previous Operation</li>
-          <li>Remove all Injuries (except Deceased) from all Units</li>
+          <li>Remove all Injuries from all Units</li>
           <li>Make changes to your Squad's selected Gear</li>
           <li>Add Spoils Of War to eligible Units</li>
           <li>Recruit new Units into the Squad</li>
@@ -45,10 +45,6 @@ export default async function RulesCampaigns() {
         <p>
           For each increment of 5 XP earned, a Unit may take another Spoil Of War.<br/>
           For example, a Unit with 13 XP can take 2 Spoils of War.
-        </p>
-        <p>
-          Consult your Squad's Faction's page to review available Spoils of War.<br/>
-          Make sure to enable "Narrative Gear" in your <Link href="/tools">Settings</Link> to view Spoils of War and Injuries.
         </p>
         <ul>
           {/* Spoils Of War List */}
