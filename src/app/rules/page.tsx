@@ -1,19 +1,20 @@
 import { GAME } from '@/lib/config/game_config'
-import RulesHeader from './rules-header'
-import RulesToc from './rules-toc'
-import RulesIntro from './rules-intro'
-import RulesCoreMechanics from './rules-coremechanics'
-import RulesGameCycle from './rules-gamecycle'
-import RulesStatCards from './rules-statcards'
 import RulesActions from './rules-actions'
-import RulesMovement from './rules-movement'
-import RulesCombat from './rules-combat'
-import RulesYourSquad from './rules-yoursquad'
-import RulesMissions from './rules-missions'
 import RulesBattlefields from './rules-battlefields'
 import RulesCampaigns from './rules-campaigns'
-import RulesItems from './rules-items'
+import RulesCombat from './rules-combat'
+import RulesCoreMechanics from './rules-coremechanics'
 import RulesFactions from './rules-factions'
+import RulesGameCycle from './rules-gamecycle'
+import RulesGlossary from './rules-glossary'
+import RulesHeader from './rules-header'
+import RulesIntro from './rules-intro'
+import RulesItems from './rules-items'
+import RulesMissions from './rules-missions'
+import RulesMovement from './rules-movement'
+import RulesStatCards from './rules-statcards'
+import RulesToc from './rules-toc'
+import RulesYourSquad from './rules-yoursquad'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import Link from 'next/link'
@@ -77,6 +78,9 @@ export default async function Home() {
       
       <hr />
       <RulesItems />
+      
+      <hr />
+      <RulesGlossary />
       
       <div className="printonly">
         <hr />

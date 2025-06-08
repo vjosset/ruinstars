@@ -17,6 +17,7 @@ export default async function RulesToc() {
         <li><a href="#battlefields">Battlefields</a></li>
         <li><a href="#campaigns">Campaigns</a></li>
         <li><a href="#items">Items</a></li>
+        <li><a href="#glossary">Glossary</a></li>
       </ol>
     </div>
   )}
