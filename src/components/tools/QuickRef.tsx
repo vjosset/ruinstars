@@ -126,7 +126,7 @@ export default function QuickRef() {
           <li>
             <strong>Select Target</strong>
             <ol>
-              <li>The Attacker selects one of their Ranged weapons to use</li>
+              <li>The Attacker selects one of their Melee weapons to use</li>
               <li>The Target must be Adjacent to the Attacker</li>
             </ol>
           </li>

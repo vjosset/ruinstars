@@ -122,7 +122,7 @@ export default async function RulesCombat() {
             <li>
               <strong>Select Target</strong>
               <ol>
-                <li>The Attacker selects one of its Melee weapons for use in this attack</li>
+                <li>The Attacker selects one of their Melee weapons for use in this attack</li>
                 <li>
                   The Attacker selects a valid target. The target must be Adjacent to the Attacker.
                 </li>
