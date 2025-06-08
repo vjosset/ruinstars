@@ -1,7 +1,6 @@
 'use client'
 
 import { useModal } from '@/components/ui/ModalContext'
-import { useLocalSettings } from '@/hooks/useLocalSettings'
 import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
 import GearGroupList from '@/src/components/shared/GearGroupList'
 import WeaponTable from '@/src/components/shared/WeaponTable'
@@ -52,8 +51,6 @@ export default function UnitCard({
   
   // Delete state
   const [deleteError, setDeleteError] = useState('')
-  
-  const { settings } = useLocalSettings()
   const { showModal } = useModal()
 
   // Keep local state in sync with unit props

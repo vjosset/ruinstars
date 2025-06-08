@@ -1,14 +1,12 @@
 'use client'
 
 import { Button, SectionTitle } from '@/components/ui'
-import { useLocalSettings } from '@/hooks/useLocalSettings'
 import { GAME } from '@/lib/config/game_config'
 import { useEffect, useState } from 'react'
 
 export default function SettingsForm() {
   const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null)
-  const { settings, updateSettings } = useLocalSettings()
-
+  
   useEffect(() => {
     window.addEventListener('beforeinstallprompt', (e: Event) => {
       e.preventDefault()

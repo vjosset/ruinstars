@@ -1,7 +1,6 @@
 'use client'
 
 import { useModal } from '@/components/ui/ModalContext'
-import { useLocalSettings } from '@/hooks/useLocalSettings'
 import { SpecialRule, parseSpecialRules } from '@/lib/utils/specialRules'
 import { UnitPlain, UnitTypePlain } from '@/types'
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
@@ -60,8 +59,6 @@ export default function UnitEditorModal({
     
     return unitTypeGP + (gearGP > 0 ? `+${gearGP}` : '')
   }
-
-  const { settings } = useLocalSettings()
 
   // Add effect to update totalGP when selections change
   useEffect(() => {
