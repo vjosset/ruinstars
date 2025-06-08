@@ -1,10 +1,10 @@
 import { GAME } from '@/lib/config/game_config'
-import { notFound } from 'next/navigation'
-import { getAuthSession } from '@/src/lib/auth'
-import { UserService } from '@/services'
-import { Squad } from '@/types/squad.model'
-import UserPageClient from '../UserPageClient'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
+import { UserService } from '@/services'
+import { getAuthSession } from '@/src/lib/auth'
+import { Squad } from '@/types/squad.model'
+import { notFound } from 'next/navigation'
+import UserPageClient from '../UserPageClient'
 export const revalidate = 60
 
 export async function generateMetadata({ params }: { params: Promise<{ userName: string }> }) {
@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ userName:
       url: '/img/hero01.webp',
     },
     keywords: [user.userName, 'user', 'squad', 'squad builder', 'battle tracker'],
+    pagePath: `/users/${user.userName}`
   })
 }
 

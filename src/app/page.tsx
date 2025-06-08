@@ -16,6 +16,7 @@ export async function generateMetadata() {
       url: '/img/hero01_wideB.webp',
     },
     keywords: ['home', 'squad builder', 'battle tracker'],
+    pagePath: '/'
   })
 }
 

@@ -26,7 +26,8 @@ export async function generateMetadata() {
     image: {
       url: '/icons/icon-big.png',
     },
-    keywords: ['free', 'rules']
+    keywords: ['free', 'rules'],
+    pagePath: '/rules'
   })
 }
 

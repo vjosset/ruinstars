@@ -1,6 +1,6 @@
+import { GAME } from '@/lib/config/game_config'
 import { Metadata } from 'next'
 import { headers } from 'next/headers'
-import { GAME } from '@/lib/config/game_config'
 
 interface MetadataParams {
   title?: string
@@ -11,7 +11,8 @@ interface MetadataParams {
     height?: number
     alt?: string
   }
-  keywords?: string[]
+  keywords?: string[],
+  pagePath: string
 }
 
 export async function generatePageMetadata({
@@ -19,11 +20,13 @@ export async function generatePageMetadata({
   description,
   image,
   keywords = [],
+  pagePath = '/'
 }: MetadataParams): Promise<Metadata> {
   const headersList = headers()
   const host = (await headersList).get('host')
-  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https'
-  const baseUrl = `${protocol}://${host}`
+  const baseUrl = `https://${host}`
+
+  const canonicalUrl = baseUrl + pagePath
 
   // Default values
   const pageTitle = title ? `${title} - ${GAME.NAME}` : GAME.NAME
@@ -56,6 +59,11 @@ export async function generatePageMetadata({
       'battle tracker',
       'dashboard'
     ],
+
+    // Canonical URL for SEO
+    alternates: {
+      canonical: canonicalUrl,
+    },
     
     // OpenGraph
     openGraph: {

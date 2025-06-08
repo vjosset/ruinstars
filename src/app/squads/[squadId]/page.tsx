@@ -1,10 +1,10 @@
-import { GAME } from '@/lib/config/game_config'
-import { SquadService } from '@/services'
-import { notFound } from 'next/navigation'
-import { Metadata } from 'next'
 import { getAuthSession } from '@/lib/auth'
-import SquadPageClient from '../SquadPageClient'
+import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
+import { SquadService } from '@/services'
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import SquadPageClient from '../SquadPageClient'
 
 export async function generateMetadata({ params }: { params: Promise<{ squadId: string }> }): Promise<Metadata> {
   const { squadId } = await params
@@ -22,7 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ squadId: 
     image: {
       url: `/img/factions/${squad.faction?.factionId}.webp`,
     },
-    keywords: [squad.faction?.factionName ?? '', 'squad', 'squad builder', 'battle tracker'],
+    keywords: [squad.squadName, squad.faction?.factionName ?? '', 'squad', 'squad builder', 'battle tracker'],
+    pagePath: `/squads/${squad.squadId}`
   })
 }
 
