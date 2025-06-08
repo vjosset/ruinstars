@@ -1,12 +1,13 @@
 'use client'
 
-import {  useState } from 'react'
-import clsx from 'clsx'
-import SettingsForm from '@/components/tools/SettingsForm'
-import AppVersion from '@/components/tools/AppVersion'
-import AdminTools from '@/components/tools/AdminTools'
 import AccountTools from '@/components/tools/AccountTools'
+import AdminTools from '@/components/tools/AdminTools'
+import AppVersion from '@/components/tools/AppVersion'
 import Resources from '@/components/tools/Resources'
+import SettingsForm from '@/components/tools/SettingsForm'
+import PageTitle from '@/components/ui/PageTitle'
+import clsx from 'clsx'
+import { useState } from 'react'
 
 
 export default function ToolsPageClient({ userId }: { userId: string }) {
@@ -29,7 +30,7 @@ export default function ToolsPageClient({ userId }: { userId: string }) {
   return (
     <div className="px-1 py-8 max-w-6xl mx-auto">
       <div className="text-center mb-8">
-        <h1>Tools</h1>
+        <PageTitle>Tools</PageTitle>
 
         <div className="w-full">
           <div className="flex justify-center space-x-4 border-b border-zinc-700 mb-4">

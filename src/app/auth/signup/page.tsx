@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { Button, Input } from '@/components/ui'
+import PageTitle from '@/components/ui/PageTitle'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
-import { Button, Input } from '@/components/ui'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 {/*
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { GAME } from '@/lib/config/game_config'
@@ -78,7 +79,7 @@ export default function SignUpPage() {
   return (
     <div className="px-1 py-8 max-w-7xl mx-auto justify-center">
       <div className="text-center mb-8">
-        <h1>Sign Up</h1>
+        <PageTitle>Sign Up</PageTitle>
       </div>
 
       <div className="max-w-sm w-full mx-auto space-y-4">

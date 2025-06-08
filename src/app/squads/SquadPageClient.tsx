@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui'
+import PageTitle from '@/components/ui/PageTitle'
 import { SpecialRule } from '@/lib/utils/specialRules'
 import { Medal, SquadPlain, UnitPlain } from '@/types'
 import { useSession } from 'next-auth/react'
@@ -220,9 +221,9 @@ export default function SquadPageClient({
       <div className="text-center space-y-2 mb-1">
         <div className="flex flex-col justify-center items-center gap-2">
           <div className="flex items-center justify-center gap-2">
-            <h3 className="font-title" onClick={handleEditSquadClick}>
+            <PageTitle onClick={handleEditSquadClick}>
               {squad.squadName}
-            </h3>
+            </PageTitle>
           </div>
 
           {/* Details under title */}

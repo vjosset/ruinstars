@@ -1,3 +1,4 @@
+import PageTitle from '@/components/ui/PageTitle'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { UserService } from '@/services'
@@ -42,7 +43,9 @@ export default async function UserPage({ params }: { params: Promise<{ userName:
   return (
     <div className="px-1 py-8 max-w-7xl mx-auto">
       <div className="text-center mb-8">
-        <h1>{user.userName}</h1>
+        <PageTitle>
+          {user.userName}
+        </PageTitle>
       </div>
       
       <UserPageClient 

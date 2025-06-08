@@ -1,6 +1,7 @@
+import FactionCard from '@/components/faction/FactionCard'
+import PageTitle from '@/components/ui/PageTitle'
 import { GAME } from '@/lib/config/game_config'
 import { FactionService } from '@/services/faction.service'
-import FactionCard from '@/components/faction/FactionCard'
 
 export const metadata = {
   title: `Factions - ${GAME.NAME}`,
@@ -13,7 +14,7 @@ export default async function FactionsPage() {
   return (
     <div className="px-1 py-8 max-w-7xl mx-auto">
       <div className="text-center mb-8">
-        <h1>Factions</h1>
+        <PageTitle>Factions</PageTitle>
         <p className="text-muted mt-2 max-w-xl mx-auto">
           {GAME.NAME} is home to rival powers vying for dominance. Each faction brings unique tactics, units, and strategies.
         </p>

@@ -1,4 +1,5 @@
 import Markdown from '@/components/ui/Markdown'
+import PageTitle from '@/components/ui/PageTitle'
 import UnitCard from '@/components/unit/UnitCard'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { FactionService, SpecialService } from '@/src/services'
@@ -47,7 +48,7 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
               src={`/img/factions/${faction.factionId}-icon.webp`} 
               alt={`${faction.factionName} icon`}
             />
-            <h1 className="text-center text-4xl text-white mb-2">{faction.factionName}</h1>
+            <PageTitle>{faction.factionName}</PageTitle>
           </div>
           <div className="text-white max-w-2xl text-center">
             <Markdown>{faction.description}</Markdown>

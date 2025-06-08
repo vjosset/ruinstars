@@ -4,24 +4,32 @@
 
 /*
 Font notes:
-	| Font             | Title |Heading| Stats | Notes           |
-	|------------------|-------|-------|-------|-----------------|
-	| CGFLocust        |   N   |   N   |   Y   | Wide            |
-	| Closeness        |   Y   |   Y   |   N   | Clean/Simple    |
-	| Geizer           |   Y   |   N   |   N   | Small           |
-	| GovtAgentBB      |   Y   |   Y   |   Y   |                 |
-	| Goma No Continue |   Y   |   N   |   N   |                 |
-	| Goma Octagon     |   Y   |   N   |   Y   |                 |
-	| Goma Tall Block  |   Y   |   N   |   N   |                 |
-	| Jacinto          |   Y   |   N   |   Y   | Wide            |
-	| KirstyBold       |   Y   |   N   |   m   |                 |
-	| LongShot         |   Y   |   N   |   Y   |                 |
-	| No Continue      |   Y   |   N   |   N   |                 |
-	| Origicide        |   Y   |   N   |   N   |                 |
-	| Quantico         |   N   |   Y   |   Y   | Not bold        |
-	| Suggested        |   Y   |   N   |   m   | Angled/Metal    |
-	| Younger than me  |   Y   |   N   |   Y   | Slight Drip     |
-	| Waruna           |   Y   |   N   |   N   |                 |
+	| Font             | Title |Heading| Stats | Notes                               |
+	|------------------|-------|-------|-------|-------------------------------------|
+	| Bocuma           |   N   |   N   |   N   |                                     |
+	| Fyodor           |   N   |   Y   |   N   |                                     |
+	| CGFLocust        |   N   |   N   |   Y   | Wide                                |
+	| Closeness        |   Y   |   Y   |   N   | Clean/Simple                        |
+	| Compacta         |   Y   |   Y   |   N   |                                     |
+	| Geizer           |   Y   |   N   |   N   | Small                               |
+	| GovtAgentBB      |   Y   |   Y   |   Y   |                                     |
+	| Goma No Continue |   Y   |   N   |   N   |                                     |
+	| Goma Octagon     |   Y   |   N   |   Y   |                                     |
+	| Goma Tall Block  |   Y   |   N   |   N   |                                     |
+	| Jacinto          |   Y   |   N   |   Y   | Wide                                |
+	| KirstyBold       |   Y   |   N   |   M   | Western-like                        |
+	| LongShot         |   Y   |   N   |   Y   |                                     |
+	| No Continue      |   Y   |   N   |   N   |                                     |
+	| Origicide        |   Y   |   N   |   N   |                                     |
+	| Owners           |   Y   |   N   |   N   | Blocky                              |
+	| Quantico         |   N   |   Y   |   Y   | Not bold                            |
+	| Sector034        |   Y   |   N   |   Y   | Large                               |
+	| SpectraShell     |   Y   |   N   |   N   | Narrow & Small                      |
+	| Suggested        |   Y   |   N   |   M   | Angled/Metal                        |
+	| Vipnagorgialla   |   Y   |   Y   |   Y   | Kinda wide, too wide for Unit names |
+	| Waruna           |   Y   |   N   |   N   |                                     |
+	| Younger than me  |   Y   |   N   |   Y   | Slight Drip                         |
+	| Zeroes Three     |   M   |   Y   |   Y   | Thin & Clear, Solid                 |
 
 	Waruna is good for game title but not headings or stats
 	Geizer is nive but scaled small, solid for game title and stats, but not headings
@@ -29,22 +37,22 @@ Font notes:
 
 @font-face {
   font-family: 'title';
-  src: url('/fonts/GovtAgentBB.ttf');
-  font-weight: normal;
+  src: url('/fonts/vipnagorgialla.bold.otf');
+  font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'heading';
-  src: url('/fonts/GovtAgentBB.ttf');
-  font-weight: normal;
+  src: url('/fonts/zeroes.three-regular.otf');
+  font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'stat';
-  src: url('/fonts/GovtAgentBB.ttf');
-  font-weight: normal;
+  src: url('/fonts/zeroes.three-regular.otf');
+  font-weight: bold;
   font-style: normal;
 }
 
@@ -102,7 +110,7 @@ h1 {
 
 h2, h3, h4, h5, h6 {
   @apply font-main uppercase grunge;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 h2 { @apply text-4xl; }
