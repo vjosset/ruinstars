@@ -1,3 +1,4 @@
+import ImageModal from '@/components/ui/ImageModal'
 import { GAME } from '@/lib/config/game_config'
 
 export default async function RulesCombat() {
@@ -80,7 +81,11 @@ export default async function RulesCombat() {
             <p>
               A Target is in an Attacker's <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one point of the Attacker's base to two opposite points of the Target's base.<br/>
               A Unit cannot shoot through other Units.<br/>
-              <img src="/img/rules/LineOfSight.jpg" width="50%" />
+              <ImageModal 
+                src="/img/rules/LineOfSight.webp" 
+                alt="Line of Sight between two Units"
+                className="mb-2 w-1/2"
+              />
             </p>
           </div>
           <div className="section">
@@ -101,18 +106,18 @@ export default async function RulesCombat() {
           
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <img 
-                  src="/img/rules/Cover01.jpg" 
+                <ImageModal 
+                  src="/img/rules/Cover.webp" 
+                  alt="Example of unit in cover"
                   className="mb-2" 
-                  alt="Example of unit in cover" 
                 />
                 The targeted enemy is in Cover because the blocking terrain element is Adjacent to it.
               </div>
               <div>
-                <img 
-                  src="/img/rules/Cover02.jpg" 
-                  className="mb-2" 
-                  alt="Example of unit not in cover" 
+                <ImageModal 
+                  src="/img/rules/NoCover.webp" 
+                  alt="Example of unit not in cover"
+                  className="mb-2"
                 />
                 The targeted enemy is not in Cover because the blocking terrain element is not Adjacent to it.
               </div>
