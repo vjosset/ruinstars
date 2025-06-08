@@ -46,6 +46,10 @@ export default async function RulesItems() {
       definition: 'The vertical distance of a terrain feature. Relevant for determining high ground, climbing, adjacency, and line of sight.'
     },
     {
+      key: 'Gear ',
+      definition: 'The various Weapons, Skills, and Abilities available to a Unit.'
+    },
+    {
       key: 'Gear Points (GP)',
       definition: 'The point value used to build Squads. Each Unit and item of Gear costs a certain amount of GP. The standard limit is 100 GP per Squad.'
     },

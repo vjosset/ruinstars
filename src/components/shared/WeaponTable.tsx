@@ -1,8 +1,8 @@
 'use client'
-import { GearPlain } from '@/types'
-import { Checkbox } from '../ui'
 import { useModal } from '@/components/ui/ModalContext'
 import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
+import { GearPlain } from '@/types'
+import { Checkbox } from '../ui'
 
 type WeaponTableProps = {
   weapons: GearPlain[]
