@@ -176,7 +176,7 @@ export default function UnitCard({
                   </span>
                 </span>}
               </div>
-              <div className="text-right whitespace-nowrap">
+              <div className="text-right whitespace-nowrap cursor-pointer">
                 {!unit.isUnitType &&
                   <span onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
                     <FaMedal className="inline-block h-4 w-4" />{ ' ' }
