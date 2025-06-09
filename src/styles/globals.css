@@ -7,7 +7,7 @@ Font notes:
 	| Font                                   | Title |Heading| Stats | Notes                               |
 	|----------------------------------------|-------|-------|-------|-------------------------------------|
 	| bocuma.angle-brk.ttf                   |   N   |   N   |   N   |                                     |
-	| CGFLocustResistance.ttf                |   N   |   N   |   Y   | Wide, no special chars like /       |
+	| CGFLocustResistance.ttf                |   N   |   N   |   Y   | Wide, no special chars like "/"     |
 	| closeness.bold.ttf                     |   Y   |   Y   |   m   | Clean/Simple, numbers unclear       |
 	| Compacta.woff2                         |   Y   |   Y   |   N   |                                     |
 	| fyodor.bold.ttf                        |   N   |   Y   |   N   |                                     |
@@ -32,7 +32,7 @@ Font notes:
 	| zeroes.three-regular.otf               |   M   |   Y   |   Y   | Thin & Clear, Solid                 |
 
 	Waruna is good for game title but not headings or stats
-	Geizer is nive but scaled small, solid for game title and stats, but not headings
+	Geizer is nice but scaled small, solid for game title and stats, but not headings
 */
 
 @font-face {
