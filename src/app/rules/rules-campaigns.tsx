@@ -1,7 +1,6 @@
 import Markdown from '@/components/ui/Markdown'
 import { GearCategoryService } from '@/services'
 import { MedalService } from '@/services/medal.service'
-import Link from 'next/link'
 
 export default async function RulesCampaigns() {
   const medals = await MedalService.getAllMedals()
@@ -64,11 +63,13 @@ export default async function RulesCampaigns() {
         <p>
           At the end of each Mission, each of your Units that were Taken Out during the mission may have a persistent injury.
           Randomly select a lasting effect this injury has on that Unit.<br/>
-          Note that when playing a campaign, all Injuries (except Deceased) are removed from your Units when they return to Homebase.
+          Note that when playing a campaign, all Injuries (except Deceased) are removed from your Units when they return to Homebase at the end of each Operation.
         </p>
         <p>
-          Consult your Squad's Faction's page to review available Injuries.<br/>
-          Make sure to enable "Narrative Gear" in your <Link href="/tools">Settings</Link> to view Spoils of War and Injuries.
+          At the end of each Mission, for each Unit that was Taken Out, randomly select one Injury to apply to that Unit.<br/>
+          If the Injury is "Deceased", that Unit is removed from the Squad and cannot be replaced until the Squad returns to Homebase.<br/>
+          If the Injury is "Healed", remove one other Injury from that Unit. If it has no other Injuries, "Healed" has no effect.
+          If the Injury is one that the Unit already had, that Unit is Deceased instead.
         </p>
         <ul>
           {/* Injuries List */}

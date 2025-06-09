@@ -2,6 +2,8 @@
 import { useModal } from '@/components/ui/ModalContext'
 import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
 import { GearPlain } from '@/types'
+import { GiCrossedSwords } from 'react-icons/gi'
+import { TfiTarget } from 'react-icons/tfi'
 import { Checkbox } from '../ui'
 
 type WeaponTableProps = {
@@ -59,7 +61,8 @@ export default function WeaponTable({
                   />
                 )}
                 { ' ' }
-                <img className="inline highlightblack" src={`/icons/white/weptype${gear.TYP}.png`} width="13" />
+                {/*<img className="inline highlightblack" src={`/icons/white/weptype${gear.TYP}.png`} width="13" />*/}
+                { gear.TYP == 'M' ? (<GiCrossedSwords className="inline-block" />) : (<TfiTarget className="inline-block" />) }
                 { ' ' }
                 {gear.gearName}
                 {gear.special != '' &&

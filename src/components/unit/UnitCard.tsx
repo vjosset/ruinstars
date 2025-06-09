@@ -6,6 +6,7 @@ import GearGroupList from '@/src/components/shared/GearGroupList'
 import WeaponTable from '@/src/components/shared/WeaponTable'
 import { Medal, UnitPlain, UnitTypePlain } from '@/types'
 import { useEffect, useState } from 'react'
+import { FaMedal } from 'react-icons/fa6'
 import { Button, Checkbox, Modal } from '../ui'
 import UnitCardMenu from './UnitCardMenu'
 import UnitEditorModal from './UnitEditorModal'
@@ -176,9 +177,11 @@ export default function UnitCard({
                 </span>}
               </div>
               <div className="text-right whitespace-nowrap">
-                {!unit.isUnitType && <span onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
-                  {unit.totalMedalXP} XP
-                </span>}
+                {!unit.isUnitType &&
+                  <span onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
+                    <FaMedal className="inline-block h-4 w-4" />{ ' ' }
+                    {unit.totalMedalXP} XP
+                  </span>}
               </div>
             </div>
           </div>
