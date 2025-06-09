@@ -1,10 +1,10 @@
 //@ts-nocheck
-import { Squad } from '@/types'
 import { SquadRepository } from '@/src/repositories/squad.repository'
+import { Squad } from '@/types'
+import { nanoid } from 'nanoid'
 import { GearService } from './gear.service'
 import { MedalService } from './medal.service'
 import { UnitService } from './unit.service'
-import { nanoid } from 'nanoid'
 import { UserService } from './user.service'
 
 export class SquadService {
@@ -99,7 +99,9 @@ export class SquadService {
 
     // Reset all units' activation and currHIT
     await Promise.all(squad.units.map(async unit => {
-      await UnitService.updateUnit(unit.unitId, { currHIT: unit.HIT, isActivated: false})
+      // If the Unit is Deceased (has GearID INJ-DC), don't reset its HIT
+      const newHIT = unit.gearIds?.includes('INJ-DC') ? 0 : unit.HIT
+      await UnitService.updateUnit(unit.unitId, { currHIT: newHIT, isActivated: false})
     }))
 
     // Return the update squad
