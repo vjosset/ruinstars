@@ -4,32 +4,32 @@
 
 /*
 Font notes:
-	| Font             | Title |Heading| Stats | Notes                               |
-	|------------------|-------|-------|-------|-------------------------------------|
-	| Bocuma           |   N   |   N   |   N   |                                     |
-	| Fyodor           |   N   |   Y   |   N   |                                     |
-	| CGFLocust        |   N   |   N   |   Y   | Wide, no special chars like /       |
-	| Closeness        |   Y   |   Y   |   N   | Clean/Simple                        |
-	| Compacta         |   Y   |   Y   |   N   |                                     |
-	| Geizer           |   Y   |   N   |   N   | Small                               |
-	| GovtAgentBB      |   Y   |   Y   |   Y   |                                     |
-	| Goma No Continue |   Y   |   N   |   N   |                                     |
-	| Goma Octagon     |   Y   |   N   |   Y   |                                     |
-	| Goma Tall Block  |   Y   |   N   |   N   |                                     |
-	| Jacinto          |   Y   |   N   |   Y   | Wide                                |
-	| KirstyBold       |   Y   |   N   |   M   | Western-like                        |
-	| LongShot         |   Y   |   N   |   Y   |                                     |
-	| No Continue      |   Y   |   N   |   N   |                                     |
-	| Origicide        |   Y   |   N   |   N   |                                     |
-	| Owners           |   Y   |   N   |   N   | Blocky                              |
-	| Quantico         |   N   |   Y   |   Y   | Not bold                            |
-	| Sector034        |   Y   |   N   |   Y   | Large                               |
-	| SpectraShell     |   Y   |   N   |   N   | Narrow & Small                      |
-	| Suggested        |   Y   |   N   |   M   | Angled/Metal                        |
-	| Vipnagorgialla   |   Y   |   Y   |   Y   | Kinda wide, too wide for Unit names |
-	| Waruna           |   Y   |   N   |   N   |                                     |
-	| Younger than me  |   Y   |   N   |   Y   | Slight Drip                         |
-	| Zeroes Three     |   M   |   Y   |   Y   | Thin & Clear, Solid                 |
+	| Font                                   | Title |Heading| Stats | Notes                               |
+	|----------------------------------------|-------|-------|-------|-------------------------------------|
+	| bocuma.angle-brk.ttf                   |   N   |   N   |   N   |                                     |
+	| CGFLocustResistance.ttf                |   N   |   N   |   Y   | Wide, no special chars like /       |
+	| closeness.bold.ttf                     |   Y   |   Y   |   m   | Clean/Simple, numbers unclear       |
+	| Compacta.woff2                         |   Y   |   Y   |   N   |                                     |
+	| fyodor.bold.ttf                        |   N   |   Y   |   N   |                                     |
+	| Geizer.otf                             |   Y   |   N   |   N   | Small                               |
+	| gomarice_no_continue.ttf               |   Y   |   N   |   N   |                                     |
+	| gomarice_goma_octagon.ttf              |   Y   |   N   |   Y   |                                     |
+	| gomarice_tall_block.ttf                |   Y   |   N   |   N   |                                     |
+	| GovtAgentBB.ttf                        |   Y   |   Y   |   Y   |                                     |
+	| Jacinto.otf                            |   Y   |   N   |   Y   | Wide                                |
+	| KirstyBold.otf                         |   Y   |   N   |   M   | Western-like                        |
+	| Long_Shot.ttf                          |   Y   |   N   |   N   | Thin and angular                    |
+	| no-continue.regular.ttf                |   Y   |   N   |   N   |                                     |
+	| Origicide.ttf                          |   Y   |   N   |   N   |                                     |
+	| owners.regular.ttf                     |   Y   |   N   |   N   | Blocky                              |
+	| Quantico-Regular.ttf                   |   N   |   Y   |   Y   | Not bold                            |
+	| Sector-034.woff2                       |   Y   |   N   |   Y   | Large                               |
+	| spectrashell.regular.otf               |   Y   |   N   |   N   | Narrow & Small                      |
+	| suggested.regular.ttf                  |   Y   |   N   |   M   | Angled/Metal                        |
+	| vipnagorgialla.bold.otf                |   Y   |   Y   |   Y   | Kinda wide, too wide for Unit names |
+	| WarunaRegular.ttf                      |   Y   |   N   |   N   |                                     |
+	| Younger_than_me.ttf                    |   Y   |   N   |   Y   | Slight Drip                         |
+	| zeroes.three-regular.otf               |   M   |   Y   |   Y   | Thin & Clear, Solid                 |
 
 	Waruna is good for game title but not headings or stats
 	Geizer is nive but scaled small, solid for game title and stats, but not headings
@@ -37,21 +37,21 @@ Font notes:
 
 @font-face {
   font-family: 'title';
-  src: url('/fonts/gomarice_goma_octagon.ttf');
-  font-weight: normal;
+  src: url('/fonts/closeness.bold.ttf');
+  font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'heading';
-  src: url('/fonts/gomarice_goma_octagon.ttf');
-  font-weight: bold;
+  src: url('/fonts/closeness.bold.ttf');
+  font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'stat';
-  src: url('/fonts/gomarice_goma_octagon.ttf');
+  src: url('/fonts/GovtAgentBB.ttf');
   font-weight: normal;
   font-style: normal;
 }
