@@ -16,12 +16,12 @@ export default async function RulesCampaigns() {
         <h3>Campaign Structure</h3>
         A Campaign is composed of three Operations, and each Operation is composed of three Missions.<br/>
         At the end of each Operation, your Squad returns to Homebase to heal injuries, resupply, and recruit new Units into the Squad.<br/>
-        To build a Campaign, randomly select the nine missions from the list of <a href="">Standard Missions</a>.
+        To build a Campaign, randomly select the nine missions from the list of <a href="#mission">Primary Missions</a>.
       </div>
       <div className="section">
         <h3>Operations</h3>
-        Each Operation sees your Squad sent to a location to execute three Missions.
-        While on an Operation, your Squad is in the field and cannot change its Units or Gear selections.
+        Each Operation sees your Squad sent to a location to execute three Missions. All three Missions in a each Operation are on the same Battlefield.<br/>
+        While on an Operation, your Squad is in the field and cannot change its Units or Gear selections.<br/>
         Once the third Mission of an Operation is done, your Squad returns to Homebase to heal Injuries, make new Gear selections, and recruit new Units.
       </div>
       <div className="section">
