@@ -118,7 +118,7 @@ export default function SquadPageClient({
         <div className="space-y-4">
           <p>
             Are you sure you want to reset the squad?<br/>
-            This will set Turn to 1, set MP and TO to zero, and reset all units' HIT and activation.
+            This will set Turn to 1, set MP and TO to zero, and reset all units' HIT and activation (unless they are Deceased).
           </p>
         </div>
       ),
