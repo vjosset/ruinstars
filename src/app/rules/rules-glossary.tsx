@@ -79,7 +79,7 @@ export default async function RulesItems() {
     },
     {
       key: 'Special (Weapon Special)',
-      definition: 'An abbreviation or keyword attached to a weapon that indicates a rule or effect beyond base stats (e.g. 2RC, HVY, RNG6").'
+      definition: 'An abbreviation or keyword attached to a weapon that indicates a rule or effect beyond base stats (e.g. 2RC, HVY, RNG3).'
     },
     {
       key: 'Spoils of War',
