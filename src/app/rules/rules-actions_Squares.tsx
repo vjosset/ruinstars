@@ -24,17 +24,18 @@ export default async function RulesActions() {
           <tbody>
             <tr><th>Move</th><td className="text-center">1</td><td>The Unit <a href="#movement">moves</a> up to <strong>3</strong> Squares.</td></tr>
             <tr><th>Dash</th><td className="text-center">1</td><td>The Unit moves up to <strong>1</strong> Square. This movement follows the same rules as a <a href="#movement">normal Move</a>.</td></tr>
-            <tr><th>Ranged Combat</th><td className="text-center">1</td><td>The Unit attacks a valid target in <a href="#combat">Ranged Combat</a>.</td></tr>
-            <tr><th>Melee Combat</th><td className="text-center">1</td><td>The Unit attacks a target in an Adjacent Square in <a href="#combat">Melee Combat</a>.</td></tr>
+            <tr><th>Ranged Combat</th><td className="text-center">1</td><td>The Unit makes a Ranged attack against a valid target. See <a href="#combat">Ranged Combat</a>.</td></tr>
+            <tr><th>Melee Combat</th><td className="text-center">1</td><td>The Unit makes a Melee attack against an Adjacent target. See <a href="#combat">Melee Combat</a>.</td></tr>
             <tr><th>Pick Up</th><td className="text-center">1</td><td>The Unit picks up a marker or token in the Square it currently occupies.</td></tr>
             <tr><th>Drop</th><td className="text-center">1</td><td>The Unit drops a marker or token it is carrying in the Square it currently occupies.</td></tr>
             <tr><th>Give</th><td className="text-center">1</td><td>The Unit passes a marker or token to an Adjacent Squadmate. The Unit cannot perform this Action if it or its Squadmate are <a href="#adjacent">Adjacent</a> to any enemy Units.</td></tr>
-            <tr><th>Open/Close Door</th><td className="text-center">1</td><td>The Unit opens or closes a door that is on one of the edges of its current Square.</td></tr>
+            <tr><th>Open/Close Door</th><td className="text-center">1</td><td>The Unit opens or closes an Adjacent door.</td></tr>
             <tr><th>Mission Action</th><td className="text-center">-</td><td>Mission Actions are special mission-specific Actions that can be performed according to the Mission Briefing.</td></tr>
           </tbody>
         </table>
         <h3 id="tactical-orders">Tactical Orders</h3>
-        <p>At the start of each turn, each player rolls <code>3D{GAME.DICE_BASIS}</code> and adds 1 die for each of the Squad's Units' <code>LDRx</code> Special Rule. For example, if your Leader is still in play and has the <code>LDR2</code> Special Rule, you would roll <code>5D{GAME.DICE_BASIS}</code> for Tactical Orders (3 base dice for Tactical Orders plus 2 dice provided by your Leader).<br/>If you do not have a Unit with the <code>LDRx</code> Special Rule on the Battlefield, you do not get their Tactical Order bonus and just roll <code>3D{GAME.DICE_BASIS}</code>.</p>
+        <p>At the start of each turn, each player rolls <code>3D{GAME.DICE_BASIS}</code> and adds 1 die for each of the Squad's Units' <code>Leader x</code> Special Rule. For example, if your Leader is still in play and has the <code>Leader 2</code> Special Rule, you would roll <code>5D{GAME.DICE_BASIS}</code> for Tactical Orders (3 base dice for Tactical Orders plus 2 dice provided by your Leader).<br/>
+        If you do not have a Unit with the <code>Leader</code> Special Rule on the Battlefield, you do not get their Tactical Order bonus and just roll <code>3D{GAME.DICE_BASIS}</code>.</p>
         <p>For each die result of <code>1-3</code>, you will have one Tactical Order. Tactical Orders allow Units to perform more Actions than their <code>ACT</code> Action limit.</p>
         <p>At the end of each Turn, any unused Tactical Orders are lost; they do not carry over to the following Turn.</p>
         <p>Note that rolling for Tactical Orders cannot be modified by using Tactical Orders.</p>

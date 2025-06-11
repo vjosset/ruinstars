@@ -4,7 +4,7 @@ export default async function RulesItems() {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="items">
-        11. Items
+        12. Items
       </h2>
       <div className="section twocols">
         <p>

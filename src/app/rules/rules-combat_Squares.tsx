@@ -14,37 +14,43 @@ export default async function RulesCombat() {
             <li>
               <strong>Select Target</strong>
               <ol>
-                <li>The Attacker selects one of its Ranged weapons for use in this attack</li>
+                <li>The Attacker selects one of their Ranged weapons to use</li>
                 <li>
-                  The Attacker selects a valid target. The target must be:
+                  The Attacker selects a valid Target. The Target must:
                   <ul>
-                    <li>Not Adjacent to the Attacker or the Attacker's Squadmates</li>
-                    <li>Within the Weapon's range (<code>RNGx</code>)</li>
-                    <li>In the Attacker's <a href="#line-of-sight">Line Of Sight</a></li>
+                    <li>Not be Adjacent to the Attacker or the Attacker's Squadmates</li>
+                    <li>Be within the Weapon's range (<code>RNGx</code>)</li>
+                    <li>Be in the Attacker's <a href="#line-of-sight">Line Of Sight</a></li>
                   </ul>
-                  Note that a Unit may not perform this action if it is <a href="#adjacent">Adjacent</a> to any enemy Units.
+                  A Unit may not perform this action if it is <a href="#adjacent">Adjacent</a> to any enemy Units.
                 </li>
               </ol>
             </li>
             <li>
-              <strong>Roll Attacks</strong> - Determine if the Attacker's weapon reached the Target
+              <strong>Roll Attacks</strong>
               <ol>
-                <li>Attacker rolls one Attack die for each of the selected weapon's <code>ATT</code> (Attacks).</li>
+                <li>Roll a number of dice equal to the weapon's <code>ATT</code> (Attacks).</li>
                 <li>
-                  Each Attack die result that is equal to or lower than the Weapon's <code>SKL</code> Skill is a successful strike.
-                  Attack rolls of <code>1</code> are Critical successes and count as two successful strikes, and die results of {GAME.DICE_BASIS} are always failures.
+                  Each die result equal to or less than the weapon's <code>SKL</code> (Skill) is a successful strike and inflicts 1 point of Damage on the Target.
+                  <ul>
+                    <li>A roll of <code>1</code> is a <strong>Critical Strike</strong> and inflicts 2 points of Damage</li>
+                    <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
+                  </ul>
                 </li>
-                <li>Each successful strike inflicts 1 Damage on the Target (so two successful strikes means 2 total Damage).</li>
               </ol>
             </li>
             <li>
-              <strong>Roll Armor Saves</strong> - Determine how much Damage the Attacker inflicted on the Target<ol>
-                <li>The Target rolls one die for each point of Damage inflicted by the Attacker's weapon.</li>
+              <strong>Roll Armor Saves</strong>
+              <ol>
+                <li>The Target rolls one die per point of Damage inflicted.</li>
                 <li>
-                  If an Armor Save die result is equal to or lower than the Target's <code>ARM</code>, then the Target's Armor absorbs the damage from this strike.<br/>
-                  Armor Save rolls of <code>1</code> are Critical Saves and count as two saves.
+                  Each result equal to or less than the Target's <code>ARM</code> (Armor) is a successful Save.
+                  <ul>
+                    <li>A roll of <code>1</code> is a <strong>Critical Save</strong> and counts as 2 Saves</li>
+                    <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
+                  </ul>
                 </li>
-                <li>If an Armor Save die result is higher than the target's <code>ARM</code>, the save is failed and the target loses 1 <code>HIT</code> for each failed save.</li>
+                <li>Each unsaved point of Damage causes the Target to lose 1 <code>HIT</code></li>
                 <li>If a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield.</li>
               </ol>
             </li>
@@ -60,7 +66,7 @@ export default async function RulesCombat() {
             <tbody>
               <tr>
                 <th className="px-1">Cover</th>
-                <td className="px-1">If the Target is in <a href="#cover">cover</a> (only partially visible to the Attacker), the Target gets one automatic Armor Save (without having to roll it)</td>
+                <td className="px-1">If the Target is in <a href="#cover">cover</a>, the Target gets one automatic Armor Save (without having to roll it)</td>
               </tr>
               <tr>
                 <th className="px-1">High&nbsp;Ground</th>
@@ -122,33 +128,42 @@ export default async function RulesCombat() {
             <li>
               <strong>Select Target</strong>
               <ol>
-                <li>The Attacker selects one of their Melee weapons for use in this attack</li>
+                <li>The Attacker selects one of their Melee weapons to use</li>
+                <li>The Target must be Adjacent to the Attacker</li>
+              </ol>
+            </li>
+            <li>
+              <strong>Roll Attacks</strong>
+              <ol>
+                <li>Roll a number of dice equal to the weapon's <code>ATT</code> (Attacks).</li>
                 <li>
-                  The Attacker selects a valid target. The target must be Adjacent to the Attacker.
+                  Each die result equal to or less than the weapon's <code>SKL</code> (Skill) is a successful strike and inflicts 1 point of Damage on the Target.
+                  <ul>
+                    <li>A roll of <code>1</code> is a <strong>Critical Strike</strong> and inflicts 2 points of Damage</li>
+                    <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
+                  </ul>
                 </li>
               </ol>
             </li>
             <li>
-              <strong>Roll Attacks</strong> - Determine if the Attacker's weapon reached the Target
+              <strong>Roll Armor Saves</strong>
               <ol>
-                <li>Attacker rolls one Attack die for each of the selected weapon's <code>ATT</code> (Attacks).</li>
+                <li>The Target rolls one die per point of Damage inflicted.</li>
                 <li>
-                  Each Attack die result that is equal to or lower than the Weapon's <code>SKL</code> Skill is a successful strike.
-                  Attack rolls of <code>1</code> are Critical successes and count as two successful strikes, and die results of {GAME.DICE_BASIS} are always failures.
+                  Each result equal to or less than the Target's <code>ARM</code> (Armor) is a successful Save.
+                  <ul>
+                    <li>
+                      A roll of <code>1</code> is a <strong>Critical Save</strong>:
+                      <ul>
+                        <li>It blocks 1 point of Damage, and</li>
+                        <li>Inflicts 1 point of Melee Damage on the Attacker. The Attacker then rolls their own Armor Saves for that returned Damage.</li>
+                        <li>This effect can chain: if the Attacker then rolls a Critical Save, they return damage to the Target, and so on.</li>
+                      </ul>
+                    </li>
+                    <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
+                  </ul>
                 </li>
-                <li>Each successful strike inflicts 1 Damage on the Target (so two successful strikes means 2 total Damage).</li>
-              </ol>
-            </li>
-            <li>
-              <strong>Roll Armor Saves</strong> - Determine how much Damage the Attacker inflicted on the Target
-              <ol>
-                <li>The Target rolls one die for each point of Damage inflicted by the Attacker's weapon.</li>
-                <li>
-                  If an Armor Save die result is equal to or lower than the Target's <code>ARM</code>, then the Target's Armor absorbs the damage from this strike.<br/>
-                  Armor Save rolls of <code>1</code> are Critical Saves. In Melee combat, a Critical Save counts as one save but inflicts 1 Melee Damage on the Attacker.<br/>
-                  These Critical Saves can chain back and forth between the Attacker and the Target, so if the Attacker rolls a Critical Save, it can inflict 1 Damage on the Target, which in turn can roll a Critical Save and inflict 1 Damage on the Attacker, and so on.
-                </li>
-                <li>If an Armor Save die result is higher than the target's <code>ARM</code>, the save is failed and the target loses 1 <code>HIT</code> for each failed save.</li>
+                <li>Each unsaved point of Damage causes the Target to lose 1 <code>HIT</code></li>
                 <li>If a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield.</li>
               </ol>
             </li>
