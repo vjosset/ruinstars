@@ -3,12 +3,14 @@
 import { useEffect, useState } from 'react'
 
 interface LocalSettings {
+  distanceUnit: string
   showPortraits: boolean
   showNarrative: boolean // Deprecated, not in use
   theme: 'light' | 'dark'
 }
 
 const DEFAULT_SETTINGS: LocalSettings = {
+  distanceUnit: 'squares',
   showPortraits: true,
   showNarrative: false,
   theme: 'dark'
