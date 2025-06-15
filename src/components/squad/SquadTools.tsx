@@ -35,7 +35,7 @@ export default function RulesTabs() {
         </button>
       </div>
 
-      <div className="text-sm leading-relaxed max-h-[60vh] overflow-y-auto px-2">
+      <div className="leading-relaxed max-h-[60vh] overflow-y-auto px-2">
         <div className={tab === 'quickref' ? 'block' : 'hidden'}>
           <QuickRef />
         </div>

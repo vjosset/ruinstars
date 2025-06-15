@@ -208,11 +208,11 @@ export default function Campaign() {
       <h3 className="text-center font-heading">{campaign.campaignName}</h3>
       <p className="text-center">
         <Link className="underline" href={`/squads/${campaign.squad1.squadId}`}>{campaign.squad1.squadName}</Link> (<Link className="underline" href={`/users/${campaign.squad1.playerName}`}>{campaign.squad1.playerName}</Link>)
-        { ' ' } vs { ' ' }
+        <br/>vs<br/>
         <Link className="underline" href={`/squads/${campaign.squad2.squadId}`}>{campaign.squad2.squadName}</Link> (<Link className="underline" href={`/users/${campaign.squad2.playerName}`}>{campaign.squad2.playerName}</Link>)
       </p>
 
-      <br/><br/>
+      <br/>
 
       {/* Operation/Mission Breakdown */}
       <table className="mx-1 mb-3">
@@ -226,7 +226,7 @@ export default function Campaign() {
         <tbody>
           <>
             <tr className="stat text-lg border-t border-border">
-              <th className="font-heading text-main">Campaign</th>
+              <th className="font-heading">Campaign</th>
               <th className={`font-heading text-center ${campaign.summary.squad1OperationWins > campaign.summary.squad2OperationWins ? 'text-main': ''}`}>{campaign.summary.squad1Result}</th>
               <th className={`font-heading text-center ${campaign.summary.squad2OperationWins > campaign.summary.squad1OperationWins ? 'text-main': ''}`}>{campaign.summary.squad2Result}</th>
             </tr>
@@ -235,7 +235,7 @@ export default function Campaign() {
                 <tr className="border-t border-border">
                   <td className="">
                     <span className="font-heading">Operation {opIdx + 1} { ' '}</span>
-                    <em className="text-muted text-xs">{op.battlefield.name}</em>
+                    <em className="text-muted text-sm">{op.battlefield.name}</em>
                   </td>
                   <th className={`font-heading text-center ${op.summary.squad1MissionWins > op.summary.squad2MissionWins ? 'text-main': ''}`}>{op.summary.squad1Result}</th>
                   <th className={`font-heading text-center ${op.summary.squad2MissionWins > op.summary.squad1MissionWins ? 'text-main': ''}`}>{op.summary.squad2Result}</th>
@@ -245,10 +245,10 @@ export default function Campaign() {
                   <tr key={`${opIdx}-${mIdx}`}>
                     <td className="pl-2">
                       {opIdx + 1}.{mIdx + 1}: {mission.name}
-                      {mission.date && <em className="text-muted text-xs"> - {mission.date}</em>}
+                      {mission.date && <em className="text-muted text-sm"> - {mission.date}</em>}
                     </td>
-                    <td className={`font-heading text-center ${mission.squad1MP && mission.squad1MP > mission.squad2MP ? 'text-main': ''}`}>{mission.squad1MP ?? '-'}</td>
-                    <td className={`font-heading text-center ${mission.squad2MP && mission.squad2MP > mission.squad1MP ? 'text-main': ''}`}>{mission.squad2MP ?? '-'}</td>
+                    <td className={`text-center ${mission.squad1MP && mission.squad1MP > mission.squad2MP ? 'text-main': ''}`}>{mission.squad1MP ?? '-'} MP</td>
+                    <td className={`text-center ${mission.squad2MP && mission.squad2MP > mission.squad1MP ? 'text-main': ''}`}>{mission.squad2MP ?? '-'} MP</td>
                   </tr>
                 ))}
               </>
