@@ -1,13 +1,14 @@
 'use client'
 
-import { useState } from 'react'
 import clsx from 'clsx'
-import QuickRef from '../tools/QuickRef'
+import { useState } from 'react'
 import BattlefieldSelector from '../tools/BattlefieldSelector'
+import Campaign from '../tools/Campaign'
 import MissionSelector from '../tools/MissionSelector'
+import QuickRef from '../tools/QuickRef'
 
 export default function RulesTabs() {
-  const [tab, setTab] = useState<'quickref' | 'mission' | 'battlefield'>('quickref')
+  const [tab, setTab] = useState<'quickref' | 'mission' | 'battlefield' | 'campaign'>('quickref')
 
   const tabClasses = (selected: boolean) =>
     clsx(
@@ -29,6 +30,9 @@ export default function RulesTabs() {
         <button className={tabClasses(tab === 'battlefield')} onClick={() => setTab('battlefield')}>
           Battlefield
         </button>
+        <button className={tabClasses(tab === 'campaign')} onClick={() => setTab('campaign')}>
+          Campaign
+        </button>
       </div>
 
       <div className="text-sm leading-relaxed max-h-[60vh] overflow-y-auto px-2">
@@ -40,6 +44,9 @@ export default function RulesTabs() {
         </div>
         <div className={tab === 'battlefield' ? 'block' : 'hidden'}>
           <BattlefieldSelector />
+        </div>
+        <div className={tab === 'campaign' ? 'block' : 'hidden'}>
+          <Campaign />
         </div>
       </div>
     </div>
