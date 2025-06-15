@@ -64,8 +64,8 @@ export default function Campaign() {
             missionId: 3,
             name: 'Bug Bounty',
             date: '15 Jun 2025',
-            squad1MP: null,
-            squad2MP: null,
+            squad1MP: 5,
+            squad2MP: 8,
           }
         ]
       },
@@ -88,7 +88,7 @@ export default function Campaign() {
           {
             missionId: 4,
             name: 'Rivals',
-            date: null,
+            date: '15 Jun 2025',
             squad1MP: null,
             squad2MP: null,
           },
