@@ -4,9 +4,9 @@
 
 'use client'
 
-import { createContext, useContext, useState, ReactNode, useEffect } from 'react'
-import { Button } from '.'
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
 import { FiX } from 'react-icons/fi'
+import { Button } from '.'
 
 type ModalConfig = {
   title: string
@@ -75,7 +75,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
                 <FiX className="text-2xl" />
               </button>
             </div>
-            <div className="text-foreground overflow-y-auto px-2 ">
+            <div className="text-foreground overflow-y-auto px-1">
               {modalConfig.body}
             </div>
             {modalConfig.footer ?? (

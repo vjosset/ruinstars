@@ -5,8 +5,6 @@ import Link from 'next/link'
 
 export default function Campaign() {
   const { data: session } = useSession()
-
-  console.log('Session data:', session)
   
   const campaign = {
     campaignName: 'Campaign Jun 2025',
@@ -89,8 +87,8 @@ export default function Campaign() {
             missionId: 4,
             name: 'Rivals',
             date: '15 Jun 2025',
-            squad1MP: null,
-            squad2MP: null,
+            squad1MP: 1,
+            squad2MP: 3,
           },
           {
             missionId: 5,
@@ -215,12 +213,12 @@ export default function Campaign() {
       <br/>
 
       {/* Operation/Mission Breakdown */}
-      <table className="mx-1 mb-3">
+      <table className="mb-3">
         <thead>
           <tr>
             <th></th>
-            <th className="w-1/4 truncate text-center">{campaign.squad1.squadName}</th>
-            <th className="w-1/4 truncate text-center">{campaign.squad2.squadName}</th>
+            <th className="w-1/6 truncate text-center">{campaign.squad1.squadName}</th>
+            <th className="w-1/6 truncate text-center">{campaign.squad2.squadName}</th>
           </tr>
         </thead>
         <tbody>

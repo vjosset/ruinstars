@@ -1,13 +1,15 @@
 'use client'
-import { GiRollingDices } from 'react-icons/gi'
-import { useEffect, useState } from 'react'
 import MissionBlock from '@/components/shared/MissionBlock'
-import { Mission, MissionPlain } from '@/types'
 import { getRandom } from '@/lib/utils/utils'
+import { Mission, MissionPlain } from '@/types'
+import { useEffect, useState } from 'react'
+import { GiRollingDices } from 'react-icons/gi'
+import BattlefieldBlock from '../shared/BattlefieldBlock'
 
 export default function MissionSelector() {
   const [primaryMissions, setPrimaryMissions] = useState<Mission[]>([])
   const [secondaryMissions, setSecondaryMissions] = useState<Mission[]>([])
+  const [battlefields, setBattlefields] = useState<any[]>([])
   const [selectedPrimaryMissionId, setSelectedPrimaryMissionId] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('selectedPrimaryMissionId') || ''
@@ -17,6 +19,12 @@ export default function MissionSelector() {
   const [selectedSecondaryMissionId, setSelectedSecondaryMissionId] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('selectedSecondaryMissionId') || ''
+    }
+    return ''
+  })
+  const [selectedBattlefieldId, setSelectedBattlefieldId] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('selectedBattlefieldId') || ''
     }
     return ''
   })
@@ -30,6 +38,23 @@ export default function MissionSelector() {
       })
       .catch((err) => console.error('Failed to load missions:', err))
   }, [])
+
+  useEffect(() => {
+    fetch('/api/battlefields')
+      .then((res) => res.json())
+      .then((data) => {
+        setBattlefields(data)
+      })
+      .catch((err) => console.error('Failed to load battlefields:', err))
+  }, [])
+  
+  useEffect(() => {
+    if (selectedBattlefieldId) {
+      localStorage.setItem('selectedBattlefieldId', selectedBattlefieldId)
+    } else {
+      localStorage.removeItem('selectedBattlefieldId')
+    }
+  }, [selectedBattlefieldId])
   
   useEffect(() => {
     if (selectedPrimaryMissionId) {
@@ -53,6 +78,10 @@ export default function MissionSelector() {
 
   const selectedSecondaryMission = secondaryMissions.find(
     (m) => m.missionId === Number(selectedSecondaryMissionId)
+  )
+
+  const selectedBattlefield = battlefields.find(
+    (m) => m.battlefieldId === Number(selectedBattlefieldId)
   )
 
   return (
@@ -130,6 +159,42 @@ export default function MissionSelector() {
           </div>
         </div>
 
+        {/* Battlefield Selector */}
+        <div className="flex items-center gap-2">
+          <span className="text-sm w-20">Battlefield:</span>
+          <div className="flex flex-1">
+            <select
+              className="flex-1 h-8 px-3 text-sm bg-card border border-border rounded-l-md appearance-none"
+              value={selectedBattlefieldId}
+              onChange={(e) => setSelectedBattlefieldId(e.target.value)}
+            >
+              <option value="">Select a battlefield...</option>
+              {battlefields.map((battlefield) => (
+                <option key={battlefield.battlefieldId} value={battlefield.battlefieldId}>
+                  {battlefield.battlefieldId} - {battlefield.title}
+                </option>
+              ))}
+            </select>
+            <button
+              type="button"
+              className="w-8 h-8 flex items-center justify-center text-lg border border-border border-l-0 rounded-r-md bg-zinc-900 hover:bg-zinc-800"
+              onClick={() => {
+                if (battlefields.length === 0) return
+                const currentBattlefieldId = selectedBattlefieldId
+                let randomBattlefield = getRandom(battlefields)
+            
+                // Make sure we give them a different battlefield
+                while (randomBattlefield.battlefieldId.toString() === currentBattlefieldId && battlefields.length > 1) {
+                  randomBattlefield = getRandom(battlefields)
+                }
+                setSelectedBattlefieldId(randomBattlefield.battlefieldId.toString())
+              }}
+            >
+              <GiRollingDices />
+            </button>
+          </div>
+        </div>
+
         {/* Mission Blocks */}
         {selectedPrimaryMission && (
           <MissionBlock
@@ -142,6 +207,11 @@ export default function MissionSelector() {
             mission={selectedSecondaryMission}
             showDescription={false}
           />
+        )}
+
+        
+        {selectedBattlefield && (
+          <BattlefieldBlock battlefield={selectedBattlefield} />
         )}
       </div>
     </>
