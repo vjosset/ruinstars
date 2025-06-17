@@ -18,8 +18,8 @@ parser.add_argument(
   help="Hex color for the grid lines (default: white)"
 )
 parser.add_argument(
-  "--grid-width", type=int, default=3,
-  help="Width of grid lines in pixels (default: 3)"
+  "--grid-width-mm", type=int, default=2,
+  help="Width of grid lines in millimeters (default: 2)"
 )
 args = parser.parse_args()
 
@@ -50,6 +50,9 @@ output_pdf = input_path.with_suffix(".pdf")
 c = canvas.Canvas(str(output_pdf), pagesize=letter)
 c.setTitle(input_path.stem)
 
+# --- Grid Line Width in Pixels ---
+# Convert grid width from mm to pixels based on standard DPI (300 DPI)
+
 # --- Process Each Tile ---
 for row in range(rows):
   for col in range(cols):
@@ -59,13 +62,30 @@ for row in range(rows):
     lower = upper + tile_height
     tile = image.crop((left, upper, right, lower))
 
-    # Draw 5x5 grid
+    # Add this tile
     draw = ImageDraw.Draw(tile)
-    for i in range(1, 5):
-      x = i * tile_width // 5
-      y = i * tile_height // 5
-      draw.line([(x, 0), (x, tile_height)], fill=args.grid_color, width=args.grid_width)
-      draw.line([(0, y), (tile_width, y)], fill=args.grid_color, width=args.grid_width)
+
+    # Draw 5x5 grid
+    # Get this tile's size (width) in pixels, get its final pixel density, and use that to calculate the line width in pixels
+    tile_pixel_width = tile.width  
+    PIXELS_PER_MM = tile_pixel_width / 200.0  # 200mm target print width
+    line_width_px = int(round(args.grid_width_mm * PIXELS_PER_MM))
+    half_len = line_width_px * 5  # or keep as-is
+    intersections = 6
+    cross_len = line_width_px  * 2
+
+    for i in range(intersections):
+      for j in range(intersections):
+        x = i * tile_width // (intersections - 1)
+        y = j * tile_height // (intersections - 1)
+
+        # Horizontal line of the "+"
+        draw.line([(x - cross_len, y), (x + cross_len, y)],
+                  fill=args.grid_color, width=line_width_px )
+
+        # Vertical line of the "+"
+        draw.line([(x, y - cross_len), (x, y + cross_len)],
+                  fill=args.grid_color, width=line_width_px )
 
     # Save tile to buffer
     buffer = io.BytesIO()
