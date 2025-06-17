@@ -50,8 +50,34 @@ output_pdf = input_path.with_suffix(".pdf")
 c = canvas.Canvas(str(output_pdf), pagesize=letter)
 c.setTitle(input_path.stem)
 
-# --- Grid Line Width in Pixels ---
-# Convert grid width from mm to pixels based on standard DPI (300 DPI)
+# Get original image size
+img_w, img_h = image.size
+cols, rows = map(int, args.tiles.lower().split("x"))
+
+# Calculate pixel aspect ratio per tile
+aspect_x = img_w / cols
+aspect_y = img_h / rows
+
+# Choose the smaller to preserve square tiles
+tile_size = int(min(aspect_x, aspect_y))
+
+# Calculate final dimensions to crop to
+crop_w = tile_size * cols
+crop_h = tile_size * rows
+
+# Center crop the image to this new size
+left = (img_w - crop_w) // 2
+top = (img_h - crop_h) // 2
+right = left + crop_w
+bottom = top + crop_h
+image = image.crop((left, top, right, bottom))
+
+# Save new tile dimensions
+tile_width = tile_size
+tile_height = tile_size
+
+# (You can print these to debug)
+print(f"→ Cropped to {crop_w}x{crop_h}, each tile is {tile_size}px square")
 
 # --- Process Each Tile ---
 for row in range(rows):
