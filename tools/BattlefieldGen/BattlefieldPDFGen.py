@@ -2,7 +2,8 @@ import os
 import io
 import argparse
 from pathlib import Path
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import cm
@@ -18,8 +19,12 @@ parser.add_argument(
   help="Hex color for the grid lines (default: white)"
 )
 parser.add_argument(
-  "--grid-width-mm", type=int, default=2,
-  help="Width of grid lines in millimeters (default: 2)"
+  "--grid-width-mm", type=int, default=1,
+  help="Width of grid lines in millimeters (default: 1)"
+)
+parser.add_argument(
+  "--instructions", type=int, default=0,
+  help="Include instructions page with a thumbnail of the original image (default: 0, no instructions)"
 )
 args = parser.parse_args()
 
@@ -76,9 +81,6 @@ image = image.crop((left, top, right, bottom))
 tile_width = tile_size
 tile_height = tile_size
 
-# (You can print these to debug)
-print(f"→ Cropped to {crop_w}x{crop_h}, each tile is {tile_size}px square")
-
 # --- Process Each Tile ---
 for row in range(rows):
   for col in range(cols):
@@ -125,6 +127,97 @@ for row in range(rows):
 
     # Add tile to the PDF on its own page
     c.showPage()
+
+# --- Append instructions page if requested ---
+if args.instructions > 0:
+  # Draw instructions on final page
+  c.setFont("Helvetica-Bold", 16)
+  c.drawString(2 * cm, page_height - 2 * cm, "How to Print and Use")
+
+  c.setFont("Helvetica", 11)
+  instructions = [
+      "• Print this PDF at 100% scale (do NOT use 'Fit to page').",
+      "• Each tile prints at 20×20 cm and forms a grid of your original image.",
+      f"• This layout preview shows how to arrange the {cols}×{rows} tiles.",
+      "• Cut and align the tiles according to the grid.",
+      "• Mount to foam board, wood, or card for maximum durability."
+  ]
+
+  y = page_height - 3.2 * cm
+  for line in instructions:
+      c.drawString(2 * cm, y, line)
+      y -= 0.6 * cm
+
+  # Create preview thumbnail of cropped image with overlaid grid
+  max_preview_width_cm = 10
+  max_preview_height_cm = 10
+  dpi_preview = 118 # ~300 DPI for preview sizing
+  max_preview_width_px = int(max_preview_width_cm * dpi_preview)
+  max_preview_height_px = int(max_preview_height_cm * dpi_preview)
+
+  # Resize with aspect ratio preserved
+  img_w, img_h = image.size
+  aspect_ratio = img_w / img_h
+
+  if (max_preview_width_px / max_preview_height_px) > aspect_ratio:
+      # Height limits size
+      preview_height_px = max_preview_height_px
+      preview_width_px = int(preview_height_px * aspect_ratio)
+  else:
+      # Width limits size
+      preview_width_px = max_preview_width_px
+      preview_height_px = int(preview_width_px / aspect_ratio)
+
+  # Resize the image
+  preview_img = image.resize((preview_width_px, preview_height_px), Image.LANCZOS)
+
+  # Draw grid lines
+  draw = ImageDraw.Draw(preview_img)
+  line_color = "white"
+  line_width = 2
+
+  for i in range(1, cols):
+      x = int(i * preview_width_px / cols)
+      draw.line([(x, 0), (x, preview_height_px)], fill=line_color, width=line_width)
+  for j in range(1, rows):
+      y = int(j * preview_height_px / rows)
+      draw.line([(0, y), (preview_width_px, y)], fill=line_color, width=line_width)
+
+  # Optional: draw outer border
+  draw.rectangle([(0, 0), (preview_width_px - 1, preview_height_px - 1)], outline="black")
+
+  # Convert preview image to buffer
+  preview_buffer = io.BytesIO()
+  preview_img.save(preview_buffer, format="PNG")
+  preview_buffer.seek(0)
+  preview_reader = ImageReader(preview_buffer)
+
+  # Convert to PDF dimensions (points), enforcing 10×10 cm max size
+  preview_w_cm = preview_width_px / dpi_preview * 2.54
+  preview_h_cm = preview_height_px / dpi_preview * 2.54
+
+  # Final preview dimensions in points (cm -> pt)
+  aspect_ratio = preview_width_px / preview_height_px
+
+  if aspect_ratio >= 1:
+      # Landscape or square
+      preview_w_pt = max_preview_width_cm * cm
+      preview_h_pt = preview_w_pt / aspect_ratio
+  else:
+      # Portrait
+      preview_h_pt = max_preview_height_cm * cm
+      preview_w_pt = preview_h_pt * aspect_ratio
+
+  # Place the preview image centered on the page
+  x_pos = (page_width - preview_w_pt) / 2
+  y_pos = (page_height - preview_h_pt) / 2
+
+  # Draw image on final page
+  c.drawImage(preview_reader, x_pos, y_pos, width=preview_w_pt, height=preview_h_pt)
+  c.showPage()
+
+
+# --- Finalize PDF ---
 c.save()
 
-print(f"\n✅ All PDFs saved to: {output_pdf}")
+print(f"\n✅ PDF saved to: {output_pdf}")
