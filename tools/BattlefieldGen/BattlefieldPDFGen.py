@@ -15,8 +15,8 @@ parser.add_argument("input_image", help="Path to the input image")
 parser.add_argument(
   "--tiles", default="1x1", help="Tiles for the image split, format: COLSxROWS (e.g. 3x2)")
 parser.add_argument(
-  "--grid-color", default="#FFFFFF",
-  help="Hex color for the grid lines (default: white)"
+  "--grid-color", default="#c54c21",
+  help="Hex color for the grid lines (default: orange #c54c21)"
 )
 parser.add_argument(
   "--grid-width-mm", type=int, default=1,
@@ -114,6 +114,22 @@ for row in range(rows):
         # Vertical line of the "+"
         draw.line([(x, y - cross_len), (x, y + cross_len)],
                   fill=args.grid_color, width=line_width_px )
+    
+    ## Draw inner grid lines
+    #line_width_px = round(line_width_px / 2)
+    #half_len = round(half_len / 2)
+    #intersections = 6
+    #cross_len = line_width_px  * 2
+    #for i in range(intersections):
+    #  for j in range(intersections):
+    #    x = i * tile_width // (intersections - 1)
+    #    y = j * tile_height // (intersections - 1)
+    #    # Horizontal line of the "+"
+    #    draw.line([(x - cross_len, y), (x + cross_len, y)],
+    #              fill="#000000", width=line_width_px )
+    #    # Vertical line of the "+"
+    #    draw.line([(x, y - cross_len), (x, y + cross_len)],
+    #              fill="#000000", width=line_width_px )
 
     # Save tile to buffer
     buffer = io.BytesIO()
