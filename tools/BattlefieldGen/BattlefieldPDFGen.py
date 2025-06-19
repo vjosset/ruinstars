@@ -133,7 +133,7 @@ for row in range(rows):
 
     # Save tile to buffer - Convert to JPEG for PDF embedding and smaller output file size
     buffer = io.BytesIO()
-    tile.save(buffer, format="JPEG", quality=90, optimize=True)
+    tile.save(buffer, format="JPEG", quality=85, optimize=True)
     buffer.seek(0)
     tile_reader = ImageReader(buffer)
 
@@ -193,18 +193,15 @@ if args.instructions > 0:
   line_width = 2
 
   for i in range(1, cols):
-      x = int(i * preview_width_px / cols)
-      draw.line([(x, 0), (x, preview_height_px)], fill=line_color, width=line_width)
+    x = int(i * preview_width_px / cols)
+    draw.line([(x, 0), (x, preview_height_px)], fill=line_color, width=line_width)
   for j in range(1, rows):
-      y = int(j * preview_height_px / rows)
-      draw.line([(0, y), (preview_width_px, y)], fill=line_color, width=line_width)
-
-  # Optional: draw outer border
-  draw.rectangle([(0, 0), (preview_width_px - 1, preview_height_px - 1)], outline="black")
+    y = int(j * preview_height_px / rows)
+    draw.line([(0, y), (preview_width_px, y)], fill=line_color, width=line_width)
 
   # Convert preview image to buffer
   preview_buffer = io.BytesIO()
-  preview_img.save(preview_buffer, format="JPEG", quality=90, optimize=True)
+  preview_img.save(preview_buffer, format="JPEG", quality=80, optimize=True)
   preview_buffer.seek(0)
   preview_reader = ImageReader(preview_buffer)
 
@@ -216,13 +213,13 @@ if args.instructions > 0:
   aspect_ratio = preview_width_px / preview_height_px
 
   if aspect_ratio >= 1:
-      # Landscape or square
-      preview_w_pt = max_preview_width_cm * cm
-      preview_h_pt = preview_w_pt / aspect_ratio
+    # Landscape or square
+    preview_w_pt = max_preview_width_cm * cm
+    preview_h_pt = preview_w_pt / aspect_ratio
   else:
-      # Portrait
-      preview_h_pt = max_preview_height_cm * cm
-      preview_w_pt = preview_h_pt * aspect_ratio
+    # Portrait
+    preview_h_pt = max_preview_height_cm * cm
+    preview_w_pt = preview_h_pt * aspect_ratio
 
   # Place the preview image centered on the page
   x_pos = (page_width - preview_w_pt) / 2
