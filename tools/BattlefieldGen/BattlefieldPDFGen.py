@@ -131,9 +131,9 @@ for row in range(rows):
     #    draw.line([(x, y - cross_len), (x, y + cross_len)],
     #              fill="#000000", width=line_width_px )
 
-    # Save tile to buffer
+    # Save tile to buffer - Convert to JPEG for PDF embedding and smaller output file size
     buffer = io.BytesIO()
-    tile.save(buffer, format="PNG")
+    tile.save(buffer, format="JPEG", quality=90, optimize=True)
     buffer.seek(0)
     tile_reader = ImageReader(buffer)
 
@@ -204,7 +204,7 @@ if args.instructions > 0:
 
   # Convert preview image to buffer
   preview_buffer = io.BytesIO()
-  preview_img.save(preview_buffer, format="PNG")
+  preview_img.save(preview_buffer, format="JPEG", quality=90, optimize=True)
   preview_buffer.seek(0)
   preview_reader = ImageReader(preview_buffer)
 
