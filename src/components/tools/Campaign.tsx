@@ -100,9 +100,9 @@ export default function Campaign() {
           {
             missionId: 6,
             name: 'Control',
-            date: null,
-            squad1MP: null,
-            squad2MP: null,
+            date: '22 Jun 2025',
+            squad1MP: 3,
+            squad2MP: 6,
           }
         ]
       },
@@ -119,7 +119,7 @@ export default function Campaign() {
         },
         battlefield: {
           battlefieldId: 3,
-          name: 'The Jungle',
+          name: 'No Man\'s Land',
         },
         missions: [
           {
