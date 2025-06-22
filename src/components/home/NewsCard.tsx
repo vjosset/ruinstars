@@ -1,11 +1,5 @@
-import React from 'react'
 import Markdown from '@/components/ui/Markdown'
-
-type NewsItem = {
-  date: string
-  title: string
-  description: string
-}
+import { NewsItem } from '@/types'
 
 export default function NewsCard({ item }: { item: NewsItem }) {
   return (

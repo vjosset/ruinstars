@@ -19,7 +19,7 @@ export default async function RulesMovement() {
             <img src="/img/rules/Tiles.jpg" style={{width: '45%'}} />
           </p>
           <p>When a Unit moves on the Battlefield, the maximum distance it can travel is <code>3</code> Squares. Movement can be done along any cardinal direction (North, South, East, West) or in diagonal (North-East, North-West, South-East, South-West).</p>
-          <img src="img/rules/Movement.jpg" style={{width: '45%'}} />
+          <img src="/img/rules/Movement.jpg" style={{width: '45%'}} />
         </div>
         
         <div className="section">

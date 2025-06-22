@@ -49,7 +49,7 @@ export default async function RulesCampaigns() {
           {/* Spoils Of War List */}
           {
             spoilsOfWar?.gears.map((sow) => (
-              <li key={sow.gearId}>
+              <li key={`sow_${sow.gearId}`}>
                 <h6>{sow.gearName}</h6>
                 <Markdown>{sow.description}</Markdown>
               </li>
@@ -75,7 +75,7 @@ export default async function RulesCampaigns() {
           {/* Injuries List */}
           {
             injuries?.gears.map((injury) => (
-              <li key={injury.gearId}>
+              <li key={`inj_${injury.gearId}`}>
                 <h6>{injury.gearName}</h6>
                 <Markdown>{injury.description}</Markdown>
               </li>
@@ -95,7 +95,7 @@ export default async function RulesCampaigns() {
           {/* Medals List */}
           {
             medals.map((medal) => (
-              <li key={medal.medalId}>
+              <li key={`medal_${medal.medalId}`}>
                 <h6>{medal.title} - {medal.XP} XP</h6>
                 <Markdown>{medal.description}</Markdown>
               </li>

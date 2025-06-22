@@ -1,8 +1,8 @@
 import FactionCard from '@/components/faction/FactionCard'
 import AuthButtons from '@/components/home/HomeAuthButtons'
-import news from '@/content/news.json'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
+import news from '@/public/news.json'
 import { FactionService } from '@/services/faction.service'
 import NewsCard from '@/src/components/home/NewsCard'
 import Link from 'next/link'
@@ -86,7 +86,7 @@ export default async function Home() {
       {/* News */}
       <div className="max-w-3xl mx-auto p-4 news">
         <h3 className="text-main font-title mb-4">Latest News</h3>
-        {news.map((item, idx) => (
+        {news.slice(0, 10).map((item, idx) => (
           <NewsCard key={idx} item={item} />
         ))}
       </div>

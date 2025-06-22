@@ -2,6 +2,7 @@
 
 import NavBarBottom from '@/components/nav/NavBarBottom'
 import NavBarTop from '@/components/nav/NavBarTop'
+import NewsPopup from '@/components/nav/NewsPopup'
 import ServiceWorkerRegister from '@/components/tools/ServiceWorkerRegister'
 import { ClientProviders } from '@/components/ui/ClientProviders'
 import { authOptions } from '@/lib/auth'
@@ -41,6 +42,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <ClientProviders session={session}>
           <NavBarTop />
           <main className="pb-16 lg:pb-0">{children}</main>
+          <NewsPopup />
           <NavBarBottom />
         </ClientProviders>
         <ServiceWorkerRegister />

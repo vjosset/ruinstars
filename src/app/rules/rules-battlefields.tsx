@@ -18,7 +18,7 @@ export default async function RulesBattlefields() {
         {
           battlefields.map((battlefield) => (
             <div className="section" key={battlefield.battlefieldId}>
-              <BattlefieldBlock battlefield={battlefield} />
+              <BattlefieldBlock key={`bf_${battlefield.battlefieldId}`} battlefield={battlefield} />
             </div>
           ))
         }

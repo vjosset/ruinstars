@@ -27,7 +27,7 @@ export default async function RulesFactions() {
       <br/><br/><br/><br/><br/>
       
       {allFactions.map((faction) => (
-        <div className="mb-4" key={faction.factionId}>
+        <div className="mb-4" key={`factionCard_${faction.factionId}`}>
           <FactionCard
             faction={faction}
           />
@@ -35,7 +35,7 @@ export default async function RulesFactions() {
       ))}
       
       {allFactions.map((faction) => (
-        <div className="section" key={faction.factionId}>
+        <div className="section" key={`faction_${faction.factionId}`}>
           <div className="relative min-h-[150px] md:h-[200px] flex items-center justify-center py-12">
             <div 
               className="absolute inset-0 bg-cover bg-top"
@@ -60,7 +60,7 @@ export default async function RulesFactions() {
 
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto p-2">
             {faction.unitTypes.map((u) => (
-              <div key={u.unitTypeId}>
+              <div key={`unitType_${u.unitTypeId}`}>
                 <UnitCard
                   seq={1}
                   unit={u.toPlain()}
@@ -89,7 +89,7 @@ export default async function RulesFactions() {
                 if (skill?.gearCategory?.isNarrative) return
 
                 return (
-                  <li key={gearId} className="section">
+                  <li key={`factionSkill_${gearId}`} className="section">
                     {skill?.gearName}<br/>
                     <Markdown className="text-sm text-muted" children={skill?.description ?? ''} />
                   </li>

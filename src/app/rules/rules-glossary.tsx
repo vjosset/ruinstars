@@ -124,12 +124,12 @@ export default async function RulesItems() {
         <ul>
           {
             definitions.map(def => (
-              <>
+              <div key={`definition_${def.key}`}>
                 <strong className="text-main">{def.key}</strong>
                 <p className="pl-2 pb-2">
                   {def.definition}
                 </p>
-              </>
+              </div>
             ))
           }
         </ul>
