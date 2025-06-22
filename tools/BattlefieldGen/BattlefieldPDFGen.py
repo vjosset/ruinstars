@@ -5,7 +5,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import letter
+from reportlab.lib.pagesizes import letter, A4
 from reportlab.lib.units import cm
 from reportlab.lib.utils import ImageReader
 
@@ -34,9 +34,20 @@ parser.add_argument(
   "--instructions", type=int, default=0,
   help="Include instructions page with a thumbnail of the original image (default: 0, no instructions)"
 )
+parser.add_argument(
+  "--page_size", default="US Letter",
+  help="the page size for the PDF output (default: 'US Letter', also supports 'A4'). "
+)
 args = parser.parse_args()
 
 input_path = Path(args.input_image).resolve()
+
+if args.page_size.lower() == "a4":
+  page_size = A4
+  page_size_name = "A4"
+else:
+  page_size = letter 
+  page_size_name = "Letter"
 
 # --- Parse Grid Size ---
 try:
@@ -72,13 +83,13 @@ if args.upscale > 0:
 
 # --- PDF Layout Constants ---
 img_size = 20 * cm
-page_width, page_height = letter
+page_width, page_height = page_size
 x_offset = (page_width - img_size) / 2
 y_offset = (page_height - img_size) / 2
 
 # Prepare the PDF canvas
-output_pdf = input_path.with_suffix(".pdf")
-c = canvas.Canvas(str(output_pdf), pagesize=letter)
+output_pdf = input_path.with_name(f"{input_path.stem}_{page_size_name}.pdf")
+c = canvas.Canvas(str(output_pdf), pagesize=page_size)
 c.setTitle(input_path.stem)
 
 # Get original image size
@@ -126,12 +137,20 @@ for row in range(rows):
     line_width_px = int(round(args.grid_width_mm * PIXELS_PER_MM))
     half_len = line_width_px * 5  # or keep as-is
     intersections = 6
-    cross_len = line_width_px  * 2
+    cross_len = line_width_px  * 3
 
     for i in range(intersections):
       for j in range(intersections):
         x = i * tile_width // (intersections - 1)
         y = j * tile_height // (intersections - 1)
+
+        # Horizontal line of the "+"
+        draw.line([(x - cross_len - line_width_px, y), (x + cross_len + line_width_px, y)],
+                  fill="#000000", width=line_width_px * 3 )
+
+        # Vertical line of the "+"
+        draw.line([(x, y - cross_len - line_width_px), (x, y + cross_len + line_width_px)],
+                  fill="#000000", width=line_width_px * 3 )
 
         # Horizontal line of the "+"
         draw.line([(x - cross_len, y), (x + cross_len, y)],
@@ -157,7 +176,8 @@ for row in range(rows):
     #    draw.line([(x, y - cross_len), (x, y + cross_len)],
     #              fill="#000000", width=line_width_px )
 
-    # Save tile to buffer - Convert to JPEG for PDF embedding and smaller output file size
+    # Save tile to buffer - Convert to JPEG for PDF embedding and smaller output PDF file size
+    # Note: JPEG is lossy, but we use high quality to minimize artifacts and they are not notticeable in this context
     buffer = io.BytesIO()
     tile.save(buffer, format="JPEG", quality=JPEG_QUALITY, optimize=True)
     buffer.seek(0)

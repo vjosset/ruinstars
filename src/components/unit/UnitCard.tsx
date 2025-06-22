@@ -6,7 +6,7 @@ import GearGroupList from '@/src/components/shared/GearGroupList'
 import WeaponTable from '@/src/components/shared/WeaponTable'
 import { Medal, UnitPlain, UnitTypePlain } from '@/types'
 import { useEffect, useState } from 'react'
-import { FaMedal } from 'react-icons/fa6'
+import { FaHeartPulse, FaMedal } from 'react-icons/fa6'
 import { Button, Checkbox, Modal } from '../ui'
 import UnitCardMenu from './UnitCardMenu'
 import UnitEditorModal from './UnitEditorModal'
@@ -93,8 +93,15 @@ export default function UnitCard({
               />
             )}
             <h4 className={`font-heading ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
-              <div onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
+              <div className="flex items-center gap-1" onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
                 {unit.isUnitType ? '' : `${seq}. `}{unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ''}
+                {/* Icon reminders for Spoils of War and Injuries */}
+                {!unit.isUnitType && unit.currHIT > 0 && unit.gears?.some(gear => gear.gearCategoryId === 'SOW') &&
+                  <FaMedal className="text-base text-muted" />
+                }
+                {!unit.isUnitType && unit.currHIT > 0 && unit.gears?.some(gear => gear.gearCategoryId === 'INJ') &&
+                  <FaHeartPulse className="text-base text-muted" /> 
+                }
               </div>
             </h4>
           </div>
