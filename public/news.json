@@ -1,6 +1,11 @@
 [
   {
-    "date": "2025-06-22",
+    "date": "2025-06-23",
+    "title": "Inujuries and Spoils of War",
+    "description": "Added icons next to Unit names if they have Spoils of War or Injuries. These icons serve as reminders during gameplay."
+  },
+  {
+    "date": "2025-06-21",
     "title": "Battlefields!",
     "description": "Added three print-at-home battlefield PDFs: The Ruined City, The Facility, and No Man's Land.\r\n\r\nGo to [Tools > Resources](/tools) for the full list of print-at-home files."
   },
