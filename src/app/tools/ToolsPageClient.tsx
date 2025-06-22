@@ -2,22 +2,27 @@
 
 import AccountTools from '@/components/tools/AccountTools'
 import AdminTools from '@/components/tools/AdminTools'
-import AppVersion from '@/components/tools/AppVersion'
 import Resources from '@/components/tools/Resources'
 import SettingsForm from '@/components/tools/SettingsForm'
 import PageTitle from '@/components/ui/PageTitle'
 import clsx from 'clsx'
+import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 
+export default function ToolsPageClient() {
+  const { status, data: session } = useSession()
 
-export default function ToolsPageClient({ userId }: { userId: string }) {
+  if (status === 'loading') {
+    return <div>Loading...</div>
+  }
+  
   const [tab, setTab] =
     useState<
+    'resources' |
     'settings' |
     'account' |
-    'resources' |
     'admin'
-  >('settings')
+  >('resources')
 
   const tabClasses = (selected: boolean) =>
     clsx(
@@ -34,40 +39,42 @@ export default function ToolsPageClient({ userId }: { userId: string }) {
 
         <div className="w-full">
           <div className="flex justify-center space-x-4 border-b border-zinc-700 mb-4">
-            <button className={tabClasses(tab === 'settings')} onClick={() => setTab('settings')}>
-              Settings
-            </button>
-            <button className={tabClasses(tab === 'account')} onClick={() => setTab('account')}>
-              Account
-            </button>
             <button className={tabClasses(tab === 'resources')} onClick={() => setTab('resources')}>
               Resources
             </button>
-            {userId == 'vince' && (
+            <button className={tabClasses(tab === 'settings')} onClick={() => setTab('settings')}>
+              Settings
+            </button>
+            {session?.user?.userId && (
+              <button className={tabClasses(tab === 'account')} onClick={() => setTab('account')}>
+                Account
+              </button>
+            )}
+            {session?.user?.userId == 'vince' && (
               <button className={tabClasses(tab === 'admin')} onClick={() => setTab('admin')}>
                 Admin
               </button>
             )}
           </div>
     
-          <div className="leading-relaxed max-h-[60vh] overflow-y-auto px-2 text-left">
-            <div className={'w-full max-w-md mx-auto ' + (tab === 'settings' ? 'block' : 'hidden')}>
-              <SettingsForm />
-            </div>
-            <div className={'w-full max-w-md mx-auto ' + (tab === 'account' ? 'block' : 'hidden')}>
-              <AccountTools />
-            </div>
+          <div className="leading-relaxed overflow-y-auto px-2 text-left">
             <div className={'w-full max-w-md mx-auto ' + (tab === 'resources' ? 'block' : 'hidden')}>
               <Resources />
             </div>
-            {userId == 'vince' && (
+            <div className={'w-full max-w-md mx-auto ' + (tab === 'settings' ? 'block' : 'hidden')}>
+              <SettingsForm />
+            </div>
+            {session?.user?.userId && (
+              <div className={'w-full max-w-md mx-auto ' + (tab === 'account' ? 'block' : 'hidden')}>
+                <AccountTools />
+              </div>
+            )}
+            {session?.user?.userId == 'vince' && (
               <div className={'w-full max-w-md mx-auto ' + (tab === 'admin' ? 'block' : 'hidden')}>
                 <AdminTools />
               </div>
             )}
           </div>
-          {/* Version information */}
-          <AppVersion />
         </div>
       </div>
     </div>

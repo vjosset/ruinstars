@@ -3,6 +3,7 @@
 import { Button, SectionTitle } from '@/components/ui'
 import { GAME } from '@/lib/config/game_config'
 import { useEffect, useState } from 'react'
+import AppVersion from './AppVersion'
 
 export default function SettingsForm() {
   const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null)
@@ -67,7 +68,9 @@ export default function SettingsForm() {
           <h6>Clear Cache</h6>
         </Button>
       </div>
-
+      
+      {/* Version information */}
+      <AppVersion />
     </div>
   )
 }

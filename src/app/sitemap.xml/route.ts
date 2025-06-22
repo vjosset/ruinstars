@@ -11,6 +11,7 @@ export async function GET() {
     '/factions',
     '/auth/login',
     '/auth/signup',
+    '/tools',
   ]
 
   // Fetch factions

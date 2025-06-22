@@ -34,13 +34,6 @@ export default function NavBarBottom() {
         path.includes('/me') || path.includes('/users') || path.includes('/squads'),
     },
     {
-      href: '/rules',
-      icon: <FiBook />,
-      label: 'Rules',
-      show: true,
-      match: (path: string) => path === '/rules',
-    },
-    {
       href: '/auth/login',
       icon: <FiLogIn />,
       label: 'Log In',
@@ -51,14 +44,21 @@ export default function NavBarBottom() {
       href: '/auth/signup',
       icon: <FiUserPlus />,
       label: 'Sign Up',
-      show: !userName,
+      show: false,
       match: (path: string) => path === '/auth/signup',
+    },
+    {
+      href: '/rules',
+      icon: <FiBook />,
+      label: 'Rules',
+      show: true,
+      match: (path: string) => path === '/rules',
     },
     {
       href: '/tools',
       icon: <FiTool />,
       label: 'Tools',
-      show: !!userName,
+      show: true,
       match: (path: string) => path === '/tools',
     },
   ]
