@@ -40,8 +40,14 @@ export async function GET() {
           gte: startDate,
           lt: endDate
         },
-        userIp: {
-          notIn: ['127.0.0.1', '::1', '76.98.82.81']
+        NOT: {
+          OR: [
+            // Exclude home IPs
+            { userIp: { in: ['127.0.0.1', '::1', '76.98.82.81', '73.188.188.13'] } },
+
+            // Exclude dev account
+            { userId: 'vince' },
+          ],
         }
       },
       select: { datestamp: true }
