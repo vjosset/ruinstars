@@ -24,7 +24,7 @@ export default function Resources() {
               <li>The Facility: <Link className="underline" target="_blank" href="/assets/battlefields\TheFacility_Letter.pdf">US Letter</Link>/<Link className="underline" target="_blank" href="/assets/battlefields\TheFacility_A4.pdf">A4</Link></li>
               <li>No Man's Land: <Link className="underline" target="_blank" href="/assets/battlefields\NoMansLand_Letter.pdf">US Letter</Link>/<Link className="underline" target="_blank" href="/assets/battlefields\NoMansLand_A4.pdf">A4</Link></li>
             </ul>
-            These PDFs are scaled for US Letter format and are composed of 9 tiles of 20cm x 20cm each with grid lines marking the Squares.<br/>
+            These PDFs are composed of 9 tiles of 20cm x 20cm each with grid lines marking the Squares.<br/>
             Print them at home at 100% scale, cut them out, and glue them to cardboard, foamboard, or wood for a sturdy battlefield.
           </li>
           <li>STLs for 3D Printing: <em>Coming soon!</em></li>
