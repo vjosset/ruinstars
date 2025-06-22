@@ -9,6 +9,10 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import cm
 from reportlab.lib.utils import ImageReader
 
+# --- Constants ---
+JPEG_QUALITY = 100
+MIN_TILE_SIZE = 1024
+
 # --- Argument Parsing ---
 parser = argparse.ArgumentParser(description="Split an image into tiles with 5x5 grid and export as 20x20cm PDFs.")
 parser.add_argument("input_image", help="Path to the input image")
@@ -21,6 +25,10 @@ parser.add_argument(
 parser.add_argument(
   "--grid-width-mm", type=int, default=1,
   help="Width of grid lines in millimeters (default: 1)"
+)
+parser.add_argument(
+  "--upscale", type=int, default=1,
+  help="Auto-upscale image to MIN_TILE_SIZE * COLS x MIN_TILE_SIZE * ROWS before processing (default: 1, upscale)"
 )
 parser.add_argument(
   "--instructions", type=int, default=0,
@@ -43,6 +51,24 @@ image = Image.open(input_path).convert("RGB")
 width, height = image.size
 tile_width = width // cols
 tile_height = height // rows
+
+# Upscale to MIN_TILE_SIZE * cols x MIN_TILE_SIZE * rows before any other manipulation
+if args.upscale > 0:
+  target_size = (MIN_TILE_SIZE * cols, MIN_TILE_SIZE * rows)
+  if target_size[0] > width or target_size[1] > height:
+    scale_w = target_size[0] / width
+    scale_h = target_size[1] / height
+    scale = max(scale_w, scale_h)  # Use the larger scale to ensure both dimensions meet minimums
+
+    new_width = int(width * scale)
+    new_height = int(height * scale)
+
+    print(f"⚠️ Upscaling image from {width}x{height} to {new_width}x{new_height}")
+    image = image.resize((new_width, new_height), Image.LANCZOS)
+
+    width, height = image.size
+    tile_width = width // cols
+    tile_height = height // rows
 
 # --- PDF Layout Constants ---
 img_size = 20 * cm
@@ -133,7 +159,7 @@ for row in range(rows):
 
     # Save tile to buffer - Convert to JPEG for PDF embedding and smaller output file size
     buffer = io.BytesIO()
-    tile.save(buffer, format="JPEG", quality=85, optimize=True)
+    tile.save(buffer, format="JPEG", quality=JPEG_QUALITY, optimize=True)
     buffer.seek(0)
     tile_reader = ImageReader(buffer)
 
@@ -152,17 +178,17 @@ if args.instructions > 0:
 
   c.setFont("Helvetica", 11)
   instructions = [
-      "• Print this PDF at 100% scale (do NOT use 'Fit to page').",
-      "• Each tile prints at 20×20 cm and forms a grid of your original image.",
-      f"• This layout preview shows how to arrange the {cols}×{rows} tiles.",
-      "• Cut and align the tiles according to the grid.",
-      "• Mount to foam board, wood, or card for maximum durability."
+    "• Print this PDF at 100% scale (do NOT use 'Fit to page').",
+    "• Each tile prints at 20×20 cm and forms a grid of your original image.",
+    f"• This layout preview shows how to arrange the {cols}×{rows} tiles.",
+    "• Cut and align the tiles according to the grid.",
+    "• Mount to foam board, wood, or card for maximum durability."
   ]
 
   y = page_height - 3.2 * cm
   for line in instructions:
-      c.drawString(2 * cm, y, line)
-      y -= 0.6 * cm
+    c.drawString(2 * cm, y, line)
+    y -= 0.6 * cm
 
   # Create preview thumbnail of cropped image with overlaid grid
   max_preview_width_cm = 10
@@ -176,15 +202,25 @@ if args.instructions > 0:
   aspect_ratio = img_w / img_h
 
   if (max_preview_width_px / max_preview_height_px) > aspect_ratio:
-      # Height limits size
-      preview_height_px = max_preview_height_px
-      preview_width_px = int(preview_height_px * aspect_ratio)
+    # Height limits size
+    preview_height_px = max_preview_height_px
+    preview_width_px = int(preview_height_px * aspect_ratio)
   else:
-      # Width limits size
-      preview_width_px = max_preview_width_px
-      preview_height_px = int(preview_width_px / aspect_ratio)
+    # Width limits size
+    preview_width_px = max_preview_width_px
+    preview_height_px = int(preview_width_px / aspect_ratio)
 
   # Resize the image
+  # Note: Using LANCZOS filter for high-quality downscaling
+  # | Filter       | Downscaling Quality |  Upscaling Quality  | Performance |
+  # +--------------+---------------------+---------------------+-------------+
+  # |NEAREST       |         0           |         0           |      5      |
+  # |BOX           |         1           |         0           |      4      |
+  # |BILINEAR      |         1           |         1           |      3      |
+  # |HAMMING       |         2           |         0           |      3      |
+  # |BICUBIC       |         3           |         3           |      2      |
+  # |LANCZOS       |         4           |         4           |      1      |
+  
   preview_img = image.resize((preview_width_px, preview_height_px), Image.LANCZOS)
 
   # Draw grid lines
@@ -201,7 +237,7 @@ if args.instructions > 0:
 
   # Convert preview image to buffer
   preview_buffer = io.BytesIO()
-  preview_img.save(preview_buffer, format="JPEG", quality=80, optimize=True)
+  preview_img.save(preview_buffer, format="JPEG", quality=JPEG_QUALITY, optimize=True)
   preview_buffer.seek(0)
   preview_reader = ImageReader(preview_buffer)
 
