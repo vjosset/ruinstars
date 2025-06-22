@@ -42,7 +42,7 @@ export default function NewsPopup() {
     <Modal
       title="What's New"
       children={(
-        <div className="space-y-4 max-h-[60vh] overflow-y-auto">
+        <div className="space-y-4 max-h-[90vh] overflow-y-auto news">
           {unseenNews.map((item, idx) => (
             <NewsCard key={idx} item={item} />
           ))}
