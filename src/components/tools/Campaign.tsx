@@ -93,9 +93,9 @@ export default function Campaign() {
           {
             missionId: 5,
             name: 'Scavenge',
-            date: null,
-            squad1MP: null,
-            squad2MP: null,
+            date: '22 Jun 2025',
+            squad1MP: 7,
+            squad2MP: 18,
           },
           {
             missionId: 6,
