@@ -101,8 +101,8 @@ export default function Campaign() {
             missionId: 6,
             name: 'Control',
             date: '22 Jun 2025',
-            squad1MP: 3,
-            squad2MP: 6,
+            squad1MP: 6,
+            squad2MP: 3,
           }
         ]
       },
