@@ -1,5 +1,6 @@
 import { Faction } from '@/types/faction.model'
 import Link from 'next/link'
+import Markdown from '../ui/Markdown'
 
 type FactionCardProps = {
   faction: Faction
@@ -30,7 +31,7 @@ export default function FactionCard({ faction }: FactionCardProps) {
           <h4 className="font-heading text-main text-xl">{faction.factionName}</h4>
         </div>
         <p className="line-clamp-3">
-          {faction.description}
+          <Markdown>{faction.description}</Markdown>
         </p>
       </div>
     </Link>
