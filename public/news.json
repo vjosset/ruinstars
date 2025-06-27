@@ -1,5 +1,10 @@
 [
   {
+    "date": "2025-06-26",
+    "title": "New Factions",
+    "description": "Added [Crimson Shroud](/factions/CRS), [Eidolon Revenants](/factions/EIR), and [Outer Claim](/factions/OCL) factions."
+  },
+  {
     "date": "2025-06-23",
     "title": "Injuries and Spoils of War",
     "description": "Added icons next to Unit names if they have Spoils of War or Injuries. These icons serve as reminders during gameplay."
