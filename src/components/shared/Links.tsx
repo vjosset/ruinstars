@@ -7,10 +7,7 @@ const badgeClass = 'text-muted inline-flex items-center gap-1 px-1 py-0.5 text-s
 
 export function FactionLink({ factionId, factionName }: { factionId: string; factionName: string }) {
   return (
-    <Link
-      href={`/factions/${factionId}`}
-      className={badgeClass}
-    >
+    <Link href={`/factions/${factionId}`} className={badgeClass}>
       <FiList />
       {factionName}
     </Link>
@@ -19,10 +16,7 @@ export function FactionLink({ factionId, factionName }: { factionId: string; fac
 
 export function UserLink({ userName }: {userName: string}) {
   return (
-    <Link
-      href={`/users/${userName}`}
-      className={badgeClass}
-    >
+    <Link href={`/users/${userName}`} className={badgeClass}>
       <FiUser />
       {userName}
     </Link>
@@ -31,10 +25,7 @@ export function UserLink({ userName }: {userName: string}) {
 
 export function SquadLink({ squadId, squadName }: { squadId: string; squadName: string }) {
   return (
-    <Link
-      href={`/squads/${squadId}`}
-      className={badgeClass}
-    >
+    <Link href={`/squads/${squadId}`} className={badgeClass}>
       <FiUsers />
       {squadName}
     </Link>
