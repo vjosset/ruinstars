@@ -3,7 +3,8 @@
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FiBook, FiHome, FiList, FiLogIn, FiTool, FiUserPlus, FiUsers } from 'react-icons/fi'
+import { FiHome, FiList, FiLogIn, FiTool, FiUserPlus, FiUsers } from 'react-icons/fi'
+import { LuBookText } from 'react-icons/lu'
 
 export default function NavBarBottom() {
   const pathname = usePathname()
@@ -49,7 +50,7 @@ export default function NavBarBottom() {
     },
     {
       href: '/rules',
-      icon: <FiBook />,
+      icon: <LuBookText />,
       label: 'Rules',
       show: true,
       match: (path: string) => path === '/rules',

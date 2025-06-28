@@ -4,7 +4,8 @@ import { GAME } from '@/lib/config/game_config'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FiBook, FiList, FiLogIn, FiTool, FiUserPlus, FiUsers } from 'react-icons/fi'
+import { FiList, FiLogIn, FiTool, FiUserPlus, FiUsers } from 'react-icons/fi'
+import { LuBookText } from 'react-icons/lu'
 
 export default function NavBarTop() {
   const pathname = usePathname()
@@ -44,7 +45,7 @@ export default function NavBarTop() {
     },
     {
       href: '/rules',
-      icon: <FiBook />,
+      icon: <LuBookText />,
       label: 'Rules',
       show: true,
       match: (path: string) => path === '/rules',

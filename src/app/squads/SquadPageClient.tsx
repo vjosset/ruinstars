@@ -1,14 +1,14 @@
 'use client'
 
+import { FactionLink, UserLink } from '@/components/shared/Links'
 import { Button } from '@/components/ui'
 import PageTitle from '@/components/ui/PageTitle'
 import { SpecialRule } from '@/lib/utils/specialRules'
 import { Medal, SquadPlain, UnitPlain } from '@/types'
 import { useSession } from 'next-auth/react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { FiEdit2, FiInfo, FiRotateCcw, FiUser } from 'react-icons/fi'
+import { FiDownload, FiEdit2, FiInfo, FiRotateCcw } from 'react-icons/fi'
 import EditSquadForm from '../../components/squad/EditSquadForm'
 import SquadTools from '../../components/squad/SquadTools'
 import { useModal } from '../../components/ui/ModalContext'
@@ -227,36 +227,21 @@ export default function SquadPageClient({
           </div>
 
           {/* Details under title */}
-          <div className="flex items-center justify-center gap-2 text-muted">
-            <Link 
-              href={`/factions/${squad.factionId}`} 
-              className="inline-flex items-center hover:text-main underline"
-            >
-              <img 
-                className="h-6 w-6 hidden" 
-                src={`/img/factions/${squad.faction?.factionId}-icon.webp`} 
-                alt="" 
-              />
-              <span className="ml-1">{squad.faction?.factionName}</span>
-            </Link>
+          <div className="flex items-center justify-center gap-2 text-muted p-2">
+            <FactionLink factionId={squad.faction?.factionId ?? ''} factionName={squad.faction?.factionName ?? ''} />
 
             <span>by</span>
 
-            <Link 
-              href={`/users/${squad.user?.userName}`} 
-              className="inline-flex items-center hover:text-main underline"
-            >
-              <FiUser className="h-6 w-6" />
-              <span className="ml-1">{squad.user?.userName}</span>
-            </Link>
-            <span>({totalGP}/{squad.maxGP}GP)</span>
+            <UserLink userName={squad.user?.userName ?? ''} />
             
+            <span className="text-sm">{totalGP}/{squad.maxGP}GP</span>
             {!isOwner && status === 'authenticated' && (
               <>
                 <br/>
                 <span
                   className="cursor-pointer"
-                  style={{textDecoration: 'underline'}}
+                  title="Import this Squad to your Squads"
+                  aria-label="Import this squad"
                   onClick={async () => {
                     try {
                       const res = await fetch(`/api/squads/${squad.squadId}/clone`, {
@@ -276,7 +261,7 @@ export default function SquadPageClient({
                       console.error(err)
                     }
                   }}>
-                  Import Squad
+                  <FiDownload />
                 </span>
               </>
             )}
