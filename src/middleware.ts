@@ -4,6 +4,8 @@ import { NextResponse } from 'next/server'
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
+  
+  console.log('🚨 Wrong middleware loaded from /src')
 
   // Only rewrite for /me route
   if (pathname === '/me') {
