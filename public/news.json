@@ -1,5 +1,10 @@
 [
   {
+    "date": "2025-06-27",
+    "title": "Tokens",
+    "description": "Added Print-At-Home Tokens for objectives, crates, barrels, and Bugs.\r\n\r\nGo to [Tools > Resources](/tools) for the full list of print-at-home files. "
+  },
+  {
     "date": "2025-06-26",
     "title": "New Factions",
     "description": "Added [Crimson Shroud](/factions/CRS), [Eidolon Revenants](/factions/EIR), and [Outer Claim](/factions/OCL) factions."

@@ -21,6 +21,9 @@ export default function Resources() {
             </ul>
           </li>
           <li>
+            <Link className="underline" target="_blank" href="/assets/tokens.pdf">Tokens</Link>
+          </li>
+          <li>
             Print-at-home Battlefield PDFs:
             <ul>
               <li>The Ruined City: { ' ' }
