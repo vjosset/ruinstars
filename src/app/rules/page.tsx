@@ -39,9 +39,14 @@ export default async function Home() {
       <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
         Download the Rules:
         { ' ' }
-        <Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250607.pdf">Easy Print</Link>
+        <Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250627.pdf">Easy Print PDF</Link>
         { ' / ' }
-        <Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250607 - FullColor.pdf">Full Color</Link>
+        <Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250627 - FullColor.pdf">Full Color PDF</Link>
+      </div>
+      <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
+        Print the Tokens:
+        { ' ' }
+        <Link className="underline" target="_blank" href="/assets/tokens.pdf">Tokens PDF</Link>
       </div>
 
       <RulesToc />
