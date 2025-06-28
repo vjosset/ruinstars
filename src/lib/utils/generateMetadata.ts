@@ -1,6 +1,7 @@
 import { GAME } from '@/lib/config/game_config'
 import { Metadata } from 'next'
 import { headers } from 'next/headers'
+import removeMd from 'remove-markdown'
 
 interface MetadataParams {
   title?: string
@@ -30,7 +31,9 @@ export async function generatePageMetadata({
 
   // Default values
   const pageTitle = title ? `${title} - ${GAME.NAME}` : GAME.NAME
-  const pageDescription = description || `${GAME.NAME} is a free fast-paced miniatures-agnostic sci-fi skirmish wargame set in a galaxy filled with dangers.`
+  
+  // Remove markdown formatting from descriptions (e.g. faction descriptions)
+  const pageDescription = removeMd(description ?? `${GAME.NAME} is a free fast-paced miniatures-agnostic sci-fi skirmish wargame set in a galaxy filled with dangers.`)
   const pageImage = image ? {
     url: image.url.startsWith('http') ? image.url : `${baseUrl}${image.url}`,
     width: image.width || 1200,
