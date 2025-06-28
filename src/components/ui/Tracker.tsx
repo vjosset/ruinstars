@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
 import { trackEvent } from '@/lib/utils/trackEvent'
+import { usePathname, useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 
 export function Tracker() {
   const pathname = usePathname()
@@ -11,7 +11,7 @@ export function Tracker() {
   useEffect(() => {
     if (!pathname) return
 
-    const url = pathname + searchParams.toString()
+    const url = pathname + searchParams?.toString()
 
     window.gtag?.('config', 'G-XXXXXXXXXX', {
       page_path: url,

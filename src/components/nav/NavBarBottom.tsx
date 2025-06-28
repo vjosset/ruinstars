@@ -69,7 +69,7 @@ export default function NavBarBottom() {
       {links
         .filter((link) => link.show)
         .map((link) => {
-          const isActive = link.match(pathname)
+          const isActive = link.match(pathname ?? '')
 
           return (
             <Link key={link.href} href={link.href} prefetch={true} className="flex flex-col items-center text-xs text-muted">

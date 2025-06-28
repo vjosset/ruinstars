@@ -1,11 +1,8 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 
-export default function Campaign() {
-  const { data: session } = useSession()
-  
+export default function Campaign() {  
   const campaign = {
     campaignName: 'Campaign Jun 2025',
     summary: {
