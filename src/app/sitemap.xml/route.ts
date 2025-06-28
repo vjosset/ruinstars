@@ -1,3 +1,4 @@
+// @ts-ignore
 import { prisma } from '@/lib/prisma'
 import { NextResponse } from 'next/server'
 
@@ -30,9 +31,9 @@ export async function GET() {
   })
 
   const dynamicUrls = [
-    ...factions.map(faction => `/factions/${faction.factionId}`),
-    ...users.map(user => `/users/${user.userName}`),
-    ...squads.map(squad => `/squads/${squad.squadId}`),
+    ...factions.map((faction: { factionId: string }) => `/factions/${faction.factionId}`),
+    ...users.map((user: { userName: string }) => `/users/${user.userName}`),
+    ...squads.map((squad: { squadId: string }) => `/squads/${squad.squadId}`),
   ]
 
   // Build full list of URLs

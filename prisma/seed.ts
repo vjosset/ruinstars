@@ -2,8 +2,8 @@
 
 import { PrismaClient } from '@prisma/client'
 import { hash } from 'bcryptjs'
-import path from 'path'
 import fs from 'fs/promises'
+import path from 'path'
 
 const prisma = new PrismaClient()
 
