@@ -43,11 +43,6 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
         </div>
         <div className="relative flex flex-col items-center justify-center px-8 pt-24 w-full">
           <div className="flex items-center gap-x-4 mb-4">
-            <img 
-              className="h-10 w-10 grunge mb-3 hidden" 
-              src={`/img/factions/${faction.factionId}-icon.webp`} 
-              alt={`${faction.factionName} icon`}
-            />
             <PageTitle>{faction.factionName}</PageTitle>
           </div>
           <div className="text-white max-w-2xl text-center">

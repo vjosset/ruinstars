@@ -45,11 +45,6 @@ export default async function RulesFactions() {
             </div>
             <div className="relative flex flex-col items-center justify-center px-8 pt-48 w-full">
               <div className="flex items-center gap-x-4 mb-4">
-                <img 
-                  className="h-10 w-10 grunge mb-3" 
-                  src={`/img/factions/${faction.factionId}-icon.webp`} 
-                  alt={`${faction.factionName} icon`}
-                />
                 <h1 className="text-center text-4xl text-white mb-2">{faction.factionName}</h1>
               </div>
               <div className="text-white max-w-2xl text-center">

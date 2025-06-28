@@ -23,11 +23,6 @@ export default function FactionCard({ faction }: FactionCardProps) {
       {/* Content section - right side */}
       <div className="relative px-3 py-2 flex flex-col justify-between">
         <div className="flex items-center gap-x-2">
-          <img 
-            className="h-6 w-6 grunge hidden" 
-            src={`/img/factions/${faction.factionId}-icon.webp`} 
-            alt={`${faction.factionName} icon`}
-          />
           <h4 className="font-heading text-main text-xl">{faction.factionName}</h4>
         </div>
         <p className="line-clamp-3">

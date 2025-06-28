@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import SquadCardMenu from './SquadCardMenu'
-import { Button, Modal } from '../ui'
 import { SquadPlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { FiChevronDown } from 'react-icons/fi'
+import { Button, Modal } from '../ui'
+import SquadCardMenu from './SquadCardMenu'
 
 type SquadCardProps = {
   squad: SquadPlain
@@ -49,11 +49,6 @@ export default function SquadCard({
         <div className="relative px-3 py-2 flex flex-col justify-between">
           <div className="flex items-center gap-2">
             <Link href={`/squads/${squad.squadId}`} className="flex items-center min-w-0 flex-1"> {/* Added min-w-0 to allow text truncation */}
-              <img 
-                className="h-6 w-6 grunge flex-shrink-0 hidden" 
-                src={`/img/factions/${squad.faction?.factionId}-icon.webp`} 
-                alt=""
-              />
               <h5 className="font-heading text-main mx-2"> {/* Add  truncate w-0 flex-1 to allow text truncation + ellipsis */}
                 {squad.squadName}
               </h5>
