@@ -221,17 +221,17 @@ export default function SquadPageClient({
       <div className="text-center space-y-2 mb-1">
         <div className="flex flex-col justify-center items-center gap-2">
           <div className="flex items-center justify-center gap-2">
-            <PageTitle onClick={handleEditSquadClick}>
+            <PageTitle onClick={isOwner && handleEditSquadClick}>
               {squad.squadName}
             </PageTitle>
             {isOwner && (
-              <button 
-                className="flex items-center w-6 h-6"
+              <sup 
+                className="text-sm flex items-center w-6 h-6 jutify-top cursor-pointer"
                 onClick={handleEditSquadClick}
                 aria-label="Edit squad info"
               >
                 <FiEdit2/>
-              </button>
+              </sup>
             )}
           </div>
 
