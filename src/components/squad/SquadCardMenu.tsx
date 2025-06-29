@@ -33,10 +33,11 @@ export default function SquadCardMenu({
       })
 
       if (!res.ok) throw new Error('Failed to create squad')
-      toast.success('Squad cloned, redirecting...')
 
       const newSquadId = (await res.json()).squadId
-      router.push(`/squads/${newSquadId}`)
+      toast.success('Squad cloned, redirecting...')
+      setTimeout(() => router.push(`/squads/${newSquadId}`), 500)
+      
     } catch (err) {
       console.error(err)
       toast.success('Failed to clone Squad')

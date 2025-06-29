@@ -53,7 +53,6 @@ export default function SquadPageClient({
     setUnits(prev =>
       prev.map(u => (u.unitId === updated.unitId ? updated : u))
     )
-    toast.success('Unit updated')
   }
 
   const deleteUnit = async(unitId: string) => {
@@ -107,7 +106,6 @@ export default function SquadPageClient({
     if (res.ok) {
       const updated = await res.json()
       setSquad(updated)
-      toast.success('Saved successfully!')
       hideModal()
     } else {
       console.error('Failed to update squad info')
@@ -273,7 +271,7 @@ export default function SquadPageClient({
                     toast.success('Squad imported, redirecting...')
 
                     const { squadId } = await res.json()
-                    router.push(`/squads/${squadId}`)
+                    setTimeout(() => router.push(`/squads/${squadId}`), 500)
                   } catch (err) {
                     console.error(err)
                     toast.error('Could not import squad')

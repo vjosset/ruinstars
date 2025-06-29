@@ -136,7 +136,6 @@ export default function UnitEditorModal({
     if (res.ok) {
       const result = await res.json()
       const updated = result // If PATCH, use the returned unit, else fallback
-      toast.success('Unit Saved')
       onSave(updated)
       onClose()
     } else {

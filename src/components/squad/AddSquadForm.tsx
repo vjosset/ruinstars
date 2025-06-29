@@ -84,7 +84,7 @@ export default function AddSquadForm() {
                       toast.success('Squad created, redirecting...')
   
                       const { squadId } = await res.json()
-                      router.push(`/squads/${squadId}`)
+                      setTimeout(() => router.push(`/squads/${squadId}`), 500)
                     } catch (err) {
                       console.error(err)
                       toast.error('Could not create squad')
@@ -107,7 +107,7 @@ export default function AddSquadForm() {
                       toast.success('Squad created, redirecting...')
   
                       const { squadId } = await res.json()
-                      router.push(`/squads/${squadId}`)
+                      setTimeout(() => router.push(`/squads/${squadId}`), 500)
                     } catch (err) {
                       console.error(err)
                       toast.error('Could not create squad')
