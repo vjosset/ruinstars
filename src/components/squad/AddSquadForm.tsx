@@ -130,6 +130,7 @@ export default function AddSquadForm() {
                 <Label>Squad Name</Label>
                 <Input
                   type="text"
+                  autoCapitalize="words"
                   value={squadName ?? ''}
                   className="w-full"
                   onChange={(e) => setSquadName(e.target.value)}

@@ -9,7 +9,7 @@ import { FiChevronDown } from 'react-icons/fi'
 import { GiRollingDices } from 'react-icons/gi'
 import GearGroupList from '../shared/GearGroupList'
 import WeaponTable from '../shared/WeaponTable'
-import { Button, Label } from '../ui'
+import { Button, Input, Label } from '../ui'
 import Modal from '../ui/Modal'
 
 interface UnitEditorModalProps {
@@ -234,8 +234,9 @@ export default function UnitEditorModal({
           <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4">
             <Label>Unit Name</Label>
             <div className="flex w-full">
-              <input
+              <Input
                 value={unitName}
+                autoCapitalize="words"
                 onChange={(e) => setUnitName(e.target.value)}
                 placeholder="Unit Name"
                 className="flex-1 my-2 px-2 bg-card border border-border rounded-l-md appearance-none"

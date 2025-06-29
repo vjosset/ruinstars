@@ -35,6 +35,7 @@ const EditSquadForm = forwardRef(function EditSquadForm(
         <Input
           id="squadName"
           value={name}
+          autoCapitalize="words"
           onChange={(e) => setName(e.target.value)}
           placeholder="Enter squad name"
         />

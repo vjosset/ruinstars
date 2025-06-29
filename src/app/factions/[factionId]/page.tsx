@@ -41,7 +41,7 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
         </div>
-        <div className="relative flex flex-col items-center justify-center px-8 pt-24 w-full">
+        <div className="relative flex flex-col items-center justify-center px-8 pt-36 w-full">
           <div className="flex items-center gap-x-4 mb-4">
             <PageTitle>{faction.factionName}</PageTitle>
           </div>

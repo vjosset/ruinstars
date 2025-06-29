@@ -224,6 +224,15 @@ export default function SquadPageClient({
             <PageTitle onClick={handleEditSquadClick}>
               {squad.squadName}
             </PageTitle>
+            {isOwner && (
+              <button 
+                className="flex items-center w-6 h-6"
+                onClick={handleEditSquadClick}
+                aria-label="Edit squad info"
+              >
+                <FiEdit2/>
+              </button>
+            )}
           </div>
 
           {/* Details under title */}
@@ -301,13 +310,6 @@ export default function SquadPageClient({
                   onClick={handleResetClick}
                 >
                   <FiRotateCcw/>
-                </button>
-                <button 
-                  className="flex items-center justify-center rounded border border-border w-6 h-6"
-                  onClick={handleEditSquadClick}
-                  aria-label="Edit squad info"
-                >
-                  <FiEdit2/>
                 </button>
                 <button 
                   className="flex items-center justify-center rounded border border-border w-6 h-6"
