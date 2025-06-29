@@ -29,20 +29,18 @@ export default async function RulesCampaigns() {
         At the end of each Operation, your Squad returns to homebase.<br/>
         During Missions, your Squad will earn XP and GP. These cannot be spent on any Gear or Units until your Squad returns to Homebase.
         <ul>
+          <li>Add 2 GP to your Squad's Max GP + 2 GP for each Victory in the previous Operation</li>
           <li>Remove all Deceased Units from your Squad</li>
-          <li>Add 2 GP to your Squad's Max GP</li>
-          <li>Add 2 GP for each Victory in the previous Operation</li>
-          <li>Remove all Injuries from all Units</li>
-          <li>Make changes to your Squad's selected Gear</li>
-          <li>Add Spoils Of War to eligible Units</li>
+          <li>Remove all Injuries from all (non-Deceased) Units</li>
           <li>Recruit new Units into the Squad</li>
+          <li>Make changes to your Squad's selected Gear and Spoils Of War (for eligible Units). Units may select one Spoil of War for each increment of 5 XP.</li>
         </ul>
       </div>
       
       <div className="section">
         <h3>Spoils Of War</h3>
         <p>
-          For each increment of 5 XP earned, a Unit may take another Spoil Of War.<br/>
+          For each increment of 5 XP earned, a Unit may take another Spoil Of War when it returns to Homebase at the end of an Operation.<br/>
           For example, a Unit with 13 XP can take 2 Spoils of War.
         </p>
         <ul>
