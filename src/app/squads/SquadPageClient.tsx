@@ -303,7 +303,7 @@ export default function SquadPageClient({
             </div>
           ))}
           <div className="flex flex-col items-center gap-1">
-            <h6 className="font-bold text-main">{totalGP}/{squad.maxGP}GP</h6>
+            <h6 className="font-bold text-main" onClick={handleEditSquadClick}>{totalGP}/{squad.maxGP}GP</h6>
 
             {/* Reset and Info/tools */}
             <div className="flex items-center">
