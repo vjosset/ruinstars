@@ -71,6 +71,13 @@ body {
   @apply font-main;
 }
 
+/* Visual layout debugger */
+/*
+* {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+}
+	*/
+
 .grunge {
   /* Grunge/stamp style */
 	mask-image: url('/img/ui/grunge_sm.png');

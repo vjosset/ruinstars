@@ -9,11 +9,12 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { FiDownload, FiEdit2, FiInfo, FiRotateCcw } from 'react-icons/fi'
-import EditSquadForm from '../../components/squad/EditSquadForm'
-import SquadTools from '../../components/squad/SquadTools'
-import { useModal } from '../../components/ui/ModalContext'
-import AddUnitForm from '../../components/unit/AddUnitForm'
-import UnitCard from '../../components/unit/UnitCard'
+import { toast } from 'sonner'
+import EditSquadForm from '../../../components/squad/EditSquadForm'
+import SquadTools from '../../../components/squad/SquadTools'
+import { useModal } from '../../../components/ui/ModalContext'
+import AddUnitForm from '../../../components/unit/AddUnitForm'
+import UnitCard from '../../../components/unit/UnitCard'
 
 export default function SquadPageClient({
   initialSquad,
@@ -52,6 +53,7 @@ export default function SquadPageClient({
     setUnits(prev =>
       prev.map(u => (u.unitId === updated.unitId ? updated : u))
     )
+    toast.success('Unit updated')
   }
 
   const deleteUnit = async(unitId: string) => {
@@ -105,9 +107,11 @@ export default function SquadPageClient({
     if (res.ok) {
       const updated = await res.json()
       setSquad(updated)
+      toast.success('Saved successfully!')
       hideModal()
     } else {
       console.error('Failed to update squad info')
+      toast.error('Failed to save')
     }
   }
   
@@ -179,8 +183,9 @@ export default function SquadPageClient({
       setSquad(updated)
       // Reset all units' activation state
       setUnits(prev => prev.map(unit => ({ ...unit, isActivated: false })))
+      toast.success('Squad reset')
     } else {
-      console.error('Failed to reset game')
+      toast.error('Failed to reset game')
     }
   }
 
@@ -265,11 +270,13 @@ export default function SquadPageClient({
                     })
 
                     if (!res.ok) throw new Error('Failed to import squad')
+                    toast.success('Squad imported, redirecting...')
 
                     const { squadId } = await res.json()
                     router.push(`/squads/${squadId}`)
                   } catch (err) {
                     console.error(err)
+                    toast.error('Could not import squad')
                   }
                 }}>
                 <FiDownload /> Import

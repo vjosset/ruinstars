@@ -7,6 +7,7 @@ import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headless
 import { useEffect, useState } from 'react'
 import { FiChevronDown } from 'react-icons/fi'
 import { GiRollingDices } from 'react-icons/gi'
+import { toast } from 'sonner'
 import GearGroupList from '../shared/GearGroupList'
 import WeaponTable from '../shared/WeaponTable'
 import { Button, Input, Label } from '../ui'
@@ -135,10 +136,11 @@ export default function UnitEditorModal({
     if (res.ok) {
       const result = await res.json()
       const updated = result // If PATCH, use the returned unit, else fallback
+      toast.success('Unit Saved')
       onSave(updated)
       onClose()
     } else {
-      alert('Failed to save unit')
+      toast.success('Failed to save Unit')
     }
   }
 

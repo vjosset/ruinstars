@@ -4,7 +4,7 @@ import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { SquadService } from '@/services'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import SquadPageClient from '../SquadPageClient'
+import SquadPageClient from './SquadPageClient'
 
 export async function generateMetadata({ params }: { params: Promise<{ squadId: string }> }): Promise<Metadata> {
   const { squadId } = await params

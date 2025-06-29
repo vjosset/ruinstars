@@ -1,9 +1,10 @@
 'use client'
 
+import type { Session } from 'next-auth'
 import { SessionProvider } from 'next-auth/react'
+import { Toaster } from 'sonner'
 import { ModalProvider } from './ModalContext'
 import { Tracker } from './Tracker'
-import type { Session } from 'next-auth'
 
 type Props = {
   children: React.ReactNode
@@ -16,6 +17,17 @@ export function ClientProviders({ children, session }: Props) {
       <ModalProvider>
         {children}
       </ModalProvider>
+      <Toaster
+        richColors={false}
+        position="top-center"
+        toastOptions={{
+          duration: 1500,
+          classNames: {
+            toast: '!max-w-[90vw] !sm:max-w-sm !bg-background !text-foreground !text-semibold !border-2 !border-main',
+            icon: '!text-main'
+          }
+        }}
+      />
       <Tracker />
     </SessionProvider>
   )

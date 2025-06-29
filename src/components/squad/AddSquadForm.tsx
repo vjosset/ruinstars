@@ -4,6 +4,7 @@
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
 import { Button, Checkbox, Input, Label, Modal } from '../ui'
 
 export default function AddSquadForm() {
@@ -80,11 +81,13 @@ export default function AddSquadForm() {
                       })
   
                       if (!res.ok) throw new Error('Failed to create squad')
+                      toast.success('Squad created, redirecting...')
   
                       const { squadId } = await res.json()
                       router.push(`/squads/${squadId}`)
                     } catch (err) {
                       console.error(err)
+                      toast.error('Could not create squad')
                     } finally {
                       setCreatingSquad(false)
                     }
@@ -101,11 +104,13 @@ export default function AddSquadForm() {
                       })
   
                       if (!res.ok) throw new Error('Failed to create squad')
+                      toast.success('Squad created, redirecting...')
   
                       const { squadId } = await res.json()
                       router.push(`/squads/${squadId}`)
                     } catch (err) {
                       console.error(err)
+                      toast.error('Could not create squad')
                     } finally {
                       setCreatingSquad(false)
                     }

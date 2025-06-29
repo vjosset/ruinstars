@@ -7,6 +7,7 @@ import WeaponTable from '@/src/components/shared/WeaponTable'
 import { Medal, UnitPlain, UnitTypePlain } from '@/types'
 import { useEffect, useState } from 'react'
 import { FaHeartPulse, FaMedal } from 'react-icons/fa6'
+import { toast } from 'sonner'
 import { Button, Checkbox, Modal } from '../ui'
 import UnitCardMenu from './UnitCardMenu'
 import UnitEditorModal from './UnitEditorModal'
@@ -80,7 +81,7 @@ export default function UnitCard({
                   })
 
                   if (!res.ok) {
-                    alert('Failed to update unit activation')
+                    toast.error('Failed to save Unit activation')
                   } else {
                     const updated = await res.json()
                     // Inform the parent about the new activated state

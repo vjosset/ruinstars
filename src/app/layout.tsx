@@ -35,7 +35,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             });
           `}
         </Script>
-
       </head>
   
       <body className="text-foreground font-main">

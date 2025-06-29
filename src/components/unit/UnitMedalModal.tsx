@@ -1,8 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Modal, Button } from '../ui'
-import { UnitPlain, Medal } from '@/types'
+import { Medal, UnitPlain } from '@/types'
+import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
+import { Button, Modal } from '../ui'
 
 interface UnitMedalModalProps {
   isOpen: boolean
@@ -72,7 +73,7 @@ export default function UnitMedalModal({
       onSave(updated)
       onClose()
     } else {
-      alert('Failed to save medals')
+      toast.success('Failed to save Medals')
     }
   }
 

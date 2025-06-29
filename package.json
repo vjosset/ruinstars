@@ -27,7 +27,8 @@
     "react-icons": "^5.5.0",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
-    "remove-markdown": "^0.6.2"
+    "remove-markdown": "^0.6.2",
+    "sonner": "^2.0.5"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.3.3",

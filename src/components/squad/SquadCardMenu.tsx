@@ -2,6 +2,7 @@ import { MenuItem, MenuItems } from '@headlessui/react'
 import clsx from 'clsx'
 import { useRouter } from 'next/navigation'
 import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiCopy, FiEdit, FiTrash } from 'react-icons/fi'
+import { toast } from 'sonner'
 
 export default function SquadCardMenu({
   squadId,
@@ -32,11 +33,13 @@ export default function SquadCardMenu({
       })
 
       if (!res.ok) throw new Error('Failed to create squad')
+      toast.success('Squad cloned, redirecting...')
 
       const newSquadId = (await res.json()).squadId
       router.push(`/squads/${newSquadId}`)
     } catch (err) {
       console.error(err)
+      toast.success('Failed to clone Squad')
     }
   }
 

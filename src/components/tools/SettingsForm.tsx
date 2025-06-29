@@ -3,6 +3,7 @@
 import { Button, SectionTitle } from '@/components/ui'
 import { GAME } from '@/lib/config/game_config'
 import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
 import AppVersion from './AppVersion'
 
 export default function SettingsForm() {
@@ -59,10 +60,10 @@ export default function SettingsForm() {
         <Button onClick={async () => {
           const success = await clearServiceWorkerCache()
           if (success) {
-            alert('Cache cleared. Reloading...')
+            toast.success('Cache cleared, reloading...')
             window.location.reload()
           } else {
-            alert('Unable to clear cache.')
+            toast.error('Failed to clear cache')
           }
         }}>
           <h6>Clear Cache</h6>
