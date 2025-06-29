@@ -61,7 +61,10 @@ export default function SettingsForm() {
           const success = await clearServiceWorkerCache()
           if (success) {
             toast.success('Cache cleared, reloading...')
-            window.location.reload()
+            setTimeout(() => {
+              console.log('reloading')
+              window.location.reload()}
+            , 500)
           } else {
             toast.error('Failed to clear cache')
           }
@@ -79,7 +82,7 @@ export default function SettingsForm() {
 export function clearServiceWorkerCache(): Promise<boolean> {
   console.log('Clearing SW cache...')
   console.log('SW Controller:', navigator.serviceWorker.controller)
-  if (!navigator.serviceWorker?.controller) return Promise.resolve(false)
+  if (!navigator.serviceWorker?.controller) return Promise.resolve(true)
 
   return new Promise((resolve) => {
     const channel = new MessageChannel()
