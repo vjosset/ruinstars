@@ -242,37 +242,38 @@ export default function SquadPageClient({
             <span>by</span>
 
             <UserLink userName={squad.user?.userName ?? ''} />
-            
-            <span className="text-sm">{totalGP}/{squad.maxGP}GP</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 text-muted">
+            {!isOwner && (
+              <span className="text-sm">{totalGP}/{squad.maxGP}GP</span>
+            )}
+
             {!isOwner && status === 'authenticated' && (
-              <>
-                <br/>
-                <span
-                  className="cursor-pointer"
-                  title="Import this Squad to your Squads"
-                  aria-label="Import this squad"
-                  onClick={async () => {
-                    try {
-                      const res = await fetch(`/api/squads/${squad.squadId}/clone`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                          squadName: squad.squadName,
-                          factionId: squad.factionId,
-                        }),
-                      })
+              <Button
+                className="cursor-pointer items-center p-0"
+                title="Import this Squad to your Squads"
+                aria-label="Import this squad"
+                onClick={async () => {
+                  try {
+                    const res = await fetch(`/api/squads/${squad.squadId}/clone`, {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        squadName: squad.squadName,
+                        factionId: squad.factionId,
+                      }),
+                    })
 
-                      if (!res.ok) throw new Error('Failed to import squad')
+                    if (!res.ok) throw new Error('Failed to import squad')
 
-                      const { squadId } = await res.json()
-                      router.push(`/squads/${squadId}`)
-                    } catch (err) {
-                      console.error(err)
-                    }
-                  }}>
-                  <FiDownload />
-                </span>
-              </>
+                    const { squadId } = await res.json()
+                    router.push(`/squads/${squadId}`)
+                  } catch (err) {
+                    console.error(err)
+                  }
+                }}>
+                <FiDownload /> Import
+              </Button>
             )}
           </div>
         </div>
@@ -288,7 +289,7 @@ export default function SquadPageClient({
           ].map(({ label, key }) => (
             <div key={key} className="flex flex-col items-center gap-1">
               <h6 className="font-bold text-main">{label}:</h6>
-              <div className="flex items-center">
+              <div className="flex gap-2 items-center justify-center">
                 <button
                   className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
                   onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] - 1)}
@@ -302,17 +303,21 @@ export default function SquadPageClient({
             </div>
           ))}
           <div className="flex flex-col items-center gap-1">
-            <h6 className="font-bold text-main invisible">{totalGP}/{squad.maxGP}GP</h6>
-            <div key="resetEditSquad" className="flex items-center">
-              <div className="flex gap-2 items-center justify-center"> {/* Changed from grid to flex with gap */}
+            <h6 className="font-bold text-main">{totalGP}/{squad.maxGP}GP</h6>
+
+            {/* Reset and Info/tools */}
+            <div className="flex items-center">
+              <div className="flex gap-1 items-center justify-center"> {/* Changed from grid to flex with gap */}
                 <button
                   className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
                   onClick={handleResetClick}
                 >
                   <FiRotateCcw/>
                 </button>
+                {/* Invisible to take up space and align with tracker buttons */}
+                <h4 className="stat w-0 text-center invisible">1</h4>
                 <button 
-                  className="flex items-center justify-center rounded border border-border w-6 h-6"
+                  className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
                   onClick={() => showModal({
                     title: 'Tools',
                     body: (<div className="overflow-y-auto p-2 flex-1"><SquadTools /></div>),
