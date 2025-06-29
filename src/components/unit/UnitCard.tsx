@@ -290,11 +290,13 @@ export default function UnitCard({
                       const body = await res.json().catch(() => ({}))
                       throw new Error(body.message || 'Failed to delete unit')
                     }
+                    toast.success('Unit deleted')
 
                     onUnitDeleted?.(unit.unitId)
                     setShowDeleteConfirm(false)
                   } catch (err: any) {
                     setDeleteError(err.message || 'Something went wrong')
+                    toast.error('Could not delete Unit')
                   }
                 }}
               >

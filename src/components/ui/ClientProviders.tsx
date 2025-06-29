@@ -19,7 +19,7 @@ export function ClientProviders({ children, session }: Props) {
       </ModalProvider>
       <Toaster
         richColors={false}
-        position="top-center"
+        position="bottom-center"
         toastOptions={{
           duration: 1500,
           classNames: {

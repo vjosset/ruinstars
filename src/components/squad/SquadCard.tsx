@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { FiChevronDown } from 'react-icons/fi'
+import { toast } from 'sonner'
 import { Button, Modal } from '../ui'
 import SquadCardMenu from './SquadCardMenu'
 
@@ -104,6 +105,7 @@ export default function SquadCard({
                       const body = await res.json().catch(() => ({}))
                       throw new Error(body.message || 'Failed to delete squad')
                     }
+                    toast.success('Squad deleted')
                     setShowDeleteConfirm(false)
                     if (onDelete) onDelete(squad.squadId) // <-- Add this line
                   } catch (err: any) {
