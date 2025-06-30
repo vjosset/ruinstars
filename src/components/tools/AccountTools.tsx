@@ -39,7 +39,10 @@ export default function AccountTools() {
               <Button variant="ghost" onClick={() => setShowConfirmLogOut(false)}>
                 <h6>Cancel</h6>
               </Button>
-              <Button onClick={() => signOut({ callbackUrl: '/' })}>
+              <Button onClick={() => {
+                signOut({ redirect: false })
+                window.location.href = '/'
+              }}>
                 <h6>Log Out</h6>
               </Button>
             </div>
