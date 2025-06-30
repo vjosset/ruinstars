@@ -149,8 +149,7 @@ export default function UnitCard({
         )}
 
         {/* Footer */}
-        {/* Note we hide this for UnitType cards since we moved all Unit specials to Abilities for clarity */}
-        {!unit.isUnitType && (
+        {(!unit.isUnitType || unit.special !== '') && (
           <div className="border-t border-border mt-auto">
             <div className="flex justify-between items-start">
               <div>
