@@ -39,9 +39,9 @@ export default function AccountTools() {
               <Button variant="ghost" onClick={() => setShowConfirmLogOut(false)}>
                 <h6>Cancel</h6>
               </Button>
-              <Button onClick={() => {
-                signOut({ redirect: false })
-                window.location.href = '/'
+              <Button onClick={async () => {
+                const data = await signOut({ redirect: false })
+                window.location.href = data.url || '/'
               }}>
                 <h6>Log Out</h6>
               </Button>
