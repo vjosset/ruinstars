@@ -9,13 +9,13 @@ type FactionCardProps = {
 export default function FactionCard({ faction }: FactionCardProps) {
   return (
     <Link 
-      className="group grid grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] bg-card border border-main rounded overflow-hidden hover:border-main transition h-[120px]"
+      className="group grid grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] bg-card border border-border rounded overflow-hidden hover:border-main transition h-[120px]"
       href={`/factions/${faction.factionId}`}
     >
       {/* Image section - left side */}
       <div className="relative">
         <div 
-          className="absolute inset-0 border-r border-main bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+          className="absolute inset-0 border-r border-border bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
           style={{ backgroundImage: `url(/img/factions/${faction.factionId}.webp)` }}
         />
       </div>
