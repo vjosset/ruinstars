@@ -40,8 +40,8 @@ export default function AccountTools() {
                 <h6>Cancel</h6>
               </Button>
               <Button onClick={async () => {
-                const data = await signOut({ redirect: false })
-                window.location.href = data.url || '/'
+                await signOut({ redirect: false })
+                window.location.href = '/'
               }}>
                 <h6>Log Out</h6>
               </Button>
