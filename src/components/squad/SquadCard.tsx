@@ -46,7 +46,7 @@ export default function SquadCard({
         </Link>
 
         {/* Content section - right side */}
-        <div className="relative px-1 py-1 flex flex-col justify-between">
+        <div className="relative p-2 flex flex-col justify-between">
           <div className="flex items-center gap-1">
             <Link href={`/squads/${squad.squadId}`} className="flex items-center min-w-0 flex-1"> {/* Added min-w-0 to allow text truncation */}
               <h5 className="font-heading text-main"> {/* Add  truncate w-0 flex-1 to allow text truncation + ellipsis */}
