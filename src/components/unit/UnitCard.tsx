@@ -149,7 +149,8 @@ export default function UnitCard({
         )}
 
         {/* Footer */}
-        {(
+        {/* Note we hide this for UnitType cards since we moved all Unit specials to Abilities for clarity */}
+        {!unit.isUnitType && (
           <div className="border-t border-border mt-auto">
             <div className="flex justify-between items-start">
               <div>
@@ -177,19 +178,18 @@ export default function UnitCard({
                     ({unit.special}){ ' ' }
                   </span>
                 )}
-                {!unit.isUnitType && <span>
+                <span>
                   <span className="text-muted">
                     { ' ' }
                     {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
                   </span>
-                </span>}
+                </span>
               </div>
               <div className="text-right whitespace-nowrap cursor-pointer hover:text-main">
-                {!unit.isUnitType &&
-                  <span onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
-                    <FaMedal className="inline-block h-4 w-4" />{ ' ' }
-                    {unit.totalMedalXP} XP
-                  </span>}
+                <span onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
+                  <FaMedal className="inline-block h-4 w-4" />{ ' ' }
+                  {unit.totalMedalXP} XP
+                </span>
               </div>
             </div>
           </div>
