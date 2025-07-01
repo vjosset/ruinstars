@@ -17,7 +17,7 @@ interface UnitEditorModalProps {
   isOpen: boolean
   unit?: UnitPlain
   squadId: string
-  factionId: string
+  squadTypeId: string
   allSpecials: SpecialRule[]
   onClose: () => void
   onSave: (updatedUnit: UnitPlain) => void
@@ -27,7 +27,7 @@ export default function UnitEditorModal({
   isOpen,
   unit,
   squadId,
-  factionId,
+  squadTypeId,
   allSpecials,
   onClose,
   onSave,
@@ -68,20 +68,20 @@ export default function UnitEditorModal({
 
   // Handle loading times
   useEffect(() => {
-    if (isOpen && factionId) {
-      fetch(`/api/factions/${factionId}`)
+    if (isOpen && squadTypeId) {
+      fetch(`/api/squadTypes/${squadTypeId}`)
         .then((res) => res.json())
-        .then((factionData) => {
-          setUnitTypes(factionData.unitTypes)
-          if (!isEditMode && factionData.unitTypes.length > 0) {
-            setUnitTypeId(factionData.unitTypes[0].unitTypeId)
+        .then((squadTypeData) => {
+          setUnitTypes(squadTypeData.unitTypes)
+          if (!isEditMode && squadTypeData.unitTypes.length > 0) {
+            setUnitTypeId(squadTypeData.unitTypes[0].unitTypeId)
           }
         })
         .catch((err) => {
           console.error('Failed to load unitTypes:', err)
         })
     }
-  }, [isOpen, factionId, isEditMode])
+  }, [isOpen, squadTypeId, isEditMode])
 
   // Reset form when closed
   useEffect(() => {

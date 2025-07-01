@@ -9,15 +9,15 @@ export async function GET() {
   const staticUrls = [
     '/',
     '/rules',
-    '/factions',
+    '/squadTypes',
     '/auth/login',
     '/auth/signup',
     '/tools',
   ]
 
-  // Fetch factions
-  const factions = await prisma.faction.findMany({
-    select: { factionId: true },
+  // Fetch squadTypes
+  const squadTypes = await prisma.squadType.findMany({
+    select: { squadTypeId: true },
   })
 
   // Fetch squads
@@ -31,7 +31,7 @@ export async function GET() {
   })
 
   const dynamicUrls = [
-    ...factions.map((faction: { factionId: string }) => `/factions/${faction.factionId}`),
+    ...squadTypes.map((squadType: { squadTypeId: string }) => `/squadTypes/${squadType.squadTypeId}`),
     ...users.map((user: { userName: string }) => `/users/${user.userName}`),
     ...squads.map((squad: { squadId: string }) => `/squads/${squad.squadId}`),
   ]

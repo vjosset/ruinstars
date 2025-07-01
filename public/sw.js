@@ -20,27 +20,27 @@ const CACHE_CONFIG = {
   // Regex matches
   patterns: [
     {
-      // Match API faction detail (with ID)
-      match: /^\/api\/factions\/[^\/]+$/,
+      // Match API squadType detail (with ID)
+      match: /^\/api\/squadTypes\/[^\/]+$/,
       maxAge: CACHE_TIMES.SHORT,
-      description: 'API faction detail'
+      description: 'API squadType detail'
     },
     {
-      // Match faction detail page (with ID)
-      match: /^\/factions\/[^\/]+$/,
+      // Match squadType detail page (with ID)
+      match: /^\/squadTypes\/[^\/]+$/,
       maxAge: CACHE_TIMES.SHORT,
-      description: 'Faction detail page'
+      description: 'SquadType detail page'
     }
   ],
   // Exact matches
   exact: {
     '/manifest.json': CACHE_TIMES.HOUR,
     '/api/specials': CACHE_TIMES.HOUR,
-    '/api/factions': CACHE_TIMES.HOUR,
+    '/api/squadTypes': CACHE_TIMES.HOUR,
     '/api/missions': CACHE_TIMES.HOUR,
     '/api/battlefields': CACHE_TIMES.HOUR,
     '/api/medals': CACHE_TIMES.HOUR,
-    '/factions': CACHE_TIMES.HOUR,
+    '/squadTypes': CACHE_TIMES.HOUR,
     '/auth/login': CACHE_TIMES.HOUR,
     '/auth/signup': CACHE_TIMES.HOUR,
     '/': CACHE_TIMES.HOUR,

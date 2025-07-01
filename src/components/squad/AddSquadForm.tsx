@@ -13,28 +13,28 @@ export default function AddSquadForm() {
   const [showAddSquadModal, setShowAddSquadModal] = useState(false)
   const [creatingSquad, setCreatingSquad] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [factions, setFactions] = useState<any[]>([])
+  const [squadTypes, setSquadTypes] = useState<any[]>([])
   const [squadName, setSquadName] = useState('')
-  const [selectedFactionId, setSelectedFactionId] = useState<string | null>(null)
+  const [selectedSquadTypeId, setSelectedSquadTypeId] = useState<string | null>(null)
   const [useDefaultSquad, setUseDefaultSquad] = useState<boolean>(true)
 
   const userName = session?.user?.userName
   const userId = session?.user?.userId
 
-  // Get the available factions
+  // Get the available squadTypes
   // Handle loading times
   useEffect(() => {
     if (!userId) return
 
     setLoading(true)
-    fetch('/api/factions')
+    fetch('/api/squadTypes')
       .then((res) => res.json())
       .then((data) => {
-        setFactions(data)
+        setSquadTypes(data)
         setLoading(false)
       })
       .catch((err) => {
-        console.error('Failed to load factions:', err)
+        console.error('Failed to load squadTypes:', err)
         setLoading(false)
       })
   }, [userId])
@@ -64,19 +64,19 @@ export default function AddSquadForm() {
               </Button>
               <Button
                 className="px-3 py-1 rounded-md bg-primary text-white hover:bg-primary/80 disabled:opacity-50"
-                disabled={!squadName || !selectedFactionId || creatingSquad}
+                disabled={!squadName || !selectedSquadTypeId || creatingSquad}
                 onClick={async () => {
                   setCreatingSquad(true)
 
                   // Check if we should copy the default squad
                   if (useDefaultSquad) {
                     try {
-                      const res = await fetch(`/api/squads/${selectedFactionId}/clone`, {
+                      const res = await fetch(`/api/squads/${selectedSquadTypeId}/clone`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                           squadName: squadName,
-                          factionId: selectedFactionId,
+                          squadTypeId: selectedSquadTypeId,
                         }),
                       })
   
@@ -99,7 +99,7 @@ export default function AddSquadForm() {
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                           squadName: squadName,
-                          factionId: selectedFactionId,
+                          squadTypeId: selectedSquadTypeId,
                         }),
                       })
   
@@ -142,16 +142,16 @@ export default function AddSquadForm() {
                 />
               </div>
               <div className="grid-cols-2 items-center gap-2">
-                <Label>Faction</Label>
+                <Label>SquadType</Label>
                 <select
                   className="w-full bg-card border border-border rounded p-2 text-sm"
-                  value={selectedFactionId || ''}
-                  onChange={(e) => setSelectedFactionId(e.target.value || null)}
+                  value={selectedSquadTypeId || ''}
+                  onChange={(e) => setSelectedSquadTypeId(e.target.value || null)}
                 >
-                  <option value="">Select a faction...</option>
-                  {factions.map((faction) => (
-                    <option key={faction.factionId} value={faction.factionId}>
-                      {faction.factionName}
+                  <option value="">Select a squadType...</option>
+                  {squadTypes.map((squadType) => (
+                    <option key={squadType.squadTypeId} value={squadType.squadTypeId}>
+                      {squadType.squadTypeName}
                     </option>
                   ))}
                 </select>

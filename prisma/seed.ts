@@ -58,16 +58,16 @@ async function runSeed(seed: any) {
     }
   }
 
-  // Factions
-  if (seed.factions) {
-    console.log('  Seeding Factions...')
-    for (const faction of seed.factions) {
-      // Seed faction
-      await prisma.faction.upsert({
-        where: { factionId: faction.factionId },
+  // SquadTypes
+  if (seed.squadTypes) {
+    console.log('  Seeding SquadTypes...')
+    for (const squadType of seed.squadTypes) {
+      // Seed squadType
+      await prisma.squadType.upsert({
+        where: { squadTypeId: squadType.squadTypeId },
         update: {},
         create: {
-          ...faction
+          ...squadType
         },
       })
     }

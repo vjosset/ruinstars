@@ -13,7 +13,7 @@ async function exportCoreData() {
   try {
     // Get data from database
     const [
-      factions,
+      squadTypes,
       gearCategories,
       gears,
       unitTypes, 
@@ -24,10 +24,10 @@ async function exportCoreData() {
       squads,
       units
     ] = await Promise.all([
-      prisma.faction.findMany({ orderBy: { seq: 'asc' } }),
+      prisma.squadType.findMany({ orderBy: { seq: 'asc' } }),
       prisma.gearCategory.findMany({ orderBy: { seq: 'asc' } }),
       prisma.gear.findMany({ orderBy: { gearId: 'asc' } }),
-      prisma.unitType.findMany({ orderBy: [{ factionId: 'asc' }, { seq: 'asc' }] }),
+      prisma.unitType.findMany({ orderBy: [{ squadTypeId: 'asc' }, { seq: 'asc' }] }),
       prisma.mission.findMany({ orderBy: [{ missionType: 'asc' }, { missionId: 'asc' }] }),
       prisma.battlefield.findMany({ orderBy: { battlefieldId: 'asc' } }),
       prisma.special.findMany({ orderBy: [{scope: 'asc'}, {code: 'asc' }]}),
@@ -48,7 +48,7 @@ async function exportCoreData() {
 
     // Combine into single object
     const coreData = {
-      factions,
+      squadTypes,
       gearCategories,
       gears,
       unitTypes,

@@ -9,7 +9,7 @@ interface UnitMedalModalProps {
   isOpen: boolean
   unit: UnitPlain
   squadId: string
-  factionId: string
+  squadTypeId: string
   allMedals: Medal[]
   isOwner: boolean
   onClose: () => void

@@ -1,6 +1,6 @@
 // @ts-nocheck
-import { BaseRepository } from './base.repository'
 import type { Squad } from '@prisma/client'
+import { BaseRepository } from './base.repository'
 
 export class SquadRepository extends BaseRepository {
   async getSquadRow(squadId: string): Promise<Squad | null> {
@@ -13,7 +13,7 @@ export class SquadRepository extends BaseRepository {
     return await this.prisma.squad.findUnique({
       where: { squadId },
       include: {
-        faction: true,
+        squadType: true,
         user: true,
         units: {
           include: {

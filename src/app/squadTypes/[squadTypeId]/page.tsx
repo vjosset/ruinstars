@@ -3,40 +3,40 @@ import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
 import UnitCard from '@/components/unit/UnitCard'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import { FactionService, SpecialService } from '@/src/services'
+import { SpecialService, SquadTypeService } from '@/src/services'
 import { UnitType } from '@/src/types'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-export async function generateMetadata({ params }: { params: Promise<{ factionId: string }>  }) {
-  const { factionId } = await params
-  const faction = await FactionService.getFaction(factionId)
+export async function generateMetadata({ params }: { params: Promise<{ squadTypeId: string }>  }) {
+  const { squadTypeId } = await params
+  const squadType = await SquadTypeService.getSquadType(squadTypeId)
   
-  if (!faction) return {}
+  if (!squadType) return {}
 
   return generatePageMetadata({
-    title: `${faction.factionName}`,
-    description: `${faction.description}`,
+    title: `${squadType.squadTypeName}`,
+    description: `${squadType.description}`,
     image: {
-      url: `/img/factions/${factionId}.webp`,
+      url: `/img/squadTypes/${squadTypeId}.webp`,
     },
-    keywords: ['home', 'squad builder', 'battle tracker', 'faction', faction.factionId, faction.factionName],
-    pagePath: `/factions/${faction.factionId}`
+    keywords: ['home', 'squad builder', 'battle tracker', 'squadType', squadType.squadTypeId, squadType.squadTypeName],
+    pagePath: `/squadTypes/${squadType.squadTypeId}`
   })
 }
 
-export default async function FactionPage({ params }: { params: Promise<{ factionId: string }> }) {
-  const { factionId } = await params
-  const faction = await FactionService.getFaction(factionId)
+export default async function SquadTypePage({ params }: { params: Promise<{ squadTypeId: string }> }) {
+  const { squadTypeId } = await params
+  const squadType = await SquadTypeService.getSquadType(squadTypeId)
   
   const allSpecials = await SpecialService.getAllSpecials()
 
-  if (!faction) notFound()
+  if (!squadType) notFound()
 
   return (
     <div className="max-w-full">
       <div className="relative min-h-[200px] md:h-[300px] flex items-center justify-center"
-        style={{ backgroundImage: `url(/img/factions/${faction.factionId}.webp)`, backgroundAttachment: '', backgroundPosition: 'top', backgroundSize: 'cover' }}>
+        style={{ backgroundImage: `url(/img/squadTypes/${squadType.squadTypeId}.webp)`, backgroundAttachment: '', backgroundPosition: 'top', backgroundSize: 'cover' }}>
         <div 
           className="absolute inset-0 bg-cover bg-top"
         >
@@ -44,23 +44,23 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
         </div>
         <div className="relative flex flex-col items-center justify-center px-8 pt-36 w-full">
           <div className="flex items-center gap-x-4 mb-4">
-            <PageTitle>{faction.factionName}</PageTitle>
+            <PageTitle>{squadType.squadTypeName}</PageTitle>
           </div>
           <div className="text-white max-w-2xl text-center">
-            <Markdown>{faction.description}</Markdown>
+            <Markdown>{squadType.description}</Markdown>
           </div>
           <div className="text-white max-w-2xl text-center pt-4">
-            <Link className="" href={`/factions/${faction.factionId}/lore`}>Read more...</Link>
+            <Link className="" href={`/squadTypes/${squadType.squadTypeId}/lore`}>Read more...</Link>
           </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto">
         <div className="p-2">
-          <SquadLink squadId={faction.factionId} squadName={'Default Squad'} />
+          <SquadLink squadId={squadType.squadTypeId} squadName={'Default Squad'} />
         </div>
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2">
-          {faction.unitTypes.map((unitType: UnitType) => (
+          {squadType.unitTypes.map((unitType: UnitType) => (
             <UnitCard
               key={unitType.unitTypeId}
               seq={1}

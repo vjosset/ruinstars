@@ -1,43 +1,43 @@
 import { UnitType, UnitTypePlain } from '.'
 
-export type FactionPlain = {
-  factionId: string
+export type SquadTypePlain = {
+  squadTypeId: string
   seq: number
-  factionName: string
+  squadTypeName: string
   description: string
   lore: string
   unitTypes: UnitTypePlain[]
 }
 
-export class Faction {
-  factionId: string
+export class SquadType {
+  squadTypeId: string
   seq: number
-  factionName: string
+  squadTypeName: string
   description: string
   lore: string
   unitTypes: UnitType[]
 
   constructor(data: {
-    factionId: string
+    squadTypeId: string
     seq: number
-    factionName: string
+    squadTypeName: string
     description: string
     lore: string
     unitTypes: UnitType[]
   }) {
-    this.factionId = data.factionId
+    this.squadTypeId = data.squadTypeId
     this.seq = data.seq
-    this.factionName = data.factionName
+    this.squadTypeName = data.squadTypeName
     this.description = data.description
     this.lore = data.lore
     this.unitTypes = data.unitTypes?.map(unitType => unitType instanceof UnitType ? unitType : new UnitType(unitType))
   }
 
-  toPlain(): FactionPlain {
+  toPlain(): SquadTypePlain {
     return {
-      factionId: this.factionId,
+      squadTypeId: this.squadTypeId,
       seq: this.seq,
-      factionName: this.factionName,
+      squadTypeName: this.squadTypeName,
       description: this.description,
       lore: this.lore,
       unitTypes: this.unitTypes?.map((unitType) => unitType.toPlain()),
