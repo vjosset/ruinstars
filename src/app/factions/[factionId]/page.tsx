@@ -5,6 +5,7 @@ import UnitCard from '@/components/unit/UnitCard'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { FactionService, SpecialService } from '@/src/services'
 import { UnitType } from '@/src/types'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 export async function generateMetadata({ params }: { params: Promise<{ factionId: string }>  }) {
@@ -47,6 +48,9 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
           </div>
           <div className="text-white max-w-2xl text-center">
             <Markdown>{faction.description}</Markdown>
+          </div>
+          <div className="text-white max-w-2xl text-center pt-4">
+            <Link className="" href={`/factions/${faction.factionId}/lore`}>Read more...</Link>
           </div>
         </div>
       </div>

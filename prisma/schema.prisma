@@ -20,6 +20,7 @@ model Faction {
   seq         Int        @default(0)
   factionName String     @db.VarChar(250)
   description String     @db.Text
+  lore        String     @db.Text
   squads      Squad[]
   unitTypes   UnitType[]
 }
