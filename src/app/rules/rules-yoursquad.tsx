@@ -1,8 +1,8 @@
-import SquadTypeCard from '@/components/squadType/SquadTypeCard'
-import { SquadTypeService } from '@/services'
+import FactionList from '@/components/faction/FactionList'
+import { FactionService } from '@/services'
 
 export default async function RulesYourSquad() {
-  const squadTypes = await SquadTypeService.getAllSquadTypes()
+  const factions = await FactionService.getAllFactions()
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="buildingsquad">
@@ -15,13 +15,9 @@ export default async function RulesYourSquad() {
           Your Squad can only include one Leader, and it cannot include more than 1 of each Unique Unit (marked with an asterisk <code>*</code>).<br/>
           When selecting Gear for your Squad (Weapons, Equipment, etc), any item whose name ends with an asterisk (<code>*</code>) is Unique and cannot be added more than once to your squad.
         </p>
-        <h3>SquadTypes</h3>
+        <h3>Factions</h3>
         
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
-          {squadTypes.map((squadType) => (
-            <SquadTypeCard key={squadType.squadTypeId} squadType={squadType} />
-          ))}
-        </div>
+        <FactionList factions={factions} />
       </div>
     </div>
   )}

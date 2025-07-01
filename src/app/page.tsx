@@ -1,9 +1,9 @@
+import FactionList from '@/components/faction/FactionList'
 import AuthButtons from '@/components/home/HomeAuthButtons'
-import SquadTypeCard from '@/components/squadType/SquadTypeCard'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import news from '@/public/news.json'
-import { SquadTypeService } from '@/services/squadType.service'
+import { FactionService } from '@/services/faction.service'
 import NewsCard from '@/src/components/home/NewsCard'
 import Link from 'next/link'
 import RulesIntro from './rules/rules-intro'
@@ -21,7 +21,7 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  const squadTypes =  await SquadTypeService.getAllSquadTypes()
+  const factions =  await FactionService.getAllFactions()
 
   return (
     <>
@@ -74,13 +74,9 @@ export default async function Home() {
 
       {/* SquadTypes List */}
       <div className="px-2 py-8 max-w-7xl mx-auto">
-        <h2 className="text-center text-main font-title mb-4">SquadTypes</h2>
+        <h2 className="text-center text-main font-title mb-4">Factions</h2>
 
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
-          {squadTypes.map((squadType) => (
-            <SquadTypeCard key={squadType.squadTypeId} squadType={squadType} />
-          ))}
-        </div>
+        <FactionList factions={factions} />
       </div>
 
       {/* News */}
