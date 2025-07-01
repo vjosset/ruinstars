@@ -15,12 +15,24 @@ model User {
   squads   Squad[]
 }
 
+model Faction {
+  factionId   String       @id @db.VarChar(20)
+  seq       Int        @default(0)
+  factionName        String       @db.VarChar(250)
+  description String       @db.Text
+  lore        String       @db.Text
+  squadTypes  SquadType[]
+}
+
 model SquadType {
-  squadTypeId   String     @id @db.VarChar(20)
+  factionId     String     @db.VarChar(20)
   seq         Int        @default(0)
+  squadTypeId   String     @id @db.VarChar(20)
   squadTypeName String     @db.VarChar(250)
   description String     @db.Text
   lore        String     @db.Text
+
+  faction       Faction    @relation(fields: [factionId], references: [factionId])
   squads      Squad[]
   unitTypes   UnitType[]
 }

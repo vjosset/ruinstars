@@ -20,11 +20,11 @@ export default function NavBarBottom() {
       match: (path: string) => path === '/',
     },
     {
-      href: '/squadTypes',
+      href: '/factions',
       icon: <FiList />,
-      label: 'SquadTypes',
+      label: 'Factions',
       show: true,
-      match: (path: string) => path.includes('/squadTypes'),
+      match: (path: string) => path.includes('/factions') || path.includes('/squadTypes'),
     },
     {
       href: '/me',

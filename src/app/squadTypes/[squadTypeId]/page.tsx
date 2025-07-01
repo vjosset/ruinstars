@@ -50,7 +50,7 @@ export default async function SquadTypePage({ params }: { params: Promise<{ squa
             <Markdown>{squadType.description}</Markdown>
           </div>
           <div className="text-white max-w-2xl text-center pt-4">
-            <Link className="" href={`/squadTypes/${squadType.squadTypeId}/lore`}>Read more...</Link>
+            <Link className="" href={`/factions/${squadType.factionId}#${squadType.squadTypeId}`}>Read more...</Link>
           </div>
         </div>
       </div>

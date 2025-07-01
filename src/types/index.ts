@@ -1,4 +1,5 @@
 export * from './battlefield.model'
+export * from './faction.model'
 export * from './gear.model'
 export * from './gearCategory.model'
 export * from './medal.model'

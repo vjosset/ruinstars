@@ -2,6 +2,7 @@ import { UnitType, UnitTypePlain } from '.'
 
 export type SquadTypePlain = {
   squadTypeId: string
+  factionId: string
   seq: number
   squadTypeName: string
   description: string
@@ -11,6 +12,7 @@ export type SquadTypePlain = {
 
 export class SquadType {
   squadTypeId: string
+  factionId: string
   seq: number
   squadTypeName: string
   description: string
@@ -19,6 +21,7 @@ export class SquadType {
 
   constructor(data: {
     squadTypeId: string
+    factionId: string
     seq: number
     squadTypeName: string
     description: string
@@ -26,6 +29,7 @@ export class SquadType {
     unitTypes: UnitType[]
   }) {
     this.squadTypeId = data.squadTypeId
+    this.factionId = data.factionId
     this.seq = data.seq
     this.squadTypeName = data.squadTypeName
     this.description = data.description
@@ -36,6 +40,7 @@ export class SquadType {
   toPlain(): SquadTypePlain {
     return {
       squadTypeId: this.squadTypeId,
+      factionId: this.factionId,
       seq: this.seq,
       squadTypeName: this.squadTypeName,
       description: this.description,

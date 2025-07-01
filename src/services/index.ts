@@ -1,3 +1,4 @@
+export { FactionService } from './faction.service'
 export { GearService } from './gear.service'
 export { GearCategoryService } from './gearCategory.service'
 export { SpecialService } from './special.service'
