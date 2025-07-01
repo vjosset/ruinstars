@@ -1,7 +1,6 @@
 import FactionList from '@/components/faction/FactionList'
 import PageTitle from '@/components/ui/PageTitle'
 import { GAME } from '@/lib/config/game_config'
-import { FactionService } from '@/services/faction.service'
 
 export const metadata = {
   title: `Factions - ${GAME.NAME}`,
@@ -9,8 +8,6 @@ export const metadata = {
 }
 
 export default async function FactionsPage() {
-  const factions = await FactionService.getAllFactions()
-
   return (
     <div className="px-1 py-8 max-w-7xl mx-auto">
       <div className="text-center mb-8">
@@ -20,7 +17,7 @@ export default async function FactionsPage() {
         </p>
       </div>
 
-      <FactionList factions={factions} />
+      <FactionList />
     </div>
   )
 }

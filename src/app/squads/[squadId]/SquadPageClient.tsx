@@ -1,6 +1,6 @@
 'use client'
 
-import { SquadTypeLink, UserLink } from '@/components/shared/Links'
+import { SquadTypeLink, UserLink } from '@/components/nav/Links'
 import { Button } from '@/components/ui'
 import PageTitle from '@/components/ui/PageTitle'
 import { SpecialRule } from '@/lib/utils/specialRules'

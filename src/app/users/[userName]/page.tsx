@@ -5,7 +5,7 @@ import { UserService } from '@/services'
 import { getAuthSession } from '@/src/lib/auth'
 import { Squad } from '@/types/squad.model'
 import { notFound } from 'next/navigation'
-import UserPageClient from '../UserPageClient'
+import UserPageClient from './UserPageClient'
 export const revalidate = 60
 
 export async function generateMetadata({ params }: { params: Promise<{ userName: string }> }) {

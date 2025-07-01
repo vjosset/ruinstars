@@ -1,8 +1,6 @@
 import FactionList from '@/components/faction/FactionList'
-import { FactionService } from '@/services'
 
 export default async function RulesYourSquad() {
-  const factions = await FactionService.getAllFactions()
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="buildingsquad">
@@ -17,7 +15,7 @@ export default async function RulesYourSquad() {
         </p>
         <h3>Factions</h3>
         
-        <FactionList factions={factions} />
+        <FactionList />
       </div>
     </div>
   )}

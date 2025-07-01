@@ -1,11 +1,10 @@
-import { SquadLink } from '@/components/shared/Links'
+import { FactionLink, SquadLink } from '@/components/nav/Links'
 import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
 import UnitCard from '@/components/unit/UnitCard'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { SpecialService, SquadTypeService } from '@/src/services'
 import { UnitType } from '@/src/types'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 export async function generateMetadata({ params }: { params: Promise<{ squadTypeId: string }>  }) {
@@ -49,15 +48,13 @@ export default async function SquadTypePage({ params }: { params: Promise<{ squa
           <div className="text-white max-w-2xl text-center">
             <Markdown>{squadType.description}</Markdown>
           </div>
-          <div className="text-white max-w-2xl text-center pt-4">
-            <Link className="" href={`/factions/${squadType.factionId}#${squadType.squadTypeId}`}>Read more...</Link>
-          </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="p-2">
-          <SquadLink squadId={squadType.squadTypeId} squadName={'Default Squad'} />
+        <div className="p-2 flex items-center justify-center gap-4">
+          Faction: <FactionLink factionId={squadType.factionId} factionName="Read More" />
+          Default Squad: <SquadLink squadId={squadType.squadTypeId} squadName={squadType.squadTypeName} />
         </div>
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2">
           {squadType.unitTypes.map((unitType: UnitType) => (

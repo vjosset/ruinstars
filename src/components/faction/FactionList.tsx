@@ -1,14 +1,18 @@
+import { FactionService } from '@/services'
 import { Faction } from '@/types'
 import Link from 'next/link'
 import SquadTypeCard from '../squadType/SquadTypeCard'
 
-type FactionListPropos = {
-  factions: Faction[]
+type FactionListProps = {
+  factions?: Faction[] | null
 }
 
-export default function FactionList({
-  factions
-}: FactionListPropos) {
+export default async function FactionList({
+  factions = null
+}: FactionListProps) {
+  if (!factions || factions.length == 0) {
+    factions = await FactionService.getAllFactions()
+  }
   return (
     <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
       {factions.map((faction) => (

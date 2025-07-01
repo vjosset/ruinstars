@@ -4,7 +4,6 @@ import RulesBattlefields from './rules-battlefields'
 import RulesCampaigns from './rules-campaigns'
 import RulesCombat from './rules-combat_Squares'
 import RulesCoreMechanics from './rules-coremechanics'
-import RulesFactions from './rules-factions'
 import RulesGameCycle from './rules-gamecycle'
 import RulesGlossary from './rules-glossary'
 import RulesHeader from './rules-header'
@@ -12,6 +11,7 @@ import RulesIntro from './rules-intro'
 import RulesItems from './rules-items_Squares'
 import RulesMissions from './rules-missions'
 import RulesMovement from './rules-movement_Squares'
+import RulesSquadTypes from './rules-squadtypes'
 import RulesStatCards from './rules-statcards'
 import RulesToc from './rules-toc'
 import RulesYourSquad from './rules-yoursquad'
@@ -90,7 +90,7 @@ export default async function Home() {
       
       <div className="printonly">
         <hr />
-        <RulesFactions />
+        <RulesSquadTypes />
       </div>
 
     </div>

@@ -3,7 +3,6 @@ import AuthButtons from '@/components/home/HomeAuthButtons'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import news from '@/public/news.json'
-import { FactionService } from '@/services/faction.service'
 import NewsCard from '@/src/components/home/NewsCard'
 import Link from 'next/link'
 import RulesIntro from './rules/rules-intro'
@@ -21,8 +20,6 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  const factions =  await FactionService.getAllFactions()
-
   return (
     <>
       <div
@@ -76,7 +73,7 @@ export default async function Home() {
       <div className="px-2 py-8 max-w-7xl mx-auto">
         <h2 className="text-center text-main font-title mb-4">Factions</h2>
 
-        <FactionList factions={factions} />
+        <FactionList />
       </div>
 
       {/* News */}
