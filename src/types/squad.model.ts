@@ -1,9 +1,9 @@
-import { Faction, FactionPlain, Unit, UnitPlain, User, UserPlain } from '.'
+import { SquadType, SquadTypePlain, Unit, UnitPlain, User, UserPlain } from '.'
 
 export type SquadPlain = {
   squadId: string
   userId: string
-  factionId: string
+  squadTypeId: string
   seq: number
   squadName: string
   description?: string
@@ -20,13 +20,13 @@ export type SquadPlain = {
   eloRating?: number
   units?: UnitPlain[]
   user?: UserPlain
-  faction?: FactionPlain
+  squadType?: SquadTypePlain
 }
 
 export class Squad {
   squadId: string
   userId: string
-  factionId: string
+  squadTypeId: string
   seq: number
   squadName: string
   description?: string
@@ -43,12 +43,12 @@ export class Squad {
   eloRating?: number
   units?: Unit[] | null
   user?: User | null
-  faction?: Faction | null
+  squadType?: SquadType | null
 
   constructor(data: {
     squadId: string
     userId: string
-    factionId: string
+    squadTypeId: string
     seq: number
     squadName: string
     description?: string
@@ -65,11 +65,11 @@ export class Squad {
     eloRating?: number
     units?: Unit[] | null
     user?: User | null
-    faction?: Faction | null
+    squadType?: SquadType | null
   }) {
     this.squadId = data.squadId
     this.userId = data.userId
-    this.factionId = data.factionId
+    this.squadTypeId = data.squadTypeId
     this.seq = data.seq
     this.squadName = data.squadName
     this.description = data.description
@@ -86,14 +86,14 @@ export class Squad {
     this.eloRating = data.eloRating
     this.units = data.units?.map(unit => unit instanceof Unit ? unit : new Unit(unit))
     this.user = data.user ? (data.user instanceof User ? data.user : new User(data.user)) : null
-    this.faction = data.faction ? (data.faction instanceof Faction ? data.faction : new Faction(data.faction)) : null
+    this.squadType = data.squadType ? (data.squadType instanceof SquadType ? data.squadType : new SquadType(data.squadType)) : null
   }
 
   toPlain(): SquadPlain {
     return {
       squadId: this.squadId,
       userId: this.userId,
-      factionId: this.factionId,
+      squadTypeId: this.squadTypeId,
       seq: this.seq,
       squadName: this.squadName,
       description: this.description,
@@ -110,7 +110,7 @@ export class Squad {
       eloRating: this.eloRating,
       units: this.units?.map(unit => unit.toPlain()),
       user: this.user?.toPlain(),
-      faction: this.faction?.toPlain(),
+      squadType: this.squadType?.toPlain(),
     }
   }
 }

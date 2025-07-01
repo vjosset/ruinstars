@@ -11,7 +11,7 @@ By accessing, using, or contributing to this project, you agree to the terms bel
 
 ## 1. Ownership
 
-All source code, game rules, unit stats, gear descriptions, faction lore, and other creative content in this repository are the sole property of the project creator ("The Owner").
+All source code, game rules, unit stats, gear descriptions, squadType lore, and other creative content in this repository are the sole property of the project creator ("The Owner").
 
 ---
 

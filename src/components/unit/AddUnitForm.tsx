@@ -11,7 +11,7 @@ import UnitEditorModal from './UnitEditorModal'
 type AddUnitFormProps = {
   squad: {
     squadId: string
-    factionId: string
+    squadTypeId: string
     squadName: string
   }
   allSpecials: SpecialRule[]
@@ -35,7 +35,7 @@ export default function AddUnitForm({ squad: squad, onUnitAdded, allSpecials }: 
           key="addunit-modal"
           isOpen={true}
           squadId={squad.squadId}
-          factionId={squad.factionId}
+          squadTypeId={squad.squadTypeId}
           onClose={() => setShowAddUnitModal(false)}
           allSpecials={allSpecials ?? []}
           onSave={(updatedUnit) => {

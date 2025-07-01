@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<{ squadId: 
 
   return generatePageMetadata({
     title: `${squad.squadName} by ${squad.user?.userName}`,
-    description: `A ${squad.faction?.factionName} Squad for ${GAME.NAME}`,
+    description: `A ${squad.squadType?.squadTypeName} Squad for ${GAME.NAME}`,
     image: {
-      url: `/img/factions/${squad.faction?.factionId}.webp`,
+      url: `/img/squadTypes/${squad.squadType?.squadTypeId}.webp`,
     },
-    keywords: [squad.squadName, squad.faction?.factionName ?? '', 'squad', 'squad builder', 'battle tracker'],
+    keywords: [squad.squadName, squad.squadType?.squadTypeName ?? '', 'squad', 'squad builder', 'battle tracker'],
     pagePath: `/squads/${squad.squadId}`
   })
 }

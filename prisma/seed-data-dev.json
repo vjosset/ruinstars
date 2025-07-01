@@ -3,8 +3,8 @@
     { "userId": "u1", "userName": "TestUser1", "password": "testpass" }
   ],
   "squads": [
-    {"userId": "u1", "squadId": "u1s1", "seq": 1, "squadName": "Void Raptors", "factionId": "ST"},
-    {"userId": "u1", "squadId": "u1s2", "seq": 2, "squadName": "Death Swarm", "factionId": "SWARM"}
+    {"userId": "u1", "squadId": "u1s1", "seq": 1, "squadName": "Void Raptors", "squadTypeId": "ST"},
+    {"userId": "u1", "squadId": "u1s2", "seq": 2, "squadName": "Death Swarm", "squadTypeId": "SWARM"}
   ],
   "units": [
     { "squadId": "u1s1", "unitId": "u1s1u1", "seq": 1, "unitName": "Toland Strak", "unitTypeId": "INT-STRP", "isActivated": false, "currHIT": 6, "gearIds": "INT-CK,INT-AR,FT-SHD,INT-LDR"},

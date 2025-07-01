@@ -32,7 +32,7 @@ export async function generatePageMetadata({
   // Default values
   const pageTitle = title ? `${title} - ${GAME.NAME}` : GAME.NAME
   
-  // Remove markdown formatting from descriptions (e.g. faction descriptions)
+  // Remove markdown formatting from descriptions (e.g. squadType descriptions)
   const pageDescription = removeMd(description ?? `${GAME.NAME} is a free fast-paced miniatures-agnostic sci-fi skirmish wargame set in a galaxy filled with dangers.`)
   const pageImage = image ? {
     url: image.url.startsWith('http') ? image.url : `${baseUrl}${image.url}`,

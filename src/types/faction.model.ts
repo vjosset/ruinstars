@@ -1,4 +1,4 @@
-import { UnitType, UnitTypePlain } from '.'
+import { SquadType, SquadTypePlain } from '.'
 
 export type FactionPlain = {
   factionId: string
@@ -6,7 +6,7 @@ export type FactionPlain = {
   factionName: string
   description: string
   lore: string
-  unitTypes: UnitTypePlain[]
+  squadTypes: SquadTypePlain[]
 }
 
 export class Faction {
@@ -15,7 +15,7 @@ export class Faction {
   factionName: string
   description: string
   lore: string
-  unitTypes: UnitType[]
+  squadTypes: SquadType[]
 
   constructor(data: {
     factionId: string
@@ -23,14 +23,14 @@ export class Faction {
     factionName: string
     description: string
     lore: string
-    unitTypes: UnitType[]
+    squadTypes: SquadType[]
   }) {
     this.factionId = data.factionId
     this.seq = data.seq
     this.factionName = data.factionName
     this.description = data.description
     this.lore = data.lore
-    this.unitTypes = data.unitTypes?.map(unitType => unitType instanceof UnitType ? unitType : new UnitType(unitType))
+    this.squadTypes = data.squadTypes?.map(squadType => squadType instanceof SquadType ? squadType : new SquadType(squadType))
   }
 
   toPlain(): FactionPlain {
@@ -40,7 +40,7 @@ export class Faction {
       factionName: this.factionName,
       description: this.description,
       lore: this.lore,
-      unitTypes: this.unitTypes?.map((unitType) => unitType.toPlain()),
+      squadTypes: this.squadTypes?.map((squadType) => squadType.toPlain()),
     }
   }
 }

@@ -1,5 +1,5 @@
-import { BaseRepository } from './base.repository'
 import type { User } from '@prisma/client'
+import { BaseRepository } from './base.repository'
 
 export class UserRepository extends BaseRepository {
   async getUserRow(userId: string): Promise<User | null> {
@@ -14,7 +14,7 @@ export class UserRepository extends BaseRepository {
       include: {
         squads: {
           include: {
-            faction: true
+            squadType: true
           },
           orderBy: { seq: 'asc' }
         }
@@ -28,7 +28,7 @@ export class UserRepository extends BaseRepository {
       include: {
         squads: {
           include: {
-            faction: true
+            squadType: true
           },
           orderBy: { seq: 'asc' }
         }

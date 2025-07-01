@@ -16,18 +16,30 @@ model User {
 }
 
 model Faction {
-  factionId   String     @id @db.VarChar(20)
+  factionId   String       @id @db.VarChar(20)
+  seq       Int        @default(0)
+  factionName        String       @db.VarChar(250)
+  description String       @db.Text
+  lore        String       @db.Text
+  squadTypes  SquadType[]
+}
+
+model SquadType {
+  factionId     String     @db.VarChar(20)
   seq         Int        @default(0)
-  factionName String     @db.VarChar(250)
+  squadTypeId   String     @id @db.VarChar(20)
+  squadTypeName String     @db.VarChar(250)
   description String     @db.Text
   lore        String     @db.Text
+
+  faction       Faction    @relation(fields: [factionId], references: [factionId])
   squads      Squad[]
   unitTypes   UnitType[]
 }
 
 model UnitType {
   unitTypeId   String  @id @db.VarChar(20)
-  factionId    String  @db.VarChar(20)
+  squadTypeId    String  @db.VarChar(20)
   seq          Int     @default(0)
   unitTypeName String  @db.VarChar(250)
   ACT          Int
@@ -41,9 +53,9 @@ model UnitType {
   nameType     String  @db.VarChar(250)
   gearIds      String? @db.Text
   Unit         Unit[]
-  faction      Faction @relation(fields: [factionId], references: [factionId], onDelete: Cascade)
+  squadType      SquadType @relation(fields: [squadTypeId], references: [squadTypeId], onDelete: Cascade)
 
-  @@index([factionId], map: "UnitType_factionId_fkey")
+  @@index([squadTypeId], map: "UnitType_squadTypeId_fkey")
 }
 
 model GearCategory {
@@ -78,7 +90,7 @@ model Gear {
 model Squad {
   squadId           String   @id @db.VarChar(20)
   userId            String   @db.VarChar(20)
-  factionId         String   @db.VarChar(20)
+  squadTypeId         String   @db.VarChar(20)
   seq               Int      @default(0)
   squadName         String   @db.VarChar(250)
   description       String?  @db.Text
@@ -93,14 +105,14 @@ model Squad {
   TO                Int      @default(0)
   maxGP             Int      @default(100)
   eloRating         Int      @default(1000)
-  faction           Faction  @relation(fields: [factionId], references: [factionId], onDelete: Cascade)
+  squadType           SquadType  @relation(fields: [squadTypeId], references: [squadTypeId], onDelete: Cascade)
   user              User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
   
   matchesAsSquadA MissionResult[] @relation("SquadA")
   matchesAsSquadB MissionResult[] @relation("SquadB")
   units             Unit[]
 
-  @@index([factionId], map: "Squad_factionId_fkey")
+  @@index([squadTypeId], map: "Squad_squadTypeId_fkey")
   @@index([userId], map: "Squad_userId_fkey")
 }
 

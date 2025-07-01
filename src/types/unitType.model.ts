@@ -1,8 +1,8 @@
-import { Faction, FactionPlain, Gear, GearPlain } from '.'
+import { Gear, GearPlain, SquadType, SquadTypePlain } from '.'
 
 export type UnitTypePlain = {
   unitTypeId: string
-  factionId: string
+  squadTypeId: string
   seq: number
   unitTypeName: string
   ACT: number
@@ -19,7 +19,7 @@ export type UnitTypePlain = {
   gears?: GearPlain[] | null
   weapons?: GearPlain[] | null
   skills?: GearPlain[] | null
-  faction?: FactionPlain | null
+  squadType?: SquadTypePlain | null
   currHIT?: number
   isActivated?: boolean
   unitName?: string
@@ -29,7 +29,7 @@ export type UnitTypePlain = {
 
 export class UnitType {
   unitTypeId: string
-  factionId: string
+  squadTypeId: string
   seq: number
   unitTypeName: string
   ACT: number
@@ -46,11 +46,11 @@ export class UnitType {
   gears?: Gear[] | null
   weapons?: Gear[] | null
   skills?: Gear[] | null
-  faction?: Faction | null
+  squadType?: SquadType | null
 
   constructor(data: {
     unitTypeId: string
-    factionId: string
+    squadTypeId: string
     seq: number
     unitTypeName: string
     ACT: number
@@ -66,10 +66,10 @@ export class UnitType {
     gears?: Gear[] | null
     weapons?: Gear[] | null
     skills?: Gear[] | null
-    faction?: Faction | null
+    squadType?: SquadType | null
   }) {
     this.unitTypeId = data.unitTypeId
-    this.factionId = data.factionId
+    this.squadTypeId = data.squadTypeId
     this.seq = data.seq
     this.unitTypeName = data.unitTypeName
     this.ACT = data.ACT
@@ -86,13 +86,13 @@ export class UnitType {
     this.gears = data.gears ?? null
     this.weapons = data.weapons ?? null
     this.skills = data.skills ?? null
-    this.faction = data.faction ? new Faction(data.faction) : null
+    this.squadType = data.squadType ? new SquadType(data.squadType) : null
   }
 
   toPlain(): UnitTypePlain {
     return {
       unitTypeId: this.unitTypeId,
-      factionId: this.factionId,
+      squadTypeId: this.squadTypeId,
       seq: this.seq,
       unitTypeName: this.unitTypeName,
       ACT: this.ACT,
@@ -109,7 +109,7 @@ export class UnitType {
       gears: this.gears ? this.gears.map(gear => gear.toPlain()) : null,
       weapons: this.weapons ? this.weapons.map(gear => gear.toPlain()) : null,
       skills: this.skills ? this.skills.map(gear => gear.toPlain()) : null,
-      faction: this.faction ? this.faction.toPlain() : null,
+      squadType: this.squadType ? this.squadType.toPlain() : null,
       // Helper fields to map to Unit
       isActivated: false,
       currHIT: this.HIT,

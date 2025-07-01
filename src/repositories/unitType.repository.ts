@@ -1,5 +1,5 @@
-import { BaseRepository } from './base.repository'
 import type { UnitType } from '@prisma/client'
+import { BaseRepository } from './base.repository'
 
 export class UnitTypeRepository extends BaseRepository {
   async getUnitTypeRow(unitTypeId: string): Promise<UnitType | null> {
@@ -12,7 +12,7 @@ export class UnitTypeRepository extends BaseRepository {
     return this.prisma.unitType.findUnique({
       where: { unitTypeId },
       include: {
-        faction: true,
+        squadType: true,
         Unit: true
       }
     })

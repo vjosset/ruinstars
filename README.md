@@ -39,7 +39,7 @@ To contribute:
 ## License Summary
 
 - The **application code** is source-visible but not open for redistribution or commercial use.
-- The **game content** (rules, units, gear, factions) is proprietary and may not be copied, sold, or redistributed.
+- The **game content** (rules, units, gear, squadTypes) is proprietary and may not be copied, sold, or redistributed.
 - All rights reserved by the creator.
 
 See [LICENSE.md](./LICENSE.md) for full terms.
@@ -51,7 +51,7 @@ To run the Ruinstars Companion App locally, you'll need:
 - Node.js 18+
 - MySQL database (local or remote)
 - A `.env` file with your database credentials
-- Seeded core game data (factions, gear, unit types, etc.)
+- Seeded core game data (squadTypes, gear, unit types, etc.)
 
 ---
 
@@ -136,7 +136,7 @@ This will start the app on `http://localhost:5000`.
 | Script | Description |
 |--------|-------------|
 | `npm run seed:dev` | Seeds core game data + dev users, squads, and test data |
-| `npm run seed:prod` | Seeds core game content only (factions, gear, etc.) |
+| `npm run seed:prod` | Seeds core game content only (squadTypes, gear, etc.) |
 | `npm run build` | Builds production app |
 | `npm run start` | Starts app on port `4000` by default |
 

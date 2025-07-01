@@ -1,6 +1,6 @@
 'use client'
 
-import { FactionLink, UserLink } from '@/components/shared/Links'
+import { SquadTypeLink, UserLink } from '@/components/shared/Links'
 import { Button } from '@/components/ui'
 import PageTitle from '@/components/ui/PageTitle'
 import { SpecialRule } from '@/lib/utils/specialRules'
@@ -240,7 +240,7 @@ export default function SquadPageClient({
 
           {/* Details under title */}
           <div className="flex items-center justify-center gap-2 text-muted p-2">
-            <FactionLink factionId={squad.faction?.factionId ?? ''} factionName={squad.faction?.factionName ?? ''} />
+            <SquadTypeLink squadTypeId={squad.squadType?.squadTypeId ?? ''} squadTypeName={squad.squadType?.squadTypeName ?? ''} />
 
             <span>by</span>
 
@@ -263,7 +263,7 @@ export default function SquadPageClient({
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({
                         squadName: squad.squadName,
-                        factionId: squad.factionId,
+                        squadTypeId: squad.squadTypeId,
                       }),
                     })
 

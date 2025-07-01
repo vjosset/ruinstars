@@ -132,7 +132,7 @@ export class SquadService {
 
     const newSquadRow = {
       userId: destUserId,
-      factionId: newSquad.factionId,
+      squadTypeId: newSquad.squadTypeId,
       seq: -1,
       squadName: newSquad.name,
     }

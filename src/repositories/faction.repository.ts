@@ -1,5 +1,5 @@
-import { BaseRepository } from './base.repository'
 import type { Faction } from '@prisma/client'
+import { BaseRepository } from './base.repository'
 
 export class FactionRepository extends BaseRepository {
   async getFactionRow(factionId: string): Promise<Faction | null> {
@@ -12,10 +12,10 @@ export class FactionRepository extends BaseRepository {
     return this.prisma.faction.findUnique({
       where: { factionId },
       include: {
-        unitTypes: {
+        squadTypes: {
           orderBy: [
             {seq: 'asc'},
-            {unitTypeName: 'asc'}
+            {squadTypeName: 'asc'}
           ]
         }
       }
@@ -24,7 +24,7 @@ export class FactionRepository extends BaseRepository {
 
   async getAllFactions() {
     return this.prisma.faction.findMany({
-      include: { unitTypes: true },
+      include: { squadTypes: true },
       orderBy: { seq: 'asc' },
     })
   }

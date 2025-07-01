@@ -6,8 +6,8 @@
   },
   {
     "date": "2025-06-26",
-    "title": "New Factions",
-    "description": "Added [Crimson Shroud](/factions/CRS), [Eidolon Revenants](/factions/EIR), and [Outer Claim](/factions/OCL) factions."
+    "title": "New SquadTypes",
+    "description": "Added [Crimson Shroud](/squadTypes/CRS), [Eidolon Revenants](/squadTypes/EIR), and [Outer Claim](/squadTypes/OCL) squadTypes."
   },
   {
     "date": "2025-06-23",
@@ -37,7 +37,7 @@
   {
     "date": "2025-05-18",
     "title": "Ankh Revenants Updates",
-    "description": "After thorough playtesting of the [Ankh Revenants](/factions/ANKH) faction, updated them for better balance."
+    "description": "After thorough playtesting of the [Ankh Revenants](/squadTypes/ANKH) squadType, updated them for better balance."
   },
   {
     "date": "2025-05-17",

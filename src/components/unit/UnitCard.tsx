@@ -236,7 +236,7 @@ export default function UnitCard({
           key="editor-modal"
           isOpen={true}
           squadId={unit.squadId || ''}
-          factionId={unit.unitType?.factionId ?? ''}
+          squadTypeId={unit.unitType?.squadTypeId ?? ''}
           unit={unit}
           onClose={() => setShowUnitEditorModal(false)}
           allSpecials={allSpecials}
@@ -253,7 +253,7 @@ export default function UnitCard({
           key="editor-modal"
           isOpen={true}
           squadId={unit.squadId || ''}
-          factionId={unit.unitType?.factionId ?? ''}
+          squadTypeId={unit.unitType?.squadTypeId ?? ''}
           unit={unit}
           onClose={() => setShowUnitMedalModal(false)}
           allMedals={allMedals}

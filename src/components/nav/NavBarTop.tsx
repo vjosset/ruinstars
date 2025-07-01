@@ -19,7 +19,7 @@ export default function NavBarTop() {
       icon: <FiList />,
       label: 'Factions',
       show: true,
-      match: (path: string) => path.includes('/factions'),
+      match: (path: string) => path.includes('/factions') || path.includes('/squadTypes'),
     },
     {
       href: '/me',

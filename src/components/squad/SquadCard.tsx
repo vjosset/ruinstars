@@ -41,7 +41,7 @@ export default function SquadCard({
         <Link href={`/squads/${squad.squadId}`} className="relative overflow-hidden border-r border-border">
           <div 
             className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500 overflow-hidden"
-            style={{ backgroundImage: `url(/img/factions/${squad.factionId}.webp)` }}
+            style={{ backgroundImage: `url(/img/squadTypes/${squad.squadTypeId}.webp)` }}
           />
         </Link>
 
@@ -75,7 +75,7 @@ export default function SquadCard({
           </div>
           <Link href={`/squads/${squad.squadId}`}>
             <p className="text-sm">
-              <span className="text-gray-500">{squad.faction?.factionName || 'missing'}</span> {squad.maxGP}GP
+              <span className="text-gray-500">{squad.squadType?.squadTypeName || 'missing'}</span> {squad.maxGP}GP
             </p>
           </Link>
         </div>

@@ -1,33 +1,33 @@
 {
-  "factions": [
+  "squadTypes": [
     {
-      "factionId": "INT",
+      "squadTypeId": "INT",
       "seq": 1,
-      "factionName": "Interdictors",
+      "squadTypeName": "Interdictors",
       "description": "Interdictors are genetically-enhanced superhuman soldiers who serve as the elite warriors of the Terran Empire. Interdictors are larger, stronger, and faster than regular humans. They undergo rigorous training and are equipped with the finest weaponry and armor available, making them the ultimate fighting force against the myriad threats facing humanity."
     },
     {
-      "factionId": "SWARM",
+      "squadTypeId": "SWARM",
       "seq": 2,
-      "factionName": "The Swarm",
+      "squadTypeName": "The Swarm",
       "description": "A hivemind of insectoid abominations bred only to feed, the Swarm descends on worlds in an endless tide, stripping them of all life and biomass. Mindless yet coordinated, disposable yet adaptive, they are evolution weaponized - a galactic extinction event with claws, teeth, and hunger eternal."
     },
     {
-      "factionId": "SKD",
+      "squadTypeId": "SKD",
       "seq": 4,
-      "factionName": "StoneKin",
+      "squadTypeName": "StoneKin",
       "description": "Hailing from heavily industrialized and mineral-rich worlds, the StoneKin are a technologically adept and resilient people. They possess a society focused on mining, engineering, and crafting, with a deep reverence for their ancestors and the intricate machinery they built. Their civilization thrives in the depths of the asteroid belt and massive underground cities on their homeworlds."
     },
     {
-      "factionId": "ANKH",
+      "squadTypeId": "ANKH",
       "seq": 5,
-      "factionName": "Ankh Revenants",
+      "squadTypeName": "Ankh Revenants",
       "description": "The Ankh Revenants are a race of ancient, undying robotic warriors who once ruled the galaxy with an iron fist. Millennia ago, they were an organic species known as the Philacterites, whose frail bodies and short lifespans drove them to seek immortality. In their quest for eternal life, they made a pact with the malevolent star gods, sacrificing their flesh and souls to become immortal machines."
     },
     {
-      "factionId": "NPC",
+      "squadTypeId": "NPC",
       "seq": 100,
-      "factionName": "NPC",
+      "squadTypeName": "NPC",
       "description": "NPC Mode provides rules and instructions to play against an automated enemy Squad.  \nThis allows you to play solo against the automated enemy, or join forces with another player against that enemy.  \nFor each player Squad on the mission, field one NPC Squad of the same GP value.\n\n**NPC Behavior**: \nEach Unit type has its own defined NPC Behavior. This behavior dictates how an AI-controlled Unit behaves.\n\n**Activating NPC Units**: \nAfter each player activation, that same player activates the next NPC Unit and follows its NPC Behavior."
     }
   ],
@@ -2709,7 +2709,7 @@
   "unitTypes": [
     {
       "unitTypeId": "ANKH-PA",
-      "factionId": "ANKH",
+      "squadTypeId": "ANKH",
       "seq": 1,
       "unitTypeName": "Prime Ankh*",
       "ACT": 3,
@@ -2725,7 +2725,7 @@
     },
     {
       "unitTypeId": "ANKH-SEC",
-      "factionId": "ANKH",
+      "squadTypeId": "ANKH",
       "seq": 2,
       "unitTypeName": "Artek Secundus*",
       "ACT": 3,
@@ -2741,7 +2741,7 @@
     },
     {
       "unitTypeId": "ANKH-ASS",
-      "factionId": "ANKH",
+      "squadTypeId": "ANKH",
       "seq": 3,
       "unitTypeName": "Assassin*",
       "ACT": 2,
@@ -2757,7 +2757,7 @@
     },
     {
       "unitTypeId": "ANKH-NEC",
-      "factionId": "ANKH",
+      "squadTypeId": "ANKH",
       "seq": 4,
       "unitTypeName": "Necrotek",
       "ACT": 2,
@@ -2773,7 +2773,7 @@
     },
     {
       "unitTypeId": "ANKH-SS",
-      "factionId": "ANKH",
+      "squadTypeId": "ANKH",
       "seq": 5,
       "unitTypeName": "Skin Taker",
       "ACT": 2,
@@ -2789,7 +2789,7 @@
     },
     {
       "unitTypeId": "ANKH-CATREP",
-      "factionId": "ANKH",
+      "squadTypeId": "ANKH",
       "seq": 6,
       "unitTypeName": "Cat/Rep*",
       "ACT": 2,
@@ -2805,7 +2805,7 @@
     },
     {
       "unitTypeId": "ST-STRP",
-      "factionId": "INT",
+      "squadTypeId": "INT",
       "seq": 1,
       "unitTypeName": "Strike Trooper",
       "ACT": 3,
@@ -2821,7 +2821,7 @@
     },
     {
       "unitTypeId": "ST-ATRP",
-      "factionId": "INT",
+      "squadTypeId": "INT",
       "seq": 2,
       "unitTypeName": "Assault Trooper",
       "ACT": 3,
@@ -2837,7 +2837,7 @@
     },
     {
       "unitTypeId": "NPC-MEL03",
-      "factionId": "NPC",
+      "squadTypeId": "NPC",
       "seq": 1,
       "unitTypeName": "Melee Elite",
       "ACT": 3,
@@ -2853,7 +2853,7 @@
     },
     {
       "unitTypeId": "NPC-MEL02",
-      "factionId": "NPC",
+      "squadTypeId": "NPC",
       "seq": 2,
       "unitTypeName": "Melee Trooper",
       "ACT": 2,
@@ -2869,7 +2869,7 @@
     },
     {
       "unitTypeId": "NPC-MEL01",
-      "factionId": "NPC",
+      "squadTypeId": "NPC",
       "seq": 3,
       "unitTypeName": "Melee Basic",
       "ACT": 2,
@@ -2885,7 +2885,7 @@
     },
     {
       "unitTypeId": "NPC-RNG03",
-      "factionId": "NPC",
+      "squadTypeId": "NPC",
       "seq": 4,
       "unitTypeName": "Ranged Elite",
       "ACT": 3,
@@ -2901,7 +2901,7 @@
     },
     {
       "unitTypeId": "NPC-RNG02",
-      "factionId": "NPC",
+      "squadTypeId": "NPC",
       "seq": 5,
       "unitTypeName": "Ranged Trooper",
       "ACT": 2,
@@ -2917,7 +2917,7 @@
     },
     {
       "unitTypeId": "NPC-RNG01",
-      "factionId": "NPC",
+      "squadTypeId": "NPC",
       "seq": 6,
       "unitTypeName": "Ranged Basic",
       "ACT": 2,
@@ -2933,7 +2933,7 @@
     },
     {
       "unitTypeId": "SKD-DRO",
-      "factionId": "SKD",
+      "squadTypeId": "SKD",
       "seq": 1,
       "unitTypeName": "Leithtog*",
       "ACT": 3,
@@ -2949,7 +2949,7 @@
     },
     {
       "unitTypeId": "SKD-BRA",
-      "factionId": "SKD",
+      "squadTypeId": "SKD",
       "seq": 2,
       "unitTypeName": "Slagsmal*",
       "ACT": 2,
@@ -2965,7 +2965,7 @@
     },
     {
       "unitTypeId": "SKD-GNR",
-      "factionId": "SKD",
+      "squadTypeId": "SKD",
       "seq": 3,
       "unitTypeName": "Mathur*",
       "ACT": 2,
@@ -2981,7 +2981,7 @@
     },
     {
       "unitTypeId": "SKD-TAC",
-      "factionId": "SKD",
+      "squadTypeId": "SKD",
       "seq": 4,
       "unitTypeName": "Taeknimathur*",
       "ACT": 2,
@@ -2997,7 +2997,7 @@
     },
     {
       "unitTypeId": "SKD-MED",
-      "factionId": "SKD",
+      "squadTypeId": "SKD",
       "seq": 5,
       "unitTypeName": "Laeknir*",
       "ACT": 2,
@@ -3013,7 +3013,7 @@
     },
     {
       "unitTypeId": "SKD-KIN",
-      "factionId": "SKD",
+      "squadTypeId": "SKD",
       "seq": 6,
       "unitTypeName": "Steinnfraen",
       "ACT": 2,
@@ -3029,7 +3029,7 @@
     },
     {
       "unitTypeId": "SWARM-BM",
-      "factionId": "SWARM",
+      "squadTypeId": "SWARM",
       "seq": 1,
       "unitTypeName": "Brood Mother*",
       "ACT": 3,
@@ -3045,7 +3045,7 @@
     },
     {
       "unitTypeId": "SWARM-RNR",
-      "factionId": "SWARM",
+      "squadTypeId": "SWARM",
       "seq": 2,
       "unitTypeName": "Runner",
       "ACT": 2,
@@ -3061,7 +3061,7 @@
     },
     {
       "unitTypeId": "SWARM-SPAWN",
-      "factionId": "SWARM",
+      "squadTypeId": "SWARM",
       "seq": 3,
       "unitTypeName": "Spawn",
       "ACT": 2,
@@ -3578,7 +3578,7 @@
     {
       "squadId": "INT",
       "userId": "ruinstars",
-      "factionId": "INT",
+      "squadTypeId": "INT",
       "seq": 1,
       "squadName": "Shock Troops",
       "description": null,
@@ -3597,7 +3597,7 @@
     {
       "squadId": "SWARM",
       "userId": "ruinstars",
-      "factionId": "SWARM",
+      "squadTypeId": "SWARM",
       "seq": 2,
       "squadName": "The Swarm",
       "description": null,
@@ -3616,7 +3616,7 @@
     {
       "squadId": "SKD",
       "userId": "ruinstars",
-      "factionId": "SKD",
+      "squadTypeId": "SKD",
       "seq": 3,
       "squadName": "Stonekin",
       "description": null,
@@ -3635,7 +3635,7 @@
     {
       "squadId": "ANKH",
       "userId": "ruinstars",
-      "factionId": "ANKH",
+      "squadTypeId": "ANKH",
       "seq": 4,
       "squadName": "Ankhs Revenants",
       "description": null,
@@ -3654,7 +3654,7 @@
     {
       "squadId": "NPC",
       "userId": "ruinstars",
-      "factionId": "NPC",
+      "squadTypeId": "NPC",
       "seq": 5,
       "squadName": "NPC",
       "description": null,
