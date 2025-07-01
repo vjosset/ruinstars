@@ -1,8 +1,7 @@
-import SquadTypeCard from '@/components/squadType/SquadTypeCard'
+import FactionList from '@/components/faction/FactionList'
 import PageTitle from '@/components/ui/PageTitle'
 import { GAME } from '@/lib/config/game_config'
 import { FactionService } from '@/services/faction.service'
-import Link from 'next/link'
 
 export const metadata = {
   title: `Factions - ${GAME.NAME}`,
@@ -21,21 +20,7 @@ export default async function FactionsPage() {
         </p>
       </div>
 
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
-        {factions.map((faction) => (
-          <div key={faction.factionName}>
-            <Link href={`/factions/${faction.factionId}`}>
-              <h4>{faction.factionName}</h4>
-            </Link>
-            
-            <div className="gap-2">
-              {faction.squadTypes.map((squadType) => {
-                return <SquadTypeCard key={squadType.squadTypeId} squadType={squadType} />
-              })}
-            </div>
-          </div>
-        ))}
-      </div>
+      <FactionList factions={factions} />
     </div>
   )
 }

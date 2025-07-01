@@ -1,14 +1,15 @@
-import SquadTypeCard from '@/components/squadType/SquadTypeCard'
 import Markdown from '@/components/ui/Markdown'
 import UnitCard from '@/components/unit/UnitCard'
-import { SpecialService, SquadTypeService } from '@/services'
+import { FactionService, SpecialService, SquadTypeService } from '@/services'
 
-export default async function RulesSquadTypes() {
-  const squadTypes = await SquadTypeService.getAllSquadTypes()
+export default async function RulesFactions() {
+  const factions = await FactionService.getAllFactions()
   const allSquadTypes = []
 
-  for (const squadType of squadTypes) {
-    allSquadTypes.push(await SquadTypeService.getSquadType(squadType.squadTypeId) ?? squadType)
+  for (const faction of factions) {
+    for (const squadType of faction.squadTypes) {
+      allSquadTypes.push(await SquadTypeService.getSquadType(squadType.squadTypeId) ?? squadType)
+    }
   }
     
   const allSpecials = await SpecialService.getAllSpecials()
@@ -25,14 +26,6 @@ export default async function RulesSquadTypes() {
         When selecting Gear for your Squad (Weapons, Equipment, etc), any item whose name ends with an asterisk (<code>*</code>) is Unique and cannot be added more than once to your squad.
       </p>
       <br/><br/><br/><br/><br/>
-      
-      {allSquadTypes.map((squadType) => (
-        <div className="mb-4" key={`squadTypeCard_${squadType.squadTypeId}`}>
-          <SquadTypeCard
-            squadType={squadType}
-          />
-        </div>
-      ))}
       
       {allSquadTypes.map((squadType) => (
         <div className="section" key={`squadType_${squadType.squadTypeId}`}>
