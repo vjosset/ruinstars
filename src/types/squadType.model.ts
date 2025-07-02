@@ -1,4 +1,4 @@
-import { UnitType, UnitTypePlain } from '.'
+import { Faction, FactionPlain, UnitType, UnitTypePlain } from '.'
 
 export type SquadTypePlain = {
   squadTypeId: string
@@ -7,6 +7,7 @@ export type SquadTypePlain = {
   squadTypeName: string
   description: string
   lore: string
+  faction: FactionPlain
   unitTypes: UnitTypePlain[]
 }
 
@@ -17,6 +18,7 @@ export class SquadType {
   squadTypeName: string
   description: string
   lore: string
+  faction: Faction
   unitTypes: UnitType[]
 
   constructor(data: {
@@ -26,6 +28,7 @@ export class SquadType {
     squadTypeName: string
     description: string
     lore: string
+    faction: Faction
     unitTypes: UnitType[]
   }) {
     this.squadTypeId = data.squadTypeId
@@ -34,6 +37,7 @@ export class SquadType {
     this.squadTypeName = data.squadTypeName
     this.description = data.description
     this.lore = data.lore
+    this.faction = data.faction
     this.unitTypes = data.unitTypes?.map(unitType => unitType instanceof UnitType ? unitType : new UnitType(unitType))
   }
 
@@ -45,6 +49,7 @@ export class SquadType {
       squadTypeName: this.squadTypeName,
       description: this.description,
       lore: this.lore,
+      faction: this.faction.toPlain(),
       unitTypes: this.unitTypes?.map((unitType) => unitType.toPlain()),
     }
   }

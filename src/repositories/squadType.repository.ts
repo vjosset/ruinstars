@@ -17,6 +17,11 @@ export class SquadTypeRepository extends BaseRepository {
             {seq: 'asc'},
             {unitTypeName: 'asc'}
           ]
+        },
+        faction: {
+          select: {
+            factionName: true
+          }
         }
       }
     })
@@ -24,7 +29,19 @@ export class SquadTypeRepository extends BaseRepository {
 
   async getAllSquadTypes() {
     return this.prisma.squadType.findMany({
-      include: { unitTypes: true },
+      include: {
+        unitTypes: {
+          orderBy: [
+            {seq: 'asc'},
+            {unitTypeName: 'asc'}
+          ]
+        },
+        faction: {
+          select: {
+            factionName: true
+          }
+        }
+      },
       orderBy: { seq: 'asc' },
     })
   }

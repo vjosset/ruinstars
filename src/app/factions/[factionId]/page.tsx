@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ factionId
 
   return generatePageMetadata({
     title: `${faction.factionName}`,
-    description: `${faction.description}`,
+    description: `${faction.lore}`,
     image: {
       url: `/img/factions/${factionId}.webp`,
     },
@@ -37,7 +37,7 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
           <h1>{faction.factionName}</h1>
         </div>
         <div className="text-foreground">
-          <Markdown>{faction.lore}</Markdown>
+          <Markdown className="flavor_disabled">{faction.lore}</Markdown>
 
           {faction.squadTypes.map((squadType, index) => {
             const isEven = index % 2 === 1
@@ -61,7 +61,8 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
                   </Link>
                   <div className="w-full md:w-1/2">
                     <SquadTypeLink squadTypeId={squadType.squadTypeId} squadTypeName={squadType.squadTypeName} />
-                    <Markdown>{squadType.lore}</Markdown>
+                    <Markdown>{squadType.description}</Markdown>
+                    <Markdown className="flavor">{squadType.lore}</Markdown>
                   </div>
                 </div>
               </div>

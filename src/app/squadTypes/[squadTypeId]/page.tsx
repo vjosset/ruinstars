@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ squadType
 
   return generatePageMetadata({
     title: `${squadType.squadTypeName}`,
-    description: `${squadType.description}`,
+    description: `${squadType.lore}`,
     image: {
       url: `/img/squadTypes/${squadTypeId}.webp`,
     },
@@ -34,7 +34,7 @@ export default async function SquadTypePage({ params }: { params: Promise<{ squa
 
   return (
     <div className="max-w-full">
-      <div className="relative min-h-[200px] md:h-[300px] flex items-center justify-center"
+      <div className="relative min-h-[200px] flex items-center justify-center mb-4"
         style={{ backgroundImage: `url(/img/squadTypes/${squadType.squadTypeId}.webp)`, backgroundAttachment: '', backgroundPosition: 'top', backgroundSize: 'cover' }}>
         <div 
           className="absolute inset-0 bg-cover bg-top"
@@ -45,15 +45,15 @@ export default async function SquadTypePage({ params }: { params: Promise<{ squa
           <div className="flex items-center gap-x-4 mb-4">
             <PageTitle>{squadType.squadTypeName}</PageTitle>
           </div>
-          <div className="text-white max-w-2xl text-center">
-            <Markdown>{squadType.description}</Markdown>
+          <div className="text-white max-w-2xl text-center m-4">
+            <Markdown className="flavor_disabled">{squadType.description}</Markdown>
           </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto">
         <div className="p-2 flex items-center justify-center gap-4">
-          Faction: <FactionLink factionId={squadType.factionId} factionName="Read More" />
+          Faction: <FactionLink factionId={squadType.factionId} factionName={squadType.faction.factionName} />
           Default Squad: <SquadLink squadId={squadType.squadTypeId} squadName={squadType.squadTypeName} />
         </div>
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2">

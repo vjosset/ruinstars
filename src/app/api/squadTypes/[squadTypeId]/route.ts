@@ -18,6 +18,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ squadTyp
     squadTypeId: squadType.squadTypeId,
     squadTypeName: squadType.squadTypeName,
     description: squadType.description,
+    lore: squadType.lore,
     unitTypes,
   })
 }

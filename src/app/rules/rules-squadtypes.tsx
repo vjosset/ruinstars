@@ -41,7 +41,7 @@ export default async function RulesSquadTypes() {
                 <h1 className="text-center text-4xl text-white mb-2">{squadType.squadTypeName}</h1>
               </div>
               <div className="text-white max-w-2xl text-center">
-                <Markdown>{squadType.description}</Markdown>
+                <Markdown>{squadType.lore}</Markdown>
               </div>
             </div>
           </div>

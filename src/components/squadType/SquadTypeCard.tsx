@@ -26,7 +26,7 @@ export default function SquadTypeCard({ squadType }: SquadTypeCardProps) {
           <h4 className="font-heading text-main text-xl">{squadType.squadTypeName}</h4>
         </div>
         <p className="line-clamp-3">
-          <Markdown>{squadType.description}</Markdown>
+          <Markdown>{squadType.lore}</Markdown>
         </p>
       </div>
     </Link>
