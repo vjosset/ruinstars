@@ -15,6 +15,11 @@ export async function GET() {
     '/tools',
   ]
 
+  // Fetch factions
+  const factions = await prisma.faction.findMany({
+    select: { factionId: true },
+  })
+
   // Fetch squadTypes
   const squadTypes = await prisma.squadType.findMany({
     select: { squadTypeId: true },
@@ -31,6 +36,7 @@ export async function GET() {
   })
 
   const dynamicUrls = [
+    ...factions.map((faction: { factionId: string }) => `/factions/${faction.factionId}`),
     ...squadTypes.map((squadType: { squadTypeId: string }) => `/squadTypes/${squadType.squadTypeId}`),
     ...users.map((user: { userName: string }) => `/users/${user.userName}`),
     ...squads.map((squad: { squadId: string }) => `/squads/${squad.squadId}`),
@@ -38,6 +44,8 @@ export async function GET() {
 
   // Build full list of URLs
   const urls = [...staticUrls, ...dynamicUrls]
+
+  console.log('Total URLs:', urls.length)
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
