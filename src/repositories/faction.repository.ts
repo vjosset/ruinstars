@@ -13,6 +13,9 @@ export class FactionRepository extends BaseRepository {
       where: { factionId },
       include: {
         squadTypes: {
+          include: {
+            faction: true
+          },
           orderBy: [
             {seq: 'asc'},
             {squadTypeName: 'asc'}
@@ -24,7 +27,13 @@ export class FactionRepository extends BaseRepository {
 
   async getAllFactions() {
     return this.prisma.faction.findMany({
-      include: { squadTypes: true },
+      include: {
+        squadTypes: {
+          include: {
+            faction: true
+          }
+        }
+      },
       orderBy: { seq: 'asc' },
     })
   }

@@ -25,9 +25,9 @@ export default function SquadTypeCard({ squadType }: SquadTypeCardProps) {
         <div className="flex items-center gap-x-2">
           <h4 className="font-heading text-main text-xl">{squadType.squadTypeName}</h4>
         </div>
-        <p className="line-clamp-3">
+        <div className="line-clamp-3">
           <Markdown>{squadType.lore}</Markdown>
-        </p>
+        </div>
       </div>
     </Link>
   )
