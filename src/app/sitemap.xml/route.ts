@@ -9,6 +9,7 @@ export async function GET() {
   const staticUrls = [
     '/',
     '/rules',
+    '/factions',
     '/squadTypes',
     '/auth/login',
     '/auth/signup',
