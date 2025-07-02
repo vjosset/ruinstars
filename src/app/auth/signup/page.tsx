@@ -17,7 +17,7 @@ export async function generateMetadata() {
     image: {
       url: '/img/hero01.webp',
     },
-    keywords: ['sign up', 'singup', 'login', 'log in', 'sign in', 'signin', 'account', 'user'],
+    keywords: ['sign up', 'signup', 'login', 'log in', 'sign in', 'signin', 'account', 'user'],
   })
 }
 */}

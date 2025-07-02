@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ factionId
     image: {
       url: `/img/factions/${factionId}.webp`,
     },
-    keywords: ['home', 'squad builder', 'battle tracker', 'faction', 'lore', faction.factionId, faction.factionName],
+    keywords: ['faction', 'lore', faction.factionId, faction.factionName],
     pagePath: `/factions/${faction.factionId}`
   })
 }

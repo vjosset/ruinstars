@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ userName:
     image: {
       url: '/img/hero01.webp',
     },
-    keywords: [user.userName, 'user', 'squad', 'squad builder', 'battle tracker'],
+    keywords: [user.userName, 'user', 'squads'],
     pagePath: `/users/${user.userName}`
   })
 }

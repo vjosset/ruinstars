@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ squadId: 
     image: {
       url: `/img/squadTypes/${squad.squadType?.squadTypeId}.webp`,
     },
-    keywords: [squad.squadName, squad.squadType?.squadTypeName ?? '', 'squad', 'squad builder', 'battle tracker'],
+    keywords: ['squad', squad.user?.userName ?? 'user', squad.squadName, squad.squadType?.squadTypeName ?? ''],
     pagePath: `/squads/${squad.squadId}`
   })
 }
