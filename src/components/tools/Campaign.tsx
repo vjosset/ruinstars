@@ -196,8 +196,6 @@ export default function Campaign() {
     campaign.summary.squad2Result = '-'
   }
 
-  console.log('Campaign Summary:', campaign.summary)
-
   return (
     <>
       <h3 className="text-center font-heading">{campaign.campaignName}</h3>

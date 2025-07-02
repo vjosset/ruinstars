@@ -14,7 +14,11 @@ export class UserRepository extends BaseRepository {
       include: {
         squads: {
           include: {
-            squadType: true
+            squadType: {
+              include: {
+                faction: true
+              }
+            }
           },
           orderBy: { seq: 'asc' }
         }
@@ -28,7 +32,11 @@ export class UserRepository extends BaseRepository {
       include: {
         squads: {
           include: {
-            squadType: true
+            squadType: {
+              include: {
+                faction: true
+              }
+            }
           },
           orderBy: { seq: 'asc' }
         }

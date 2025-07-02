@@ -13,7 +13,11 @@ export class SquadRepository extends BaseRepository {
     return await this.prisma.squad.findUnique({
       where: { squadId },
       include: {
-        squadType: true,
+        squadType: {
+          include: {
+            faction: true
+          }
+        },
         user: true,
         units: {
           include: {

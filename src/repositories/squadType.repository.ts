@@ -18,11 +18,7 @@ export class SquadTypeRepository extends BaseRepository {
             {unitTypeName: 'asc'}
           ]
         },
-        faction: {
-          select: {
-            factionName: true
-          }
-        }
+        faction: true
       }
     })
   }
@@ -36,11 +32,7 @@ export class SquadTypeRepository extends BaseRepository {
             {unitTypeName: 'asc'}
           ]
         },
-        faction: {
-          select: {
-            factionName: true
-          }
-        }
+        faction: true
       },
       orderBy: { seq: 'asc' },
     })

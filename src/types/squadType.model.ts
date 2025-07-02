@@ -37,7 +37,7 @@ export class SquadType {
     this.squadTypeName = data.squadTypeName
     this.description = data.description
     this.lore = data.lore
-    this.faction = data.faction
+    this.faction = data.faction instanceof Faction? data.faction : new Faction(data.faction)
     this.unitTypes = data.unitTypes?.map(unitType => unitType instanceof UnitType ? unitType : new UnitType(unitType))
   }
 
