@@ -124,8 +124,7 @@ This will start the app on `http://localhost:5000`.
 
 | Script | Description |
 |--------|-------------|
-| `npm run seed:dev` | Seeds core game data + dev users, squads, and test data |
-| `npm run seed:prod` | Seeds core game content only (squadTypes, gear, etc.) |
+| `npm run seed` | Seeds core game content (Factions, SquadTypes, Gear, etc.) |
 | `npm run build` | Builds production app |
 | `npm run start` | Starts app on port `4000` by default |
 
