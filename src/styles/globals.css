@@ -31,29 +31,39 @@ Font notes:
 	| WarunaRegular.ttf                      |   Y   |   N   |   N   |                                     |
 	| Younger_than_me.ttf                    |   Y   |   N   |   Y   | Slight Drip                         |
 	| zeroes.three-regular.otf               |   M   |   Y   |   Y   | Thin & Clear, Solid                 |
+	|GOOGLE FONTS------------------------------------------------------------------------------------------|
+	| Chakra_Petch/ChakraPetch-Bold.ttf      |       |       |       |                                     |
+	| Goldman/Goldman-Bold.ttf               |   y   |   y   |   Y   | Wide                                |
+	| Keania_One/KeaniaOne-Regular.ttf       |   N   |   N   |   N   | Stenciled, not great                |
+	| Oxanium/Oxanium-VariableFont_wght.ttf  |   y   |   y   |   y   | Fine but a little bland             |
+	| Quantico/Quantico-Bold.ttf             |   y   |   y   |   y   | Fine but a little bland             |
+	| Russo_One/RussoOne-Regular.ttf         |   Y   |   Y   |   Y   |                                     |
+	| Tektur/Tektur-VariableFont_wdthwght.ttf|   Y   |   Y   |   Y   | Solid, a little sporty, weight 700  |
+	| Tomorrow/Tomorrow-Bold.ttf             |   Y   |   Y   |   Y   | Solid, many variants                |
 
 	Waruna is good for game title but not headings or stats
 	Geizer is nice but scaled small, solid for game title and stats, but not headings
+
 */
 
 @font-face {
   font-family: 'title';
-  src: url('/fonts/ProtoSans40.otf');
-  font-weight: 900;
+  src: url('/fonts/Russo_One/RussoOne-Regular.ttf');
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'heading';
-  src: url('/fonts/ProtoSans40.otf');
-  font-weight: 900;
+  src: url('/fonts/Russo_One/RussoOne-Regular.ttf');
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'stat';
-  src: url('/fonts/ProtoSans40.otf');
-  font-weight: normal;
+  src: url('/fonts/Russo_One/RussoOne-Regular.ttf');
+  font-weight: 700;
   font-style: normal;
 }
 
