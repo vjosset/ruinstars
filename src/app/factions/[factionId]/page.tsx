@@ -32,9 +32,9 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
     <div
       className="max-w-full h-full flex items-center justify-center">
       
-      <div className="lore max-w-7xl flex flex-col items-center justify-center gap-x-2 m-4 p-2">
+      <div className="max-w-7xl flex flex-col items-center justify-center gap-x-2 m-4 p-2">
         <div className="flex items-center gap-x-3 mb-4 pt-12">
-          <h1>{faction.factionName}</h1>
+          <h1 className="text-main">{faction.factionName}</h1>
         </div>
         <div className="text-foreground">
           <Markdown className="flavor_disabled">{faction.lore}</Markdown>
@@ -47,7 +47,7 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
                 id={squadType.squadTypeId}
                 className="my-8"
               >
-                <h2 id={squadType.squadTypeId}>
+                <h2 id={squadType.squadTypeId} className="font-heading text-main">
                   <Link href={`/squadTypes/${squadType.squadTypeId}`}>{squadType.squadTypeName}</Link>
                 </h2>
                 <div className={`flex flex-col md:flex-row ${isEven ? 'md:flex-row-reverse' : ''} items-start gap-4`}>
@@ -56,7 +56,7 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
                     <img
                       src={`/img/squadTypes/${squadType.squadTypeId}.webp`}
                       alt={`${squadType.squadTypeName} Portrait`}
-                      className="rounded-xl"
+                      className="rounded-xl border border-main"
                     />
                   </Link>
                   <div className="w-full md:w-1/2">

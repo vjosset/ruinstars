@@ -233,36 +233,6 @@ hr {
 		drop-shadow(0px -1px 0 theme('colors.main.DEFAULT'));
 }
 
-/********/
-/* LORE */
-/********/
-
-.lore h1, .lore h2, .lore h3, .lore h4, .lore h5 {
-	@apply font-heading uppercase font-title text-main grunge;
-  color: theme('colors.main.DEFAULT');
-	column-span: all;
-}
-
-.lore h1 {
-	@apply text-5xl text-center;
-  color: theme('colors.main.DEFAULT');
-}
-.lore h2 {
-	@apply text-3xl pt-2;
-  color: theme('colors.main.DEFAULT');
-}
-.lore h3 {
-	@apply text-2xl pt-2;
-  color: theme('colors.main.DEFAULT');
-}
-.lore h4 {
-	@apply text-xl pt-2;
-}
-
-.lore img {
-	border: 1px solid theme('colors.main.DEFAULT');
-}
-
 /*********/
 /* RULES */
 /*********/
@@ -273,15 +243,15 @@ hr {
 	column-span: all;
 }
 .rules h2 {
-	@apply text-3xl text-center pt-2;
+	@apply text-3xl text-center pt-2 font-heading;
   color: theme('colors.main.DEFAULT');
 }
 .rules h3 {
-	@apply text-2xl pt-2;
+	@apply text-2xl pt-2 font-heading;
   color: theme('colors.main.DEFAULT');
 }
-.rules > h4 {
-	@apply text-xl pt-2;
+.rules h4 {
+	@apply text-xl pt-2 font-heading;
 }
 
 .twocols { columns: 2; }
