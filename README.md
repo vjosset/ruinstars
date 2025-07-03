@@ -1,7 +1,8 @@
 # Ruinstars Companion App
 
 **Ruinstars** is a sci-fi skirmish wargame and this is its official open-source companion app.  
-Built with Next.js, TailwindCSS, and Prisma, it provides digital tools for managing squads, tracking games, and referencing rules.
+Built with Next.js, TailwindCSS, and Prisma, it provides digital tools for managing squads, tracking games, and referencing rules.  
+It is installable from your web browser as a [PWA - Progressive Web App](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app)
 
 ## Features
 
@@ -10,6 +11,7 @@ Built with Next.js, TailwindCSS, and Prisma, it provides digital tools for manag
 - Interactive rulebook
 - Local and server game tracking
 - Developer-friendly data seeding
+- PWA install
 
 ## Tech Stack
 
@@ -45,7 +47,7 @@ To run the Ruinstars Companion App locally, you'll need:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOURNAME/ruinstars.git
+git clone https://github.com/vjosset/ruinstars.git
 cd ruinstars
 ```
 
@@ -67,7 +69,7 @@ DATABASE_URL="mysql://user:pass@host:3306/ruinstars"
 
 # Used by NextAuth.js
 NEXTAUTH_SECRET="your-secret-key"
-NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_URL="http://localhost:5000"
 ```
 
 ---
@@ -92,7 +94,7 @@ npx prisma migrate dev --name init
 Then seed the database with core game data:
 
 ```bash
-npm run seed:dev
+npm run seed
 ```
 
 ---

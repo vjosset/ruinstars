@@ -5,9 +5,6 @@ import path from 'path'
 
 const prisma = new PrismaClient()
 
-// Environment/what to seed
-const env = process.argv[2] ?? 'dev'
-
 async function runSeed(seed: any) {
   // Users
   if (seed.users) {
@@ -200,25 +197,13 @@ async function runSeed(seed: any) {
 async function main() {
   console.log('🌱 Seeding core data...')
 
-  // Always seed core data (prod and dev)
   // Load core data
-  let dataPath = path.join(__dirname, 'seed-data-core.json')
-  let json = await fs.readFile(dataPath, 'utf-8')
-  let seed = JSON.parse(json)
+  const dataPath = path.join(__dirname, 'seed-data-core.json')
+  const json = await fs.readFile(dataPath, 'utf-8')
+  const seed = JSON.parse(json)
 
   // Run the seed
   await runSeed(seed)
-
-  // If dev, seed dev data (test users and squads)
-  if (env == 'dev') {
-    console.log('🌱 Seeding dev data...')
-    dataPath = path.join(__dirname, 'seed-data-dev.json')
-    json = await fs.readFile(dataPath, 'utf-8')
-    seed = JSON.parse(json)
-  
-    // Run the seed
-    await runSeed(seed)
-  }
 
   console.log('✅ Seeding complete.')
 }
