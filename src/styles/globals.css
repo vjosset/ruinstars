@@ -83,9 +83,9 @@ body {
   /* Grunge/stamp style */
 	mask-image: url('/img/ui/grunge_sm.png');
 	-webkit-mask-image: url('/img/ui/grunge_sm.png');
-	mask-size: 500px 300px;
-	-webkit-mask-size: 500px 300px;
-	mix-blend-mode: alpha;
+	mask-size: 300px 300px;
+	-webkit-mask-size: 300px 300px;
+	mix-blend-mode:alpha;
 }
 
 .hastip::after {
