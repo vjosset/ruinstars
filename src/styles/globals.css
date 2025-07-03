@@ -9,12 +9,12 @@ Font notes:
 	| bocuma.angle-brk.ttf                   |   N   |   N   |   N   |                                     |
 	| CGFLocustResistance.ttf                |   N   |   N   |   Y   | Wide, no special chars like "/"     |
 	| closeness.bold.ttf                     |   Y   |   Y   |   m   | Clean/Simple, numbers unclear       |
-	| Compacta.woff2                         |   Y   |   Y   |   N   |                                     |
+	| Compacta.woff2                         |   Y   |   Y   |   N   | Narrow                              |
 	| fyodor.bold.ttf                        |   N   |   Y   |   N   |                                     |
 	| Geizer.otf                             |   Y   |   N   |   N   | Small                               |
 	| gomarice_no_continue.ttf               |   Y   |   N   |   N   |                                     |
 	| gomarice_goma_octagon.ttf              |   Y   |   N   |   Y   |                                     |
-	| gomarice_tall_block.ttf                |   Y   |   N   |   N   |                                     |
+	| gomarice_tall_block.ttf                |   Y   |   N   |   N   | Narrow                              |
 	| GovtAgentBB.ttf                        |   Y   |   Y   |   Y   |                                     |
 	| Jacinto.otf                            |   Y   |   N   |   Y   | Wide                                |
 	| KirstyBold.otf                         |   Y   |   N   |   M   | Western-like                        |
@@ -38,21 +38,21 @@ Font notes:
 
 @font-face {
   font-family: 'title';
-  src: url('/fonts/closeness.bold.ttf');
+  src: url('/fonts/ProtoSans40.otf');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'heading';
-  src: url('/fonts/closeness.bold.ttf');
+  src: url('/fonts/ProtoSans40.otf');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'stat';
-  src: url('/fonts/GovtAgentBB.ttf');
+  src: url('/fonts/ProtoSans40.otf');
   font-weight: normal;
   font-style: normal;
 }
@@ -171,8 +171,8 @@ hr {
 
 	background-image: /*radial-gradient(ellipse at top left, rgba(255,255,255,0.02), transparent),
 										radial-gradient(ellipse at bottom right, rgba(255,255,255,0.01), transparent),*/
-										/*url('/img/ui/grunge-texture03.webp');*/
-										url('/img/ui/mech02.webp');
+										url('/img/ui/grunge-texture03.webp');
+										/*url('/img/ui/mech02.webp');*/
 	background-size: cover;
 }
 
