@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: LicenseRef-Ruinstars-Proprietary
-
 import { PrismaClient } from '@prisma/client'
 import { hash } from 'bcryptjs'
 import fs from 'fs/promises'

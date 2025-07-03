@@ -1,12 +1,7 @@
-<!-- SPDX-License-Identifier: LicenseRef-Ruinstars-Proprietary -->
-
 # Ruinstars Companion App
 
 **Ruinstars** is a sci-fi skirmish wargame and this is its official open-source companion app.  
 Built with Next.js, TailwindCSS, and Prisma, it provides digital tools for managing squads, tracking games, and referencing rules.
-
-> This repository contains both open-source application code and proprietary game content.  
-> Please read the [license](./LICENSE.md) carefully before using or contributing.
 
 ## Features
 
@@ -35,14 +30,6 @@ To contribute:
 1. Fork this repo
 2. Open a pull request
 3. Describe your change clearly
-
-## License Summary
-
-- The **application code** is source-visible but not open for redistribution or commercial use.
-- The **game content** (rules, units, gear, squadTypes) is proprietary and may not be copied, sold, or redistributed.
-- All rights reserved by the creator.
-
-See [LICENSE.md](./LICENSE.md) for full terms.
 
 ## Getting Started
 

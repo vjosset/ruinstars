@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: LicenseRef-Ruinstars-Proprietary
-
 import NewsPopup from '@/components/home/NewsPopup'
 import NavBarBottom from '@/components/nav/NavBarBottom'
 import NavBarTop from '@/components/nav/NavBarTop'

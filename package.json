@@ -2,7 +2,6 @@
   "name": "ruinstars-app",
   "version": "0.1.0",
   "private": true,
-  "license": "LicenseRef-Ruinstars-Proprietary",
   "scripts": {
     "seed:dev": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/seed.ts dev",
     "seed:prod": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/seed.ts prod",
