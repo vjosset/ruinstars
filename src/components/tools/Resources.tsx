@@ -14,9 +14,9 @@ export default function Resources() {
             Rules:
             <ul>
               <li>
-                <Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250627.pdf">Easy Print</Link>
+                <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20250704.pdf">Easy Print</Link>
                 { ' / ' }
-                <Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250627 - FullColor.pdf">Full Color</Link>
+                <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20250704 - FullColor.pdf">Full Color</Link>
               </li>
             </ul>
           </li>
