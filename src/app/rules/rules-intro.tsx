@@ -30,7 +30,8 @@ export default async function RulesIntro({ showTitle = false }) {
           <h4>Note on Use of AI</h4>
           <p>
             {GAME.NAME} is still in beta and includes select concept art and visuals generated with the aid of AI image tools.
-            These assets support visual development and thematic exploration, but all images will be replaced with art created by actual artists by the time the game is released.
+            While these assets support visual development and thematic exploration, they are not final and
+            all images will be replaced with art created by actual artists by the time the game is released.
           </p>
         </div>
       </div>
