@@ -33,66 +33,71 @@ export async function generateMetadata() {
 
 export default async function Home() {
   return (
-    <div className="rules px-3 max-w-7xl mx-auto">
-      <RulesHeader />
+    <>
+      {/* Cover */}
+      <img src="/img/rules/BookCover.webp" className="printonly fullpage" style={{pageBreakAfter: 'always'}} />
 
-      <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
+      <div className="rules px-3 max-w-7xl mx-auto">
+        <RulesHeader />
+
+        <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
         Download the Rules:
-        { ' ' }
-        <Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250627.pdf">Easy Print PDF</Link>
-        { ' / ' }
-        <Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250627 - FullColor.pdf">Full Color PDF</Link>
-      </div>
-      <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
+          { ' ' }
+          <Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250627.pdf">Easy Print PDF</Link>
+          { ' / ' }
+          <Link className="underline" target="_blank" href="/assets/RuinStars - The Rules - 20250627 - FullColor.pdf">Full Color PDF</Link>
+        </div>
+        <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
         Print the Tokens:
-        { ' ' }
-        <Link className="underline" target="_blank" href="/assets/tokens.pdf">Tokens PDF</Link>
-      </div>
+          { ' ' }
+          <Link className="underline" target="_blank" href="/assets/tokens.pdf">Tokens PDF</Link>
+        </div>
 
-      <RulesToc />
-      <RulesIntro showTitle={true} />
+        <RulesToc />
+        <RulesIntro showTitle={true} />
 
-      <hr />
-      <RulesCoreMechanics />
-
-      <hr />
-      <RulesGameCycle />
-
-      <hr />
-      <RulesStatCards />
-
-      <hr />
-      <RulesActions />
-
-      <hr />
-      <RulesMovement />
-
-      <hr />
-      <RulesCombat />
-
-      <hr />
-      <RulesYourSquad />
-
-      <hr />
-      <RulesMissions />
-
-      <hr />
-      <RulesBattlefields />
-
-      <hr />
-      <RulesCampaigns />
-      
-      <hr />
-      <RulesItems />
-      
-      <hr />
-      <RulesGlossary />
-      
-      <div className="printonly">
         <hr />
-        <RulesSquadTypes />
-      </div>
+        <RulesCoreMechanics />
 
-    </div>
+        <hr />
+        <RulesGameCycle />
+
+        <hr />
+        <RulesStatCards />
+
+        <hr />
+        <RulesActions />
+
+        <hr />
+        <RulesMovement />
+
+        <hr />
+        <RulesCombat />
+
+        <hr />
+        <RulesYourSquad />
+
+        <hr />
+        <RulesMissions />
+
+        <hr />
+        <RulesBattlefields />
+
+        <hr />
+        <RulesCampaigns />
+      
+        <hr />
+        <RulesItems />
+      
+        <hr />
+        <RulesGlossary />
+      
+        <div className="printonly">
+          <hr />
+          <RulesSquadTypes />
+        </div>
+
+      </div>
+    </>
   )
 }

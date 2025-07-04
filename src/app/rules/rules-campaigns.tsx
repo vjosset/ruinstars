@@ -20,7 +20,7 @@ export default async function RulesCampaigns() {
       </div>
       <div className="section">
         <h3>Operations</h3>
-        Each Operation sees your Squad sent to a location to execute three Missions. All three Missions in a each Operation are on the same Battlefield.<br/>
+        Each Operation sees your Squad sent to a location to execute three Missions. All three Missions in a given Operation occur on the same Battlefield.<br/>
         While on an Operation, your Squad is in the field and cannot change its Units or Gear selections.<br/>
         Once the third Mission of an Operation is done, your Squad returns to Homebase to heal Injuries, make new Gear selections, and recruit new Units.
       </div>
@@ -34,6 +34,37 @@ export default async function RulesCampaigns() {
           <li>Remove all Injuries from all (non-Deceased) Units</li>
           <li>Recruit new Units into the Squad</li>
           <li>Make changes to your Squad's selected Gear and Spoils Of War (for eligible Units). Units may select one Spoil of War for each increment of 5 XP.</li>
+        </ul>
+      </div>
+      <div className="section">
+        <h3>Sample Campaign</h3>
+        <ul>
+          <li>
+            Operation 1 - The Facility
+            <ul>
+              <li>Mission 1.1 - Bug Bounty</li>
+              <li>Mission 1.2 - Retrieve Intel</li>
+              <li>Mission 1.3 - Intercept</li>
+            </ul>
+          </li>
+          <li>Homebase</li>
+          <li>
+            Operation 2 - The Ruined City
+            <ul>
+              <li>Mission 2.1 - Rivals</li>
+              <li>Mission 2.2 - Scavenge</li>
+              <li>Mission 2.3 - Control</li>
+            </ul>
+          </li>
+          <li>Homebase</li>
+          <li>
+            Operation 3 - No Man's Land
+            <ul>
+              <li>Mission 3.1 - Defend</li>
+              <li>Mission 3.2 - Infiltrate</li>
+              <li>Mission 3.3 - Eradicate</li>
+            </ul>
+          </li>
         </ul>
       </div>
       
