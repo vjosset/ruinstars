@@ -40,7 +40,7 @@ export default async function RulesActions() {
         <p>At the end of each Turn, any unused Tactical Orders are lost; they do not carry over to the following Turn.</p>
         <p>Note that rolling for Tactical Orders cannot be modified by using Tactical Orders.</p>
         <div className="nopagebreak">
-          <h5 id="using-tactical-orders">Using Tactical Orders</h5>
+          <h4 id="using-tactical-orders">Using Tactical Orders</h4>
           <p>During a Unit's activation, you may spend any number of Tactical Orders you obtained for that Turn on more actions for that Unit.</p>
           <p>Tactical Orders may be spent to:</p>
           <ul>

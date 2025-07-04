@@ -23,9 +23,14 @@ export default async function RulesIntro({ showTitle = false }) {
         <div className="section">
           <h3>What Is This Game?</h3>
           <p>
-            {GAME.NAME} is a fast-paced, miniatures-agnostic tabletop skirmish game set during the final age of the galaxy.<br/>
+            {GAME.NAME} is an open-source, fast-paced, miniatures-agnostic tabletop skirmish game set during the final age of the galaxy.<br/>
             Players command small, hardened squads in high-lethality black ops missions across fractured star-systems.<br/>
             Fight in the shadows of dying gods, decaying empires, and forgotten horrors as the last battles rage.
+          </p>
+          <h4>Note on Use of AI</h4>
+          <p>
+            {GAME.NAME} is still in beta and includes select concept art and visuals generated with the aid of AI image tools.
+            These assets support visual development and thematic exploration, but all images will be replaced with art created by actual artists by the time the game is released.
           </p>
         </div>
       </div>

@@ -11,13 +11,13 @@ export default async function RulesCoreMechanics() {
         <p>{GAME.NAME} uses {GAME.DICE_BASIS}-sided dice for all rolls. These will be indicated throughout the rules as <code>D{GAME.DICE_BASIS}</code>.<br/>
         Some rolls will require more than one die. For those, the number of dice to roll will be indicated before <code>D{GAME.DICE_BASIS}</code>.<br/>
         For example, to indicate a roll of 3 dice: <code>3D{GAME.DICE_BASIS}</code>. To indicate a roll of 1 die: <code>1D{GAME.DICE_BASIS}</code>.</p>
-        <h5 id="successes-and-failures">Successes and Failures</h5>
+        <h4 id="successes-and-failures">Successes and Failures</h4>
         <p>
           When rolling against a character or weapon stat, a die roll is a success if its value is equal to or lower than that stat.<br/>
           Irrespective of any modifiers or Stats, a die roll of <code>{GAME.DICE_BASIS}</code> is always a failure.<br/>
           Die rolls of <code>1</code> are always Critical successes and may have special effects depending on the roll in question (see Combat).
         </p>
-        <h5 id="re-rolls">Re-Rolls</h5>
+        <h4 id="re-rolls">Re-Rolls</h4>
         <p>
           Certain rules and events allow you to re-roll a die. In those cases, announce the die to be re-rolled, pick it up, and roll it again.
           Once a die is re-rolled, its result is final and it cannot be re-rolled again.

@@ -12,7 +12,7 @@ export default async function RulesItems() {
         </p>
 
         <div className="section">
-          <h5>Crates</h5>
+          <h4>Crates</h4>
           <p>
             If you choose to play with Crates, place 4 Crates in random spots on the battlefield.
             To open a crate, a Unit must be Adjacent to the crate and spend 1 ACT to open it. This counts as a Mission action.
@@ -40,7 +40,7 @@ export default async function RulesItems() {
           </ol>
         </div>
 
-        <h5>Barrels</h5>
+        <h4>Barrels</h4>
         <p>
           Barrels are explosive containers that can be attacked, causing an explosion.<br/>
           If you choose to play with Barrels, randomly place 5 Barrels on the battlefield:<br/>

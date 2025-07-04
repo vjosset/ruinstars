@@ -22,7 +22,7 @@ export default async function RulesStatCards() {
         <br/><br/>
 
         <div className="section">
-          <h5 id="unit-stats">Unit Stats</h5>
+          <h4 id="unit-stats">Unit Stats</h4>
           <ul>
             <li>
               {/*<img className="statsymbol inline highlightblack" style={{height: '1rem'}} src="/icons/white/ACT.png" />*/}
@@ -70,7 +70,7 @@ export default async function RulesStatCards() {
         
         <div className="section">
           <br/><br/>
-          <h5 id="weapon-stats">Weapon Stats</h5>
+          <h4 id="weapon-stats">Weapon Stats</h4>
           <ul>
             <li>
               <img className="inline highlightblack" src="/icons/white/weptypeR.png" width="13" />/<img className="inline highlightblack" src="/icons/white/weptypeM.png" width="13" /> - Weapon Type<br/>
@@ -101,7 +101,7 @@ export default async function RulesStatCards() {
 
         <div className="section">
           <br/><br/>
-          <h5 id="skills">Skills</h5>
+          <h4 id="skills">Skills</h4>
           <p>Some Units will have Skills listed on their StatCard. These are unique properties of that Unit that may allow them to perform a specific unique Action, or gain a bonus (or debuff) for certain game mechanics.</p>
           <ul>
             <li>Skills that have a <code>ACT</code> cost can be performed using the Unit's <code>ACT</code> Stat or a <a href="#tactical-orders">Tactical Order</a>, or a combination of both.</li>
