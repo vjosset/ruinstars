@@ -13,7 +13,10 @@ export class SquadTypeService {
 
   static async getSquadType(squadTypeId: string): Promise<SquadType | null> {
     const squadType = await this.repository.getSquadType(squadTypeId)
-    await Promise.all(squadType.unitTypes.map(async unitType => {
+    
+    if (!squadType) return null
+
+    await Promise.all(squadType.unitTypes?.map(async unitType => {
       await GearService.loadUnitGear(unitType)
     }))
     return squadType ? new SquadType(squadType) : null
