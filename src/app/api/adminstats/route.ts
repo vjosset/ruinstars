@@ -38,7 +38,10 @@ export async function GET() {
       where: {
         datestamp: {
           gte: startDate,
-          lt: endDate
+          lt: endDate,
+        },
+        url: {
+          contains: 'ruinstars.com'
         },
         NOT: {
           OR: [
