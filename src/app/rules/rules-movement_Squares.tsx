@@ -9,7 +9,8 @@ export default async function RulesMovement() {
           <h3>Battlefield</h3>
           <p>
             The Battlefield is a grid of 40mm or 1.5in Squares. All movement and distance/range measurements are done by counting Squares.
-            The total size of the Battlefield is typically 15 by 15 Squares (or 60x60cm/24x24in).
+            The total size of the Battlefield is typically 15 by 15 Squares (or 60x60cm/24x24in).<br/>
+            You can bring your own battlefield, or use our print-at-home [battlefields](/tools) with the tiles and Square ready to go.
           </p>
           <h4 id="tiles">Tiles</h4>
           <p>
