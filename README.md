@@ -140,21 +140,21 @@ Sample `deploy.sh`:
 
 set -e  # Exit on first error
 
-echo "🚀 Pulling latest code..."
+echo "Pulling latest code..."
 git pull origin main
 
-echo "📦 Installing dependencies..."
+echo "Installing dependencies..."
 npm ci --yes
 
-echo "📦 Generating Prisma client..."
+echo "Generating Prisma client..."
 npx prisma generate
 
-echo "🏗️ Building app..."
+echo "Building app..."
 npm run build
 
-echo "✅ Starting app..."
+echo "Starting app..."
 pm2 restart ruinstars-app || pm2 start npm --name ruinstars-app -- run start
 
-echo "💾 Saving PM2 process list..."
+echo "Saving PM2 process list..."
 pm2 save
 ```
