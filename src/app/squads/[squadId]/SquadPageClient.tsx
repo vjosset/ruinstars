@@ -312,15 +312,13 @@ export default function SquadPageClient({
 
             {/* Reset and Info/tools */}
             <div className="flex items-center">
-              <div className="flex gap-1 items-center justify-center"> {/* Changed from grid to flex with gap */}
+              <div className="flex gap-1 items-center justify-center">
                 <button
                   className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
                   onClick={handleResetClick}
                 >
                   <FiRotateCcw/>
                 </button>
-                {/* Invisible to take up space and align with tracker buttons */}
-                <h4 className="stat w-0 text-center invisible">1</h4>
                 <button 
                   className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
                   onClick={() => showModal({

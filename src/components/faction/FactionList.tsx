@@ -16,7 +16,7 @@ export default async function FactionList({
   return (
     <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
       {factions.map((faction) => (
-        <div key={faction.factionName}>
+        <div key={faction.factionId}>
           <Link href={`/factions/${faction.factionId}`}>
             <h4 className="font-heading">{faction.factionName}</h4>
           </Link>
