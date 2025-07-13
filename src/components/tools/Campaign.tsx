@@ -122,16 +122,16 @@ export default function Campaign() {
           {
             missionId: 7,
             name: 'Retrieve Intel',
-            date: null,
-            squad1MP: null,
-            squad2MP: null,
+            date: '06 Jul 2025',
+            squad1MP: 6,
+            squad2MP: 2,
           },
           {
             missionId: 8,
             name: 'Intercept',
-            date: null,
-            squad1MP: null,
-            squad2MP: null,
+            date: '06 Jul 2025',
+            squad1MP: 6,
+            squad2MP: 1,
           },
           {
             missionId: 9,
