@@ -1,4 +1,5 @@
 'use client'
+
 import { useModal } from '@/components/ui/ModalContext'
 import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
 import { GearPlain } from '@/types'
