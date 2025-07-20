@@ -139,7 +139,7 @@ export default function UnitEditorModal({
       onSave(updated)
       onClose()
     } else {
-      toast.success('Failed to save Unit')
+      toast.error('Failed to save Unit')
     }
   }
 

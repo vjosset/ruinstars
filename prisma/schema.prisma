@@ -142,6 +142,7 @@ model Special {
   code        String  @db.VarChar(250)
   specialName String  @db.VarChar(250)
   description String? @db.Text
+  offsetGP    Int @default(0)
 }
 
 model Mission {

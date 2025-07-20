@@ -73,7 +73,7 @@ export default function UnitMedalModal({
       onSave(updated)
       onClose()
     } else {
-      toast.success('Failed to save Medals')
+      toast.error('Failed to save Medals')
     }
   }
 

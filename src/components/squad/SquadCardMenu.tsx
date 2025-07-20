@@ -40,7 +40,7 @@ export default function SquadCardMenu({
       
     } catch (err) {
       console.error(err)
-      toast.success('Failed to clone Squad')
+      toast.error('Failed to clone Squad')
     }
   }
 
