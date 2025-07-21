@@ -13,6 +13,7 @@ type Props = {
 export function ClientProviders({ children, session }: Props) {
   return (
     <SessionProvider session={session}>
+      {children}
       <Toaster
         richColors={false}
         position="bottom-center"
