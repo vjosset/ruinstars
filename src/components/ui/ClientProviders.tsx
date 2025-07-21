@@ -3,7 +3,6 @@
 import type { Session } from 'next-auth'
 import { SessionProvider } from 'next-auth/react'
 import { Toaster } from 'sonner'
-import { ModalProvider } from './ModalContext'
 import { Tracker } from './Tracker'
 
 type Props = {
@@ -14,9 +13,6 @@ type Props = {
 export function ClientProviders({ children, session }: Props) {
   return (
     <SessionProvider session={session}>
-      <ModalProvider>
-        {children}
-      </ModalProvider>
       <Toaster
         richColors={false}
         position="bottom-center"

@@ -1,6 +1,6 @@
 'use client'
 
-import { useModal } from '@/components/ui/ModalContext'
+import { showInfoModal } from '@/lib/utils/showInfoModal'
 import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
 import { GearPlain } from '@/types'
 import { GiCrossedSwords } from 'react-icons/gi'
@@ -24,7 +24,6 @@ export default function WeaponTable({
   allSpecials,
   onToggleGear,
 }: WeaponTableProps) {
-  const { showModal } = useModal()
 
   // Sort the weapons
   weapons = weapons.sort((a, b) => {
@@ -69,7 +68,7 @@ export default function WeaponTable({
                 {gear.special != '' &&
                   <em className="cursor-pointer hover:text-main text-muted hastip" onClick={() => {
                     const parsed = parseSpecialRules(allSpecials, 'W', gear.special ?? '')
-                    showModal({
+                    showInfoModal({
                       title: gear.gearName,
                       body: (
                         <div className="space-y-4">
@@ -80,8 +79,7 @@ export default function WeaponTable({
                             </div>
                           ))}
                         </div>
-                      ),
-                      footer: (<></>)
+                      )
                     })
                   }}
                   >

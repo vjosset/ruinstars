@@ -1,6 +1,6 @@
 'use client'
 
-import { useModal } from '@/components/ui/ModalContext'
+import { showInfoModal } from '@/lib/utils/showInfoModal'
 import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
 import GearGroupList from '@/src/components/shared/GearGroupList'
 import WeaponTable from '@/src/components/shared/WeaponTable'
@@ -54,7 +54,6 @@ export default function UnitCard({
   
   // Delete state
   const [deleteError, setDeleteError] = useState('')
-  const { showModal } = useModal()
 
   // Keep local state in sync with unit props
   useEffect(() => {
@@ -164,7 +163,7 @@ export default function UnitCard({
                     className="italic cursor-pointer hover:text-main text-muted hastip"
                     onClick={() => {
                       const parsed = parseSpecialRules(allSpecials, 'U', unit.special ?? '')
-                      showModal({
+                      showInfoModal({
                         title: unit.unitName ?? unit.unitTypeName + ' - Special',
                         body: (
                           <div className="space-y-4">

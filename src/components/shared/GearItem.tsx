@@ -1,14 +1,13 @@
 'use client'
 
 import Markdown from '@/components/ui/Markdown'
-import { useModal } from '@/components/ui/ModalContext'
+import { showInfoModal } from '@/lib/utils/showInfoModal'
 import { GearPlain } from '@/types'
 
 export default function GearItem({ gear }: { gear: GearPlain }) {
-  const { showModal } = useModal()
 
   const handleClick = () => {
-    showModal({
+    showInfoModal({
       title: `${gear.gearName}${gear.ACT && gear.ACT > 0 ? ` - ${gear.ACT} ACT` : ''}${gear.TO && gear.TO > 0 ? ` - ${gear.TO} TO` : ''}`,
       body: (
         <div className="prose prose-invert max-w-none">
@@ -16,8 +15,7 @@ export default function GearItem({ gear }: { gear: GearPlain }) {
             {gear.description || '*No description available.*'}
           </Markdown>
         </div>
-      ),
-      footer: (<></>)
+      )
     })
   }
 

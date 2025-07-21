@@ -1,6 +1,6 @@
 'use client'
 
-import { useModal } from '@/components/ui/ModalContext'
+import { showInfoModal } from '@/lib/utils/showInfoModal'
 import { SpecialRule, parseSpecialRules } from '@/lib/utils/specialRules'
 import { UnitPlain, UnitTypePlain } from '@/types'
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
@@ -44,8 +44,6 @@ export default function UnitEditorModal({
   )
 
   const selectedUnitType = unitTypes.find((ut) => ut.unitTypeId === unitTypeId)
-
-  const { showModal } = useModal()
 
   const [totalGPString, setTotalGPString] = useState('')
   
@@ -159,7 +157,7 @@ export default function UnitEditorModal({
                 className="cursor-pointer hover:text-main"
                 onClick={() => {
                   const parsed = parseSpecialRules(allSpecials, 'U', selectedUnitType?.special ?? '')
-                  showModal({
+                  showInfoModal({
                     title: selectedUnitType?.unitTypeName + ' - Special',
                     body: (
                       <div className="space-y-4">
