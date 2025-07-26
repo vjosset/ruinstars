@@ -1,9 +1,12 @@
 'use client'
 
 import { SquadTypeLink, UserLink } from '@/components/nav/Links'
+import EditSquadForm from '@/components/squad/EditSquadForm'
+import SquadTools from '@/components/squad/SquadTools'
 import { Button, Modal } from '@/components/ui'
 import PageTitle from '@/components/ui/PageTitle'
-import { showInfoModal } from '@/lib/utils/showInfoModal'
+import AddUnitForm from '@/components/unit/AddUnitForm'
+import UnitCard from '@/components/unit/UnitCard'
 import { SpecialRule } from '@/lib/utils/specialRules'
 import { Medal, SquadPlain, UnitPlain } from '@/types'
 import { useSession } from 'next-auth/react'
@@ -11,10 +14,6 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { FiDownload, FiEdit2, FiInfo, FiRotateCcw } from 'react-icons/fi'
 import { toast } from 'sonner'
-import EditSquadForm from '../../../components/squad/EditSquadForm'
-import SquadTools from '../../../components/squad/SquadTools'
-import AddUnitForm from '../../../components/unit/AddUnitForm'
-import UnitCard from '../../../components/unit/UnitCard'
 
 export default function SquadPageClient({
   initialSquad,
@@ -33,6 +32,7 @@ export default function SquadPageClient({
   const formRef = useRef<{ handleSubmit: () => void }>(null)
   const [showResetModal, setShowResetModal] = useState<Boolean>(false)
   const [showEditSquadModal, setShowEditSquadModal] = useState<Boolean>(false)
+  const [showSquadTools, setShowSquadTools] = useState<Boolean>(false)
 
   useEffect(() => {
     fetch('/api/specials')
@@ -115,8 +115,9 @@ export default function SquadPageClient({
   }
   
   const handleResetClick = () => { setShowResetModal(true)}
-
   const handleEditSquadClick = () => { setShowEditSquadModal(true)}
+
+  const handleSquadToolsClick = () => { setShowSquadTools(true)}
 
   // Add resetSquad function after other state updates
   const resetSquad = async () => {
@@ -269,10 +270,7 @@ export default function SquadPageClient({
                 </button>
                 <button 
                   className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
-                  onClick={() => showInfoModal({
-                    title: 'Tools',
-                    body: (<div className="overflow-y-auto p-2 flex-1"><SquadTools /></div>)
-                  })}
+                  onClick={handleSquadToolsClick}
                   aria-label="Tools"
                 >
                   <FiInfo/>
@@ -370,6 +368,15 @@ export default function SquadPageClient({
           </Modal>
         )}
       </div>
+
+      {/* Squad Toosl */}
+      {showSquadTools && (
+        <Modal
+          title={squad.squadName}
+          onClose={() => setShowSquadTools(false)}>
+          <SquadTools />
+        </Modal>
+      )}
     </div>
   )
 }

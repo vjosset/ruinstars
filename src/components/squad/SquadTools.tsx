@@ -7,7 +7,7 @@ import Campaign from '../tools/Campaign'
 import MissionSelector from '../tools/MissionSelector'
 import QuickRef from '../tools/QuickRef'
 
-export default function RulesTabs() {
+export default function SquadTools() {
   const [tab, setTab] = useState<'quickref' | 'mission' | 'campaign'>('quickref')
   const { data: session } = useSession()
 

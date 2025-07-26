@@ -10,6 +10,9 @@ import Script from 'next/script'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions)
+
+  console.log('Session:', session)
+
   return (
     <html lang="en">
       <head>
@@ -44,6 +47,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <main className="pb-16 lg:pb-0">{children}</main>
           <NewsPopup />
           <NavBarBottom />
+          <div id="modal-root" />
         </ClientProviders>
         <ServiceWorkerRegister />
       </body>

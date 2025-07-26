@@ -28,6 +28,9 @@ export default function Modal({
     }
   }, [])
 
+  const modalRoot = document.getElementById('modal-root')
+  if (!modalRoot) return null
+
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60" onClick={onClose}>
       <div
@@ -59,6 +62,6 @@ export default function Modal({
         }
       </div>
     </div>,
-    document.body
+    modalRoot
   )
 }
