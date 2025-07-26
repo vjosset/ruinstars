@@ -11,8 +11,6 @@ import Script from 'next/script'
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions)
 
-  console.log('Session:', session)
-
   return (
     <html lang="en">
       <head>
