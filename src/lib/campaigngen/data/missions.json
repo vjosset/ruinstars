@@ -1,0 +1,158 @@
+[
+  {
+    "title": "Artifact",
+    "goal": "Secure a powerful relic or cursed item",
+    "descriptions": [
+      "A cursed relic has been detected deep within **{{battlefieldName}}**. Rumors claim it predates the Fall and pulses with residual Vault-energy. Your squad must infiltrate the zone, locate the artifact—codenamed **{{artifactName}}**—and secure it before **{{enemySquadName}}** completes their own recovery rites."
+    ],
+    "setup": "[TBD]",
+    "deployment": "[TBD]",
+    "special": "[TBD]",
+    "victory": "Artifact is picked up and being carried by end of Turn 4.",
+    "successresult": "Unlocks rare gear or campaign Spoil of War",
+    "failureresult": "Enemy gains access to an artifact bonus (e.g. ARM buff or psychic hazard)"
+  },
+  {
+    "title": "Boss Fight",
+    "goal": "Defeat a VIP or powerful boss unit",
+    "descriptions": [
+      "Enemy war-leader **{{enemySquadLeader}}** has established a command nexus inside **{{battlefieldName}}**. This figure has been linked to multiple ritual executions and dark-tech deployments. You are to eliminate the target before reinforcements arrive and the threat escalates beyond containment."
+    ],
+    "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.",
+    "deployment": "Both Squads deploy their Units on their selected Battlefield edge before Turn 1.",
+    "special": "Enemy Leader has +1 HIT and +1 SKL on its Melee and Ranged Weapons.",
+    "victory": "Enemy Leader is Taken Out by end of Turn 4.",
+    "successresult": "The Player Squad gains +2 MaxGP",
+    "failureresult": "In the next Mission, the all Units in the NPC Squad gain +1 SKL on their Melee and Ranged Weapons"
+  },
+  {
+    "title": "Breach",
+    "goal": "Get access to a secure area or locked vault",
+    "descriptions": [
+      "A fortified data-lock seals off access to a forbidden vault in **{{battlefieldName}}**. According to recon scans, multiple layered defenses protect the site. Your team must coordinate to breach the security network and maintain control of the breach point long enough to trigger a system override."
+    ],
+    "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nPlace an Breach Marker in the center of the central tile.",
+    "deployment": "Both Squads deploy their Units on their selected Battlefield edge before Turn 1.",
+    "special": "**Breach (2 ACT) - Mission Action**: A Player Unit adjacent to the Breach Marker and not Adjacent to any enemy units attempts to breach the Marker. Roll 1D6: On a 5, the Marker is Breached. On a 1, security is increased and the next attempt only succeeds on a 6. If another 1 is rolled, the marker is locked and the mission is lost.",
+    "victory": "By the end of Turn 4, if the Breach Marker has been breached, the Player Squad wins the Mission.",
+    "successresult": "The Player Squad gains +2 TO at the start of the next Mission.",
+    "failureresult": "The Player Squad gains -1 TO at the start of the next Mission (minimum 0)."
+  },
+  {
+    "title": "Overtake",
+    "goal": "Stop the enemy evacuation",
+    "descriptions": [
+      "{{subsector}} has become a hot zone of hostile resistance centered on {{battlefieldName}}. Enemy forces are entrenched around a temporary landing zone, awaiting extraction or reinforcements. Your objective is to breach their perimeter, overrun their position, and eliminate the defenders before they can escape or regroup."
+    ],
+    "setup": "Set up terrain so that the central tile is at least half enclosed. This is the Defense area.  \r\nSelect or randomly pick one Squad to be the Attacker, and the other to be the Defender. ",
+    "deployment": "Player Squad deploys all their Units before Turn 1 in the center tile.  \r\nNPC Squad deploys all their Units before Turn 1 on any Battlefield edge. ",
+    "special": "",
+    "victory": "At the end of Turn 4, if the Player Squad has more than half its starting Units still Standing and in the central tile, the Player Squad wins the Mission.",
+    "successresult": "Remove one injury from one unit.",
+    "failureresult": "Random unit gets one random injury (excluding Deceased or Healed)"
+  },
+  {
+    "title": "Control",
+    "goal": "Dominate key terrain or strategic locations",
+    "descriptions": [
+      "Strategic uplinks across **{{battlefieldName}}** in the **{{subsector}}** subsector are being contested by **{{enemyFactionName}}**. These sites are crucial to orbital comms and targeting arrays. Take control of the key zones, repel enemy interference, and secure high ground before the final push."
+    ],
+    "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nPlace 3 Objective markers in the center of the West, Central, and East tiles. ",
+    "deployment": "Both Squads deploy their Units on their selected Battlefield edge before Turn 1.",
+    "special": "",
+    "victory": "At the end of each Turn, the Player Squad score 1 MP for each Objective they control.  \r\nAt the end of Turn 4, if the Player Squad has scored 6 or more MP, they win the Mission.",
+    "successresult": "In the next Mission, the enemy squad can only deploy half (round up) of its Units before Turn 2. Enemy Squad deploys its remaining units at the start of Turn 2.",
+    "failureresult": "In the next Mission, the Player Squad can only deploy half (round up) of its Units before Turn 2. Player Squad deploys its remaining units at the start of Turn 2."
+  },
+  {
+    "title": "Defend",
+    "goal": "Hold the line until evacuation",
+    "descriptions": [
+      "**{{subsector}}** has become a staging ground for enemy incursion, centered on **{{battlefieldName}}**. Your squad is holding a temporary landing zone while awaiting evac or reinforcements. Secure the perimeter, hold position against waves of advancing units from **{{enemySquadName}}**, and ensure your team survives until the final turn."
+    ],
+    "setup": "Set up terrain so that the central tile is at least half enclosed. This is the Defense area.  \r\nSelect or randomly pick one Squad to be the Attacker, and the other to be the Defender. ",
+    "deployment": "Player Squad deploys all their Units before Turn 1 in the center tile.  \r\nNPC Squad deploys all their Units before Turn 1 on any Battlefield edge. ",
+    "special": "",
+    "victory": "At the end of Turn 4, if the Player Squad has more than half its starting Units still Standing and in the central tile, the Player Squad wins the Mission.",
+    "successresult": "Remove one injury from one unit.",
+    "failureresult": "Random unit gets one random injury (excluding Deceased or Healed)"
+  },
+  {
+    "title": "Exterminate",
+    "goal": "Wipe out all enemy forces",
+    "descriptions": [
+      "Contact was lost with extraction teams in **{{battlefieldName}}**. Intel suggests bio-forms of **{{enemyFactionName}}** origin are active and proliferating. Enter the hot zone, purge all hostile presence, and deny **{{enemySquadName}}** the ability to overrun nearby vault access points."
+    ],
+    "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone. ",
+    "deployment": "During Turn 1, when it is a Unit's turn to activate, deploy it on your Battlefield edge.",
+    "special": "",
+    "victory": "At the end of Turn 4, if all NPC Units have been Taken Out, the Player Squad wins the Mission.",
+    "successresult": "Player Squad gains +1 TO in the next Mission.",
+    "failureresult": "In the next Mission, deploy surviving enemy Units (without restoring their HIT) in random Squares before Turn 1."
+  },
+  {
+    "title": "Infiltrate",
+    "goal": "Infiltrate the enemy position",
+    "descriptions": [
+      "Under the cover of darkness, a squad moves through enemy territory, their goal clear: breach the defenses and secure a foothold within the enemy’s base. Their foes are unaware, but not for long. The first shot fired will set off a chain reaction of chaos and violence. Can the attackers slip through and establish their presence, or will the defenders crush the intrusion before it begins?"
+    ],
+    "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nSelect one Squad to be the Attacker and the other to be the Defender.",
+    "deployment": "Before Turn 1, Defender deploys their Units anywhere on their Battlefield Edge.  \r\nDuring Turn 1, when it is an Attacker Unit's turn to activate, deploy it on its Battlefield edge.   Attacker has initiative in the first Turn.",
+    "special": "",
+    "victory": "At the end of Turn 4, if the Attacker has 2 or more Units on the Defender's Battlefield edge that are not Adjacent to any enemy Units, the Attacker score 6 MP. Defender score 6 MP in all other cases.",
+    "successresult": "During the next Mission, Player Squad Units may make a free Dash action when they are deployed.",
+    "failureresult": "During the next Mission, Enemy Squad Units may make a free Dash action when they are deployed."
+  },
+  {
+    "title": "Intel",
+    "goal": "Recover critical data and extract",
+    "descriptions": [
+      "A blackbox datacore holding decrypted choir transmissions was recovered by a recon team before they were wiped out. It’s now in hostile hands somewhere inside **{{battlefieldName}}**. Infiltrate, retrieve the core, and escape with it intact—its contents may determine the next theater of war."
+    ],
+    "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nPlace an Intel marker in the center of the central tile.  \r\nSelect or randomly pick one Squad to be the Attacker, and the other to be the Defender. ",
+    "deployment": "During Turn 1, when it is a Unit's turn to activate, deploy it on your Battlefield edge. ",
+    "special": "",
+    "victory": "The Attacker Squad score 6 MP when a Unit carrying the Intel marker walks off the edge of the Battlefield opposite the Attacker's deployment edge by the end of Turn 4.  \r\nThe Defender Squad wins the mission in all other cases.",
+    "successresult": "Player Squad gains +2 TO in the next Mission",
+    "failureresult": "[TBD]"
+  },
+  {
+    "title": "Rescue",
+    "goal": "Extract a hostage from enemy territory",
+    "descriptions": [
+      "Operative **{{agentCodename}}** was captured while attempting to sabotage a power node inside **{{battlefieldName}}**. They are still alive and being moved between containment zones. Recover the hostage and escort them to exfil before **{{enemyFactionName}}** can extract strategic intel or execute them publicly."
+    ],
+    "setup": "",
+    "deployment": "",
+    "special": "",
+    "victory": "Hostage is picked up and carried off-board by end of Turn 4.",
+    "successresult": "Select one Player Unit to gain a Medpack OR +1 ATT on one of its weapons for the next Mission.",
+    "failureresult": "Player Squad loses 2 maxGP. Adjust unit gear selections accordingly."
+  },
+  {
+    "title": "Sabotage",
+    "goal": "Destroy infrastructure or objectives",
+    "descriptions": [
+      "Enemy infrastructure has begun powering up across **{{battlefieldName}}**, likely an attempt to awaken dormant vault systems. Identify and sabotage the three relay pylons before they can be fully calibrated. Expect patrols, automated countermeasures, and rapid response squads from **{{enemyFactionName}}**."
+    ],
+    "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nPlace 3 Sabotage markers in the center of three random tiles.  \r\nSelect or randomly pick one Squad to be the Attacker, and the other to be the Defender. ",
+    "deployment": "During Turn 1, when it is a Unit's turn to activate, deploy it on your Battlefield edge. ",
+    "special": "**Sabotage (2 ACT) - Mission Action:**  \r\nA Unit may Sabotage an Adjacent Sabotage marker if there are not Adjacent enemy Units. When a marker is sabotaged, remove it from the battlefield.",
+    "victory": "All three saborage markers have been sabotaged by end of Turn 4.",
+    "successresult": "Reduces TO pool of enemy squad next mission by -1",
+    "failureresult": "Enemies gain +1 TO and an extra deployment option next mission"
+  },
+  {
+    "title": "Scavenge",
+    "goal": "Gather resources scattered across the map",
+    "descriptions": [
+      "Field caches left behind by retreating forces have been spotted throughout **{{battlefieldName}}**. These include medpacks, ammunition, and classified gear. Recover as many supply markers as possible while under pressure from **{{enemySquadName}}** patrols sweeping the zone."
+    ],
+    "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nPlace 3 Supply markers in the center of the West, Center, and East tiles.",
+    "deployment": "Both Squads deploy from their selected Battlefield edge before Turn 1.",
+    "special": "**Scavenge (1 ACT):** The Unit Scavenges an Adjacent Supply marker. The Unit's Squad scores MPs equal to the Turn number (so 1 MP on Turn 1, 2 MP on Turn 2, etc). A Unit may not perform this action if it is Adjacent to an enemy Unit.",
+    "victory": "Each time a Unit Scavenges a Supply marker, its Squad scores 1 MP. That Supply cannot be scavenged again during this Turn.  \r\nAt the end of Turn 4, the Squad with the most MPs wins the Mission.",
+    "successresult": "Player Squad gains +4 MaxGP",
+    "failureresult": "Player Squad loses 3 MaxGP"
+  }
+]

@@ -36,6 +36,9 @@ export class UserRepository extends BaseRepository {
               include: {
                 faction: true
               }
+            },
+            units: {
+              orderBy: { seq: 'asc' }
             }
           },
           orderBy: { seq: 'asc' }

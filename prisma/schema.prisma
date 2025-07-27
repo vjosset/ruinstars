@@ -165,6 +165,7 @@ model Battlefield {
   description   String @db.Text
   setup         String @db.Text
   effects       String @db.Text
+  battlefieldNames String? @db.Text
 }
 
 model Medal {

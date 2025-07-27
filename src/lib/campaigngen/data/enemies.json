@@ -1,0 +1,56 @@
+[
+  {
+    "_comment": "Crimson Shroud - Silent Choir",
+    "squadTypeId": "SCH",
+    "squadId": "SCH",
+    "difficultyMods": [
+      {
+        "level": 1,
+        "mods": ""
+      },
+      {
+        "level": 2,
+        "mods": "WEPTYPE:M|SPECIAL:RND"
+      },
+      {
+        "level": 3,
+        "mods": "UNIT:HIT+1"
+      },
+      {
+        "level": 4,
+        "mods": "WEPTYPE:M|SPECIAL:BRU1"
+      },
+      {
+        "level": 5,
+        "mods": "WEPTYPE:M|ATT:+1"
+      }
+    ]
+  },
+  {
+    "_comment": "The Swarm - Drone Pod",
+    "squadTypeId": "DRN",
+    "squadId": "DRN",
+    "difficultyMods": [
+      {
+        "level": 1,
+        "mods": ""
+      },
+      {
+        "level": 2,
+        "mods": "WEPTYPE:M|ATT:+1"
+      },
+      {
+        "level": 3,
+        "mods": "UNIT:HIT+1"
+      },
+      {
+        "level": 4,
+        "mods": "WEPTYPE:M|SPECIAL:BRU1"
+      },
+      {
+        "level": 5,
+        "mods": "WEPTYPE:M|ATT:+1"
+      }
+    ]
+  }
+]
