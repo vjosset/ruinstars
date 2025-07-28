@@ -1,3 +1,4 @@
+import { SquadLink } from '@/components/nav/Links'
 import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
 import { generateCampaign } from '@/lib/campaigngen/campaigngen'
@@ -12,34 +13,35 @@ export default async function CampaignGen() {
   const campaign = generateCampaign()
   return (
     <div className="px-4 py-10 max-w-7xl mx-auto text-foreground">
-      <PageTitle>{campaign.title}</PageTitle>
+      <PageTitle className="font-title text-main text-center">Campaign: {campaign.title}</PageTitle>
       <p className="text-xl font-medium text-center text-muted-foreground mb-2">
         Sector: <span className="text-foreground font-bold">{campaign.sector}</span>
       </p>
-      <Markdown className="flavor text-center mb-8 text-lg max-w-3xl mx-auto">
-        {campaign.description}
-      </Markdown>
+      {false && 
+        <Markdown className="flavor text-center mb-8 text-lg max-w-3xl mx-auto">
+          {campaign.description}
+        </Markdown>
+      }
 
       {campaign.operations.map((op, opIdx) => (
         <div
           key={`op_${opIdx}`}
-          className="mb-12 border border-border rounded-xl p-6 shadow-md bg-background"
+          className=""
         >
-          <h2 className="text-2xl font-semibold mb-1">
-            Operation {opIdx + 1}: {op.title}
+          <h2 className="text-2xl font-semibold mb-1 text-main">
+            Operation {opIdx + 1}: {op.subsector}
           </h2>
-          <p className="text-muted-foreground italic mb-4">
-            Subsector: <span className="text-foreground font-medium">{op.subsector}</span>
-          </p>
 
-          <Markdown className="flavor mb-4 text-base">
-            {op.description}
-          </Markdown>
+          {false && 
+            <Markdown className="flavor mb-4 text-base">
+              {op.description}
+            </Markdown>
+          }
 
-          <div className="mb-4">
-            <strong className=" text-muted-foreground">Enemy Faction:</strong>
-            <p className="text-md font-semibold">{op.enemy.squadType?.faction.factionName}</p>
-            <p className=" italic text-muted-foreground">{op.enemy.squadName}</p>
+          <div className="mb-4 flex items-baseline gap-2 flex-wrap">
+            <strong className=" text-muted-foreground">Enemy Squad:</strong>
+            <SquadLink squadId={op.enemy.squadId} squadName={op.enemy.squadName} />
+            ({op.enemy.squadType?.faction.factionName})
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -48,29 +50,41 @@ export default async function CampaignGen() {
                 key={`mission_${opIdx}_${mIdx}`}
                 className="rounded-lg border border-border p-4 shadow-sm"
               >
-                <h3 className="text-lg font-bold mb-1">
+                <h3 className="text-lg font-bold mb-1 text-main">
                   Mission {opIdx + 1}.{mIdx + 1}: {m.title}
                 </h3>
-                <p className=" text-muted-foreground mb-2 italic">
-                  Goal: {m.goal}
+                <p className="text-muted mb-2 italic">
+                  {m.goal}
                 </p>
-                <p className=" text-muted-foreground mb-2">
+                <p className="mb-2">
                   <strong>Battlefield:</strong> {m.battlefieldName} <em>({m.battlefield})</em>
                 </p>
                 <Markdown className="flavor  mb-2">{m.description}</Markdown>
 
-                <div className=" text-muted-foreground mb-2">
-                  <strong>Victory:</strong> {m.victory}
+                <div className="mb-2">
+                  <strong>Setup:</strong> <Markdown className="text-muted">{m.setup}</Markdown>
                 </div>
-                <div className=" text-green-600 mb-1">
-                  <strong>Success:</strong> {m.successresult}
+                <div className="mb-2">
+                  <strong>Deployment:</strong> <Markdown className="text-muted">{m.deployment}</Markdown>
                 </div>
-                <div className=" text-red-600">
-                  <strong>Failure:</strong> {m.failureresult}
+                {m.special != '' && 
+                  <div className="mb-2">
+                    <strong>Special:</strong> <Markdown className="text-muted">{m.special}</Markdown>
+                  </div>
+                }
+                <div className="mb-2">
+                  <strong>Victory:</strong> <Markdown className="text-muted">{m.victory}</Markdown>
+                </div>
+                <div className="text-green-600 mb-1">
+                  <strong>Success:</strong> <Markdown className="text-muted">{m.successresult}</Markdown>
+                </div>
+                <div className="text-red-600">
+                  <strong>Failure:</strong> <Markdown className="text-muted">{m.failureresult}</Markdown>
                 </div>
               </div>
             ))}
           </div>
+          <hr/>
         </div>
       ))}
     </div>

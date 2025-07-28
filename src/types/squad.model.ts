@@ -18,6 +18,7 @@ export type SquadPlain = {
   TO: number
   maxGP: number
   eloRating?: number
+  campaign?: string
   units?: UnitPlain[]
   user?: UserPlain
   squadType?: SquadTypePlain
@@ -41,6 +42,7 @@ export class Squad {
   TO: number
   maxGP: number
   eloRating?: number
+  campaign?: string
   units?: Unit[] | null
   user?: User | null
   squadType?: SquadType | null
@@ -63,6 +65,7 @@ export class Squad {
     TO: number
     maxGP: number
     eloRating?: number
+    campaign?: string
     units?: Unit[] | null
     user?: User | null
     squadType?: SquadType | null
@@ -84,6 +87,7 @@ export class Squad {
     this.TO = data.TO
     this.maxGP = data.maxGP
     this.eloRating = data.eloRating
+    this.campaign = data.campaign
     this.units = data.units?.map(unit => unit instanceof Unit ? unit : new Unit(unit))
     this.user = data.user ? (data.user instanceof User ? data.user : new User(data.user)) : null
     this.squadType = data.squadType ? (data.squadType instanceof SquadType ? data.squadType : new SquadType(data.squadType)) : null
@@ -108,6 +112,7 @@ export class Squad {
       TO: this.TO,
       maxGP: this.maxGP,
       eloRating: this.eloRating,
+      campaign: this.campaign,
       units: this.units?.map(unit => unit.toPlain()),
       user: this.user?.toPlain(),
       squadType: this.squadType?.toPlain(),

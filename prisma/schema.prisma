@@ -105,6 +105,7 @@ model Squad {
   TO                Int      @default(0)
   maxGP             Int      @default(100)
   eloRating         Int      @default(1000)
+  campaign          String?   @db.Text
   squadType           SquadType  @relation(fields: [squadTypeId], references: [squadTypeId], onDelete: Cascade)
   user              User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
   

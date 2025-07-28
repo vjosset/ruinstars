@@ -9,10 +9,17 @@ import subsectors from './data/subsectors.json'
 
 const battlefields = await BattlefieldService.getAllBattlefields()
 const playerSquad = await SquadService.getSquad('VgL2Y')
-const enemySquads = (await UserService.getUserByUsername('Ruinstars'))?.squads?.filter((s) => s.squadTypeId != playerSquad?.squadTypeId && s.squadTypeId != 'NPC') ?? []
+const enemySquads = (await UserService.getUserByUsername('NPC'))?.squads?.filter((s) => s.squadTypeId != playerSquad?.squadTypeId && s.squadTypeId != 'NPC') ?? []
 
 function getRandom<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)]
+}
+
+function shuffle<T>(array: T[]): T[] {
+  return array
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
 }
 
 function generateArtifactName() {
@@ -96,7 +103,7 @@ function replacePlaceholders(text: string, values: Record<string, string>): stri
 
 // Main campaign generation
 export function generateCampaign() {
-  // Reset mission usage tracker for each new generation
+  // Reset mission usage tracker
   for (const key of Object.keys(missionUsage)) {
     missionUsage[key] = 0
   }
@@ -104,23 +111,60 @@ export function generateCampaign() {
   const campaignSector = generateSectorName()
   const campaignTitle = generateCampaignTitle()
 
+  const operationCount = 3
+  const missionCount = 3
+
+  const shuffledMissions = shuffle(missions)
+  const shuffledBattlefields = shuffle(battlefields)
+
+  // Make sure we have enough of each
+  while (shuffledMissions.length < operationCount * missionCount) {
+    shuffledMissions.push(...shuffle(missions))
+  }
+  while (shuffledBattlefields.length < operationCount * missionCount) {
+    shuffledBattlefields.push(...shuffle(battlefields))
+  }
+  
+  // 3 operations, each with 3 missions
+  const opsRaw = [0, 1, 2].map((_, opIdx) => {
+    const subsector = generateSubsectorName()
+    const enemySquad = getRandom(enemySquads)
+    const opMissions = shuffledMissions.slice(opIdx * 3, opIdx * 3 + 3).map((mission, mIdx) => {
+      const bf = shuffledBattlefields[opIdx * 3 + mIdx]
+      const description = getRandom(mission.descriptions)
+      missionUsage[mission.title] = 1
+      return {
+        ...mission,
+        description,
+        battlefield: bf.title,
+        battlefieldName: getRandom(bf.battlefieldNames?.split(',') ?? [''])
+      }
+    })
+
+    return {
+      title: generateOperationTitle(),
+      enemy: enemySquad,
+      subsector,
+      description: `Placeholder operation description for ${subsector}, a key site within the campaign.`,
+      missions: opMissions
+    }
+  })
+
   const campaign = {
     title: campaignTitle,
     sector: campaignSector,
     description: `A procedurally generated campaign set in the ${campaignSector}.`,
-    operations: [0, 1, 2].map(generateOperation)
+    operations: opsRaw
   }
 
-  // Build placeholders
+  // === Placeholder replacement remains unchanged ===
   const campaignPlaceholders = {
-    'campaignTitle': campaignTitle,
-    'campaignSector': campaignSector
+    '{{campaignTitle}}': campaignTitle,
+    '{{campaignSector}}': campaignSector
   }
 
-  // Replace placeholders
   campaign.description = replacePlaceholders(campaign.description, campaignPlaceholders)
 
-  // Now do Operations
   campaign.operations = campaign.operations.map((op, opIdx) => {
     const operationPlaceholders = {
       '{{operationIndex}}': `${opIdx + 1}`,
@@ -140,10 +184,10 @@ export function generateCampaign() {
           '{{missionIndex}}': `${opIdx + 1}.${mIdx + 1}`,
           '{{missionTitle}}': m.title,
           '{{battlefieldName}}': m.battlefieldName,
-          ...campaignPlaceholders,
-          ...operationPlaceholders,
           '{{artifactName}}': generateArtifactName(),
           '{{agentCodename}}': '[TBD]',
+          ...campaignPlaceholders,
+          ...operationPlaceholders,
         }
 
         return {
@@ -153,7 +197,6 @@ export function generateCampaign() {
       })
     }
   })
-  
-  // Done
+
   return campaign
 }

@@ -181,7 +181,7 @@ hr {
 
 	background-image: /*radial-gradient(ellipse at top left, rgba(255,255,255,0.02), transparent),
 										radial-gradient(ellipse at bottom right, rgba(255,255,255,0.01), transparent),*/
-										url('/img/ui/grunge-texture03.webp');
+										url('/img/ui/grunge-texture03-dark.webp');
 										/*url('/img/ui/mech02.webp');*/
 	background-size: cover;
 }
