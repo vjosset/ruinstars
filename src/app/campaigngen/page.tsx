@@ -1,8 +1,9 @@
 import { SquadLink } from '@/components/nav/Links'
 import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
-import { generateCampaign } from '@/lib/campaigngen/campaigngen'
+import { safeGenerateCampaign, testCampaignGen } from '@/lib/campaigngen/campaigngen'
 import { GAME } from '@/lib/config/game_config'
+import React from 'react'
 
 export const metadata = {
   title: `Campaign Generator - ${GAME.NAME}`,
@@ -10,20 +11,44 @@ export const metadata = {
 }
 
 export default async function CampaignGen() {
-  const campaign = generateCampaign(3, 3)
+  testCampaignGen()
+  const campaign = safeGenerateCampaign(3, 3)
   return (
     <div className="px-4 py-10 max-w-7xl mx-auto text-foreground">
-      <PageTitle className="font-title text-main text-center">Campaign: {campaign.title}</PageTitle>
+      <PageTitle className="font-title text-main text-center">Campaign: {campaign?.title}</PageTitle>
       <p className="text-xl font-medium text-center text-muted-foreground mb-2">
-        Sector: <span className="text-foreground font-bold">{campaign.sector}</span>
+        Sector: <span className="text-foreground font-bold">{campaign?.sector}</span>
       </p>
       {false && 
         <Markdown className="flavor text-center mb-8 text-lg max-w-3xl mx-auto">
-          {campaign.description}
+          {campaign?.description ?? ''}
         </Markdown>
       }
 
-      {campaign.operations.map((op, opIdx) => (
+      <table width="100%">
+        <thead>
+          <tr>
+            <th>Mission</th><th>Battlefield</th>
+          </tr>
+        </thead>
+        <tbody>
+          {campaign?.operations.map((op, opIdx) => (
+            <React.Fragment key={opIdx}>
+              <tr>
+                <th colSpan={2}><strong>Operation {opIdx + 1}</strong> - Enemy Squad: {op.enemy.squadName}</th>
+              </tr>
+              {op.missions.map((m, mIdx) => (
+                <tr key={mIdx}>
+                  <td className="pl-4">{opIdx + 1}.{mIdx + 1}: {m.title}</td>
+                  <td>{m.battlefield}</td>
+                </tr>
+              ))}
+            </React.Fragment>
+          ))}
+        </tbody>
+      </table>
+
+      {campaign?.operations.map((op, opIdx) => (
         <div
           key={`op_${opIdx}`}
           className=""

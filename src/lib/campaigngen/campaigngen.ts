@@ -7,7 +7,7 @@ import operationNames from './data/operationNames.json'
 import sectors from './data/sectors.json'
 import subsectors from './data/subsectors.json'
 
-// --- Helpers ---
+// Helpers
 function getRandom<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)]
 }
@@ -31,6 +31,7 @@ function replacePlaceholders(text: string, values: Record<string, string>): stri
   return text.replace(/{{(.*?)}}/g, (_, key) => values[`{{${key.trim()}}}`] ?? '')
 }
 
+// Text generators
 function generateArtifactName() {
   return `${getRandom(artifactNames.prefixes)} ${getRandom(artifactNames.roots)}`.trim()
 }
@@ -47,36 +48,73 @@ function generateSubsectorName() {
   return `${getRandom(subsectors.prefixes)} ${getRandom(subsectors.descriptors)} ${getRandom(subsectors.suffixes)}`.trim()
 }
 
-// --- Load data ---
+// Load data
 const battlefields = await BattlefieldService.getAllBattlefields()
 const playerSquad = await SquadService.getSquad('VgL2Y')
 const enemySquads = (await UserService.getUserByUsername('NPC'))?.squads?.filter(
   (s) => s.squadTypeId !== playerSquad?.squadTypeId && s.squadTypeId !== 'NPC'
 ) ?? []
 
-export function generateCampaign(operationsPerCampaign:number, missionsPerOperation: number) {
+// Main Campaign Generator
+export function generateCampaign(operationsPerCampaign: number, missionsPerOperation: number) {
   const campaignTitle = generateTitle(campaignNames)
   const campaignSector = generateLocationName(sectors)
 
-  const totalMissions = operationsPerCampaign * missionsPerOperation
+  const enabledMissions = missions.filter((m) => m.enabled)
+  const availableMissions: typeof enabledMissions = []
 
-  // Generate a random list of missions, battlefields, and enemy squads with as little repetition as possible
-  const campaignMissions = expandToLength(missions.filter((m) => m.enabled), totalMissions)
-  const campaignBattlefields = expandToLength(battlefields, totalMissions)
-  const campaignEnemySquads = expandToLength(enemySquads, operationsPerCampaign)
+  // Shuffle missions multiple times to create a long randomized pool
+  for (let i = 0; i < 100; i++) {
+    availableMissions.push(...shuffle([...enabledMissions]))
+  }
 
-  // Build the operations
+  const battlefieldsShuffled = expandToLength(battlefields, operationsPerCampaign * missionsPerOperation)
+  const enemySquadsShuffled = expandToLength(enemySquads, operationsPerCampaign)
+
   const operations = Array.from({ length: operationsPerCampaign }, (_, opIdx) => {
     const subsector = generateSubsectorName()
-    const enemy = campaignEnemySquads[opIdx]
-    const title = generateTitle(operationNames)
+    const enemy = enemySquadsShuffled[opIdx]
+    const operationTitle = generateTitle(operationNames)
+    const selectedMissions: typeof enabledMissions = []
 
-    // Build the missions
-    const opMissions = Array.from({ length: missionsPerOperation }, (_, mIdx) => {
-      const index = opIdx * missionsPerOperation + mIdx
-      const mission = campaignMissions[index]
-      const battlefield = campaignBattlefields[index]
+    // Select first mission: seqs includes 1
+    const firstIndex = availableMissions.findIndex(
+      (m) => m.seqs.includes(1) && !selectedMissions.some((s) => s.title === m.title)
+    )
+    const firstMission = availableMissions[firstIndex]
+    if (!firstMission) {
+      console.error('Could not build first mission. Available selections:', availableMissions.length)
+    }
+    selectedMissions.push(firstMission)
+    availableMissions.splice(0, firstIndex + 1)
 
+    // Select second mission: seqs includes 2 + followup match
+    const secondIndex = availableMissions.findIndex(
+      (m) =>
+        m.seqs.includes(2) &&
+        firstMission.followupMissions?.includes(m.title) &&
+        !selectedMissions.some((s) => s.title === m.title)
+    )
+    const secondMission = availableMissions[secondIndex]
+    if (!secondMission) {
+      console.error('Could not build second mission. Available selections:', availableMissions.length)
+    }
+    selectedMissions.push(secondMission)
+    availableMissions.splice(0, secondIndex + 1)
+
+    // Select third mission: seqs includes 3 + followup match
+    const thirdIndex = availableMissions.findIndex(
+      (m) =>
+        m.seqs.includes(3) &&
+        secondMission.followupMissions?.includes(m.title) &&
+        !selectedMissions.some((s) => s.title === m.title)
+    )
+    const thirdMission = availableMissions[thirdIndex]
+    selectedMissions.push(thirdMission)
+    availableMissions.splice(0, thirdIndex + 1)
+
+    const opMissions = selectedMissions.map((mission, mIdx) => {
+      const battlefield = battlefieldsShuffled[opIdx * missionsPerOperation + mIdx]
       const battlefieldName = getRandom(battlefield.battlefieldNames?.split(',') ?? [''])
       const description = getRandom(mission.descriptions)
 
@@ -89,14 +127,13 @@ export function generateCampaign(operationsPerCampaign:number, missionsPerOperat
         '{{campaignTitle}}': campaignTitle,
         '{{campaignSector}}': campaignSector,
         '{{operationIndex}}': `${opIdx + 1}`,
-        '{{operationTitle}}': title,
+        '{{operationTitle}}': operationTitle,
         '{{subsector}}': subsector,
         '{{enemySquadName}}': enemy.squadName,
         '{{enemyFactionName}}': enemy.squadType?.faction.factionName ?? 'enemyFactionName',
         '{{enemySquadLeader}}': enemy.units?.[0].unitName ?? 'enemyLeaderName'
       }
 
-      // Final mission
       return {
         ...mission,
         description: replacePlaceholders(description, placeholders),
@@ -105,9 +142,8 @@ export function generateCampaign(operationsPerCampaign:number, missionsPerOperat
       }
     })
 
-    // Final operation
     return {
-      title,
+      title: operationTitle,
       subsector,
       enemy,
       description: replacePlaceholders(
@@ -116,7 +152,7 @@ export function generateCampaign(operationsPerCampaign:number, missionsPerOperat
           '{{campaignTitle}}': campaignTitle,
           '{{campaignSector}}': campaignSector,
           '{{operationIndex}}': `${opIdx + 1}`,
-          '{{operationTitle}}': title,
+          '{{operationTitle}}': operationTitle,
           '{{subsector}}': subsector,
           '{{enemySquadName}}': enemy.squadName,
           '{{enemyFactionName}}': enemy.squadType?.faction.factionName ?? 'enemyFactionName',
@@ -127,11 +163,33 @@ export function generateCampaign(operationsPerCampaign:number, missionsPerOperat
     }
   })
 
-  // Done
   return {
     title: campaignTitle,
     sector: campaignSector,
     description: `A procedurally generated campaign set in the ${campaignSector}.`,
     operations
+  }
+}
+
+export function testCampaignGen() {
+  const runs = 100
+
+  for (let i = 0; i < runs; i++) {
+    safeGenerateCampaign(3, 3)
+  }
+}
+
+export function safeGenerateCampaign(operationsPerCampaign: number, missionsPerOperation: number) {
+  const runs = 10
+
+  // Run up to 10 attempts
+  //  Depending on how the missions, their seqs, and their follow-up missions are built, we can end up in a dead end, resulting in a crash in generateCampaign()
+  for (let i = 0; i < runs; i++) {
+    try {
+      const c = generateCampaign(operationsPerCampaign, missionsPerOperation)
+      return c
+    } catch {
+      //console.error('  Campaign generation crashed on attempt #', i + 1)
+    }
   }
 }
