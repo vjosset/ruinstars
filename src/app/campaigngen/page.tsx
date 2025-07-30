@@ -10,7 +10,7 @@ export const metadata = {
 }
 
 export default async function CampaignGen() {
-  const campaign = generateCampaign()
+  const campaign = generateCampaign(3, 3)
   return (
     <div className="px-4 py-10 max-w-7xl mx-auto text-foreground">
       <PageTitle className="font-title text-main text-center">Campaign: {campaign.title}</PageTitle>
