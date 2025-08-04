@@ -1,6 +1,6 @@
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import clsx from 'clsx';
-import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiEdit, FiMoreVertical, FiTrash } from 'react-icons/fi';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import clsx from 'clsx'
+import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiEdit, FiMoreVertical, FiTrash } from 'react-icons/fi'
 
 export default function UnitCardMenu({
   onEdit,
@@ -10,11 +10,11 @@ export default function UnitCardMenu({
   onMoveDown,
   onMoveLast
 }: {
-  onEdit: () => void;
-  onDelete: () => void;
-  onMoveUp?: () => void;
-  onMoveFirst?: () => void;
-  onMoveDown?: () => void;
+  onEdit: () => void
+  onDelete: () => void
+  onMoveUp?: () => void
+  onMoveFirst?: () => void
+  onMoveDown?: () => void
   onMoveLast?: () => void
 }) {
   return (
