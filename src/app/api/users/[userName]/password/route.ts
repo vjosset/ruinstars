@@ -22,6 +22,12 @@ export async function PUT(req: Request, { params }: { params: Promise<{ userName
     where: { userId: session.user.userId },
     data: { password: hashed }
   })
+  
+  // If update is successful, res should be the updated user.
+  if (!res || res.password !== hashed) {
+    // This branch is rarely reached because Prisma should either return the updated record or throw an error, but it's a safeguard.
+    return new NextResponse('Failed to update password', { status: 500 })
+  }
 
   const user = await UserService.getUser(session.user.userId)
   return NextResponse.json(user)

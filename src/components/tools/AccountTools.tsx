@@ -6,13 +6,13 @@ import { useState } from 'react'
 import { toast } from 'sonner'
 
 export default function AccountTools() {
-  const { status, data: session } = useSession()
+  const { data: session } = useSession()
   
   const [showConfirmLogOut, setShowConfirmLogOut] = useState(false)
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
-  const updatePassword = () => {
+  const updatePassword = async () => {
     if (!session?.user) {
       toast.error('Please log in before updating your password.')
       return
@@ -28,15 +28,22 @@ export default function AccountTools() {
       return
     }
 
-    const res = fetch(`/api/users/${session?.user?.userName}/password`, {
+    const res = await fetch(`/api/users/${session?.user?.userName}/password`, {
       method: 'PUT',
       body: JSON.stringify({ password }),
-    }).then((res) => {if (res.ok) {
-      toast.success('Password updated')
-    } else {
-      toast.error('Could not update password')
-    }
     })
+    
+    if (res.ok) {
+      toast.success('Password updated')
+      // Optionally reset password fields
+      setPassword('')
+      setConfirmPassword('')
+    } else if (res.status === 401) {
+      toast.error('Unauthorized. Please log in again.')
+    } else {
+      const errorText = await res.text()
+      toast.error(`Error: ${errorText || 'Could not update password'}`)
+    }
   }
 
   return (
