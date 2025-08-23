@@ -102,7 +102,7 @@ export default function UnitCard({
                 <span onClick={toggleActivated}>
                   {unit.isUnitType ? '' : `${seq}. `}
                 </span>
-                <span onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
+                <span className="flex items-center gap-1" onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
                   {unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ''}
                   {/* Icon reminders for Spoils of War and Injuries */}
                   {!unit.isUnitType && unit.gears?.some(gear => gear.gearId === 'INJ-DC') &&
