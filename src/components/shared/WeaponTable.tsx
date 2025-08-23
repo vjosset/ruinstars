@@ -3,8 +3,7 @@
 import { showInfoModal } from '@/lib/utils/showInfoModal'
 import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
 import { GearPlain } from '@/types'
-import { GiCrossedSwords } from 'react-icons/gi'
-import { TfiTarget } from 'react-icons/tfi'
+import { RiCrosshair2Fill, RiSwordFill } from 'react-icons/ri'
 import { Checkbox } from '../ui'
 
 type WeaponTableProps = {
@@ -46,7 +45,7 @@ export default function WeaponTable({
           <tr className="text-muted border-t border-border">
             <th className="text-left w-4/6"><h6>Weapons</h6></th>
             <th className="text-center w-1/6"><h6>ATT</h6></th>
-            <th className="text-center w-1/6"><h6>SKL</h6></th>
+            {/*<th className="text-center w-1/6"><h6>SKL</h6></th>*/}
           </tr>
         </thead>
         <tbody>
@@ -62,7 +61,7 @@ export default function WeaponTable({
                 )}
                 { ' ' }
                 {/*<img className="inline highlightblack" src={`/icons/white/weptype${gear.TYP}.png`} width="13" />*/}
-                { gear.TYP == 'M' ? (<GiCrossedSwords className="inline-block" />) : (<TfiTarget className="inline-block" />) }
+                { gear.TYP == 'M' ? (<RiSwordFill className="inline-block" />) : (<RiCrosshair2Fill className="inline-block" />) }
                 { ' ' }
                 {gear.gearName}
                 {gear.special != '' &&
@@ -92,7 +91,7 @@ export default function WeaponTable({
               </td>
               {/* Using leading-none to remove extra space between table rows */}
               <td className="text-center stat py-0.5"><h4 className="stat text-main leading-none">{gear.ATT ?? '-'}</h4></td>
-              <td className="text-center stat py-0.5"><h4 className="stat text-main leading-none">{gear.TYP === 'M' ? MSK : RSK}</h4></td>
+              {/*<td className="text-center stat py-0.5"><h4 className="stat text-main leading-none">{gear.TYP === 'M' ? MSK : RSK}</h4></td>*/}
             </tr>
           ))}
         </tbody>

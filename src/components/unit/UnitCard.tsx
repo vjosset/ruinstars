@@ -8,6 +8,7 @@ import { Medal, UnitPlain, UnitTypePlain } from '@/types'
 import { useEffect, useState } from 'react'
 import { FaHeartPulse, FaMedal } from 'react-icons/fa6'
 import { GiDeathSkull } from 'react-icons/gi'
+import { RiCrosshair2Fill, RiFlashlightFill, RiHeartFill, RiShieldFill, RiSwordFill } from 'react-icons/ri'
 import { toast } from 'sonner'
 import { Button, Checkbox, Modal } from '../ui'
 import UnitCardMenu from './UnitCardMenu'
@@ -135,19 +136,43 @@ export default function UnitCard({
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-1 text-center">
-          <h5>ACT <span className="stat text-main text-3xl">{unit.ACT}</span></h5>
-          <h5>ARM <span className="stat text-main text-3xl">{unit.ARM}</span></h5>
-          {unit.isUnitType ? (
-            <h5>HIT <span className="stat text-main text-3xl">{unit.HIT}</span></h5>
-          ) : (
-            <h5 className="cursor-pointer" onClick={() => isOwner && setShowHITModal(true)}>
-              HIT
-              { ' ' }
-              <span className="stat text-main text-3xl">{unit.currHIT}</span>
-              <span className="stat text-muted">/{unit.HIT}</span>
-            </h5>
-          )}
+        <div className="grid grid-cols-5 gap-1 text-center">
+          <h5 className="text-xs">
+            ACT<br/>
+            <span className="flex items-center justify-center gap-1">
+              <RiFlashlightFill className="text-xl" />
+              <span className="stat text-main text-3xl">{unit.ACT}</span>
+            </span>
+          </h5>
+          <h5 className="text-xs">
+            MSK<br/>
+            <span className="flex items-center justify-center gap-1">
+              <RiSwordFill className="text-xl" />
+              <span className="stat text-main text-3xl">{unit.MSK}</span>
+            </span>
+          </h5>
+          <h5 className="text-xs">
+            RSK<br/>
+            <span className="flex items-center justify-center gap-1">
+              <RiCrosshair2Fill className="text-xl" />
+              <span className="stat text-main text-3xl">{unit.RSK}</span>
+            </span>
+          </h5>
+          <h5 className="text-xs">
+            ARM<br/>
+            <span className="flex items-center justify-center gap-1">
+              <RiShieldFill className="text-xl" />
+              <span className="stat text-main text-3xl">{unit.ARM}</span>
+            </span>
+          </h5>
+          <h5 className={`text-xs ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
+            HIT<br/>
+            <span className="flex items-center justify-center gap-1">
+              <RiHeartFill className="text-xl" />
+              <span className="stat text-main text-3xl">{unit.HIT}</span>
+              {!unit.isUnitType && <span className="stat text-muted text-lg">/{unit.HIT}</span>}
+            </span>
+          </h5>
         </div>
 
         {/* Weapons */}
