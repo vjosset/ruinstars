@@ -14,7 +14,7 @@ export default function QuickRef() {
         <li><strong>TO</strong>: The Unit's Squad immediately gains 1 TO.</li>
         <li><strong>Stims</strong>: The Unit may immediately perform one free Basic or Mission Action.</li>
         <li><strong>Map</strong>: The Unit or one of its Squadmates may immediately perform a Move Action.</li>
-        <li><strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for 1 ACT during and of this Unit's activations. When used, the Unit or an Adjacent Squadmate regain 1D3 lost HIT. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.</li>
+        <li><strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for 1 ACT during any of this Unit's activations. When used, the Unit or an Adjacent Squadmate regain 1D3 lost HIT. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.</li>
         <li><strong>Nothing</strong>: The crate is empty. Nothing happens.</li>
         <li><strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares, then it is removed from the battlefield.</li>
       </ol>
