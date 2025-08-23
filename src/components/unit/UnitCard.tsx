@@ -169,7 +169,7 @@ export default function UnitCard({
             HIT<br/>
             <span className="flex items-center justify-center gap-1">
               <RiHeartFill className="text-xl" />
-              <span className="stat text-main text-3xl">{unit.HIT}</span>
+              <span className="stat text-main text-3xl">{unit.isUnitType ? unit.HIT : unit.currHIT}</span>
               {!unit.isUnitType && <span className="stat text-muted text-lg">/{unit.HIT}</span>}
             </span>
           </h5>
