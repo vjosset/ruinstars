@@ -51,7 +51,7 @@ export default function WeaponTable({
         <tbody>
           {weapons.map((gear) => (
             <tr key={gear.gearId}>
-              <td className="py-0.5">
+              <td className="py-0.5 px-2">
                 {onToggleGear && (
                   <Checkbox
                     type="checkbox"
@@ -65,7 +65,7 @@ export default function WeaponTable({
                 { ' ' }
                 {gear.gearName}
                 {gear.special != '' &&
-                  <em className="cursor-pointer hover:text-main text-muted hastip" onClick={() => {
+                  <span className="cursor-pointer text-xs hover:text-main text-muted hastip" onClick={() => {
                     const parsed = parseSpecialRules(allSpecials, 'W', gear.special ?? '')
                     showInfoModal({
                       title: gear.gearName,
@@ -83,7 +83,7 @@ export default function WeaponTable({
                   }}
                   >
                     ({gear.special})
-                  </em>
+                  </span>
                 }  
                 {gear.GP !== 0 &&
                   <sup className="text-xs text-muted"> {gear.GP}GP</sup>

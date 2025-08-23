@@ -22,7 +22,7 @@ export default function GearItem({ gear }: { gear: GearPlain }) {
   return (
     <>
       <span
-        className="cursor-pointer text-foreground hover:text-main hastip"
+        className="cursor-pointer text-foreground hover:text-main hastip px-2"
         onClick={handleClick}
       >
         {gear.gearName}
