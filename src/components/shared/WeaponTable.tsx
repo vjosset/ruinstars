@@ -45,7 +45,7 @@ export default function WeaponTable({
           <tr className="text-muted border-t border-border">
             <th className="text-left w-4/6"><h6>Weapons</h6></th>
             <th className="text-center w-1/6"><h6>ATT</h6></th>
-            {/*<th className="text-center w-1/6"><h6>SKL</h6></th>*/}
+            <th className="text-center w-1/6"><h6>SKL</h6></th>
           </tr>
         </thead>
         <tbody>
@@ -91,7 +91,7 @@ export default function WeaponTable({
               </td>
               {/* Using leading-none to remove extra space between table rows */}
               <td className="text-center stat py-0.5"><h4 className="stat text-main leading-none">{gear.ATT ?? '-'}</h4></td>
-              {/*<td className="text-center stat py-0.5"><h4 className="stat text-main leading-none">{gear.TYP === 'M' ? MSK : RSK}</h4></td>*/}
+              <td className="text-center stat py-0.5"><h4 className="stat text-main leading-none">{gear.TYP === 'M' ? MSK : RSK}</h4></td>
             </tr>
           ))}
         </tbody>
