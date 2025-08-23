@@ -31,6 +31,18 @@ export default async function RulesStatCards() {
             </li>
             <li>
               {/*<img className="statsymbol inline highlightblack" style={{height: '1rem'}} src="/icons/white/ARM.png" />*/}
+              <h6 className="inline">MSK</h6> - Melee Skill<br/>
+              Indicates how well this Unit performs in <a href="#combat">Melee Combat</a>.<br/>
+              When rolling Attacks, results of this stat or lower are successful.
+            </li>
+            <li>
+              {/*<img className="statsymbol inline highlightblack" style={{height: '1rem'}} src="/icons/white/ARM.png" />*/}
+              <h6 className="inline">RSK</h6> - Ranged Skill<br/>
+              Indicates how well this Unit performs in <a href="#combat">Ranged Combat</a>.<br/>
+              When rolling Attacks, results of this stat or lower are successful.
+            </li>
+            <li>
+              {/*<img className="statsymbol inline highlightblack" style={{height: '1rem'}} src="/icons/white/ARM.png" />*/}
               <h6 className="inline">ARM</h6> - Armor<br/>
               Indicates how well this Unit resists damage during <a href="#combat">combat</a>.<br/>
               When rolling Armor Saves, results of this stat or lower are successful.
@@ -80,10 +92,12 @@ export default async function RulesStatCards() {
               <h6 className="inline">ATT</h6> - Attacks<br/>
               How many Dice are rolled each time this Weapon is used.
             </li>
+            {/*}
             <li>
               <h6 className="inline">SKL</h6> - Skill<br/>
               Indicates the skill of this Unit when using this Weapon. Rolls that are equal to or less than this value are successful strikes.
             </li>
+            */}
             <li>
               <h6 className="inline">(Special)</h6> - Weapon Specials<br/>
               <a href="#weapon-specials">Specials</a> for this weapon are listed next to its name.
