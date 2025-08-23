@@ -190,7 +190,7 @@ export default function UnitCard({
         {!unit.isUnitType && (
           <div className="border-t border-border mt-auto">
             <div className="flex justify-between items-start">
-              <div>
+              <div className="text-muted text-sm">
                 {unit?.unitType?.unitTypeName}
                 {unit.special !== '' && (
                   <span
@@ -215,18 +215,16 @@ export default function UnitCard({
                     ({unit.special}){ ' ' }
                   </span>
                 )}
-                <span>
-                  <span className="text-muted">
-                    { ' ' }
-                    {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
-                  </span>
+                <span className="text-muted">
+                  { ' ' }
+                  {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
                 </span>
               </div>
               <div className="text-right whitespace-nowrap cursor-pointer hover:text-main">
                 {!unit.isUnitType &&
                   <span onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
                     <FaMedal className="inline-block h-4 w-4" />{ ' ' }
-                    {unit.totalMedalXP} XP
+                    <span className="stat text-main">{unit.totalMedalXP}</span> XP
                   </span>}
               </div>
             </div>

@@ -54,22 +54,24 @@ export default function GearGroupList({
         })
 
         return (
-          <div key={categoryId} className="grid grid-cols-2 border-t border-border">
+          <div key={categoryId} className="border-t border-border">
             <h6 className="text-muted flex items-center">
               {sortedGears[0].gearCategory?.gearCategoryName}
             </h6>
-            {sortedGears.map((gear) => (
-              <div key={gear.gearId} className="flex items-center gap-1">
-                {onToggleGear && (
-                  <Checkbox
-                    type="checkbox"
-                    checked={selectedGearIds.includes(gear.gearId)}
-                    onChange={() => onToggleGear(gear.gearId)}
-                  />
-                )}
-                <GearItem gear={gear} />
-              </div>
-            ))}
+            <div className="grid grid-cols-2">
+              {sortedGears.map((gear) => (
+                <div key={gear.gearId} className="flex items-center gap-1">
+                  {onToggleGear && (
+                    <Checkbox
+                      type="checkbox"
+                      checked={selectedGearIds.includes(gear.gearId)}
+                      onChange={() => onToggleGear(gear.gearId)}
+                    />
+                  )}
+                  <GearItem gear={gear} />
+                </div>
+              ))}
+            </div>
           </div>
         )
       })}

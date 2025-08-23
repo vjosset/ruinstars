@@ -82,7 +82,7 @@ export default function WeaponTable({
                     })
                   }}
                   >
-                    ({gear.special})
+                    { ' ' }({gear.special})
                   </span>
                 }  
                 {gear.GP !== 0 &&

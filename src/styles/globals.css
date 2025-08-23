@@ -162,10 +162,6 @@ td {
 	vertical-align: top;
 }
 
-thead {
-	@apply border-b border-border;
-}
-
 hr {
 	@apply my-12 mx-12 border-border;
 }
