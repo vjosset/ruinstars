@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 import Campaign from '../tools/Campaign'
 import MissionSelector from '../tools/MissionSelector'
-import QuickRef from '../tools/QuickRef'
+import QuickRef from '../tools/QuickRef_Squares'
 
 export default function SquadTools() {
   const [tab, setTab] = useState<'quickref' | 'mission' | 'campaign'>('quickref')
