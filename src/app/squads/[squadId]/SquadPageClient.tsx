@@ -242,13 +242,13 @@ export default function SquadPageClient({
             { label: 'TO', key: 'TO' },
           ].map(({ label, key }) => (
             <div key={key} className="flex flex-col items-center gap-1">
-              <h6 className="font-bold text-main">{label}:</h6>
+              <h6 className="font-bold">{label}:</h6>
               <div className="flex gap-2 items-center justify-center">
                 <button
                   className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
                   onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] - 1)}
                 >−</button>
-                <h4 className="stat w-7 text-center">{squad[key as 'turn' | 'MP' | 'TO']}</h4>
+                <h4 className="stat w-7 text-center text-main">{squad[key as 'turn' | 'MP' | 'TO']}</h4>
                 <button
                   className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
                   onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] + 1)}
@@ -257,7 +257,7 @@ export default function SquadPageClient({
             </div>
           ))}
           <div className="flex flex-col items-center gap-1">
-            <h6 className="font-bold text-main" onClick={handleEditSquadClick}>{totalGP}/{squad.maxGP}GP</h6>
+            <h6 className="font-bold" onClick={handleEditSquadClick}>{totalGP}/{squad.maxGP}GP</h6>
 
             {/* Reset and Info/tools */}
             <div className="flex items-center">
