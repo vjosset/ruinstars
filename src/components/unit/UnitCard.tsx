@@ -64,6 +64,26 @@ export default function UnitCard({
     setNewHIT(unit.currHIT ?? 0)
   }, [unit.currHIT])
 
+  const toggleActivated = async () => {
+    if (!isOwner || unit.isUnitType || unit.currHIT === 0) return
+
+    const res = await fetch(`/api/units/${unit.unitId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ isActivated: !unit.isActivated }),
+    })
+
+    if (!res.ok) {
+      toast.error('Failed to save Unit activation')
+    } else {
+      const updated = await res.json()
+      // Inform the parent about the new activated state
+      onUnitUpdated?.(updated)
+      setIsActivated(updated.isActivated)
+      unit.isActivated = updated.isActivated
+    }
+  }
+
   return (
     <>
       <div className="bg-card border border-main p-1 rounded shadow-inner backdrop-blur relative flex flex-col h-full">
@@ -73,39 +93,28 @@ export default function UnitCard({
             {!unit.isUnitType && isOwner && unit.currHIT !== 0 && (
               <Checkbox
                 checked={!!unit.isActivated}
-                onChange={async (e) => {
-                  const res = await fetch(`/api/units/${unit.unitId}`, {
-                    method: 'PATCH',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ isActivated: !!e.target.checked }),
-                  })
-
-                  if (!res.ok) {
-                    toast.error('Failed to save Unit activation')
-                  } else {
-                    const updated = await res.json()
-                    // Inform the parent about the new activated state
-                    onUnitUpdated?.(updated)
-                    setIsActivated(updated.isActivated)
-                    unit.isActivated = updated.isActivated
-                  }
-                }}
-                className="accent-primary w-4 h-4 mt-2"
+                onChange={toggleActivated}
+                className="accent-primary w-5 h-5 mt-1.5"
               />
             )}
             <h4 className={`font-heading ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
-              <div className="flex items-center gap-1" onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
-                {unit.isUnitType ? '' : `${seq}. `}{unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ''}
-                {/* Icon reminders for Spoils of War and Injuries */}
-                {!unit.isUnitType && unit.gears?.some(gear => gear.gearId === 'INJ-DC') &&
-                  <GiDeathSkull className="text-base text-muted" /> 
-                }
-                {!unit.isUnitType && unit.currHIT > 0 && unit.gears?.some(gear => gear.gearCategoryId === 'SOW') &&
-                  <FaMedal className="text-base text-muted" />
-                }
-                {!unit.isUnitType && unit.currHIT > 0 && unit.gears?.some(gear => gear.gearCategoryId === 'INJ') &&
-                  <FaHeartPulse className="text-base text-muted" /> 
-                }
+              <div className="flex items-center gap-1">
+                <span onClick={toggleActivated}>
+                  {unit.isUnitType ? '' : `${seq}. `}
+                </span>
+                <span onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
+                  {unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ''}
+                  {/* Icon reminders for Spoils of War and Injuries */}
+                  {!unit.isUnitType && unit.gears?.some(gear => gear.gearId === 'INJ-DC') &&
+                    <GiDeathSkull className="text-base text-muted" /> 
+                  }
+                  {!unit.isUnitType && unit.currHIT > 0 && unit.gears?.some(gear => gear.gearCategoryId === 'SOW') &&
+                    <FaMedal className="text-base text-muted" />
+                  }
+                  {!unit.isUnitType && unit.currHIT > 0 && unit.gears?.some(gear => gear.gearCategoryId === 'INJ') &&
+                    <FaHeartPulse className="text-base text-muted" /> 
+                  }
+                </span>
               </div>
             </h4>
           </div>
