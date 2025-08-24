@@ -11,6 +11,7 @@ export default async function RulesCoreMechanics() {
         <p>{GAME.NAME} uses {GAME.DICE_BASIS}-sided dice for all rolls. These will be indicated throughout the rules as <code>D{GAME.DICE_BASIS}</code>.<br/>
         Some rolls will require more than one die. For those, the number of dice to roll will be indicated before <code>D{GAME.DICE_BASIS}</code>.<br/>
         For example, to indicate a roll of 3 dice: <code>3D{GAME.DICE_BASIS}</code>. To indicate a roll of 1 die: <code>1D{GAME.DICE_BASIS}</code>.</p>
+        {GAME.DICE_BASIS == 10 && <p>Note that some D10 dice show a <code>0</code> instead of <code>10</code>. In those cases, a roll of <code>0</code> should be treated as <code>10</code></p>}
         <h4 id="successes-and-failures">Successes and Failures</h4>
         <p>
           When rolling against a character or weapon stat, a die roll is a success if its value is equal to or lower than that stat.<br/>
