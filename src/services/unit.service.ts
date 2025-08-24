@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { GAME } from '@/lib/config/game_config'
 import { UnitRepository } from '@/src/repositories/unit.repository'
 import { Unit } from '@/types'
 import { nanoid } from 'nanoid'
@@ -70,19 +71,19 @@ export class UnitService {
         case 'UNIT':
           switch (params[1]) {
           case 'ACT':
-            unit.ACT = Math.min(unit.ACT + Number(params[2]), 5)
+            unit.ACT = Math.min(unit.ACT + Number(params[2]), GAME.DICE_BASIS - 1)
             break
           case 'MOV':
-            unit.MOV = Math.min(unit.MOV + Number(params[2]), 5)
+            unit.MOV = Math.min(unit.MOV + Number(params[2]), GAME.DICE_BASIS - 1)
             break
           case 'MSK':
-            unit.MSK = Math.min(unit.MSK + Number(params[2]), 5)
+            unit.MSK = Math.min(unit.MSK + Number(params[2]), GAME.DICE_BASIS - 1)
             break
           case 'RSK':
-            unit.RSK = Math.min(unit.RSK + Number(params[2]), 5)
+            unit.RSK = Math.min(unit.RSK + Number(params[2]), GAME.DICE_BASIS - 1)
             break
           case 'ARM':
-            unit.ARM = Math.min(unit.ARM + Number(params[2]), 5)
+            unit.ARM = Math.min(unit.ARM + Number(params[2]), GAME.DICE_BASIS - 1)
             break
           case 'HIT':
             unit.HIT += Number(params[2])

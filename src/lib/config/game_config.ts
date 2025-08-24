@@ -1,4 +1,4 @@
 export const GAME = {
   NAME: 'Ruinstars',
-  DICE_BASIS: '6',
+  DICE_BASIS: '10',
 } as const
