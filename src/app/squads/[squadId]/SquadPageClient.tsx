@@ -372,7 +372,7 @@ export default function SquadPageClient({
         )}
       </div>
 
-      {/* Squad Toosl */}
+      {/* Squad Tools */}
       {showSquadTools && (
         <Modal
           title={squad.squadName}
