@@ -359,11 +359,14 @@ export default function SquadPageClient({
               ref={formRef} // Pass formRef to EditSquadForm
               initialName={squad.squadName}
               initialMaxGP={squad.maxGP}
-              onSubmit={(name, maxGP) => {
+              hasCustomPortrait={squad.hasCustomPortrait}
+              onCancel={() => setShowEditSquadModal(false)}
+              squad={squad}
+              squadId={squad.squadId}
+              onSave={(name, maxGP) => {
                 updateSquadInfo(name, maxGP)
                 setShowEditSquadModal(false)
               }}
-              onCancel={() => {}}
             />
           </Modal>
         )}

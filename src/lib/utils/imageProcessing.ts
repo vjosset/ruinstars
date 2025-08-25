@@ -43,17 +43,17 @@ export async function resizeImage(
 export async function saveImage(
   buffer: Buffer,
   userId: string,
-  rosterId: string,
+  squadId: string,
   filename: string
 ): Promise<string> {
   try {
-    const baseDir = path.resolve(uploadDir, `user_${userId}`, `squad_${rosterId}`)
+    const baseDir = path.resolve(uploadDir, `user_${userId}`, `squad_${squadId}`)
     await fs.mkdir(baseDir, { recursive: true })
 
     const destFilePath = path.join(baseDir, filename)
     await fs.writeFile(destFilePath, buffer)
 
-    return `/api/uploads/user_${userId}/squad_${rosterId}/${filename}`
+    return `/api/uploads/user_${userId}/squad_${squadId}/${filename}`
   } catch (error) {
     throw new Error(`Failed to save image: ${error}`)
   }

@@ -29,7 +29,7 @@ export async function GET(
 
     const squad = await SquadService.getSquadRow(unit.squadId ?? '')
     if (!squad) {
-      return new NextResponse('Roster not found', { status: 404 })
+      return new NextResponse('Squad not found', { status: 404 })
     }
 
     const filePath = path.resolve(
@@ -96,8 +96,8 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ uni
     // Track the portrait event
     await prisma.webEvent.create({
       data: {
-        eventType: 'roster',
-        action: 'opportrait',
+        eventType: 'squad',
+        action: 'unitportrait',
         label: 'custom',
         var1: op.squadId,
         var2: op.unitId,

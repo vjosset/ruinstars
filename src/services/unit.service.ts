@@ -46,34 +46,34 @@ export class UnitService {
 
   static async deleteUnit(unitId: string): Promise<void> {
     // Delete the unit's portrait
-    await this.deleteUnitPortrait(opId)
+    await this.deleteUnitPortrait(unitId)
 
     await this.repository.deleteUnit(unitId)
   }
   
-  static async deleteUnitPortrait(opId: string): Promise<void> {
-    const op = await this.getOpRow(opId)
+  static async deleteUnitPortrait(unitId: string): Promise<void> {
+    const unit = await this.getUnitRow(unitId)
     if (!op?.hasCustomPortrait) return
 
-    const roster = await RosterService.getRosterRow(op.rosterId)
-    if (!roster) throw new Error('Roster not found')
+    const squad = await SquadService.getSquadRow(unit.squadId)
+    if (!squad) throw new Error('Squad not found')
 
     // Update DB first (don't wait for file system to succeed)
-    await this.updateOp(opId, { hasCustomPortrait: false, portraitUpdatedAt: new Date() })
+    await this.updateUnit(untId, { hasCustomPortrait: false, portraitUpdatedAt: new Date() })
 
     try {
       const uploadDir = process.env.UPLOADS_DIR!
       const filePath = path.resolve(
         uploadDir,
-        `user_${roster.userId}`,
-        `squad_${op.rosterId}`,
-        `unit_${opId}.jpg`
+        `user_${squad.userId}`,
+        `squad_${squad.squadId}`,
+        `unit_${unitId}.jpg`
       )
 
       await fs.unlink(filePath)
     } catch (ex) {
       // Log but don't block flow
-      console.warn(`Could not delete portrait file for op ${opId}:`, ex)
+      console.warn(`Could not delete portrait file for unit ${unitId}:`, ex)
     }
   }
   
