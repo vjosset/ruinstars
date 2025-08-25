@@ -5,6 +5,7 @@ import { Unit } from '@/types'
 import { nanoid } from 'nanoid'
 import { GearService } from './gear.service'
 import { MedalService } from './medal.service'
+import { SquadService } from './squad.service'
 
 export class UnitService {
   private static repository = new UnitRepository()
@@ -53,13 +54,13 @@ export class UnitService {
   
   static async deleteUnitPortrait(unitId: string): Promise<void> {
     const unit = await this.getUnitRow(unitId)
-    if (!op?.hasCustomPortrait) return
+    if (!unit?.hasCustomPortrait) return
 
     const squad = await SquadService.getSquadRow(unit.squadId)
     if (!squad) throw new Error('Squad not found')
 
     // Update DB first (don't wait for file system to succeed)
-    await this.updateUnit(untId, { hasCustomPortrait: false, portraitUpdatedAt: new Date() })
+    await this.updateUnit(unitId, { hasCustomPortrait: false, portraitUpdatedAt: new Date() })
 
     try {
       const uploadDir = process.env.UPLOADS_DIR!

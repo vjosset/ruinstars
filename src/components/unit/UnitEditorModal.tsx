@@ -222,220 +222,263 @@ export default function UnitEditorModal({
   if (!isOpen) return null
 
   return (
-    <Modal
-      title={`${isEditMode ? unit.unitName : 'Add Unit'}`}
-      onClose={onClose}
-      footer={
-        <div className="flex justify-between items-start text-muted">
-          {/* Left side: total GP */}
-          <div className="whitespace-nowrap">
-            {selectedUnitType?.unitTypeName}
-            {selectedUnitType?.special !== '' && (
-              <span
-                className="cursor-pointer hover:text-main"
-                onClick={() => {
-                  const parsed = parseSpecialRules(allSpecials, 'U', selectedUnitType?.special ?? '')
-                  showInfoModal({
-                    title: selectedUnitType?.unitTypeName + ' - Special',
-                    body: (
-                      <div className="space-y-4">
-                        {parsed.map((special, idx) => (
-                          <div key={idx}>
-                            <span className="font-semibold text-muted">
-                              ({special.code}) {special.specialName}:
-                            </span>
-                            <p className="text-sm text-muted">{special.description}</p>
-                          </div>
-                        ))}
-                      </div>
-                    ),
-                  })
-                }}
-              >
-                {' '}
-                ({selectedUnitType?.special})
-              </span>
-            )}
-            { '  ' }
-            <em>{totalGPString}GP</em>
-          </div>
-
-          {/* Right side: Buttons */}
-          <div className="flex justify-end gap-2">
-            <Button onClick={onClose} variant="ghost">
-              <h6>Cancel</h6>
-            </Button>
-            <Button onClick={handleSubmit}>
-              <h6>{isEditMode ? 'Save' : 'Add Unit'}</h6>
-            </Button>
-          </div>
-        </div>
-      }
-    >
-
-      {/* Tab Bar */}
-      {isEditMode && (
-        <div className="flex border-b border-border mb-2">
-          <button
-            className={`px-4 py-2 font-bold ${activeTab === 'details' ? 'border-b-2 border-main text-main' : 'text-muted'}`}
-            onClick={() => setActiveTab('details')}
-          >
-              Details
-          </button>
-          <button
-            className={`px-4 py-2 font-bold ${activeTab === 'portrait' ? 'border-b-2 border-main text-main' : 'text-muted'}`}
-            onClick={() => setActiveTab('portrait')}
-          >
-              Portrait
-          </button>
-        </div>
-      )}
-
-      {/* Tab Content - Details */}
-      {activeTab === 'details' && (
-        <div className="space-y-2">
-          {!isEditMode &&
-              <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4">
-                <Label>Unit Type</Label>
-                <Listbox value={unitTypeId} onChange={setUnitTypeId}>
-                  <div className="relative">
-                    <ListboxButton className="w-full p-1 border border-border rounded-md text-sm text-left flex justify-between items-center">
-                      {selectedUnitType?.unitTypeName || 'Select Unit Type'} {selectedUnitType && ` (${selectedUnitType.GP}GP)`}
-                      <FiChevronDown className="w-4 h-4 text-muted-foreground" />
-                    </ListboxButton>
-
-                    <ListboxOptions className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md bg-card border border-border shadow-lg">
-                      {unitTypes.map((ut) => (
-                        <ListboxOption
-                          key={ut.unitTypeId}
-                          value={ut.unitTypeId}
-                          className={({ active }) =>
-                            `px-4 py-2 cursor-pointer z-50 ${
-                              active ? 'text-main' : 'text-foreground'
-                            }`
-                          }
-                        >
-                          {({ selected }) => (
-                            <div className={`flex ${selected ? 'text-main': ''}`}>
-                              <span>{ut.unitTypeName}</span> {ut && ` (${ut.GP}GP)`}
+    <>
+      <Modal
+        title={`${isEditMode ? unit.unitName : 'Add Unit'}`}
+        onClose={onClose}
+        footer={
+          <div className="flex justify-between items-start text-muted">
+            {/* Left side: total GP */}
+            <div className="whitespace-nowrap">
+              {selectedUnitType?.unitTypeName}
+              {selectedUnitType?.special !== '' && (
+                <span
+                  className="cursor-pointer hover:text-main"
+                  onClick={() => {
+                    const parsed = parseSpecialRules(allSpecials, 'U', selectedUnitType?.special ?? '')
+                    showInfoModal({
+                      title: selectedUnitType?.unitTypeName + ' - Special',
+                      body: (
+                        <div className="space-y-4">
+                          {parsed.map((special, idx) => (
+                            <div key={idx}>
+                              <span className="font-semibold text-muted">
+                                ({special.code}) {special.specialName}:
+                              </span>
+                              <p className="text-sm text-muted">{special.description}</p>
                             </div>
-                          )}
-                        </ListboxOption>
-                      ))}
-                    </ListboxOptions>
-                  </div>
-                </Listbox>
+                          ))}
+                        </div>
+                      ),
+                    })
+                  }}
+                >
+                  {' '}
+                  ({selectedUnitType?.special})
+                </span>
+              )}
+              { '  ' }
+              <em>{totalGPString}GP</em>
+            </div>
+
+            {/* Right side: Buttons */}
+            <div className="flex justify-end gap-2">
+              <Button onClick={onClose} variant="ghost">
+                <h6>Cancel</h6>
+              </Button>
+              <Button onClick={handleSubmit}>
+                <h6>{isEditMode ? 'Save' : 'Add Unit'}</h6>
+              </Button>
+            </div>
+          </div>
+        }
+      >
+
+        {/* Tab Bar */}
+        {isEditMode && (
+          <div className="flex border-b border-border mb-2">
+            <button
+              className={`px-4 py-2 font-bold ${activeTab === 'details' ? 'border-b-2 border-main text-main' : 'text-muted'}`}
+              onClick={() => setActiveTab('details')}
+            >
+                Details
+            </button>
+            <button
+              className={`px-4 py-2 font-bold ${activeTab === 'portrait' ? 'border-b-2 border-main text-main' : 'text-muted'}`}
+              onClick={() => setActiveTab('portrait')}
+            >
+                Portrait
+            </button>
+          </div>
+        )}
+
+        {/* Tab Content - Details */}
+        {activeTab === 'details' && (
+          <div className="space-y-2">
+            {!isEditMode &&
+                <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4">
+                  <Label>Unit Type</Label>
+                  <Listbox value={unitTypeId} onChange={setUnitTypeId}>
+                    <div className="relative">
+                      <ListboxButton className="w-full p-1 border border-border rounded-md text-sm text-left flex justify-between items-center">
+                        {selectedUnitType?.unitTypeName || 'Select Unit Type'} {selectedUnitType && ` (${selectedUnitType.GP}GP)`}
+                        <FiChevronDown className="w-4 h-4 text-muted-foreground" />
+                      </ListboxButton>
+
+                      <ListboxOptions className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md bg-card border border-border shadow-lg">
+                        {unitTypes.map((ut) => (
+                          <ListboxOption
+                            key={ut.unitTypeId}
+                            value={ut.unitTypeId}
+                            className={({ active }) =>
+                              `px-4 py-2 cursor-pointer z-50 ${
+                                active ? 'text-main' : 'text-foreground'
+                              }`
+                            }
+                          >
+                            {({ selected }) => (
+                              <div className={`flex ${selected ? 'text-main': ''}`}>
+                                <span>{ut.unitTypeName}</span> {ut && ` (${ut.GP}GP)`}
+                              </div>
+                            )}
+                          </ListboxOption>
+                        ))}
+                      </ListboxOptions>
+                    </div>
+                  </Listbox>
+                </div>
+            }
+
+            <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4">
+              <Label>Unit Name</Label>
+              <div className="flex w-full">
+                <Input
+                  value={unitName}
+                  autoCapitalize="words"
+                  onChange={(e) => setUnitName(e.target.value)}
+                  placeholder="Unit Name"
+                  className="flex-1 my-2 px-2 bg-card border border-border rounded-l-md appearance-none"
+                />
+                <button
+                  type="button"
+                  className="my-2 w-9 h-9 flex items-center justify-center border border-border border-l-0 rounded-r-md bg-zinc-900 hover:bg-zinc-800"
+                  onClick={async () => {
+                    try {
+                      const res = await fetch(`/api/namegen/${selectedUnitType?.nameType}`)
+                      if (!res.ok) throw new Error('Failed to fetch name')
+
+                      const randomName = await res.text()
+                      setUnitName(randomName)
+                    } catch (err) {
+                      setUnitName(selectedUnitType?.nameType ?? selectedUnitType?.unitTypeName ?? '')
+                      console.error('Error getting random name:', err)
+                    }
+                  }}
+                >
+                  <GiRollingDices />
+                </button>
               </div>
-          }
+            </div>
 
-          <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4">
-            <Label>Unit Name</Label>
-            <div className="flex w-full">
-              <Input
-                value={unitName}
-                autoCapitalize="words"
-                onChange={(e) => setUnitName(e.target.value)}
-                placeholder="Unit Name"
-                className="flex-1 my-2 px-2 bg-card border border-border rounded-l-md appearance-none"
+            {/* Stats */}
+            {selectedUnitType && (
+              <div className="grid grid-cols-3 gap-1 my-3 text-center">
+                <h5>ACT <span className="stat text-main text-3xl">{selectedUnitType.ACT}</span></h5>
+                <h5>ARM <span className="stat text-main text-3xl">{selectedUnitType.ARM}</span></h5>
+                <h5>HIT <span className="stat text-main text-3xl">{selectedUnitType.HIT}</span></h5>
+              </div>
+            )}
+
+            {/* Gear, Weapons, Skills */}
+            {selectedUnitType && (
+              <>
+                <div>
+                  <WeaponTable
+                    weapons={selectedUnitType.weapons ?? []}
+                    MSK={selectedUnitType.MSK}
+                    RSK={selectedUnitType.RSK}
+                    allSpecials={allSpecials}
+                    selectedGearIds={gearIds}
+                    onToggleGear={toggleGear}
+                  />
+                </div>
+
+                <div>
+                  <GearGroupList
+                    gearList={(selectedUnitType.skills ?? []).map((g) => ({
+                      ...g,
+                      isSelected: gearIds.includes(g.gearId),
+                      onClick: () => toggleGear(g.gearId),
+                    }))}
+                    selectedGearIds={gearIds}
+                    showNarrative={true}
+                    onToggleGear={toggleGear}
+                  />
+                </div>
+              </>
+            )}
+          </div>
+        )}
+
+        {/* Tab Content - Portrait */}
+        {activeTab === 'portrait' && (
+          <div className="flex flex-col">
+            <h5>New Portrait</h5>
+            <p className="text-muted mb-2">
+                Upload a portrait image for this operative.
+                Images will be resized to 900x600 pixels.
+            </p>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handlePortraitChange}
+              className="mb-2"
+            />
+            {portraitPreview && (
+              <img
+                src={portraitPreview}
+                alt="Portrait Preview"
+                className="rounded border border-border max-w-xs max-h-48 object-cover"
               />
-              <button
-                type="button"
-                className="my-2 w-9 h-9 flex items-center justify-center border border-border border-l-0 rounded-r-md bg-zinc-900 hover:bg-zinc-800"
+            )}
+            {uploadError && <p className="text-red-500">{uploadError}</p>}
+              
+            {unit?.hasCustomPortrait && 
+              <>
+                <hr className="my-4" />
+                <div className="flex justify-between items-center">
+                  <h5>Delete Portrait</h5>
+                  <Button
+                    onClick={() => { setShowDeletePortraitConfirmation(true) }}>
+                    <h6>Delete</h6>
+                  </Button>
+                </div>
+              </>}
+            {uploadError && <p className="text-red-500">{uploadError}</p>}
+          </div>
+        )}
+      </Modal>
+      
+      {showDeletePortraitConfirmation && (
+        <Modal
+          key="deletePortraitConfirmation"
+          title="Delete Portrait"
+          onClose={() => {}}
+          footer={
+            <div className="flex justify-end gap-2">
+              <Button variant="ghost" onClick={() => setShowDeletePortraitConfirmation(false)}>
+                <h6>Cancel</h6>
+              </Button>
+              <Button 
                 onClick={async () => {
+                  setShowDeletePortraitConfirmation(false) // Close confirmation dialog
+                  if (!unit?.unitId) return
                   try {
-                    const res = await fetch(`/api/namegen/${selectedUnitType?.nameType}`)
-                    if (!res.ok) throw new Error('Failed to fetch name')
-
-                    const randomName = await res.text()
-                    setUnitName(randomName)
-                  } catch (err) {
-                    setUnitName(selectedUnitType?.nameType ?? selectedUnitType?.unitTypeName ?? '')
-                    console.error('Error getting random name:', err)
+                    const res = await fetch(`/api/units/${unit.unitId}/portrait`, {
+                      method: 'DELETE'
+                    })
+                    if (!res.ok) {
+                      const err = await res.json()
+                      throw new Error(err.error || 'Failed to delete portrait')
+                    }
+                    setPortraitPreview(null)
+                    setPortraitFile(null)
+                    setShowDeletePortraitConfirmation(false)
+                    unit.hasCustomPortrait = false
+                    unit.portraitUpdatedAt = new Date()
+                    onSave({ ...unit, hasCustomPortrait: false })
+                  } catch (err: any) {
+                    setUploadError(err.message)
                   }
                 }}
               >
-                <GiRollingDices />
-              </button>
+                <h6>Delete</h6>
+              </Button>
             </div>
-          </div>
-
-          {/* Stats */}
-          {selectedUnitType && (
-            <div className="grid grid-cols-3 gap-1 my-3 text-center">
-              <h5>ACT <span className="stat text-main text-3xl">{selectedUnitType.ACT}</span></h5>
-              <h5>ARM <span className="stat text-main text-3xl">{selectedUnitType.ARM}</span></h5>
-              <h5>HIT <span className="stat text-main text-3xl">{selectedUnitType.HIT}</span></h5>
-            </div>
-          )}
-
-          {/* Gear, Weapons, Skills */}
-          {selectedUnitType && (
-            <>
-              <div>
-                <WeaponTable
-                  weapons={selectedUnitType.weapons ?? []}
-                  MSK={selectedUnitType.MSK}
-                  RSK={selectedUnitType.RSK}
-                  allSpecials={allSpecials}
-                  selectedGearIds={gearIds}
-                  onToggleGear={toggleGear}
-                />
-              </div>
-
-              <div>
-                <GearGroupList
-                  gearList={(selectedUnitType.skills ?? []).map((g) => ({
-                    ...g,
-                    isSelected: gearIds.includes(g.gearId),
-                    onClick: () => toggleGear(g.gearId),
-                  }))}
-                  selectedGearIds={gearIds}
-                  showNarrative={true}
-                  onToggleGear={toggleGear}
-                />
-              </div>
-            </>
-          )}
-        </div>
+          }>
+          Are you sure you want to delete this unit's portrait? This action cannot be undone.
+        </Modal>
       )}
-
-      {/* Tab Content - Portrait */}
-      {activeTab === 'portrait' && (
-        <div className="flex flex-col">
-          <h5>New Portrait</h5>
-          <p className="text-muted mb-2">
-              Upload a portrait image for this operative.
-              Images will be resized to 900x600 pixels.
-          </p>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handlePortraitChange}
-            className="mb-2"
-          />
-          {portraitPreview && (
-            <img
-              src={portraitPreview}
-              alt="Portrait Preview"
-              className="rounded border border-border max-w-xs max-h-48 object-cover"
-            />
-          )}
-          {uploadError && <p className="text-red-500">{uploadError}</p>}
-            
-          {unit?.hasCustomPortrait && 
-            <>
-              <hr className="my-4" />
-              <div className="flex justify-between items-center">
-                <h5>Delete Portrait</h5>
-                <Button
-                  onClick={() => { setShowDeletePortraitConfirmation(true) }}>
-                  <h6>Delete</h6>
-                </Button>
-              </div>
-            </>}
-          {uploadError && <p className="text-red-500">{uploadError}</p>}
-        </div>
-      )}
-    </Modal>
+    </>
   )
 }
