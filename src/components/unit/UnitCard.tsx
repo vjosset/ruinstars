@@ -1,5 +1,6 @@
 'use client'
 
+import { getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { showInfoModal } from '@/lib/utils/showInfoModal'
 import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
 import GearGroupList from '@/src/components/shared/GearGroupList'
@@ -28,6 +29,7 @@ type UnitCardProps = {
   onMoveLast?: () => void
   onDelete?: (squadId: string) => void
   onUnitDeleted?: (id: string) => void
+  onPortraitClick?: (id: string) => void
 }
 
 export default function UnitCard({
@@ -41,7 +43,8 @@ export default function UnitCard({
   onMoveFirst,
   onMoveDown,
   onMoveLast,
-  onUnitDeleted
+  onUnitDeleted,
+  onPortraitClick
 }: UnitCardProps) {
   // Modal visibility states
   const [showHITModal, setShowHITModal] = useState(false)
@@ -87,94 +90,106 @@ export default function UnitCard({
 
   return (
     <>
-      <div className="bg-card border border-main p-1 rounded shadow-inner backdrop-blur relative flex flex-col h-full">
-        {/* Name and Type */}
-        <div className="flex justify-between">
-          <div className="flex justify-between gap-x-2">
-            {!unit.isUnitType && isOwner && unit.currHIT !== 0 && (
-              <Checkbox
-                checked={!!unit.isActivated}
-                onChange={toggleActivated}
-                className="accent-primary w-5 h-5 mt-1.5"
+      <div className="bg-card border border-main p-1 rounded relative flex flex-col h-full">
+        <div className={'grid grid-cols-4 gap-1 text-center'}>
+          {!unit.isUnitType && unit.hasCustomPortrait && (
+            <div className="cursor-pointer col-span-1 border border-muted/50 rounded-md" style={{maxHeight: '100%', maxWidth: '100%', overflow: 'hidden'}} onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>
+              <img
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: (!unit.isUnitType && (unit.currHIT == 0)) ? 'grayscale(1)' : 'none' }}
+                src={`${getUnitPortraitUrl(unit.unitId)}?v=${toEpochMs(unit.portraitUpdatedAt)}`}
               />
-            )}
-            <h4 className={`font-heading ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
-              <div className="flex items-center gap-1">
-                <span onClick={toggleActivated}>
-                  {unit.isUnitType ? '' : `${seq}. `}
-                </span>
-                <span className="flex items-center gap-1" onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
-                  {unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ''}
-                  {/* Icon reminders for Spoils of War and Injuries */}
-                  {!unit.isUnitType && unit.gears?.some(gear => gear.gearId === 'INJ-DC') &&
-                    <GiDeathSkull className="text-base text-muted" /> 
-                  }
-                  {!unit.isUnitType && unit.currHIT > 0 && unit.gears?.some(gear => gear.gearCategoryId === 'SOW') &&
-                    <FaMedal className="text-base text-muted" />
-                  }
-                  {!unit.isUnitType && unit.currHIT > 0 && unit.gears?.some(gear => gear.gearCategoryId === 'INJ') &&
-                    <FaHeartPulse className="text-base text-muted" /> 
-                  }
-                </span>
+            </div>
+          )}
+          <div className={(!unit.isUnitType && unit.hasCustomPortrait) ? 'col-span-3' : 'col-span-4'}>
+            {/* Name and Type */}
+            <div className="flex justify-between">
+              <div className="flex justify-between gap-x-2">
+                {!unit.isUnitType && isOwner && unit.currHIT !== 0 && (
+                  <Checkbox
+                    checked={!!unit.isActivated}
+                    onChange={toggleActivated}
+                    className="accent-primary w-5 h-5 mt-1.5"
+                  />
+                )}
+                <h4 className={`font-heading ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
+                  <div className="flex items-center gap-1">
+                    <span onClick={toggleActivated}>
+                      {unit.isUnitType ? '' : `${seq}. `}
+                    </span>
+                    <span className="flex items-center gap-1" onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
+                      {unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ''}
+                      {/* Icon reminders for Spoils of War and Injuries */}
+                      {!unit.isUnitType && unit.gears?.some(gear => gear.gearId === 'INJ-DC') &&
+                        <GiDeathSkull className="text-base text-muted" /> 
+                      }
+                      {!unit.isUnitType && unit.currHIT > 0 && unit.gears?.some(gear => gear.gearCategoryId === 'SOW') &&
+                        <FaMedal className="text-base text-muted" />
+                      }
+                      {!unit.isUnitType && unit.currHIT > 0 && unit.gears?.some(gear => gear.gearCategoryId === 'INJ') &&
+                        <FaHeartPulse className="text-base text-muted" /> 
+                      }
+                    </span>
+                  </div>
+                </h4>
               </div>
-            </h4>
-          </div>
-          <div className="text-muted mb-1">
-            {unit.isUnitType && <>{unit.GP}GP</>}
-            {/* Action menu */}
-            {!unit.isUnitType && isOwner && (
-              <UnitCardMenu
-                onEdit={() => setShowUnitEditorModal(true)}
-                onDelete={() => setShowDeleteConfirm(true)}
-                onMoveUp={onMoveUp}
-                onMoveDown={onMoveDown}
-                onMoveFirst={onMoveFirst}
-                onMoveLast={onMoveLast}
-              />
-            )}
-          </div>
-        </div>
+              <div className="text-muted mb-1">
+                {unit.isUnitType && <>{unit.GP}GP</>}
+                {/* Action menu */}
+                {!unit.isUnitType && isOwner && (
+                  <UnitCardMenu
+                    onEdit={() => setShowUnitEditorModal(true)}
+                    onDelete={() => setShowDeleteConfirm(true)}
+                    onMoveUp={onMoveUp}
+                    onMoveDown={onMoveDown}
+                    onMoveFirst={onMoveFirst}
+                    onMoveLast={onMoveLast}
+                  />
+                )}
+              </div>
+            </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-1 text-center">
-          <h5 className="text-sm">
-            ACT<br/>
-            <span className="flex items-center justify-center gap-1">
-              <RiFlashlightFill className="text-xl" />
-              <span className="stat text-main text-3xl">{unit.ACT}</span>
-            </span>
-          </h5>
-          {/*}
-          <h5 className="text-xs">
-            MSK<br/>
-            <span className="flex items-center justify-center gap-1">
-              <RiSwordFill className="text-xl" />
-              <span className="stat text-main text-3xl">{unit.MSK}</span>
-            </span>
-          </h5>
-          <h5 className="text-xs">
-            RSK<br/>
-            <span className="flex items-center justify-center gap-1">
-              <RiCrosshair2Fill className="text-xl" />
-              <span className="stat text-main text-3xl">{unit.RSK}</span>
-            </span>
-          </h5>
-          */}
-          <h5 className="text-sm">
-            ARM<br/>
-            <span className="flex items-center justify-center gap-1">
-              <RiShieldFill className="text-lg" />
-              <span className="stat text-main text-3xl">{unit.ARM}</span>
-            </span>
-          </h5>
-          <h5 className={`text-sm ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
-            HIT<br/>
-            <span className="flex items-center justify-center gap-1">
-              <RiHeartFill className="text-xl" />
-              <span className="stat text-main text-3xl">{unit.isUnitType ? unit.HIT : unit.currHIT}</span>
-              {!unit.isUnitType && <span className="stat text-muted text-lg">/{unit.HIT}</span>}
-            </span>
-          </h5>
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-1 text-center">
+              <h5 className="text-sm">
+                ACT<br/>
+                <span className="flex items-center justify-center gap-1">
+                  <RiFlashlightFill className="text-xl" />
+                  <span className="stat text-main text-3xl">{unit.ACT}</span>
+                </span>
+              </h5>
+              {/*}
+              <h5 className="text-xs">
+                MSK<br/>
+                <span className="flex items-center justify-center gap-1">
+                  <RiSwordFill className="text-xl" />
+                  <span className="stat text-main text-3xl">{unit.MSK}</span>
+                </span>
+              </h5>
+              <h5 className="text-xs">
+                RSK<br/>
+                <span className="flex items-center justify-center gap-1">
+                  <RiCrosshair2Fill className="text-xl" />
+                  <span className="stat text-main text-3xl">{unit.RSK}</span>
+                </span>
+              </h5>
+              */}
+              <h5 className="text-sm">
+                ARM<br/>
+                <span className="flex items-center justify-center gap-1">
+                  <RiShieldFill className="text-lg" />
+                  <span className="stat text-main text-3xl">{unit.ARM}</span>
+                </span>
+              </h5>
+              <h5 className={`text-sm ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
+                HIT<br/>
+                <span className="flex items-center justify-center gap-1">
+                  <RiHeartFill className="text-xl" />
+                  <span className="stat text-main text-3xl">{unit.isUnitType ? unit.HIT : unit.currHIT}</span>
+                  {!unit.isUnitType && <span className="stat text-muted text-lg">/{unit.HIT}</span>}
+                </span>
+              </h5>
+            </div>
+          </div>
         </div>
 
         {/* Weapons */}

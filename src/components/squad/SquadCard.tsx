@@ -1,5 +1,6 @@
 'use client'
 
+import { getSquadPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { SquadPlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import Link from 'next/link'
@@ -41,7 +42,12 @@ export default function SquadCard({
         <Link href={`/squads/${squad.squadId}`} className="relative overflow-hidden border-r border-border">
           <div 
             className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500 overflow-hidden"
-            style={{ backgroundImage: `url(/img/squadTypes/${squad.squadTypeId}.webp)` }}
+            style={{
+              backgroundImage: 
+              squad.hasCustomPortrait
+                ? `url(${getSquadPortraitUrl(squad.squadId)}?v=${toEpochMs(squad.portraitUpdatedAt)})`
+                : `url(/img/squadTypes/${squad.squadTypeId}.webp)`
+            }}
           />
         </Link>
 

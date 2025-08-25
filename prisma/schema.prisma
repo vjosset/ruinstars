@@ -95,6 +95,7 @@ model Squad {
   squadName         String   @db.VarChar(250)
   description       String?  @db.Text
   hasCustomPortrait Boolean  @default(false)
+  portraitUpdatedAt DateTime @default(now())
   viewCount         Int      @default(0)
   importCount       Int      @default(0)
   createdAt         DateTime @default(now())
@@ -125,6 +126,7 @@ model Unit {
   currHIT           Int
   isActivated       Boolean     @default(false)
   hasCustomPortrait Boolean     @default(false)
+  portraitUpdatedAt DateTime    @default(now())
   gearIds           String?     @db.Text
   medalIds          String?     @db.Text
   squad             Squad       @relation(fields: [squadId], references: [squadId], onDelete: Cascade)

@@ -34,6 +34,7 @@ export default function UnitEditorModal({
 }: UnitEditorModalProps) {
   const isEditMode = !!unit
 
+  const [activeTab, setActiveTab] = useState<'details' | 'portrait'>('details')
   const [unitTypes, setUnitTypes] = useState<UnitTypePlain[]>([])
   const [unitTypeId, setUnitTypeId] = useState(unit?.unitTypeId || '')
   const [unitName, setUnitName] = useState(unit?.unitName || '')
@@ -42,6 +43,47 @@ export default function UnitEditorModal({
       ? unit.gearIds 
       : unit?.gearIds?.split(',').filter(Boolean) || []
   )
+  const [portraitFile, setPortraitFile] = useState<File | null>(null)
+  const [portraitPreview, setPortraitPreview] = useState<string | null>(null)
+  const [isSaving, setIsSaving] = useState(false)
+  const [uploadError, setUploadError] = useState<string | null>(null)
+  const [showDeletePortraitConfirmation, setShowDeletePortraitConfirmation] = useState(false)
+
+  const handlePortraitChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    setPortraitFile(file || null)
+    setUploadError(null)
+    if (file) {
+      setPortraitPreview(URL.createObjectURL(file))
+    } else {
+      setPortraitPreview(null)
+    }
+  }
+
+  const handlePortraitUpload = async () => {
+    if (!portraitFile || !unit?.unitId) return
+    setUploadError(null)
+    try {
+      const formData = new FormData()
+      formData.append('type', 'unit')
+      formData.append('squadId', squadId)
+      formData.append('unitId', unit.unitId)
+      formData.append('image', portraitFile)
+
+      const res = await fetch('/api/image', {
+        method: 'POST',
+        body: formData,
+      })
+
+      if (!res.ok) {
+        const err = await res.json()
+        throw new Error(err.error || 'Upload failed')
+      }
+      // Optionally, refresh op data here
+    } catch (err: any) {
+      setUploadError(err.message)
+    }
+  }
 
   const selectedUnitType = unitTypes.find((ut) => ut.unitTypeId === unitTypeId)
 
@@ -114,30 +156,66 @@ export default function UnitEditorModal({
   }
 
   const handleSubmit = async () => {
-    const payload = {
-      squadId,
-      unitName,
-      unitTypeId,
-      gearIds: gearIds?.join(',') || '',
-      currHIT: unit ? unit.currHIT : selectedUnitType?.HIT
-    }
+    setIsSaving(true)
 
-    const method = isEditMode ? 'PATCH' : 'POST'
-    const url = isEditMode ? `/api/units/${unit!.unitId}` : '/api/units'
+    try {
+      if (activeTab === 'portrait') {
+        // Handle portrait upload
+        if (!portraitFile || !unit?.unitId) {
+          throw new Error('No portrait selected')
+        }
 
-    const res = await fetch(url, {
-      method,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    })
+        const formData = new FormData()
+        formData.append('type', 'op')
+        formData.append('squadId', squadId)
+        formData.append('unitId', unit.unitId)
+        formData.append('image', portraitFile)
 
-    if (res.ok) {
-      const result = await res.json()
-      const updated = result // If PATCH, use the returned unit, else fallback
-      onSave(updated)
-      onClose()
-    } else {
-      toast.error('Failed to save Unit')
+        const res = await fetch(`/api/units/${unit.unitId}/portrait`, {
+          method: 'POST',
+          body: formData,
+        })
+
+        if (!res.ok) {
+          const err = await res.json()
+          throw new Error(err.error || 'Upload failed')
+        }
+
+        unit.hasCustomPortrait = true
+        unit.portraitUpdatedAt = new Date()
+
+        onClose()
+      } else {
+        const payload = {
+          squadId,
+          unitName,
+          unitTypeId,
+          gearIds: gearIds?.join(',') || '',
+          currHIT: unit ? unit.currHIT : selectedUnitType?.HIT
+        }
+
+        const method = isEditMode ? 'PATCH' : 'POST'
+        const url = isEditMode ? `/api/units/${unit!.unitId}` : '/api/units'
+
+        const res = await fetch(url, {
+          method,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        })
+
+        if (res.ok) {
+          const result = await res.json()
+          const updated = result // If PATCH, use the returned unit, else fallback
+          onSave(updated)
+          onClose()
+        } else {
+          toast.error('Failed to save Unit')
+        }
+      }
+    } catch (err: any) {
+      setUploadError(err.message)
+    } finally {
+      setIsSaving(false)
     }
   }
 
@@ -194,40 +272,60 @@ export default function UnitEditorModal({
         </div>
       }
     >
-      {
+
+      {/* Tab Bar */}
+      {isEditMode && (
+        <div className="flex border-b border-border mb-2">
+          <button
+            className={`px-4 py-2 font-bold ${activeTab === 'details' ? 'border-b-2 border-main text-main' : 'text-muted'}`}
+            onClick={() => setActiveTab('details')}
+          >
+              Details
+          </button>
+          <button
+            className={`px-4 py-2 font-bold ${activeTab === 'portrait' ? 'border-b-2 border-main text-main' : 'text-muted'}`}
+            onClick={() => setActiveTab('portrait')}
+          >
+              Portrait
+          </button>
+        </div>
+      )}
+
+      {/* Tab Content - Details */}
+      {activeTab === 'details' && (
         <div className="space-y-2">
           {!isEditMode &&
-            <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4">
-              <Label>Unit Type</Label>
-              <Listbox value={unitTypeId} onChange={setUnitTypeId}>
-                <div className="relative">
-                  <ListboxButton className="w-full p-1 border border-border rounded-md text-sm text-left flex justify-between items-center">
-                    {selectedUnitType?.unitTypeName || 'Select Unit Type'} {selectedUnitType && ` (${selectedUnitType.GP}GP)`}
-                    <FiChevronDown className="w-4 h-4 text-muted-foreground" />
-                  </ListboxButton>
+              <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4">
+                <Label>Unit Type</Label>
+                <Listbox value={unitTypeId} onChange={setUnitTypeId}>
+                  <div className="relative">
+                    <ListboxButton className="w-full p-1 border border-border rounded-md text-sm text-left flex justify-between items-center">
+                      {selectedUnitType?.unitTypeName || 'Select Unit Type'} {selectedUnitType && ` (${selectedUnitType.GP}GP)`}
+                      <FiChevronDown className="w-4 h-4 text-muted-foreground" />
+                    </ListboxButton>
 
-                  <ListboxOptions className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md bg-card border border-border shadow-lg">
-                    {unitTypes.map((ut) => (
-                      <ListboxOption
-                        key={ut.unitTypeId}
-                        value={ut.unitTypeId}
-                        className={({ active }) =>
-                          `px-4 py-2 cursor-pointer z-50 ${
-                            active ? 'text-main' : 'text-foreground'
-                          }`
-                        }
-                      >
-                        {({ selected }) => (
-                          <div className={`flex ${selected ? 'text-main': ''}`}>
-                            <span>{ut.unitTypeName}</span> {ut && ` (${ut.GP}GP)`}
-                          </div>
-                        )}
-                      </ListboxOption>
-                    ))}
-                  </ListboxOptions>
-                </div>
-              </Listbox>
-            </div>
+                    <ListboxOptions className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md bg-card border border-border shadow-lg">
+                      {unitTypes.map((ut) => (
+                        <ListboxOption
+                          key={ut.unitTypeId}
+                          value={ut.unitTypeId}
+                          className={({ active }) =>
+                            `px-4 py-2 cursor-pointer z-50 ${
+                              active ? 'text-main' : 'text-foreground'
+                            }`
+                          }
+                        >
+                          {({ selected }) => (
+                            <div className={`flex ${selected ? 'text-main': ''}`}>
+                              <span>{ut.unitTypeName}</span> {ut && ` (${ut.GP}GP)`}
+                            </div>
+                          )}
+                        </ListboxOption>
+                      ))}
+                    </ListboxOptions>
+                  </div>
+                </Listbox>
+              </div>
           }
 
           <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4">
@@ -299,7 +397,45 @@ export default function UnitEditorModal({
             </>
           )}
         </div>
-      }
+      )}
+
+      {/* Tab Content - Portrait */}
+      {activeTab === 'portrait' && (
+        <div className="flex flex-col">
+          <h5>New Portrait</h5>
+          <p className="text-muted mb-2">
+              Upload a portrait image for this operative.
+              Images will be resized to 900x600 pixels.
+          </p>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handlePortraitChange}
+            className="mb-2"
+          />
+          {portraitPreview && (
+            <img
+              src={portraitPreview}
+              alt="Portrait Preview"
+              className="rounded border border-border max-w-xs max-h-48 object-cover"
+            />
+          )}
+          {uploadError && <p className="text-red-500">{uploadError}</p>}
+            
+          {unit?.hasCustomPortrait && 
+            <>
+              <hr className="my-4" />
+              <div className="flex justify-between items-center">
+                <h5>Delete Portrait</h5>
+                <Button
+                  onClick={() => { setShowDeletePortraitConfirmation(true) }}>
+                  <h6>Delete</h6>
+                </Button>
+              </div>
+            </>}
+          {uploadError && <p className="text-red-500">{uploadError}</p>}
+        </div>
+      )}
     </Modal>
   )
 }

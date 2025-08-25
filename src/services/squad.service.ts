@@ -1,7 +1,9 @@
 //@ts-nocheck
 import { SquadRepository } from '@/src/repositories/squad.repository'
 import { Squad } from '@/types'
+import fs from 'fs/promises'
 import { nanoid } from 'nanoid'
+import path from 'path'
 import { GearService } from './gear.service'
 import { MedalService } from './medal.service'
 import { UnitService } from './unit.service'
@@ -11,23 +13,28 @@ export class SquadService {
   private static repository = new SquadRepository()
 
   static async getSquadRow(squadId: string): Promise<Squad | null> {
-    const raw = await this.repository.getSquadRow(squadId)
-    return raw ? new Squad(raw) : null
+    const row = await this.repository.getSquadRow(squadId)
+    return row ? new Squad(row) : null
   }
 
   static async getSquad(squadId: string): Promise<Squad | null> {
     const raw = await this.repository.getSquad(squadId)
     if (!raw) return null
     const squad = raw ? new Squad(raw) : null
-    await Promise.all(squad.units.map(async unit => {
-      await GearService.loadUnitGear(unit)
-      await MedalService.loadUnitMedals(unit)
-      await UnitService.applyGearMods(unit)
-    }))
+
+    if (squad?.units && squad.units.length > 0) {
+      await Promise.all(squad.units.map(async unit => {
+        await GearService.loadUnitGear(unit)
+        await MedalService.loadUnitMedals(unit)
+        await UnitService.applyGearMods(unit)
+      }))
+    }
     return squad
   }
 
   static async createSquad(data: Partial<Squad>): Promise<Squad | null> {
+    if (!data || !data.userId) throw new Error('No data provided')
+
     data.squadId = nanoid(8)
 
     // Always make the new squad the first one in the user's list
@@ -45,6 +52,8 @@ export class SquadService {
   static async updateSquad(squadId: string, data: Partial<Squad>): Promise<Squad | null> {
     // Get original squad's state
     const originalSquad = await this.getSquadRow(squadId)
+
+    if (!originalSquad) return null
 
     // Reset unit activation if this is the next Turn
     const resetSquadActivation = !!data.turn && data.turn > originalSquad.turn
@@ -64,6 +73,7 @@ export class SquadService {
 
   static async deleteSquad(squadId: string): Promise<void> {
     const squad = await this.getSquadRow(squadId)
+    if (!squad) return
     await this.repository.deleteSquad(squadId)
     await UserService.fixSquadSeqs(squad.userId)
   }
@@ -97,6 +107,8 @@ export class SquadService {
       TO: 0
     })
 
+    if (!squad.units || squad.units.length === 0) return squad
+    
     // Reset all units' activation and currHIT
     await Promise.all(squad.units.map(async unit => {
       // If the Unit is Deceased (has GearID INJ-DC), don't reset its HIT
@@ -166,5 +178,30 @@ export class SquadService {
 
     // Done
     return finalSquad
+  }
+  
+  static async deleteSquadPortrait(squadId: string): Promise<Squad | null> {
+    const squad = await this.getSquadRow(squadId)
+    if (!squad) throw new Error('Squad not found')
+
+    // Update DB first (don't wait for file system to succeed)
+    const updatedSquad = await this.updateSquad(squadId, { hasCustomPortrait: false })
+
+    try {
+      const uploadDir = process.env.UPLOADS_DIR!
+      const filePath = path.resolve(
+        uploadDir,
+        `user_${squad.userId}`,
+        `squad_${squad.squadId}`,
+        `squad_${squad.squadId}.jpg`
+      )
+
+      await fs.unlink(filePath)
+    } catch (ex) {
+      // Log but don't block flow
+      console.warn(`Could not delete portrait file for squad ${squadId}:`, ex)
+    }
+
+    return updatedSquad
   }
 }

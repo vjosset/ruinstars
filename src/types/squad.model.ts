@@ -8,7 +8,7 @@ export type SquadPlain = {
   squadName: string
   description?: string
   hasCustomPortrait: boolean
-  portraitUrl?: string
+  portraitUpdatedAt?: Date
   viewCount: number
   importCount: number
   createdAt: Date
@@ -32,7 +32,7 @@ export class Squad {
   squadName: string
   description?: string
   hasCustomPortrait: boolean
-  portraitUrl?: string
+  portraitUpdatedAt?: Date
   viewCount: number
   importCount: number
   createdAt: Date
@@ -55,7 +55,7 @@ export class Squad {
     squadName: string
     description?: string
     hasCustomPortrait: boolean
-    portraitUrl?: string
+    portraitUpdatedAt?: Date
     viewCount: number
     importCount: number
     createdAt: Date
@@ -77,7 +77,7 @@ export class Squad {
     this.squadName = data.squadName
     this.description = data.description
     this.hasCustomPortrait = data.hasCustomPortrait
-    this.portraitUrl = data.portraitUrl
+    this.portraitUpdatedAt = data.portraitUpdatedAt
     this.viewCount = data.viewCount
     this.importCount = data.importCount
     this.createdAt = data.createdAt
@@ -102,7 +102,7 @@ export class Squad {
       squadName: this.squadName,
       description: this.description,
       hasCustomPortrait: this.hasCustomPortrait,
-      portraitUrl: this.portraitUrl,
+      portraitUpdatedAt: this.portraitUpdatedAt,
       viewCount: this.viewCount,
       importCount: this.importCount,
       createdAt: this.createdAt,

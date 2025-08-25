@@ -1,5 +1,4 @@
-import { GearPlain, UnitTypePlain, SquadPlain, MedalPlain } from '.'
-import { Gear, UnitType, Squad, Medal } from '.'
+import { Gear, GearPlain, Medal, MedalPlain, Squad, SquadPlain, UnitType, UnitTypePlain } from '.';
 
 export type UnitPlain = {
   unitId: string
@@ -17,7 +16,7 @@ export type UnitPlain = {
   unitTypeId: string
   isActivated: boolean
   hasCustomPortrait: boolean
-  portraitUrl?: string | null
+  portraitUpdatedAt?: Date
   gearIds?: string | null
   gears?: GearPlain[] | null
   weapons?: GearPlain[] | null
@@ -49,7 +48,7 @@ export class Unit {
   unitTypeId: string
   isActivated: boolean
   hasCustomPortrait: boolean
-  portraitUrl?: string | null
+  portraitUpdatedAt?: Date
   gearIds?: string | null
   gears?: Gear[] | []
   weapons?: Gear[] | null
@@ -69,7 +68,7 @@ export class Unit {
     currHIT: number
     isActivated: boolean
     hasCustomPortrait: boolean
-    portraitUrl?: string | null
+    portraitUpdatedAt?: Date
     gearIds?: string | null
     gears?: Gear[] | null
     weapons?: Gear[] | null
@@ -88,7 +87,7 @@ export class Unit {
     this.currHIT = data.currHIT
     this.isActivated = data.isActivated
     this.hasCustomPortrait = data.hasCustomPortrait
-    this.portraitUrl = data.portraitUrl
+    this.portraitUpdatedAt = data.portraitUpdatedAt
     this.gearIds = data.gearIds
     this.medalIds = data.medalIds
     this.gears = data.gears || []
@@ -132,7 +131,7 @@ export class Unit {
       currHIT: this.currHIT,
       isActivated: this.isActivated,
       hasCustomPortrait: this.hasCustomPortrait,
-      portraitUrl: this.portraitUrl,
+      portraitUpdatedAt: this.portraitUpdatedAt,
       gearIds: this.gearIds,
       unitType: this.unitType?.toPlain ? this.unitType?.toPlain() : null,
       squad: this.squad?.toPlain(),

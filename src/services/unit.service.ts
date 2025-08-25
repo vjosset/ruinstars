@@ -45,7 +45,36 @@ export class UnitService {
   }
 
   static async deleteUnit(unitId: string): Promise<void> {
+    // Delete the unit's portrait
+    await this.deleteUnitPortrait(opId)
+
     await this.repository.deleteUnit(unitId)
+  }
+  
+  static async deleteUnitPortrait(opId: string): Promise<void> {
+    const op = await this.getOpRow(opId)
+    if (!op?.hasCustomPortrait) return
+
+    const roster = await RosterService.getRosterRow(op.rosterId)
+    if (!roster) throw new Error('Roster not found')
+
+    // Update DB first (don't wait for file system to succeed)
+    await this.updateOp(opId, { hasCustomPortrait: false, portraitUpdatedAt: new Date() })
+
+    try {
+      const uploadDir = process.env.UPLOADS_DIR!
+      const filePath = path.resolve(
+        uploadDir,
+        `user_${roster.userId}`,
+        `squad_${op.rosterId}`,
+        `unit_${opId}.jpg`
+      )
+
+      await fs.unlink(filePath)
+    } catch (ex) {
+      // Log but don't block flow
+      console.warn(`Could not delete portrait file for op ${opId}:`, ex)
+    }
   }
   
   static applyGearMods(unit: Unit): void {
