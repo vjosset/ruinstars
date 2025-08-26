@@ -89,7 +89,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ uni
     // Process the image
     const filename = `unit_${unitId}.jpg`
     const resizedBuffer = await resizeImage(file, 900, 600)
-    const publicUrl = await saveImage(resizedBuffer, session.user.userId, op.squadId, filename)
+    await saveImage(resizedBuffer, session.user.userId, op.squadId, filename)
 
     // Update the op record
     const updatedUnit = await UnitService.updateUnit(unitId, { hasCustomPortrait: true, portraitUpdatedAt: new Date() })
