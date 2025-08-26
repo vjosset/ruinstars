@@ -91,7 +91,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ uni
     const publicUrl = await saveImage(resizedBuffer, session.user.userId, op.squadId, filename)
 
     // Update the op record
-    await UnitService.updateUnit(unitId, { hasCustomPortrait: true, portraitUpdatedAt: new Date() })
+    const updatedUnit = await UnitService.updateUnit(unitId, { hasCustomPortrait: true, portraitUpdatedAt: new Date() })
 
     // Track the portrait event
     await prisma.webEvent.create({
@@ -112,7 +112,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ uni
     })
 
     // Done
-    return NextResponse.json({ url: publicUrl }, { status: 200 })
+    return NextResponse.json(updatedUnit, { status: 200 })
   } catch (err) {
     // Something went wrong
     return NextResponse.json({ error: 'Upload failed', details: String(err) }, { status: 500 })
