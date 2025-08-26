@@ -45,7 +45,6 @@ export default function UnitEditorModal({
   )
   const [portraitFile, setPortraitFile] = useState<File | null>(null)
   const [portraitPreview, setPortraitPreview] = useState<string | null>(null)
-  const [isSaving, setIsSaving] = useState(false)
   const [uploadError, setUploadError] = useState<string | null>(null)
   const [showDeletePortraitConfirmation, setShowDeletePortraitConfirmation] = useState(false)
 
@@ -57,31 +56,6 @@ export default function UnitEditorModal({
       setPortraitPreview(URL.createObjectURL(file))
     } else {
       setPortraitPreview(null)
-    }
-  }
-
-  const handlePortraitUpload = async () => {
-    if (!portraitFile || !unit?.unitId) return
-    setUploadError(null)
-    try {
-      const formData = new FormData()
-      formData.append('type', 'unit')
-      formData.append('squadId', squadId)
-      formData.append('unitId', unit.unitId)
-      formData.append('image', portraitFile)
-
-      const res = await fetch('/api/image', {
-        method: 'POST',
-        body: formData,
-      })
-
-      if (!res.ok) {
-        const err = await res.json()
-        throw new Error(err.error || 'Upload failed')
-      }
-      // Optionally, refresh op data here
-    } catch (err: any) {
-      setUploadError(err.message)
     }
   }
 
@@ -156,8 +130,6 @@ export default function UnitEditorModal({
   }
 
   const handleSubmit = async () => {
-    setIsSaving(true)
-
     try {
       if (activeTab === 'portrait') {
         // Handle portrait upload
@@ -214,8 +186,6 @@ export default function UnitEditorModal({
       }
     } catch (err: any) {
       setUploadError(err.message)
-    } finally {
-      setIsSaving(false)
     }
   }
 

@@ -1,4 +1,4 @@
-import { Gear, GearPlain, Medal, MedalPlain, Squad, SquadPlain, UnitType, UnitTypePlain } from '.';
+import { Gear, GearPlain, Medal, MedalPlain, Squad, SquadPlain, UnitType, UnitTypePlain } from '.'
 
 export type UnitPlain = {
   unitId: string
@@ -30,7 +30,7 @@ export type UnitPlain = {
   totalMedalXP: number
   unitTypeName?: string
   GP?: number
-};
+}
 
 export class Unit {
   unitId: string

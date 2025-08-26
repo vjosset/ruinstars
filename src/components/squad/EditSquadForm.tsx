@@ -37,7 +37,6 @@ const EditSquadForm = forwardRef(function EditSquadForm(
   const [portraitFile, setPortraitFile] = useState<File | null>(null)
   const [portraitPreview, setPortraitPreview] = useState<string | null>(null)
   const [uploadError, setUploadError] = useState<string | null>(null)
-  const [isSaving, setIsSaving] = useState(false)
 
   const [showDeleteConfirmPortrait, setShowDeletePortraitConfirm] = useState(false)
 
@@ -60,7 +59,6 @@ const EditSquadForm = forwardRef(function EditSquadForm(
   }
 
   const handlePortraitSave = async () => {
-    setIsSaving(true)
     setUploadError(null)
 
     try {
@@ -91,14 +89,12 @@ const EditSquadForm = forwardRef(function EditSquadForm(
       }
     } catch (err: any) {
       setUploadError(err.message)
-    } finally {
-      setIsSaving(false)
     }
   }
 
   const handleConfirmDeletePortrait = async () => {
     setShowDeletePortraitConfirm(false)
-    setIsSaving(true)
+
     try {
       const res = await fetch(`/api/squads/${squadId}/portrait`, {
         method: 'DELETE'
@@ -117,8 +113,6 @@ const EditSquadForm = forwardRef(function EditSquadForm(
       onCancel() // close modal
     } catch (err: any) {
       setUploadError(err.message)
-    } finally {
-      setIsSaving(false)
     }
   }
 

@@ -51,6 +51,7 @@ export async function GET(
       },
     })
   } catch (err) {
+    console.log('Unit portrait error:', err)
     return new NextResponse('Image not found', { status: 404 })
   }
 }
