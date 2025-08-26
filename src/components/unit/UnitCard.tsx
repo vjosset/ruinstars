@@ -149,44 +149,44 @@ export default function UnitCard({
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-1 text-center">
-              <h5 className="text-sm">
+              <div className="text-sm">
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiFlashlightFill className="text-xl" />*/}
                   ACT
-                  <span className="stat text-main text-3xl">{unit.ACT}</span>
+                  <h5 className="stat text-main text-3xl">{unit.ACT}</h5>
                 </span>
-              </h5>
+              </div>
               {/*}
-              <h5 className="text-xs">
+              <div className="text-xs">
                 MSK<br/>
                 <span className="flex items-center justify-center gap-1">
                   <RiSwordFill className="text-xl" />
-                  <span className="stat text-main text-3xl">{unit.MSK}</span>
+                  <h5 className="stat text-main text-3xl">{unit.MSK}</h5>
                 </span>
-              </h5>
-              <h5 className="text-xs">
+              </div>
+              <div className="text-xs">
                 RSK<br/>
                 <span className="flex items-center justify-center gap-1">
                   <RiCrosshair2Fill className="text-xl" />
-                  <span className="stat text-main text-3xl">{unit.RSK}</span>
+                  <h5 className="stat text-main text-3xl">{unit.RSK}</h5>
                 </span>
-              </h5>
+              </div>
               */}
-              <h5 className="text-sm">
+              <div className="text-sm">
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiShieldFill className="text-lg" />*/}
                   ARM
-                  <span className="stat text-main text-3xl">{unit.ARM}</span>
+                  <h5 className="stat text-main text-3xl">{unit.ARM}</h5>
                 </span>
-              </h5>
-              <h5 className={`text-sm ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
+              </div>
+              <div className={`text-sm ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiHeartFill className="text-xl" />*/}
                   HIT
-                  <span className="stat text-main text-3xl">{unit.isUnitType ? unit.HIT : unit.currHIT}</span>
-                  {!unit.isUnitType && <span className="stat text-muted text-lg">/{unit.HIT}</span>}
+                  <h5 className="stat text-main text-3xl">{unit.isUnitType ? unit.HIT : unit.currHIT}</h5>
+                  {!unit.isUnitType && <h5 className="stat text-muted text-lg">/{unit.HIT}</h5>}
                 </span>
-              </h5>
+              </div>
             </div>
           </div>
         </div>
