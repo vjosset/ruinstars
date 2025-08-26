@@ -333,9 +333,24 @@ export default function UnitEditorModal({
             {/* Stats */}
             {selectedUnitType && (
               <div className="grid grid-cols-3 gap-1 my-3 text-center">
-                <h5>ACT <span className="stat text-main text-3xl">{selectedUnitType.ACT}</span></h5>
-                <h5>ARM <span className="stat text-main text-3xl">{selectedUnitType.ARM}</span></h5>
-                <h5>HIT <span className="stat text-main text-3xl">{selectedUnitType.HIT}</span></h5>
+                <div className="text-sm">
+                  <span className="flex items-center justify-center gap-1">
+                    ACT
+                    <h5 className="stat text-main text-3xl">{selectedUnitType.ACT}</h5>
+                  </span>
+                </div>
+                <div className="text-sm">
+                  <span className="flex items-center justify-center gap-1">
+                    ARM
+                    <h5 className="stat text-main text-3xl">{selectedUnitType.ARM}</h5>
+                  </span>
+                </div>
+                <div className="text-sm">
+                  <span className="flex items-center justify-center gap-1">
+                    HIT
+                    <h5 className="stat text-main text-3xl">{selectedUnitType.HIT}</h5>
+                  </span>
+                </div>
               </div>
             )}
 
