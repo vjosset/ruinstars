@@ -3,7 +3,7 @@
 import { Medal, UnitPlain } from '@/types'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
-import { Button, Modal } from '../ui'
+import { Button, Checkbox, Modal } from '../ui'
 
 interface UnitMedalModalProps {
   isOpen: boolean
@@ -117,8 +117,7 @@ export default function UnitMedalModal({
               }}
             >
               {isOwner && (
-                <input
-                  type="checkbox"
+                <Checkbox
                   checked={medalIds.includes(medal.medalId)}
                   className="mt-1"
                 // No onChange handler needed - click bubbles to parent div's onClick

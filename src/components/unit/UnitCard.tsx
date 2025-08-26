@@ -9,7 +9,6 @@ import { Medal, UnitPlain, UnitTypePlain } from '@/types'
 import { useEffect, useState } from 'react'
 import { FaHeartPulse, FaMedal } from 'react-icons/fa6'
 import { GiDeathSkull } from 'react-icons/gi'
-import { RiFlashlightFill, RiHeartFill, RiShieldFill } from 'react-icons/ri'
 import { toast } from 'sonner'
 import { Button, Checkbox, Modal } from '../ui'
 import UnitCardMenu from './UnitCardMenu'
@@ -151,9 +150,9 @@ export default function UnitCard({
             {/* Stats */}
             <div className="grid grid-cols-3 gap-1 text-center">
               <h5 className="text-sm">
-                ACT<br/>
                 <span className="flex items-center justify-center gap-1">
-                  <RiFlashlightFill className="text-xl" />
+                  {/*<RiFlashlightFill className="text-xl" />*/}
+                  ACT
                   <span className="stat text-main text-3xl">{unit.ACT}</span>
                 </span>
               </h5>
@@ -174,16 +173,16 @@ export default function UnitCard({
               </h5>
               */}
               <h5 className="text-sm">
-                ARM<br/>
                 <span className="flex items-center justify-center gap-1">
-                  <RiShieldFill className="text-lg" />
+                  {/*<RiShieldFill className="text-lg" />*/}
+                  ARM
                   <span className="stat text-main text-3xl">{unit.ARM}</span>
                 </span>
               </h5>
               <h5 className={`text-sm ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
-                HIT<br/>
                 <span className="flex items-center justify-center gap-1">
-                  <RiHeartFill className="text-xl" />
+                  {/*<RiHeartFill className="text-xl" />*/}
+                  HIT
                   <span className="stat text-main text-3xl">{unit.isUnitType ? unit.HIT : unit.currHIT}</span>
                   {!unit.isUnitType && <span className="stat text-muted text-lg">/{unit.HIT}</span>}
                 </span>

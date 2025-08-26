@@ -39,7 +39,7 @@ export default function Modal({
       >
         {/* Header */}
         <div className="flex items-center justify-between p-2 border-b border-border sticky top-0 bg-background z-10">
-          <h4 className="text-main font-bold font-heading">{title}</h4>
+          <h5 className="text-main font-bold font-heading">{title}</h5>
           <button
             className="text-muted hover:text-main w-8 h-8 flex items-center justify-center"
             onClick={onClose}

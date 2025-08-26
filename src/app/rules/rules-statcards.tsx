@@ -1,5 +1,6 @@
 import UnitCard from '@/components/unit/UnitCard'
 import { SpecialService, UnitService } from '@/services'
+import { RiCrosshair2Fill, RiSwordFill } from 'react-icons/ri'
 
 export default async function RulesStatCards() {
   const sampleUnit = (await UnitService.getUnit('ST-0'))!.toPlain()
@@ -25,30 +26,27 @@ export default async function RulesStatCards() {
           <h4 id="unit-stats">Unit Stats</h4>
           <ul>
             <li>
-              {/*<img className="statsymbol inline highlightblack" style={{height: '1rem'}} src="/icons/white/ACT.png" />*/}
               <h6 className="inline">ACT</h6> - Action Points<br/>
               The maximum number of Action Points this Unit can spend on <a href="#actions">Actions</a> during its activation.
             </li>
+            {/*
             <li>
-              {/*<img className="statsymbol inline highlightblack" style={{height: '1rem'}} src="/icons/white/ARM.png" />*/}
               <h6 className="inline">MSK</h6> - Melee Skill<br/>
               Indicates how well this Unit performs in <a href="#combat">Melee Combat</a>.<br/>
               When rolling Attacks, results of this stat or lower are successful.
             </li>
             <li>
-              {/*<img className="statsymbol inline highlightblack" style={{height: '1rem'}} src="/icons/white/ARM.png" />*/}
               <h6 className="inline">RSK</h6> - Ranged Skill<br/>
               Indicates how well this Unit performs in <a href="#combat">Ranged Combat</a>.<br/>
               When rolling Attacks, results of this stat or lower are successful.
             </li>
+            */}
             <li>
-              {/*<img className="statsymbol inline highlightblack" style={{height: '1rem'}} src="/icons/white/ARM.png" />*/}
               <h6 className="inline">ARM</h6> - Armor<br/>
               Indicates how well this Unit resists damage during <a href="#combat">combat</a>.<br/>
               When rolling Armor Saves, results of this stat or lower are successful.
             </li>
             <li>
-              {/*<img className="statsymbol inline highlightblack" style={{height: '1rem'}} src="/icons/white/HIT.png" />*/}
               <h6 className="inline">HIT</h6> - Hit Points<br/>
               The Unit's number of Hit Points. When a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield (see <a href="#combat">Combat</a>).<br/>
               If a Unit has at least 1 <code>HIT</code> remaining, it is considered to be Standing.
@@ -85,19 +83,17 @@ export default async function RulesStatCards() {
           <h4 id="weapon-stats">Weapon Stats</h4>
           <ul>
             <li>
-              <img className="inline highlightblack" src="/icons/white/weptypeR.png" width="13" />/<img className="inline highlightblack" src="/icons/white/weptypeM.png" width="13" /> - Weapon Type<br/>
-              <img className="inline highlightblack" src="/icons/white/weptypeR.png" width="13" /> indicates a Ranged weapon, <img className="inline highlightblack" src="/icons/white/weptypeM.png" width="13" /> indicates a Melee weapon.
+              <RiSwordFill className="inline-block" />/<RiCrosshair2Fill className="inline-block" /> - Weapon Type<br/>
+              <RiSwordFill className="inline-block" /> indicates a Melee weapon, <RiCrosshair2Fill className="inline-block" /> indicates a Ranged weapon.
             </li>
             <li>
               <h6 className="inline">ATT</h6> - Attacks<br/>
               How many Dice are rolled each time this Weapon is used.
             </li>
-            {/*}
             <li>
               <h6 className="inline">SKL</h6> - Skill<br/>
               Indicates the skill of this Unit when using this Weapon. Rolls that are equal to or less than this value are successful strikes.
             </li>
-            */}
             <li>
               <h6 className="inline">(Special)</h6> - Weapon Specials<br/>
               <a href="#weapon-specials">Specials</a> for this weapon are listed next to its name.
