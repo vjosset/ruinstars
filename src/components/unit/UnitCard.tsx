@@ -107,10 +107,10 @@ export default function UnitCard({
                   <Checkbox
                     checked={!!unit.isActivated}
                     onChange={toggleActivated}
-                    className="accent-primary w-5 h-5 mt-1.5"
+                    className="accent-primary mb-1.5"
                   />
                 )}
-                <h4 className={`font-heading ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
+                <h5 className={`font-heading ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
                   <div className="flex items-center gap-1">
                     <span onClick={toggleActivated}>
                       {unit.isUnitType ? '' : `${seq}. `}
@@ -129,7 +129,7 @@ export default function UnitCard({
                       }
                     </span>
                   </div>
-                </h4>
+                </h5>
               </div>
               <div className="text-muted mb-1">
                 {unit.isUnitType && <>{unit.GP}GP</>}
@@ -153,7 +153,7 @@ export default function UnitCard({
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiFlashlightFill className="text-xl" />*/}
                   ACT
-                  <h5 className="stat text-main text-3xl">{unit.ACT}</h5>
+                  <h4 className="stat text-main">{unit.ACT}</h4>
                 </span>
               </div>
               {/*}
@@ -161,14 +161,14 @@ export default function UnitCard({
                 MSK<br/>
                 <span className="flex items-center justify-center gap-1">
                   <RiSwordFill className="text-xl" />
-                  <h5 className="stat text-main text-3xl">{unit.MSK}</h5>
+                  <h5 className="stat text-main">{unit.MSK}</h5>
                 </span>
               </div>
               <div className="text-xs">
                 RSK<br/>
                 <span className="flex items-center justify-center gap-1">
                   <RiCrosshair2Fill className="text-xl" />
-                  <h5 className="stat text-main text-3xl">{unit.RSK}</h5>
+                  <h5 className="stat text-main">{unit.RSK}</h5>
                 </span>
               </div>
               */}
@@ -176,15 +176,15 @@ export default function UnitCard({
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiShieldFill className="text-lg" />*/}
                   ARM
-                  <h5 className="stat text-main text-3xl">{unit.ARM}</h5>
+                  <h4 className="stat text-main">{unit.ARM}</h4>
                 </span>
               </div>
               <div className={`text-sm ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiHeartFill className="text-xl" />*/}
                   HIT
-                  <h5 className="stat text-main text-3xl">{unit.isUnitType ? unit.HIT : unit.currHIT}</h5>
-                  {!unit.isUnitType && <h5 className="stat text-muted text-lg">/{unit.HIT}</h5>}
+                  <h4 className="stat text-main">{unit.isUnitType ? unit.HIT : unit.currHIT}</h4>
+                  {!unit.isUnitType && <h6 className="stat text-muted">/{unit.HIT}</h6>}
                 </span>
               </div>
             </div>
