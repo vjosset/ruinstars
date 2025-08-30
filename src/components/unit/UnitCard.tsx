@@ -160,7 +160,7 @@ export default function UnitCard({
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiFlashlightFill className="text-xl" />*/}
                   ACT
-                  <h4 className="stat text-main">{unit.ACT}</h4>
+                  <h3 className="stat text-main">{unit.ACT}</h3>
                 </span>
               </div>
               {/*}
@@ -183,14 +183,14 @@ export default function UnitCard({
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiShieldFill className="text-lg" />*/}
                   ARM
-                  <h4 className="stat text-main">{unit.ARM}</h4>
+                  <h3 className="stat text-main">{unit.ARM}</h3>
                 </span>
               </div>
               <div className={`text-sm ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiHeartFill className="text-xl" />*/}
                   HIT
-                  <h4 className="stat text-main">{unit.isUnitType ? unit.HIT : unit.currHIT}</h4>
+                  <h3 className="stat text-main">{unit.isUnitType ? unit.HIT : unit.currHIT}</h3>
                   {!unit.isUnitType && <h6 className="stat text-muted">/{unit.HIT}</h6>}
                 </span>
               </div>
@@ -212,8 +212,8 @@ export default function UnitCard({
         {/* Note we hide this for UnitType cards since we moved all Unit specials to Abilities for clarity */}
         {!unit.isUnitType && (
           <div className="border-t border-border mt-auto">
-            <div className="flex justify-between items-start">
-              <div className="text-muted text-sm">
+            <div className="flex justify-between items-center">
+              <div className="text-muted text-xs italic">
                 {unit?.unitType?.unitTypeName}
                 {unit.special !== '' && (
                   <span

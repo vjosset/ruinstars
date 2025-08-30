@@ -42,7 +42,7 @@ export default function WeaponTable({
     <div>
       <table className="w-full border-collapse">
         <thead>
-          <tr className="text-muted border-t border-border">
+          <tr className="text-muted border-b border-border">
             <th className="text-left w-6/8"><h6>Weapons</h6></th>
             <th className="text-center w-1/8"><h6>ATT</h6></th>
             <th className="text-center w-1/8"><h6>SKL</h6></th>

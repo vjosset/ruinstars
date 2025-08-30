@@ -20,8 +20,8 @@ module.exports = {
           print: '#c54c21',      // Black for print
         },
         card: {
-          DEFAULT: '#0f0f0f',    // Card background
-          print: '#0f0f0f',      // White for print
+          DEFAULT: '#080808',    // Card background
+          print: '#080808',      // White for print
         },
         border: {
           DEFAULT: '#555555',    // Subtle border

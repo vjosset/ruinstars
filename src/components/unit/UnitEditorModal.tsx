@@ -336,19 +336,19 @@ export default function UnitEditorModal({
                 <div className="text-sm">
                   <span className="flex items-center justify-center gap-1">
                     ACT
-                    <h5 className="stat text-main text-3xl">{selectedUnitType.ACT}</h5>
+                    <h3 className="stat text-main">{selectedUnitType.ACT}</h3>
                   </span>
                 </div>
                 <div className="text-sm">
                   <span className="flex items-center justify-center gap-1">
                     ARM
-                    <h5 className="stat text-main text-3xl">{selectedUnitType.ARM}</h5>
+                    <h3 className="stat text-main">{selectedUnitType.ARM}</h3>
                   </span>
                 </div>
                 <div className="text-sm">
                   <span className="flex items-center justify-center gap-1">
                     HIT
-                    <h5 className="stat text-main text-3xl">{selectedUnitType.HIT}</h5>
+                    <h3 className="stat text-main">{selectedUnitType.HIT}</h3>
                   </span>
                 </div>
               </div>

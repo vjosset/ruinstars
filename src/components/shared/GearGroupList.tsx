@@ -54,7 +54,7 @@ export default function GearGroupList({
         })
 
         return (
-          <div key={categoryId} className="border-t border-border">
+          <div key={categoryId} className=" border-t border-border">
             <h6 className="text-muted flex items-center">
               {sortedGears[0].gearCategory?.gearCategoryName}
             </h6>
