@@ -4,6 +4,7 @@ import { name_corvius } from '@/lib/namegen/corvius'
 import { name_czigheo } from '@/lib/namegen/czigheo'
 import { name_decaeta } from '@/lib/namegen/decaeta'
 import { name_fyhucho } from '@/lib/namegen/fyhucho'
+import { name_graxnuhk } from '@/lib/namegen/graxnuhk'
 import { getRandom, ucwords } from '@/lib/utils/utils'
 import { NextResponse } from 'next/server'
 
@@ -29,6 +30,8 @@ export async function GET(req: Request, { params }: { params: Promise<{ nametype
     return new NextResponse(ucwords(name_bearaxe()), { status: 200, statusText: 'OK' })
   case 'CZIGHEO':
     return new NextResponse(ucwords(name_czigheo()), { status: 200, statusText: 'OK' })
+  case 'GRAXNUHK':
+    return new NextResponse(ucwords(name_graxnuhk()), { status: 200, statusText: 'OK' })
   default:
     return new NextResponse(nametype, { status: 200, statusText: 'OK' })
   }
