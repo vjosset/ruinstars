@@ -6,7 +6,7 @@ import { Menu, MenuButton } from '@headlessui/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { FiChevronDown } from 'react-icons/fi'
+import { FiMoreVertical } from 'react-icons/fi'
 import { Button, Modal } from '../ui'
 import SquadCardMenu from './SquadCardMenu'
 
@@ -52,10 +52,10 @@ export default function SquadCard({
         </Link>
 
         {/* Content section - right side */}
-        <div className="relative p-2 flex flex-col justify-between">
-          <div className="flex items-center gap-1">
+        <div className="relative p-2 flex flex-col justify-between h-full min-w-0">
+          <div className="flex items-center gap-1 min-w-0" style={{width: '100%'}}>
             <Link href={`/squads/${squad.squadId}`} className="flex items-center min-w-0 flex-1"> {/* Added min-w-0 to allow text truncation */}
-              <h5 className="font-heading text-main"> {/* Add  truncate w-0 flex-1 to allow text truncation + ellipsis */}
+              <h5 className="font-heading text-main truncate overflow-hidden whitespace-nowrap w-full"> {/* Add  truncate w-0 flex-1 to allow text truncation + ellipsis */}
                 {squad.squadName}
               </h5>
             </Link>
@@ -64,7 +64,7 @@ export default function SquadCard({
               <Menu>
                 <MenuButton as="div">
                   <button className='p-1 rounded-sm transition-colors'>
-                    <FiChevronDown className="w-5 h-5" />
+                    <FiMoreVertical className="w-5 h-5" />
                   </button>
                 </MenuButton>
                 <SquadCardMenu

@@ -21,7 +21,7 @@ export default function SquadTypeCard({ squadType }: SquadTypeCardProps) {
       </div>
 
       {/* Content section - right side */}
-      <div className="relative px-3 py-2 flex flex-col justify-between h-full min-w-0">
+      <div className="relative p-2 flex flex-col justify-between h-full min-w-0">
         <div className="flex items-center gap-x-2 min-w-0" style={{width: '100%'}}>
           <h5 className="font-heading text-main text-xl truncate overflow-hidden whitespace-nowrap w-full">{squadType.squadTypeName}</h5>
         </div>
