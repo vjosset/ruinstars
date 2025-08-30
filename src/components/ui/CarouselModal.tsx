@@ -1,8 +1,8 @@
 // components/CarouselModal.tsx
-import useEmblaCarousel from 'embla-carousel-react';
-import React, { useCallback, useEffect } from 'react';
-import { createPortal } from 'react-dom';
-import styles from './CarouselModal.module.css';
+import useEmblaCarousel from 'embla-carousel-react'
+import React, { useCallback, useEffect } from 'react'
+import { createPortal } from 'react-dom'
+import styles from './CarouselModal.module.css'
 
 export type CarouselItem = {
   imageUrl: string,
@@ -10,11 +10,11 @@ export type CarouselItem = {
 }
 
 type CarouselModalProps = {
-  items: CarouselItem[];
-  initialIndex?: number;
-  isOpen: boolean;
-  onClose: () => void;
-};
+  items: CarouselItem[]
+  initialIndex?: number
+  isOpen: boolean
+  onClose: () => void
+}
 
 const CarouselModal: React.FC<CarouselModalProps> = ({
   items,
@@ -22,34 +22,34 @@ const CarouselModal: React.FC<CarouselModalProps> = ({
   isOpen,
   onClose,
 }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false })
 
   useEffect(() => {
     if (emblaApi) {
-      emblaApi.scrollTo(initialIndex);
+      emblaApi.scrollTo(initialIndex)
     }
-  }, [emblaApi, initialIndex]);
+  }, [emblaApi, initialIndex])
   
   // Disable body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
       // Lock scroll
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden'
     } else {
       // Unlock scroll
-      document.body.style.overflow = '';
+      document.body.style.overflow = ''
     }
 
     // Clean up on unmount or modal close
     return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
 
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
 
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   return createPortal(
     <div className={styles.backdrop} onClick={onClose}>
@@ -74,7 +74,7 @@ const CarouselModal: React.FC<CarouselModalProps> = ({
       </div>
     </div>,
     document.body
-  );
-};
+  )
+}
 
-export default CarouselModal;
+export default CarouselModal
