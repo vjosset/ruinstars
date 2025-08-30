@@ -37,7 +37,7 @@ export default async function SquadPage({ params }: { params: Promise<{ squadId:
   const isOwner = session?.user?.userId === squad.userId
 
   return (
-    <div className="px-1 py-8 max-w-7xl mx-auto">
+    <div className="mx-auto">
       <SquadPageClient initialSquad={squad.toPlain()} isOwner={isOwner} />
     </div>
   )
