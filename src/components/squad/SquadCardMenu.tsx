@@ -45,7 +45,7 @@ export default function SquadCardMenu({
   }
 
   return (
-    <MenuItems className="absolute right-0 top-6 m-1 z-50 w-28 origin-top-right rounded-md bg-card border border-border shadow-md focus:outline-none divide-y divide-border">
+    <MenuItems className={'absolute right-0 top-6 m-1 z-50 w-28 origin-top-right rounded-md bg-card border border-main focus:outline-none divide-y divide-border'}>
       <div className="flex flex-col py-1">
         <MenuItem>
           {({ focus }) => (

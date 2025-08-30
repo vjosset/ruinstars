@@ -1,6 +1,6 @@
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { MenuItem, MenuItems } from '@headlessui/react'
 import clsx from 'clsx'
-import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiEdit, FiMoreVertical, FiTrash } from 'react-icons/fi'
+import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiEdit, FiTrash } from 'react-icons/fi'
 
 export default function UnitCardMenu({
   onEdit,
@@ -18,69 +18,63 @@ export default function UnitCardMenu({
   onMoveLast?: () => void
 }) {
   return (
-    <Menu>
-      <MenuButton className="p-1">
-        <FiMoreVertical className="w-5 h-5" />
-      </MenuButton>
-
-      <MenuItems className="absolute right-2 m-1 z-50 w-28 origin-top-right rounded-md bg-card border border-main focus:outline-none divide-y divide-border">
-        <div className="flex flex-col p-1">
-          <MenuItem>
-            {({ focus }) => (
-              <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
-                onClick={onEdit}
-              >
-                <FiEdit /> Edit
-              </button>
-            )}
-          </MenuItem>
-          <MenuItem>
-            {({ focus }) => (
-              <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
-                onClick={onMoveUp}
-              >
-                <FiChevronUp /> Move Up
-              </button>
-            )}
-          </MenuItem>
-          <MenuItem>
-            {({ focus }) => (
-              <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
-                onClick={onMoveFirst}
-              >
-                <FiChevronsUp /> Move First
-              </button>
-            )}
-          </MenuItem>
-          <MenuItem>
-            {({ focus }) => (
-              <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
-                onClick={onMoveDown}
-              >
-                <FiChevronDown /> Move Down
-              </button>
-            )}
-          </MenuItem>
-          <MenuItem>
-            {({ focus }) => (
-              <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
-                onClick={onMoveLast}
-              >
-                <FiChevronsDown /> Move Last
-              </button>
-            )}
-          </MenuItem>
-          <MenuItem>
-            {({ focus }) => (
-              <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
-                onClick={onDelete}
-              >
-                <FiTrash /> Delete
-              </button>
-            )}
-          </MenuItem>
-        </div>
-      </MenuItems>
-    </Menu>
+    <MenuItems className="absolute right-2 m-1 z-50 w-28 origin-top-right rounded-md bg-card border border-main focus:outline-none divide-y divide-border">
+      <div className="flex flex-col p-1">
+        <MenuItem>
+          {({ focus }) => (
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+              onClick={onEdit}
+            >
+              <FiEdit /> Edit
+            </button>
+          )}
+        </MenuItem>
+        <MenuItem>
+          {({ focus }) => (
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+              onClick={onMoveUp}
+            >
+              <FiChevronUp /> Move Up
+            </button>
+          )}
+        </MenuItem>
+        <MenuItem>
+          {({ focus }) => (
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+              onClick={onMoveFirst}
+            >
+              <FiChevronsUp /> Move First
+            </button>
+          )}
+        </MenuItem>
+        <MenuItem>
+          {({ focus }) => (
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+              onClick={onMoveDown}
+            >
+              <FiChevronDown /> Move Down
+            </button>
+          )}
+        </MenuItem>
+        <MenuItem>
+          {({ focus }) => (
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+              onClick={onMoveLast}
+            >
+              <FiChevronsDown /> Move Last
+            </button>
+          )}
+        </MenuItem>
+        <MenuItem>
+          {({ focus }) => (
+            <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground' )}
+              onClick={onDelete}
+            >
+              <FiTrash /> Delete
+            </button>
+          )}
+        </MenuItem>
+      </div>
+    </MenuItems>
   )
 }

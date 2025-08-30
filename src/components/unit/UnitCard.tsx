@@ -6,8 +6,10 @@ import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
 import GearGroupList from '@/src/components/shared/GearGroupList'
 import WeaponTable from '@/src/components/shared/WeaponTable'
 import { Medal, UnitPlain, UnitTypePlain } from '@/types'
+import { Menu, MenuButton } from '@headlessui/react'
 import { useEffect, useState } from 'react'
 import { FaHeartPulse, FaMedal } from 'react-icons/fa6'
+import { FiMoreVertical } from 'react-icons/fi'
 import { GiDeathSkull } from 'react-icons/gi'
 import { toast } from 'sonner'
 import { Button, Checkbox, Modal } from '../ui'
@@ -135,14 +137,19 @@ export default function UnitCard({
                 {unit.isUnitType && <>{unit.GP}GP</>}
                 {/* Action menu */}
                 {!unit.isUnitType && isOwner && (
-                  <UnitCardMenu
-                    onEdit={() => setShowUnitEditorModal(true)}
-                    onDelete={() => setShowDeleteConfirm(true)}
-                    onMoveUp={onMoveUp}
-                    onMoveDown={onMoveDown}
-                    onMoveFirst={onMoveFirst}
-                    onMoveLast={onMoveLast}
-                  />
+                  <Menu as="div" className="relative flex-shrink-0 noprint">
+                    <MenuButton as="button" className="p-1">
+                      <FiMoreVertical className="w-5 h-5" />
+                    </MenuButton>
+                    <UnitCardMenu
+                      onEdit={() => setShowUnitEditorModal(true)}
+                      onDelete={() => setShowDeleteConfirm(true)}
+                      onMoveUp={onMoveUp}
+                      onMoveDown={onMoveDown}
+                      onMoveFirst={onMoveFirst}
+                      onMoveLast={onMoveLast}
+                    />
+                  </Menu>
                 )}
               </div>
             </div>
