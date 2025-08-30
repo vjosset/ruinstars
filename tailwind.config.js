@@ -8,8 +8,8 @@ module.exports = {
     extend: {
       colors: {
         background: {
-          DEFAULT: '#0f0f0f',    // Very dark background
-          print: '#0f0f0f',      // White background for print
+          DEFAULT: '#000000',    // Very dark background
+          print: '#000000',      // White background for print
         },
         foreground: {
           DEFAULT: '#dddddd',    // Main text color
@@ -20,8 +20,8 @@ module.exports = {
           print: '#c54c21',      // Black for print
         },
         card: {
-          DEFAULT: '#1a1a1a',    // Card background
-          print: '#1a1a1a',      // White for print
+          DEFAULT: '#0f0f0f',    // Card background
+          print: '#0f0f0f',      // White for print
         },
         border: {
           DEFAULT: '#555555',    // Subtle border
