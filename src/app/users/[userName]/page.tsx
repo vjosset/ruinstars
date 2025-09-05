@@ -1,6 +1,7 @@
 import PageTitle from '@/components/ui/PageTitle'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
+import { getSquadPortraitUrl } from '@/lib/utils/imageUrls'
 import { UserService } from '@/services'
 import { getAuthSession } from '@/src/lib/auth'
 import { Squad } from '@/types/squad.model'
@@ -18,12 +19,23 @@ export async function generateMetadata({ params }: { params: Promise<{ userName:
     }
   }
 
+  const imageUrls = user.squads?.
+    filter((r) => r.hasCustomPortrait).
+    map((r) => getSquadPortraitUrl(r.squadId)).
+    slice(0, 5)
+  
+  if (!imageUrls || imageUrls.length < 1) {
+    if (user.squads?.[0]) {
+      imageUrls?.push(`/img/squadTypes/${user.squads?.[0]?.squadType?.squadTypeId}.webp`)
+    }
+  }
+
   return generatePageMetadata({
     title: `${user.userName}'s Squads`,
     description: `View and import ${user.userName}'s squads on ${GAME.NAME}.`,
-    image: {
-      url: '/img/hero01.webp',
-    },
+    images: imageUrls?.map((img) => {
+      return { url: img}
+    }),
     keywords: [user.userName, 'user', 'squads'],
     pagePath: `/users/${user.userName}`
   })

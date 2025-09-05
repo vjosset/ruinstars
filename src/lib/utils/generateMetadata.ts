@@ -3,23 +3,25 @@ import { Metadata } from 'next'
 import { headers } from 'next/headers'
 import removeMd from 'remove-markdown'
 
+interface MetadataImage {
+  url: string
+  width?: number
+  height?: number
+  alt?: string
+}
+
 interface MetadataParams {
   title?: string
   description?: string
-  image?: {
-    url: string
-    width?: number
-    height?: number
-    alt?: string
-  }
-  keywords?: string[],
+  images?: MetadataImage[]
+  keywords?: string[]
   pagePath: string
 }
 
 export async function generatePageMetadata({
   title,
   description,
-  image,
+  images = [],
   keywords = [],
   pagePath = '/'
 }: MetadataParams): Promise<Metadata> {
@@ -34,17 +36,15 @@ export async function generatePageMetadata({
   
   // Remove markdown formatting from descriptions (e.g. squadType descriptions)
   const pageDescription = removeMd(description ?? `${GAME.NAME} is a free fast-paced miniatures-agnostic sci-fi skirmish wargame set in a galaxy filled with dangers.`)
-  const pageImage = image ? {
-    url: image.url.startsWith('http') ? image.url : `${baseUrl}${image.url}`,
-    width: image.width || 1200,
-    height: image.height || 630,
-    alt: image.alt || pageTitle,
-  } : {
-    url: `${baseUrl}/img/hero01.webp`,
-    width: 1200,
-    height: 630,
-    alt: GAME.NAME,
-  }
+
+  const normalizedImages = images.map((img) => ({
+    url: img.url.startsWith('http') ? img.url : `${baseUrl}${img.url}`,
+    width: img.width || 1200,
+    height: img.height || 630,
+    alt: img.alt || pageTitle,
+  }))
+  
+  const firstImage = normalizedImages[0] || null
 
   return {
     title: pageTitle,
@@ -74,7 +74,7 @@ export async function generatePageMetadata({
       description: pageDescription,
       url: baseUrl,
       siteName: GAME.NAME,
-      images: [pageImage],
+      images: normalizedImages,
       type: 'website',
       locale: 'en_US',
     },
@@ -84,7 +84,7 @@ export async function generatePageMetadata({
       card: 'summary_large_image',
       title: pageTitle,
       description: pageDescription,
-      images: [pageImage.url]
+      images: normalizedImages,
     },
 
     // Additional metadata

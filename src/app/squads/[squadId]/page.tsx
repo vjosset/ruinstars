@@ -1,6 +1,7 @@
 import { getAuthSession } from '@/lib/auth'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
+import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { SquadService } from '@/services'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -16,12 +17,24 @@ export async function generateMetadata({ params }: { params: Promise<{ squadId: 
     }
   }
 
+  const images: string[] = []
+  if (squad.hasCustomPortrait) {
+    images.push(getSquadPortraitUrl(squad.squadId))
+  }
+  squad.units?.
+    filter(unit => unit.hasCustomPortrait).
+    map(unit => unit.hasCustomPortrait && images.push(`${getUnitPortraitUrl(unit.unitId)}?v=${toEpochMs(unit.portraitUpdatedAt)}`))
+
+  // Use only the first 3 images. For cards that show multiple images (e.g. Discord), it should put the squad image large, plus 2 smaller images for the first two units
   return generatePageMetadata({
     title: `${squad.squadName} by ${squad.user?.userName}`,
-    description: `A ${squad.squadType?.squadTypeName} Squad for ${GAME.NAME}`,
-    image: {
-      url: `/img/squadTypes/${squad.squadType?.squadTypeId}.webp`,
-    },
+    description: `${squad.squadType?.squadTypeName} Squad for ${GAME.NAME}`,
+    images: 
+      images.length > 0
+        ? images.splice(0, 5).map((img) => ({url: img}))
+        : [{
+          url: `/img/killteams/${squad.squadType?.squadTypeId}.webp`,
+        }],
     keywords: ['squad', squad.user?.userName ?? 'user', squad.squadName, squad.squadType?.squadTypeName ?? ''],
     pagePath: `/squads/${squad.squadId}`
   })

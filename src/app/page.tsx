@@ -11,9 +11,9 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title: 'Home',
     description: `${GAME.NAME} is a free fast-paced miniatures-agnostic sci-fi skirmish wargame set in a galaxy filled with dangers. Build your squads. Track your battles. Dominate the stars.`,
-    image: {
+    images: [{
       url: '/img/hero01_wideB.webp',
-    },
+    }],
     keywords: ['home', 'squad builder', 'battle tracker'],
     pagePath: '/'
   })
