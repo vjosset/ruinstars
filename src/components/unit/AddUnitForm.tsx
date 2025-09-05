@@ -26,7 +26,7 @@ export default function AddUnitForm({ squad: squad, onUnitAdded, allSpecials }: 
   if (!userName) return null
 
   return (
-    <div className="text-center my-auto">
+    <div className="text-center my-auto noprint">
       <Button onClick={() => setShowAddUnitModal(true)}>
         <h6>+ Add Unit</h6>
       </Button>

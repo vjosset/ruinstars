@@ -3,9 +3,10 @@
 import { getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { showInfoModal } from '@/lib/utils/showInfoModal'
 import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
+import { getUnitUniqueSkills } from '@/lib/utils/utils'
 import GearGroupList from '@/src/components/shared/GearGroupList'
 import WeaponTable from '@/src/components/shared/WeaponTable'
-import { Medal, UnitPlain, UnitTypePlain } from '@/types'
+import { Medal, SquadPlain, UnitPlain, UnitTypePlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import { useEffect, useState } from 'react'
 import { FaHeartPulse, FaMedal } from 'react-icons/fa6'
@@ -13,12 +14,14 @@ import { FiMoreVertical } from 'react-icons/fi'
 import { GiDeathSkull } from 'react-icons/gi'
 import { toast } from 'sonner'
 import { Button, Checkbox, Modal } from '../ui'
+import Markdown from '../ui/Markdown'
 import UnitCardMenu from './UnitCardMenu'
 import UnitEditorModal from './UnitEditorModal'
 import UnitMedalModal from './UnitMedalModal'
 
 type UnitCardProps = {
   unit: UnitPlain | UnitTypePlain
+  squad: SquadPlain | null
   seq: Number
   isOwner: boolean
   allSpecials: SpecialRule[]
@@ -35,6 +38,7 @@ type UnitCardProps = {
 
 export default function UnitCard({
   unit,
+  squad,
   seq,
   isOwner,
   allSpecials,
@@ -59,6 +63,9 @@ export default function UnitCard({
   
   // Delete state
   const [deleteError, setDeleteError] = useState('')
+
+  // For printing - Get unit unique skills
+  const unitUniqueSkills = getUnitUniqueSkills(squad ?? undefined, !unit.isUnitType && unit  || undefined)
 
   // Keep local state in sync with unit props
   useEffect(() => {
@@ -91,7 +98,7 @@ export default function UnitCard({
 
   return (
     <>
-      <div className="bg-card border border-main p-1 rounded relative flex flex-col h-full">
+      <div className="bg-card border border-main p-1 rounded relative flex flex-col h-full unitcard">
         <div className={'grid grid-cols-4 gap-1 text-center'}>
           {!unit.isUnitType && unit.hasCustomPortrait && (
             <div className="cursor-pointer col-span-1 border border-muted/50 rounded-md" style={{maxHeight: '100%', maxWidth: '100%', overflow: 'hidden'}} onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>
@@ -109,7 +116,7 @@ export default function UnitCard({
                   <Checkbox
                     checked={!!unit.isActivated}
                     onChange={toggleActivated}
-                    className="accent-primary mb-1.5"
+                    className="accent-primary mb-1.5 noprint"
                   />
                 )}
                 <h5 className={`font-heading ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
@@ -191,7 +198,7 @@ export default function UnitCard({
                   {/*<RiHeartFill className="text-xl" />*/}
                   HIT
                   <h3 className="stat text-main">{unit.isUnitType ? unit.HIT : unit.currHIT}</h3>
-                  {!unit.isUnitType && <h6 className="stat text-muted">/{unit.HIT}</h6>}
+                  {!unit.isUnitType && <h6 className="stat text-muted noprint">/{unit.HIT}</h6>}
                 </span>
               </div>
             </div>
@@ -207,6 +214,21 @@ export default function UnitCard({
         {(unit.skills?.length ?? 0) > 0 && unit.currHIT !== 0 && (
           <GearGroupList gearList={unit.skills ?? []} showNarrative={!unit.isUnitType} />
         )}
+
+        {/* Print only - Additional info */}
+        <div className="printonly border-t border-border">
+          {!unit.isUnitType && (unitUniqueSkills.length > 0) && (
+            <>
+              <div className="mt-2 text-sm">
+                {unitUniqueSkills.map((skill) => (
+                  <Markdown key={`printskill_${skill.gearId}`}>
+                    {`**${skill.gearName.replace('*', '')}${skill.ACT != null ? ` (${skill.ACT}ACT)` : ''}${skill.TO != null ? ` (${skill.TO}TO)` : ''}**: ${skill.description}`}
+                  </Markdown>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
 
         {/* Footer */}
         {/* Note we hide this for UnitType cards since we moved all Unit specials to Abilities for clarity */}

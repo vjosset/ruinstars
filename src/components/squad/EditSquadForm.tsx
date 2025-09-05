@@ -146,7 +146,7 @@ const EditSquadForm = forwardRef(function EditSquadForm(
               placeholder="Enter squad name"
             />
           </div>
-          <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4">
+          <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4 hidden">
             <Label htmlFor="maxGP">Max GP</Label>
             <Input
               id="maxGP"

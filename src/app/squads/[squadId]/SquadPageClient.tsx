@@ -5,11 +5,13 @@ import EditSquadForm from '@/components/squad/EditSquadForm'
 import SquadTools from '@/components/squad/SquadTools'
 import { Button, Modal } from '@/components/ui'
 import CarouselModal, { CarouselItem } from '@/components/ui/CarouselModal'
+import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
 import AddUnitForm from '@/components/unit/AddUnitForm'
 import UnitCard from '@/components/unit/UnitCard'
 import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { SpecialRule } from '@/lib/utils/specialRules'
+import { getSquadRepeatedSkills } from '@/lib/utils/utils'
 import { Medal, SquadPlain, UnitPlain } from '@/types'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
@@ -59,6 +61,9 @@ export default function SquadPageClient({
       prev.map(u => (u.unitId === updated.unitId ? updated : u))
     )
   }
+  
+  // For printing - Get operative unique abilities and options
+  const squadSkills = getSquadRepeatedSkills(squad ?? undefined)
 
   const openCarousel = () => {
     console.log('Opening carousel')
@@ -242,7 +247,7 @@ export default function SquadPageClient({
           </div>
           <div className="flex items-center justify-center gap-2 text-muted">
             {!isOwner && (
-              <span className="text-sm">{totalGP}/{squad.maxGP}GP</span>
+              <span className="text-sm">{totalGP}GP</span>
             )}
 
             {!isOwner && status === 'authenticated' && (
@@ -280,7 +285,7 @@ export default function SquadPageClient({
 
       {/* Trackers */}
       {isOwner && (
-        <div className="sticky top-0 lg:top-[3.5rem] max-w-xl mx-auto z-10 bg-background py-2 px-1 flex gap-2 items-center justify-between">
+        <div className="sticky top-0 lg:top-[3.5rem] max-w-xl mx-auto z-10 bg-background py-2 px-1 flex gap-2 items-center justify-between noprint">
           {[
             { label: 'TURN', key: 'turn' },
             { label: 'MP', key: 'MP' },
@@ -302,7 +307,7 @@ export default function SquadPageClient({
             </div>
           ))}
           <div className="flex flex-col items-center gap-1">
-            <h6 className="font-bold" onClick={handleEditSquadClick}>{totalGP}/{squad.maxGP}GP</h6>
+            <h6 className="font-bold" onClick={handleEditSquadClick}>{totalGP}GP</h6>
 
             {/* Reset and Info/tools */}
             <div className="flex items-center">
@@ -335,6 +340,7 @@ export default function SquadPageClient({
                 key={unit.unitId}
                 seq={idx + 1}
                 unit={unit}
+                squad={squad}
                 isOwner={isOwner}
                 allSpecials={allSpecials ?? []}
                 allMedals={allMedals ?? []}
@@ -426,6 +432,20 @@ export default function SquadPageClient({
             onClose={() => setShowSquadTools(false)}>
             <SquadTools />
           </Modal>
+        )}
+
+        {/* Print Only - Summary of abilities */}
+        {(squadSkills.length > 0) && (
+          <div className="printonly" style={{pageBreakBefore: 'always'}}>
+            <h3>Skills</h3>
+            <div className="mt-2 overflow-hidden">
+              {squadSkills.map((skill) => (
+                <Markdown key={`rosterprintability_${skill.gearId}`} className="hideEm">
+                  {`**${skill.gearName.replace('*', '')}${skill.ACT != null ? ` (${skill.ACT}ACT)` : ''}${skill.TO != null ? ` (${skill.TO}TO)` : ''}**: ${skill.description}`}
+                </Markdown>
+              ))}
+            </div>
+          </div>
         )}
 
         {/* Carousel Modal */}

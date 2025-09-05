@@ -361,6 +361,21 @@ code {
 	.printonly {
 		display: inline;
 	}
+	
+
+  .unitcard {
+    /* Tarot vertical 50% dimensions
+    width: 5.5in;
+    height: 9.5in;
+    */
+    /* Tarot vertical 100% dimensions
+    width: 2.75in;
+    height: 4.75in;
+    */
+    /* Tarot vertical 66% dimensions */
+    width: 4.2in;
+    height: 7.2in;
+  }
 
 	.fullpage {
 		width: 12.8in;

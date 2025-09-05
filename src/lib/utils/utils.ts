@@ -1,3 +1,5 @@
+import { GearPlain, SquadPlain, UnitPlain } from '@/types'
+
 export function toLocalIsoDate(date: Date): string {
   const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
   return local.toISOString().split('T')[0] // YYYY-MM-DD
@@ -21,4 +23,63 @@ export function sanitizeFileName(fileName: string): string {
     .replace(/[^\w\s-]/g, '') // Remove non-alphanumeric characters (except spaces and hyphens)
     .replace(/[\s_-]+/g, '_') // Replace spaces or multiple underscores with a single underscore
     .toLowerCase() // Optionally make it lowercase for consistency
+}
+
+
+export function getUnitUniqueSkills(squad?: SquadPlain, unit?: UnitPlain) {
+
+  if (!unit || !squad) return []
+
+  const keyOfGear = (a: GearPlain) => a.gearName
+
+  const otherUnitKeys = new Set<string>()
+
+  for (const other of squad.units ?? []) {
+    if (!other || other.unitId === unit.unitId) continue
+    for (const a of other.skills ?? []) otherUnitKeys.add(keyOfGear(a))
+  }
+
+  // (Optional) de-dupe within this unit using a seen set
+  const seenA = new Set<string>()
+
+  const uniqueSkills = (unit.skills ?? []).filter(a => {
+    const k = keyOfGear(a)
+    if (seenA.has(k)) return false
+    seenA.add(k)
+    return !otherUnitKeys.has(k)
+  })
+
+  return uniqueSkills
+}
+
+export function getSquadRepeatedSkills(squad: SquadPlain | undefined) {
+  if (!squad || !squad.units) return []
+
+  // Count occurrences by ID, and remember a representative item for output
+  const gearCount = new Map<string, number>()
+  const gearFirst = new Map<string, GearPlain>()
+
+  for (const unit of squad.units) {
+    for (const a of unit?.skills ?? []) {
+      const id = a.gearName
+      if (!gearFirst.has(id)) gearFirst.set(id, a)
+      gearCount.set(id, (gearCount.get(id) ?? 0) + 1)
+    }
+  }
+
+  // Collect repeated items once, in first-seen order
+  const skills: GearPlain[] = []
+  const addedA = new Set<string>()
+
+  for (const unit of squad.units) {
+    for (const a of unit?.skills ?? []) {
+      const id = a.gearName
+      if (!addedA.has(id) && (gearCount.get(id) ?? 0) > 1) {
+        skills.push(gearFirst.get(id)!)
+        addedA.add(id)
+      }
+    }
+  }
+
+  return skills
 }
