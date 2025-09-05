@@ -17,7 +17,13 @@ export default async function RulesStatCards() {
             Note that in the app and on the website, you can click or tap Specials to view what they mean, and Skills or Equipment to get their full description.
           </p>
           <div className="p-1">
-            <UnitCard unit={sampleUnit} seq={1} isOwner={false} allSpecials={allSpecials} allMedals={[]} />
+            <UnitCard 
+              unit={sampleUnit}
+              squad={null}
+              seq={1}
+              isOwner={false}
+              allSpecials={allSpecials}
+              allMedals={[]} />
           </div>
         </div>
         <br/><br/>
@@ -102,7 +108,7 @@ export default async function RulesStatCards() {
           <br/>
           <strong>For example: </strong>
           <ul>
-            <li>{sampleUnit.unitName}'s <strong>{sampleUnit.weapons?.[1].gearName}</strong> is a {sampleUnit.weapons?.[1].TYP == 'R' ? 'Ranged' : 'Melee'} weapon (<img className="inline highlightblack" src={`/icons/white/weptype${sampleUnit.weapons?.[1].TYP}.png`} width="13" />).</li>
+            <li>{sampleUnit.unitName}'s <strong>{sampleUnit.weapons?.[1].gearName}</strong> is a {sampleUnit.weapons?.[1].TYP == 'R' ? 'Ranged' : 'Melee'} weapon ({ sampleUnit.weapons?.[1].TYP == 'M' ? (<RiSwordFill className="inline-block" />) : (<RiCrosshair2Fill className="inline-block" />) }).</li>
             <li>Each time it is used, {sampleUnit.unitName} rolls {sampleUnit.weapons?.[1].ATT} dice (<code>ATT</code>).</li>
             <li>Each result of {sampleUnit.weapons?.[1].TYP == 'R' ? sampleUnit.RSK : sampleUnit.MSK} or less (<code>SKL</code>) is a success.</li>
             {/*<li>It has the <code>ACC1</code> (Accurate 1) and <code>HVY</code> (Heavy) <a href="#weapon-specials">specials</a>.</li>*/}

@@ -52,6 +52,7 @@ export default async function RulesSquadTypes() {
                 <UnitCard
                   seq={1}
                   unit={u.toPlain()}
+                  squad={null}
                   isOwner={false}
                   allSpecials={allSpecials.map((spec) => spec.toPlain())}
                   allMedals={[]}
