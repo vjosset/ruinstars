@@ -43,8 +43,6 @@ export async function generatePageMetadata({
     height: img.height || 630,
     alt: img.alt || pageTitle,
   }))
-  
-  const firstImage = normalizedImages[0] || null
 
   return {
     title: pageTitle,
