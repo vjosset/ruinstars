@@ -11,7 +11,6 @@ import AddUnitForm from '@/components/unit/AddUnitForm'
 import UnitCard from '@/components/unit/UnitCard'
 import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { SpecialRule } from '@/lib/utils/specialRules'
-import { getSquadRepeatedSkills } from '@/lib/utils/utils'
 import { Medal, SquadPlain, UnitPlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import { useSession } from 'next-auth/react'
@@ -64,7 +63,7 @@ export default function SquadPageClient({
   }
   
   // For printing - Get operative unique abilities and options
-  const squadSkills = getSquadRepeatedSkills(squad ?? undefined)
+  //const squadSkills = getSquadRepeatedSkills(squad ?? undefined)
 
   const openCarousel = () => {
     console.log('Opening carousel')

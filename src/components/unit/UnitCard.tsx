@@ -3,7 +3,6 @@
 import { getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { showInfoModal } from '@/lib/utils/showInfoModal'
 import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
-import { getUnitUniqueSkills } from '@/lib/utils/utils'
 import GearGroupList from '@/src/components/shared/GearGroupList'
 import WeaponTable from '@/src/components/shared/WeaponTable'
 import { Medal, SquadPlain, UnitPlain, UnitTypePlain } from '@/types'
@@ -65,7 +64,7 @@ export default function UnitCard({
   const [deleteError, setDeleteError] = useState('')
 
   // For printing - Get unit unique skills
-  const unitUniqueSkills = getUnitUniqueSkills(squad ?? undefined, !unit.isUnitType && unit  || undefined)
+  //const unitUniqueSkills = getUnitUniqueSkills(squad ?? undefined, !unit.isUnitType && unit  || undefined)
 
   // Keep local state in sync with unit props
   useEffect(() => {
