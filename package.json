@@ -21,6 +21,7 @@
     "nanoid": "^4.0.2",
     "next": "latest",
     "next-auth": "^4.24.11",
+    "qrcode.react": "^4.2.0",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^5.5.0",

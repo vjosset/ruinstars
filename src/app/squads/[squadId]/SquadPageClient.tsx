@@ -2,6 +2,7 @@
 
 import { SquadTypeLink, UserLink } from '@/components/nav/Links'
 import EditSquadForm from '@/components/squad/EditSquadForm'
+import SquadCardMenu from '@/components/squad/SquadCardMenu'
 import SquadTools from '@/components/squad/SquadTools'
 import { Button, Modal } from '@/components/ui'
 import CarouselModal, { CarouselItem } from '@/components/ui/CarouselModal'
@@ -13,10 +14,11 @@ import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/
 import { SpecialRule } from '@/lib/utils/specialRules'
 import { getSquadRepeatedSkills } from '@/lib/utils/utils'
 import { Medal, SquadPlain, UnitPlain } from '@/types'
+import { Menu, MenuButton } from '@headlessui/react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { FiDownload, FiEdit2, FiInfo, FiRotateCcw } from 'react-icons/fi'
+import { FiDownload, FiEdit2, FiInfo, FiMoreVertical, FiRotateCcw } from 'react-icons/fi'
 import { toast } from 'sonner'
 
 export default function SquadPageClient({
@@ -150,6 +152,10 @@ export default function SquadPageClient({
   
   const handleResetClick = () => { setShowResetModal(true)}
   const handleEditSquadClick = () => { setShowEditSquadModal(true)}
+
+  const handleRosterPrint = () => {
+    window.print()
+  }
 
   const handleSquadToolsClick = () => { setShowSquadTools(true)}
 
@@ -325,6 +331,19 @@ export default function SquadPageClient({
                 >
                   <FiInfo/>
                 </button>
+                <div className="flex gap-2 items-center justify-center">
+                  <Menu as="div" className="relative justify-center flex-shrink-0 rounded border border-border w-6 h-6 text-lg">
+                    <MenuButton as="button" className="w-full h-full flex items-center justify-center">
+                      <FiMoreVertical />
+                    </MenuButton>
+                    <SquadCardMenu
+                      squad={squad}
+                      isOwner={isOwner}
+                      onEdit={handleEditSquadClick}
+                      onPrint={handleRosterPrint}
+                    />
+                  </Menu>
+                </div>
               </div>
             </div>
           </div>

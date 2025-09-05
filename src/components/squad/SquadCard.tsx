@@ -68,7 +68,8 @@ export default function SquadCard({
                   </button>
                 </MenuButton>
                 <SquadCardMenu
-                  squadId={squad.squadId}
+                  squad={squad}
+                  isOwner={isOwner}
                   onEdit={() => router.push(`/squads/${squad.squadId}`)}
                   onDelete={() => setShowDeleteConfirm(true)}
                   onMoveUp={onMoveUp}
