@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ squadId: 
       images.length > 0
         ? images.splice(0, 5).map((img) => ({url: img}))
         : [{
-          url: `/img/killteams/${squad.squadType?.squadTypeId}.webp`,
+          url: `/img/squadTypes/${squad.squadType?.squadTypeId}.webp`,
         }],
     keywords: ['squad', squad.user?.userName ?? 'user', squad.squadName, squad.squadType?.squadTypeName ?? ''],
     pagePath: `/squads/${squad.squadId}`
