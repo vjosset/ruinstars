@@ -216,11 +216,11 @@ export default function UnitCard({
         )}
 
         {/* Print only - Additional info */}
-        <div className="printonly border-t border-border">
-          {!unit.isUnitType && (unitUniqueSkills.length > 0) && (
+        <div className="printonly border-t border-border overflow-y-hidden">
+          {!unit.isUnitType && (unit.skills && unit.skills.length > 0) && (
             <>
               <div className="mt-2 text-sm">
-                {unitUniqueSkills.map((skill) => (
+                {unit.skills.map((skill) => (
                   <Markdown key={`printskill_${skill.gearId}`}>
                     {`**${skill.gearName.replace('*', '')}${skill.ACT != null ? ` (${skill.ACT}ACT)` : ''}${skill.TO != null ? ` (${skill.TO}TO)` : ''}**: ${skill.description}`}
                   </Markdown>

@@ -6,7 +6,6 @@ import SquadCardMenu from '@/components/squad/SquadCardMenu'
 import SquadTools from '@/components/squad/SquadTools'
 import { Button, Modal } from '@/components/ui'
 import CarouselModal, { CarouselItem } from '@/components/ui/CarouselModal'
-import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
 import AddUnitForm from '@/components/unit/AddUnitForm'
 import UnitCard from '@/components/unit/UnitCard'
@@ -451,20 +450,6 @@ export default function SquadPageClient({
             onClose={() => setShowSquadTools(false)}>
             <SquadTools />
           </Modal>
-        )}
-
-        {/* Print Only - Summary of abilities */}
-        {(squadSkills.length > 0) && (
-          <div className="printonly" style={{pageBreakBefore: 'always'}}>
-            <h3>Skills</h3>
-            <div className="mt-2 overflow-hidden">
-              {squadSkills.map((skill) => (
-                <Markdown key={`rosterprintability_${skill.gearId}`} className="hideEm">
-                  {`**${skill.gearName.replace('*', '')}${skill.ACT != null ? ` (${skill.ACT}ACT)` : ''}${skill.TO != null ? ` (${skill.TO}TO)` : ''}**: ${skill.description}`}
-                </Markdown>
-              ))}
-            </div>
-          </div>
         )}
 
         {/* Carousel Modal */}
