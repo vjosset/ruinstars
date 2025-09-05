@@ -1,12 +1,12 @@
-import { ButtonHTMLAttributes } from 'react'
 import clsx from 'clsx'
+import { ButtonHTMLAttributes } from 'react'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'default' | 'ghost' | 'highlighted'
 }
 
 export default function Button({ children, className = '', variant = 'default', ...props }: ButtonProps) {
-  const base = 'py-1 px-2 rounded text-md transition focus:outline-none inline-flex gap-2'
+  const base = 'py-1 px-2 rounded text-md transition focus:outline-none inline-flex gap-2 items-center'
 
   const variants = {
     default: 'bg-main text-white hover:bg-main/90',
