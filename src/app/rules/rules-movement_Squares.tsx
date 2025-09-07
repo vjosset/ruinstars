@@ -36,6 +36,15 @@ export default async function RulesMovement() {
           If a wall that is 1 Square or taller is between two Squares, those two Squares are not considered to be Adjacent.</p>
         </div>
         <div className="section">
+          <h4 id="attack-of-opportunity">Attack of Opportunity</h4>
+          <p>
+            When a Unit Moves or Dashes out of a Square that is Adjacent to an enemy Unit, that enemy may immediately perform a free Melee attack against the moving Unit.
+            This is called an <strong>Attack of Opportunity</strong>.<br/>
+            The moving Unit may choose to spend some or all of its remaining movement Squares to blunt the attack.
+            For each Square of movement it spends in this way, reduce the number of attack dice the enemy rolls (the weapon's <code>ATT</code> stat) by <code>1</code>.
+          </p>
+        </div>
+        <div className="section">
           <h4 id="distances-and-range">Distances And Range</h4>
           <p>To measure the distance between two Squares (for example, to check if a target is within the Range of a given Ranged Weapon), only measure on the Horizontal plane; ignore vertical distance.</p>
           <p>
