@@ -12,6 +12,8 @@ model User {
   email    String? @db.VarChar(250)
   userName String  @unique @db.VarChar(250)
   password String  @db.VarChar(250)
+  createdAt DateTime @default(now())
+
   squads   Squad[]
 }
 

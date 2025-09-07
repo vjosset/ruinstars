@@ -8,54 +8,85 @@ export async function GET() {
   const session = await getAuthSession()
   if (!session?.user || session.user.userId != 'vince') return new NextResponse('Unauthorized', { status: 401 })
 
-  const stats = {
+  const days = getLastNDates(9)
+  const startDate = new Date(days[days.length - 1])
+  const endDate = new Date()
+  endDate.setDate(endDate.getDate() + 1) // to include today fully
+
+  const stats: {
+    datestamp: Date
+    totals: { users: number; squads: number; units: number }
+    dailyStats: Record<string, any>
+    portraitEvents: any[]
+    activeUsers30min: number
+    events30min: number
+  } = {
+    datestamp: new Date(),
     totals: {
       users: 0,
       squads: 0,
       units: 0
     },
-    dailyStats: {}
+    dailyStats: {},
+    portraitEvents: [],
+    activeUsers30min: 0,
+    events30min: 0
   }
   
   // Get the stats
   // Totals: Users, squads, units
-  const [users, squads, units] = await Promise.all([
+  const [users, squads, units, recentSignups] = await Promise.all([
     prisma.user.count(),
     prisma.squad.count(),
-    prisma.unit.count()
+    prisma.unit.count(),
+    prisma.user.findMany({
+      where: {
+        createdAt: {
+          gte: startDate,
+          lt: endDate
+        }
+      },
+      select: {
+        createdAt: true
+      }
+    })
   ])
+
   stats.totals = { users, squads, units }
-  
-  const days = getLastNDates(8)
 
-  // Get all pageviews for last 7 days (in UTC)
-  const startDate = new Date(days[days.length - 1])
-  const endDate = new Date()
-  endDate.setDate(endDate.getDate() + 1) // to include today fully
-
-  const [pageViews] = await Promise.all([
+  const cutoff30m = new Date(Date.now() - 30 * 60 * 1000)
+  const [pageViews, recentActiveUsers, events30m] = await Promise.all([
     prisma.webEvent.findMany({
       where: {
         datestamp: {
           gte: startDate,
-          lt: endDate,
+          lt: endDate
         },
-        url: {
-          contains: 'ruinstars.com'
-        },
-        NOT: {
-          OR: [
-            // Exclude home IPs
-            { userIp: { in: ['127.0.0.1', '::1', '76.98.82.81', '73.188.188.13'] } },
-
-            // Exclude dev account
-            { userId: 'vince' },
-          ],
+        userIp: {
+          notIn: ['127.0.0.1', '::1', '76.98.82.81', '73.188.188.13']
         }
       },
       select: { datestamp: true }
+    }),
+    prisma.webEvent.groupBy({
+      by: ['userId', 'userIp'], // distinct concat equivalent
+      where: {
+        datestamp: { gte: cutoff30m },
+        userIp: { notIn: ['127.0.0.1', '::1', '76.98.82.81', '73.188.188.13'] }
+      },
+      _count: { _all: true }
+    }),
+    prisma.webEvent.count({
+      where: {
+        datestamp: { gte: cutoff30m },
+        // optional: match same IP filter as above
+        userIp: { notIn: ['127.0.0.1', '::1', '76.98.82.81', '73.188.188.13'] }
+      }
     })
   ])
+  
+  stats.activeUsers30min = recentActiveUsers.length
+  stats.events30min = events30m
 
   // Group into { 'YYYY-MM-DD': count }
   const pageViewsPerDay: Record<string, number> = {}
@@ -64,11 +95,18 @@ export async function GET() {
     const date = toLocalIsoDate(e.datestamp)
     pageViewsPerDay[date] = (pageViewsPerDay[date] || 0) + 1
   }
+  const signupsPerDay: Record<string, number> = {}
+
+  for (const u of recentSignups) {
+    const date = toLocalIsoDate(u.createdAt)
+    signupsPerDay[date] = (signupsPerDay[date] || 0) + 1
+  }
 
   // Merge into array for frontend
   stats.dailyStats = days.map(date => ({
     date,
-    views: pageViewsPerDay[date] || 0
+    views: pageViewsPerDay[date] || 0,
+    signups: signupsPerDay[date] || 0
   }))
 
   return NextResponse.json(stats)

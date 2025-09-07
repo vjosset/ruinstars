@@ -1,6 +1,8 @@
 'use client'
 
+import { format } from 'date-fns'
 import { useEffect, useState } from 'react'
+import { FaBolt, FaUsers } from 'react-icons/fa6'
 import { SectionTitle } from '../ui'
 
 export default function AdminTools() {
@@ -27,8 +29,26 @@ export default function AdminTools() {
   if (!stats) return null
 
   return  (
-    <div className="space-y-4">
-      <SectionTitle>Totals</SectionTitle>
+    <div className="mb-8">
+      <div className="flex items-center justify-between">
+        <SectionTitle>
+          {stats.datestamp && 
+            format(stats.datestamp, 'yyyy-MM-dd HH:mm')
+          }
+        </SectionTitle>
+
+        {/* Right-aligned quick stats */}
+        <div className="flex items-center gap-4 text-main">
+          <div className="flex items-center gap-1">
+            <FaUsers />
+            <span>{stats.activeUsers30min}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <FaBolt />
+            <span>{stats.events30min}</span>
+          </div>
+        </div>
+      </div>
       <table className="w-full">
         <thead>
           <tr className="text-center font-bold">
@@ -51,6 +71,7 @@ export default function AdminTools() {
         <thead>
           <tr className="font-bold">
             <td>Date</td>
+            <td className="text-right">Signups</td>
             <td className="text-right">PageViews</td>
           </tr>
         </thead>
@@ -58,6 +79,7 @@ export default function AdminTools() {
           {stats.dailyStats.map((dat: any) => (
             <tr key={`dailyStats_${dat.date}`}>
               <td>{dat.date}</td>
+              <td className="text-right">{dat.signups.toLocaleString()}</td>
               <td className="text-right">{dat.views.toLocaleString()}</td>
             </tr>
           ))}
