@@ -142,13 +142,13 @@ export default function AddSquadForm() {
                 />
               </div>
               <div className="grid-cols-2 items-center gap-2">
-                <Label>SquadType</Label>
+                <Label>Squad Type</Label>
                 <select
                   className="w-full bg-card border border-border rounded p-2 text-sm"
                   value={selectedSquadTypeId || ''}
                   onChange={(e) => setSelectedSquadTypeId(e.target.value || null)}
                 >
-                  <option value="">Select a squadType...</option>
+                  <option value="">Select a Squad Type...</option>
                   {squadTypes.map((squadType) => (
                     <option key={squadType.squadTypeId} value={squadType.squadTypeId}>
                       {squadType.squadTypeName}
