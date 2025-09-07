@@ -199,8 +199,8 @@ if args.instructions > 0:
   c.setFont("Helvetica", 11)
   instructions = [
     "• Print this PDF at 100% scale (do NOT use 'Fit to page').",
-    "• Each tile prints at 20×20 cm and forms a grid of your original image.",
-    f"• This layout preview shows how to arrange the {cols}×{rows} tiles.",
+    "• Each tile prints at 20×20 cm and forms a grid of 5x5 squares, each 40mm to a side.",
+    f"• This layout preview shows how to arrange the tiles.",
     "• Cut and align the tiles according to the grid.",
     "• Mount to foam board, wood, or card for maximum durability."
   ]
