@@ -54,10 +54,10 @@ export default async function SquadTypePage({ params }: { params: Promise<{ squa
       <div className="max-w-7xl mx-auto">
         <div className="p-2 flex items-center justify-center gap-4">
           <div>
-            <FactionLink factionId={squadType.factionId} factionName={squadType.faction.factionName} />
+            <FactionLink factionId={squadType.factionId} factionName={'Faction: ' + squadType.faction.factionName} />
           </div>
           <div>
-            <SquadLink squadId={squadType.squadTypeId} squadName={squadType.squadTypeName} />
+            <SquadLink squadId={squadType.squadTypeId} squadName={'View Default Squad'} />
           </div>
         </div>
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2">
