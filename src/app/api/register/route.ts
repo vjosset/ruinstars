@@ -37,7 +37,9 @@ export async function POST(req: Request) {
   if (!user) return new NextResponse('Could not register new user', { status: 500 })
 
   // Now clone the default squad
-  SquadService.cloneSquad('INT', user.userId, 'Sample Squad')
+  await SquadService.cloneSquad('DRN', user.userId, 'Swarm Drone Pod')
+  await SquadService.cloneSquad('KF', user.userId, 'Krumpfists')
+  await SquadService.cloneSquad('INT', user.userId, 'Interdictors')
 
   return NextResponse.json({ success: true, userid: user.userId })
 }
