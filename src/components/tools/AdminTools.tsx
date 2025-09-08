@@ -1,8 +1,9 @@
 'use client'
 
 import { format } from 'date-fns'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { FaBolt, FaUsers } from 'react-icons/fa6'
+import { FiRotateCw } from 'react-icons/fi'
 import { SectionTitle } from '../ui'
 
 export default function AdminTools() {
@@ -10,19 +11,25 @@ export default function AdminTools() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   
-  useEffect(() => {
-    fetch('/api/adminstats')
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to fetch admin stats')
-        return res.json()
-      })
-      .then(setStats)
-      .catch(err => {
-        console.error(err)
-        setError('Could not load stats')
-      })
-      .finally(() => setLoading(false))
+  const refreshStats = useCallback(async () => {
+    setLoading(true)
+    setError(null)
+    try {
+      const res = await fetch('/api/adminstats', { cache: 'no-store' })
+      if (!res.ok) throw new Error('Failed to fetch admin stats')
+      const data = await res.json()
+      setStats(data)
+    } catch (err) {
+      console.error(err)
+      setError('Could not load stats')
+    } finally {
+      setLoading(false)
+    }
   }, [])
+
+  useEffect(() => {
+    refreshStats()
+  }, [refreshStats])
 
   if (loading) return <p className="text-sm text-muted">Loading stats...</p>
   if (error) return <p className="text-sm text-red-500">{error}</p>
@@ -32,9 +39,16 @@ export default function AdminTools() {
     <div className="mb-8">
       <div className="flex items-center justify-between">
         <SectionTitle>
-          {stats.datestamp && 
-            format(stats.datestamp, 'yyyy-MM-dd HH:mm')
-          }
+          <button
+            onClick={refreshStats}
+            title="Refresh stats"
+            className="cursor-pointer"
+          >
+            {stats.datestamp &&
+              format(stats.datestamp, 'yyyy-MM-dd HH:mm')
+            }
+            <FiRotateCw className="inline ml-1 mb-1 text-sm" />
+          </button>
         </SectionTitle>
 
         {/* Right-aligned quick stats */}
