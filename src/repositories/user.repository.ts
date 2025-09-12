@@ -9,7 +9,7 @@ export class UserRepository extends BaseRepository {
   }
 
   async getUser(userId: string) {
-    return this.prisma.user.findUnique({
+    return this.prisma.user.findFirst({
       where: { userId },
       include: {
         squads: {
@@ -27,7 +27,7 @@ export class UserRepository extends BaseRepository {
   }
 
   async getUserByUsername(userName: string) {
-    return this.prisma.user.findUnique({
+    return this.prisma.user.findFirst({
       where: { userName },
       include: {
         squads: {
