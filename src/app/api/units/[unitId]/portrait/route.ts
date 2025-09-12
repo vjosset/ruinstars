@@ -83,7 +83,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ uni
     // Get the op
     const op = await UnitService.getUnit(unitId)
     if (!op || !op.squad || !op.squadId || op.squad.userId !== session.user.userId) {
-      return NextResponse.json({ error: 'Operative not found' }, { status: 404 })
+      return NextResponse.json({ error: 'Unit not found' }, { status: 404 })
     }
 
     // Process the image
@@ -132,7 +132,7 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ u
 
     const op = await UnitService.getUnit(unitId)
     if (!op || !op.squad || !op.squadId || op.squad.userId !== session.user.userId) {
-      return NextResponse.json({ error: 'Operative not found' }, { status: 404 })
+      return NextResponse.json({ error: 'Unit not found' }, { status: 404 })
     }
 
     await UnitService.deleteUnitPortrait(unitId)

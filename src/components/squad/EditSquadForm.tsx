@@ -165,7 +165,7 @@ const EditSquadForm = forwardRef(function EditSquadForm(
           <div>
             <h5>New Portrait</h5>
             <p className="text-muted mb-2">
-              Upload a portrait image for this operative.
+              Upload a portrait image for this squad.
               Images will be resized to 900x600 pixels.
             </p>
             <input

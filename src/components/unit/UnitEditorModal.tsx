@@ -390,7 +390,7 @@ export default function UnitEditorModal({
           <div className="flex flex-col">
             <h5>New Portrait</h5>
             <p className="text-muted mb-2">
-                Upload a portrait image for this operative.
+                Upload a portrait image for this unit.
                 Images will be resized to 900x600 pixels.
             </p>
             <input

@@ -62,7 +62,7 @@ export default function SquadPageClient({
     )
   }
   
-  // For printing - Get operative unique abilities and options
+  // For printing - Get unit unique abilities and options
   //const squadSkills = getSquadRepeatedSkills(squad ?? undefined)
 
   const openCarousel = () => {
@@ -151,7 +151,7 @@ export default function SquadPageClient({
   const handleResetClick = () => { setShowResetModal(true)}
   const handleEditSquadClick = () => { setShowEditSquadModal(true)}
 
-  const handleRosterPrint = () => {
+  const handleSquadPrint = () => {
     window.print()
   }
 
@@ -338,7 +338,7 @@ export default function SquadPageClient({
                       squad={squad}
                       isOwner={isOwner}
                       onEdit={handleEditSquadClick}
-                      onPrint={handleRosterPrint}
+                      onPrint={handleSquadPrint}
                     />
                   </Menu>
                 </div>
