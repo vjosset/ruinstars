@@ -49,10 +49,13 @@ export async function generatePageMetadata({
     description: pageDescription,
     keywords: [
       'ruinstars',
+      'killteam alternative', 
+      'killteam free',
       ...keywords,  // Page-specific keywords,
       'skirmish game',
       'wargame',
       'free',
+      'alternative',
       'grimdark',
       'sci-fi',
       'miniatures',
