@@ -18,6 +18,7 @@ import RulesYourSquad from './rules-yoursquad'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import Link from 'next/link'
+import RulesAI from './rules-ai'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -55,6 +56,8 @@ export default async function Home() {
 
         <RulesToc />
         <RulesIntro showTitle={true} />
+
+        <RulesAI />
 
         <hr />
         <RulesCoreMechanics />

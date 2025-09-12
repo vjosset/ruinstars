@@ -1,5 +1,6 @@
 import FactionList from '@/components/faction/FactionList'
 import AuthButtons from '@/components/home/HomeAuthButtons'
+import { Button } from '@/components/ui'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import news from '@/public/news.json'
@@ -10,7 +11,7 @@ import RulesIntro from './rules/rules-intro'
 export async function generateMetadata() {
   return generatePageMetadata({
     title: 'Home',
-    description: `${GAME.NAME} is a free fast-paced miniatures-agnostic sci-fi skirmish wargame set in a galaxy filled with dangers. Build your squads. Track your battles. Dominate the stars.`,
+    description: `${GAME.NAME} is a free sci-fi skirmish wargame. Build your squads, download the rules, and play campaigns in a grimdark galaxy of ruins and horrors.`,
     images: [{
       url: '/img/hero01_wideB.webp',
     }],
@@ -46,21 +47,25 @@ export default async function Home() {
             </div>*/}
             <h1 className="glowtext">{GAME.NAME}</h1>
           </div>
-          <p className="text-center text-muted max-w-lg mx-auto mt-2">
-            {GAME.NAME} is a free fast-paced miniatures-agnostic sci-fi skirmish wargame set in a galaxy filled with dangers.<br/>
-            Build your squads. Track your battles. Dominate the stars.
+          <p className="text-center max-w-lg mx-auto mt-2">
+            A free, fast-paced, miniatures-agnostic sci-fi skirmish wargame.<br/>
+            <em>Build your squads. Track your battles. Dominate the stars.</em>
           </p>
           
-          <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
-            Download the Rules:
-            { ' ' }
-            <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20250912.pdf">Easy Print</Link>
-            { ' / ' }
-            <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20250912 - FullColor.pdf">Full Color</Link>
+          <div className="text-center max-w-lg mx-auto noprint mt-4">
+            <Button>
+              <Link target="_blank" href="/assets/Ruinstars - The Rules - 20250912 - FullColor.pdf">
+                <h5>Download The Rules</h5>
+              </Link>
+            </Button>
+            <br />
+            <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20250912.pdf">
+              Printer-Friendly Version
+            </Link>
           </div>
           
           <AuthButtons />
-          
+          <br/><br/>
         </div>
       </div>
 
