@@ -45,7 +45,7 @@ export default async function Home() {
           { ' ' }
           <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20250912.pdf">Easy Print PDF</Link>
           { ' / ' }
-          <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20250704 - FullColor.pdf">Full Color PDF</Link>
+          <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20250912 - FullColor.pdf">Full Color PDF</Link>
         </div>
         <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
           Print the Tokens:
