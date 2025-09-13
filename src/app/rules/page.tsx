@@ -19,6 +19,8 @@ import RulesYourSquad from './rules-yoursquad'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import Link from 'next/link'
 import RulesAI from './rules-ai'
+import RulesInchesConversion from './rules-inchesconversion'
+import RulesQuickRef from './rules-quickref'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -94,6 +96,12 @@ export default async function Home() {
       
         <hr />
         <RulesGlossary />
+      
+        <hr />
+        <RulesInchesConversion />
+      
+        <hr />
+        <RulesQuickRef />
       
         <div className="printonly">
           <hr />

@@ -13,14 +13,6 @@ export default async function RulesIntro({ showTitle = false }) {
           1. Introduction
           </h2>
         )}
-        <div className="section">
-          <h3>What Is This Game?</h3>
-          <p>
-            {GAME.NAME} is an open-source, fast-paced, miniatures-agnostic tabletop skirmish game set during the final age of the galaxy.<br/>
-            Players command small, hardened squads in high-lethality black ops missions across fractured star systems.<br/>
-            Fight in the shadows of dying gods, decaying empires, and forgotten horrors as the last battles rage.
-          </p>
-        </div>
         <div className="twocols">
           <div className="section">
             <h3>The galaxy is in ruins</h3>
@@ -34,6 +26,12 @@ export default async function RulesIntro({ showTitle = false }) {
             </div>
           </div>
           <div className="section">
+            <h3>What Is This Game?</h3>
+            <p>
+              {GAME.NAME} is an open-source, fast-paced, miniatures-agnostic tabletop skirmish game set during the final age of the galaxy.<br/>
+              Players command small, hardened squads in high-lethality black ops missions across fractured star systems.<br/>
+              Fight in the shadows of dying gods, decaying empires, and forgotten horrors as the last battles rage.
+            </p>
             <h3 className="py-3 font-title" id="introduction">
               Getting Started
             </h3>
@@ -49,7 +47,7 @@ export default async function RulesIntro({ showTitle = false }) {
               {isAuth && (
                 <li>Build your <Link className="underline" href="/me">Squads</Link></li>
               )}
-              <li>Gather some dice, your miniatures, and <Link className="underline" target="_blank" href="/assets/tokens.pdf">tokens</Link></li>
+              <li>Gather some dice (D6), your miniatures, and <Link className="underline" target="_blank" href="/assets/tokens.pdf">tokens</Link></li>
               <li>Play your first Mission!</li>
             </ol>
           </div>
