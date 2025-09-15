@@ -20,7 +20,6 @@ export default async function RulesMovement() {
             <img src="/img/rules/Tiles.jpg" style={{width: '45%'}} />
           </p>
           <p>When a Unit moves on the Battlefield, the maximum distance it can travel is <code>3</code> Squares. Movement can be done along any cardinal direction (North, South, East, West) or in diagonal (North-East, North-West, South-East, South-West).</p>
-          <img src="/img/rules/Movement.jpg" style={{width: '45%'}} />
         </div>
         
         <div className="section">
@@ -34,12 +33,15 @@ export default async function RulesMovement() {
           <p>All 8 Squares surrounding a given Square are considered to be <strong>Adjacent</strong> to that Square. When selecting a valid target for <a href="#combat">Melee combat</a>, the attacker and its target must be in Adjacent Squares.
           Two Square that are on different elevations are not considered to be Adjacent.<br/>
           If a wall that is 1 Square or taller is between two Squares, those two Squares are not considered to be Adjacent.</p>
+          <img src="/img/rules/Adjacent.webp" style={{width: '45%'}} />
+          <em>The Squares marked <strong>A</strong> are Adjacent to the Unit. The Squares marked <strong>NA</strong> are blocked by a wall and are not Adjacent to the Unit.</em>
         </div>
         <div className="section">
           <h4 id="attack-of-opportunity">Attack of Opportunity</h4>
           <p>
             When a Unit Moves or Dashes out of a Square that is Adjacent to an enemy Unit, that enemy may immediately perform a free Melee attack against the moving Unit.
             This is called an <strong>Attack of Opportunity</strong>.<br/>
+            If the moving Unit is Adjacent to multiple enemies, only one of those enemies may perform an Attack of Opportunity, though they still get support in the Melee Combat Action.<br/>
             The moving Unit may choose to spend some or all of its remaining movement Squares to blunt the attack.
             For each Square of movement it spends in this way, reduce the number of attack dice the enemy rolls (the weapon's <code>ATT</code> stat) by <code>1</code>.
           </p>
@@ -51,8 +53,9 @@ export default async function RulesMovement() {
             The target is considered to be in range of that weapon if the distance in Squares is equal to or lower than the weapon's range.<br/>
             If a Ranged weapon does not have a specified Range (<code>RNGx</code>), its range is infinite.
           </p>
-          <img src="/img/rules/Range.jpg" style={{width: '50%'}} /><br/>
-          <em>Remus' pistol has a range of 3 (<code>RNG3</code>). He can target the green unit in ranged combat, but not the red unit.</em>
+          <img src="/img/rules/Range.webp" style={{width: '45%'}} /><br/>
+          <em>The Unit has a Ranged weapon with a range of <code>3</code>.
+          The bugs marked in <strong>green</strong> are within range, while the bugs marked in <strong>red</strong> are out of range.</em>
         </div>
         <div className="section">
           <h4 id="occupied-squares">Occupied Squares</h4>
@@ -70,8 +73,8 @@ export default async function RulesMovement() {
           Climbing up vertical terrain costs 1 Square per vertical Square, plus 1 Square for the horizontal direction desired.<br/>
           Note that for a Unit to climb a wall, that wall must be mutually agreed by all players to be Climbable at the start of the battle. Generally these walls will be easily identifiable with a ladder or other visual marker indicating it is climbable.<br/>
           Climbing down a wall follows the same rules as climbing up, but vertical movement costs 1 less Square.</p>
-          <img className="inline px-2" src="/img/rules/ClimbUp.jpg" style={{width: '45%'}} />
-          <img className="inline px-2" src="/img/rules/ClimbDown.jpg" style={{width: '45%'}} />
+          <img className="inline px-2" src="/img/rules/ClimbUp.webp" style={{width: '45%'}} />
+          <img className="inline px-2" src="/img/rules/ClimbDown.webp" style={{width: '45%'}} />
         </div>
       </div>
     </div>

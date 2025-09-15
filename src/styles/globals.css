@@ -364,21 +364,25 @@ code {
 	
 
   .unitcard {
-    /* Tarot vertical 50% dimensions
-    width: 5.5in;
-    height: 9.5in;
-    */
     /* Tarot vertical 100% dimensions
     width: 2.75in;
     height: 4.75in;
+    */
+    /* Tarot vertical 50% dimensions
+    width: 5.5in;
+    height: 9.5in;
     */
     /* Tarot vertical 66% dimensions */
     width: 4.2in;
     height: 7.2in;
     page-break-inside: avoid;
     break-inside: avoid;
-    color: #000 !important;
   }
+
+	.rules .unitcard {
+		width: unset;
+		height: unset;
+	}
 
 	.fullpage {
 		width: 12.8in;
@@ -407,12 +411,10 @@ code {
 	}
 
   h1, h2, h3, h4, h5, h6 {
-    color: black;
     text-shadow: none !important;
   }
 
   .markdown {
-    color: black !important;
     text-shadow: none !important;
   }
 }

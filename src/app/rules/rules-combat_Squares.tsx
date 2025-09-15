@@ -80,7 +80,17 @@ export default async function RulesCombat() {
             <p>
               A Target is said to be in an Attacker's <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one of the corners of the Square occupied by the Attacker to the two closest corners of the Square occupied by the Target.<br/>
               A Unit cannot target an enemy Unit for Ranged Combat if there are other Units on that Line of Sight (i.e. a Unit cannot shoot &quot;through&quot; other Units).<br/>
-              <img src="/img/rules/LineOfSight.jpg" width="50%" />
+              <img 
+                src="/img/rules/LineOfSight.webp" 
+                alt="Line of Sight between two Units"
+                className="mb-2 w-1/2"
+              />
+            </p>
+            <h5>Special Cases</h5>
+            <p>
+              These rules mean that in some cases, a Unit may be able to target an enemy Unit even if that Unit cannot target them in return.<br/>
+              <img src="/img/rules/AsymTarget.webp" width="50%" />
+              <em>The soldier may target the Bug in Ranged Combat, but the Bug may not target the soldier because the two closest corners of the soldier's Square are blocked by a wall.</em>
             </p>
           </div>
           <div className="section">
@@ -88,35 +98,17 @@ export default async function RulesCombat() {
             <p>
               If a Target is only partially visible to the Attacker (for example, there is a short wall between the two Units), that Target is said to be in cover.
               Cover only applies to Ranged attacks; there is no Cover benefit for Melee attacks.<br/>
-              To determine whether a Target is in Cover, the following conditions must be met:
+              A Target is in Cover if a piece of terrain blocks the Attacker's full view of the Target and occupies at least one side of the Target Square.
             </p>
-            <ul>
-              <li>
-                  The piece of terrain blocking the Attacker's full view of the Target occupies at least one side of the Target Square.
-              </li>
-              <li>
-                The Attacker can "see" no more than 2 of the following: The Target's legs, the Target's torso, the Target's head.<br/>
-                If the Attacker can see none of these in full, the Attacker cannot fire its weapon at the Target.<br/>
-                If the Attacker can see all three of these in full, the Target does not get the benefit of cover.
-              </li>
-            </ul>
           
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <img 
-                  src="/img/rules/Cover01.jpg" 
+                  src="/img/rules/Cover.webp" 
                   className="mb-2" 
                   alt="Example of unit in cover" 
                 />
-                The targeted enemy is in Cover because the blocking terrain element occupies on of its Square's edges.
-              </div>
-              <div>
-                <img 
-                  src="/img/rules/Cover02.jpg" 
-                  className="mb-2" 
-                  alt="Example of unit not in cover" 
-                />
-                The targeted enemy is not in Cover because the blocking terrain element does not occupy any of the Target Square's edges.
+                <em>The bug marked <strong>C</strong> is in Cover. The bug marked <strong>NC</strong> is not in Cover because the wall does not occupy any of the Target Square's edges.</em>
               </div>
             </div>
           </div>
