@@ -145,7 +145,7 @@ export default function SquadCardMenu({
                       <div className="flex flex-col items-start gap-2">
                         {typeof navigator !== 'undefined' && typeof navigator.share === 'function' && (
                           <Button onClick={handleNativeShare} className="flex">
-                            <FiShare2/ > Share
+                            <FiShare2 /> Share
                           </Button>
                         )}
                         <strong>SquadId:</strong> <pre className="text-2xl">{squad.squadId}</pre>
