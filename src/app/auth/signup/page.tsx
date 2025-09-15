@@ -34,13 +34,17 @@ export default function SignUpPage() {
     e.preventDefault()
     setError('')
 
-    if (userName.length < 3) {
+    if (userName.length < 4) {
       setError('User name must be at least 4 characters long.')
       return
     }
 
     if (userName.includes('@')) {
       setError('User name cannot contain \'@\'. Please do not use your email address as a username.')
+    }
+
+    if (userName.includes(' ') || userName.includes('%') || userName.includes('?') || userName.includes('#') || userName.includes('/')|| userName.includes('\\')) {
+      setError('User name cannot contain special characters (spaces, %, ?, #, /, \\).')
     }
   
     if (password.length < 6) {
