@@ -2,6 +2,7 @@ import PageTitle from '@/components/ui/PageTitle'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { getSquadPortraitUrl } from '@/lib/utils/imageUrls'
+import { userPath } from '@/lib/utils/utils'
 import { UserService } from '@/services'
 import { getAuthSession } from '@/src/lib/auth'
 import { Squad } from '@/types/squad.model'
@@ -11,7 +12,9 @@ export const revalidate = 60
 
 export async function generateMetadata({ params }: { params: Promise<{ userName: string }> }) {
   const { userName } = await params
-  const user = await UserService.getUserByUsername(userName)
+  let lookupName = userName
+  try { lookupName = decodeURIComponent(userName) } catch {}
+  const user = await UserService.getUserByUsername(lookupName)
 
   if (!user) {
     return {
@@ -37,16 +40,18 @@ export async function generateMetadata({ params }: { params: Promise<{ userName:
       return { url: img}
     }),
     keywords: [user.userName, 'user', 'squads'],
-    pagePath: `/users/${user.userName}`
+    pagePath: userPath(user.userName)
   })
 }
 
 export default async function UserPage({ params }: { params: Promise<{ userName: string }> }) {
   const { userName } = await params
+  let lookupName = userName
+  try { lookupName = decodeURIComponent(userName) } catch {}
 
   const session = await getAuthSession()
 
-  const user = await UserService.getUserByUsername(userName)
+  const user = await UserService.getUserByUsername(lookupName)
 
   if (!user) return notFound()
 

@@ -1,5 +1,6 @@
 'use client'
 
+import { userPath } from '@/lib/utils/utils'
 import Link from 'next/link'
 
 export default function Campaign() {  
@@ -200,9 +201,9 @@ export default function Campaign() {
     <>
       <h3 className="text-center font-heading">{campaign.campaignName}</h3>
       <p className="text-center">
-        <Link className="underline" href={`/squads/${campaign.squad1.squadId}`}>{campaign.squad1.squadName}</Link> (<Link className="underline" href={`/users/${campaign.squad1.playerName}`}>{campaign.squad1.playerName}</Link>)
+        <Link className="underline" href={`/squads/${campaign.squad1.squadId}`}>{campaign.squad1.squadName}</Link> (<Link className="underline" href={userPath(campaign.squad1.playerName)}>{campaign.squad1.playerName}</Link>)
         <br/>vs<br/>
-        <Link className="underline" href={`/squads/${campaign.squad2.squadId}`}>{campaign.squad2.squadName}</Link> (<Link className="underline" href={`/users/${campaign.squad2.playerName}`}>{campaign.squad2.playerName}</Link>)
+        <Link className="underline" href={`/squads/${campaign.squad2.squadId}`}>{campaign.squad2.squadName}</Link> (<Link className="underline" href={userPath(campaign.squad2.playerName)}>{campaign.squad2.playerName}</Link>)
       </p>
 
       <br/>

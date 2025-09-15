@@ -1,5 +1,6 @@
 'use client'
 
+import { userPath } from '@/lib/utils/utils'
 import Link from 'next/link'
 import { FiBook, FiList, FiUser, FiUsers } from 'react-icons/fi'
 
@@ -25,7 +26,7 @@ export function SquadTypeLink({ squadTypeId, squadTypeName }: { squadTypeId: str
 
 export function UserLink({ userName }: {userName: string}) {
   return (
-    <Link href={`/users/${userName}`} className={badgeClass}>
+    <Link href={userPath(userName)} className={badgeClass}>
       <FiUser />
       {userName}
     </Link>

@@ -27,8 +27,9 @@ export class UserRepository extends BaseRepository {
   }
 
   async getUserByUsername(userName: string) {
+    const normalized = userName.trim()
     return this.prisma.user.findFirst({
-      where: { userName },
+      where: { userName: { equals: normalized } },
       include: {
         squads: {
           include: {

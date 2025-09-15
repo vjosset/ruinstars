@@ -83,3 +83,7 @@ export function getSquadRepeatedSkills(squad: SquadPlain | undefined) {
 
   return skills
 }
+
+export function userPath(userName: string) {
+  return `/users/${encodeURIComponent(userName)}`
+}
