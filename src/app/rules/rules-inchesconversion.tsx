@@ -16,7 +16,7 @@ export default async function RulesInchesConversion() {
             <h4>Basic Conversion</h4>
             <ul>
               <li>1 Square = 2 inches (≈5 cm)</li>
-              <li>Adjacency: Units are “adjacent” if their bases are within 1" of each other.</li>
+              <li>Adjacency: Units are "adjacent" if their bases are within 1" of each other.</li>
             </ul>
           </div>
           <div className="section">
