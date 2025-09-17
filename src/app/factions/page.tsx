@@ -4,7 +4,7 @@ import { GAME } from '@/lib/config/game_config'
 
 export const metadata = {
   title: `Factions - ${GAME.NAME}`,
-  description: `Browse all Factions and Squad Types in ${GAME.NAME} and choose your squad’s allegiance.`,
+  description: `Browse all Factions and Squad Types in ${GAME.NAME} and choose your squad's allegiance.`,
 }
 
 export default async function FactionsPage() {
