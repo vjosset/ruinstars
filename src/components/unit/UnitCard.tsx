@@ -360,7 +360,7 @@ export default function UnitCard({
                 
                   try {
                     if (!unit.unitId) {
-                      console.error('No unitId defined — cannot delete.')
+                      console.error('No unitId defined - cannot delete.')
                       return
                     }
 

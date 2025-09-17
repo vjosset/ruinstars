@@ -47,7 +47,7 @@ export default async function RulesInchesConversion() {
           </div>
           <div className="section">
             <p>
-              Tip: When in doubt, round up. The goal is smooth play, not precise math. Both grid and measuring-table versions are fully supported — choose whichever is easiest for your group.
+              Tip: When in doubt, round up. The goal is smooth play, not precise math. Both grid and measuring-table versions are fully supported; choose whichever is easiest for your group.
             </p>
           </div>
         </div>
