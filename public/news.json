@@ -2,7 +2,7 @@
   {
     "date": "2025-09-15",
     "title": "DevLog: Scripted Operations",
-    "description": "[Read on itch.io](https://ruinstars.itch.io/ruinstars/devlog/1032284/telling-a-story-scripted-operations)\n\nWhile our Primary and Secondary Missions can be combined to create a full 3-operation/9-mission campaign, they don’t really tell a story. With that in mind, we started writing and prototyping scripted operations, where each mission has an impact on the following one, with branching missions determined based on success or failure."
+    "description": "[Read on itch.io](https://ruinstars.itch.io/ruinstars/devlog/1032284/telling-a-story-scripted-operations)\n\nWhile our Primary and Secondary Missions can be combined to create a full 3-operation/9-mission campaign, they don't really tell a story. With that in mind, we started writing and prototyping scripted operations, where each mission has an impact on the following one, with branching missions determined based on success or failure."
   },
   {
     "date": "2025-09-05",

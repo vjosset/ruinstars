@@ -26,7 +26,7 @@
       "seq": 4,
       "factionName": "Outer Claim",
       "description": "",
-      "lore": "The Outer Claim is not a single empire or culture. It is a resurgence of lost bloodlines, forgotten worlds, and shattered civilizations drifting inward from the galactic fringe. These clades were abandoned centuries ago, cut off from the Hegemony in the centuries since their inception. Some degenerated into tribal warbands. Others adapted. Others… changed.\n \nNow, they return.\n\nThe Hegemony calls them raiders. Pirates. Terror cells. But to the Claimants, they are the rightful inheritors of the galaxy. They remember the betrayal. They remember being left behind. And they’ve spent generations adapting biologically, technologically, and spiritually to survive the void.\n\nTheir warbands are a mix of species, tech levels, and ideologies. Some come to conquer. Others come to warn. But none come in peace."
+      "lore": "The Outer Claim is not a single empire or culture. It is a resurgence of lost bloodlines, forgotten worlds, and shattered civilizations drifting inward from the galactic fringe. These clades were abandoned centuries ago, cut off from the Hegemony in the centuries since their inception. Some degenerated into tribal warbands. Others adapted. Others… changed.\n \nNow, they return.\n\nThe Hegemony calls them raiders. Pirates. Terror cells. But to the Claimants, they are the rightful inheritors of the galaxy. They remember the betrayal. They remember being left behind. And they've spent generations adapting biologically, technologically, and spiritually to survive the void.\n\nTheir warbands are a mix of species, tech levels, and ideologies. Some come to conquer. Others come to warn. But none come in peace."
     },
     {
       "factionId": "EIR",
@@ -66,7 +66,7 @@
       "squadTypeId": "INT",
       "squadTypeName": "Interdictors",
       "description": "Elite commandos of the Human Hegemony, deployed where diplomacy was never an option. Interdictors operate behind enemy lines to eliminate threats, secure forbidden tech, and silence dissent before it spreads. Disciplined, relentless, and unyielding, they are not peacekeepers, they are the sharp edge of a regime that expands by force and survives through fear.",
-      "lore": "> *\"We are the mandate. We do not fail.\"*\n\nThe Interdictors are elite commando units, precision instruments of sanctioned annihilation who answer to the silent, unseen, infallible Hegemon itself. Operating behind enemy lines, they are tasked with critical strike missions: assassinating rebel leaders, sabotaging planetary infrastructure, disabling artifact vaults, or seizing xeno-tech before it spreads. They operate in shadows and leave nothing standing.\n\nDrawn from the Hegemony’s most loyal and lethal operatives, Interdictor squads are self-sufficient, heavily armed, and trained to adapt."
+      "lore": "> *\"We are the mandate. We do not fail.\"*\n\nThe Interdictors are elite commando units, precision instruments of sanctioned annihilation who answer to the silent, unseen, infallible Hegemon itself. Operating behind enemy lines, they are tasked with critical strike missions: assassinating rebel leaders, sabotaging planetary infrastructure, disabling artifact vaults, or seizing xeno-tech before it spreads. They operate in shadows and leave nothing standing.\n\nDrawn from the Hegemony's most loyal and lethal operatives, Interdictor squads are self-sufficient, heavily armed, and trained to adapt."
     },
     {
       "factionId": "SPEC",
@@ -90,7 +90,7 @@
       "squadTypeId": "SCH",
       "squadTypeName": "Silent Choir",
       "description": "A cross-species cult bound by relics, rites, and the psychic resonance of forgotten gods. The Crimson Shroud spreads like a thought-virus, infiltrating worlds, turning enemies into acolytes, and unraveling reality through ritual. Their warriors do not shout or rage. They whisper, reshape, and break the mind before the body ever falls.",
-      "lore": "> *\"They are already inside your walls. And inside your thoughts.\"*\n\nThe Silent Choir is the Shroud’s militant arm, psychic agents and ritual assassins used to neutralize resistance and purge those who cannot be turned. These squads are surgical, terrifying, and eerily calm. Their movements follow sacred geometries. Their words alter memories. Their weapons hum with ancient resonances.\n\nWhere they strike, confusion follows. Friendly fire, hallucinations, screams from minds collapsing under pressure. Their role is not just to kill, it is to unmake belief. To destroy identity. To prepare the soil for the seed."
+      "lore": "> *\"They are already inside your walls. And inside your thoughts.\"*\n\nThe Silent Choir is the Shroud's militant arm, psychic agents and ritual assassins used to neutralize resistance and purge those who cannot be turned. These squads are surgical, terrifying, and eerily calm. Their movements follow sacred geometries. Their words alter memories. Their weapons hum with ancient resonances.\n\nWhere they strike, confusion follows. Friendly fire, hallucinations, screams from minds collapsing under pressure. Their role is not just to kill, it is to unmake belief. To destroy identity. To prepare the soil for the seed."
     }
   ],
   "gearCategories": [
@@ -3489,7 +3489,7 @@
       "missionType": "Primary",
       "seq": 11,
       "title": "Infiltrate",
-      "description": "*\"Silent. Deadly. Unstoppable.\"*  \r\n  \r\n\nUnder the cover of darkness, a squad moves through enemy territory, their goal clear - breach the defenses and secure a foothold within the enemy’s base. Their foes are unaware, but not for long. The first shot fired will set off a chain reaction of chaos and violence. Can the attackers slip through and establish their presence, or will the defenders crush the intrusion before it begins?",
+      "description": "*\"Silent. Deadly. Unstoppable.\"*  \r\n  \r\n\nUnder the cover of darkness, a squad moves through enemy territory, their goal clear - breach the defenses and secure a foothold within the enemy's base. Their foes are unaware, but not for long. The first shot fired will set off a chain reaction of chaos and violence. Can the attackers slip through and establish their presence, or will the defenders crush the intrusion before it begins?",
       "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nSelect one Squad to be the Attacker and the other to be the Defender.",
       "deployment": "Before Turn 1, Defender deploys their Units anywhere on their Battlefield Edge.  \r During Turn 1, when it is an Attacker Unit's turn to activate, deploy it on its Battlefield edge.   Attacker has initiative in the first Turn.",
       "special": "At the end of Turn 4, if the Attacker has 2 or more Units on the Defender's Battlefield edge that are not Adjacent to any enemy Units, the Attacker score 6 MP. Defender score 6 MP in all other cases.",
@@ -3590,7 +3590,7 @@
     {
       "battlefieldId": 6,
       "title": "No Man's Land",
-      "description": "A barren expanse scarred by endless war, No Man’s Land stretches between the shattered frontlines of long-dead armies. The ground is churned to mud and ash, cratered by orbital barrages and scarred by the rusting skeletons of tanks and walkers. Jagged trench lines crisscross the battlefield like open wounds, some still slick with blood and oil. Barbed wire tangles and sun-bleached corpses mark the no-go zones, while distant artillery thunders like the last breath of a dying god. Visibility is cruelly clear; any movement invites death from a mile away. There is no cover, no mercy. Only survival, moment to moment.",
+      "description": "A barren expanse scarred by endless war, No Man's Land stretches between the shattered frontlines of long-dead armies. The ground is churned to mud and ash, cratered by orbital barrages and scarred by the rusting skeletons of tanks and walkers. Jagged trench lines crisscross the battlefield like open wounds, some still slick with blood and oil. Barbed wire tangles and sun-bleached corpses mark the no-go zones, while distant artillery thunders like the last breath of a dying god. Visibility is cruelly clear; any movement invites death from a mile away. There is no cover, no mercy. Only survival, moment to moment.",
       "setup": "Open terrain, trenches, long lines of sight.",
       "effects": "**Artillery Strike:** At the start of each Turn after the first, select on random Tile. All Units on that Tile take 2 ranged Damage."
     }

@@ -1,7 +1,13 @@
-import { MissionService } from '@/services/mission.service'
 import MissionBlock from '@/components/shared/MissionBlock'
+import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
+import ops from '@/data/scriptedOperations.json'
+import { SquadTypeService } from '@/services'
+import { MissionService } from '@/services/mission.service'
+
 export default async function RulesMissions() {
   const missions = await MissionService.getAllMissions()
+  const operations = ops.sort((a, b) => a.title.localeCompare(b.title))
+  const squadTypes = await SquadTypeService.getAllSquadTypes()
 
   return (
     <div className="section">
@@ -9,6 +15,12 @@ export default async function RulesMissions() {
         9. Missions
       </h2>
       
+      <h3>Quick-Play Missions</h3>
+      <p>
+        Quick-Play missions are perfect for pick-up or competitive play.
+        You can also use these missions to build your own custom campaign.<br/>
+        For more scripted narrative play, see <a href="#scriptedoperations">Scripted Operations.</a>
+      </p>
       Each Primary mission is a single battle pitting your Squad against its enemies. Select (or randomly pick) a Mission from the list of standard missions below:
       <div className="twocols">
         {/* Missions List */}
@@ -50,5 +62,12 @@ export default async function RulesMissions() {
           After each player activation, that same player activates the next NPC Unit and follows its NPC Behavior.
         </div>
       </div>
+
+      <h3 id="scriptedoperations">Scripted Operations</h3>
+      <p>
+        Scripted Operations are designed for more complex narrative play, allowing for deeper storytelling and character development.
+        These missions often involve multiple stages and require players to make meaningful choices that impact the outcome of the story.
+      </p>
+      <ScriptedOperationsList operations={operations} squadTypes={squadTypes} />
     </div>
   )}

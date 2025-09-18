@@ -46,7 +46,7 @@
     "descriptions": [
       "Enemy war-leader **{{enemySquadLeader}}** has established a command nexus inside **{{battlefieldName}}**. This figure has been linked to multiple ritual executions and dark-tech deployments. You are to eliminate the target before reinforcements arrive and the threat escalates beyond containment.",
       "Long-range augurs confirm the presence of a high-value hostile: **{{enemySquadLeader}}**, issuing commands from within **{{battlefieldName}}**. Intel links them to mass civilian purges and forbidden tech rituals. Terminate them before the theater destabilizes.",
-      "Your next target is **{{enemySquadLeader}}**, the architect of numerous dark-tech operations across the sector. They’ve taken refuge inside **{{battlefieldName}}**, shielded by proximity alarms and fire teams. Breach their line and end this threat.",
+      "Your next target is **{{enemySquadLeader}}**, the architect of numerous dark-tech operations across the sector. They've taken refuge inside **{{battlefieldName}}**, shielded by proximity alarms and fire teams. Breach their line and end this threat.",
       "Enemy command protocols are routing through **{{battlefieldName}}**, where **{{enemySquadLeader}}** is coordinating strike waves. Cut off the head before their forces can escalate."
     ],
     "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.",
@@ -140,7 +140,7 @@
     "goal": "Track hidden signatures to uncover an emerging threat",
     "descriptions": [
       "Strange signal echoes have been picked up across **{{battlefieldName}}** — too structured to be natural, too degraded to trace cleanly. Your squad is tasked with tracking down these Ghost Signatures before **{{enemyFactionName}}** locates the source.",
-      "Residual pulses across **{{battlefieldName}}** suggest a cloaked presence is active in the region. Track the signals back to their origin. Whatever it is, it’s not friendly.",
+      "Residual pulses across **{{battlefieldName}}** suggest a cloaked presence is active in the region. Track the signals back to their origin. Whatever it is, it's not friendly.",
       "Recon logs flagged unusual signal activity near **{{battlefieldName}}** — brief, ghostlike transmissions pulsing at irregular intervals. Your squad must locate and trace these signals before **{{enemySquadName}}** uncovers their origin.",
       "Eidolon-spectrum bursts were detected across **{{battlefieldName}}**, rising in frequency. A cloaked entity may be trying to breach reality. Trace the signal path and locate its point of entry."
     ],
@@ -158,10 +158,10 @@
     "followupMissions": ["Breach", "Retrieve Intel", "Sabotage", "Eradicate", "Control", "Boss Fight", "Defend"],
     "goal": "Infiltrate the enemy position",
     "descriptions": [
-      "Under the cover of darkness, a squad moves through enemy territory, their goal clear: breach the defenses and secure a foothold within the enemy’s base. Their foes are unaware, but not for long. The first shot fired will set off a chain reaction of chaos and violence. Can the attackers slip through and establish their presence, or will the defenders crush the intrusion before it begins?",
+      "Under the cover of darkness, a squad moves through enemy territory, their goal clear: breach the defenses and secure a foothold within the enemy's base. Their foes are unaware, but not for long. The first shot fired will set off a chain reaction of chaos and violence. Can the attackers slip through and establish their presence, or will the defenders crush the intrusion before it begins?",
       "Enemy comms blackouts suggest **{{battlefieldName}}** is vulnerable. Deploy silently, breach their perimeter, and secure a forward staging zone before alarms cascade.",
       "The only path forward lies through **{{battlefieldName}}**. Move with precision: your success hinges on stealth and speed. Leave no evidence.",
-      "**{{enemySquadName}}** maintains only light patrols in this zone. It’s your best chance to slip through the cracks. Make every move count."
+      "**{{enemySquadName}}** maintains only light patrols in this zone. It's your best chance to slip through the cracks. Make every move count."
     ],
     "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nSelect one Squad to be the Attacker and the other to be the Defender.",
     "deployment": "Before Turn 1, Defender deploys their Units anywhere on their Battlefield Edge.  \r\nDuring Turn 1, when it is an Attacker Unit's turn to activate, deploy it on its Battlefield edge.   Attacker has initiative in the first Turn.",
@@ -177,7 +177,7 @@
     "followupMissions": ["Ghost Trace", "Boss Fight", "Ambush", "Sabotage"],
     "goal": "Recover critical data and extract",
     "descriptions": [
-      "A blackbox datacore holding decrypted choir transmissions was recovered by a recon team before they were wiped out. It’s now in hostile hands somewhere inside **{{battlefieldName}}**. Infiltrate, retrieve the core, and escape with it intact. Its contents may determine the next theater of war.",
+      "A blackbox datacore holding decrypted choir transmissions was recovered by a recon team before they were wiped out. It's now in hostile hands somewhere inside **{{battlefieldName}}**. Infiltrate, retrieve the core, and escape with it intact. Its contents may determine the next theater of war.",
       "Deep within **{{battlefieldName}}**, enemy forces are storing a critical data fragment, likely a decoded Choir link. Recover it before **{{enemyFactionName}}** extracts or wipes the memory core.",
       "**{{enemySquadName}}** operatives have intercepted a tactical blackbox near **{{battlefieldName}}**. Breach their defenses and recover the data before its trail goes dark.",
       "The choir signal fragment is active somewhere inside **{{battlefieldName}}**. It must be retrieved intact. Failure will blind us in the next phase."

@@ -65,7 +65,7 @@
     "slug": "CW-SCH",
     "file": "CW-SCH.md",
     "title": "Broken Chains",
-    "description": "The Silent Choir seeks to enthrall the leaders of the Claimants, binding them in chains of whispered compulsions. The Claimants rally to break this grip before their rebellion is shattered from within. Each battle swings between domination and freedom, until only one side remains in control of the Claimants’ destiny.",
+    "description": "The Silent Choir seeks to enthrall the leaders of the Claimants, binding them in chains of whispered compulsions. The Claimants rally to break this grip before their rebellion is shattered from within. Each battle swings between domination and freedom, until only one side remains in control of the Claimants' destiny.",
     "factions": {
       "squadTypeA": "CWB",
       "squadTypeB": "SCH"
@@ -84,7 +84,7 @@
       {
         "id": "2A",
         "title": "Purge the Shrines",
-        "description": "The Claimants press into the Choir’s sanctum, where a great shrine pulses with malign power. The ritual is already underway; the Choir seeks to complete its corruption, while the Claimants fight to cleanse it.",
+        "description": "The Claimants press into the Choir's sanctum, where a great shrine pulses with malign power. The ritual is already underway; the Choir seeks to complete its corruption, while the Claimants fight to cleanse it.",
         "battlefield": "The Cursed Temple",
         "setup": "Place 1 Central Shrine Marker in the center of the Central Tile.\nPlace 4 Ritual Counters on the Shrine.",
         "deployment": "* Silent Choir deploy within 2 Squares of the Shrine before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
@@ -94,7 +94,7 @@
       {
         "id": "2B",
         "title": "The Spreading Blight",
-        "description": "With Claimant leaders enthralled, the Choir’s corruption seeps into the wilds. Idols are raised, radiating their influence across the land. The Claimants must shatter them before the rot spreads too far.",
+        "description": "With Claimant leaders enthralled, the Choir's corruption seeps into the wilds. Idols are raised, radiating their influence across the land. The Claimants must shatter them before the rot spreads too far.",
         "battlefield": "The Jungle",
         "setup": "Place 2 Idol Markers: one in the center of the Northwest Tile, one in the center of the Northeast Tile.",
         "deployment": "* Silent Choir deploy within 3 Squares of any Idol before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
@@ -114,7 +114,7 @@
       {
         "id": "3B",
         "title": "Shackled Rebellion",
-        "description": "The Choir’s enthralled leaders are brought to the cursed temple for the final compulsion. If the ritual completes, the rebellion will be theirs to command. The Claimants launch a last, desperate attack to shatter the ritual chains.",
+        "description": "The Choir's enthralled leaders are brought to the cursed temple for the final compulsion. If the ritual completes, the rebellion will be theirs to command. The Claimants launch a last, desperate attack to shatter the ritual chains.",
         "battlefield": "The Cursed Temple",
         "setup": "Place 1 Ritual Track (off-board) starting at 0.",
         "deployment": "* Silent Choir deploy within 2 Squares of the Central Tile before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
@@ -169,7 +169,7 @@
     "slug": "INT-CW",
     "file": "INT-CW.md",
     "title": "Terror Attack",
-    "description": "A Claimant Warband plots a devastating terror strike, assembling explosives and preparing to unleash them upon the Hegemony. The Interdictors must intercept, contain, and dismantle the threat before the rebellion’s strike shakes the sector.",
+    "description": "A Claimant Warband plots a devastating terror strike, assembling explosives and preparing to unleash them upon the Hegemony. The Interdictors must intercept, contain, and dismantle the threat before the rebellion's strike shakes the sector.",
     "factions": {
       "squadTypeA": "INT",
       "squadTypeB": "CWB"
@@ -208,7 +208,7 @@
       {
         "id": "3A",
         "title": "Detonate the Device",
-        "description": "The bomb is ready, and the Claimants push to plant and detonate it. The Interdictors’ only hope is to defuse the device before it can be unleashed.",
+        "description": "The bomb is ready, and the Claimants push to plant and detonate it. The Interdictors' only hope is to defuse the device before it can be unleashed.",
         "battlefield": "The Ruined City",
         "setup": "Place 1 Bomb Marker in the center of the Central Tile.",
         "deployment": "* Outer Claim deploy from the Northern battlefield edge before Turn 1.\n* Interdictors deploy from the Southern battlefield edge before Turn 1.",
@@ -218,7 +218,7 @@
       {
         "id": "3B",
         "title": "Contain the Blast",
-        "description": "The Claimants’ terror strike is incomplete, but dangerous charges remain. The Interdictors work to secure and contain them, while the Claimants attempt to trigger whatever destruction they still can.",
+        "description": "The Claimants' terror strike is incomplete, but dangerous charges remain. The Interdictors work to secure and contain them, while the Claimants attempt to trigger whatever destruction they still can.",
         "battlefield": "The Facility",
         "setup": "Place 3 Charge Markers: one in the center of the West, Center, and East tiles.",
         "deployment": "* Outer Claim deploy within 2 Squares of any Charge before Turn 1.\n* Interdictors deploy from the Southern battlefield edge before Turn 1.",
@@ -240,11 +240,11 @@
       {
         "id": "1",
         "title": "Breach and Infiltrate",
-        "description": "The facility’s lower levels are sealed. The Interdictors must breach the perimeter to gain access, while the Swarm defends the hatch and denies entry.",
+        "description": "The facility's lower levels are sealed. The Interdictors must breach the perimeter to gain access, while the Swarm defends the hatch and denies entry.",
         "battlefield": "The Facility",
         "setup": "Place a Hatch marker in the center square of the central tile.",
         "deployment": "Interdictors deploy before Turn 1 on any battlefield edge.\nThe Swarm deploys before Turn 1 within 3 squares of the Hatch marker.",
-        "special": "The Hatch is an item with `ARM` **4** and `HIT` **4** and may be targeted in Combat.\nIf the Hatch reaches 0 HIT, it is breached.\n\n**Mission Action**: Torch Breach (2ACT)\nOnce per Turn, a Unit Adjacent to the Hatch may spend 2ACT to remove 1 `HIT` from it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "special": "The Hatch is an item with `ARM` **4** and `HIT` **4** and may be targeted in Combat.\nIf the Hatch reaches 0 HIT, it is breached.\n\n**Mission Action: Torch Breach (2ACT)**  \nOnce per Turn, a Unit Adjacent to the Hatch may spend 2ACT to remove 1 `HIT` from it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
         "victory": "- The Interdictors win the Mission if the Hatch is breached before the end of Turn 4. **Proceed to Mission 2A**\n- The Swarm wins in all other cases. **Proceed to Mission 2B**"
       },
       {
@@ -264,13 +264,13 @@
         "battlefield": "The Facility",
         "setup": "Place one Console in the center of each of the Northwest, North, and Northeast tiles.",
         "deployment": "The Swarm deploys its Units within 2 Squares of a Console before Turn 1.\nInterdictors deploy from the southern edge of the Battlefield before Turn 1.",
-        "special": "**Mission Action**: Activate Console (2ACT)\nOne Unit Adjacent to a Console may spend 2ACT to Activate that Console.\nA Unit may not perform this action if it is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Activate Console (2ACT)**  \nOne Unit Adjacent to a Console may spend 2ACT to Activate that Console.\nA Unit may not perform this action if it is Adjacent to any enemy Units.",
         "victory": "- Interdictors win the Mission if all three Consoles are activated before the end of Turn 4. **Proceed to Mission 2A**\n- Swarm wins in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "3A",
         "title": "Purge The Infestation",
-        "description": "With the facility’s defenses collapsing, the Interdictors must eradicate the remnants of the Swarm while the Swarm must rally for survival.",
+        "description": "With the facility's defenses collapsing, the Interdictors must eradicate the remnants of the Swarm while the Swarm must rally for survival.",
         "battlefield": "The Ruined City",
         "setup": "",
         "deployment": "The Swarm deploys anywhere on the Battlefield before Turn 1.\nInterdictors deploy from the southern edge of the Battlefield before Turn 1.",
@@ -302,7 +302,7 @@
       {
         "id": "1",
         "title": "The Hidden Trail",
-        "description": "The Loyalists pursue fragments of intelligence in the wilds, seeking the location of the Splinter Group’s secret headquarters. But the traitors know they are being hunted, and will stop at nothing to protect their secrets.",
+        "description": "The Loyalists pursue fragments of intelligence in the wilds, seeking the location of the Splinter Group's secret headquarters. But the traitors know they are being hunted, and will stop at nothing to protect their secrets.",
         "battlefield": "The Jungle",
         "setup": "Place 1 Intel marker in the center of the central Tile.",
         "deployment": "Each Squad deploys from opposite Battlefield edges before Turn 1.",
@@ -312,7 +312,7 @@
       {
         "id": "2A",
         "title": "Infiltrate the Headquarters",
-        "description": "The Loyalists strike at the Splinter Group’s hidden fortress. Its gates are locked, its defenses prepared, but the Loyalists mean to breach the walls and expose the traitors within.",
+        "description": "The Loyalists strike at the Splinter Group's hidden fortress. Its gates are locked, its defenses prepared, but the Loyalists mean to breach the walls and expose the traitors within.",
         "battlefield": "The Facility",
         "setup": "Place 1 Gate Marker in the center of the Eastern edge of the Central Tile.\n\nAll Squares North and South of the Gate are considered an impassable wall. Units may shoot through those Squares, but may not move through them.\n\nAll Squares East of the Gate are considered to be Ramparts: Units on those Squares should be considered to be 2 Squares above the western part of the battlefield and have High Ground (no cover when targeting enemies lower than them).",
         "deployment": "- Splinter Group deploys anywhere East of the Gate before Turn 1.\n- Loyalists deploy from the Western battlefield edge before Turn 1.",
@@ -333,7 +333,7 @@
         "id": "3",
         "title": "Rivals",
         "description": "The feud reaches its climax. The leaders of each faction have sworn a blood oath: only one will remain standing. Squads clash around them, but the duel of commanders will decide the future of the Interdictors.",
-        "battlefield": "No Man’s Land",
+        "battlefield": "No Man's Land",
         "setup": "",
         "deployment": "Each Squad deploys from opposite battlefield edges before Turn 1.",
         "special": "- Only squad leaders may target each other in Combat\n- Other Units may not target enemy leaders\n- Leaders may freely target enemy non-leaders as normal",
@@ -456,7 +456,7 @@
       {
         "id": "3B",
         "title": "Sabotage the Temple",
-        "description": "The Choir’s summoning has been thwarted, and now the Interdictors launch a final desperate strike. They will tear down the temple itself if they must, ending the ritual in fire and ruin. The Choir will defend their unholy ground with every last breath.",
+        "description": "The Choir's summoning has been thwarted, and now the Interdictors launch a final desperate strike. They will tear down the temple itself if they must, ending the ritual in fire and ruin. The Choir will defend their unholy ground with every last breath.",
         "battlefield": "The Cursed Temple",
         "setup": "Place 3 Sabotage Markers central squares of the West, Center, and East tiles.",
         "deployment": "Silent Choir deploys anywhere within 3 Squares of a Sabotage marker before Turn 1.\nInterdictors deploy from any Battlefield edge before Turn 1.",
@@ -551,7 +551,7 @@
         "id": "3A",
         "title": "Smash the Pylons",
         "description": "With the fortress broken open, the Krumpfists rampage toward the last active pylons. The Wardens must defend them at all costs, or see their works ground into dust once more.",
-        "battlefield": "No Man’s Land",
+        "battlefield": "No Man's Land",
         "setup": "Place 3 Pylon Markers: one in the center of the West, Center, and East tiles.",
         "deployment": "- Relict Wardens deploy within 2 Squares of a Pylon before Turn 1.\n- Krumpfists deploy from any Battlefield edge before Turn 1.",
         "special": "Pylons are treated as items with `ARM` **4** and `HIT` **4**. They may be targeted in Combat.",

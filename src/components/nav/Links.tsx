@@ -2,6 +2,7 @@
 
 import { userPath } from '@/lib/utils/utils'
 import Link from 'next/link'
+import { FaScroll } from 'react-icons/fa6'
 import { FiBook, FiList, FiUser, FiUsers } from 'react-icons/fi'
 
 const badgeClass = 'inline-flex text-foreground items-center gap-1 px-1 py-0.5 font-medium rounded border border-main bg-background hover:bg-card'
@@ -38,6 +39,15 @@ export function SquadLink({ squadId, squadName }: { squadId: string, squadName: 
     <Link href={`/squads/${squadId}`} className={badgeClass}>
       <FiUsers />
       {squadName}
+    </Link>
+  )
+}
+
+export function OperationsLink({ squadTypeId }: { squadTypeId: string }) {
+  return (
+    <Link href={`/scriptedoperations?squadTypeId=${squadTypeId}`} className={badgeClass}>
+      <FaScroll />
+      Scripted Operations
     </Link>
   )
 }

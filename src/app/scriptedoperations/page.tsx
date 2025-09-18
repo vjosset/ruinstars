@@ -1,3 +1,5 @@
+import { SquadTypeLink } from '@/components/nav/Links'
+import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
 import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
 import ops from '@/data/scriptedOperations.json'
@@ -11,12 +13,18 @@ export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({
   searchParams,
-}: { searchParams?: { opId?: string | string[] } }) {
+}: { searchParams: Promise<{ opId?: string | string[]; squadTypeId?: string | string[] }> }) {
   const operations = ops
+  const squadTypes = await SquadTypeService.getAllSquadTypes()
 
-  const raw = searchParams?.opId
-  const opId = Array.isArray(raw) ? raw[0] : raw
+  const sp = await searchParams
+  const rawOpId = sp?.opId
+  const opId = Array.isArray(rawOpId) ? rawOpId[0] : rawOpId
 
+  const rawSquadTypeId = sp?.squadTypeId
+  const squadTypeId = Array.isArray(rawSquadTypeId) ? rawSquadTypeId[0] : rawSquadTypeId
+
+  // Specific scripted operation
   if (opId) {
     const op = operations.find((o) => o.slug === opId)
     if (!op) return
@@ -28,7 +36,21 @@ export async function generateMetadata({
       pagePath: `/scriptedoperations?opId=${encodeURIComponent(opId)}`
     })
   }
+
+  // Filter on squad type
+  if (squadTypeId) {
+    const ops = operations.filter((o) => o.factions.squadTypeA === squadTypeId || o.factions.squadTypeB === squadTypeId)
+    if (!ops || !ops.length) return
+
+    return generatePageMetadata({
+      title: `${squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName} Scripted Operations`,
+      description: `Scripted operations for ${squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName} squads in ${GAME.NAME}, complete with narratives and mission details.`,
+      keywords: [...new Set(ops.flatMap(op => [`${squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName}`, op.title, 'operation', 'scripted operation', 'narrative', 'mission']))],
+      pagePath: `/scriptedoperations?squadTypeId=${encodeURIComponent(squadTypeId)}`
+    })
+  }
   
+  // All scripted operations
   return generatePageMetadata({
     title: 'Scripted Operations',
     description: `Browse scripted operations for ${GAME.NAME}, complete with narratives and mission details.`,
@@ -37,14 +59,23 @@ export async function generateMetadata({
   })
 }
 
-export default async function ScriptedOperations({
-  searchParams,
-}: { searchParams?: { opId?: string | string[] } }) {
-  const operations = ops.sort((a, b) => a.title.localeCompare(b.title))
+export default async function ScriptedOperations({ searchParams }: { searchParams: Promise<{ opId?: string | string[]; squadTypeId?: string | string[] }> }) {
+  let operations = ops.sort((a, b) => a.title.localeCompare(b.title))
   const squadTypes = await SquadTypeService.getAllSquadTypes()
 
-  const raw = searchParams?.opId
+  const sp = await searchParams
+  const raw = sp?.opId
   const opId = Array.isArray(raw) ? raw[0] : raw
+
+  const rawSquadTypeId = sp?.squadTypeId
+  const squadTypeId = Array.isArray(rawSquadTypeId) ? rawSquadTypeId[0] : rawSquadTypeId
+
+  // Format today's date as yyyy-MM-dd for the cover
+  const versionDate = new Date().toISOString().slice(0, 10)
+
+  if (squadTypeId) {
+    operations = operations.filter((o) => o.factions.squadTypeA === squadTypeId || o.factions.squadTypeB === squadTypeId)
+  }
 
   if (opId) {
     const op = operations.find((o) => o.slug === opId)
@@ -53,113 +84,135 @@ export default async function ScriptedOperations({
         {!op ? (
           <div>Operation not found</div>
         ) : (
-          <>
-            <div className="text-center mb-8">
-              <PageTitle>
-                { op.title }
-              </PageTitle>
-              <div>
-                <em>
-                  {squadTypes.find(type => type.squadTypeId === op.factions.squadTypeA)?.squadTypeName}
-                  {' '}vs.{' '}
-                  {squadTypes.find(type => type.squadTypeId === op.factions.squadTypeB)?.squadTypeName}
-                </em>
-              </div>
-            </div>
-            <div className="mb-4">
-              <Link href="/scriptedoperations" className="underline pb-4">Back to Scripted Operations</Link>
-            </div>
-            <div style={{ pageBreakAfter: 'always' }} key={op.slug}>
-              <div className="flavor mb-4">{ op.description }</div>
-              <div style={{ columnWidth: '400px' }}>
-                { op.missions.map((m:any) => (
-                  <div className="section bg-card border border-main p-1 rounded mb-2" key={`${op.slug}-${m.id}`}>
-                    <h4 className="font-heading text-main">Mission {m.id}: {m.title}</h4>
-                    <div className="flavor">{ m.description }</div>
-                    <strong>Battlefield: </strong> { m.battlefield }<br />
-
-                    { m.setup && (
-                      <div className="border-t border-border">
-                        <h5>Setup</h5>
-                        <Markdown className="pl-2">{ m.setup }</Markdown>
-                      </div>
-                    )}
-                    { m.deployment && (
-                      <div className="border-t border-border">
-                        <h5>Deployment</h5>
-                        <Markdown className="pl-2">{ m.deployment }</Markdown>
-                      </div>
-                    )}
-                    { m.special && (
-                      <div className="border-t border-border">
-                        <h5>Special</h5>
-                        <Markdown className="pl-2">{ m.special }</Markdown>
-                      </div>
-                    )}
-                    { m.victory && (
-                      <div className="border-t border-border">
-                        <h5>Victory</h5>
-                        <Markdown className="pl-2">{ m.victory }</Markdown>
-                      </div>
-                    )}
-                  </div>
-                )) }
-              </div>
-            </div>
-          </>
+          <ScriptedOperation key={op.slug} op={op} squadTypes={squadTypes} />
         )}
       </div>
     )
   }
 
-  // Default: show card list with portraits
+  // Default: show operation cards list with portraits
   return (
-    <div className="px-1 py-8 max-w-7xl mx-auto">
-      <div className="text-center mb-8">
-        <PageTitle>
-            Scripted Operations
-        </PageTitle>
+    <div>
+      {/* Cover */}
+      <div className="printonly text-white w-full text-center" style={{ position: 'absolute', top: '50%' }}>
+        <h1 className="font-title text-7xl">Scripted Operations</h1>
+        <pre>v{versionDate}</pre>
       </div>
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
-        {operations.map((op) => {
-          const a = squadTypes.find(t => t.squadTypeId === op.factions.squadTypeA)
-          const b = squadTypes.find(t => t.squadTypeId === op.factions.squadTypeB)
-          return (
-            <Link
-              key={op.slug}
-              href={`?opId=${encodeURIComponent(op.slug)}`}
-              className="group bg-card border border-border rounded hover:border-main transition p-2"
-            >
-              <div className="gap-1 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-                {/* Top-left: operation name and squad type names */}
-                <div className="col-start-1 row-start-1 min-w-0">
-                  <h3 className="font-heading text-lg text-main truncate">{op.title}</h3>
-                  <div className="text-sm text-muted">
-                    {(a?.squadTypeName ?? op.factions.squadTypeA)}{' '}vs{' '}
-                    {(b?.squadTypeName ?? op.factions.squadTypeB)}
-                  </div>
-                </div>
-
-                {/* Top-right: small portraits */}
-                <div className="col-start-2 row-start-1 flex items-center gap-2">
-                  <div className="relative h-12 w-12 rounded border border-border overflow-hidden">
-                    <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(/img/squadTypes/${op.factions.squadTypeA}.webp)` }} />
-                  </div>
-                  <div className="relative h-12 w-12 rounded border border-border overflow-hidden">
-                    <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(/img/squadTypes/${op.factions.squadTypeB}.webp)` }} />
-                  </div>
-                </div>
-
-                {/* Second row: description full width */}
-                <div className="col-span-2 row-start-2">
-                  {op.description && (
-                    <p className="text-sm line-clamp-3">{op.description}</p>
-                  )}
-                </div>
+      <img src="/img/rules/BookCover.webp" className="printonly fullpage overflow-hidden" style={{ pageBreakAfter: 'always' }} />
+        
+      <div className="px-1 py-8 max-w-7xl mx-auto">
+        <div className="text-center mb-8">
+          <PageTitle>
+            {squadTypeId && squadTypes.find(type => type.squadTypeId === squadTypeId) ? `${squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName} ` : ''}
+            Scripted Operations
+          </PageTitle>
+          {squadTypeId && (
+            <div className="noprint">
+              <div className="text-muted">
+              For <SquadTypeLink squadTypeId={squadTypeId!} squadTypeName={squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName!} /> squads
               </div>
-            </Link>
-          )
-        })}
+              <div className="mb-4">
+                <Link href="/scriptedoperations" className="underline pb-4">All Scripted Operations</Link>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="mb-8 text-muted">
+          <p className="mb-4">
+          War rages across the stars. Squads clash in ruined cities, cursed temples, alien jungles, and forgotten fortresses.
+          Yet not every battle is random. Some are part of carefully planned operations, chains of missions where each outcome shapes the next, where victory builds momentum, and defeat forces desperate gambits.
+          </p>
+          <p className="mb-4">
+          This supplement collects a series of tailor-made mini-campaigns for Ruinstars, each designed around specific factions and their rivalries.<br/>
+          These operations offer:
+            <ul>
+              <li>Narrative arcs that tell a story through connected missions.</li>
+              <li>Branching paths where success or failure leads to different challenges.</li>
+              <li>Unique mechanics that go beyond simple control points: moving convoys, tug-of-war captives, collapsing strongpoints, dark rituals, and leader duels.</li>
+              <li>Faction flavor that highlights the tactics, goals, and themes of each force.</li>
+            </ul>
+          </p>
+          <p className="mb-4">
+          Whether you're playing a quick three-mission arc or stringing multiple operations into a larger campaign, these scenarios bring new life and variety to your battles.<br/>
+          Use them as written, adapt them to your campaign, or draw inspiration to create your own.
+          </p>
+          <h4 className="font-title text-main">From the Archives of the Warfront</h4>
+          <div className="flavor mb-4">
+          “Records tell us that history turns not on grand crusades, but on knife fights in forgotten ruins. A convoy lost. A leader enthralled. A shrine defiled.
+          These are the sparks that ignite empires, the stains that never wash clean. Each squad is a thread in the weave of destiny, each skirmish a test of survival.
+          Do not mistake these operations for small affairs; they are the crucibles where factions rise or die.”
+            <br/><br/>
+          - Fragment of intercepted broadcast, author unknown
+          </div>
+        </div>
+        <div className="noprint">
+          <ScriptedOperationsList operations={operations} squadTypes={squadTypes} />
+        </div>
+      
+        {/* For print, list ALL operations in full detail */}
+        <div className="printonly p-6" style={{pageBreakBefore: 'always'}}>
+          {operations.map((op, idx) => {
+            const isLast = idx === operations.length - 1
+            return (
+              <div className="m-6 p-6" key={op.slug} style={{ pageBreakAfter: isLast ? 'auto' : 'always' }}>
+                <ScriptedOperation op={op} squadTypes={squadTypes} />
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function ScriptedOperation({ op, squadTypes }: { op: any, squadTypes: { squadTypeId: string, squadTypeName: string }[] }) {
+  return (
+    <div>
+      <div className="text-center mb-8">
+        <PageTitle className="mb-4">
+          { op.title }
+        </PageTitle>
+        <div className="text-muted">
+          Scripted Operation: { ' ' }<br/>
+          <SquadTypeLink squadTypeId={op.factions.squadTypeA} squadTypeName={squadTypes.find(type => type.squadTypeId === op.factions.squadTypeA)?.squadTypeName!} /> vs. <SquadTypeLink squadTypeId={op.factions.squadTypeB} squadTypeName={squadTypes.find(type => type.squadTypeId === op.factions.squadTypeB)?.squadTypeName!} />
+        </div>
+      </div>
+      <div key={op.slug}>
+        <div className="flavor mb-4">{ op.description }</div>
+        <div style={{ columnWidth: '400px' }}>
+          { op.missions.map((m:any) => (
+            <div className="section bg-card border border-main p-1 rounded mb-2" key={`${op.slug}-${m.id}`}>
+              <h4 className="font-heading text-main">Mission {m.id}: {m.title}</h4>
+              <div className="flavor">{ m.description }</div>
+              <strong>Battlefield: </strong> { m.battlefield }<br />
+
+              { m.setup && (
+                <div className="border-t border-border">
+                  <h5 className="text-main">Setup</h5>
+                  <Markdown className="pl-2">{ m.setup }</Markdown>
+                </div>
+              )}
+              { m.deployment && (
+                <div className="border-t border-border">
+                  <h5 className="text-main">Deployment</h5>
+                  <Markdown className="pl-2">{ m.deployment }</Markdown>
+                </div>
+              )}
+              { m.special && (
+                <div className="border-t border-border">
+                  <h5 className="text-main">Special</h5>
+                  <Markdown className="pl-2">{ m.special }</Markdown>
+                </div>
+              )}
+              { m.victory && (
+                <div className="border-t border-border">
+                  <h5 className="text-main">Victory</h5>
+                  <Markdown className="pl-2">{ m.victory }</Markdown>
+                </div>
+              )}
+            </div>
+          )) }
+        </div>
       </div>
     </div>
   )
