@@ -54,12 +54,12 @@ export default async function Home() {
           
           <div className="text-center max-w-lg mx-auto noprint mt-4">
             <Button>
-              <Link target="_blank" href="/assets/Ruinstars - The Rules - 20250912 - FullColor.pdf">
+              <Link target="_blank" href="/assets/Ruinstars - The Rules - 20250919 - FullColor.pdf">
                 <h5>Download The Rules</h5>
               </Link>
             </Button>
             <br />
-            <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20250912.pdf">
+            <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20250919.pdf">
               Printer-Friendly Version
             </Link>
           </div>
