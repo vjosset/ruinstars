@@ -1,3 +1,4 @@
+import ops from '@/data/scriptedOperations.json'
 import { GAME } from '@/lib/config/game_config'
 import RulesActions from './rules-actions_Squares'
 import RulesCampaigns from './rules-campaigns'
@@ -16,8 +17,9 @@ import RulesToc from './rules-toc'
 import RulesYourSquad from './rules-yoursquad'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
+import { SquadTypeService } from '@/services'
 import Link from 'next/link'
-import ScriptedOperations from '../scriptedoperations/page'
+import { ScriptedOperation } from '../scriptedoperations/page'
 import RulesAI from './rules-ai'
 import RulesInchesConversion from './rules-inchesconversion'
 import RulesQuickRef from './rules-quickref'
@@ -36,6 +38,9 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
+  const operations = ops
+  const squadTypes = await SquadTypeService.getAllSquadTypes()
+  
   return (
     <>
       {/* Cover */}
@@ -109,7 +114,48 @@ export default async function Home() {
           <RulesSquadTypes />
           
           <hr />
-          <ScriptedOperations searchParams={null} />
+          <h1 className="text-center pt-48 mb-24 font-title"   id="allscriptedoperations" style={{position: 'relative', top: '50%' }}>
+            Scripted Operations
+          </h1>
+          <div className="mb-8 text-muted">
+            <p className="mb-4">
+              War rages across the stars. Squads clash in ruined cities, cursed temples, alien jungles, and forgotten fortresses.
+              Yet not every battle is random. Some are part of carefully planned operations, chains of missions where each outcome shapes the next, where victory builds momentum, and defeat forces desperate gambits.
+            </p>
+            <p className="mb-4">
+              This section collects a series of tailor-made mini-campaigns for Ruinstars, each designed around specific factions and their rivalries.<br/>
+              These operations offer:
+              <ul>
+                <li>Narrative arcs that tell a story through connected missions.</li>
+                <li>Branching paths where success or failure leads to different challenges.</li>
+                <li>Unique mechanics that go beyond simple control points: moving convoys, tug-of-war captives, collapsing strongpoints, dark rituals, and leader duels.</li>
+                <li>Faction flavor that highlights the tactics, goals, and themes of each force.</li>
+              </ul>
+            </p>
+            <p className="mb-4">
+              Whether you're playing a quick three-mission arc or stringing multiple operations into a larger campaign, these scenarios bring new life and variety to your battles.<br/>
+              Use them as written, adapt them to your campaign, or draw inspiration to create your own.
+            </p>
+            <h4 className="font-title text-main">From the Archives of the Warfront</h4>
+            <div className="flavor mb-4">
+              “Records tell us that history turns not on grand crusades, but on knife fights in forgotten ruins. A convoy lost. A leader enthralled. A shrine defiled.
+              These are the sparks that ignite empires, the stains that never wash clean. Each squad is a thread in the weave of destiny, each skirmish a test of survival.
+              Do not mistake these operations for small affairs; they are the crucibles where factions rise or die.”
+              <br/><br/>
+              - Fragment of intercepted broadcast, author unknown
+            </div>
+          </div>
+          {/* For print, list ALL operations in full detail */}
+          <div className="printonly p-6" style={{pageBreakBefore: 'always'}}>
+            {operations.map((op, idx) => {
+              const isLast = idx === operations.length - 1
+              return (
+                <div className="m-6 p-6" key={op.slug} style={{ pageBreakAfter: isLast ? 'auto' : 'always' }}>
+                  <ScriptedOperation op={op} squadTypes={squadTypes} />
+                </div>
+              )
+            })}
+          </div>
         </div>
 
       </div>

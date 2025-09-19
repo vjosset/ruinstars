@@ -191,26 +191,26 @@ export function ScriptedOperation({ op, squadTypes }: { op: any, squadTypes: { s
 
               { m.setup && (
                 <div className="border-t border-border">
-                  <h5 className="text-main">Setup</h5>
-                  <Markdown className="pl-2">{ m.setup }</Markdown>
+                  <h6 className="text-main">Setup</h6>
+                  <Markdown className="ml-2">{ m.setup }</Markdown>
                 </div>
               )}
               { m.deployment && (
                 <div className="border-t border-border">
-                  <h5 className="text-main">Deployment</h5>
-                  <Markdown className="pl-2">{ m.deployment }</Markdown>
+                  <h6 className="text-main">Deployment</h6>
+                  <Markdown className="ml-2">{ m.deployment }</Markdown>
                 </div>
               )}
               { m.special && (
                 <div className="border-t border-border">
-                  <h5 className="text-main">Special</h5>
-                  <Markdown className="pl-2">{ m.special }</Markdown>
+                  <h6 className="text-main">Special</h6>
+                  <Markdown className="ml-2">{ m.special }</Markdown>
                 </div>
               )}
               { m.victory && (
                 <div className="border-t border-border">
-                  <h5 className="text-main">Victory</h5>
-                  <Markdown className="pl-2">{ m.victory }</Markdown>
+                  <h6 className="text-main">Victory</h6>
+                  <Markdown className="ml-2">{ m.victory }</Markdown>
                 </div>
               )}
             </div>
