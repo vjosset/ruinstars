@@ -1,12 +1,8 @@
 import MissionBlock from '@/components/shared/MissionBlock'
-import ops from '@/data/scriptedOperations.json'
-import { SquadTypeService } from '@/services'
 import { MissionService } from '@/services/mission.service'
 
 export default async function RulesMissions() {
   const missions = await MissionService.getAllMissions()
-  const operations = ops.sort((a, b) => a.title.localeCompare(b.title))
-  const squadTypes = await SquadTypeService.getAllSquadTypes()
 
   return (
     <div className="section">
