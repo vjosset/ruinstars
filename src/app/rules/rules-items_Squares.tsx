@@ -14,9 +14,9 @@ export default async function RulesItems() {
         <div className="section">
           <h4>Crates</h4>
           <p>
-            If you choose to play with Crates, place 4 Crates on the battlefield in ramdom Squares.
+            If you choose to play with Crates, place 4 Crates on the battlefield in random Squares.
             To open a crate, a Unit must occupy the same Square as the crate and spend 1 ACT to open it. This counts as a Mission action.
-            When opened, roll 1D{GAME.DICE_BASIS} to determine the contents of that Crate:
+            When opened, roll 1D{GAME.DICE_BASIS} to determine the contents of that Crate, then remove it from the Battlefield:
           </p>
           <ol>
             <li>
@@ -35,7 +35,7 @@ export default async function RulesItems() {
               <strong>Nothing</strong>: The Crate is empty, nothing happens.
             </li>
             <li>
-              <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares, then it is removed from the battlefield.
+              <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares.
             </li>
           </ol>
         </div>

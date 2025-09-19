@@ -8,7 +8,7 @@ export default function QuickRef() {
       <p>
         If you choose to play with Crates, place 4 Crates in random spots on the battlefield.
         To open a crate, a Unit must be Adjacent to the crate and spend 1 ACT to open it. This counts as a Mission action.
-        When opened, roll 1D{GAME.DICE_BASIS} to determine the contents of that Crate:
+        When opened, roll 1D{GAME.DICE_BASIS} to determine the contents of that Crate, then remove it from the Battlefield:
       </p>
       <ol>
         <li><strong>TO</strong>: The Unit's Squad immediately gains 1 TO.</li>

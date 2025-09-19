@@ -16,7 +16,7 @@ export default async function RulesItems() {
           <p>
             If you choose to play with Crates, place 4 Crates in random spots on the battlefield.
             To open a crate, a Unit must be Adjacent to the crate and spend 1 ACT to open it. This counts as a Mission action.
-            When opened, roll 1D{GAME.DICE_BASIS} to determine the contents of that Crate:
+            When opened, roll 1D{GAME.DICE_BASIS} to determine the contents of that Crate, then remove it from the Battlefield:
           </p>
           <ol>
             <li>
@@ -35,7 +35,7 @@ export default async function RulesItems() {
               <strong>Nothing</strong>: The Crate is empty, nothing happens.
             </li>
             <li>
-              <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units within 2" of its position, then it is removed from the battlefield.
+              <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units within 2" of its position.
             </li>
           </ol>
         </div>

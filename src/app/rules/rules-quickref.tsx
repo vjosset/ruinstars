@@ -54,7 +54,7 @@ export default async function RulesQuickRef() {
           </div>
           <div className="section">
             <h4>Crates</h4>
-            Roll 1D6:
+            Roll 1D6, then remove the Crate from the Battlefield:
             <ol>
               <li>
                 <strong>TO</strong>: The Unit's Squad immediately gains 1 TO.
@@ -72,7 +72,7 @@ export default async function RulesQuickRef() {
                 <strong>Nothing</strong>: The Crate is empty, nothing happens.
               </li>
               <li>
-                <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares, then it is removed from the battlefield.
+                <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares.
               </li>
             </ol>
           </div>
