@@ -66,25 +66,31 @@ export default async function RulesSquadTypes() {
           <div className="section">
             <h4>Skills</h4>
             <ul className="twocols">
-              {Array.from(new Set(
-                squadType.unitTypes
+              {(() => {
+                // Gather all skills across unit types
+                const allSkills = squadType.unitTypes
                   .flatMap(u => u.skills || [])
-                  .filter(s => s?.gearId)
-                  .map(s => s?.gearId)
-              )).map(gearId => {
-                const skill = squadType.unitTypes
-                  .flatMap(u => u.skills || [])
-                  .find(s => s?.gearId === gearId)
 
-                if (skill?.gearCategory?.isNarrative) return
+                // Keep only skills with a gearId and exclude narrative-only skills
+                const nonNarrativeSkills = allSkills
+                  .filter(s => s?.gearId && !s?.gearCategory?.isNarrative)
 
-                return (
-                  <li key={`squadTypeSkill_${gearId}`} className="section">
+                // De-duplicate by gearId (Map keeps last seen, order not important before sorting)
+                const uniqueSkills = Array.from(
+                  new Map(nonNarrativeSkills.map(s => [s.gearId, s])).values()
+                )
+
+                // Sort alphabetically by gearName for display
+                uniqueSkills.sort((a, b) => (a?.gearName || '').localeCompare(b?.gearName || ''))
+
+                // Render the sorted, unique list
+                return uniqueSkills.map(skill => (
+                  <li key={`squadTypeSkill_${skill?.gearId}`} className="section">
                     {skill?.gearName}<br/>
                     <Markdown className="text-sm text-muted" children={skill?.description ?? ''} />
                   </li>
-                )
-              })}
+                ))
+              })()}
             </ul>
           </div>
         </div>
