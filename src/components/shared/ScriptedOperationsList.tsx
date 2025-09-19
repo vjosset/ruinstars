@@ -14,7 +14,7 @@ export default function ScriptedOperationsList({ operations, squadTypes }: { ope
           return (
             <Link
               key={op.slug}
-              href={`?opId=${encodeURIComponent(op.slug)}`}
+              href={`/scriptedoperations?opId=${encodeURIComponent(op.slug)}`}
               className="group bg-card border border-border rounded hover:border-main transition p-2"
             >
               <div className="gap-1 grid gap-4 grid-cols-1">
