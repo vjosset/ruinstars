@@ -3,7 +3,7 @@ export default async function RulesQuickRef() {
     <>
       <div className="section">
         <h2 className="text-center py-3 font-title"   id="quickref">
-          Quick Reference
+          15. Quick Reference
         </h2>
         <div className="twocols">
           <div className="section">

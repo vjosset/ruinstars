@@ -3,7 +3,7 @@ export default async function RulesInchesConversion() {
     <>
       <div className="section">
         <h2 className="text-center py-3 font-title"   id="inchesconversion">
-          Playing Without a Grid
+          14. Playing Without a Grid
         </h2>
         <div className="twocols">
           <div className="section">

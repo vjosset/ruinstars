@@ -4,7 +4,7 @@ export default async function RulesYourSquad() {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="buildingsquad">
-        8. Your Squad
+        9. Your Squad
       </h2>
       <div className="section">
         <p>
@@ -12,6 +12,9 @@ export default async function RulesYourSquad() {
           Squads are typically built with a maximum value of 100 total GP (including all unit and gear costs).<br/>
           Your Squad can only include one Leader, and it cannot include more than 1 of each Unique Unit (marked with an asterisk <code>*</code>).<br/>
           When selecting Gear for your Squad (Weapons, Equipment, etc), any item whose name ends with an asterisk (<code>*</code>) is Unique and cannot be added more than once to your squad.
+        </p>
+        <p className="printonly">
+          Refer to the end of this rule book for the complete list of factions, SquadTypes, Units, and Gear.
         </p>
         <h3>Factions</h3>
         

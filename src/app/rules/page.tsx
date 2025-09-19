@@ -1,6 +1,5 @@
 import { GAME } from '@/lib/config/game_config'
 import RulesActions from './rules-actions_Squares'
-import RulesBattlefields from './rules-battlefields'
 import RulesCampaigns from './rules-campaigns'
 import RulesCombat from './rules-combat_Squares'
 import RulesCoreMechanics from './rules-coremechanics'
@@ -18,6 +17,7 @@ import RulesYourSquad from './rules-yoursquad'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import Link from 'next/link'
+import ScriptedOperations from '../scriptedoperations/page'
 import RulesAI from './rules-ai'
 import RulesInchesConversion from './rules-inchesconversion'
 import RulesQuickRef from './rules-quickref'
@@ -79,12 +79,12 @@ export default async function Home() {
 
         <hr />
         <RulesCombat />
+      
+        <hr />
+        <RulesItems />
 
         <hr />
         <RulesYourSquad />
-
-        <hr />
-        <RulesBattlefields />
 
         <hr />
         <RulesMissions />
@@ -94,9 +94,6 @@ export default async function Home() {
 
         <hr />
         <RulesScriptedOperations />
-      
-        <hr />
-        <RulesItems />
       
         <hr />
         <RulesGlossary />
@@ -110,6 +107,9 @@ export default async function Home() {
         <div className="printonly">
           <hr />
           <RulesSquadTypes />
+          
+          <hr />
+          <ScriptedOperations searchParams={null} />
         </div>
 
       </div>

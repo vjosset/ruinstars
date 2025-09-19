@@ -9,7 +9,7 @@ export default async function RulesScriptedOperations() {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="scriptedoperations">
-        Scripted Operations
+        12. Scripted Operations
       </h2>
       
       <p>

@@ -12,11 +12,11 @@ export default async function RulesToc() {
         <li><a href="#actions">Actions</a></li>
         <li><a href="#movement">Movement</a></li>
         <li><a href="#combat">Combat</a></li>
+        <li><a href="#items">Items</a></li>
         <li><a href="#buildingsquad">Your Squad</a></li>
-        <li><a href="#battlefields">Battlefields</a></li>
         <li><a href="#missions">Missions</a></li>
         <li><a href="#campaigns">Campaigns</a></li>
-        <li><a href="#items">Items</a></li>
+        <li><a href="#scriptedooperations">Scripted Operations</a></li>
         <li><a href="#glossary">Glossary</a></li>
         <li><a href="#inchesconversion">Playing Without a Grid</a></li>
         <li><a href="#quickref">Quick Reference</a></li>

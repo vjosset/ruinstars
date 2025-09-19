@@ -59,7 +59,7 @@ export async function generateMetadata({
   })
 }
 
-export default async function ScriptedOperations({ searchParams }: { searchParams: Promise<{ opId?: string | string[]; squadTypeId?: string | string[] }> }) {
+export default async function ScriptedOperations({ searchParams }: { searchParams?: Promise<{ opId?: string | string[]; squadTypeId?: string | string[] }> | null }) {
   let operations = ops.sort((a, b) => a.title.localeCompare(b.title))
   const squadTypes = await SquadTypeService.getAllSquadTypes()
 
@@ -93,13 +93,14 @@ export default async function ScriptedOperations({ searchParams }: { searchParam
   // Default: show operation cards list with portraits
   return (
     <div>
-      {/* Cover */}
+      {/* Supplement Cover 
       <div className="printonly text-white w-full text-center" style={{ position: 'absolute', top: '50%' }}>
         <h1 className="font-title text-7xl">Scripted Operations</h1>
         <pre>v{versionDate}</pre>
       </div>
       <img src="/img/rules/BookCover.webp" className="printonly fullpage overflow-hidden" style={{ pageBreakAfter: 'always' }} />
-        
+      */}
+
       <div className="px-1 py-8 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <PageTitle>
