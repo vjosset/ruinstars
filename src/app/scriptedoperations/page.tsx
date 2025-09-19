@@ -103,10 +103,10 @@ export default async function ScriptedOperations({ searchParams }: { searchParam
       <div className="px-1 py-8 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <PageTitle>
-            {squadTypeId && squadTypes.find(type => type.squadTypeId === squadTypeId) ? `${squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName} ` : ''}
+            {(opId || squadTypeId) && squadTypes.find(type => type.squadTypeId === squadTypeId) ? `${squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName} ` : ''}
             Scripted Operations
           </PageTitle>
-          {squadTypeId && (
+          {(opId || squadTypeId) && (
             <div className="noprint">
               <div className="text-muted">
               For <SquadTypeLink squadTypeId={squadTypeId!} squadTypeName={squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName!} /> squads
@@ -117,34 +117,36 @@ export default async function ScriptedOperations({ searchParams }: { searchParam
             </div>
           )}
         </div>
-        <div className="mb-8 text-muted">
-          <p className="mb-4">
+        {!opId && !squadTypeId && (
+          <div className="mb-8 text-muted">
+            <p className="mb-4">
           War rages across the stars. Squads clash in ruined cities, cursed temples, alien jungles, and forgotten fortresses.
           Yet not every battle is random. Some are part of carefully planned operations, chains of missions where each outcome shapes the next, where victory builds momentum, and defeat forces desperate gambits.
-          </p>
-          <p className="mb-4">
+            </p>
+            <p className="mb-4">
           This supplement collects a series of tailor-made mini-campaigns for Ruinstars, each designed around specific factions and their rivalries.<br/>
           These operations offer:
-            <ul>
-              <li>Narrative arcs that tell a story through connected missions.</li>
-              <li>Branching paths where success or failure leads to different challenges.</li>
-              <li>Unique mechanics that go beyond simple control points: moving convoys, tug-of-war captives, collapsing strongpoints, dark rituals, and leader duels.</li>
-              <li>Faction flavor that highlights the tactics, goals, and themes of each force.</li>
-            </ul>
-          </p>
-          <p className="mb-4">
+              <ul>
+                <li>Narrative arcs that tell a story through connected missions.</li>
+                <li>Branching paths where success or failure leads to different challenges.</li>
+                <li>Unique mechanics that go beyond simple control points: moving convoys, tug-of-war captives, collapsing strongpoints, dark rituals, and leader duels.</li>
+                <li>Faction flavor that highlights the tactics, goals, and themes of each force.</li>
+              </ul>
+            </p>
+            <p className="mb-4">
           Whether you're playing a quick three-mission arc or stringing multiple operations into a larger campaign, these scenarios bring new life and variety to your battles.<br/>
           Use them as written, adapt them to your campaign, or draw inspiration to create your own.
-          </p>
-          <h4 className="font-title text-main">From the Archives of the Warfront</h4>
-          <div className="flavor mb-4">
+            </p>
+            <h4 className="font-title text-main">From the Archives of the Warfront</h4>
+            <div className="flavor mb-4">
           “Records tell us that history turns not on grand crusades, but on knife fights in forgotten ruins. A convoy lost. A leader enthralled. A shrine defiled.
           These are the sparks that ignite empires, the stains that never wash clean. Each squad is a thread in the weave of destiny, each skirmish a test of survival.
           Do not mistake these operations for small affairs; they are the crucibles where factions rise or die.”
-            <br/><br/>
+              <br/><br/>
           - Fragment of intercepted broadcast, author unknown
+            </div>
           </div>
-        </div>
+        )}
         <div className="noprint">
           <ScriptedOperationsList operations={operations} squadTypes={squadTypes} />
         </div>
