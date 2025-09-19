@@ -39,9 +39,9 @@ export default function QuickRef() {
                 <ul>
                   <li>Not be Adjacent to the Attacker or the Attacker's Squadmates</li>
                   <li>Be within the Weapon's range (<code>RNGx</code>)</li>
-                  <li>Be in the Attacker's <a href="#line-of-sight">Line Of Sight</a></li>
+                  <li>Be in the Attacker's <a className="underline" href="#line-of-sight">Line Of Sight</a></li>
                 </ul>
-                A Unit may not perform this action if it is <a href="#adjacent">Adjacent</a> to any enemy Units.
+                A Unit may not perform this action if it is <a className="underline" href="#adjacent">Adjacent</a> to any enemy Units.
               </li>
             </ol>
           </li>
@@ -77,7 +77,7 @@ export default function QuickRef() {
         <h4>Modifiers</h4>
         <table>
           <thead>
-            <tr className="line-bottom-light">
+            <tr className="border-b border-border">
               <th className="px-1">Condition</th>
               <th className="px-1">Description</th>
             </tr>
@@ -85,7 +85,7 @@ export default function QuickRef() {
           <tbody>
             <tr>
               <th className="px-1">Cover</th>
-              <td className="px-1">If the Target is in <a href="#cover">cover</a>, the Target gets one automatic Armor Save (without having to roll it)</td>
+              <td className="px-1">If the Target is in <a className="underline" href="#cover">cover</a>, the Target gets one automatic Armor Save (without having to roll it)</td>
             </tr>
             <tr>
               <th className="px-1">High&nbsp;Ground</th>
@@ -169,7 +169,7 @@ export default function QuickRef() {
         <h4>Modifiers</h4>
         <table>
           <thead>
-            <tr className="line-bottom-light">
+            <tr className="border-b border-border">
               <th className="px-1">Condition</th>
               <th className="px-1">Description</th>
             </tr>

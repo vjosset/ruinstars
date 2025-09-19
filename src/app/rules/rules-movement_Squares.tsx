@@ -10,7 +10,7 @@ export default async function RulesMovement() {
           <p>
             The Battlefield is a grid of 40mm or 1.5in Squares. All movement and distance/range measurements are done by counting Squares.
             The total size of the Battlefield is typically 15 by 15 Squares (or 60x60cm/24x24in).<br/>
-            You can bring your own battlefield, or use our print-at-home [battlefields](/tools) with the tiles and Square ready to go.
+            You can bring your own battlefield, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the tiles and Square ready to go.
           </p>
           <h4 id="tiles">Tiles</h4>
           <p>
@@ -30,7 +30,7 @@ export default async function RulesMovement() {
         </div>
         <div className="section">
           <h4 id="adjacent-squares">Adjacent Squares</h4>
-          <p>All 8 Squares surrounding a given Square are considered to be <strong>Adjacent</strong> to that Square. When selecting a valid target for <a href="#combat">Melee combat</a>, the attacker and its target must be in Adjacent Squares.
+          <p>All 8 Squares surrounding a given Square are considered to be <strong>Adjacent</strong> to that Square. When selecting a valid target for <a className="underline" href="#combat">Melee combat</a>, the attacker and its target must be in Adjacent Squares.
           Two Square that are on different elevations are not considered to be Adjacent.<br/>
           If a wall that is 1 Square or taller is between two Squares, those two Squares are not considered to be Adjacent.</p>
           <img src="/img/rules/Adjacent.webp" style={{width: '45%'}} />

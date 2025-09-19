@@ -28,7 +28,7 @@ export default async function RulesCoreMechanics() {
         <div className="section">
           <h3 id="activations">Alternating Activations</h3>
           <div>
-            During each Turn, Squads will alternate Activating one Unit that has not yet been activated.<br/>
+            During each Turn, Squads take turns Activating one Unit that has not yet been activated.<br/>
             For example, during each Turn:
             <ul className="section">
               <li>Squad A activates its first Unit and performs Actions</li>
@@ -37,7 +37,8 @@ export default async function RulesCoreMechanics() {
               <li>Squad B activates its second Unit and performs Actions</li>
               <li>etc.</li>
             </ul>
-            If it is a Squad's turn to activate a Unit but all its Units have already been activated and the enemy Squad has remaining Ready Units, that Squad may select one Unit to perform 1 Free Basic or Mission Action.
+            Once per Turn, if a Squad has fewer Standing Units than its opponent, it may choose to delay its next Activation.
+            In this case, the Squad with more Standing Units activates its next Unit instead, then alternating Activations resume normally.
           </div>
         </div>
       </div>

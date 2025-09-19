@@ -7,13 +7,12 @@ export default async function RulesBattlefields() {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="battlefields">
-        10. Battlefields
+        9. Battlefields
       </h2>
       <div className="section twocols">
-        The various battlefields your Squad operates in all have their own dangers.<br/>
         After selecting a Mision, pick or randomly select one of the following battlefields. The Mission will be played on that Battlefield.<br/>
         The Galaxy is a dangerous and deadly place; each Battlefield has <strong>Effects</strong> that affect your Units.<br/>
-        Use your own battlemats, or use our print-at-home [battlefields](/tools) with the tiles and Square ready to go.
+        Use your own battlemats, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the tiles and Squares ready to go.
         
         {/* Battlefields List */}
         {

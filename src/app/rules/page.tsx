@@ -21,6 +21,7 @@ import Link from 'next/link'
 import RulesAI from './rules-ai'
 import RulesInchesConversion from './rules-inchesconversion'
 import RulesQuickRef from './rules-quickref'
+import RulesScriptedOperations from './rules-scriptedoperations'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -83,13 +84,16 @@ export default async function Home() {
         <RulesYourSquad />
 
         <hr />
-        <RulesMissions />
-
-        <hr />
         <RulesBattlefields />
 
         <hr />
+        <RulesMissions />
+
+        <hr />
         <RulesCampaigns />
+
+        <hr />
+        <RulesScriptedOperations />
       
         <hr />
         <RulesItems />

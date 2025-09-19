@@ -3,9 +3,9 @@ import { Mission, MissionPlain } from '@/types'
 
 export default function MissionBlock({mission, showDescription}: { mission: Mission | MissionPlain, showDescription: boolean }) {
   return (
-    <>
+    <div className="border border-main rounded p-2 mb-4 mx-4 bg-card">
       <h4 className="text-main font-semibold mb-1">
-        {mission.missionType}: {mission.seq} - {mission.title}
+        {mission.title}
       </h4>
       
       {showDescription && mission.description && (
@@ -45,6 +45,6 @@ export default function MissionBlock({mission, showDescription}: { mission: Miss
           </div>
         </>
       )}
-    </>
+    </div>
   )
 }

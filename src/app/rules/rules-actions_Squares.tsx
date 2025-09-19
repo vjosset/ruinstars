@@ -8,10 +8,10 @@ export default async function RulesActions() {
       </h2>
       <div className="section twocols">
         <p>
-          During its activation, a Unit can perform a number of Actions up to its <code>ACT</code> stat <em>(see <a href="#stat-cards">StatCards</a>)</em>.<br/>
+          During its activation, a Unit can perform a number of Actions up to its <code>ACT</code> stat (see <a className="underline" href="#stat-cards">StatCards</a>).<br/>
           Each Action costs a number of Action Points or <code>ACT</code>.</p>
-        <p>Actions with an <code>ACT</code> cost can be performed by spending the Unit's <code>ACT</code> Action Points or the Squad's <a href="#tactical-orders">Tactical Orders</a>, or any combination of the two (for example, if a Unit's skill costs <code>2 ACT</code>, you can spend 1 <code>ACT</code> + 1 <code>TO</code> to perform that action).<br/>
-          Actions with a <code>TO</code> cost can only be performed by spending the Squad's <a href="#tactical-orders">Tactical Orders</a>.<br/><br/>
+        <p>Actions with an <code>ACT</code> cost can be performed by spending the Unit's <code>ACT</code> Action Points or the Squad's <a className="underline" href="#tactical-orders">Tactical Orders</a>, or any combination of the two (for example, if a Unit's skill costs <code>2 ACT</code>, you can spend 1 <code>ACT</code> + 1 <code>TO</code> to perform that action).<br/>
+          Actions with a <code>TO</code> cost can only be performed by spending the Squad's <a className="underline" href="#tactical-orders">Tactical Orders</a>.<br/><br/>
           Each action costs its listed number of <code>ACT</code> the first time it is performed in a Unit's Activation. Each time that same action is repeated in the same Activation, it costs one additional <code>ACT</code>.<br/>
           For example, a Unit with 3 <code>ACT</code> may perform 2 Moves in its Activation. The first Move costs 1 <code>ACT</code>, and the second one costs 2 <code>ACT</code>.
         </p>
@@ -19,16 +19,16 @@ export default async function RulesActions() {
         <p>All Units can perform the following Actions during their Activation:</p>
         <table>
           <thead>
-            <tr className="line-bottom-light"><th>Action</th><th>&nbsp;&nbsp;ACT&nbsp;&nbsp;</th><th>Description</th></tr>
+            <tr className="border-b border-border"><th>Action</th><th>&nbsp;&nbsp;ACT&nbsp;&nbsp;</th><th>Description</th></tr>
           </thead>
           <tbody>
-            <tr><th>Move</th><td className="text-center">1</td><td>The Unit <a href="#movement">moves</a> up to <strong>3</strong> Squares.</td></tr>
-            <tr><th>Dash</th><td className="text-center">1</td><td>The Unit moves up to <strong>1</strong> Square. This movement follows the same rules as a <a href="#movement">normal Move</a>.</td></tr>
-            <tr><th>Ranged Combat</th><td className="text-center">1</td><td>The Unit makes a Ranged attack against a valid target. See <a href="#combat">Ranged Combat</a>.</td></tr>
-            <tr><th>Melee Combat</th><td className="text-center">1</td><td>The Unit makes a Melee attack against an Adjacent target. See <a href="#combat">Melee Combat</a>.</td></tr>
+            <tr><th>Move</th><td className="text-center">1</td><td>The Unit <a className="underline" href="#movement">moves</a> up to <strong>3</strong> Squares.</td></tr>
+            <tr><th>Dash</th><td className="text-center">1</td><td>The Unit moves up to <strong>1</strong> Square. This movement follows the same rules as a <a className="underline" href="#movement">normal Move</a>.</td></tr>
+            <tr><th>Ranged Combat</th><td className="text-center">1</td><td>The Unit makes a Ranged attack against a valid target. See <a className="underline" href="#combat">Ranged Combat</a>.</td></tr>
+            <tr><th>Melee Combat</th><td className="text-center">1</td><td>The Unit makes a Melee attack against an Adjacent target. See <a className="underline" href="#combat">Melee Combat</a>.</td></tr>
             <tr><th>Pick Up</th><td className="text-center">1</td><td>The Unit picks up a marker or token in the Square it currently occupies.</td></tr>
             <tr><th>Drop</th><td className="text-center">1</td><td>The Unit drops a marker or token it is carrying in the Square it currently occupies.</td></tr>
-            <tr><th>Give</th><td className="text-center">1</td><td>The Unit passes a marker or token to an Adjacent Squadmate. The Unit cannot perform this Action if it or its Squadmate are <a href="#adjacent">Adjacent</a> to any enemy Units.</td></tr>
+            <tr><th>Give</th><td className="text-center">1</td><td>The Unit passes a marker or token to an Adjacent Squadmate. The Unit cannot perform this Action if it or its Squadmate are <a className="underline" href="#adjacent">Adjacent</a> to any enemy Units.</td></tr>
             <tr><th>Open/Close Door</th><td className="text-center">1</td><td>The Unit opens or closes an Adjacent door.</td></tr>
             <tr><th>Mission Action</th><td className="text-center">-</td><td>Mission Actions are special mission-specific Actions that can be performed according to the Mission Briefing.</td></tr>
           </tbody>

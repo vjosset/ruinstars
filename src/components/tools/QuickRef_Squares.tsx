@@ -36,7 +36,7 @@ export default function QuickRef() {
               <li>
                 Select a valid target:<br/>
                 Not Adjacent to Attacker or its Squadmates, within the Weapon's range (<code>RNGx</code>), in the Attacker's Line Of Sight.<br/>
-                Note that a Unit may not perform this action if it is <a href="#adjacent">Adjacent</a> to any enemy Units.
+                Note that a Unit may not perform this action if it is <a className="underline" href="#adjacent">Adjacent</a> to any enemy Units.
               </li>
             </ol>
           </li>
@@ -66,7 +66,7 @@ export default function QuickRef() {
         <h5>Modifiers</h5>
         <table>
           <thead>
-            <tr className="line-bottom-light">
+            <tr className="border-b border-border">
               <th className="px-1">Condition</th>
               <th className="px-1">Description</th>
             </tr>
@@ -74,7 +74,7 @@ export default function QuickRef() {
           <tbody>
             <tr>
               <th className="px-1">Cover</th>
-              <td className="px-1">If the Target is in <a href="#cover">cover</a> (only partially visible to the Attacker), the Target gets one automatic Armor Save (without having to roll it)</td>
+              <td className="px-1">If the Target is in <a className="underline" href="#cover">cover</a> (only partially visible to the Attacker), the Target gets one automatic Armor Save (without having to roll it)</td>
             </tr>
             <tr>
               <th className="px-1">High&nbsp;Ground</th>
@@ -120,7 +120,7 @@ export default function QuickRef() {
         <h5>Modifiers</h5>
         <table>
           <thead>
-            <tr className="line-bottom-light">
+            <tr className="border-b border-border">
               <th className="px-1">Condition</th>
               <th className="px-1">Description</th>
             </tr>

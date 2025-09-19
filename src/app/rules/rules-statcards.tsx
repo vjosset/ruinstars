@@ -33,28 +33,28 @@ export default async function RulesStatCards() {
           <ul>
             <li>
               <h6 className="inline">ACT</h6> - Action Points<br/>
-              The maximum number of Action Points this Unit can spend on <a href="#actions">Actions</a> during its activation.
+              The maximum number of Action Points this Unit can spend on <a className="underline" href="#actions">Actions</a> during its activation.
             </li>
             {/*
             <li>
               <h6 className="inline">MSK</h6> - Melee Skill<br/>
-              Indicates how well this Unit performs in <a href="#combat">Melee Combat</a>.<br/>
+              Indicates how well this Unit performs in <a className="underline" href="#combat">Melee Combat</a>.<br/>
               When rolling Attacks, results of this stat or lower are successful.
             </li>
             <li>
               <h6 className="inline">RSK</h6> - Ranged Skill<br/>
-              Indicates how well this Unit performs in <a href="#combat">Ranged Combat</a>.<br/>
+              Indicates how well this Unit performs in <a className="underline" href="#combat">Ranged Combat</a>.<br/>
               When rolling Attacks, results of this stat or lower are successful.
             </li>
             */}
             <li>
               <h6 className="inline">ARM</h6> - Armor<br/>
-              Indicates how well this Unit resists damage during <a href="#combat">combat</a>.<br/>
+              Indicates how well this Unit resists damage during <a className="underline" href="#combat">combat</a>.<br/>
               When rolling Armor Saves, results of this stat or lower are successful.
             </li>
             <li>
               <h6 className="inline">HIT</h6> - Hit Points<br/>
-              The Unit's number of Hit Points. When a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield (see <a href="#combat">Combat</a>).<br/>
+              The Unit's number of Hit Points. When a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield (see <a className="underline" href="#combat">Combat</a>).<br/>
               If a Unit has at least 1 <code>HIT</code> remaining, it is considered to be Standing.
             </li>
             <li>
@@ -64,12 +64,12 @@ export default async function RulesStatCards() {
             {/*Not implemented
             <li>
               <h6 className="inline">XP</h6> - Experience Points<br/>
-              The <a href="#progression">Experience</a> this unit has gained in battle. XP can be used to add certain special gear (skills or weapons) to a Unit.
+              The <a className="underline" href="#progression">Experience</a> this unit has gained in battle. XP can be used to add certain special gear (skills or weapons) to a Unit.
             </li>*/}
             {/* Moved to skills instead
             <li>
               <h6 className="inline">(Special)</h6> - Specials<br/>
-              The <a href="#unit-specials">Specials</a> that apply to this Unit.
+              The <a className="underline" href="#unit-specials">Specials</a> that apply to this Unit.
             </li>*/}
           </ul>
           Note that each special (e.g. <code>2RC</code>) and skill (e.g. "Duty Before Death") can be clicked or tapped to view their detailed description.
@@ -102,7 +102,7 @@ export default async function RulesStatCards() {
             </li>
             <li>
               <h6 className="inline">(Special)</h6> - Weapon Specials<br/>
-              <a href="#weapon-specials">Specials</a> for this weapon are listed next to its name.
+              <a className="underline" href="#weapon-specials">Specials</a> for this weapon are listed next to its name.
             </li>
           </ul>
           <br/>
@@ -111,7 +111,7 @@ export default async function RulesStatCards() {
             <li>{sampleUnit.unitName}'s <strong>{sampleUnit.weapons?.[1].gearName}</strong> is a {sampleUnit.weapons?.[1].TYP == 'R' ? 'Ranged' : 'Melee'} weapon ({ sampleUnit.weapons?.[1].TYP == 'M' ? (<RiSwordFill className="inline-block" />) : (<RiCrosshair2Fill className="inline-block" />) }).</li>
             <li>Each time it is used, {sampleUnit.unitName} rolls {sampleUnit.weapons?.[1].ATT} dice (<code>ATT</code>).</li>
             <li>Each result of {sampleUnit.weapons?.[1].TYP == 'R' ? sampleUnit.RSK : sampleUnit.MSK} or less (<code>SKL</code>) is a success.</li>
-            {/*<li>It has the <code>ACC1</code> (Accurate 1) and <code>HVY</code> (Heavy) <a href="#weapon-specials">specials</a>.</li>*/}
+            {/*<li>It has the <code>ACC1</code> (Accurate 1) and <code>HVY</code> (Heavy) <a className="underline" href="#weapon-specials">specials</a>.</li>*/}
           </ul>
         </div>
 
@@ -120,8 +120,8 @@ export default async function RulesStatCards() {
           <h4 id="skills">Skills</h4>
           <p>Some Units will have Skills listed on their StatCard. These are unique properties of that Unit that may allow them to perform a specific unique Action, or gain a bonus (or debuff) for certain game mechanics.</p>
           <ul>
-            <li>Skills that have a <code>ACT</code> cost can be performed using the Unit's <code>ACT</code> Stat or a <a href="#tactical-orders">Tactical Order</a>, or a combination of both.</li>
-            <li>Skills that have a <code>TO</code> cost cannot be performed using the Unit's <code>ACT</code> Stat; they must be performed by spending <a href="#tactical-orders">Tactical Orders</a>.</li>
+            <li>Skills that have a <code>ACT</code> cost can be performed using the Unit's <code>ACT</code> Stat or a <a className="underline" href="#tactical-orders">Tactical Order</a>, or a combination of both.</li>
+            <li>Skills that have a <code>TO</code> cost cannot be performed using the Unit's <code>ACT</code> Stat; they must be performed by spending <a className="underline" href="#tactical-orders">Tactical Orders</a>.</li>
             <li>Skills and Equipment that do not have an <code>ACT</code> or <code>TO</code> cost are passive skills that do not require spending an Action Point or Tactical Order.</li>
           </ul>
         </div>

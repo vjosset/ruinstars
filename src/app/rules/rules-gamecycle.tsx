@@ -12,10 +12,10 @@ export default async function RulesGameCycle() {
           <li>
             <strong>Mission Start</strong>
             <ol>
-              <li><strong>Select <a href="2.Missions">Mission</a></strong><br/>
+              <li><strong>Select <a className="underline" href="#missions">Mission</a></strong><br/>
                 Select a Mission to play. All players must reach consensus on the Mission to play.
               </li>
-              <li><strong>Select <a href="#squads-and-units">Squad</a></strong><br/>
+              <li><strong>Select <a className="underline" href="#squads-and-units">Squad</a></strong><br/>
                 Select one of your Squads to take on the Mission
               </li>
               <li><strong>Prepare Battlefield</strong><br/>
@@ -24,13 +24,8 @@ export default async function RulesGameCycle() {
             </ol>
           </li>
           <li>
-            <strong>Turns</strong>
-            <ol>
-              <li>Turn 1</li>
-              <li>Turn 2</li>
-              <li>Turn 3</li>
-              <li>Turn 4</li>
-            </ol>
+            <strong>Turns</strong><br/>
+            Missions in Ruinstars generally last 4 Turns (see below).
           </li>
           <li><strong>Mission End</strong><br/>
             At the end of Turn 4, tally the total Mission Points for each Squad. The Squad with the highest number of Mission Points is declared the winner of the battle.
@@ -40,7 +35,8 @@ export default async function RulesGameCycle() {
         <p>During each Turn:</p>
         <ol>
           <li>
-            Reset Tactical Orders to zero for both Squads (Tactical Orders do not carry over from Turn to Turn).
+            Reset Tactical Orders to zero for both Squads.
+            Tactical Orders do not carry over from Turn to Turn.
           </li>
           <li>
             Start of Turn
@@ -48,11 +44,11 @@ export default async function RulesGameCycle() {
               <li>Mark all Units as Ready (not Activated)</li>
               <li>Resolve all &quot;Start of Turn&quot; actions or events</li>
               <li>
-                Roll-off for Initiative:<br/>
-                Lowest score wins Initiative and will Activate first; both sides re-roll any ties until a winner is determined
+                Roll-off for Initiative.
+                Lowest roll wins Initiative and will Activate first.
               </li>
-              <li>Roll for <a href="#tactical-orders">Tactical Orders</a> for the Turn</li>
-              <li>The Squad with the Initiative rolls for the Mission's Events (if any) for this Turn</li>
+              <li>Roll for <a className="underline" href="#tactical-orders">Tactical Orders</a> for the Turn</li>
+              <li>The Squad with the Initiative rolls for the Battlefield's Events (if any) for this Turn</li>
             </ol>
           </li>
           <li>
@@ -60,7 +56,7 @@ export default async function RulesGameCycle() {
             <ol>
               <li>
                 The Squad with the Initiative activates their first Unit, then Squads alternate activating their Units until all Units have been activated.<br/>
-                See also <a href="#alternate-activations">Alternate Activations</a>.
+                See also <a className="underline" href="#alternate-activations">Alternate Activations</a>.
               </li>
             </ol>
           </li>

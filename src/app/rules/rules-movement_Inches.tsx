@@ -43,7 +43,7 @@ export default async function RulesMovement() {
 
           <h4 id="adjacent">Adjacent</h4>
           <p>Two Units are considered to be <strong>Adjacent</strong> if they are within 1" of each other.
-          When selecting a valid target for <a href="#combat">Melee combat</a>, the attacker and its target must be Adjacent.
+          When selecting a valid target for <a className="underline" href="#combat">Melee combat</a>, the attacker and its target must be Adjacent.
           Units that are on different elevations are not considered to be Adjacent.<br/>
           If a wall that is 2" or taller is between two Units, those two Units are not considered to be Adjacent.</p>
         </div>
