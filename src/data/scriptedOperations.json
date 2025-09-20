@@ -420,7 +420,7 @@
         "battlefield": "The Ruined City",
         "setup": "Place 1 Search Marker in the center of each of the West, Central, and East tiles.",
         "deployment": "Each Squad deploys from opposite Battlefield edges before Turn 1.",
-        "special": "Silent Choir Units may perform the following Mission Action:\n\n**Mission Action: Search (2ACT)**  \nA Unit Adjacent to a Search Marker may spend 2ACT to search it.\nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Artifact is found on a roll of 1\n- On the second searched marker, the Artifact is found on a roll of 1 or 2\n- On the third searched marker, the Artifact is found automatically\n\nAfter searching a marker, remove it from the Battlefield.\nOnce found, the Artifact is carried by the Unit that found it.\n\nA Unit may not perform this Action while Adjacent to any enemy Units, or if the Search Marker is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Search (2ACT)**  \nA Silent Choir Unit Adjacent to a Search Marker may spend 2ACT to search it.\nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Artifact is found on a roll of 1\n- On the second searched marker, the Artifact is found on a roll of 1 or 2\n- On the third searched marker, the Artifact is found automatically\n\nAfter searching a marker, remove it from the Battlefield.\nOnce found, the Artifact is carried by the Unit that found it.\n\nA Unit may not perform this Action while Adjacent to any enemy Units, or if the Search Marker is Adjacent to any enemy Units.",
         "victory": "- The Silent Choir wins if they are carrying the Artifact at the end of Turn 4. **Proceed to Mission 2A**\n- The Interdictors win in all other cases. **Proceed to Mission 2B**"
       },
       {
@@ -566,6 +566,68 @@
         "deployment": "- Relict Wardens deploy anywhere on the Central Tile before Turn 1.\n- Krumpfists deploy from any two opposite battlefield edges before Turn 1.",
         "special": "**Mission Action: Defend (1ACT)**\nOnce per Turn, a Relict Warden Unit Adjacent to the Core Marker may spend 1ACT to add a Defense Token to it.\nA Unit may not perform this Action if it is Adjacent to any enemies.",
         "victory": "- The Relict Wardens win if the Core has at least 3 Defense Tokens on it, and at least one Relict Warden Unit remains Standing.\n- The Krumpfists win in all other cases."
+      }
+    ]
+  },
+  {
+    "slug": "REL-INT",
+    "file": "REL-INT.md",
+    "title": "Pylons of Power",
+    "description": "An Interdictors vs Relict Wardens Operation. Beneath the Hegemony’s shining city lie the shattered remains of Eidolon pylons — relics of an empire that once wielded world-breaking weapons. The Relict Wardens have returned to reclaim and reactivate these pylons, while the Interdictors fight to prevent catastrophe. What begins as sabotage escalates into horrors in the ruins, and ends with the fate of the pylons decided once and for all.",
+    "factions": {
+      "squadTypeA": "REL",
+      "squadTypeB": "INT"
+    },
+    "missions": [
+      {
+        "id": "1",
+        "title": "The Forgotten Entrance",
+        "description": "The Relict Wardens scour the underworks of the Hegemony city, hunting for a hidden entrance into the buried subfoundations where the ancient pylons lie. The Interdictors move to block the search, knowing that if the Wardens find the way in, the city’s fate could hang by a thread.",
+        "battlefield": "The Ruined City",
+        "setup": "Place 1 Search Marker in the center of each of the West, Central, and East tiles.",
+        "deployment": "Each Squad deploys from opposite Battlefield edges before Turn 1.",
+        "special": "**Mission Action: Search (2ACT)**  \nA Relict Wardens Unit Adjacent to a Search Marker may spend 2ACT to search it.  \nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Entrance is found on a roll of 1  \n- On the second searched marker, the Entrance is found on a roll of 1 or 2  \n- On the third searched marker, the Entrance is found automatically  \n\nAfter searching a marker, remove it from the Battlefield.  \nOnce found, the Entrance is carried as Intel by the Unit that found it.  \n\nA Unit may not perform this Action while Adjacent to any enemy Units, or if the Search Marker is Adjacent to any enemy Units.",
+        "victory": "- The Relict Wardens win if they are carrying the Entrance Intel at the end of Turn 4. **Proceed to Mission 2A**\n- The Interdictors win in all other cases. **Proceed to Mission 2B**"
+      },
+      {
+        "id": "2A",
+        "title": "The Grim Harvest",
+        "description": "With access secured, the Wardens begin their macabre work. Corpse tokens become a tug-of-war as Wardens drag specimens toward their labs while Interdictors fight to consign them to burn pits.",
+        "battlefield": "The Ruined City",
+        "setup": "Place 2 Corpse Tokens in the center 2 Squares of the Central Tile. Designate the Northern battlefield edge as the **Lab Edge** (Relict Wardens) and the Southern battlefield edge as the **Burn Pit Edge** (Interdictors).",
+        "deployment": "- Relict Wardens deploy from the Northern battlefield edge before Turn 1.\n- Interdictors deploy from the Southern battlefield edge before Turn 1.",
+        "special": "**Mission Action: Harvest (2ACT)**  \nA Relict Warden Unit Adjacent to a Corpse Token may spend 2ACT to move that Token 2 Squares toward the Lab Edge.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Purge (2ACT)**  \nAn Interdictor Unit Adjacent to a Corpse Token may spend 2ACT to move that Token 2 Squares toward the Burn Pit Edge.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\nCorpse Tokens cannot be carried or destroyed; they remain on the board and may be contested by both sides.",
+        "victory": "- The Relict Wardens win immediately when 2 Corpse Tokens exit the battlefield via the Lab Edge. **Proceed to Mission 3A**\n- The Interdictors win immediately when 2 Corpse Tokens exit via the Burn Pit Edge. **Proceed to Mission 3B**\n- If neither condition is met by the end of Turn 4, the side with the greater total Squares of progress toward their edge wins; if tied, play 1 extra Turn to determine the winner."
+      },
+      {
+        "id": "2B",
+        "title": "The Power Nodes",
+        "description": "The Interdictors stall the sabotage, forcing the Wardens to try another route. The Wardens push to reactivate dormant pylons by powering their ancient nodes, while the Interdictors rush to disable them.",
+        "battlefield": "The Cursed Temple",
+        "setup": "Place 3 Power Node Markers: one in the center of the West, Center, and East tiles.",
+        "deployment": "- Relict Wardens deploy within 2 Squares of any Node before Turn 1.\n- Interdictors deploy from the Southern battlefield edge before Turn 1.",
+        "special": "**Mission Action: Reactivate Node (2ACT)**  \nA Relict Warden Unit Adjacent to a Node may spend 2ACT to activate it. Place an Active marker.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Overload Node (2ACT)**  \nAn Interdictor Unit Adjacent to an Active Node may spend 2ACT to disable it. Remove the Active marker.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "victory": "- The Relict Wardens win if at least 2 Nodes are Active at the end of Turn 4. **Proceed to Mission 3A**\n- The Interdictors win in all other cases. **Proceed to Mission 3B**"
+      },
+      {
+        "id": "3A",
+        "title": "World-Breaker Awakens",
+        "description": "The pylons begin to sing. Power builds toward a catastrophic discharge while the Interdictors fight to drag the meter back from the brink.",
+        "battlefield": "No Man’s Land",
+        "setup": "Place 1 Central Pylon Marker in the center of the Central Tile. Create an off-board **Power Track** starting at 1.",
+        "deployment": "- Relict Wardens deploy within 2 Squares of the Pylon before Turn 1.\n- Interdictors deploy from the Southern battlefield edge before Turn 1.",
+        "special": "**Mission Action: Atune (2ACT)**  \nOnce per Turn, a Relict Warden Unit Adjacent to the Pylon may spend 2ACT to increase the Power Track by 1 (max 6).  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Detune (2ACT)**  \nOnce per Turn, an Interdictor Unit Adjacent to the Pylon may spend 2ACT to decrease the Power Track by 1 (min 1).  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "victory": "- The Relict Wardens win if the Power Track is 4 or higher at the end of Turn 4.\n- The Interdictors win if the Power Track is 2 or lower at the end of Turn 4.\n- If the Power Track is exactly 3, play 1 extra Turn; whichever side shifts it further in their favor wins."
+      },
+      {
+        "id": "3B",
+        "title": "Collapse the Subfoundations",
+        "description": "The Interdictors seize control of the subfoundations and collapse the ruins above the pylons. The Wardens hurl themselves into the breach, knowing their chance to awaken ancient power is slipping away.",
+        "battlefield": "The Facility",
+        "setup": "Place 3 Collapse Points: one in the center of the West, Center, and East tiles.",
+        "deployment": "- Interdictors deploy within 2 Squares of any Collapse Point before Turn 1.\n- Relict Wardens deploy from the Northern battlefield edge before Turn 1.",
+        "special": "**Mission Action: Demolish (2ACT)**  \nAn Interdictor Unit Adjacent to a Collapse Point may spend 2ACT to collapse it. Remove the marker from play.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Stabilize (2ACT)**  \nA Relict Warden Unit Adjacent to a Collapse Point may spend 2ACT to cancel its demolition. Replace the marker if removed this Turn.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "victory": "- The Interdictors win if at least 2 Collapse Points are demolished by the end of Turn 4.\n- The Relict Wardens win in all other cases."
       }
     ]
   }

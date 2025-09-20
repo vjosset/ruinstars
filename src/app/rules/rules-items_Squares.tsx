@@ -39,7 +39,8 @@ export default async function RulesItems() {
             </li>
           </ol>
         </div>
-
+      </div>
+      <div className="section">
         <h4>Barrels</h4>
         <p>
           Barrels are explosive containers that can be attacked, causing an explosion.<br/>
