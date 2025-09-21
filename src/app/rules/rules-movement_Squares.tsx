@@ -43,7 +43,8 @@ export default async function RulesMovement() {
             This is called an <strong>Attack of Opportunity</strong>.<br/>
             If the moving Unit is Adjacent to multiple enemies, only one of those enemies may perform an Attack of Opportunity, though they still get support in the Melee Combat Action.<br/>
             The moving Unit may choose to spend some or all of its remaining movement Squares to blunt the attack.
-            For each Square of movement it spends in this way, reduce the number of attack dice the enemy rolls (the weapon's <code>ATT</code> stat) by <code>1</code>.
+            For each Square of movement it spends in this way, reduce the number of attack dice the enemy rolls (the weapon's <code>ATT</code> stat) by <code>1</code>.<br/>
+            Each Unit can perform only one Attack of Opportunity per Turn.
           </p>
         </div>
         <div className="section">
