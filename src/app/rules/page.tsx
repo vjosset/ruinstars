@@ -147,7 +147,7 @@ export default async function Home() {
           </div>
           {/* For print, list ALL operations in full detail */}
           <div className="printonly p-6" style={{pageBreakBefore: 'always'}}>
-            {operations.map((op, idx) => {
+            {operations.sort((a, b) => a.title.localeCompare(b.title)).map((op, idx) => {
               const isLast = idx === operations.length - 1
               return (
                 <div className="m-6 p-6" key={op.slug} style={{ pageBreakAfter: isLast ? 'auto' : 'always' }}>

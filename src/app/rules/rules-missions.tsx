@@ -32,7 +32,7 @@ export default async function RulesMissions() {
         For more narrative play, see <a className="underline" href="#scriptedoperations">Scripted Operations</a>.
       </p>
       Each Primary mission is a single battle pitting your Squad against its enemies. Select (or randomly pick) a Mission from the list of standard missions below:
-      <div className="section">
+      <div className="">
         <h3>Primary Missions</h3>
         <div className="twocols">
           {

@@ -8,7 +8,7 @@ export default function ScriptedOperationsList({ operations, squadTypes }: { ope
   return (
     <div>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
-        {operations.map((op) => {
+        {operations.sort((a, b) => a.title.localeCompare(b.title)).map((op) => {
           const a = squadTypes.find(t => t.squadTypeId === op.factions.squadTypeA)
           const b = squadTypes.find(t => t.squadTypeId === op.factions.squadTypeB)
           return (
