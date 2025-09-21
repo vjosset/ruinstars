@@ -358,7 +358,7 @@
         "battlefield": "No Man's Land",
         "setup": "The Convoy is represented by a large marker that covers 3x3 Squares and is 1 Square tall.\nIt begins off-board.\nAt the start of Turns 2, place the Convoy covering the central 3×3 Squares of the Western Tile. Inflict 3 Melee Damage on any Units that are directly West of it.\nThe Convoy is unaffected by any battlefield events or effects.",
         "deployment": "* Interdictors deploy from the Western edge of the Northwest and Southwest tiles before Turn 1.\n* Krumpfists deploy from the Northern and Southern battlefield edges before Turn 1.",
-        "special": "**Convoy Movement:**\nAt the start of each Turn after the first, move the Convoy 1 Tile East.\nAny Units between its previous and new position are \"run over\", taking 3 Melee Damage.\nWhen the Convoy moves, any Units that are on it fall off, dropping down to the Square below it.\n\n**Mission Action: Loot Convoy (2ACT)**  \nA Krumpfist Unit standing on the Convoy may spend 2ACT to loot it.\nThis Action may be performed even if the Unit is Adjacent to enemy Units.",
+        "special": "**Convoy Movement:**\nAt the start of each Turn after the first, each Unit that is on the Convoy moves one Square to the West. Then, move the Convoy (and the Units that are still standing on it) 1 Tile East.\nAny Units between its previous and new position are \"run over\", taking 3 Melee Damage.\n\n**Mission Action: Loot Convoy (2ACT)**  \nA Krumpfist Unit standing on the Convoy may spend 2ACT to loot it.\nA Unit may not perform this Action if it is Adjacent to enemy Units.",
         "victory": "* The Krumpfists win if they perform at least 2 Loot Convoy Actions by the end of Turn 4. **Proceed to Mission 2A**\n* The Interdictors win in all other cases. **Proceed to Mission 2B**"
       },
       {
@@ -369,7 +369,7 @@
         "setup": "Place 3 Depot Markers: one in the center of each of the Northwest, North, and Northeast tiles.",
         "deployment": "* Interdictors deploy within 2 Squares of any Depot before Turn 1.\n* Krumpfists deploy from the Southern battlefield edge before Turn 1.",
         "special": "Depots are items with `ARM` **4** and `HIT` **3**. They may be targeted in Combat.\n\n**Mission Action: Sabotage Depot (2ACT)**  \nA Krumpfist Unit Adjacent to a Depot may spend 2ACT to remove 1 `HIT` from it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Depot is Adjacent to any Interdictors.",
-        "victory": "* The Krumpfists win if at least 2 Depots are destroyed by the end of Turn 4. **Proceed to Mission 3A**\n* The Interdictors win in all other cases. **Proceed to Mission 3B**"
+        "victory": "* INterdcitors win if at least 2 Depots have not been destroyed by the end of Turn 4. **Proceed to Mission 3A**\n* Krumpfists win in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "2B",
