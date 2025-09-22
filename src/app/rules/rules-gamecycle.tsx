@@ -22,7 +22,7 @@ export default async function RulesGameCycle() {
                 Set up your Battlefield according to the Mission's briefing. This includes placing buildings and other terrain features, placing objectives, and any other actions defined by the selected Mission.
               </li>
               <li><strong>Deploy Units</strong><br/>
-                Follow the Mission's briefing to deploy your Units. If both teams "deploy before Turn 1", players take turns placing one Unit at a time on the Battlefieldd, starting with the player who has the initiative in Turn 1.
+                Follow the Mission's briefing to deploy your Units. If both teams "deploy before Turn 1", players take turns placing one Unit at a time on the Battlefield, starting with the player who has the initiative in Turn 1.
               </li>
             </ol>
           </li>
