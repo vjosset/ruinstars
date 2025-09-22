@@ -44,7 +44,7 @@ export default async function Home() {
   return (
     <>
       {/* Cover */}
-      <img src="/img/rules/BookCover.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} />
+      <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} />
 
       <div className="rules px-3 max-w-7xl mx-auto">
         <RulesHeader />
