@@ -59,7 +59,7 @@ export default async function RulesGameCycle() {
             <ol>
               <li>
                 The Squad with the Initiative activates their first Unit, then Squads alternate activating their Units until all Units have been activated.<br/>
-                See also <a className="underline" href="#alternate-activations">Alternate Activations</a>.
+                See also <a className="underline" href="#alternating-activations">Alternating Activations</a>.
               </li>
             </ol>
           </li>
@@ -72,8 +72,8 @@ export default async function RulesGameCycle() {
           </li>
         </ol>
         <div className="section">
-          <h3 id="alternate-activations">Alternate Activations</h3>
-          <p>{GAME.NAME} uses Alternate Activations:<br/>
+          <h3 id="alternating-activations">Alternating Activations</h3>
+          <p>{GAME.NAME} uses Alternating Activations:<br/>
           During each turn, players take alternating turns to Activate their Squad's Units. So player 1 activates their first Unit, then player 2 activates their first Unit, followed by player 1 activating their second Unit etc. This ensures dynamic play and avoids having to wait long periods of time before you can actually <em>do</em> something with your Squad.</p>
           <p>Each player takes alternating turns activating the Units in their Squad. For example, in order:</p>
           <ol>

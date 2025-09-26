@@ -19,7 +19,7 @@ export default async function RulesItems() {
     },
     {
       key: 'Campaign',
-      definition: 'A series of Missions grouped into Operations. Units gain Medals, XP, GP, Injuries, and Spoils of War during Campaign play.'
+      definition: 'A series of Missions grouped into Operations. Units gain Medals, XP, GP, Injuries, and Spoils Of War during Campaign play.'
     },
     {
       key: 'Critical Strike',
@@ -75,14 +75,14 @@ export default async function RulesItems() {
     },
     {
       key: 'Narrative Gear',
-      definition: 'Special campaign-only gear, effects, or injuries enabled in Campaign mode. Includes Spoils of War and persistent Injuries.'
+      definition: 'Special campaign-only gear, effects, or injuries enabled in Campaign mode. Includes Spoils Of War and persistent Injuries.'
     },
     {
       key: 'Special (Weapon Special)',
       definition: 'An abbreviation or keyword attached to a weapon that indicates a rule or effect beyond base stats (e.g. 2RC, HVY, RNG3).'
     },
     {
-      key: 'Spoils of War',
+      key: 'Spoils Of War',
       definition: 'Permanent bonuses earned by Units through campaign XP. Examples include Accurate, Brutal, or Technician.'
     },
     {

@@ -11,6 +11,9 @@ export default async function RulesMovement() {
             The Battlefield is a 15x15 grid of 40mm or 1.5in Squares. All movement and distance/range measurements are done by counting Squares.<br/>
             You can bring your own battlefield, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the tiles and Squares ready to go.
           </p>
+          <p>
+            If you prefer to play without a grid, see <a className="underline" href="#inchesconversion">Playing Without a Grid</a> for details.
+          </p>
           <h4 id="tiles">Tiles</h4>
           <p>
             The Battlefield is divided into 9 equal Tiles, each composed of 5x5 Squares.<br/>

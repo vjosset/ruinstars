@@ -17,8 +17,8 @@ export default async function RulesItems() {
             For each item to be placed:
             <ul>
               <li>Roll <code>1D10</code> to determine which Tile to place the item on. On a roll of <code>10</code>, the player chooses which Tile to place the item on.<br/></li>
-              <li>Roll <code>1D6</code> twice to determine the X coordinate of the Square within that Tile to place the item on. On a roll of <code>6</code>, the player chooses which coordinate to place the item on.</li>
-              <li>Roll <code>1D6</code> twice to determine the Y coordinate of the Square within that Tile to place the item on. On a roll of <code>6</code>, the player chooses which coordinate to place the item on.</li>
+              <li>Roll <code>1D6</code> to determine the X coordinate of the Square within that Tile to place the item on. On a roll of <code>6</code>, the player chooses which coordinate to place the item on.</li>
+              <li>Roll <code>1D6</code> to determine the Y coordinate of the Square within that Tile to place the item on. On a roll of <code>6</code>, the player chooses which coordinate to place the item on.</li>
             </ul>
           </p>
 
@@ -26,11 +26,11 @@ export default async function RulesItems() {
           <p>
             If you choose to play with Crates, place 4 Crates on the battlefield in random Squares.
             To open a crate, a Unit must occupy the same Square as the crate and spend 1 ACT to open it. This counts as a Mission action.
-            When opened, roll 1D{GAME.DICE_BASIS} to determine the contents of that Crate, then remove it from the Battlefield:
+            When opened, roll <code>1D{GAME.DICE_BASIS}</code> to determine the contents of that Crate, then remove it from the Battlefield:
           </p>
           <ol>
             <li>
-              <strong>TO</strong>: The Unit's Squad immediately gains 1 TO.
+              <strong>TO</strong>: The Unit's Squad immediately gains 1 Tactical Order.
             </li>
             <li>
               <strong>Stims</strong>: The Unit may immediately perform a free Basic or Mission Action.
@@ -39,7 +39,7 @@ export default async function RulesItems() {
               <strong>Map</strong>: The Unit or one of its Squadmates may immediately perform a Move Action.
             </li>
             <li>
-              <strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for 1 ACT during any of this Unit's activations. When used, the Unit or an Adjacent Squadmate regains <code>1D3</code> lost <code>HIT</code>. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.
+              <strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for <code>1 ACT</code> during any of this Unit's activations. When used, the Unit or an Adjacent Squadmate regains <code>1D3</code> lost <code>HIT</code>. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.
             </li>
             <li>
               <strong>Nothing</strong>: The Crate is empty, nothing happens.

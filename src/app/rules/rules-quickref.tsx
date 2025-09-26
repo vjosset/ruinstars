@@ -14,7 +14,7 @@ export default async function RulesQuickRef() {
               <li><strong>Initiative:</strong> Each player rolls-off for Initiative. Lowest result has the initiative</li>
               <li><strong>Battlefield Events:</strong> The player with the initiative resolves battlefield events</li>
               <li>
-                <strong>Alternate Activations:</strong> Starting with the player with the initiative, players take turns activating one unit at a time until all units have activated.
+                <strong>Alternating Activations:</strong> Starting with the player with the initiative, players take turns activating one unit at a time until all units have activated.
                 Once per Turn, the Squad with the fewest Standing Units may delay one of its activations.
               </li>
               <li><strong>End of Turn:</strong> Each Squad performs its "End of Turn" abilities (if any)</li>
@@ -57,7 +57,7 @@ export default async function RulesQuickRef() {
             Roll 1D6, then remove the Crate from the Battlefield:
             <ol>
               <li>
-                <strong>TO</strong>: The Unit's Squad immediately gains 1 TO.
+                <strong>TO</strong>: The Unit's Squad immediately gains 1 Tactical Order.
               </li>
               <li>
                 <strong>Stims</strong>: The Unit may immediately perform a free Basic or Mission Action.
@@ -66,7 +66,7 @@ export default async function RulesQuickRef() {
                 <strong>Map</strong>: The Unit or one of its Squadmates may immediately perform a Move Action.
               </li>
               <li>
-                <strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for 1 ACT during any of this Unit's activations. When used, the Unit or an Adjacent Squadmate regain 1D3 lost HIT. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.
+                <strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for <code>1 ACT</code> during any of this Unit's activations. When used, the Unit or an Adjacent Squadmate regain 1D3 lost HIT. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.
               </li>
               <li>
                 <strong>Nothing</strong>: The Crate is empty, nothing happens.

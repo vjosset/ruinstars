@@ -125,7 +125,7 @@ export default function UnitCard({
                     </span>
                     <span className="flex items-center gap-1" onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
                       {unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ''}
-                      {/* Icon reminders for Spoils of War and Injuries */}
+                      {/* Icon reminders for Spoils Of War and Injuries */}
                       {!unit.isUnitType && unit.gears?.some(gear => gear.gearId === 'INJ-DC') &&
                         <GiDeathSkull className="text-base text-muted" /> 
                       }
