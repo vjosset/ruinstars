@@ -68,7 +68,7 @@ export default async function RulesMovement() {
             only measure on the Horizontal plane; ignore vertical distance.<br/>
             Measure the distance between the Units' closest points on their bases.</p>
           <p>
-            The target is considered to be in range of that weapon if the distance between the two closest points on eachis equal to or lower than the weapon's range.<br/>
+            The target is considered to be in range of that weapon if the distance between the two closest points on each base is equal to or lower than the weapon's range.<br/>
             If a Ranged weapon does not have a specified Range (<code>RNGx</code>), its range is infinite.
           </p>
           <ImageModal 

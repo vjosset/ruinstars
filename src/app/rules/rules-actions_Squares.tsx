@@ -28,7 +28,7 @@ export default async function RulesActions() {
             <tr><th>Melee Combat</th><td className="text-center">1</td><td>The Unit makes a Melee attack against an Adjacent target. See <a className="underline" href="#combat">Melee Combat</a>.</td></tr>
             <tr><th>Pick Up</th><td className="text-center">1</td><td>The Unit picks up a marker or token in the Square it currently occupies.</td></tr>
             <tr><th>Drop</th><td className="text-center">1</td><td>The Unit drops a marker or token it is carrying in the Square it currently occupies.</td></tr>
-            <tr><th>Give</th><td className="text-center">1</td><td>The Unit passes a marker or token to an Adjacent Squadmate. The Unit cannot perform this Action if it or its Squadmate are <a className="underline" href="#adjacent">Adjacent</a> to any enemy Units.</td></tr>
+            <tr><th>Give</th><td className="text-center">1</td><td>The Unit passes a marker or token to an Adjacent Squadmate. The Unit cannot perform this Action if either Unit is <a className="underline" href="#adjacent">Adjacent</a> to any enemy Units.</td></tr>
             <tr><th>Open/Close Door</th><td className="text-center">1</td><td>The Unit opens or closes an Adjacent door.</td></tr>
             <tr><th>Mission Action</th><td className="text-center">-</td><td>Mission Actions are special mission-specific Actions that can be performed according to the Mission Briefing.</td></tr>
           </tbody>

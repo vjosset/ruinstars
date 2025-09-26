@@ -10,7 +10,7 @@ export default async function RulesQuickRef() {
             <h4>Turn Sequence</h4>
             <ol>
               <li><strong>Start of Turn:</strong> Each Squad performs its "Start of Turn" abilities (if any)</li>
-              <li><strong>Tactical Orders:</strong> Each player rolls for Tactical Order. Results of 1-3 are successes (+1 TO)</li>
+              <li><strong>Tactical Orders:</strong> Each player rolls for Tactical Orders. Results of 1-3 are successes (+1 TO)</li>
               <li><strong>Initiative:</strong> Each player rolls-off for Initiative. Lowest result has the initiative</li>
               <li><strong>Battlefield Events:</strong> The player with the initiative resolves battlefield events</li>
               <li>

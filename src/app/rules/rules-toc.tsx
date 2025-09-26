@@ -16,7 +16,7 @@ export default async function RulesToc() {
         <li><a href="#buildingsquad">Your Squad</a></li>
         <li><a href="#missions">Missions</a></li>
         <li><a href="#campaigns">Campaigns</a></li>
-        <li><a href="#scriptedooperations">Scripted Operations</a></li>
+        <li><a href="#scriptedoperations">Scripted Operations</a></li>
         <li><a href="#glossary">Glossary</a></li>
         <li><a href="#inchesconversion">Playing Without a Grid</a></li>
         <li><a href="#quickref">Quick Reference</a></li>

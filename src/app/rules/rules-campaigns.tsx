@@ -17,7 +17,7 @@ export default async function RulesCampaigns() {
           <h3>Campaign Structure</h3>
           A Campaign is composed of three Operations, and each Operation is composed of three Missions.<br/>
           At the end of each Operation, your Squad returns to Homebase to heal injuries, resupply, and recruit new Units into the Squad.<br/>
-          To build a Campaign, randomly select the nine missions from the list of <a className="underline" href="#mission">Primary Missions</a>,
+          To build a Campaign, randomly select the nine missions from the list of <a className="underline" href="#missions">Primary Missions</a>,
           or string together three <a className="underline" href="#scriptedoperations">Scripted Operations</a>.
         </div>
         <div className="section">
@@ -28,14 +28,14 @@ export default async function RulesCampaigns() {
         </div>
         <div className="section">
           <h4>Homebase</h4>
-          At the end of each Operation, your Squad returns to homebase.<br/>
+          At the end of each Operation, your Squad returns to Homebase.<br/>
           During Missions, your Squad will earn XP and GP. These cannot be spent on any Gear or Units until your Squad returns to Homebase.
           <ul>
             <li>Add 2 GP to your Squad's Max GP + 2 GP for each Victory in the previous Operation</li>
             <li>Remove all Deceased Units from your Squad</li>
             <li>Remove all Injuries from all (non-Deceased) Units</li>
             <li>Recruit new Units into the Squad</li>
-            <li>Make changes to your Squad's selected Gear and Spoils Of War (for eligible Units). Units may select one Spoil of War for each increment of 5 XP.</li>
+            <li>Make changes to your Squad's selected Gear and Spoils of War (for eligible Units). Units may select one Spoil of War for each increment of 5 XP.</li>
           </ul>
         </div>
         <div className="section">
@@ -71,13 +71,13 @@ export default async function RulesCampaigns() {
         </div>
       
         <div className="section">
-          <h3>Spoils Of War</h3>
+          <h3>Spoils of War</h3>
           <p>
             For each increment of 5 XP earned, a Unit may take another Spoil Of War when it returns to Homebase at the end of an Operation.<br/>
             For example, a Unit with 13 XP can take 2 Spoils of War.
           </p>
           <ul>
-            {/* Spoils Of War List */}
+            {/* Spoils of War List */}
             {
               spoilsOfWar?.gears.map((sow) => (
                 <li key={`sow_${sow.gearId}`}>
@@ -93,11 +93,10 @@ export default async function RulesCampaigns() {
           <h3>Injuries</h3>
           <p>
             At the end of each Mission, each of your Units that were Taken Out during the mission may have a persistent injury.
-            Randomly select a lasting effect this injury has on that Unit.<br/>
             Note that when playing a campaign, all Injuries (except Deceased) are removed from your Units when they return to Homebase at the end of each Operation.
           </p>
           <p>
-            At the end of each Mission, for each Unit that was Taken Out, randomly select one Injury to apply to that Unit.<br/>
+            At the end of each Mission, for each Unit that was Taken Out, roll <code>1D6</code> to determine the Injury this Unit received.<br/>
             If the Injury is one that the Unit already had, that Unit is Deceased. Remove the Unit from the Squad. That Unit cannot be replaced until the Squad returns to Homebase at the end of the Operation.<br/>
             If the Injury is "Healed", remove one other Injury from that Unit. If it has no other Injuries, "Healed" has no effect.
           </p>

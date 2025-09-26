@@ -30,7 +30,7 @@ export default async function RulesActions() {
             <tr><th>Drop</th><td className="text-center">1</td><td>The Unit drops a marker or token in an Adjacent space.</td></tr>
             <tr><th>Give</th><td className="text-center">1</td><td>The Unit passes a marker or token to an Adjacent Squadmate. Neither Unit can be <a className="underline" href="#adjacent">Adjacent</a> to any enemy Units.</td></tr>
             <tr><th>Open/Close Door</th><td className="text-center">1</td><td>The Unit opens or closes an Adjacent door.</td></tr>
-            <tr><th>Mission Action</th><td className="text-center">-</td><td>A special action defined by the current the Mission Briefing.</td></tr>
+            <tr><th>Mission Action</th><td className="text-center">-</td><td>A special action defined by the current Mission Briefing.</td></tr>
           </tbody>
         </table>
         <h3 id="tactical-orders">Tactical Orders</h3>

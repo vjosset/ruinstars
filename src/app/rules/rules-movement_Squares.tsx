@@ -9,7 +9,7 @@ export default async function RulesMovement() {
           <h3>Battlefield</h3>
           <p>
             The Battlefield is a 15x15 grid of 40mm or 1.5in Squares. All movement and distance/range measurements are done by counting Squares.<br/>
-            You can bring your own battlefield, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the tiles and Square ready to go.
+            You can bring your own battlefield, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the tiles and Squares ready to go.
           </p>
           <h4 id="tiles">Tiles</h4>
           <p>
@@ -25,13 +25,13 @@ export default async function RulesMovement() {
         <div className="section">
           <h4 id="squares">Squares</h4>
           <p>All movement and distance measurements are measured in Squares. No need for tape measures, gauges, or rulers!<br/>
-          Using a grid provides simplicity of movement and measurement and to avoid imprecision in moving miniatures and checking weapon ranges.
+          Using a grid provides simplicity of movement and measurement and avoids imprecision in moving miniatures and checking weapon ranges.
           If you don't have a gridded play area, you can use a ruler and convert each Square to 2in.</p>
         </div>
         <div className="section">
           <h4 id="adjacent-squares">Adjacent Squares</h4>
           <p>All 8 Squares surrounding a given Square are considered to be <strong>Adjacent</strong> to that Square. When selecting a valid target for <a className="underline" href="#combat">Melee combat</a>, the attacker and its target must be in Adjacent Squares.
-          Two Square that are on different elevations are not considered to be Adjacent.<br/>
+          Two Squares that are on different elevations are not considered to be Adjacent.<br/>
           If a wall that is 1 Square or taller is between two Squares, those two Squares are not considered to be Adjacent.</p>
           <img src="/img/rules/Adjacent.webp" style={{width: '35%'}} />
           <em>The Squares marked <strong>A</strong> are Adjacent to the Unit. The Squares marked <strong>NA</strong> are blocked by a wall and are not Adjacent to the Unit.</em>
