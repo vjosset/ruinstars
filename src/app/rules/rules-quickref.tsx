@@ -24,10 +24,10 @@ export default async function RulesQuickRef() {
           <div className="section">
             <h4>Basic Actions</h4>
             <ul>
-              <li><strong>Move (1ACT):</strong> The Unit moves up to 3 Squares</li>
-              <li><strong>Dash (1ACT):</strong> The Unit moves up to 1 Square</li>
-              <li><strong>Ranged Combat (1ACT):</strong> The Unit performs a Ranged Combat attack against a valid target</li>
-              <li><strong>Melee Combat (1ACT):</strong> The Unit performs a Melee Combat attack against a valid target</li>
+              <li><strong>Move (<code>1ACT</code>):</strong> The Unit moves up to 3 Squares</li>
+              <li><strong>Dash (<code>1ACT</code>):</strong> The Unit moves up to 1 Square</li>
+              <li><strong>Ranged Combat (<code>1ACT</code>):</strong> The Unit performs a Ranged Combat attack against a valid target</li>
+              <li><strong>Melee Combat (<code>1ACT</code>):</strong> The Unit performs a Melee Combat attack against a valid target</li>
             </ul>
             A Unit may perform the same Action multiple times during its activation, but it costs 1 additional ACT each time it is repeated.
           </div>
@@ -35,20 +35,21 @@ export default async function RulesQuickRef() {
           <div className="section">
             <h4>Ranged Combat</h4>
             <ol>
-              <li>Select target: must be in range, in LoS, not adjacent to attacker.</li>
-              <li>Roll <code>ATT</code> dice: ≤ <code>SKL</code> = 1 damage (1 = crit, 6 = fail; crit = 2 damage).</li>
-              <li>Target rolls <code>ARM</code> saves per damage: ≤ <code>ARM</code> = save (1 = 2 saves, 6 = fail).</li>
+              <li>Select Target: Must be in range, in LoS, not Adjacent to attacker.</li>
+              <li>Roll <code>ATT</code> dice: Dice at or below <code>SKL</code> deal 1 damage (<code>1</code> = Crit: 2 damage).</li>
+              <li>Target Rolls <code>ARM</code> saves per damage: Dice at or below <code>ARM</code> save 1 damage.</li>
+              <li>Critical Save: Blocks 2 damage.</li>
               <li>Cover: Target gains 1 auto-save if partially obscured.</li>
-              <li>High Ground: Attacker 2+ levels higher negates cover.</li>
+              <li>High Ground: Attacker 2+ levels higher than Target negates cover.</li>
             </ol>
           </div>
           <div className="section">
             <h4>Melee Combat</h4>
             <ol>
-              <li>Select target: must be adjacent.</li>
-              <li>Roll <code>ATT</code> dice: ≤ <code>SKL</code> = damage (1 = crit, 6 = fail; crit = 2 damage).</li>
-              <li>Target rolls <code>ARM</code> saves: ≤ <code>ARM</code> = save.</li>
-              <li>Critical Save: blocks 1 damage <em>and</em> inflicts 1 Melee damage back (can chain).</li>
+              <li>Select Target: Must be adjacent.</li>
+              <li>Roll <code>ATT</code> dice: Dice at or below <code>SKL</code> deal 1 damage (<code>1</code> = Crit: 2 damage).</li>
+              <li>Target Rolls <code>ARM</code> saves per damage: Dice at or below <code>ARM</code> save 1 damage.</li>
+              <li>Critical Save: Blocks 1 damage <em>and</em> inflicts 1 Melee damage back (can chain).</li>
               <li>Support: +1 attack re-roll per adjacent squadmate vs target.</li>
             </ol>
           </div>
@@ -66,7 +67,7 @@ export default async function RulesQuickRef() {
                 <strong>Map</strong>: The Unit or one of its Squadmates may immediately perform a Move Action.
               </li>
               <li>
-                <strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for <code>1 ACT</code> during any of this Unit's activations. When used, the Unit or an Adjacent Squadmate regain 1D3 lost HIT. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.
+                <strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for <code>1 ACT</code> during any of this Unit's activations. When used, the Unit or an Adjacent Squadmate regain <code>1D3</code> lost <code>HIT</code>. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.
               </li>
               <li>
                 <strong>Nothing</strong>: The Crate is empty, nothing happens.
