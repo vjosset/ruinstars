@@ -55,6 +55,9 @@ export async function GET() {
   stats.totals = { users, squads, units }
 
   const cutoff30m = new Date(Date.now() - 30 * 60 * 1000)
+  const excludedIps = ['127.0.0.1', '::1', '76.98.82.81', '73.188.188.13', '73.165.66.83', '68.80.166.102']
+  const excludedUserIds = ['vince']
+
   const [pageViews, recentActiveUsers, events30m] = await Promise.all([
     prisma.webEvent.findMany({
       where: {
@@ -63,16 +66,20 @@ export async function GET() {
           lt: endDate
         },
         userIp: {
-          notIn: ['127.0.0.1', '::1', '76.98.82.81', '73.188.188.13']
+          notIn: excludedIps
+        },
+        userId: {
+          notIn: excludedUserIds
         }
       },
-      select: { datestamp: true }
+      select: { datestamp: true, userId: true, userIp: true }
     }),
     prisma.webEvent.groupBy({
       by: ['userId', 'userIp'], // distinct concat equivalent
       where: {
         datestamp: { gte: cutoff30m },
-        userIp: { notIn: ['127.0.0.1', '::1', '76.98.82.81', '73.188.188.13'] }
+        userIp: { notIn: excludedIps },
+        userId: { notIn: excludedUserIds }
       },
       _count: { _all: true }
     }),
@@ -80,7 +87,8 @@ export async function GET() {
       where: {
         datestamp: { gte: cutoff30m },
         // optional: match same IP filter as above
-        userIp: { notIn: ['127.0.0.1', '::1', '76.98.82.81', '73.188.188.13'] }
+        userIp: { notIn: excludedIps },
+        userId: { notIn: excludedUserIds }
       }
     })
   ])
@@ -90,11 +98,24 @@ export async function GET() {
 
   // Group into { 'YYYY-MM-DD': count }
   const pageViewsPerDay: Record<string, number> = {}
+  const distinctUsersPerDay = new Map<string, Set<string>>()
 
   for (const e of pageViews) {
     const date = toLocalIsoDate(e.datestamp)
     pageViewsPerDay[date] = (pageViewsPerDay[date] || 0) + 1
+
+    let userIdentifier: string | null = null
+    if (e.userId && e.userId !== '[anon]') {
+      userIdentifier = e.userId
+    } else if (e.userIp) {
+      userIdentifier = e.userIp
+    }
+
+    if (!userIdentifier) continue
+    if (!distinctUsersPerDay.has(date)) distinctUsersPerDay.set(date, new Set())
+    distinctUsersPerDay.get(date)!.add(userIdentifier)
   }
+
   const signupsPerDay: Record<string, number> = {}
 
   for (const u of recentSignups) {
@@ -106,7 +127,8 @@ export async function GET() {
   stats.dailyStats = days.map(date => ({
     date,
     views: pageViewsPerDay[date] || 0,
-    signups: signupsPerDay[date] || 0
+    signups: signupsPerDay[date] || 0,
+    uniqueUsers: distinctUsersPerDay.get(date)?.size ?? 0
   }))
 
   return NextResponse.json(stats)

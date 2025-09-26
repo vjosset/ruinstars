@@ -85,14 +85,16 @@ export default function AdminTools() {
         <thead>
           <tr className="font-bold">
             <td>Date</td>
+            <td className="text-right">Users</td>
             <td className="text-right">Signups</td>
-            <td className="text-right">PageViews</td>
+            <td className="text-right">Views</td>
           </tr>
         </thead>
         <tbody>
           {stats.dailyStats.map((dat: any) => (
             <tr key={`dailyStats_${dat.date}`}>
               <td>{dat.date}</td>
+              <td className="text-right">{(dat.uniqueUsers ?? 0).toLocaleString()}</td>
               <td className="text-right">{dat.signups.toLocaleString()}</td>
               <td className="text-right">{dat.views.toLocaleString()}</td>
             </tr>
