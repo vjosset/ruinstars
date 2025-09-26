@@ -25,9 +25,9 @@ export function SquadTypeLink({ squadTypeId, squadTypeName }: { squadTypeId: str
   )
 }
 
-export function UserLink({ userName }: {userName: string}) {
+export function UserLink({ userName, newTab }: {userName: string, newTab?: boolean}) {
   return (
-    <Link href={userPath(userName)} className={badgeClass}>
+    <Link href={userPath(userName)} className={badgeClass} target={newTab ? '_blank' : ''}>
       <FiUser />
       {userName}
     </Link>

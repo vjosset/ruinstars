@@ -1,15 +1,17 @@
 'use client'
 
+import { UserLink } from '@/components/nav/Links'
 import { format } from 'date-fns'
 import { useCallback, useEffect, useState } from 'react'
 import { FaBolt, FaUsers } from 'react-icons/fa6'
 import { FiRotateCw } from 'react-icons/fi'
-import { SectionTitle } from '../ui'
+import { Modal, SectionTitle } from '../ui'
 
 export default function AdminTools() {
   const [stats, setStats] = useState<any | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [showSignups, setShowSignups] = useState<{ date: string; usernames: string[] } | null>(null)
   
   const refreshStats = useCallback(async () => {
     setLoading(true)
@@ -95,12 +97,38 @@ export default function AdminTools() {
             <tr key={`dailyStats_${dat.date}`}>
               <td>{dat.date}</td>
               <td className="text-right">{(dat.uniqueUsers ?? 0).toLocaleString()}</td>
-              <td className="text-right">{dat.signups.toLocaleString()}</td>
+              <td className="text-right">
+                {dat.signups > 0 ? (
+                  <button
+                    type="button"
+                    onClick={() => setShowSignups({ date: dat.date, usernames: dat.signupUsernames || [] })}
+                    className="underline text-main hover:text-main/80"
+                  >
+                    {dat.signups.toLocaleString()}
+                  </button>
+                ) : (
+                  dat.signups.toLocaleString()
+                )}
+              </td>
               <td className="text-right">{dat.views.toLocaleString()}</td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      {showSignups && (
+        <Modal title={`Signups on ${showSignups.date}`} onClose={() => setShowSignups(null)}>
+          <div className="flex flex-col gap-2">
+            {showSignups.usernames.length > 0 ? (
+              showSignups.usernames.map(username => (
+                <UserLink key={username} userName={username} newTab={true} />
+              ))
+            ) : (
+              <p className="text-sm text-muted">No usernames captured for this date.</p>
+            )}
+          </div>
+        </Modal>
+      )}
     </div>
   )
 }

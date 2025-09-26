@@ -16,7 +16,13 @@ export async function GET() {
   const stats: {
     datestamp: Date
     totals: { users: number; squads: number; units: number }
-    dailyStats: Record<string, any>
+    dailyStats: Array<{
+      date: string
+      views: number
+      signups: number
+      uniqueUsers: number
+      signupUsernames: string[]
+    }>
     portraitEvents: any[]
     activeUsers30min: number
     events30min: number
@@ -27,7 +33,7 @@ export async function GET() {
       squads: 0,
       units: 0
     },
-    dailyStats: {},
+    dailyStats: [],
     portraitEvents: [],
     activeUsers30min: 0,
     events30min: 0
@@ -47,7 +53,8 @@ export async function GET() {
         }
       },
       select: {
-        createdAt: true
+        createdAt: true,
+        userName: true
       }
     })
   ])
@@ -117,10 +124,15 @@ export async function GET() {
   }
 
   const signupsPerDay: Record<string, number> = {}
+  const signupUsernamesPerDay = new Map<string, Set<string>>()
 
   for (const u of recentSignups) {
     const date = toLocalIsoDate(u.createdAt)
     signupsPerDay[date] = (signupsPerDay[date] || 0) + 1
+
+    if (!u.userName) continue
+    if (!signupUsernamesPerDay.has(date)) signupUsernamesPerDay.set(date, new Set())
+    signupUsernamesPerDay.get(date)!.add(u.userName)
   }
 
   // Merge into array for frontend
@@ -128,7 +140,8 @@ export async function GET() {
     date,
     views: pageViewsPerDay[date] || 0,
     signups: signupsPerDay[date] || 0,
-    uniqueUsers: distinctUsersPerDay.get(date)?.size ?? 0
+    uniqueUsers: distinctUsersPerDay.get(date)?.size ?? 0,
+    signupUsernames: Array.from(signupUsernamesPerDay.get(date) ?? [])
   }))
 
   return NextResponse.json(stats)

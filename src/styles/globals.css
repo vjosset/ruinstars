@@ -152,6 +152,10 @@ h5 { @apply text-xl; }
 	border: 1px solid;
 }
 
+table {
+	width: 100%;
+}
+
 th {
 	text-align: left;
 	vertical-align: top;
@@ -160,6 +164,10 @@ th {
 
 td {
 	vertical-align: top;
+}
+
+thead {
+	@apply border-b border-border;
 }
 
 hr {
