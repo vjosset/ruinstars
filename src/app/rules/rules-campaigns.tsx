@@ -98,7 +98,7 @@ export default async function RulesCampaigns() {
           </p>
           <p>
             At the end of each Mission, for each Unit that was Taken Out, randomly select one Injury to apply to that Unit.<br/>
-            If the Injury is one that the Unit already had, that Unit is Deceased. Removed the Unit from the Squad. That Unit cannot be replaced until the Squad returns to Homebase at the end of the Operation.<br/>
+            If the Injury is one that the Unit already had, that Unit is Deceased. Remove the Unit from the Squad. That Unit cannot be replaced until the Squad returns to Homebase at the end of the Operation.<br/>
             If the Injury is "Healed", remove one other Injury from that Unit. If it has no other Injuries, "Healed" has no effect.
           </p>
           <ul>
