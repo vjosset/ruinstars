@@ -89,19 +89,12 @@ export default async function RulesCombat() {
             <h5>Special Cases</h5>
             <p>
               These rules mean that in some cases, a Unit may be able to target an enemy Unit even if that Unit cannot target them in return.<br/>
+              <img src="/img/rules/AsymTarget.webp" width="50%" /><br/>
+              <em>The soldier may target the Bug in Ranged Combat, but the Bug may not target the soldier because the two closest corners of the soldier's Square are blocked by a wall.</em>
             </p>
             <div className="block">
-              <strong>Grid Mode</strong><br/><br/>
-              Line Of Sight<br/>
-
-              A Target is said to be in an Attacker's Line of Sight if two uninterrupted lines can be drawn from one of the corners of the Square occupied by the Attacker to the two closest corners of the Square occupied by the Target.
-              A Unit cannot target an enemy Unit for Ranged Combat if there are other Units on that Line of Sight (i.e. a Unit cannot shoot "through" other Units).
-              <br/><br/>
-
-              Special Cases<br/>
-              These rules mean that in some cases, a Unit may be able to target an enemy Unit even if that Unit cannot target them in return.<br/>
-              <img src="/img/rules/AsymTarget.webp" width="50%" /><br/>
-              The soldier may target the Bug in Ranged Combat, but the Bug may not target the soldier because the two closest corners of the soldier's Square are blocked by a wall.
+              <strong>Grid Mode</strong><br/>
+              Instead of using the Units' bases, draw two lines from one of the Attacker's Square to the two closest corners of the Target's Square to determine Line of Sight.
             </div>
           </div>
           <div className="section">
@@ -112,6 +105,7 @@ export default async function RulesCombat() {
               A Target is in Cover if a piece of terrain blocks the Attacker's full view of the Target and the Target is less then 1 Pace from that terrain.
             </p>
           
+            <br/>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <img 
@@ -119,8 +113,15 @@ export default async function RulesCombat() {
                   className="mb-2" 
                   alt="Example of unit in cover" 
                 />
-                <em>The bug marked <strong>C</strong> is in Cover. The bug marked <strong>NC</strong> is not in Cover because the wall does not occupy any of the Target Pace's edges.</em>
               </div>
+              <em>
+                  The bug marked <strong>C</strong> is in Cover.
+                  The bug marked <strong>NC</strong> is not in Cover because the Target is not within 1 Pace of the wall.
+              </em>
+            </div>
+            <div className="block">
+              <strong>Grid Mode</strong><br/>
+              A Target is in Cover if the wall occupies one of its Square's edges.
             </div>
           </div>
         </div>
@@ -188,11 +189,9 @@ export default async function RulesCombat() {
           </table>
           <h4 id="attack-of-opportunity">Attack of Opportunity</h4>
           <p>
-            When a Unit Moves or Dashes out of a Pace that is Adjacent to an enemy Unit, that enemy may immediately perform a free Melee attack against the moving Unit.
-            This is called an <strong>Attack of Opportunity</strong>.<br/>
-            If the moving Unit is Adjacent to multiple enemies, only one of those enemies may perform an Attack of Opportunity, though they still get support in the Melee Combat Action.<br/>
-            The moving Unit may choose to spend some or all of its remaining movement Paces to blunt the attack.
-            For each Pace of movement it spends in this way, reduce the number of attack dice the enemy rolls (the weapon's <code>ATT</code> stat) by <code>1</code>.<br/>
+            When a Unit Moves or Dashes out of a position that is Adjacent to an enemy Unit, that enemy may immediately perform a free Melee attack against the moving Unit. This is called an <strong>Attack of Opportunity</strong>.<br/>
+            If the moving Unit is Adjacent to multiple enemies, only one of those enemies may perform an Attack of Opportunity, though they still get support in the Melee Combat Action.
+            The moving Unit may choose to spend some or all of its remaining movement Paces to blunt the attack. For each Pace of movement it spends in this way, reduce the number of attack dice the enemy rolls (the weapon's <code>ATT</code> stat) by 1.<br/>
             Each Unit can perform only one Attack of Opportunity per Turn.
           </p>
         </div>
