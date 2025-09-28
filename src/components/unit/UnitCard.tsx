@@ -5,7 +5,7 @@ import { showInfoModal } from '@/lib/utils/showInfoModal'
 import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
 import GearGroupList from '@/src/components/shared/GearGroupList'
 import WeaponTable from '@/src/components/shared/WeaponTable'
-import { Medal, SquadPlain, UnitPlain, UnitTypePlain } from '@/types'
+import { Medal, UnitPlain, UnitTypePlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import { useEffect, useState } from 'react'
 import { FaHeartPulse, FaMedal } from 'react-icons/fa6'
@@ -20,7 +20,6 @@ import UnitMedalModal from './UnitMedalModal'
 
 type UnitCardProps = {
   unit: UnitPlain | UnitTypePlain
-  squad: SquadPlain | null
   seq: Number
   isOwner: boolean
   allSpecials: SpecialRule[]
@@ -37,7 +36,6 @@ type UnitCardProps = {
 
 export default function UnitCard({
   unit,
-  squad,
   seq,
   isOwner,
   allSpecials,
@@ -62,9 +60,6 @@ export default function UnitCard({
   
   // Delete state
   const [deleteError, setDeleteError] = useState('')
-
-  // For printing - Get unit unique skills
-  //const unitUniqueSkills = getUnitUniqueSkills(squad ?? undefined, !unit.isUnitType && unit  || undefined)
 
   // Keep local state in sync with unit props
   useEffect(() => {

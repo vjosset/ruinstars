@@ -70,9 +70,6 @@ export default async function ScriptedOperations({ searchParams }: { searchParam
   const rawSquadTypeId = sp?.squadTypeId
   const squadTypeId = Array.isArray(rawSquadTypeId) ? rawSquadTypeId[0] : rawSquadTypeId
 
-  // Format today's date as yyyy-MM-dd for the cover
-  const versionDate = new Date().toISOString().slice(0, 10)
-
   if (squadTypeId) {
     operations = operations.filter((o) => o.factions.squadTypeA === squadTypeId || o.factions.squadTypeB === squadTypeId)
   }

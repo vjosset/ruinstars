@@ -19,7 +19,6 @@ export default async function RulesStatCards() {
           <div className="p-1">
             <UnitCard 
               unit={sampleUnit}
-              squad={null}
               seq={1}
               isOwner={false}
               allSpecials={allSpecials}

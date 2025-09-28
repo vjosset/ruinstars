@@ -357,7 +357,6 @@ export default function SquadPageClient({
                 key={unit.unitId}
                 seq={idx + 1}
                 unit={unit}
-                squad={squad}
                 isOwner={isOwner}
                 allSpecials={allSpecials ?? []}
                 allMedals={allMedals ?? []}

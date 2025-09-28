@@ -65,7 +65,6 @@ export default async function SquadTypePage({ params }: { params: Promise<{ squa
               key={unitType.unitTypeId}
               seq={1}
               unit={unitType.toPlain()}
-              squad={null}
               isOwner={false}
               allSpecials={allSpecials.map((spec) => spec.toPlain())}
               allMedals={[]}
