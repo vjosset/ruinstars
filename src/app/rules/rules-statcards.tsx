@@ -54,8 +54,8 @@ export default async function RulesStatCards() {
             </li>
             <li>
               <h6 className="inline">HIT</h6> - Hit Points<br/>
-              The Unit's number of Hit Points. When a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield (see <a className="underline" href="#combat">Combat</a>).<br/>
-              If a Unit has at least 1 <code>HIT</code> remaining, it is considered to be Standing.
+              The Unit's number of Hit Points. When a Unit reaches zero <code>HIT</code>, it is <strong>Taken Out</strong> and removed from the battlefield (see <a className="underline" href="#combat">Combat</a>).<br/>
+              If a Unit has at least 1 <code>HIT</code> remaining, it is considered to be <strong>Standing</strong>.
             </li>
             <li>
               <h6 className="inline">GP</h6> - Gear Points<br/>
@@ -72,7 +72,7 @@ export default async function RulesStatCards() {
               The <a className="underline" href="#unit-specials">Specials</a> that apply to this Unit.
             </li>*/}
           </ul>
-          Note that each special (e.g. <code>2RC</code>) and skill (e.g. "Duty Before Death") can be clicked or tapped to view their detailed description.
+          Note that in the app and on the website, each special (e.g. <code>2RC</code>) and skill (e.g. "Duty Before Death") can be clicked or tapped to view their detailed description.
           <br/>
           <strong>For example: </strong>
           <ul>
@@ -102,7 +102,7 @@ export default async function RulesStatCards() {
             </li>
             <li>
               <h6 className="inline">(Special)</h6> - Weapon Specials<br/>
-              <a className="underline" href="#weapon-specials">Specials</a> for this weapon are listed next to its name.
+              Specials for this weapon are listed next to its name. Click or tap on them to read their full description. Don't worry about remembering the codes; they will quickly become second nature to you.
             </li>
           </ul>
           <br/>
