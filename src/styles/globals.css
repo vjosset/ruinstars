@@ -252,20 +252,25 @@ hr {
 /*********/
 
 .rules h1 {
-	@apply text-5xl text-center pt-4;
+	@apply text-5xl text-center mt-4;
   color: theme('colors.main.DEFAULT');
 	column-span: all;
 }
 .rules h2 {
-	@apply text-3xl text-center pt-2 font-heading;
+	@apply text-3xl text-center mt-3 font-heading;
   color: theme('colors.main.DEFAULT');
 }
 .rules h3 {
-	@apply text-2xl pt-2 font-heading;
+	@apply text-2xl mt-3 font-heading;
   color: theme('colors.main.DEFAULT');
 }
 .rules h4 {
-	@apply text-xl pt-2 font-heading;
+	@apply text-xl mt-3 font-heading;
+}
+
+.rules .block {
+	@apply border border-border p-4 m-4;
+	display: block;
 }
 
 .twocols { columns: 2; }

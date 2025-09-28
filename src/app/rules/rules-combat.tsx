@@ -1,4 +1,3 @@
-import ImageModal from '@/components/ui/ImageModal'
 import { GAME } from '@/lib/config/game_config'
 
 export default async function RulesCombat() {
@@ -71,7 +70,7 @@ export default async function RulesCombat() {
               </tr>
               <tr>
                 <th className="px-1">High&nbsp;Ground</th>
-                <td className="px-1">If the Attacker is at least 4" above the Target, the Target does not benefit from Cover</td>
+                <td className="px-1">If the Attacker is at least 2 Paces higher than its Target, the Target does not benefit from Cover</td>
               </tr>
             </tbody>
           </table>
@@ -79,47 +78,48 @@ export default async function RulesCombat() {
           <div className="section">
             <h4 id="line-of-sight">Line Of Sight</h4>
             <p>
-              A Target is in an Attacker's <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one point of the Attacker's base to two opposite points of the Target's base.<br/>
-              A Unit cannot shoot through other Units.<br/>
-              <ImageModal 
+              A Target is said to be in an Attacker's <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one point of the Attacker's base to two opposite edges of the Target's base.<br/>
+              A Unit cannot target an enemy Unit for Ranged Combat if there are other Units on that Line of Sight (i.e. a Unit cannot shoot &quot;through&quot; other Units).<br/>
+              <img 
                 src="/img/rules/LineOfSight.webp" 
                 alt="Line of Sight between two Units"
                 className="mb-2 w-1/2"
               />
             </p>
+            <h5>Special Cases</h5>
+            <p>
+              These rules mean that in some cases, a Unit may be able to target an enemy Unit even if that Unit cannot target them in return.<br/>
+            </p>
+            <div className="block">
+              <strong>Grid Mode</strong><br/><br/>
+              Line Of Sight<br/>
+
+              A Target is said to be in an Attacker's Line of Sight if two uninterrupted lines can be drawn from one of the corners of the Square occupied by the Attacker to the two closest corners of the Square occupied by the Target.
+              A Unit cannot target an enemy Unit for Ranged Combat if there are other Units on that Line of Sight (i.e. a Unit cannot shoot "through" other Units).
+              <br/><br/>
+
+              Special Cases<br/>
+              These rules mean that in some cases, a Unit may be able to target an enemy Unit even if that Unit cannot target them in return.<br/>
+              <img src="/img/rules/AsymTarget.webp" width="50%" /><br/>
+              The soldier may target the Bug in Ranged Combat, but the Bug may not target the soldier because the two closest corners of the soldier's Square are blocked by a wall.
+            </div>
           </div>
           <div className="section">
             <h4 id="cover">Cover</h4>
-            A Target is in Cover if:
-            <ul>
-              <li>
-                A terrain element is Adjacent to the Target, and the Attacker can see no more than two of the following parts of the Target:
-                <ul>
-                  <li>Target's Legs</li>
-                  <li>Target's Torso</li>
-                  <li>Target's Head</li>
-                </ul>
-                If none of these are visible in full, the Target cannot be targeted. If all three are visible, the target does not benefit from Cover.<br/>
-                Cover only applies to Ranged attacks; there is no Cover benefit for Melee attacks.
-              </li>
-            </ul>
+            <p>
+              If a Target is only partially visible to the Attacker (for example, there is a short wall between the two Units), that Target is said to be in cover.
+              Cover only applies to Ranged attacks; there is no Cover benefit for Melee attacks.<br/>
+              A Target is in Cover if a piece of terrain blocks the Attacker's full view of the Target and the Target is less then 1 Pace from that terrain.
+            </p>
           
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <ImageModal 
+                <img 
                   src="/img/rules/Cover.webp" 
-                  alt="Example of unit in cover"
                   className="mb-2" 
+                  alt="Example of unit in cover" 
                 />
-                The targeted enemy is in Cover because the blocking terrain element is Adjacent to it.
-              </div>
-              <div>
-                <ImageModal 
-                  src="/img/rules/NoCover.webp" 
-                  alt="Example of unit not in cover"
-                  className="mb-2"
-                />
-                The targeted enemy is not in Cover because the blocking terrain element is not Adjacent to it.
+                <em>The bug marked <strong>C</strong> is in Cover. The bug marked <strong>NC</strong> is not in Cover because the wall does not occupy any of the Target Pace's edges.</em>
               </div>
             </div>
           </div>
@@ -186,6 +186,15 @@ export default async function RulesCombat() {
               </tr>
             </tbody>
           </table>
+          <h4 id="attack-of-opportunity">Attack of Opportunity</h4>
+          <p>
+            When a Unit Moves or Dashes out of a Pace that is Adjacent to an enemy Unit, that enemy may immediately perform a free Melee attack against the moving Unit.
+            This is called an <strong>Attack of Opportunity</strong>.<br/>
+            If the moving Unit is Adjacent to multiple enemies, only one of those enemies may perform an Attack of Opportunity, though they still get support in the Melee Combat Action.<br/>
+            The moving Unit may choose to spend some or all of its remaining movement Paces to blunt the attack.
+            For each Pace of movement it spends in this way, reduce the number of attack dice the enemy rolls (the weapon's <code>ATT</code> stat) by <code>1</code>.<br/>
+            Each Unit can perform only one Attack of Opportunity per Turn.
+          </p>
         </div>
       </div>
     </div>

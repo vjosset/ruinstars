@@ -7,6 +7,7 @@ import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { SquadTypeService } from '@/services'
 import Link from 'next/link'
+import { BattlefieldDiagram, inlineLayout } from './battlefielddiagram'
 
 // This page varies by querystring (opId), so render per-request
 export const dynamic = 'force-dynamic'
@@ -216,6 +217,17 @@ export function ScriptedOperation({ op, squadTypes }: { op: any, squadTypes: { s
             </div>
           )) }
         </div>
+      </div>
+
+      
+      <div className="p-4 space-y-6">
+        <h2 className="text-xl font-bold">Battlefield Diagram — Safe Renderer Tests</h2>
+      
+        <section className="space-y-2">
+          <h3 className="font-semibold">Test C — Inline Layout (deploy bands + markers + terrain)</h3>
+          <BattlefieldDiagram layout={inlineLayout} cellPx={40} />
+        </section>
+      
       </div>
     </div>
   )
