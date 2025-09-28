@@ -1,5 +1,8 @@
+import { SpecialService } from '@/services'
 
 export default async function RulesItems() {
+  const allSpecials = await SpecialService.getAllSpecials()
+
   const definitions = [
     {
       key: 'Activation',
@@ -121,18 +124,38 @@ export default async function RulesItems() {
         13. Glossary
       </h2>
       <div className="section twocols">
-        <ul>
-          {
-            definitions.map(def => (
-              <div key={`definition_${def.key}`}>
-                <strong className="text-main">{def.key}</strong>
-                <p className="pl-2 pb-2">
-                  {def.definition}
-                </p>
-              </div>
-            ))
-          }
-        </ul>
+        {
+          definitions.map(def => (
+            <div className="section" key={`definition_${def.key}`}>
+              <strong className="text-main">{def.key}</strong>
+              <p className="pl-2 pb-2">
+                {def.definition}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+      <br/><br/>
+
+      <h3 className="text-center py-3" id="specials" style={{pageBreakBefore: 'always'}}>
+        Specials
+      </h3>
+      <div className="section twocols">
+
+        {
+          allSpecials.filter((s) => s.scope == 'W').sort((a, b) => a.code.localeCompare(b.code)).map((spec, idx) => (
+            <div className="section" key={`spec_${spec.code}`}>
+              <strong className="text-main">
+                <code>{spec.code.replace('_', 'x')}</code>
+                { ' - ' }
+                {spec.specialName.replace('_', 'x')}
+              </strong>
+              <p className="pl-2 pb-2">
+                {spec.description.replace('_', 'x')}
+              </p>
+            </div>
+          ))
+        }
       </div>
     </div>
   )}
