@@ -522,10 +522,10 @@
         "title": "Breach the Fortress",
         "description": "The Wardens labor to restore their fortress, but the Grutak are already at the gates. Krumpfist mobs surge forward, eager to tear down the walls and plunder whatever lies within.",
         "battlefield": "The Ruined City",
-        "setup": "The Fortress occupies the three Eastern tiles (Northeast, East, Southeast).\nPlace 3 Gate Markers: one centered on the Western edge of each Eastern tile.",
-        "deployment": "- Relict Wardens deploy anywhere within the Fortress before Turn 1.\n- Krumpfists deploy within 2 Squares of the Western battlefield edge before Turn 1.",
-        "special": "Each Gate Marker has `ARM` **4** and `HIT` **4**.\nGates may be targeted in Combat. If reduced to 0 HIT, that Gate is destroyed.\n\n**Mission Action: Break Gate (2ACT)**  \nA Krumpfist Unit Adjacent to a Gate may spend 2ACT to remove 1 HIT from it.\nA Unit may not perform this Action if it is Adjacent to any enemies.",
-        "victory": "- The Relict Wardens win at least 2 of the 3 Gates are still standing by the end of Turn 4. **Proceed to Mission 2A**\n- The Krumpfists win in all other cases. **Proceed to Mission 2B**"
+        "setup": "The Fortress occupies the three Northern tiles (Northeast, North, Northwest).\nPlace 3 Gate Markers: one centered on the Southern edge of each Northern tile. These Gate markers cannot be traversed by Units until they are destroyed.",
+        "deployment": "- Relict Wardens deploy anywhere within the Fortress before Turn 1.\n- Krumpfists deploy within 2 Squares of the Southern battlefield edge before Turn 1.",
+        "special": "Krumpfists have the initiative in Turn 1.\n\nEach Gate Marker has `ARM` **4** and `HIT` **4**.\nGates may be targeted in Combat and are affected by Ruined City battlefield effects just like any Unit. If reduced to 0 HIT, that Gate is destroyed.\n\n**Mission Action: Break Gate (2ACT)**  \nOnce per Turn, a Krumpfist Unit Adjacent to a Gate may spend 2ACT to remove 1 HIT from it.\nA Unit may not perform this Action if it is Adjacent to any enemies.",
+        "victory": "- The Relict Wardens win if at least 2 of the 3 Gates are still standing by the end of Turn 4. **Proceed to Mission 2A**\n- The Krumpfists win in all other cases. **Proceed to Mission 2B**"
       },
       {
         "id": "2A",
@@ -542,9 +542,9 @@
         "title": "Loot the Works",
         "description": "The Krumpfists crash through the gates, scattering the Wardens. Deep within the fortress, they find caches of relic-tech. The plunder is ripe for the taking, unless the Wardens can destroy it first.",
         "battlefield": "The Ruined City",
-        "setup": "Place 3 Cache Markers: one in the center of each of the Fortress tiles (Northeast, East, Southeast).",
+        "setup": "Place 3 Cache Markers: one in the center of each of the West, Center, and East tiles.",
         "deployment": "Both squads deploy anywhere on the Battlefield before Turn 1, at least 4 Squares away from any Cache Marker.",
-        "special": "**Mission Action: Loot (2ACT)**  \nA Krumpfist Unit Adjacent to a Cache may spend 2ACT to Loot it.\nA Unit may not perform this Action if it is Adjacent to any enemies.\n\n**Mission Action: Sabotage (2ACT)**  \nA Relict Warden Unit Adjacent to a Cache may spend 2ACT to Sabotage it.\nA Unit may not perform this Action if it is Adjacent to any enemies.\n\nOnce a Cache is either Looted or Sabotaged, remove it from the Battlefield.",
+        "special": "**Mission Action: Loot (2ACT)**  \nOnce per Turn, a Krumpfist Unit Adjacent to a Cache may spend 2ACT to Loot it.\nA Unit may not perform this Action if it is Adjacent to any enemies.\n\n**Mission Action: Sabotage (2ACT)**  \nOnce per Turn, a Relict Warden Unit Adjacent to a Cache may spend 2ACT to Sabotage it.\nA Unit may not perform this Action if it is Adjacent to any enemies.\n\nOnce a Cache is either Looted or Sabotaged, remove it from the Battlefield.",
         "victory": "- Krumpfists win if at least 2 of the 3 Caches are Looted by the end of Turn 4. **Proceed to Mission 3A**\n- Relict Wardens win in all other cases. **Proceed to Mission 3B**"
       },
       {
