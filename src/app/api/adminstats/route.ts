@@ -21,6 +21,8 @@ export async function GET() {
       views: number
       signups: number
       uniqueUsers: number
+      uniqueLoggedInUsers: number
+      uniqueAnonymousUsers: number
       signupUsernames: string[]
     }>
     portraitEvents: any[]
@@ -105,22 +107,20 @@ export async function GET() {
 
   // Group into { 'YYYY-MM-DD': count }
   const pageViewsPerDay: Record<string, number> = {}
-  const distinctUsersPerDay = new Map<string, Set<string>>()
+  const distinctLoggedInUsersPerDay = new Map<string, Set<string>>()
+  const distinctAnonymousUsersPerDay = new Map<string, Set<string>>()
 
   for (const e of pageViews) {
     const date = toLocalIsoDate(e.datestamp)
     pageViewsPerDay[date] = (pageViewsPerDay[date] || 0) + 1
 
-    let userIdentifier: string | null = null
     if (e.userId && e.userId !== '[anon]') {
-      userIdentifier = e.userId
+      if (!distinctLoggedInUsersPerDay.has(date)) distinctLoggedInUsersPerDay.set(date, new Set())
+      distinctLoggedInUsersPerDay.get(date)!.add(e.userId)
     } else if (e.userIp) {
-      userIdentifier = e.userIp
+      if (!distinctAnonymousUsersPerDay.has(date)) distinctAnonymousUsersPerDay.set(date, new Set())
+      distinctAnonymousUsersPerDay.get(date)!.add(e.userIp)
     }
-
-    if (!userIdentifier) continue
-    if (!distinctUsersPerDay.has(date)) distinctUsersPerDay.set(date, new Set())
-    distinctUsersPerDay.get(date)!.add(userIdentifier)
   }
 
   const signupsPerDay: Record<string, number> = {}
@@ -136,13 +136,20 @@ export async function GET() {
   }
 
   // Merge into array for frontend
-  stats.dailyStats = days.map(date => ({
-    date,
-    views: pageViewsPerDay[date] || 0,
-    signups: signupsPerDay[date] || 0,
-    uniqueUsers: distinctUsersPerDay.get(date)?.size ?? 0,
-    signupUsernames: Array.from(signupUsernamesPerDay.get(date) ?? [])
-  }))
+  stats.dailyStats = days.map(date => {
+    const loggedIn = distinctLoggedInUsersPerDay.get(date)?.size ?? 0
+    const anonymous = distinctAnonymousUsersPerDay.get(date)?.size ?? 0
+
+    return {
+      date,
+      views: pageViewsPerDay[date] || 0,
+      signups: signupsPerDay[date] || 0,
+      uniqueUsers: loggedIn + anonymous,
+      uniqueLoggedInUsers: loggedIn,
+      uniqueAnonymousUsers: anonymous,
+      signupUsernames: Array.from(signupUsernamesPerDay.get(date) ?? [])
+    }
+  })
 
   return NextResponse.json(stats)
 }

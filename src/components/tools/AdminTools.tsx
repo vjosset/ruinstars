@@ -87,7 +87,7 @@ export default function AdminTools() {
         <thead>
           <tr className="font-bold">
             <td>Date</td>
-            <td className="text-right">Users</td>
+            <td className="text-right">Users (L/A)</td>
             <td className="text-right">Signups</td>
             <td className="text-right">Views</td>
           </tr>
@@ -96,7 +96,7 @@ export default function AdminTools() {
           {stats.dailyStats.map((dat: any) => (
             <tr key={`dailyStats_${dat.date}`}>
               <td>{dat.date}</td>
-              <td className="text-right">{(dat.uniqueUsers ?? 0).toLocaleString()}</td>
+              <td className="text-right">{(dat.uniqueLoggedInUsers ?? 0).toLocaleString()} | {(dat.uniqueAnonymousUsers ?? 0).toLocaleString()}</td>
               <td className="text-right">
                 {dat.signups > 0 ? (
                   <button
