@@ -24,8 +24,8 @@ export default async function RulesQuickRef() {
           <div className="section">
             <h4>Basic Actions</h4>
             <ul>
-              <li><strong>Move (<code>1ACT</code>):</strong> The Unit moves up to 3 Squares</li>
-              <li><strong>Dash (<code>1ACT</code>):</strong> The Unit moves up to 1 Square</li>
+              <li><strong>Move (<code>1ACT</code>):</strong> The Unit moves up to 3 Paces</li>
+              <li><strong>Dash (<code>1ACT</code>):</strong> The Unit moves up to 1 Pace</li>
               <li><strong>Ranged Combat (<code>1ACT</code>):</strong> The Unit performs a Ranged Combat attack against a valid target</li>
               <li><strong>Melee Combat (<code>1ACT</code>):</strong> The Unit performs a Melee Combat attack against a valid target</li>
             </ul>
@@ -73,7 +73,7 @@ export default async function RulesQuickRef() {
                 <strong>Nothing</strong>: The Crate is empty, nothing happens.
               </li>
               <li>
-                <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares.
+                <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Adjacent Units and Items.
               </li>
             </ol>
           </div>

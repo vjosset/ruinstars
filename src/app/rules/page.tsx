@@ -1,14 +1,14 @@
 import ops from '@/data/scriptedOperations.json'
 import { GAME } from '@/lib/config/game_config'
-import RulesActions from './rules-actions_Squares'
+import RulesActions from './rules-actions'
 import RulesCampaigns from './rules-campaigns'
-import RulesCombat from './rules-combat_Squares'
+import RulesCombat from './rules-combat'
 import RulesCoreMechanics from './rules-coremechanics'
 import RulesGameCycle from './rules-gamecycle'
 import RulesGlossary from './rules-glossary'
 import RulesHeader from './rules-header'
 import RulesIntro from './rules-intro'
-import RulesItems from './rules-items_Squares'
+import RulesItems from './rules-items'
 import RulesMissions from './rules-missions'
 import RulesMovement from './rules-movement'
 import RulesSquadTypes from './rules-squadtypes'
@@ -21,7 +21,7 @@ import { SquadTypeService } from '@/services'
 import Link from 'next/link'
 import { ScriptedOperation } from '../scriptedoperations/page'
 import RulesAI from './rules-ai'
-import RulesInchesConversion from './rules-inchesconversion'
+import RulesPlayingOnAGrid from './rules-playingonagrid'
 import RulesQuickRef from './rules-quickref'
 import RulesScriptedOperations from './rules-scriptedoperations'
 
@@ -104,7 +104,7 @@ export default async function Home() {
         <RulesGlossary />
       
         <hr />
-        <RulesInchesConversion />
+        <RulesPlayingOnAGrid />
       
         <hr />
         <RulesQuickRef />

@@ -18,7 +18,7 @@ export default async function RulesToc() {
         <li><a href="#campaigns">Campaigns</a></li>
         <li><a href="#scriptedoperations">Scripted Operations</a></li>
         <li><a href="#glossary">Glossary</a></li>
-        <li><a href="#inchesconversion">Playing Without a Grid</a></li>
+        <li><a href="#playingonagrid">Playing On a Grid</a></li>
         <li><a href="#quickref">Quick Reference</a></li>
       </ol>
     </div>

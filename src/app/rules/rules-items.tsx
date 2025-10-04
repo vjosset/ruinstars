@@ -12,20 +12,19 @@ export default async function RulesItems() {
       <div className="section twocols">
         <div className="section">
           <h4>Placement</h4>
-          <p>
-            To place items randomly on the battlefield, players take turns rolling for random placement.<br/>
-            For each item to be placed:
-            <ul>
-              <li>Roll <code>1D10</code> to determine which Tile to place the item on. On a roll of <code>10</code>, the player chooses which Tile to place the item on.<br/></li>
-              <li>Roll <code>1D6</code> to determine the X coordinate of the Square within that Tile to place the item on. On a roll of <code>6</code>, the player chooses which coordinate to place the item on.</li>
-              <li>Roll <code>1D6</code> to determine the Y coordinate of the Square within that Tile to place the item on. On a roll of <code>6</code>, the player chooses which coordinate to place the item on.</li>
-            </ul>
-          </p>
+          To place items randomly on the battlefield, players take turns rolling for random placement.<br/>
+          For each item to be placed:
+          <ul>
+            <li>Roll <code>1D10</code> to determine which Tile to place the item on. On a roll of <code>10</code>, the player chooses which Tile to place the item on.<br/></li>
+            <li>Roll <code>1D6</code> to determine the X coordinate (in Paces) within that Tile to place the item on. On a roll of <code>6</code>, the player chooses which coordinate to place the item on.</li>
+            <li>Roll <code>1D6</code> to determine the Y coordinate (in Paces) within that Tile to place the item on. On a roll of <code>6</code>, the player chooses which coordinate to place the item on.</li>
+          </ul>
 
           <h4>Crates</h4>
           <p>
-            If you choose to play with Crates, place 4 Crates on the battlefield in random Squares.
-            To open a crate, a Unit must occupy the same Square as the crate and spend 1 ACT to open it. This counts as a Mission action.
+            If you choose to play with Crates, randomly place 4 Crates on the battlefield.
+            To open a crate, a Unit must be Adjacent to the crate and spend 1 <code>ACT</code> to open it.
+            This counts as a Mission action.
             When opened, roll <code>1D{GAME.DICE_BASIS}</code> to determine the contents of that Crate, then remove it from the Battlefield:
           </p>
           <ol>
@@ -36,7 +35,7 @@ export default async function RulesItems() {
               <strong>Stims</strong>: The Unit may immediately perform a free Basic or Mission Action.
             </li>
             <li>
-              <strong>Map</strong>: The Unit or one of its Squadmates may immediately perform a Move Action.
+              <strong>Map</strong>: The Unit or one of its Squadmates may immediately perform a free Move Action.
             </li>
             <li>
               <strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for <code>1 ACT</code> during any of this Unit's activations. When used, the Unit or an Adjacent Squadmate regains <code>1D3</code> lost <code>HIT</code>. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.
@@ -45,7 +44,7 @@ export default async function RulesItems() {
               <strong>Nothing</strong>: The Crate is empty, nothing happens.
             </li>
             <li>
-              <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares.
+              <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Adjacent Units and Items.
             </li>
           </ol>
         </div>
@@ -54,10 +53,11 @@ export default async function RulesItems() {
           <h4>Barrels</h4>
           <p>
             Barrels are explosive containers that can be attacked, causing an explosion.<br/>
-            If you choose to play with Barrels, randomly place 5 Barrels on the battlefield:<br/>
-            <img src="/img/rules/BarrelPlacement.jpg" width="50%" /><br/>
+            If you choose to play with Barrels, randomly place 5 Barrels on the battlefield.
+          </p>
+          <p>
             Barrels may be attacked in Ranged or Melee combat. The Barrel is a Unit that cannot roll Armor Saves; if it is attacked in combat and at least one strike is successful, it explodes.
-            When a Barrel explodes, it causes an explosion dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares, then it is removed from the Battlefield.<br/>
+            When a Barrel explodes, it causes an explosion dealing 2 Ranged Damage to all Adjacent Units and Items, then it is removed from the Battlefield.<br/>
           </p>
         </div>
       </div>

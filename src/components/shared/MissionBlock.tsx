@@ -5,7 +5,7 @@ export default function MissionBlock({mission, showDescription}: { mission: Miss
   return (
     <div className="bg-card border border-main p-1 rounded mb-2">
       <h4 className="text-main font-semibold mb-1">
-        {mission.title}
+        {mission.missionId} - {mission.title}
       </h4>
       
       {showDescription && mission.description && (

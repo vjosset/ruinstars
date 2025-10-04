@@ -1,12 +1,10 @@
 import BattlefieldBlock from '@/components/shared/BattlefieldBlock'
 import MissionBlock from '@/components/shared/MissionBlock'
-import { BattlefieldService } from '@/services/battlefield.service'
-import { MissionService } from '@/services/mission.service'
+//import { MissionService } from '@/services/mission.service'
+import battlefields from '@/data/battlefields.json'
+import missions from '@/data/missions.json'
 
 export default async function RulesMissions() {
-  const missions = await MissionService.getAllMissions()
-  const battlefields = await(BattlefieldService.getAllBattlefields())
-
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="missions">
@@ -45,7 +43,7 @@ export default async function RulesMissions() {
         </div>
       </div>
 
-      <div className="section">
+      <div className="section hidden">
         <h3>Secondary Missions</h3>
         <p>
             Secondary missions are optional secret missions that can be selected to add variety to your game.
@@ -80,7 +78,7 @@ export default async function RulesMissions() {
         <div className="section twocols">
         After selecting a Mission, pick or randomly select one of the following battlefields. The Mission will be played on that Battlefield.<br/>
         The Galaxy is a dangerous and deadly place; each Battlefield has <strong>Effects</strong> that affect your Units.<br/>
-        Use your own battlemats, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the tiles and Squares ready to go.
+        Use your own battlemats, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the tiles and Paces pre-marked in a grid.
               
           {/* Battlefields List */}
           {

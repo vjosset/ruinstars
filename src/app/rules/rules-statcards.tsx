@@ -119,7 +119,7 @@ export default async function RulesStatCards() {
           <h4 id="skills">Skills</h4>
           <p>Some Units will have Skills listed on their StatCard. These are unique properties of that Unit that may allow them to perform a specific unique Action, or gain a bonus (or debuff) for certain game mechanics.</p>
           <ul>
-            <li>Skills that have a <code>ACT</code> cost can be performed using the Unit's <code>ACT</code> Stat or a <a className="underline" href="#tactical-orders">Tactical Order</a>, or a combination of both.</li>
+            <li>Skills that have an <code>ACT</code> cost can be performed using the Unit's <code>ACT</code> Stat or a <a className="underline" href="#tactical-orders">Tactical Order</a>, or a combination of both.</li>
             <li>Skills that have a <code>TO</code> cost cannot be performed using the Unit's <code>ACT</code> Stat; they must be performed by spending <a className="underline" href="#tactical-orders">Tactical Orders</a>.</li>
             <li>Skills and Equipment that do not have an <code>ACT</code> or <code>TO</code> cost are passive skills that do not require spending an Action Point or Tactical Order.</li>
           </ul>

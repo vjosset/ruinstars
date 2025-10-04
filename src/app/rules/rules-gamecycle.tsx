@@ -31,11 +31,12 @@ export default async function RulesGameCycle() {
             Missions in Ruinstars generally last 4 Turns (see below).
           </li>
           <li><strong>Mission End</strong><br/>
-            At the end of Turn 4, tally the total Mission Points for each Squad. The Squad with the highest number of Mission Points is declared the winner of the battle.
+            At the end of Turn 4, tally the total Mission Points for each Squad. The Squad with the highest number of Mission Points is declared the winner of the battle.<br/>
+            Note that some missions (most commonly Scripted Operations) have victory conditions that are not dependent on MPs; in those cases just follow the mission briefing to determine the winner.
           </li>
         </ol>
         <h3 id="turns">Turns</h3>
-        <p>During each Turn:</p>
+        During each Turn:
         <ol>
           <li>
             Reset Tactical Orders to zero for both Squads.
@@ -73,9 +74,13 @@ export default async function RulesGameCycle() {
         </ol>
         <div className="section">
           <h3 id="alternating-activations">Alternating Activations</h3>
-          <p>{GAME.NAME} uses Alternating Activations:<br/>
-          During each turn, players take alternating turns to Activate their Squad's Units. So player 1 activates their first Unit, then player 2 activates their first Unit, followed by player 1 activating their second Unit etc. This ensures dynamic play and avoids having to wait long periods of time before you can actually <em>do</em> something with your Squad.</p>
-          <p>Each player takes alternating turns activating the Units in their Squad. For example, in order:</p>
+          <p>
+            {GAME.NAME} uses <strong>Alternating Activations</strong>:<br/>
+            During each turn, players take alternating turns to Activate their Squad's Units. So player 1 activates their first Unit, then player 2 activates their first Unit, followed by player 1 activating their second Unit etc. This ensures dynamic play and avoids having to wait long periods of time before you can actually <em>do</em> something with your Squad.
+          </p>
+          <p>
+            Each player takes alternating turns activating the Units in their Squad. For example, in order:
+          </p>
           <ol>
             <li>Player 1 activates their first Unit</li>
             <li>Player 2 activates their first Unit</li>
