@@ -36,7 +36,10 @@ export default async function RulesIntro({ showTitle = false }) {
               Getting Started
             </h3>
             <ol>
-              <li>Download the <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20250927 - FullColor.pdf">Rules</Link> (or <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20250927.pdf">Printer-Friendly Version</Link>)</li>
+              <li>
+                Download the <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20251004 - FullColor.pdf">Rules</Link>
+                (or <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20251004.pdf">Printer-Friendly Version</Link>)
+              </li>
               <li>Select your <Link className="underline" href="/factions">Faction</Link></li>
               {!isAuth && (
                 <li>
