@@ -1,6 +1,6 @@
+import { SquadTypeLink } from '@/components/nav/Links'
 import BattlefieldBlock from '@/components/shared/BattlefieldBlock'
 import MissionBlock from '@/components/shared/MissionBlock'
-//import { MissionService } from '@/services/mission.service'
 import battlefields from '@/data/battlefields.json'
 import missions from '@/data/missions.json'
 
@@ -35,7 +35,7 @@ export default async function RulesMissions() {
         <h3>Primary Missions</h3>
         <div className="twocols">
           {
-            missions.filter((mission) => mission.missionType == 'Primary').map((mission) => (
+            missions.filter((mission) => !mission.missionType || mission.missionType == 'Primary').map((mission) => (
               <div className="section" key={mission.missionId}>
                 <MissionBlock mission={mission} showDescription={true} />
               </div>
@@ -62,17 +62,6 @@ export default async function RulesMissions() {
           }
         </div>
       </div>
-      
-      <div className="section hidden">
-        <h3>NPC Mode</h3>
-        NPC Mode provides rules and instructions to play against an automated enemy Squad.<br/>
-        This allows you to play solo against the automated enemy, or join forces with another player against that enemy.<br/>
-        For each player Squad on the mission, field one <a href="/fa/NPC">NPC Squad</a> of the same GP value.
-        <h4>NPC Behavior</h4>
-        Each Unit type has its own defined NPC Behavior. This behavior dictates how an AI-controlled Unit behaves.
-        <h4>Activating NPC Units</h4>
-        After each player activation, that same player activates the next NPC Unit and follows its NPC Behavior.
-      </div>
 
       <div className="section">
         <h3 id="battlefields">Battlefields</h3>
@@ -90,6 +79,46 @@ export default async function RulesMissions() {
             ))
           }
         </div>
+      </div>
+      
+      <div className="section">
+        <h3>NPC Mode</h3>
+        <strong>NPC Mode</strong> allows players to face an automated enemy Squad, either solo or cooperatively.
+        This mode uses standard game rules, with additional behavior guidelines for AI-controlled Units.<br/>
+        When playing in NPC Mode, you will need at least one <SquadTypeLink squadTypeId='NPC' squadTypeName='NPC'/> Squad.
+
+        <h4>NPC Behavior</h4>
+        Each NPC Unit Type has a defined Behavior Profile that determines how it acts during play.
+        Follow the listed priorities in that profile to decide how the Unit moves, targets, and performs actions.
+
+        <h4>Activating NPC Units</h4>
+        After each player Unit activation, that same player immediately activates the next NPC Unit and follows its Behavior Profile.
+        Continue alternating in this way until all Units have been activated for the Turn.
+
+        <h4>Cooperative Play</h4>
+        NPC Mode can be played solo or cooperatively.
+        When playing cooperatively, players may choose one of the following formats:
+        <ul>
+          <li><strong>Full Squads:</strong><br/> 
+            Each player deploys a full 100 GP Squad.
+            For each player Squad, deploy one full 100 GP NPC Squad as the enemy.
+          </li>
+          <li><strong>Shared Squad:</strong><br/>
+            Players share control of one full 100 GP Squad.
+            Players take turns activating Units in that Squad.
+            Deploy one full 100 GP NPC Squad as the enemy.
+          </li>
+          <li><strong>Mini Squads:</strong><br/>
+            Each player deploys a reduced-size Squad:
+            <ul>
+              <li>2 Players → 50 GP each</li>
+              <li>3 Players → 34 GP each</li>
+              <li>4 Players → 25 GP each</li>
+            </ul>
+            Field one full 100 GP NPC Squad as the enemy.
+          </li>
+        </ul>
+        When playing in cooperative mode, note that Units that are on the same side but not part of the same Squad are not Squadmates nor Enemies.
       </div>
     </div>
   )}
