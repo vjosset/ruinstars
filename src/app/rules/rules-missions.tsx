@@ -14,14 +14,15 @@ export default async function RulesMissions() {
       <p>
         A Mission is a single battle played between two (or more) Squads.<br/>
         Whether you are playing a one-off Quick Play mission, a <a className="underline" href="#scriptedoperations">Scripted Operation</a>, or a long, epic <a className="underline" href="#campaigns">campaign</a>, the rules for playing each Mission are the same:
-        <ol>
-          <li>Select a Primary Mission</li>
-          <li>(Optional) Select a Secondary Mission</li>
-          <li>Select a Battlefield</li>
-          <li>Set up your Squads</li>
-          <li>Play!</li>
-        </ol>
       </p>
+        
+      <ol>
+        <li>Select a Primary Mission</li>
+        <li>(Optional) Select a Secondary Mission</li>
+        <li>Select a Battlefield</li>
+        <li>Set up your Squads</li>
+        <li>Play!</li>
+      </ol>
       
       <h3>Quick-Play Missions</h3>
       <p>

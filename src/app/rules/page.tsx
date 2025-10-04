@@ -125,13 +125,14 @@ export default async function Home() {
             <p className="mb-4">
               This section collects a series of tailor-made mini-campaigns for Ruinstars, each designed around specific factions and their rivalries.<br/>
               These operations offer:
-              <ul>
-                <li>Narrative arcs that tell a story through connected missions.</li>
-                <li>Branching paths where success or failure leads to different challenges.</li>
-                <li>Unique mechanics that go beyond simple control points: moving convoys, tug-of-war captives, collapsing strongpoints, dark rituals, and leader duels.</li>
-                <li>Faction flavor that highlights the tactics, goals, and themes of each force.</li>
-              </ul>
             </p>
+            <ul>
+              <li>Narrative arcs that tell a story through connected missions.</li>
+              <li>Branching paths where success or failure leads to different challenges.</li>
+              <li>Unique mechanics that go beyond simple control points: moving convoys, tug-of-war captives, collapsing strongpoints, dark rituals, and leader duels.</li>
+              <li>Faction flavor that highlights the tactics, goals, and themes of each force.</li>
+            </ul>
+
             <p className="mb-4">
               Whether you're playing a quick three-mission arc or stringing multiple operations into a larger campaign, these scenarios bring new life and variety to your battles.<br/>
               Use them as written, adapt them to your campaign, or draw inspiration to create your own.
@@ -157,7 +158,6 @@ export default async function Home() {
             })}
           </div>
         </div>
-
       </div>
     </>
   )
