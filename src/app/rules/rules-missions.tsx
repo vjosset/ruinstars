@@ -99,26 +99,37 @@ export default async function RulesMissions() {
         NPC Mode can be played solo or cooperatively.
         When playing cooperatively, players may choose one of the following formats:
         <ul>
-          <li><strong>Full Squads:</strong><br/> 
+          <li>
+            <strong>Full Squads:</strong><br/> 
             Each player deploys a full 100 GP Squad.
-            For each player Squad, deploy one full 100 GP NPC Squad as the enemy.
+            For each player Squad, deploy one full 100 GP NPC Squad as the enemy.<br/>
+            Notes:
+            <ul>
+              <li>Units that are in different Squads but on the same side are not Squadmates.</li>
+            </ul>
           </li>
-          <li><strong>Shared Squad:</strong><br/>
+          <li>
+            <strong>Shared Squad:</strong><br/>
             Players share control of one full 100 GP Squad.
             Players take turns activating Units in that Squad.
             Deploy one full 100 GP NPC Squad as the enemy.
           </li>
-          <li><strong>Mini Squads:</strong><br/>
+          <li>
+            <strong>Mini Squads:</strong><br/>
             Each player deploys a reduced-size Squad:
             <ul>
               <li>2 Players → 50 GP each</li>
               <li>3 Players → 34 GP each</li>
               <li>4 Players → 25 GP each</li>
             </ul>
-            Field one full 100 GP NPC Squad as the enemy.
+            Deploy one full 100 GP NPC Squad as the enemy.<br/>
+            Notes:
+            <ul>
+              <li>Only one Player Unit is considered the Leader when it comes to rolling TOs, and all players share TOs in each Turn.</li>
+              <li>Units that are in different Squads but on the same side are not Squadmates.</li>
+            </ul>
           </li>
         </ul>
-        When playing in cooperative mode, note that Units that are on the same side but not part of the same Squad are not Squadmates nor Enemies.
       </div>
     </div>
   )}
