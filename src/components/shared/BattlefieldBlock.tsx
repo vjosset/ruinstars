@@ -3,12 +3,12 @@ import { Battlefield, BattlefieldPlain } from '@/types'
 
 export default function BattlefieldBlock({battlefield}: { battlefield: Battlefield | BattlefieldPlain }) {
   return (
-    <>
+    <div className="bg-card border border-main p-1 rounded mb-2">
       <h4 className="text-main font-semibold mb-1">{battlefield.battlefieldId} - {battlefield.title}</h4>
       
       {battlefield.setup && (
         <>
-          <h6>Setup</h6>
+          <h6 className="text-main">Setup</h6>
           <div className="ml-2">
             <Markdown>{battlefield.setup}</Markdown>
           </div>
@@ -16,7 +16,7 @@ export default function BattlefieldBlock({battlefield}: { battlefield: Battlefie
       )}
       {battlefield.effects && (
         <>
-          <h6>Effects</h6>
+          <h6 className="text-main">Effects</h6>
           <div className="ml-2">
             <Markdown>{battlefield.effects}</Markdown>
           </div>
@@ -25,6 +25,6 @@ export default function BattlefieldBlock({battlefield}: { battlefield: Battlefie
       <div className="flavor">
         <Markdown>{battlefield.description}</Markdown>
       </div>
-    </>
+    </div>
   )
 }
