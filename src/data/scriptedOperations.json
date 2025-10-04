@@ -302,7 +302,7 @@
       {
         "id": "1",
         "title": "The Hidden Trail",
-        "description": "The Loyalists pursue fragments of intelligence in the wilds, seeking the location of the Splinter Group's secret headquarters. But the traitors know they are being hunted, and will stop at nothing to protect their secrets.",
+        "description": "The Loyalists pursue fragments of intelligence in the wilds, seeking the location of the Splinter Group's secret headquarters.",
         "battlefield": "The Jungle",
         "setup": "Place 1 Intel marker in the center of the central Tile.",
         "deployment": "Each Squad deploys from opposite Battlefield edges before Turn 1.",
