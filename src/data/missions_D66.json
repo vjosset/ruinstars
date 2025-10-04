@@ -1,0 +1,326 @@
+[
+  {
+    "missionId": 11,
+    "missionType": "Primary", "seq": 1, "title": "Seize the Relic",
+    "description": "A priceless relic lies amid the ruins. Both sides rush to claim it, hoping its secrets or symbolism will turn the tide of war.",
+    "setup": "Place a Relic marker at the exact center of the Battlefield.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.\n- Roll off; winner chooses their edge.",
+    "special": "",
+    "victory": "At the end of each Turn, the Squad controlling the Relic scores 1 MP. At the end of the game, the Squad in control of the Relic scores 3 MP."
+  },
+  {
+    "missionId": 12,
+    "missionType": "Primary", "seq": 1, "title": "Twin Uplinks",
+    "description": "Vital data uplinks are still active on this battlefield. Securing them will grant command of local fire support and intelligence.",
+    "setup": "Place 2 Console markers on the midline, each 6 Squares from the center.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "**Activate Console (2 ACT):**  \nA Unit that is Adjacent to a Console may Activate it for 2 ACT. A Unit may not perform this Action if it is Adjacent to any enemy Units.",
+    "victory": "At the end of each Turn, each Squad scores 1 MP for each Console they control."
+  },
+  {
+    "missionId": 13,
+    "missionType": "Primary", "seq": 1, "title": "Secure the Shrine",
+    "description": "A sacred site or symbol of power must be claimed before it falls into enemy hands.",
+    "setup": "Place a Shrine marker at the center of the Defender's Deployment Zone.",
+    "deployment": "- Defender deploys within their Deployment Zone around the Shrine.\n- Attacker deploys within the opposite edge.",
+    "special": "",
+    "victory": "At the end of the game, the Squad controlling the Shrine scores 5 MP."
+  },
+  {
+    "missionId": 14,
+    "missionType": "Primary", "seq": 1, "title": "Dominate the Center",
+    "description": "The heart of the battlefield is the key to victory. Whoever holds the center will hold the advantage.",
+    "setup": "Mark the central Tile of the Battlefield.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "",
+    "victory": "At the end of each Turn, the Squad controlling the central Tile scores 1 MP. At the end of the game, the Squad controlling the central Tile scores 2 additional MP."
+  },
+  {
+    "missionId": 15,
+    "missionType": "Primary", "seq": 1, "title": "Breakthrough",
+    "description": "Speed and aggression are vital. The enemy lines must be pierced, no matter the cost.",
+    "setup": "",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "",
+    "victory": "At the end of the game, each Unit fully within the opponent's Deployment Zone scores 1 MP for its Squad. The Squad with the most Units across the line gains an additional 2 MP."
+  },
+  {
+    "missionId": 16,
+    "missionType": "Primary", "seq": 1, "title": "Hold the Line",
+    "description": "The enemy surges forward, but the position must not be broken. Every step back is a step toward defeat.",
+    "setup": "",
+    "deployment": "- Defender deploys within their Deployment Zone.\n- Attacker deploys within the opposite edge.",
+    "special": "",
+    "victory": "At the end of the game, the Defender scores 1 MP for each Unit fully within their Deployment Zone. The Attacker scores 1 MP for each Unit fully within the Defender's Deployment Zone."
+  },
+  {
+    "missionId": 21,
+    "missionType": "Primary", "seq": 1, "title": "Assassinate the Leader",
+    "description": "The enemy's chain of command is vulnerable. Strike down their leader and the battle will collapse into chaos.",
+    "setup": "",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "",
+    "victory": "A Squad scores 3 MP if the opposing Leader is destroyed. If both Leaders survive, no MP are awarded."
+  },
+  {
+    "missionId": 22,
+    "missionType": "Primary", "seq": 1, "title": "Marked for Death",
+    "description": "Certain enemy combatants have been identified as high-value targets. Eliminate them before they eliminate you.",
+    "setup": "Each player secretly marks one enemy Unit before deployment begins.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "",
+    "victory": "A Squad scores 3 MP if the marked enemy Unit is destroyed. If both marked Units are destroyed, each Squad scores 2 MP."
+  },
+  {
+    "missionId": 23,
+    "missionType": "Primary", "seq": 1, "title": "Cull the Swarm",
+    "description": "Only by thinning the enemy's ranks can the field be secured. Numbers mean nothing if they are reduced to corpses.",
+    "setup": "",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "",
+    "victory": "A Squad scores 1 MP for every 2 enemy Units destroyed."
+  },
+  {
+    "missionId": 24,
+    "missionType": "Primary", "seq": 1, "title": "Bounty Hunt",
+    "description": "A valuable prize has been identified among the enemy's ranks. Destroy them and claim the reward.",
+    "setup": "After deployment, the opponent nominates one of their Units to be marked with a Bounty token.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "",
+    "victory": "Destroying the Bounty Unit scores 5 MP."
+  },
+  {
+    "missionId": 25,
+    "missionType": "Primary", "seq": 1, "title": "Duel of Champions",
+    "description": "Honor or desperation has demanded a duel between chosen warriors. The battle is decided by their fate.",
+    "setup": "Each Squad nominates one Champion Unit before deployment.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "",
+    "victory": "A Squad scores 3 MP if the enemy Champion is destroyed. If both Champions are destroyed, each Squad scores 2 MP."
+  },
+  {
+    "missionId": 26,
+    "missionType": "Primary", "seq": 1, "title": "Rescue the Prisoner",
+    "description": "A captive Unit is held under guard. One Squad seeks to free them, the other to keep them bound.",
+    "setup": "Place a Prisoner marker at the center of the Battlefield.",
+    "deployment": "- Defender deploys within their Deployment Zone.\n- Attacker deploys on the opposite edge.",
+    "special": "**Free Prisoner (1 ACT):**  \nA Unit Adjacent to the Prisoner may take control of them. Once freed, the Prisoner is carried and moves with that Unit.",
+    "victory": "Attacker scores 5 MP if the Prisoner is escorted into their Deployment Zone by game end. Defender scores 5 MP if the Prisoner is not freed."
+  },
+  {
+    "missionId": 31,
+    "missionType": "Primary", "seq": 1, "title": "Recover the Data Cores",
+    "description": "Fragments of battlefield data are scattered across the ruins. Both sides rush to secure the information before it is lost or stolen.",
+    "setup": "Place 3 Data Core markers along the midline, each at least 5 Squares apart.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "**Recover Data Core (1 ACT):**  \nA Unit Adjacent to a Data Core may pick it up. A Unit may only carry one Data Core at a time.",
+    "victory": "A Squad scores 1 MP for each Data Core carried into their Deployment Zone. If a Unit carrying a Data Core is destroyed, the Core is dropped in its Square."
+  },
+  {
+    "missionId": 32,
+    "missionType": "Primary", "seq": 1, "title": "Loot and Salvage",
+    "description": "Supplies and valuable materiel lie abandoned. Only those bold enough to carry them out will profit from this warzone.",
+    "setup": "Scatter 5 Resource markers across the central Tiles. No marker may be placed within 4 Squares of another.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "**Collect Resource (1 ACT):**  \nA Unit Adjacent to a Resource may pick it up. A Unit may carry up to 2 Resources.",
+    "victory": "At the end of the game, each Squad scores 1 MP for each Resource their Units are carrying."
+  },
+  {
+    "missionId": 33,
+    "missionType": "Primary", "seq": 1, "title": "Search & Scan",
+    "description": "Hidden signals emanate from the battlefield. Locating and decoding them may change the course of the war.",
+    "setup": "Place 3 Scan markers: one at the center, and one in each neutral corner Tile (not adjacent to deployment zones).",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "**Scan Marker (2 ACT):**  \nA Unit Adjacent to a Scan marker may Scan it for 2 ACT. A marker can only be Scanned once per Squad.",
+    "victory": "Each successfully Scanned marker is worth 1 MP to the Squad that scanned it."
+  },
+  {
+    "missionId": 34,
+    "missionType": "Primary", "seq": 1, "title": "Rescue the Survivor",
+    "description": "A lone survivor has vital knowledge. One Squad races to extract them, while the other seeks to prevent their escape.",
+    "setup": "Place a Survivor token in the central Tile, within 2 Squares of the center.",
+    "deployment": "- Defender deploys within their Deployment Zone.\n- Attacker deploys within the opposite edge.",
+    "special": "**Rescue Survivor (1 ACT):**  \nA Unit Adjacent to the Survivor may claim them. The Survivor moves with that Unit as a carried token.",
+    "victory": "The Attacker scores 5 MP if the Survivor is carried into their Deployment Zone by game end. The Defender scores 5 MP if the Survivor is not extracted."
+  },
+  {
+    "missionId": 35,
+    "missionType": "Primary", "seq": 1, "title": "Secure the Intel",
+    "description": "Enemy command has hidden critical information within a fortified position. Whoever holds it will hold the future of the conflict.",
+    "setup": "Place a Data Vault marker in the ruins or a building in the central Tile.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "**Hack Vault (2 ACT):**  \nA Unit Adjacent to the Vault may attempt to hack it for 2 ACT. On a roll of 1–4, the hack is successful for that Squad.",
+    "victory": "Each successful hack scores 2 MP. Controlling the Vault at game end scores an additional 2 MP."
+  },
+  {
+    "missionId": 36,
+    "missionType": "Primary", "seq": 1, "title": "Capture the Comm Array",
+    "description": "A comms uplink provides control over local fire missions. One side must take control; the other must defend it at all costs.",
+    "setup": "Place a Comm Array marker at the center of the Defender's Deployment Zone.",
+    "deployment": "- Defender deploys within their Deployment Zone around the Comm Array.\n- Attacker deploys on the opposite edge.",
+    "special": "**Activate Array (2 ACT):**  \nA Unit Adjacent to the Comm Array may Activate it for 2 ACT. Once Activated, it counts as controlled by that Squad until an enemy Activates it.",
+    "victory": "The Attacker scores 5 MP if they control the Comm Array at the end of the game. The Defender scores 5 MP if they control it or if it remains inactive."
+  },
+  {
+    "missionId": 41,
+    "missionType": "Primary", "seq": 1, "title": "Demolitions",
+    "description": "Enemy fortifications block the path forward. They must be destroyed before reinforcements arrive.",
+    "setup": "Place 3 Structure markers along the midline, each at least 5 Squares apart.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "Each Structure has `ARM` **3** and `HIT` **4**. Structures may be targeted by Attacks.",
+    "victory": "The Attacker scores 1 MP for each Structure destroyed. The Defender scores 1 MP for each Structure remaining intact at game end."
+  },
+  {
+    "missionId": 42,
+    "missionType": "Primary", "seq": 1, "title": "Sabotage the Generator",
+    "description": "A massive generator powers the enemy war effort. If destroyed, the enemy will be crippled.",
+    "setup": "Place a Generator marker in the center of the Defender's Deployment Zone.",
+    "deployment": "- Defender deploys within their Deployment Zone around the Generator.\n- Attacker deploys within the opposite edge.",
+    "special": "The Generator has `ARM` **4** and `HIT` **6**. It may be targeted by Attacks as if it were a Unit.",
+    "victory": "The Attacker scores 5 MP if the Generator is destroyed. The Defender scores 5 MP if the Generator remains intact at the end of the game."
+  },
+  {
+    "missionId": 43,
+    "missionType": "Primary", "seq": 1, "title": "Burn the Supplies",
+    "description": "Vital supplies lie ahead. If they cannot be secured, they must be destroyed.",
+    "setup": "Place 3 Supply Cache markers evenly across the midline.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "**Destroy Cache (2 ACT):**  \nA Unit Adjacent to a Cache may destroy it for 2 ACT. The Cache is then removed from play.",
+    "victory": "The Attacker scores 1 MP for each Cache destroyed. The Defender scores 1 MP for each Cache remaining at game end."
+  },
+  {
+    "missionId": 44,
+    "missionType": "Primary", "seq": 1, "title": "Collapse the Tunnel",
+    "description": "An underground passage offers the enemy mobility and supply. Destroying the tunnel will cut them off permanently.",
+    "setup": "Place a Tunnel marker along the midline, touching one battlefield edge.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "The Tunnel has `ARM` **2** and `HIT` **5**. It may be targeted by Attacks.",
+    "victory": "The Attacker scores 5 MP if the Tunnel is destroyed. The Defender scores 5 MP if it remains intact at the end of the game."
+  },
+  {
+    "missionId": 45,
+    "missionType": "Primary", "seq": 1, "title": "Ritual Interruption",
+    "description": "The enemy is conducting a ritual that must be stopped before it is complete.",
+    "setup": "Place a Ritual Site marker in the center of the Defender's Deployment Zone.",
+    "deployment": "- Defender deploys within their Deployment Zone around the Site.\n- Attacker deploys on the opposite edge.",
+    "special": "**Disrupt Ritual (2 ACT):**  \nA Unit Adjacent to the Ritual Site may attempt to disrupt it for 2 ACT. On a roll of 1–4, the ritual is disrupted.",
+    "victory": "The Attacker scores 5 MP if the Ritual Site is disrupted by Turn 5. The Defender scores 5 MP if the Site is not disrupted by then."
+  },
+  {
+    "missionId": 46,
+    "missionType": "Primary", "seq": 1, "title": "Shatter the Idol",
+    "description": "A massive idol stands as a symbol of defiance. Destroying it will shatter the enemy's spirit.",
+    "setup": "Place an Idol marker in the center of the Defender's Deployment Zone.",
+    "deployment": "- Defender deploys within their Deployment Zone around the Idol.\n- Attacker deploys within the opposite edge.",
+    "special": "The Idol has `ARM` **4** and `HIT` **8**. It may be targeted by Attacks as if it were a Unit.",
+    "victory": "The Attacker scores 5 MP if the Idol is destroyed. The Defender scores 5 MP if the Idol remains intact at the end of the game."
+  },
+  {
+    "missionId": 51,
+    "missionType": "Primary", "seq": 1, "title": "Escort the Convoy",
+    "description": "A vital transport must cross the warzone intact. One Squad is charged with guiding it through, while the other prepares the ambush.",
+    "setup": "Place a Convoy marker (40mm token or miniature) in the Attacker's Deployment Zone.",
+    "deployment": "- Defender deploys first within their Deployment Zone.\n- Attacker deploys second within their Deployment Zone.",
+    "special": "The Convoy moves 4 Paces during the Attacker's Movement phase if at least one friendly Unit is Adjacent. If not, it does not move.",
+    "victory": "The Attacker scores 5 MP if the Convoy exits via the Defender's battlefield edge. The Defender scores 1 MP at the end of each Turn the Convoy has not exited by Turn 6."
+  },
+  {
+    "missionId": 52,
+    "missionType": "Primary", "seq": 1, "title": "Extraction",
+    "description": "A valuable target must be pulled out before the enemy can close in. The extraction zone is hot, and time is short.",
+    "setup": "Place a VIP marker at the center of the Battlefield.",
+    "deployment": "- Defender deploys within their Deployment Zone.\n- Attacker deploys on the opposite edge.",
+    "special": "**Secure VIP (1 ACT):**  \nA Unit Adjacent to the VIP may claim them. The VIP moves with that Unit as a carried token.",
+    "victory": "The Attacker scores 5 MP if the VIP is carried into their Deployment Zone by game end. The Defender scores 5 MP if the VIP is not extracted."
+  },
+  {
+    "missionId": 53,
+    "missionType": "Primary", "seq": 1, "title": "Protect the Asset",
+    "description": "A vital piece of materiel or intelligence is under attack. One side must protect it; the other seeks to destroy it.",
+    "setup": "Place an Asset marker in the center of the Defender's Deployment Zone.",
+    "deployment": "- Defender deploys within their Deployment Zone around the Asset.\n- Attacker deploys on the opposite edge.",
+    "special": "The Asset has `ARM` **4** and `HIT` **6**. It may be targeted by Attacks.",
+    "victory": "The Attacker scores 5 MP if the Asset is destroyed. The Defender scores 5 MP if the Asset remains intact at the end of the game."
+  },
+  {
+    "missionId": 54,
+    "missionType": "Primary", "seq": 1, "title": "Hostage Negotiation",
+    "description": "Terrified civilians are caught between firelines. Both sides seek to secure and evacuate them before it is too late.",
+    "setup": "Place 3 Civilian markers along the midline, each at least 4 Squares apart.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "**Secure Civilian (1 ACT):**  \nA Unit Adjacent to a Civilian may claim them. A Civilian moves with that Unit as a carried token.",
+    "victory": "Each Civilian carried into a Squad's Deployment Zone scores 2 MP for that Squad."
+  },
+  {
+    "missionId": 55,
+    "missionType": "Primary", "seq": 1, "title": "Ambush",
+    "description": "One Squad has been caught in hostile territory. They must survive the trap long enough to regroup or escape.",
+    "setup": "",
+    "deployment": "- Defender deploys all Units in the central Tile.\n- Attacker deploys all Units within 2 Tiles along opposite board edges.",
+    "special": "",
+    "victory": "The Attacker scores 1 MP for each Defender Unit destroyed. The Defender scores 1 MP for each of their Units surviving at the end of the game."
+  },
+  {
+    "missionId": 56,
+    "missionType": "Primary", "seq": 1, "title": "Breakout",
+    "description": "Surrounded on all sides, the only hope is to punch through enemy lines.",
+    "setup": "",
+    "deployment": "- One Squad deploys in the central Tile.\n- The opposing Squad deploys Units split between all four board edges.",
+    "special": "",
+    "victory": "The surrounded Squad scores 1 MP for each Unit that exits fully through any battlefield edge. The encircling Squad scores 1 MP for each Unit destroyed."
+  },
+  {
+    "missionId": 61,
+    "missionType": "Primary", "seq": 1, "title": "Survival",
+    "description": "Against overwhelming odds, only endurance will determine victory. One side seeks to wipe the field clean; the other seeks to endure.",
+    "setup": "",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "",
+    "victory": "Each Unit surviving at the end of the game is worth 1 MP to its Squad."
+  },
+  {
+    "missionId": 62,
+    "missionType": "Primary", "seq": 1, "title": "Stalling Action",
+    "description": "One force has orders to delay the enemy advance until reinforcements arrive. Every minute bought is a victory.",
+    "setup": "",
+    "deployment": "- Defender deploys within their Deployment Zone.\n- Attacker deploys on the opposite edge.",
+    "special": "",
+    "victory": "The Defender scores 1 MP for each Turn that at least one of their Units remains on the Battlefield. The Attacker scores 1 MP for each Defender Unit destroyed."
+  },
+  {
+    "missionId": 63,
+    "missionType": "Primary", "seq": 1, "title": "Last Stand",
+    "description": "The situation is hopeless, but retreat is not an option. The defenders must make every life count before they are overwhelmed.",
+    "setup": "",
+    "deployment": "- Defender deploys with half as many Units as the Attacker, within their Deployment Zone.\n- Attacker deploys on the opposite edge.",
+    "special": "",
+    "victory": "The Defender scores 1 MP for each Turn they still have at least one Unit on the Battlefield. The Attacker scores 1 MP for each Defender Unit destroyed."
+  },
+  {
+    "missionId": 64,
+    "missionType": "Primary", "seq": 1, "title": "Sudden Assault",
+    "description": "There is little time before the area is engulfed in fire. A swift strike will decide the battle.",
+    "setup": "",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "This mission lasts only 4 Turns.",
+    "victory": "At the end of Turn 4, each Squad scores 1 MP for each objective marker controlled (if any are in play) and 1 MP for each 2 enemy Units destroyed."
+  },
+  {
+    "missionId": 65,
+    "missionType": "Primary", "seq": 1, "title": "Deny the Field",
+    "description": "The enemy must not be allowed to control any part of the field. Push them back and leave nothing in their grasp.",
+    "setup": "Place 3 Objective markers evenly along the midline.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "",
+    "victory": "At the end of each Turn, if a Squad controls all Objective markers, they score 2 MP. If neither Squad controls them all, no MP are awarded."
+  },
+  {
+    "missionId": 66,
+    "missionType": "Primary", "seq": 1, "title": "Escalation",
+    "description": "Reinforcements and critical objectives arrive mid-battle. Control shifts constantly as the fight drags on.",
+    "setup": "No objectives are placed at the start of the game.",
+    "deployment": "- Both Squads deploy within their Deployment Zones on opposite edges.",
+    "special": "At the start of Turn 2 and each Turn after, place 1 new Objective marker at the center of a random neutral Tile.",
+    "victory": "At the end of each Turn, each controlled Objective scores 1 MP for the controlling Squad."
+  }
+]

@@ -47,7 +47,7 @@ export default async function RulesIntro({ showTitle = false }) {
               {isAuth && (
                 <li>Build your <Link className="underline" href="/me">Squads</Link></li>
               )}
-              <li>Gather some dice (<code>D{GAME.DICE_BASIS}</code>), your miniatures, and <Link className="underline" target="_blank" href="/assets/tokens.pdf">tokens</Link></li>
+              <li>Gather some dice (<code>D{GAME.DICE_BASIS}</code>), your miniatures, and <Link className="underline" target="_blank" href="/assets/Ruinstars_Tokens.pdf">tokens</Link></li>
               <li>Play your first Mission!</li>
             </ol>
           </div>

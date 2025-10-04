@@ -1,5 +1,10 @@
 [
   {
+    "date": "2025-10-04",
+    "title": "Big Rewrite - No Grid",
+    "description": "After receiving player feedback, we rewrote the rules, skills, and missions to not rely on a Grid, but rather on freeform movement. Check [Tools](/tools) for print-at-home gauges to help with measurements. See also the [devlog](https://ruinstars.itch.io/ruinstars/devlog/1066140/from-grids-to-paces-rethinking-movement-in-ruinstars) on the subject."
+  },
+  {
     "date": "2025-09-19",
     "title": "Scripted Operations are Live!",
     "description": "The first 10 [Scripted Operations](/scriptedoperations) are now live! These are narrative operations with branching missiosn based on success or failure, and are tailored to combinations of opposing squads. We will continue writing these up so that each combination of two squad types has its own scripted operation!"

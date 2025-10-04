@@ -14,12 +14,13 @@ export default async function RulesPlayingOnAGrid() {
           <div className="section">
             <h3>Battlefield</h3>
             <p>
-              The Battlefield is a 15x15 grid of 40mm or 1.5in Squares. All movement and distance/range measurements are done by counting Squares.<br/>
-              You can bring your own battlefield, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the tiles and Squares ready to go.
+              The Battlefield is a 15x15 grid of Squares, each one exactly 1 Pace (40mm or 1.5in) to a side.
+              All movement and distance/range measurements are done by counting Squares.<br/>
+              You can bring your own battlefield, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the Tiles and Squares ready to go.
             </p>
             <h4 id="tiles">Tiles</h4>
             <p>
-              The Battlefield is divided into 9 equal Tiles, each composed of 5x5 Squares.<br/>
+              The Battlefield is divided into 9 equal Tiles, each composed of 5x5 Squares/Paces.<br/>
               Some missions may describe their setup in terms of a Tile's position (e.g. "Western Tile", "Center Tile", "SouthEast Tile").
               Before the mission, both players should agree which way is North on the Battlefield, then refer to this diagram to find the right Tile.
               <img src="/img/rules/Tiles.jpg" style={{width: '35%'}} />

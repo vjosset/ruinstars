@@ -21,7 +21,13 @@ export default function Resources() {
             </ul>
           </li>
           <li>
-            <Link className="underline" target="_blank" href="/assets/tokens.pdf">Tokens</Link>
+            <Link className="underline" target="_blank" href="/assets/Ruinstars_Tokens.pdf">Tokens</Link>
+          </li>
+          <li>
+            <Link className="underline" target="_blank" href="/assets/Ruinstars_Gauge_Letter.pdf">Gauge (US Letter)</Link>
+          </li>
+          <li>
+            <Link className="underline" target="_blank" href="/assets/Ruinstars_Gauge_A4.pdf">Gauge (A4)</Link>
           </li>
           <li>
             Print-at-home Battlefield PDFs:

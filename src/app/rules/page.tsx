@@ -59,7 +59,7 @@ export default async function Home() {
         <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
           Print the Tokens:
           { ' ' }
-          <Link className="underline" target="_blank" href="/assets/tokens.pdf">Tokens PDF</Link>
+          <Link className="underline" target="_blank" href="/assets/Ruinstars_Tokens.pdf">Tokens PDF</Link>
         </div>
 
         <RulesToc />
