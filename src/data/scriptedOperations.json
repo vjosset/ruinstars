@@ -254,7 +254,7 @@
         "battlefield": "The Alien Hive",
         "setup": "Deploy 3 Spawn Points, one in the center of the West, Center, and East Tiles.",
         "deployment": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.\nBoth Squads deploy from their Battlefield edge before Turn 1.",
-        "special": "Spawn Points are treated as items with `ARM` **4** and `HIT` **2**.\nSpawn Points cannot be targeted in combat if there is at least one Swarm Unit Adjacent to that Spawn Point.\nIf a Spawn Point is targeted in combat and is not Taken Out as a result of that combat, it regains all of its `HIT`.",
+        "special": "Spawn Points are treated as items with `ARM` **4** and `HIT` **2**.\nSpawn Points cannot be targeted in Ranged combat if there is at least one Swarm Unit Adjacent to that Spawn Point.\nIf a Spawn Point is targeted in combat and is not Taken Out as a result of that combat, it regains all of its `HIT`.",
         "victory": "- Interdictors win the Mission if all three Spawn Points are destroyed before the end of Turn 4. **Proceed to Mission 3A**\n- Swarm wins the Mission in all other cases. **Proceed to Mission 3B**"
       },
       {
@@ -284,7 +284,7 @@
         "battlefield": "The Ruined City",
         "setup": "Set up terrain so that the central tile is at least half enclosed.",
         "deployment": "Interdictors deploy all Units anywhere on the Central Tile.\nDuring Turn 1, when it is a Swarm Unit's Activation, deploy it on any Battlefield edge.",
-        "special": "",
+        "special": "Drone Pod always has the Initative in Turn 1.",
         "victory": "At the end of Turn 4, each Squad adds up the remaining HIT of Standing Units on the central tile.\nThe Squad with the highest total wins the Mission.\nIn case of a tie, the Swarm wins the Mission."
       }
     ]
