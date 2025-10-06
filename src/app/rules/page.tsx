@@ -63,9 +63,9 @@ export default async function Home() {
         <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
           Download the Rules:
           { ' ' }
-          <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20251004.pdf">Easy Print PDF</Link>
+          <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules.pdf">Easy Print PDF</Link>
           { ' / ' }
-          <Link className="underline" target="_blank" href="/assets/Ruinstars - The Rules - 20251004 - FullColor.pdf">Full Color PDF</Link>
+          <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">Full Color PDF</Link>
         </div>
         <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
           Print the Tokens:
