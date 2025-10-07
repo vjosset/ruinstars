@@ -1,6 +1,6 @@
 'use client'
 
-import { SquadTypeLink, UserLink } from '@/components/nav/Links'
+import { OperationsLink, SquadTypeLink, UserLink } from '@/components/nav/Links'
 import EditSquadForm from '@/components/squad/EditSquadForm'
 import SquadCardMenu from '@/components/squad/SquadCardMenu'
 import SquadTools from '@/components/squad/SquadTools'
@@ -249,6 +249,11 @@ export default function SquadPageClient({
 
             <UserLink userName={squad.user?.userName ?? ''} />
           </div>
+          {squad.squadTypeId != 'NPC' &&
+            <div>
+              <OperationsLink squadTypeId={squad.squadTypeId} />
+            </div>
+          }
           <div className="flex items-center justify-center gap-2 text-muted">
             {!isOwner && (
               <span className="text-sm">{totalGP}GP</span>
