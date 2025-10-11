@@ -1,9 +1,9 @@
 
-export default async function RulesActions() {
+export default async function RulesActions({ num }: {num?: Number | null}) {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="actions">
-        5. Actions
+        {num && `${num}. `}Actions
       </h2>
       <div className="section twocols">
         <p>

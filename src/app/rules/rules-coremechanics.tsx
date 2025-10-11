@@ -1,10 +1,10 @@
 import { GAME } from '@/lib/config/game_config'
 
-export default async function RulesCoreMechanics() {
+export default async function RulesCoreMechanics({ num }: {num?: Number | null}) {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="core-mechanics">
-        2. Core Mechanics
+        {num && `${num}. `}Core Mechanics
       </h2>
       <div className="section twocols">
         <div className="section">

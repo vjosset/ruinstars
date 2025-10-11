@@ -1,10 +1,10 @@
 import { GAME } from '@/lib/config/game_config'
 
-export default async function RulesItems() {
+export default async function RulesItems({ num }: {num?: Number | null}) {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="items">
-        8. Items
+        {num && `${num}. `}Items
       </h2>
       <p>
         You may choose to add items to the battlefield that have special purposes and behaviors, and some missions may require the placement of items.

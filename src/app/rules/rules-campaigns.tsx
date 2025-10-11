@@ -2,7 +2,7 @@ import Markdown from '@/components/ui/Markdown'
 import { GearCategoryService } from '@/services'
 import { MedalService } from '@/services/medal.service'
 
-export default async function RulesCampaigns() {
+export default async function RulesCampaigns({ num }: {num?: Number | null}) {
   const medals = await MedalService.getAllMedals()
   const injuries = await GearCategoryService.getGearCategory('INJ')
   const spoilsOfWar = await GearCategoryService.getGearCategory('SOW')
@@ -10,7 +10,7 @@ export default async function RulesCampaigns() {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="campaigns">
-        11. Campaigns
+        {num && `${num}. `}Campaigns
       </h2>
       <div className="twocols">
         <div className="section">
@@ -44,9 +44,9 @@ export default async function RulesCampaigns() {
             <li>
               Operation 1 - The Facility
               <ul>
-                <li>Mission 1.1 - Bug Bounty</li>
-                <li>Mission 1.2 - Retrieve Intel</li>
-                <li>Mission 1.3 - Intercept</li>
+                <li>Mission 1.1 - Retrieve Intel</li>
+                <li>Mission 1.2 - Intercept</li>
+                <li>Mission 1.3 - Sabotage</li>
               </ul>
             </li>
             <li>Homebase</li>
@@ -73,7 +73,7 @@ export default async function RulesCampaigns() {
         <div className="section">
           <h3>Spoils Of War</h3>
           <p>
-            For each increment of 5 XP earned, a Unit may take another Spoil Of War when it returns to Homebase at the end of an Operation.<br/>
+            For each increment of 5 XP earned, a Unit may take one Spoil Of War when it returns to Homebase at the end of an Operation (unless it is Deceased).<br/>
             For example, a Unit with 13 XP can take 2 Spoils Of War.
           </p>
           <ul>

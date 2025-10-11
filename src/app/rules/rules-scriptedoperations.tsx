@@ -2,14 +2,14 @@ import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
 import ops from '@/data/scriptedOperations.json'
 import { SquadTypeService } from '@/services'
 
-export default async function RulesScriptedOperations() {
+export default async function RulesScriptedOperations({ num }: {num?: Number | null}) {
   const operations = ops.sort((a, b) => a.title.localeCompare(b.title))
   const squadTypes = await SquadTypeService.getAllSquadTypes()
 
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="scriptedoperations">
-        12. Scripted Operations
+        {num && `${num}. `}Scripted Operations
       </h2>
       
       <p>

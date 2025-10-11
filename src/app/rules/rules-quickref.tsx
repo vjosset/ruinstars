@@ -1,9 +1,9 @@
-export default async function RulesQuickRef() {
+export default async function RulesQuickRef({ num }: {num?: Number | null}) {
   return (
     <>
       <div className="section">
         <h2 className="text-center py-3 font-title"   id="quickref">
-          15. Quick Reference
+          {num && `${num}. `}Quick Reference
         </h2>
         <div className="twocols">
           <div className="section">

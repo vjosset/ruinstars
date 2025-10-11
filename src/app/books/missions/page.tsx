@@ -1,35 +1,18 @@
 import ops from '@/data/scriptedOperations.json'
 import { GAME } from '@/lib/config/game_config'
-import RulesActions from './rules-actions'
-import RulesCampaigns from './rules-campaigns'
-import RulesCombat from './rules-combat'
-import RulesCoreMechanics from './rules-coremechanics'
-import RulesGameCycle from './rules-gamecycle'
-import RulesGlossary from './rules-glossary'
-import RulesHeader from './rules-header'
-import RulesIntro from './rules-intro'
-import RulesItems from './rules-items'
-import RulesMissions from './rules-missions'
-import RulesMovement from './rules-movement'
-import RulesSquadTypes from './rules-squadtypes'
-import RulesStatCards from './rules-statcards'
-import RulesToc from './rules-toc'
-import RulesYourSquad from './rules-yoursquad'
+import RulesCampaigns from '../../rules/rules-campaigns'
+import RulesHeader from '../../rules/rules-header'
+import RulesMissions from '../../rules/rules-missions'
+import { ScriptedOperation } from '../../scriptedoperations/page'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { SquadTypeService } from '@/services'
-import Link from 'next/link'
-import PageBreak from '../books/PageBreak'
-import { ScriptedOperation } from '../scriptedoperations/page'
-import RulesAI from './rules-ai'
-import RulesPlayingOnAGrid from './rules-playingonagrid'
-import RulesQuickRef from './rules-quickref'
-import RulesScriptedOperations from './rules-scriptedoperations'
+import PageBreak from '../PageBreak'
 
 export async function generateMetadata() {
   return generatePageMetadata({
-    title: 'Rules',
-    description: `The complete rules for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
+    title: 'Missions',
+    description: `Missions, campaigns, and Scripted Operations for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
     images: [{
       url: '/icons/icon-big.png',
     }],
@@ -38,9 +21,7 @@ export async function generateMetadata() {
   })
 }
 
-export default async function Rules() {
-  const operations = ops
-  const squadTypes = await SquadTypeService.getAllSquadTypes()
+export default async function MissionsBook() {
   const versionTimestamp = new Intl.DateTimeFormat('en-CA', {
     timeZone: 'UTC',
     year: 'numeric',
@@ -48,12 +29,15 @@ export default async function Rules() {
     day: '2-digit'
   }).format(new Date()).replaceAll('-', '')
   
+  const squadTypes = await SquadTypeService.getAllSquadTypes()
+  
   return (
     <>
       {/* Cover */}
       <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} />
       <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
-        <div className="text-white font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
+        <div className="text-white font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg text-center">
+          Missions<br/>
           Version {versionTimestamp}
         </div>
       </div>
@@ -61,71 +45,11 @@ export default async function Rules() {
       <div className="rules px-3 max-w-7xl mx-auto">
         <RulesHeader />
 
-        <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
-          Download the Rules:
-          { ' ' }
-          <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules.pdf">Easy Print PDF</Link>
-          { ' / ' }
-          <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">Full Color PDF</Link>
-        </div>
-        <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
-          Print the Tokens:
-          { ' ' }
-          <Link className="underline" target="_blank" href="/assets/Ruinstars_Tokens.pdf">Tokens PDF</Link>
-        </div>
+        <RulesMissions />
 
-        <RulesToc />
-        <RulesIntro showTitle={true} num={1} />
+        <RulesCampaigns />
 
-        <RulesAI />
-
-        <hr />
-        <RulesCoreMechanics num={2} />
-
-        <hr />
-        <RulesGameCycle num={3} />
-
-        <hr />
-        <RulesStatCards num={4} />
-
-        <hr />
-        <RulesActions num={5} />
-
-        <hr />
-        <RulesMovement num={6} />
-
-        <hr />
-        <RulesCombat num={7} />
-      
-        <hr />
-        <RulesItems num={8} />
-
-        <hr />
-        <RulesYourSquad num={9} />
-
-        <hr />
-        <RulesMissions num={10} />
-
-        <hr />
-        <RulesCampaigns num={11} />
-
-        <hr />
-        <RulesScriptedOperations num={12} />
-      
-        <hr />
-        <RulesGlossary num={13} />
-      
-        <hr />
-        <RulesPlayingOnAGrid num={14} />
-      
-        <hr />
-        <RulesQuickRef num={15} />
-      
-        <div className="printonly">
-          <hr />
-          <RulesSquadTypes />
-          
-          <hr />
+        <div className="section">
           <h1 className="text-center pt-48 mb-24 font-title"   id="allscriptedoperations" style={{position: 'relative', top: '50%' }}>
             Scripted Operations
           </h1>
@@ -160,9 +84,9 @@ export default async function Rules() {
           </div>
           {/* For print, list ALL operations in full detail */}
           <PageBreak />
-          <div className="printonly p-6">
-            {operations.sort((a, b) => a.title.localeCompare(b.title)).map((op, idx) => {
-              const isLast = idx === operations.length - 1
+          <div className="p-6">
+            {ops.sort((a, b) => a.title.localeCompare(b.title)).map((op, idx) => {
+              const isLast = idx === ops.length - 1
               return (
                 <div className="m-6 p-6" key={op.slug} style={{ pageBreakAfter: isLast ? 'auto' : 'always' }}>
                   <ScriptedOperation op={op} squadTypes={squadTypes} />

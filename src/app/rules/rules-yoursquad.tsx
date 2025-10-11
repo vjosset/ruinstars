@@ -1,10 +1,10 @@
 import FactionList from '@/components/faction/FactionList'
 
-export default async function RulesYourSquad() {
+export default async function RulesYourSquad({ num }: {num?: Number | null}) {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="buildingsquad">
-        9. Your Squad
+        {num && `${num}. `}Your Squad
       </h2>
       <div className="section">
         <p>

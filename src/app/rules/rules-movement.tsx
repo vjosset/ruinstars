@@ -1,8 +1,8 @@
-export default async function RulesMovement() {
+export default async function RulesMovement({ num }: {num?: Number | null}) {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title" id="movement">
-        6. Movement
+        {num && `${num}. `}Movement
       </h2>
       <div className="section twocols">
         <div className="section">

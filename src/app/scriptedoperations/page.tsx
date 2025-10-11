@@ -7,6 +7,7 @@ import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { SquadTypeService } from '@/services'
 import Link from 'next/link'
+import PageBreak from '../books/PageBreak'
 
 // This page varies by querystring (opId), so render per-request
 export const dynamic = 'force-dynamic'
@@ -150,7 +151,8 @@ export default async function ScriptedOperations({ searchParams }: { searchParam
         </div>
       
         {/* For print, list ALL operations in full detail */}
-        <div className="printonly p-6" style={{pageBreakBefore: 'always'}}>
+        <PageBreak />
+        <div className="printonly p-6">
           {operations.map((op, idx) => {
             const isLast = idx === operations.length - 1
             return (

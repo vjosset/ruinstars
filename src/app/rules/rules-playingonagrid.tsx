@@ -1,9 +1,9 @@
-export default async function RulesPlayingOnAGrid() {
+export default async function RulesPlayingOnAGrid({ num }: {num?: Number | null}) {
   return (
     <>
       <div className="section">
         <h2 className="text-center py-3 font-title"   id="playingonagrid">
-          14. Playing On a Grid
+          {num && `${num}. `}Playing On a Grid
         </h2>
         <div className="twocols">
           <div className="section">

@@ -2,7 +2,7 @@ import { getAuthSession } from '@/lib/auth'
 import { GAME } from '@/lib/config/game_config'
 import Link from 'next/link'
 
-export default async function RulesIntro({ showTitle = false }) {
+export default async function RulesIntro({ num, showTitle }: {num?: number | null, showTitle: boolean | false }) {
   const session = await getAuthSession()
   const isAuth = !!session?.user?.userId
   return (
@@ -10,7 +10,7 @@ export default async function RulesIntro({ showTitle = false }) {
       <div className="section">
         {showTitle && (
           <h2 className="text-center py-3 font-title"   id="introduction">
-          1. Introduction
+            {num && `${num}. `}Introduction
           </h2>
         )}
         <div className="twocols">

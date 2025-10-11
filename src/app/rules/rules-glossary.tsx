@@ -1,6 +1,7 @@
 import { SpecialService } from '@/services'
+import PageBreak from '../books/PageBreak'
 
-export default async function RulesItems() {
+export default async function RulesItems({ num }: {num?: Number | null}) {
   const allSpecials = await SpecialService.getAllSpecials()
 
   const definitions = [
@@ -121,7 +122,7 @@ export default async function RulesItems() {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="glossary">
-        13. Glossary
+        {num && `${num}. `}Glossary
       </h2>
       <div className="section twocols">
         {
@@ -137,7 +138,8 @@ export default async function RulesItems() {
       </div>
       <br/><br/>
 
-      <h3 className="text-center py-3" id="specials" style={{pageBreakBefore: 'always'}}>
+      <PageBreak />
+      <h3 className="text-center py-3" id="specials">
         Specials
       </h3>
       <div className="section twocols">

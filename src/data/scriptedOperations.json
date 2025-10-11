@@ -136,7 +136,7 @@
       {
         "id": "1",
         "title": "Seeds of Domination",
-        "description": "The rival broods race to seize ground outside the hive — places to twist and transform into new spawning sites. The stronger swarm will claim this ground, setting the stage for the battles to come.",
+        "description": "The rival broods race to seize ground outside the hive, places to twist and transform into new spawning sites. The stronger swarm will claim this ground, setting the stage for the battles to come.",
         "battlefield": "The Jungle",
         "setup": "Place 3 Strategic Point Markers: one in the center of the West, Center, and East tiles.",
         "deployment": "Each Squad deploys from opposite battlefield edges before Turn 1.",
@@ -573,7 +573,7 @@
     "slug": "REL-INT",
     "file": "REL-INT.md",
     "title": "Pylons of Power",
-    "description": "An Interdictors vs Relict Wardens Operation. Beneath the Hegemony’s shining city lie the shattered remains of Eidolon pylons — relics of an empire that once wielded world-breaking weapons. The Relict Wardens have returned to reclaim and reactivate these pylons, while the Interdictors fight to prevent catastrophe. What begins as sabotage escalates into horrors in the ruins, and ends with the fate of the pylons decided once and for all.",
+    "description": "An Interdictors vs Relict Wardens Operation. Beneath the Hegemony's shining city lie the shattered remains of Eidolon pylons: relics of an empire that once wielded world-breaking weapons. The Relict Wardens have returned to reclaim and reactivate these pylons, while the Interdictors fight to prevent catastrophe. What begins as sabotage escalates into horrors in the ruins, and ends with the fate of the pylons decided once and for all.",
     "factions": {
       "squadTypeA": "REL",
       "squadTypeB": "INT"
@@ -582,7 +582,7 @@
       {
         "id": "1",
         "title": "The Forgotten Entrance",
-        "description": "The Relict Wardens scour the underworks of the Hegemony city, hunting for a hidden entrance into the buried subfoundations where the ancient pylons lie. The Interdictors move to block the search, knowing that if the Wardens find the way in, the city’s fate could hang by a thread.",
+        "description": "The Relict Wardens scour the underworks of the Hegemony city, hunting for a hidden entrance into the buried subfoundations where the ancient pylons lie. The Interdictors move to block the search, knowing that if the Wardens find the way in, the city's fate could hang by a thread.",
         "battlefield": "The Ruined City",
         "setup": "Place 1 Search Marker in the center of each of the West, Central, and East tiles.",
         "deployment": "Each Squad deploys from opposite Battlefield edges before Turn 1.",
@@ -613,7 +613,7 @@
         "id": "3A",
         "title": "World-Breaker Awakens",
         "description": "The pylons begin to sing. Power builds toward a catastrophic discharge while the Interdictors fight to drag the meter back from the brink.",
-        "battlefield": "No Man’s Land",
+        "battlefield": "No Man's Land",
         "setup": "Place 1 Central Pylon Marker in the center of the Central Tile. Create an off-board **Power Track** starting at 1.",
         "deployment": "- Relict Wardens deploy within 2 Squares of the Pylon before Turn 1.\n- Interdictors deploy from the Southern battlefield edge before Turn 1.",
         "special": "**Mission Action: Atune (2ACT)**  \nOnce per Turn, a Relict Warden Unit Adjacent to the Pylon may spend 2ACT to increase the Power Track by 1 (max 6).  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Detune (2ACT)**  \nOnce per Turn, an Interdictor Unit Adjacent to the Pylon may spend 2ACT to decrease the Power Track by 1 (min 1).  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",

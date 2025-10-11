@@ -6,10 +6,10 @@
     "followupMissions": ["Ghost Trace", "Boss Fight", "Sabotage", "Defend"],
     "goal": "Intercept and eliminate a high-value courier before escape",
     "descriptions": [
-      "A lone operative from **{{enemySquadName}}** is carrying encoded intel across **{{battlefieldName}}**—data that could shift the tide of war. Your mission is simple: stop them. Expect evasion tactics, diversion units, and a desperate push to extract. No one escapes.",
+      "A lone operative from **{{enemySquadName}}** is carrying encoded intel across **{{battlefieldName}}** - data that could shift the tide of war. Your mission is simple: stop them. Expect evasion tactics, diversion units, and a desperate push to extract. No one escapes.",
       "Signals intercepted near **{{battlefieldName}}** confirm an intel courier is moving fast toward an evac point. If the Defender gets out, the entire subsector could fall. Pursue and terminate with extreme prejudice.",
       "Enemy escape patterns suggest **{{enemySquadName}}** is smuggling out critical data via a single carrier. Track them through **{{battlefieldName}}** and prevent any form of extraction. The chase is on.",
-      "The traitor was spotted near **{{battlefieldName}}**, escorted by light patrols. Your ambush team must strike with precision—cut off every escape route, and ensure the intel is never delivered."
+      "The traitor was spotted near **{{battlefieldName}}**, escorted by light patrols. Your ambush team must strike with precision, cut off every escape route, and ensure the intel is never delivered."
     ],
     "setup": "Select or randomly pick one Squad to be the Attacker. The other Squad is the Defender.  \r\nThe Defender secretly selects one of their Units to carry the Intel Marker.  \r\nPlace an Exit Zone along the eastern edge of the Eastern tile.",
     "deployment": "Before Turn 1, the Defender deploys all Units on the Western edge.  \r\nDuring Turn 1, the Attacker deploys Units as they activate, entering from any other battlefield edge.",
@@ -70,7 +70,7 @@
     ],
     "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nPlace a Breach Marker in the center of the central tile.",
     "deployment": "Both Squads deploy their Units on their selected Battlefield edge before Turn 1.",
-    "special": "**Breach (2 ACT) - Mission Action**: A Player Unit adjacent to the Breach Marker and not Adjacent to any enemy units attempts to breach the Marker. Roll 1D6: On a 5, the Marker is Breached. On a 1, security is increased and the next attempt only succeeds on a 6. If another 1 is rolled, the marker is locked and the mission is lost.",
+    "special": "**Mission Action - Breach (2 ACT)**: A Player Unit adjacent to the Breach Marker and not Adjacent to any enemy units attempts to breach the Marker. Roll 1D6: On a 5, the Marker is Breached. On a 1, security is increased and the next attempt only succeeds on a 6. If another 1 is rolled, the marker is locked and the mission is lost.",
     "victory": "By the end of Turn 4, if the Breach Marker has been breached, the Player Squad wins the Mission.",
     "successresult": "The Player Squad gains +2 TO at the start of the next Mission.",
     "failureresult": "The Player Squad gains -1 TO at the start of the next Mission (minimum 0)."
@@ -139,14 +139,14 @@
     "followupMissions": ["Infiltrate", "Artifact", "Sabotage", "Boss Fight", "Scavenge", "Defend", "Eradicate"],
     "goal": "Track hidden signatures to uncover an emerging threat",
     "descriptions": [
-      "Strange signal echoes have been picked up across **{{battlefieldName}}** — too structured to be natural, too degraded to trace cleanly. Your squad is tasked with tracking down these Ghost Signatures before **{{enemyFactionName}}** locates the source.",
+      "Strange signal echoes have been picked up across **{{battlefieldName}}**, too structured to be natural, too degraded to trace cleanly. Your squad is tasked with tracking down these Ghost Signatures before **{{enemyFactionName}}** locates the source.",
       "Residual pulses across **{{battlefieldName}}** suggest a cloaked presence is active in the region. Track the signals back to their origin. Whatever it is, it's not friendly.",
-      "Recon logs flagged unusual signal activity near **{{battlefieldName}}** — brief, ghostlike transmissions pulsing at irregular intervals. Your squad must locate and trace these signals before **{{enemySquadName}}** uncovers their origin.",
+      "Recon logs flagged unusual signal activity near **{{battlefieldName}}**, brief, ghostlike transmissions pulsing at irregular intervals. Your squad must locate and trace these signals before **{{enemySquadName}}** uncovers their origin.",
       "Eidolon-spectrum bursts were detected across **{{battlefieldName}}**, rising in frequency. A cloaked entity may be trying to breach reality. Trace the signal path and locate its point of entry."
     ],
     "setup": "Each Squad selects one of two opposing Battlefield edges as their Deployment zone.  \r\nPlace 3 Signal Markers in the center of three random tiles.  \r\nSelect or randomly choose one Squad to be the Tracker, the other as the Interceptor.",
     "deployment": "During Turn 1, each Squad deploys Units alternately within their Deployment zone.",
-    "special": "**Scan Signal (2 ACT) – Mission Action:**  \r\nA Unit attempts to scan an Adjacent Signal Marker. Roll 1d6: On a 1 or 2, the trace is successful and the marker is flipped face-up. If all 3 markers are scanned, a final objective is revealed.",
+    "special": "**Mission Action - Scan Signal (2 ACT):**  \r\nA Unit attempts to scan an Adjacent Signal Marker. Roll 1d6: On a 1 or 2, the trace is successful and the marker is flipped face-up. If all 3 markers are scanned, a final objective is revealed.",
     "victory": "If all Signal Markers are successfully scanned and the final trace is completed by the Tracker squad by the end of Turn 4, they achieve mission success.",
     "successresult": "You identify the source of the cloaked emissions: an enemy prototype beacon or a hidden breach in the veil. At the start of the next Mission, Player Squads gain +2 TO.",
     "failureresult": "The trail goes cold. Whether due to enemy interference or sensor ghosting, the anomaly slips away. In the next Mission, [TBD]."
@@ -203,7 +203,7 @@
     ],
     "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nPlace 3 Sabotage markers in the center of three random tiles.  \r\nSelect or randomly pick one Squad to be the Attacker, and the other to be the Defender. ",
     "deployment": "During Turn 1, when it is a Unit's turn to activate, deploy it on your Battlefield edge. ",
-    "special": "**Sabotage (2 ACT) - Mission Action:**  \r\nA Unit may Sabotage an Adjacent Sabotage marker if there are not Adjacent enemy Units. When a marker is sabotaged, remove it from the battlefield.",
+    "special": "**Mission Action - Sabotage (2 ACT):**  \r\nA Unit may Sabotage an Adjacent Sabotage marker if there are not Adjacent enemy Units. When a marker is sabotaged, remove it from the battlefield.",
     "victory": "All three saborage markers have been sabotaged by end of Turn 4.",
     "successresult": "[TBD]",
     "failureresult": "[TBD]"
@@ -222,7 +222,7 @@
     ],
     "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nPlace 3 Supply markers in the center of the West, Center, and East tiles.",
     "deployment": "Both Squads deploy from their selected Battlefield edge before Turn 1.",
-    "special": "**Scavenge (1 ACT):** The Unit Scavenges an Adjacent Supply marker. The Unit's Squad scores MPs equal to the Turn number (so 1 MP on Turn 1, 2 MP on Turn 2, etc). A Unit may not perform this action if it is Adjacent to an enemy Unit.",
+    "special": "**Mission Action - Scavenge (1 ACT):** The Unit Scavenges an Adjacent Supply marker. The Unit's Squad scores MPs equal to the Turn number (so 1 MP on Turn 1, 2 MP on Turn 2, etc). A Unit may not perform this action if it is Adjacent to an enemy Unit.",
     "victory": "Each time a Unit Scavenges a Supply marker, its Squad scores 1 MP. That Supply cannot be scavenged again during this Turn.  \r\nAt the end of Turn 4, if the Player Squad scored 6 MP or more, they win the Mission.",
     "successresult": "Player Squad gains +4 MaxGP",
     "failureresult": "Player Squad loses 3 MaxGP. Adjust unit gear selections accordingly."

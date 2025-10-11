@@ -2,13 +2,13 @@ import UnitCard from '@/components/unit/UnitCard'
 import { SpecialService, UnitService } from '@/services'
 import { RiCrosshair2Fill, RiSwordFill } from 'react-icons/ri'
 
-export default async function RulesStatCards() {
+export default async function RulesStatCards({ num }: {num?: Number | null}) {
   const sampleUnit = (await UnitService.getUnit('ST-0'))!.toPlain()
   const allSpecials = (await SpecialService.getAllSpecials()).map((spec) => spec.toPlain())
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="stat-cards">
-        4. Stat Cards
+        {num && `${num}. `}Stat Cards
       </h2>
       <div className="section twocols">
         <div className="section">

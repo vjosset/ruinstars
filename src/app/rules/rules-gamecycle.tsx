@@ -1,10 +1,10 @@
 import { GAME } from '@/lib/config/game_config'
 
-export default async function RulesGameCycle() {
+export default async function RulesGameCycle({ num }: {num?: Number | null}) {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title" id="game-cycle">
-        3. Game Cycle
+        {num && `${num}. `}Game Cycle
       </h2>
       <div className="section twocols">
         <p>A game of {GAME.NAME} is played in the following order:</p>

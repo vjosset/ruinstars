@@ -58,7 +58,7 @@
       "squadTypeId": "DRN",
       "squadTypeName": "Drone Pod",
       "description": "A hivemind of insectoid abominations bred only to feed, the Swarm descends on worlds in an endless tide, stripping them of all life and biomass. Mindless yet coordinated, disposable yet adaptive, they are evolution weaponized - a galactic extinction event with claws, teeth, and hunger eternal.",
-      "lore": "> *\"One claw rips. A thousand claws erase.\"*\r \r The Swarm doesn't strike all at once. It infiltrates first.  \r \r Drone Pods are the first wave: fast-growing, semi-autonomous drones designed to soften resistance, overwhelm defenders, and prepare the environment for mass conversion. They are not smart, but they are brutally efficient — directed by hive-echoes and biological imperatives that ripple from distant queens or nodes.\r \r Some are specialized to tear through armor. Others spread viral mold or excrete corrosive spores. All are designed to be expendable. They are not born to win battles. They are born to open the way."
+      "lore": "> *\"One claw rips. A thousand claws erase.\"*\r \r The Swarm doesn't strike all at once. It infiltrates first.  \r \r Drone Pods are the first wave: fast-growing, semi-autonomous drones designed to soften resistance, overwhelm defenders, and prepare the environment for mass conversion. They are not smart, but they are brutally efficient, directed by hive-echoes and biological imperatives that ripple from distant queens or nodes.\r \r Some are specialized to tear through armor. Others spread viral mold or excrete corrosive spores. All are designed to be expendable. They are not born to win battles. They are born to open the way."
     },
     {
       "factionId": "HEG",
