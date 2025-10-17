@@ -18,6 +18,12 @@ export class UserRepository extends BaseRepository {
               include: {
                 faction: true
               }
+            },
+            units: {
+              include: {
+                unitType: true
+              },
+              orderBy: { seq: 'asc' }
             }
           },
           orderBy: { seq: 'asc' }
@@ -39,6 +45,9 @@ export class UserRepository extends BaseRepository {
               }
             },
             units: {
+              include: {
+                unitType: true
+              },
               orderBy: { seq: 'asc' }
             }
           },

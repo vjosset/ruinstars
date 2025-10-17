@@ -1,6 +1,7 @@
 // @ts-nocheck
-import { User } from '@/types'
+import { Squad, User } from '@/types'
 import { UserRepository } from '@/src/repositories/user.repository'
+import { GearService } from './gear.service'
 
 export class UserService {
   private static repository = new UserRepository()
@@ -13,7 +14,16 @@ export class UserService {
 
   static async getUser(userId: string): Promise<User | null> {
     const user = await this.repository.getUser(userId)
-    return user ? new User(user) : null
+    if (!user) return null
+
+    const squads = await this.hydrateSquads(user.squads)
+
+    return new User({
+      userId: user.userId,
+      email: user.email,
+      userName: user.userName,
+      squads
+    })
   }
 
   static async getAllUsers(): Promise<User[]> {
@@ -23,11 +33,37 @@ export class UserService {
 
   static async getUserByUsername(userName: string): Promise<User | null> {
     const user = await this.repository.getUserByUsername(userName)
-    return user ? new User(user) : null
+    if (!user) return null
+
+    const squads = await this.hydrateSquads(user.squads)
+
+    return new User({
+      userId: user.userId,
+      email: user.email,
+      userName: user.userName,
+      squads
+    })
   }
 
   static async fixSquadSeqs(userId: string): Promise<null> {
     // Reorder/re-seq the user's squads
     await this.repository.fixSquadSeqs(userId)
+  }
+
+  private static async hydrateSquads(rawSquads?: any[]): Promise<Squad[]> {
+    if (!rawSquads?.length) return []
+
+    const squads = rawSquads.map(squad =>
+      squad instanceof Squad ? squad : new Squad(squad)
+    )
+
+    await Promise.all(
+      squads.map(async squad => {
+        if (!squad.units?.length) return
+        await Promise.all(squad.units.map(unit => GearService.loadUnitGear(unit)))
+      })
+    )
+
+    return squads
   }
 }

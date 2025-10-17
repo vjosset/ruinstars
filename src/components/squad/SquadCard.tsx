@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { FiMoreVertical } from 'react-icons/fi'
+import { SquadTypeLink } from '../nav/Links'
 import { Button, Modal } from '../ui'
 import SquadCardMenu from './SquadCardMenu'
 
@@ -80,11 +81,11 @@ export default function SquadCard({
               </Menu>
             )}
           </div>
-          <Link href={`/squads/${squad.squadId}`}>
-            <p className="text-sm">
-              <span className="text-gray-500">{squad.squadType?.squadTypeName || 'missing'}</span> {squad.maxGP}GP
-            </p>
-          </Link>
+          
+          <p className="text-sm flex items-baseline justify-between gap-2">
+            <SquadTypeLink squadTypeId={squad.squadTypeId} squadTypeName={squad.squadType?.squadTypeName || 'Missing'} />
+            <span className="font-medium whitespace-nowrap">{(squad.totalUnitGP ?? 0)}GP/{squad.unitCount ?? 0}U</span>
+          </p>
         </div>
       </div>
       

@@ -22,6 +22,8 @@ export type SquadPlain = {
   units?: UnitPlain[]
   user?: UserPlain
   squadType?: SquadTypePlain
+  unitCount?: number
+  totalUnitGP?: number
 }
 
 export class Squad {
@@ -93,6 +95,20 @@ export class Squad {
     this.squadType = data.squadType ? (data.squadType instanceof SquadType ? data.squadType : new SquadType(data.squadType)) : null
   }
 
+  get unitCount(): number {
+    return this.units?.length ?? 0
+  }
+
+  get totalUnitGP(): number {
+    if (!this.units?.length) return 0
+
+    return this.units.reduce((total, unit) => {
+      const baseGP = unit.unitType?.GP ?? 0
+      const gearGP = typeof unit.totalGearGP === 'function' ? unit.totalGearGP() : 0
+      return total + baseGP + gearGP
+    }, 0)
+  }
+
   toPlain(): SquadPlain {
     return {
       squadId: this.squadId,
@@ -116,6 +132,8 @@ export class Squad {
       units: this.units?.map(unit => unit.toPlain()),
       user: this.user?.toPlain(),
       squadType: this.squadType?.toPlain(),
+      unitCount: this.unitCount,
+      totalUnitGP: this.totalUnitGP,
     }
   }
 }
