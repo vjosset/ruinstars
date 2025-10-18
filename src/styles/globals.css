@@ -392,6 +392,10 @@ code {
 		height: unset;
 	}
 
+	.unitcard h1, .unitcard h2, .unitcard h3, .unitcard h4, .unitcard h5, .unitcard h6 {
+		@apply pt-0
+	}
+
 	.fullpage {
 		width: 12.8in;
 		height: 15in;

@@ -1,9 +1,7 @@
-import { SquadTypeLink } from '@/components/nav/Links'
 import BattlefieldBlock from '@/components/shared/BattlefieldBlock'
 import MissionBlock from '@/components/shared/MissionBlock'
 import battlefields from '@/data/battlefields.json'
 import missions from '@/data/missions.json'
-import pvemissions from '@/data/missions_pve.json'
 
 export default async function RulesMissions({ num }: {num?: Number | null}) {
   return (
@@ -53,7 +51,7 @@ export default async function RulesMissions({ num }: {num?: Number | null}) {
         <h2 className="mt-4">Playing a Mission</h2>
         <p>
           A Mission is a single battle played between two (or more) Squads.<br/>
-          Whether you are playing a one-off Quick Play mission, a <a className="underline" href="#scriptedoperations">Scripted Operation</a>, or a long, epic <a className="underline" href="#campaigns">campaign</a>, the rules for playing each Mission are the same:
+          Whether you are playing a quick one-off mission or a long, epic <a className="underline" href="#campaigns">campaign</a>, the rules for playing each Mission are the same:
         </p>
         
         <ol>
@@ -66,6 +64,26 @@ export default async function RulesMissions({ num }: {num?: Number | null}) {
       </div>
       
       <div className="section">
+        <div className="section">
+          <h3 className="text-center">Primary Missions</h3><div className="">
+            <div className="twocols">
+              <p>
+                Primary missions are perfect for pick-up or competitive play.
+                You can also use these missions to build your own <a className="underline" href="#campaigns">campaign</a>.<br/>
+              </p>
+              Each Primary mission is a single battle pitting your Squad against its enemies. Select (or randomly pick) a Mission from the list of standard missions below:
+          
+              {
+                missions.filter((mission) => mission.active && (!mission.missionType || mission.missionType == 'Primary')).map((mission) => (
+                  <div className="section" key={mission.missionId}>
+                    <MissionBlock mission={mission} showDescription={true} />
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
         <div className="section">
           <h3 id="battlefields" className="text-center">Battlefields</h3>
           <div className="section twocols">
@@ -83,27 +101,6 @@ export default async function RulesMissions({ num }: {num?: Number | null}) {
             }
           </div>
         </div>
-      
-        <div className="section">
-          <h3 className="text-center">Primary Missions</h3>
-          <p>
-            Primary missions are perfect for pick-up or competitive play.
-            You can also use these missions to build your own custom <a className="underline" href="#campaigns">campaign</a>.<br/>
-            For more narrative play, see <a className="underline" href="#scriptedoperations">Scripted Operations</a>.
-          </p>
-          Each Primary mission is a single battle pitting your Squad against its enemies. Select (or randomly pick) a Mission from the list of standard missions below:
-          <div className="">
-            <div className="twocols">
-              {
-                missions.filter((mission) => mission.active && (!mission.missionType || mission.missionType == 'Primary')).map((mission) => (
-                  <div className="section" key={mission.missionId}>
-                    <MissionBlock mission={mission} showDescription={true} />
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-        </div>
 
         <div className="section hidden">
           <h3 className="text-center">Secondary Missions</h3>
@@ -116,74 +113,6 @@ export default async function RulesMissions({ num }: {num?: Number | null}) {
           <div className="twocols">
             {
               missions.filter((mission) => mission.active && mission.missionType == 'Secondary').map((mission) => (
-                <div className="section" key={mission.missionId}>
-                  <MissionBlock mission={mission} showDescription={true} />
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      
-        <div className="section">
-          <h3 className="text-center">NPC Mode</h3>
-          <strong>NPC Mode</strong> allows players to face an automated enemy Squad, either solo or cooperatively.
-          This mode uses standard game rules, with additional behavior guidelines for AI-controlled Units.<br/>
-          When playing in NPC Mode, you will need at least one <SquadTypeLink squadTypeId='NPC' squadTypeName='NPC'/> Squad.
-
-          <h4>NPC Behavior</h4>
-          Each NPC Unit Type has a defined Behavior Profile that determines how it acts during play.
-          Follow the listed priorities in that profile to decide how the Unit moves, targets, and performs actions.
-
-          <h4>Activating NPC Units</h4>
-          After each player Unit activation, that same player immediately activates the next NPC Unit and follows its Behavior Profile.
-          Continue alternating in this way until all Units have been activated for the Turn.
-
-          <h4>Cooperative Play</h4>
-          NPC Mode can be played solo or cooperatively.
-          When playing cooperatively, players may choose one of the following formats:
-          <ul>
-            <li>
-              <strong>Full Squads:</strong><br/> 
-              Each player deploys a full 100 GP Squad.
-              For each player Squad, deploy one full 100 GP NPC Squad as the enemy.<br/>
-              Notes:
-              <ul>
-                <li>Units that are in different Squads but on the same side are not Squadmates.</li>
-              </ul>
-            </li>
-            <li>
-              <strong>Shared Squad:</strong><br/>
-              Players share control of one full 100 GP Squad.
-              Players take turns activating Units in that Squad.
-              Deploy one full 100 GP NPC Squad as the enemy.
-            </li>
-            <li>
-              <strong>Mini Squads:</strong><br/>
-              Each player deploys a reduced-size Squad:
-              <ul>
-                <li>2 Players → 50 GP each</li>
-                <li>3 Players → 34 GP each</li>
-                <li>4 Players → 25 GP each</li>
-              </ul>
-              Deploy one full 100 GP NPC Squad as the enemy.<br/>
-              Notes:
-              <ul>
-                <li>Only one Player Unit is considered the Leader when it comes to rolling TOs, and all players share TOs in each Turn.</li>
-                <li>Units that are in different Squads but on the same side are not Squadmates.</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-
-        <div className="section">
-          <h3 className="text-center">Solo/Co-op Missions</h3>
-          <p>
-            These missions are designed for Solo or Co-op play, with a single shared squad or partial squads per player.
-          </p>
-        
-          <div className="twocols">
-            {
-              pvemissions.filter((mission) => mission.active).map((mission) => (
                 <div className="section" key={mission.missionId}>
                   <MissionBlock mission={mission} showDescription={true} />
                 </div>

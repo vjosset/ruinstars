@@ -101,7 +101,9 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
             </li>
             <li>
               <h6 className="inline">(Special)</h6> - Weapon Specials<br/>
-              Specials for this weapon are listed next to its name. Click or tap on them to read their full description. Don't worry about remembering the codes; they will quickly become second nature to you.
+              Specials for this weapon are listed next to its name.
+              In the app and on the website, click or tap on them to read their full description.
+              Don't worry about remembering the codes; they will quickly become second nature to you.
             </li>
           </ul>
           <br/>

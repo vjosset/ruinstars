@@ -1,27 +1,23 @@
-import ops from '@/data/scriptedOperations.json'
+import RulesActions from '@/app/rules/rules-actions'
+import RulesAI from '@/app/rules/rules-ai'
+import RulesCampaigns from '@/app/rules/rules-campaigns'
+import RulesCombat from '@/app/rules/rules-combat'
+import RulesCoreMechanics from '@/app/rules/rules-coremechanics'
+import RulesGameCycle from '@/app/rules/rules-gamecycle'
+import RulesGlossary from '@/app/rules/rules-glossary'
+import RulesHeader from '@/app/rules/rules-header'
+import RulesIntro from '@/app/rules/rules-intro'
+import RulesItems from '@/app/rules/rules-items'
+import RulesMissions from '@/app/rules/rules-missions'
+import RulesMovement from '@/app/rules/rules-movement'
+import RulesPlayingOnAGrid from '@/app/rules/rules-playingonagrid'
+import RulesQuickRef from '@/app/rules/rules-quickref'
+import RulesStatCards from '@/app/rules/rules-statcards'
+import RulesToc from '@/app/rules/rules-toc'
+import RulesYourSquad from '@/app/rules/rules-yoursquad'
 import { GAME } from '@/lib/config/game_config'
-import RulesActions from '../../rules/rules-actions'
-import RulesCampaigns from '../../rules/rules-campaigns'
-import RulesCombat from '../../rules/rules-combat'
-import RulesCoreMechanics from '../../rules/rules-coremechanics'
-import RulesGameCycle from '../../rules/rules-gamecycle'
-import RulesGlossary from '../../rules/rules-glossary'
-import RulesHeader from '../../rules/rules-header'
-import RulesIntro from '../../rules/rules-intro'
-import RulesItems from '../../rules/rules-items'
-import RulesMissions from '../../rules/rules-missions'
-import RulesMovement from '../../rules/rules-movement'
-import RulesStatCards from '../../rules/rules-statcards'
-import RulesToc from '../../rules/rules-toc'
-import RulesYourSquad from '../../rules/rules-yoursquad'
-
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import { SquadTypeService } from '@/services'
 import Link from 'next/link'
-import RulesAI from '../../rules/rules-ai'
-import RulesPlayingOnAGrid from '../../rules/rules-playingonagrid'
-import RulesQuickRef from '../../rules/rules-quickref'
-import RulesScriptedOperations from '../../rules/rules-scriptedoperations'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -35,10 +31,8 @@ export async function generateMetadata() {
   })
 }
 
-export default async function RuleBook() {
-  const operations = ops
-  const squadTypes = await SquadTypeService.getAllSquadTypes()
-  const versionTimestamp = new Intl.DateTimeFormat('en-CA', {
+export default async function Rules() {
+  const versionTimestamp = new Intl.DateTimeFormat('en-US', {
     timeZone: 'UTC',
     year: 'numeric',
     month: '2-digit',
@@ -50,7 +44,7 @@ export default async function RuleBook() {
       {/* Cover */}
       <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} />
       <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
-        <div className="text-white font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg text-center">
+        <div className="text-white font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
           Version {versionTimestamp}
         </div>
       </div>
@@ -105,18 +99,15 @@ export default async function RuleBook() {
 
         <hr />
         <RulesCampaigns num={11} />
-
-        <hr />
-        <RulesScriptedOperations num={12} />
       
         <hr />
-        <RulesGlossary num={13} />
+        <RulesGlossary num={12} />
       
         <hr />
-        <RulesPlayingOnAGrid num={14} />
+        <RulesPlayingOnAGrid num={13} />
       
         <hr />
-        <RulesQuickRef num={15} />
+        <RulesQuickRef num={14} />
       </div>
     </>
   )

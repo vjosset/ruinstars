@@ -2,14 +2,14 @@ import FactionList from '@/components/faction/FactionList'
 import Markdown from '@/components/ui/Markdown'
 import UnitCard from '@/components/unit/UnitCard'
 import { FactionService, SpecialService, SquadTypeService } from '@/services'
+import Link from 'next/link'
 
 export default async function RulesSquadTypes() {
   const factions = await FactionService.getAllFactions()
-  const allSquadTypes = []
 
   for (const faction of factions) {
-    for (const squadType of faction.squadTypes) {
-      allSquadTypes.push(await SquadTypeService.getSquadType(squadType.squadTypeId) ?? squadType)
+    for (let squadType of faction.squadTypes) {
+      squadType = await SquadTypeService.getSquadType(squadType.squadTypeId) ?? squadType
     }
   }
     
@@ -17,7 +17,7 @@ export default async function RulesSquadTypes() {
 
   return (
     <div className="section">
-      <h1 className="text-center pt-48 mb-24 font-title"   id="allsquadTypes" style={{position: 'relative', top: '50%' }}>
+      <h1 className="text-center pt-48 mb-12 font-title"   id="allsquadTypes" style={{position: 'relative', top: '50%' }}>
         Factions
       </h1>
       <p className="mb-8">
@@ -27,71 +27,92 @@ export default async function RulesSquadTypes() {
         When selecting Gear for your Squad (Weapons, Equipment, etc), any item whose name ends with an asterisk (<code>*</code>) is Unique and cannot be added more than once to your squad.
       </p>
       <FactionList />
-      
-      {allSquadTypes.map((squadType) => (
-        <div className="section" key={`squadType_${squadType.squadTypeId}`}>
-          <div className="relative min-h-[150px] md:h-[200px] flex items-center justify-center py-12">
-            <div 
-              className="absolute inset-0 bg-cover bg-top"
-              style={{ backgroundImage: `url(/img/squadTypes/${squadType.squadTypeId}.webp)` }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
-            </div>
-            <div className="relative flex flex-col items-center justify-center px-8 pt-48 w-full">
-              <div className="flex items-center gap-x-4 mb-4">
-                <h1 className="text-center text-4xl text-white mb-2">{squadType.squadTypeName}</h1>
+
+      {factions.map((faction) => (
+        <div className="section" id={`faction-${faction.factionId}`}>
+          <h1 className="text-main text-center">{faction.factionName}</h1>
+          <Markdown className="flavor_disabled">{faction.lore}</Markdown>
+          
+          {faction.squadTypes.map(async (st, index) => {
+            const isEven = index % 2 === 1
+
+            const squadType = await SquadTypeService.getSquadType(st.squadTypeId)
+
+            if (!squadType) {
+              return null
+            }
+
+            return (
+              <div
+                key={squadType.squadTypeId}
+                id={squadType.squadTypeId}
+              >
+                <h2 id={squadType.squadTypeId} className="font-heading text-main">
+                  <Link href={`/squadTypes/${squadType.squadTypeId}`}>{squadType.squadTypeName}</Link>
+                </h2>
+                <div className="twocols">
+                  <div className="section">
+                    <Link href={`/squadTypes/${squadType.squadTypeId}`}>
+                      <img
+                        src={`/img/squadTypes/${squadType.squadTypeId}.webp`}
+                        alt={`${squadType.squadTypeName} Portrait`}
+                        className="rounded-xl border border-main"
+                      />
+                    </Link>
+                  </div>
+                  <div className="section">
+                    <Markdown>{squadType.description}</Markdown>
+                    <Markdown className="flavor">{squadType.lore}</Markdown>
+                  </div>
+                </div>
+                <h3 className="font-heading text-main">
+                  Unit Types
+                </h3>
+                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                  {squadType.unitTypes.map((u) => (
+                    <UnitCard
+                      seq={1}
+                      unit={u.toPlain()}
+                      isOwner={false}
+                      allSpecials={allSpecials.map((spec) => spec.toPlain())}
+                      allMedals={[]}
+                    />
+                  ))}
+                </div>
+
+                {/* Show the distinct skills for units in this squadType */}
+                <div className="section">
+                  <h4>Skills</h4>
+                  <ul className="twocols">
+                    {(() => {
+                      // Gather all skills across unit types
+                      const allSkills = squadType.unitTypes
+                        .flatMap(u => u.skills || [])
+
+                      // Keep only skills with a gearId and exclude narrative-only skills
+                      const nonNarrativeSkills = allSkills
+                        .filter(s => s?.gearId && !s?.gearCategory?.isNarrative)
+
+                      // De-duplicate by gearId (Map keeps last seen, order not important before sorting)
+                      const uniqueSkills = Array.from(
+                        new Map(nonNarrativeSkills.map(s => [s.gearId, s])).values()
+                      )
+
+                      // Sort alphabetically by gearName for display
+                      uniqueSkills.sort((a, b) => (a?.gearName || '').localeCompare(b?.gearName || ''))
+
+                      // Render the sorted, unique list
+                      return uniqueSkills.map(skill => (
+                        <li key={`squadTypeSkill_${skill?.gearId}`} className="section">
+                          {skill?.gearName}<br/>
+                          <Markdown className="text-sm text-muted" children={skill?.description ?? ''} />
+                        </li>
+                      ))
+                    })()}
+                  </ul>
+                </div>
               </div>
-              <div className="text-white max-w-2xl text-center">
-                <Markdown>{squadType.lore}</Markdown>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto p-2">
-            {squadType.unitTypes.map((u) => (
-              <div key={`unitType_${u.unitTypeId}`}>
-                <UnitCard
-                  seq={1}
-                  unit={u.toPlain()}
-                  isOwner={false}
-                  allSpecials={allSpecials.map((spec) => spec.toPlain())}
-                  allMedals={[]}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Show the distinct skills for units in this squadType */}
-          <div className="section">
-            <h4>Skills</h4>
-            <ul className="twocols">
-              {(() => {
-                // Gather all skills across unit types
-                const allSkills = squadType.unitTypes
-                  .flatMap(u => u.skills || [])
-
-                // Keep only skills with a gearId and exclude narrative-only skills
-                const nonNarrativeSkills = allSkills
-                  .filter(s => s?.gearId && !s?.gearCategory?.isNarrative)
-
-                // De-duplicate by gearId (Map keeps last seen, order not important before sorting)
-                const uniqueSkills = Array.from(
-                  new Map(nonNarrativeSkills.map(s => [s.gearId, s])).values()
-                )
-
-                // Sort alphabetically by gearName for display
-                uniqueSkills.sort((a, b) => (a?.gearName || '').localeCompare(b?.gearName || ''))
-
-                // Render the sorted, unique list
-                return uniqueSkills.map(skill => (
-                  <li key={`squadTypeSkill_${skill?.gearId}`} className="section">
-                    {skill?.gearName}<br/>
-                    <Markdown className="text-sm text-muted" children={skill?.description ?? ''} />
-                  </li>
-                ))
-              })()}
-            </ul>
-          </div>
+            )})}
         </div>
       ))}
     </div>
