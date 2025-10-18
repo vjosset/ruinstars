@@ -29,13 +29,11 @@ export default async function RulesSquadTypes() {
       <FactionList />
 
       {factions.map((faction) => (
-        <div className="section" id={`faction-${faction.factionId}`}>
+        <div className="section" id={`faction-${faction.factionId}`} key={`faction-${faction.factionId}`}>
           <h1 className="text-main text-center">{faction.factionName}</h1>
           <Markdown className="flavor_disabled">{faction.lore}</Markdown>
           
-          {faction.squadTypes.map(async (st, index) => {
-            const isEven = index % 2 === 1
-
+          {faction.squadTypes.map(async (st) => {
             const squadType = await SquadTypeService.getSquadType(st.squadTypeId)
 
             if (!squadType) {
@@ -47,7 +45,7 @@ export default async function RulesSquadTypes() {
                 key={squadType.squadTypeId}
                 id={squadType.squadTypeId}
               >
-                <h2 id={squadType.squadTypeId} className="font-heading text-main">
+                <h2 className="font-heading text-main">
                   <Link href={`/squadTypes/${squadType.squadTypeId}`}>{squadType.squadTypeName}</Link>
                 </h2>
                 <div className="twocols">
@@ -71,6 +69,7 @@ export default async function RulesSquadTypes() {
                 <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                   {squadType.unitTypes.map((u) => (
                     <UnitCard
+                      key={u.unitTypeId}
                       seq={1}
                       unit={u.toPlain()}
                       isOwner={false}
