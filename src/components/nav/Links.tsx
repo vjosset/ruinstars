@@ -10,7 +10,7 @@ const badgeClass = 'inline-flex text-foreground items-center gap-1 px-1 py-0.5 f
 export function FactionLink({ factionId, factionName }: { factionId: string, factionName: string }) {
   return (
     <Link href={`/factions/${factionId}`} className={badgeClass}>
-      <FiBook />
+      <FiBook className="icon" />
       {factionName}
     </Link>
   )
@@ -19,7 +19,7 @@ export function FactionLink({ factionId, factionName }: { factionId: string, fac
 export function SquadTypeLink({ squadTypeId, squadTypeName }: { squadTypeId: string, squadTypeName: string }) {
   return (
     <Link href={`/squadTypes/${squadTypeId}`} className={badgeClass}>
-      <FiList />
+      <FiList className="icon" />
       {squadTypeName}
     </Link>
   )
@@ -28,7 +28,7 @@ export function SquadTypeLink({ squadTypeId, squadTypeName }: { squadTypeId: str
 export function UserLink({ userName, newTab }: {userName: string, newTab?: boolean}) {
   return (
     <Link href={userPath(userName)} className={badgeClass} target={newTab ? '_blank' : ''}>
-      <FiUser />
+      <FiUser className="icon" />
       {userName}
     </Link>
   )
@@ -37,7 +37,7 @@ export function UserLink({ userName, newTab }: {userName: string, newTab?: boole
 export function SquadLink({ squadId, squadName }: { squadId: string, squadName: string }) {
   return (
     <Link href={`/squads/${squadId}`} className={badgeClass}>
-      <FiUsers />
+      <FiUsers className="icon" />
       {squadName}
     </Link>
   )
@@ -46,7 +46,7 @@ export function SquadLink({ squadId, squadName }: { squadId: string, squadName: 
 export function OperationsLink({ squadTypeId }: { squadTypeId: string }) {
   return (
     <Link href={`/scriptedoperations?squadTypeId=${squadTypeId}`} className={badgeClass}>
-      <FaScroll />
+      <FaScroll className="icon" />
       Scripted Operations
     </Link>
   )

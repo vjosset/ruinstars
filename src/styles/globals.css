@@ -181,7 +181,7 @@ hr {
 
 .flavor {
 	/* Scratched screen background */
-	@apply relative font-serif text-sm leading-relaxed bg-zinc-900 italic border border-zinc-700 rounded-md p-3 my-2 shadow-lg overflow-hidden;
+	@apply relative font-serif text-sm leading-relaxed bg-zinc-900 italic border border-zinc-700 rounded-md p-3 my-2 overflow-hidden;
 
 	background-image: /*radial-gradient(ellipse at top left, rgba(255,255,255,0.02), transparent),
 										radial-gradient(ellipse at bottom right, rgba(255,255,255,0.01), transparent),*/
@@ -293,15 +293,6 @@ code {
 
 .printonly { display: none !important; }
 
-.weapon-type-icon {
-  display: inline-block;
-  filter:
-    drop-shadow(1px  0 0 black)
-    drop-shadow(-1px 0 0 black)
-    drop-shadow(0  1px 0 black)
-    drop-shadow(0 -1px 0 black);
-}
-
 /* For images/portraits to show even in print with or without "print backgrounds" enabled */
 .printbg {
   print-color-adjust: exact;
@@ -334,7 +325,16 @@ code {
 	.printonly {
 		display: revert !important;
 	}
-	
+
+	/* Outline weapon icons so they're always visible, with or without "print backgrounds" */
+	.icon {
+		display: inline-block;
+		filter:
+			drop-shadow(1px  0 0 black)
+			drop-shadow(-1px 0 0 black)
+			drop-shadow(0  1px 0 black)
+			drop-shadow(0 -1px 0 black);
+	}
 
   .unitcard {
     /* Tarot vertical 100% dimensions

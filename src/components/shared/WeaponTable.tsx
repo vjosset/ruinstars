@@ -61,7 +61,7 @@ export default function WeaponTable({
                 )}
                 { ' ' }
                 {/*<img className="inline highlightblack" src={`/icons/white/weptype${gear.TYP}.png`} width="13" />*/}
-                { gear.TYP == 'M' ? (<RiSwordFill className="weapon-type-icon" />) : (<RiCrosshair2Fill className="weapon-type-icon" />) }
+                { gear.TYP == 'M' ? (<RiSwordFill className="icon" />) : (<RiCrosshair2Fill className="icon" />) }
                 { ' ' }
                 {gear.gearName}
                 {gear.special != '' &&

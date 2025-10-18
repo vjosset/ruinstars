@@ -30,10 +30,10 @@ export default function ScriptedOperationsList({ operations, squadTypes }: { ope
                 {/* Top-right: small portraits */}
                 <div className="col-start-2 row-start-1 flex items-center gap-2">
                   <div className="relative h-12 w-12 rounded border border-border overflow-hidden">
-                    <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(/img/squadTypes/${op.factions.squadTypeA}.webp)` }} />
+                    <div className="absolute inset-0 bg-cover bg-center printbg" style={{ backgroundImage: `url(/img/squadTypes/${op.factions.squadTypeA}.webp)` }} />
                   </div>
                   <div className="relative h-12 w-12 rounded border border-border overflow-hidden">
-                    <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(/img/squadTypes/${op.factions.squadTypeB}.webp)` }} />
+                    <div className="absolute inset-0 bg-cover bg-center printbg" style={{ backgroundImage: `url(/img/squadTypes/${op.factions.squadTypeB}.webp)` }} />
                   </div>
                 </div>
 
