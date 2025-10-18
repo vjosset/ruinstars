@@ -145,7 +145,7 @@ export default async function RulesItems({ num }: {num?: Number | null}) {
       <div className="section twocols">
 
         {
-          allSpecials.filter((s) => s.scope == 'W').sort((a, b) => a.code.localeCompare(b.code)).map((spec, idx) => (
+          allSpecials.filter((s) => s.scope == 'W').sort((a, b) => a.code.localeCompare(b.code)).map((spec) => (
             <div className="section" key={`spec_${spec.code}`}>
               <strong className="text-main">
                 <code>{spec.code.replace('_', 'x')}</code>
