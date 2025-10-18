@@ -1,8 +1,10 @@
 // @ts-nocheck
 import { GAME } from '@/lib/config/game_config'
+import fs from 'fs/promises'
 import { UnitRepository } from '@/src/repositories/unit.repository'
 import { Unit } from '@/types'
 import { nanoid } from 'nanoid'
+import path from 'path'
 import { GearService } from './gear.service'
 import { MedalService } from './medal.service'
 import { SquadService } from './squad.service'
@@ -62,8 +64,12 @@ export class UnitService {
     // Update DB first (don't wait for file system to succeed)
     await this.updateUnit(unitId, { hasCustomPortrait: false, portraitUpdatedAt: new Date() })
 
+    const uploadDir = process.env.UPLOADS_DIR
+    if (!uploadDir) {
+      return
+    }
+
     try {
-      const uploadDir = process.env.UPLOADS_DIR!
       const filePath = path.resolve(
         uploadDir,
         `user_${squad.userId}`,

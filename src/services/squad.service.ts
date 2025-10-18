@@ -74,8 +74,22 @@ export class SquadService {
   static async deleteSquad(squadId: string): Promise<void> {
     const squad = await this.getSquadRow(squadId)
     if (!squad) return
+
+    const uploadDir = process.env.UPLOADS_DIR
+    const squadPortraitDir = uploadDir
+      ? path.resolve(uploadDir, `user_${squad.userId}`, `squad_${squad.squadId}`)
+      : null
+
     await this.repository.deleteSquad(squadId)
     await UserService.fixSquadSeqs(squad.userId)
+
+    if (squadPortraitDir) {
+      try {
+        await fs.rm(squadPortraitDir, { recursive: true, force: true })
+      } catch (error) {
+        console.warn(`Failed to delete portrait directory for squad ${squadId}:`, error)
+      }
+    }
   }
 
   static async resetSquadActivation(squadId: string): Promise<Squad | null> {
@@ -121,44 +135,47 @@ export class SquadService {
   }
 
   static async cloneSquad(sourceSquadId: string, destUserId: string, destSquadName: string): Promise<Squad | null> {
-    // Get Squad to clone
-    const squadRow = await SquadService.getSquadRow(sourceSquadId)
-    if (!squadRow) return null
-    
-    // Get the full squad
-    const squad = await SquadService.getSquad(sourceSquadId)
-    if (!squad) return null
-    
-    // Prepare a deep-copy clone of the squad
-    const newSquad = JSON.parse(JSON.stringify(squad))
+    const sourceSquad = await SquadService.getSquad(sourceSquadId)
+    if (!sourceSquad) return null
 
-    // Update its fields
-    newSquad.userId = destUserId
-    newSquad.name = destSquadName
-
-    // Prepare the units
-    for(const unit of newSquad.units) {
-      unit.squadId = newSquad.squadId
-      unit.unitId = nanoid(8)
-    }
-
-    const newSquadRow = {
+    const createdSquad = await SquadService.createSquad({
       userId: destUserId,
-      squadTypeId: newSquad.squadTypeId,
+      squadTypeId: sourceSquad.squadTypeId,
       seq: -1,
-      squadName: newSquad.name,
-    }
+      squadName: destSquadName,
+      description: sourceSquad.description,
+      campaign: sourceSquad.campaign,
+    })
 
-    // Now create the squad and its units
-    const createdSquad = await SquadService.createSquad(newSquadRow)
     if (!createdSquad) {
       return null
     }
-    
-    // Create all the units
-    for(const unit of newSquad.units) {
+
+    const uploadDir = process.env.UPLOADS_DIR
+    const sourcePortraitDir = uploadDir
+      ? path.resolve(uploadDir, `user_${sourceSquad.userId}`, `squad_${sourceSquad.squadId}`)
+      : null
+    const destPortraitDir = uploadDir
+      ? path.resolve(uploadDir, `user_${destUserId}`, `squad_${createdSquad.squadId}`)
+      : null
+
+    if (sourceSquad.hasCustomPortrait && sourcePortraitDir && destPortraitDir) {
+      const copied = await this.copyPortraitAsset(
+        path.resolve(sourcePortraitDir, `squad_${sourceSquad.squadId}.jpg`),
+        path.resolve(destPortraitDir, `squad_${createdSquad.squadId}.jpg`)
+      )
+
+      if (copied) {
+        await this.updateSquad(createdSquad.squadId, {
+          hasCustomPortrait: true,
+          portraitUpdatedAt: sourceSquad.portraitUpdatedAt ?? new Date()
+        })
+      }
+    }
+
+    const sourceUnits = sourceSquad.units ?? []
+    for (const unit of sourceUnits) {
       const unitRow = {
-        unitId: unit.unitId,
         squadId: createdSquad.squadId,
         unitName: unit.unitName,
         unitTypeId: unit.unitTypeId,
@@ -168,16 +185,47 @@ export class SquadService {
         currHIT: unit.currHIT,
         isActivated: unit.isActivated
       }
-      await UnitService.createUnit(unitRow)
+
+      const createdUnit = await UnitService.createUnit(unitRow)
+      if (!createdUnit) continue
+
+      if (unit.hasCustomPortrait && sourcePortraitDir && destPortraitDir) {
+        const copied = await this.copyPortraitAsset(
+          path.resolve(sourcePortraitDir, `unit_${unit.unitId}.jpg`),
+          path.resolve(destPortraitDir, `unit_${createdUnit.unitId}.jpg`)
+        )
+
+        if (copied) {
+          await UnitService.updateUnit(createdUnit.unitId, {
+            hasCustomPortrait: true,
+            portraitUpdatedAt: unit.portraitUpdatedAt ?? new Date()
+          })
+        }
+      }
     }
 
-    // Get the finalized squad with all its stuff
     const finalSquad = await SquadService.getSquad(createdSquad.squadId)
-
     if (!finalSquad) return null
 
-    // Done
     return finalSquad
+  }
+
+  private static async copyPortraitAsset(sourcePath: string, destPath: string): Promise<boolean> {
+    try {
+      await fs.access(sourcePath)
+    } catch {
+      console.warn(`Portrait source not found: ${sourcePath}`)
+      return false
+    }
+
+    try {
+      await fs.mkdir(path.dirname(destPath), { recursive: true })
+      await fs.copyFile(sourcePath, destPath)
+      return true
+    } catch (error) {
+      console.warn(`Failed to copy portrait from ${sourcePath} to ${destPath}`, error)
+      return false
+    }
   }
   
   static async deleteSquadPortrait(squadId: string): Promise<Squad | null> {

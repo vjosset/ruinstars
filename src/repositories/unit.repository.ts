@@ -19,25 +19,33 @@ export class UnitRepository extends BaseRepository {
   }
 
   async createUnit(data: Partial<Unit>) {
+    const createData: any = {
+      unitId: data.unitId ?? '',
+      currHIT: data.currHIT ?? 0,
+      unitName: data.unitName ?? '',
+      seq: data.seq,
+      gearIds: data.gearIds,
+      medalIds: data.medalIds ?? '',
+      isActivated: data.isActivated ?? false,
+      hasCustomPortrait: data.hasCustomPortrait ?? false,
+      squad: {
+        connect: {
+          squadId: data.squadId
+        }
+      },
+      unitType: {
+        connect: {
+          unitTypeId: data.unitTypeId
+        }
+      },
+    }
+
+    if (data.portraitUpdatedAt) {
+      createData.portraitUpdatedAt = data.portraitUpdatedAt
+    }
+
     return this.prisma.unit.create({
-      data: {
-        unitId: data.unitId ?? '',
-        currHIT: data.currHIT ?? 0,
-        unitName: data.unitName ?? '',
-        seq: data.seq,
-        gearIds: data.gearIds,
-        medalIds: data.medalIds ?? '',
-        squad: {
-          connect: {
-            squadId: data.squadId
-          }
-        },
-        unitType: {
-          connect: {
-            unitTypeId: data.unitTypeId
-          }
-        },
-      }
+      data: createData
     })
   }
 
