@@ -88,8 +88,8 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
           <h4 id="weapon-stats">Weapon Stats</h4>
           <ul>
             <li>
-              <RiSwordFill className="inline-block" />/<RiCrosshair2Fill className="inline-block" /> - Weapon Type<br/>
-              <RiSwordFill className="inline-block" /> indicates a Melee weapon, <RiCrosshair2Fill className="inline-block" /> indicates a Ranged weapon.
+              <RiSwordFill className="weapon-type-icon" />/<RiCrosshair2Fill className="weapon-type-icon" /> - Weapon Type<br/>
+              <RiSwordFill className="weapon-type-icon" /> indicates a Melee weapon, <RiCrosshair2Fill className="weapon-type-icon" /> indicates a Ranged weapon.
             </li>
             <li>
               <h6 className="inline">ATT</h6> - Attacks<br/>
@@ -109,7 +109,7 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
           <br/>
           <strong>For example: </strong>
           <ul>
-            <li>{sampleUnit.unitName}'s <strong>{sampleUnit.weapons?.[1].gearName}</strong> is a {sampleUnit.weapons?.[1].TYP == 'R' ? 'Ranged' : 'Melee'} weapon ({ sampleUnit.weapons?.[1].TYP == 'M' ? (<RiSwordFill className="inline-block" />) : (<RiCrosshair2Fill className="inline-block" />) }).</li>
+            <li>{sampleUnit.unitName}'s <strong>{sampleUnit.weapons?.[1].gearName}</strong> is a {sampleUnit.weapons?.[1].TYP == 'R' ? 'Ranged' : 'Melee'} weapon ({ sampleUnit.weapons?.[1].TYP == 'M' ? (<RiSwordFill className="weapon-type-icon" />) : (<RiCrosshair2Fill className="weapon-type-icon" />) }).</li>
             <li>Each time it is used, {sampleUnit.unitName} rolls {sampleUnit.weapons?.[1].ATT} dice (<code>ATT</code>).</li>
             <li>Each result of {sampleUnit.weapons?.[1].TYP == 'R' ? sampleUnit.RSK : sampleUnit.MSK} or less (<code>SKL</code>) is a success.</li>
             {/*<li>It has the <code>ACC1</code> (Accurate 1) and <code>HVY</code> (Heavy) <a className="underline" href="#weapon-specials">specials</a>.</li>*/}

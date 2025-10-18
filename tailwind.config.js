@@ -9,27 +9,21 @@ module.exports = {
       colors: {
         background: {
           DEFAULT: '#000000',    // Very dark background
-          print: '#000000',      // White background for print
         },
         foreground: {
           DEFAULT: '#dddddd',    // Main text color
-          print: '#dddddd',      // Black text for print
         },
         main: {
           DEFAULT: '#c54c21',    // Main color
-          print: '#c54c21',      // Black for print
         },
         card: {
           DEFAULT: '#080808',    // Card background
-          print: '#080808',      // White for print
         },
         border: {
           DEFAULT: '#555555',    // Subtle border
-          print: '#555555',      // Black for print
         },
         muted: {
           DEFAULT: '#999999',    // For secondary/inactive text
-          print: '#999999',      // Dark gray for print
         },
       },
       fontFamily: {

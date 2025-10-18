@@ -293,60 +293,21 @@ code {
 
 .printonly { display: none !important; }
 
-/*
-@media print {
-  :root {
-    --tw-bg-opacity: 1;
-    --tw-text-opacity: 1;
-  }
-
-	@page {
-    size: 8.5in 11in !important;
-		margin: 0.5in !important;
-  }
-
-	body {
-		zoom: 66%;
-		background-image: url(/img/ui/mech02.png);
-		background-size: 12.8in 16.7in;
-	}
-	
-	.noprint {
-		display: none !important;
-	}
-
-	.printonly {
-		display: revert !important;
-	}
-
-  .text-main {
-    @apply text-main-print;
-  }
-
-  .bg-card {
-    @apply bg-card-print;
-  }
-
-  .border-border {
-    @apply border-border-print;
-  }
-	
-  .flavor {
-    background: none !important;
-    border: 1px solid #666 !important;
-    color: black !important;
-    text-shadow: none !important;
-  }
-
-  .flavor::before {
-    display: none !important;
-  }
-	
-	.hastip::after {
-    display: none !important;
-	}
+.weapon-type-icon {
+  display: inline-block;
+  filter:
+    drop-shadow(1px  0 0 black)
+    drop-shadow(-1px 0 0 black)
+    drop-shadow(0  1px 0 black)
+    drop-shadow(0 -1px 0 black);
 }
-*/
+
+/* For images/portraits to show even in print with or without "print backgrounds" enabled */
+.printbg {
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  forced-color-adjust: none;
+}
 
 /* FULL COLOR PRINT STYLES */
 @media print {
@@ -400,18 +361,6 @@ code {
 		width: 12.8in;
 		height: 15in;
 	}
-
-  .text-main {
-    @apply text-main-print;
-  }
-
-  .bg-card {
-    @apply bg-card-print;
-  }
-
-  .border-border {
-    @apply border-border-print;
-  }
 
   /* Remove special effects that might interfere with print */
   .flavor::before {

@@ -15,7 +15,7 @@ export default function SquadTypeCard({ squadType }: SquadTypeCardProps) {
       {/* Image section - left side */}
       <div className="relative overflow-hidden border-r border-border">
         <div 
-          className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500 overflow-hidden"
+          className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500 overflow-hidden printbg"
           style={{ backgroundImage: `url(/img/squadTypes/${squadType.squadTypeId}.webp)` }}
         />
       </div>
