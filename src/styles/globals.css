@@ -300,6 +300,10 @@ code {
   forced-color-adjust: none;
 }
 
+.icon {
+	display: inline-block;
+}
+
 /* FULL COLOR PRINT STYLES */
 @media print {
   :root {
@@ -326,16 +330,6 @@ code {
 		display: revert !important;
 	}
 
-	/* Outline weapon icons so they're always visible, with or without "print backgrounds" */
-	.icon {
-		display: inline-block;
-		filter:
-			drop-shadow(1px  0 0 black)
-			drop-shadow(-1px 0 0 black)
-			drop-shadow(0  1px 0 black)
-			drop-shadow(0 -1px 0 black);
-	}
-
   .unitcard {
     /* Tarot vertical 100% dimensions
     width: 2.75in;
@@ -351,6 +345,16 @@ code {
     page-break-inside: avoid;
     break-inside: avoid;
   }
+
+	/* Outline weapon icons so they're always visible, with or without "print backgrounds" */
+	.icon {
+		display: inline-block;
+		filter:
+			drop-shadow(1px  0 0 black)
+			drop-shadow(-1px 0 0 black)
+			drop-shadow(0  1px 0 black)
+			drop-shadow(0 -1px 0 black);
+	}
 
 	.rules .unitcard {
 		width: unset;
