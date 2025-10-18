@@ -44,7 +44,7 @@
     "description": "*\"Secrets win wars. Get in, get out.\"*  \r\n  \r\n\nSomewhere in the heart of the battlefield lies a critical piece of intelligence - data that could shift the balance of power. One squad races to retrieve it, while the other fights to keep it from falling into enemy hands. The clock is ticking. One wrong move could mean the difference between victory and disaster. In the chaos of battle, can the attackers escape with the prize, or will the defenders crush their ambitions before they reach safety?",
     "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nPlace an Intel marker in the center of the central tile.  \r\nSelect or randomly pick one Squad to be the Attacker, and the other to be the Defender. ",
     "deployment": "During Turn 1, when it is a Unit's turn to activate, deploy it on your Battlefield edge. ",
-    "victory": "The Attacker Squad score 6 MP when a Unit carrying the Intel marker walks off the edge of the Battlefield opposite the Attacker's deployment edge by the end of Turn 4.  \r The Defender Squad wins the mission in all other cases.",
+    "victory": "The Attacker Squad scores 6 MP when a Unit carrying the Intel marker walks off the edge of the Battlefield opposite the Attacker's deployment edge by the end of Turn 4.  \r The Defender Squad wins the mission in all other cases.",
     "special": ""
   },
   {
@@ -116,7 +116,7 @@
     "description": "*\"Silent. Deadly. Unstoppable.\"*  \r\n  \r\n\nUnder the cover of darkness, a squad moves through enemy territory, their goal clear - breach the defenses and secure a foothold within the enemy’s base. Their foes are unaware, but not for long. The first shot fired will set off a chain reaction of chaos and violence. Can the attackers slip through and establish their presence, or will the defenders crush the intrusion before it begins?",
     "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nSelect one Squad to be the Attacker and the other to be the Defender.",
     "deployment": "Before Turn 1, Defender deploys their Units anywhere on their Battlefield Edge.  \r During Turn 1, when it is an Attacker Unit's turn to activate, deploy it on its Battlefield edge.   Attacker has initiative in the first Turn.",
-    "victory": "At the end of Turn 4, if the Attacker has 2 or more Units on the Defender's Battlefield edge that are not Adjacent to any enemy Units, the Attacker score 6 MP. Defender score 6 MP in all other cases.",
+    "victory": "At the end of Turn 4, if the Attacker has 2 or more Units on the Defender's Battlefield edge that are not Adjacent to any enemy Units, the Attacker score 6 MP. Defender scores 6 MP in all other cases.",
     "special": ""
   },
   {

@@ -166,7 +166,7 @@
     "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nSelect one Squad to be the Attacker and the other to be the Defender.",
     "deployment": "Before Turn 1, Defender deploys their Units anywhere on their Battlefield Edge.  \r\nDuring Turn 1, when it is an Attacker Unit's turn to activate, deploy it on its Battlefield edge.   Attacker has initiative in the first Turn.",
     "special": "",
-    "victory": "At the end of Turn 4, if the Attacker has 2 or more Units on the Defender's Battlefield edge that are not Adjacent to any enemy Units, the Attacker score 6 MP. Defender score 6 MP in all other cases.",
+    "victory": "At the end of Turn 4, if the Attacker has 2 or more Units on the Defender's Battlefield edge that are not Adjacent to any enemy Units, the Attacker score 6 MP. Defender scores 6 MP in all other cases.",
     "successresult": "During the next Mission, Player Squad Units may perform a free Dash action when they are deployed.",
     "failureresult": "During the next Mission, Enemy Squad Units may perform a free Dash action when they are deployed."
   },
@@ -185,7 +185,7 @@
     "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nPlace an Intel marker in the center of the central tile.  \r\nSelect or randomly pick one Squad to be the Attacker, and the other to be the Defender. ",
     "deployment": "During Turn 1, when it is a Unit's turn to activate, deploy it on your Battlefield edge. ",
     "special": "",
-    "victory": "The Attacker Squad score 6 MP when a Unit carrying the Intel marker walks off the edge of the Battlefield opposite the Attacker's deployment edge by the end of Turn 4.  \r\nThe Defender Squad wins the mission in all other cases.",
+    "victory": "The Attacker Squad scores 6 MP when a Unit carrying the Intel marker walks off the edge of the Battlefield opposite the Attacker's deployment edge by the end of Turn 4.  \r\nThe Defender Squad wins the mission in all other cases.",
     "successresult": "Player Squad gains +2 TO in the next Mission",
     "failureresult": "During the next Mission, Player Units do not benefit from Cover during Turn 1."
   },

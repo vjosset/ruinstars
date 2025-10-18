@@ -12,7 +12,7 @@
     "title": "The Facility",
     "description": "The industrial facility stands as a monument to neglect, its once-thrumming machinery now silent and encased in layers of rust. Massive gears and conveyor belts hang motionless, their surfaces corroded and flecked with peeling paint, hinting at decades of disuse. Cracked windows let in shafts of pale light that illuminate the grime-covered floors littered with broken tools and tangled wires.",
     "setup": "Corridors, tight quarters, small chambers.",
-    "effects": "**Darkness:** At the start of each Turn after the first, select one random Tile. Until the end of the Turn, Units on that Tile cannot be targeted in Ranged combat.",
+    "effects": "**Darkness:** At the start of each Turn after the first, select one random Tile. Until the end of the Turn, Units on that Tile cannot be targeted in Ranged Combat.",
     "battlefieldNames": "Containment Grid Theta,Voxforge Complex,The Rusted Spine,Reactor Aegis,Nullnode Array,Assembly Annex-3,Coilstream Core,Intake Sector Nine,Foundry Delta,The Hollow Loom,Furnace Path,The Clinker Heart,Relay Cradle,Processing Bay Korr,The Severance Engine,Dross Loop,Machinehold Epsilon,Depthwell Stack,The Bunkerward,Wastegate Sector"
   },
   {

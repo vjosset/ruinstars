@@ -24,7 +24,7 @@ export default async function RulesItems({ num }: {num?: Number | null}) {
           <p>
             If you choose to play with Crates, randomly place 4 Crates on the battlefield.
             To open a crate, a Unit must be Adjacent to the crate and spend 1 <code>ACT</code> to open it.
-            This counts as a Mission action.
+            This counts as a Mission Action.
             When opened, roll <code>1D{GAME.DICE_BASIS}</code> to determine the contents of that Crate, then remove it from the Battlefield:
           </p>
           <ol>
