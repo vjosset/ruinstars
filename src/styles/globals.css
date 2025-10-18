@@ -268,6 +268,10 @@ hr {
 	@apply text-xl pt-2 font-heading;
 }
 
+.unitcard h1, .unitcard h2, .unitcard h3, .unitcard h4, .unitcard h5, .unitcard h6 {
+	@apply pt-0
+}
+
 .twocols { columns: 2; }
 .rules .twocols {
 	column-width: 400px;
@@ -390,10 +394,6 @@ code {
 	.rules .unitcard {
 		width: unset;
 		height: unset;
-	}
-
-	.unitcard h1, .unitcard h2, .unitcard h3, .unitcard h4, .unitcard h5, .unitcard h6 {
-		@apply pt-0
 	}
 
 	.fullpage {
