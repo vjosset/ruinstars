@@ -182,8 +182,8 @@
         "battlefield": "The Facility",
         "setup": "Place 3 Explosive Cache Markers: one in the center of the West, Center, and East tiles.",
         "deployment": "Each Squad deploys from opposite battlefield edges before Turn 1.",
-        "special": "**Mission Action: Seize Explosives (2ACT)**  \nAn Outer Claim Unit Adjacent to a Cache may spend 2ACT to claim it. Place a Claimed marker on the Cache.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Secure Explosives (2ACT)**  \nAn Interdictor Unit Adjacent to a Cache may spend 2ACT to Secure it, removing it from play.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
-        "victory": "* The Outer Claim wins if they control at least 2 Explosives Caches at the end of Turn 4. **Proceed to Mission 2A**\n* The Interdictors win in all other cases. **Proceed to Mission 2B**"
+        "special": "**Mission Action: Seize Explosives (2ACT)**  \nA Unit Adjacent to a Cache may spend 2ACT to pick it up. Once it is picked up, it is carried and can be dropped or passed normally.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Cache is Adjacent to any enemy Units.",
+        "victory": "* The Outer Claim wins if they carry at least 2 Explosives Caches at the end of Turn 4. **Proceed to Mission 2A**\n* The Interdictors win in all other cases. **Proceed to Mission 2B**"
       },
       {
         "id": "2A",
@@ -191,8 +191,8 @@
         "description": "With explosives secured, the Claimants begin assembling their device. The Interdictors strike hard, desperate to dismantle it before it can be completed.",
         "battlefield": "The Ruined City",
         "setup": "Place 1 Bomb Marker in the center of the Central Tile.",
-        "deployment": "* Outer Claim deploy within 2 Squares of the Bomb before Turn 1.\n* Interdictors deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Assemble (2ACT)**  \nAn Outer Claim Unit Adjacent to the Bomb may spend 2ACT to add 1 Assembly Counter (max 6).\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Dismantle (2ACT)**  \nAn Interdictor Unit Adjacent to the Bomb may spend 2ACT to remove 1 Assembly Counter (min 0).\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "deployment": "* Outer Claim deploy within 2 Squares of the Bomb before Turn 1.\n* Interdictors deploy from any battlefield edge before Turn 1.",
+        "special": "**Mission Action: Assemble (2ACT)**  \nAn Outer Claim Unit Adjacent to the Bomb may spend 2ACT to add 1 Assembly Counter (max 6).\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.\n\n**Mission Action: Dismantle (2ACT)**  \nAn Interdictor Unit Adjacent to the Bomb may spend 2ACT to remove 1 Assembly Counter (min 0).\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.",
         "victory": "* The Outer Claim wins if the Bomb has 4 or more Assembly Counters by the end of Turn 4. **Proceed to Mission 3A**\n* The Interdictors win in all other cases. **Proceed to Mission 3B**"
       },
       {
