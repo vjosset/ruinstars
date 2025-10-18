@@ -1,7 +1,7 @@
+import { generateId } from '@/lib/id'
 import { prisma } from '@/lib/prisma'
 import { SquadService } from '@/services'
 import { hash } from 'bcryptjs'
-import { nanoid } from 'nanoid'
 import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
 
   const user = await prisma.user.create({
     data: {
-      userId: nanoid(10),
+      userId: generateId(6),
       userName,
       password: hashed,
     },

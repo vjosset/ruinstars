@@ -1,9 +1,9 @@
 // @ts-nocheck
 import { GAME } from '@/lib/config/game_config'
-import fs from 'fs/promises'
+import { generateId } from '@/lib/id'
 import { UnitRepository } from '@/src/repositories/unit.repository'
 import { Unit } from '@/types'
-import { nanoid } from 'nanoid'
+import fs from 'fs/promises'
 import path from 'path'
 import { GearService } from './gear.service'
 import { MedalService } from './medal.service'
@@ -36,7 +36,7 @@ export class UnitService {
   }
 
   static async createUnit(data: Partial<Unit>): Promise<Unit | null> {
-    data.unitId = nanoid(8)
+    data.unitId = generateId(10)
     const raw = await this.repository.createUnit(data)
     if (!raw) throw new Error('Failed to create unit')
     return await this.getUnit(data.unitId)

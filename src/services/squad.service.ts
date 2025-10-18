@@ -2,7 +2,7 @@
 import { SquadRepository } from '@/src/repositories/squad.repository'
 import { Squad } from '@/types'
 import fs from 'fs/promises'
-import { nanoid } from 'nanoid'
+import { generateId } from '@/lib/id'
 import path from 'path'
 import { GearService } from './gear.service'
 import { MedalService } from './medal.service'
@@ -35,7 +35,7 @@ export class SquadService {
   static async createSquad(data: Partial<Squad>): Promise<Squad | null> {
     if (!data || !data.userId) throw new Error('No data provided')
 
-    data.squadId = nanoid(8)
+    data.squadId = generateId(8)
 
     // Always make the new squad the first one in the user's list
     data.seq = -1

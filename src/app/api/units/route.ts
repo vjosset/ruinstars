@@ -1,7 +1,7 @@
 import { getAuthSession } from '@/lib/auth'
-import { nanoid } from 'nanoid'
+import { generateId } from '@/lib/id'
+import { SquadService, UnitService } from '@/src/services'
 import { NextResponse } from 'next/server'
-import { UnitService, SquadService } from '@/src/services'
 
 export async function POST(req: Request) {
   const { unitName, unitTypeId, squadId, gearIds, medalIds, currHIT } = await req.json()
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
   const seq = squad.units? squad.units.length + 1 : 1
 
   const unit = await UnitService.createUnit({
-    unitId: nanoid(),
+    unitId: generateId(10),
     currHIT,
     unitName,
     squadId,
