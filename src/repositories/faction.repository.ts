@@ -16,6 +16,9 @@ export class FactionRepository extends BaseRepository {
           include: {
             faction: true
           },
+          where: {
+            isPublished: true
+          },
           orderBy: [
             {seq: 'asc'},
             {squadTypeName: 'asc'}
@@ -31,7 +34,14 @@ export class FactionRepository extends BaseRepository {
         squadTypes: {
           include: {
             faction: true
-          }
+          },
+          where: {
+            isPublished: true
+          },
+          orderBy: [
+            {seq: 'asc'},
+            {squadTypeName: 'asc'}
+          ]
         }
       },
       orderBy: { seq: 'asc' },

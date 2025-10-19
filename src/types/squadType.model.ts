@@ -7,6 +7,7 @@ export type SquadTypePlain = {
   squadTypeName: string
   description: string
   lore: string
+  isPublished: boolean
   faction: FactionPlain
   unitTypes: UnitTypePlain[]
 }
@@ -18,6 +19,7 @@ export class SquadType {
   squadTypeName: string
   description: string
   lore: string
+  isPublished: boolean
   faction: Faction
   unitTypes: UnitType[]
 
@@ -28,6 +30,7 @@ export class SquadType {
     squadTypeName: string
     description: string
     lore: string
+    isPublished: boolean
     faction: Faction
     unitTypes: UnitType[]
   }) {
@@ -37,6 +40,7 @@ export class SquadType {
     this.squadTypeName = data.squadTypeName
     this.description = data.description
     this.lore = data.lore
+    this.isPublished = data.isPublished
     this.faction = data.faction instanceof Faction? data.faction : new Faction(data.faction)
     this.unitTypes = data.unitTypes?.map(unitType => unitType instanceof UnitType ? unitType : new UnitType(unitType))
   }
@@ -49,6 +53,7 @@ export class SquadType {
       squadTypeName: this.squadTypeName,
       description: this.description,
       lore: this.lore,
+      isPublished: this.isPublished,
       faction: this.faction.toPlain(),
       unitTypes: this.unitTypes?.map((unitType) => unitType.toPlain()),
     }

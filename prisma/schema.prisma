@@ -33,6 +33,7 @@ model SquadType {
   squadTypeName String     @db.VarChar(250)
   description String     @db.Text
   lore        String     @db.Text
+  isPublished Boolean  @default(false)
 
   faction       Faction    @relation(fields: [factionId], references: [factionId])
   squads      Squad[]

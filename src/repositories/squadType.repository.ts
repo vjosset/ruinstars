@@ -34,6 +34,9 @@ export class SquadTypeRepository extends BaseRepository {
         },
         faction: true
       },
+      where: {
+        isPublished: true
+      },
       orderBy: { seq: 'asc' },
     })
   }
