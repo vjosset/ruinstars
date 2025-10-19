@@ -172,8 +172,12 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
             </thead>
             <tbody>
               <tr>
-                <th className="px-1">Support</th>
+                <th className="px-1">Support - Attacker</th>
                 <td className="px-1">For each of the Attacker's Squadmates Adjacent to the Target, the Attacker may re-roll one Attack die.</td>
+              </tr>
+              <tr>
+                <th className="px-1">Support - Target</th>
+                <td className="px-1">For each of the Target's Squadmates Adjacent to the Target, the Traget may re-roll one Save die.</td>
               </tr>
             </tbody>
           </table>

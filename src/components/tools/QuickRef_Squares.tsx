@@ -55,7 +55,8 @@ export default function QuickRef() {
           <li>Roll <code>ATT</code> dice: Dice at or below <code>SKL</code> deal 1 damage (<code>1</code> = Crit: 2 damage).</li>
           <li>Target Rolls <code>ARM</code> saves per damage: Dice at or below <code>ARM</code> save 1 damage.</li>
           <li>Critical Save: Blocks 1 damage <em>and</em> inflicts 1 Melee damage back (can chain).</li>
-          <li>Support: +1 attack re-roll per adjacent squadmate vs target.</li>
+          <li>Support - Attacker: +1 attack re-roll per adjacent squadmate vs target.</li>
+          <li>Support - Target: +1 save re-roll per adjacent squadmate.</li>
         </ol>
       </div>
 
