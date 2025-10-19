@@ -212,7 +212,7 @@
         "battlefield": "The Ruined City",
         "setup": "Place 1 Bomb Marker in the center of the Central Tile.",
         "deployment": "* Outer Claim deploy from the Northern battlefield edge before Turn 1.\n* Interdictors deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Plant Bomb (2ACT)**  \nAn Outer Claim Unit Adjacent to the Bomb may spend 2ACT to Arm it. Place an Armed marker on the Bomb.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Defuse (2ACT)**  \nAn Interdictor Unit Adjacent to an Armed Bomb may spend 2ACT to remove the Armed marker.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Plant Bomb (2ACT)**  \nAn Outer Claim Unit Adjacent to the Bomb may spend 2ACT to Arm it. Place an Armed marker on the Bomb.\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.\n\n**Mission Action: Defuse (2ACT)**  \nAn Interdictor Unit Adjacent to an Armed Bomb may spend 2ACT to remove the Armed marker.\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.",
         "victory": "* The Outer Claim wins if the Bomb is Armed at the end of Turn 4.\n* The Interdictors win in all other cases."
       },
       {
