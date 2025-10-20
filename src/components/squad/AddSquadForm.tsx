@@ -1,10 +1,11 @@
 
-'use client'
+"use client"
 
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
+import type { SquadTypePlain } from '@/types/squadType.model'
 import { Button, Checkbox, Input, Label, Modal } from '../ui'
 
 export default function AddSquadForm() {
@@ -13,10 +14,14 @@ export default function AddSquadForm() {
   const [showAddSquadModal, setShowAddSquadModal] = useState(false)
   const [creatingSquad, setCreatingSquad] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [squadTypes, setSquadTypes] = useState<any[]>([])
+  const [squadTypes, setSquadTypes] = useState<SquadTypePlain[]>([])
   const [squadName, setSquadName] = useState('')
   const [selectedSquadTypeId, setSelectedSquadTypeId] = useState<string | null>(null)
-  const [useDefaultSquad, setUseDefaultSquad] = useState<boolean>(true)
+  const [useDefaultSquad, setUseDefaultSquad] = useState<boolean>(false)
+  const selectedSquadType = selectedSquadTypeId
+    ? squadTypes.find((squadType) => squadType.squadTypeId === selectedSquadTypeId) ?? null
+    : null
+  const canCloneDefaultSquad = Boolean(selectedSquadType?.defaultSquadId)
 
   const userName = session?.user?.userName
   const userId = session?.user?.userId
@@ -68,10 +73,16 @@ export default function AddSquadForm() {
                 onClick={async () => {
                   setCreatingSquad(true)
 
-                  // Check if we should copy the default squad
-                  if (useDefaultSquad) {
+                  // Clone the default squad when available and requested
+                  if (useDefaultSquad && canCloneDefaultSquad) {
+                    const defaultSquadId = selectedSquadType?.defaultSquadId
+                    if (!defaultSquadId) {
+                      toast.error('No default squad found to clone')
+                      setCreatingSquad(false)
+                      return
+                    }
                     try {
-                      const res = await fetch(`/api/squads/${selectedSquadTypeId}/clone`, {
+                      const res = await fetch(`/api/squads/${defaultSquadId}/clone`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
@@ -146,7 +157,16 @@ export default function AddSquadForm() {
                 <select
                   className="w-full bg-card border border-border rounded p-2 text-sm"
                   value={selectedSquadTypeId || ''}
-                  onChange={(e) => setSelectedSquadTypeId(e.target.value || null)}
+                  onChange={(e) => {
+                    const id = e.target.value || null
+                    setSelectedSquadTypeId(id)
+                    if (id) {
+                      const squadType = squadTypes.find((type) => type.squadTypeId === id)
+                      setUseDefaultSquad(Boolean(squadType?.defaultSquadId))
+                    } else {
+                      setUseDefaultSquad(false)
+                    }
+                  }}
                 >
                   <option value="">Select a Squad Type...</option>
                   {squadTypes.map((squadType) => (
@@ -156,14 +176,16 @@ export default function AddSquadForm() {
                   ))}
                 </select>
               </div>
-              <div className="grid-cols-2 items-center gap-2">
-                <Checkbox
-                  type="checkbox"
-                  checked={useDefaultSquad}
-                  onChange={(e) => setUseDefaultSquad(e.target.checked)}
-                />
-                { ' Import Default Squad' }
-              </div>
+              {canCloneDefaultSquad && (
+                <div className="grid-cols-2 items-center gap-2">
+                  <Checkbox
+                    type="checkbox"
+                    checked={useDefaultSquad}
+                    onChange={(e) => setUseDefaultSquad(e.target.checked)}
+                  />
+                  {' Import Default Squad'}
+                </div>
+              )}
             </div>
           )}
         </Modal>
