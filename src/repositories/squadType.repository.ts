@@ -18,6 +18,7 @@ export class SquadTypeRepository extends BaseRepository {
             {unitTypeName: 'asc'}
           ]
         },
+        defaultSquad: true,
         faction: true
       }
     })
@@ -32,6 +33,7 @@ export class SquadTypeRepository extends BaseRepository {
             {unitTypeName: 'asc'}
           ]
         },
+        defaultSquad: true,
         faction: true
       },
       where: {

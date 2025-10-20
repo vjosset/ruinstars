@@ -1,11 +1,10 @@
+'use client'
 
-"use client"
-
+import type { SquadTypePlain } from '@/types/squadType.model'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
-import type { SquadTypePlain } from '@/types/squadType.model'
 import { Button, Checkbox, Input, Label, Modal } from '../ui'
 
 export default function AddSquadForm() {
@@ -16,11 +15,8 @@ export default function AddSquadForm() {
   const [loading, setLoading] = useState(true)
   const [squadTypes, setSquadTypes] = useState<SquadTypePlain[]>([])
   const [squadName, setSquadName] = useState('')
-  const [selectedSquadTypeId, setSelectedSquadTypeId] = useState<string | null>(null)
-  const [useDefaultSquad, setUseDefaultSquad] = useState<boolean>(false)
-  const selectedSquadType = selectedSquadTypeId
-    ? squadTypes.find((squadType) => squadType.squadTypeId === selectedSquadTypeId) ?? null
-    : null
+  const [selectedSquadType, setSelectedSquadType] = useState<SquadTypePlain | null>(null)
+  const [useDefaultSquad, setUseDefaultSquad] = useState<boolean>(true)
   const canCloneDefaultSquad = Boolean(selectedSquadType?.defaultSquadId)
 
   const userName = session?.user?.userName
@@ -69,7 +65,7 @@ export default function AddSquadForm() {
               </Button>
               <Button
                 className="px-3 py-1 rounded-md bg-primary text-white hover:bg-primary/80 disabled:opacity-50"
-                disabled={!squadName || !selectedSquadTypeId || creatingSquad}
+                disabled={!selectedSquadType || creatingSquad}
                 onClick={async () => {
                   setCreatingSquad(true)
 
@@ -86,8 +82,8 @@ export default function AddSquadForm() {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                          squadName: squadName,
-                          squadTypeId: selectedSquadTypeId,
+                          squadName: squadName == '' ? selectedSquadType?.squadTypeName : squadName,
+                          squadTypeId: selectedSquadType.squadTypeId,
                         }),
                       })
   
@@ -109,8 +105,8 @@ export default function AddSquadForm() {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                          squadName: squadName,
-                          squadTypeId: selectedSquadTypeId,
+                          squadName: squadName == '' ? selectedSquadType?.squadTypeName : squadName,
+                          squadTypeId: selectedSquadType?.squadTypeId,
                         }),
                       })
   
@@ -148,6 +144,7 @@ export default function AddSquadForm() {
                   type="text"
                   autoCapitalize="words"
                   value={squadName ?? ''}
+                  placeholder={selectedSquadType?.squadTypeName || 'Select a Squad Type'}
                   className="w-full"
                   onChange={(e) => setSquadName(e.target.value)}
                 />
@@ -156,16 +153,10 @@ export default function AddSquadForm() {
                 <Label>Squad Type</Label>
                 <select
                   className="w-full bg-card border border-border rounded p-2 text-sm"
-                  value={selectedSquadTypeId || ''}
+                  value={selectedSquadType?.squadTypeId || ''}
                   onChange={(e) => {
-                    const id = e.target.value || null
-                    setSelectedSquadTypeId(id)
-                    if (id) {
-                      const squadType = squadTypes.find((type) => type.squadTypeId === id)
-                      setUseDefaultSquad(Boolean(squadType?.defaultSquadId))
-                    } else {
-                      setUseDefaultSquad(false)
-                    }
+                    const selected = squadTypes.find(st => st.squadTypeId === e.target.value)
+                    setSelectedSquadType(selected || null)
                   }}
                 >
                   <option value="">Select a Squad Type...</option>
@@ -176,7 +167,7 @@ export default function AddSquadForm() {
                   ))}
                 </select>
               </div>
-              {canCloneDefaultSquad && (
+              {selectedSquadType && selectedSquadType.defaultSquad && (
                 <div className="grid-cols-2 items-center gap-2">
                   <Checkbox
                     type="checkbox"
