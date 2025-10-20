@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-import { SquadPlain } from '@/types'
-import SquadCard from '@/src/components/squad/SquadCard'
 import AddSquadForm from '@/src/components/squad/AddSquadForm'
+import SquadCard from '@/src/components/squad/SquadCard'
+import { SquadPlain } from '@/types'
+import { useState } from 'react'
 
 interface UserPageClientProps {
   squads: SquadPlain[]
@@ -46,20 +46,22 @@ export default function UserPageClient({ squads: initialSquads, isOwner }: UserP
   }
 
   return (
-    <div className="gap-1 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      {squads.map((squad, idx) => (
-        <SquadCard
-          key={squad.squadId}
-          squad={squad}
-          isOwner={isOwner}
-          onMoveUp={isOwner ? () => moveSquad(idx, idx - 1) : () => {}}
-          onMoveDown={isOwner ? () => moveSquad(idx, idx + 1) : () => {}}
-          onMoveFirst={isOwner ? () => moveSquad(idx, 0) : () => {}}
-          onMoveLast={isOwner ? () => moveSquad(idx, squads.length - 1) : () => {}}
-          onDelete={isOwner ? handleDelete : undefined}
-        />
-      ))}
-      {isOwner && <AddSquadForm key="Add Squad" />}
-    </div>
+    <>
+      {isOwner && <AddSquadForm key="Add Squad" />}<br/>
+      <div className="gap-1 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {squads.map((squad, idx) => (
+          <SquadCard
+            key={squad.squadId}
+            squad={squad}
+            isOwner={isOwner}
+            onMoveUp={isOwner ? () => moveSquad(idx, idx - 1) : () => {}}
+            onMoveDown={isOwner ? () => moveSquad(idx, idx + 1) : () => {}}
+            onMoveFirst={isOwner ? () => moveSquad(idx, 0) : () => {}}
+            onMoveLast={isOwner ? () => moveSquad(idx, squads.length - 1) : () => {}}
+            onDelete={isOwner ? handleDelete : undefined}
+          />
+        ))}
+      </div>
+    </>
   )
 }
