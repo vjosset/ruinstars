@@ -1,11 +1,11 @@
-import { SquadTypeLink } from '@/components/nav/Links'
+import { FactionLink } from '@/components/nav/Links'
 import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
 import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
 import ops from '@/data/scriptedOperations.json'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import { SquadTypeService } from '@/services'
+import { FactionService } from '@/services'
 import Link from 'next/link'
 import PageBreak from '../books/PageBreak'
 
@@ -14,16 +14,16 @@ export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({
   searchParams,
-}: { searchParams: Promise<{ opId?: string | string[]; squadTypeId?: string | string[] }> }) {
+}: { searchParams: Promise<{ opId?: string | string[]; factionId?: string | string[] }> }) {
   const operations = ops
-  const squadTypes = await SquadTypeService.getAllSquadTypes()
+  const factions = await FactionService.getAllFactions()
 
   const sp = await searchParams
   const rawOpId = sp?.opId
   const opId = Array.isArray(rawOpId) ? rawOpId[0] : rawOpId
 
-  const rawSquadTypeId = sp?.squadTypeId
-  const squadTypeId = Array.isArray(rawSquadTypeId) ? rawSquadTypeId[0] : rawSquadTypeId
+  const rawFactionId = sp?.factionId
+  const factionId = Array.isArray(rawFactionId) ? rawFactionId[0] : rawFactionId
 
   // Specific scripted operation
   if (opId) {
@@ -39,15 +39,15 @@ export async function generateMetadata({
   }
 
   // Filter on squad type
-  if (squadTypeId) {
-    const ops = operations.filter((o) => o.factions.squadTypeA === squadTypeId || o.factions.squadTypeB === squadTypeId)
+  if (factionId) {
+    const ops = operations.filter((o) => o.factions.factionA === factionId || o.factions.factionB === factionId)
     if (!ops || !ops.length) return
 
     return generatePageMetadata({
-      title: `${squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName} Scripted Operations`,
-      description: `Scripted operations for ${squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName} squads in ${GAME.NAME}, complete with narratives and mission details.`,
-      keywords: [...new Set(ops.flatMap(op => [`${squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName}`, op.title, 'operation', 'scripted operation', 'narrative', 'mission']))],
-      pagePath: `/scriptedoperations?squadTypeId=${encodeURIComponent(squadTypeId)}`
+      title: `${factions.find(f => f.factionId === factionId)?.factionName} Scripted Operations`,
+      description: `Scripted operations for ${factions.find(f => f.factionId === factionId)?.factionName} squads in ${GAME.NAME}, complete with narratives and mission details.`,
+      keywords: [...new Set(ops.flatMap(op => [`${factions.find(f => f.factionId === factionId)?.factionName}`, op.title, 'operation', 'scripted operation', 'narrative', 'mission']))],
+      pagePath: `/scriptedoperations?factionId=${encodeURIComponent(factionId)}`
     })
   }
   
@@ -60,19 +60,19 @@ export async function generateMetadata({
   })
 }
 
-export default async function ScriptedOperations({ searchParams }: { searchParams?: Promise<{ opId?: string | string[]; squadTypeId?: string | string[] }> | null }) {
+export default async function ScriptedOperations({ searchParams }: { searchParams?: Promise<{ opId?: string | string[]; factionId?: string | string[] }> | null }) {
   let operations = ops.sort((a, b) => a.title.localeCompare(b.title))
-  const squadTypes = await SquadTypeService.getAllSquadTypes()
+  const factions = await FactionService.getAllFactions()
 
   const sp = await searchParams
   const raw = sp?.opId
   const opId = Array.isArray(raw) ? raw[0] : raw
 
-  const rawSquadTypeId = sp?.squadTypeId
-  const squadTypeId = Array.isArray(rawSquadTypeId) ? rawSquadTypeId[0] : rawSquadTypeId
+  const rawFactionId = sp?.factionId
+  const factionId = Array.isArray(rawFactionId) ? rawFactionId[0] : rawFactionId
 
-  if (squadTypeId) {
-    operations = operations.filter((o) => o.factions.squadTypeA === squadTypeId || o.factions.squadTypeB === squadTypeId)
+  if (factionId) {
+    operations = operations.filter((o) => o.factions.factionA === factionId || o.factions.factionB === factionId)
   }
 
   if (opId) {
@@ -82,7 +82,7 @@ export default async function ScriptedOperations({ searchParams }: { searchParam
         {!op ? (
           <div>Operation not found</div>
         ) : (
-          <ScriptedOperation key={op.slug} op={op} squadTypes={squadTypes} />
+          <ScriptedOperation key={op.slug} op={op} factions={factions} />
         )}
       </div>
     )
@@ -102,13 +102,13 @@ export default async function ScriptedOperations({ searchParams }: { searchParam
       <div className="px-1 py-8 max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <PageTitle>
-            {(opId || squadTypeId) && squadTypes.find(type => type.squadTypeId === squadTypeId) ? `${squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName} ` : ''}
+            {(opId || factionId) && factions.find(f => f.factionId === factionId) ? `${factions.find(f => f.factionId === factionId)?.factionName} ` : ''}
             Scripted Operations
           </PageTitle>
-          {(opId || squadTypeId) && (
+          {(opId || factionId) && (
             <div className="noprint">
               <div className="text-muted">
-              For <SquadTypeLink squadTypeId={squadTypeId!} squadTypeName={squadTypes.find(type => type.squadTypeId === squadTypeId)?.squadTypeName!} /> squads
+              For <FactionLink factionId={factionId!} factionName={factions.find(f => f.factionId === factionId)?.factionName!} /> squads
               </div>
               <div className="mb-4">
                 <Link href="/scriptedoperations" className="underline pb-4">All Scripted Operations</Link>
@@ -116,7 +116,7 @@ export default async function ScriptedOperations({ searchParams }: { searchParam
             </div>
           )}
         </div>
-        {!opId && !squadTypeId && (
+        {!opId && !factionId && (
           <div className="mb-8 text-muted">
             <p className="mb-4">
               War rages across the stars. Squads clash in ruined cities, cursed temples, alien jungles, and forgotten fortresses.
@@ -147,7 +147,7 @@ export default async function ScriptedOperations({ searchParams }: { searchParam
           </div>
         )}
         <div className="noprint">
-          <ScriptedOperationsList operations={operations} squadTypes={squadTypes} />
+          <ScriptedOperationsList operations={operations} factions={factions} />
         </div>
       
         {/* For print, list ALL operations in full detail */}
@@ -157,7 +157,7 @@ export default async function ScriptedOperations({ searchParams }: { searchParam
             const isLast = idx === operations.length - 1
             return (
               <div className="m-6 p-6" key={op.slug} style={{ pageBreakAfter: isLast ? 'auto' : 'always' }}>
-                <ScriptedOperation op={op} squadTypes={squadTypes} />
+                <ScriptedOperation op={op} factions={factions} />
               </div>
             )
           })}
@@ -167,7 +167,7 @@ export default async function ScriptedOperations({ searchParams }: { searchParam
   )
 }
 
-export function ScriptedOperation({ op, squadTypes }: { op: any, squadTypes: { squadTypeId: string, squadTypeName: string }[] }) {
+export function ScriptedOperation({ op, factions }: { op: any, factions: { factionId: string, factionName: string }[] }) {
   return (
     <div>
       <div className="text-center mb-8">
@@ -176,7 +176,9 @@ export function ScriptedOperation({ op, squadTypes }: { op: any, squadTypes: { s
         </PageTitle>
         <div className="text-muted">
           Scripted Operation: { ' ' }<br/>
-          <SquadTypeLink squadTypeId={op.factions.squadTypeA} squadTypeName={squadTypes.find(type => type.squadTypeId === op.factions.squadTypeA)?.squadTypeName!} /> vs. <SquadTypeLink squadTypeId={op.factions.squadTypeB} squadTypeName={squadTypes.find(type => type.squadTypeId === op.factions.squadTypeB)?.squadTypeName!} />
+          <FactionLink factionId={op.factions.factionA} factionName={factions.find(f => f.factionId === op.factions.factionA)?.factionName!} />
+          vs.
+          <FactionLink factionId={op.factions.factionB} factionName={factions.find(f => f.factionId === op.factions.factionB)?.factionName!} />
         </div>
       </div>
       <div key={op.slug}>

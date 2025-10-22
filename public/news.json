@@ -1,5 +1,10 @@
 [
   {
+    "date": "2025-10-21",
+    "title": "New Squad Type - Praxium Corps",
+    "description": "The [Praxium Corps](/squadTypes/PRX) are the apex of Hegemony martial doctrine. Few in number, absolute in purpose. Each Unit is the living embodiment of a perfected combat philosophy, a human doctrine rendered in flesh and steel."
+  },
+  {
     "date": "2025-10-04",
     "title": "Big Rewrite - No Grid",
     "description": "After receiving player feedback, we rewrote the rules, skills, and missions to not rely on a Grid, but rather on freeform movement. Check [Tools](/tools) for print-at-home gauges to help with measurements. See also the [devlog](https://ruinstars.itch.io/ruinstars/devlog/1066140/from-grids-to-paces-rethinking-movement-in-ruinstars) on the subject."

@@ -251,7 +251,7 @@ export default function SquadPageClient({
           </div>
           {squad.squadTypeId != 'NPC' &&
             <div>
-              <OperationsLink squadTypeId={squad.squadTypeId} />
+              <OperationsLink factionId={squad.squadType?.factionId!} />
             </div>
           }
           <div className="flex items-center justify-center gap-2 text-muted">

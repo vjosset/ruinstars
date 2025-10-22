@@ -18,7 +18,7 @@ import RulesYourSquad from './rules-yoursquad'
 
 import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import { SquadTypeService } from '@/services'
+import { FactionService } from '@/services'
 import Link from 'next/link'
 import PageBreak from '../books/PageBreak'
 import { ScriptedOperation } from '../scriptedoperations/page'
@@ -41,7 +41,7 @@ export async function generateMetadata() {
 
 export default async function Rules() {
   const operations = ops
-  const squadTypes = await SquadTypeService.getAllSquadTypes()
+  const factions = await FactionService.getAllFactions()
   const versionTimestamp = new Intl.DateTimeFormat('en-CA', {
     year: 'numeric',
     month: '2-digit',
@@ -166,7 +166,7 @@ export default async function Rules() {
               </div>
             </div>
           </div>
-          <ScriptedOperationsList operations={operations} squadTypes={squadTypes} />
+          <ScriptedOperationsList operations={operations} factions={factions} />
 
           <PageBreak />
           <div className="printonly p-6">
@@ -174,7 +174,7 @@ export default async function Rules() {
               const isLast = idx === operations.length - 1
               return (
                 <div className="m-6 p-6" key={op.slug} style={{ pageBreakAfter: isLast ? 'auto' : 'always' }}>
-                  <ScriptedOperation op={op} squadTypes={squadTypes} />
+                  <ScriptedOperation op={op} factions={factions} />
                 </div>
               )
             })}

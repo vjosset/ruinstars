@@ -43,9 +43,9 @@ export function SquadLink({ squadId, squadName }: { squadId: string, squadName: 
   )
 }
 
-export function OperationsLink({ squadTypeId }: { squadTypeId: string }) {
+export function OperationsLink({ factionId }: { factionId: string }) {
   return (
-    <Link href={`/scriptedoperations?squadTypeId=${squadTypeId}`} className={badgeClass}>
+    <Link href={`/scriptedoperations?factionId=${factionId}`} className={badgeClass}>
       <FaScroll className="icon" />
       Scripted Operations
     </Link>

@@ -1,10 +1,10 @@
 import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
 import ops from '@/data/scriptedOperations.json'
-import { SquadTypeService } from '@/services'
+import { FactionService } from '@/services'
 
 export default async function RulesScriptedOperations({ num }: {num?: Number | null}) {
   const operations = ops.sort((a, b) => a.title.localeCompare(b.title))
-  const squadTypes = await SquadTypeService.getAllSquadTypes()
+  const factions = await FactionService.getAllFactions()
 
   return (
     <div className="section">
@@ -19,6 +19,6 @@ export default async function RulesScriptedOperations({ num }: {num?: Number | n
       <p className="printonly">
         Refer to the end of this rule book for the complete list of Scripted Operations and their Missions.
       </p>
-      <ScriptedOperationsList operations={operations} squadTypes={squadTypes} />
+      <ScriptedOperationsList operations={operations} factions={factions} />
     </div>
   )}

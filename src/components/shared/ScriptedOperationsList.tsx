@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function ScriptedOperationsList({ operations, squadTypes }: { operations: any[], squadTypes: { squadTypeId: string, squadTypeName: string }[] }) {
+export default function ScriptedOperationsList({ operations, factions }: { operations: any[], factions: { factionId: string, factionName: string }[] }) {
   if (!operations || !operations.length) {
     return <div>No scripted operations found.</div>
   }
@@ -9,8 +9,8 @@ export default function ScriptedOperationsList({ operations, squadTypes }: { ope
     <div>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
         {operations.sort((a, b) => a.title.localeCompare(b.title)).map((op) => {
-          const a = squadTypes.find(t => t.squadTypeId === op.factions.squadTypeA)
-          const b = squadTypes.find(t => t.squadTypeId === op.factions.squadTypeB)
+          const a = factions.find(t => t.factionId === op.factions.factionA)
+          const b = factions.find(t => t.factionId === op.factions.factionB)
           return (
             <Link
               key={op.slug}
@@ -22,18 +22,19 @@ export default function ScriptedOperationsList({ operations, squadTypes }: { ope
                 <div className="col-start-1 row-start-1 min-w-0">
                   <h3 className="font-heading text-lg text-main truncate">{op.title}</h3>
                   <div className="text-sm text-muted">
-                    {(a?.squadTypeName ?? op.factions.squadTypeA)}{' '}vs{' '}
-                    {(b?.squadTypeName ?? op.factions.squadTypeB)}
+                    {(a?.factionName ?? op.factions.factionA)}
+                    {' '}vs{' '}
+                    {(b?.factionName ?? op.factions.factionB)}
                   </div>
                 </div>
 
                 {/* Top-right: small portraits */}
                 <div className="col-start-2 row-start-1 flex items-center gap-2">
                   <div className="relative h-12 w-12 rounded border border-border overflow-hidden">
-                    <div className="absolute inset-0 bg-cover bg-center printbg" style={{ backgroundImage: `url(/img/squadTypes/${op.factions.squadTypeA}.webp)` }} />
+                    <div className="absolute inset-0 bg-cover bg-center printbg" style={{ backgroundImage: `url(/img/factions/${op.factions.factionA}.webp)` }} />
                   </div>
                   <div className="relative h-12 w-12 rounded border border-border overflow-hidden">
-                    <div className="absolute inset-0 bg-cover bg-center printbg" style={{ backgroundImage: `url(/img/squadTypes/${op.factions.squadTypeB}.webp)` }} />
+                    <div className="absolute inset-0 bg-cover bg-center printbg" style={{ backgroundImage: `url(/img/factions/${op.factions.factionB}.webp)` }} />
                   </div>
                 </div>
 

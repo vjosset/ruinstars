@@ -6,7 +6,7 @@ import RulesMissions from '../../rules/rules-missions'
 import { ScriptedOperation } from '../../scriptedoperations/page'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import { SquadTypeService } from '@/services'
+import { FactionService } from '@/services'
 import PageBreak from '../PageBreak'
 
 export async function generateMetadata() {
@@ -29,7 +29,7 @@ export default async function MissionsBook() {
     day: '2-digit'
   }).format(new Date()).replaceAll('-', '')
   
-  const squadTypes = await SquadTypeService.getAllSquadTypes()
+  const factions = await FactionService.getAllFactions()
   
   return (
     <>
@@ -89,7 +89,7 @@ export default async function MissionsBook() {
               const isLast = idx === ops.length - 1
               return (
                 <div className="m-6 p-6" key={op.slug} style={{ pageBreakAfter: isLast ? 'auto' : 'always' }}>
-                  <ScriptedOperation op={op} squadTypes={squadTypes} />
+                  <ScriptedOperation op={op} factions={factions} />
                 </div>
               )
             })}

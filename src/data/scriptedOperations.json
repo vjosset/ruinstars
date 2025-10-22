@@ -1,136 +1,136 @@
 [
   {
-    "slug": "CW-RW",
-    "file": "CW-RW.md",
+    "slug": "OCL-EIR",
+    "file": "OCL-EIR.md",
     "title": "Ghosts of the Past",
-    "description": "The Claimants scavenge through ruined cities, searching for salvage to fuel their rebellion. But in these same ruins, the Wardens return to reclaim their ancient artifacts. What begins as a chance encounter soon becomes a desperate contest over relics of power.",
+    "description": "The Outer Claim scavenge through ruined cities, searching for salvage to fuel their rebellion. But in these same ruins, the Eidolon Revenants return to reclaim their ancient artifacts. What begins as a chance encounter soon becomes a desperate contest over relics of power.",
     "factions": {
-      "squadTypeA": "CWB",
-      "squadTypeB": "REL"
+      "factionA": "OCL",
+      "factionB": "EIR"
     },
     "missions": [
       {
         "id": "1",
         "title": "Scavengers and Sentinels",
-        "description": "The Claimants fan out across the ruins, searching for valuable caches. But the Wardens are already here, reclaiming what is theirs. The first clash will decide who controls the treasures hidden in the rubble.",
+        "description": "The Outer Claim fan out across the ruins, searching for valuable caches. But the Eidolon Revenants are already here, reclaiming what is theirs. The first clash will decide who controls the treasures hidden in the rubble.",
         "battlefield": "The Ruined City",
         "setup": "Place 3 Cache Markers: one in the center of the West, Center, and East tiles.",
         "deployment": "Each Squad deploys from opposite Battlefield edges before Turn 1.",
         "special": "**Mission Action: Claim (2ACT)**  \nA Unit Adjacent to a Cache may spend 2ACT to secure it for their side. Once Claimed, place a marker indicating its ownership. A Claimed marker may be reclaimed by the opposing Squad.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Cache is Adjacent to any enemy Units.",
-        "victory": "- The Outer Claim wins if they own at least 2 Caches by the end of Turn 4. **Proceed to Mission 2A**\n- The Relict Wardens win in all other cases. **Proceed to Mission 2B**"
+        "victory": "- The Outer Claim wins if they own at least 2 Caches by the end of Turn 4. **Proceed to Mission 2A**\n- The Eidolon Revenants win in all other cases. **Proceed to Mission 2B**"
       },
       {
         "id": "2A",
         "title": "Deny the Relics",
-        "description": "With caches secured, the Claimants must prevent the Wardens from retaking them. They know the relics are dangerous and they will destroy them if they must.",
+        "description": "With caches secured, the Outer Claim must prevent the Eidolon Revenants from retaking them. They know the relics are dangerous and they will destroy them if they must.",
         "battlefield": "The Jungle",
-        "setup": "Claimant Warband secretly marks three Units to be Relic Carriers. These Units carry one Relic each. If a Relic Carrier reaches zero `HIT`, it drops the Relic.",
-        "deployment": "- Outer Claim deploy from the Southern battlefield edge before Turn 1.\n- Relict Wardens deploy from the Northern battlefield edge before Turn 1.",
+        "setup": "Outer Claim secretly marks three Units to be Relic Carriers. These Units carry one Relic each. If a Relic Carrier reaches zero `HIT`, it drops the Relic.",
+        "deployment": "- Outer Claim deploy from the Southern battlefield edge before Turn 1.\n- Eidolon Revenants deploy from the Northern battlefield edge before Turn 1.",
         "special": "",
-        "victory": "- The Outer Claim wins if its Units are still carrying at least 2 Relics by the end of Turn 4. **Proceed to Mission 3A**\n- The Relict Wardens win in all other cases. **Proceed to Mission 3B**"
+        "victory": "- The Outer Claim wins if its Units are still carrying at least 2 Relics by the end of Turn 4. **Proceed to Mission 3A**\n- The Eidolon Revenants win in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "2B",
         "title": "Reclaim the Caches",
-        "description": "The Wardens drive back the scavengers, sweeping the ruins to recover their relics. The Claimants fight to keep their prize or deny it to all.",
+        "description": "The Eidolon Revenants drive back the scavengers, sweeping the ruins to recover their relics. The Outer Claim fight to keep their prize or deny it to all.",
         "battlefield": "The Jungle",
-        "setup": "Relict Wardens secretly marks three Units to be Relic Carriers. These Units carry one Relic each. If a Relic Carrier reaches less than half of its `HIT`, it drops the Relic and it cannot be picked up again.",
-        "deployment": "- Relict Wardens deploy from the Southern battlefield edge before Turn 1.\n- Outer Claim deploy from the Northern battlefield edge before Turn 1.",
+        "setup": "Eidolon Revenants secretly marks three Units to be Relic Carriers. These Units carry one Relic each. If a Relic Carrier reaches less than half of its `HIT`, it drops the Relic and it cannot be picked up again.",
+        "deployment": "- Eidolon Revenants deploy from the Southern battlefield edge before Turn 1.\n- Outer Claim deploy from the Northern battlefield edge before Turn 1.",
         "special": "",
-        "victory": "- The Relict Wardens win if their Units are still carrying at least 2 Relics by the end of Turn 4. **Proceed to Mission 3A**\n- The Outer Claim win in all other cases. **Proceed to Mission 3B**"
+        "victory": "- The Eidolon Revenants win if their Units are still carrying at least 2 Relics by the end of Turn 4. **Proceed to Mission 3A**\n- The Outer Claim win in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "3A",
         "title": "Burn the Past",
-        "description": "The Claimants resolve to erase what cannot be claimed. Fires spread through the ruins as they attempt to burn every last relic before the Wardens can stop them.",
+        "description": "The Outer Claim resolve to erase what cannot be claimed. Fires spread through the ruins as they attempt to burn every last relic before the Eidolon Revenants can stop them.",
         "battlefield": "The Ruined City",
         "setup": "Outer Claim secretly marks 3 Units as Relic Carriers.\n\nPlace one Cursed Pit marker in the center of the Central tile.",
-        "deployment": "- Relict Wardens deploy from the Southern battlefield edge before Turn 1.\n- Outer Claim deploy from the Northern battlefield edge before Turn 1.",
+        "deployment": "- Eidolon Revenants deploy from the Southern battlefield edge before Turn 1.\n- Outer Claim deploy from the Northern battlefield edge before Turn 1.",
         "special": "**Mission Action: Destroy (2ACT)**  \nAn Outer Claim Relic Carrier Adjacent to the Cursed Pit may spend 2ACT to Ignite it. At the end of each Turn, roll 1D6 for each Ignited Relic: on 3+, that Relic is destroyed.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
-        "victory": "- The Outer Claim wins if all 3 Relics are destroyed by the end of Turn 4.\n- The Relict Wardens win in all other cases."
+        "victory": "- The Outer Claim wins if all 3 Relics are destroyed by the end of Turn 4.\n- The Eidolon Revenants win in all other cases."
       },
       {
         "id": "3B",
         "title": "Sanctify the Relics",
-        "description": "The Wardens gather their recovered relics to sanctify them in ancient rites, ensuring the Claimants can never threaten them again. The Claimants launch one last desperate assault to disrupt the ceremony.",
+        "description": "The Eidolon Revenants gather their recovered relics to sanctify them in ancient rites, ensuring the Outer Claim can never threaten them again. The Outer Claim launch one last desperate assault to disrupt the ceremony.",
         "battlefield": "The Cursed Temple",
         "setup": "Place 3 Altar Markers: one in the center of the West, Center, and East tiles. Place a Relic atop each Altar.",
-        "deployment": "- Relict Wardens deploy within 2 Squares of any Altar before Turn 1.\n- Outer Claim deploy from the Southern battlefield edge before Turn 1.",
+        "deployment": "- Eidolon Revenants deploy within 2 Squares of any Altar before Turn 1.\n- Outer Claim deploy from the Southern battlefield edge before Turn 1.",
         "special": "**Mission Action: Sanctify (2ACT)**  \nRelict Warden Units may attempt to Sanctify (2ACT) a relic while Adjacent to an Altar. Place a Sanctify marker on that Relic. At the end of each Turn, roll 1D6 for each of the Sanctified Relics: On a 1 or 2, that Relic is successfully Sanctified.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Altar is Adjacent to any enemy Units.",
-        "victory": "- The Relict Wardens win if all 3 Relics are successfully Sanctified by the end of Turn 4.\n- The Outer Claim wins in all other cases."
+        "victory": "- The Eidolon Revenants win if all 3 Relics are successfully Sanctified by the end of Turn 4.\n- The Outer Claim wins in all other cases."
       }
     ]
   },
   {
-    "slug": "CW-SCH",
-    "file": "CW-SCH.md",
+    "slug": "OCL-CRS",
+    "file": "OCL-CRS.md",
     "title": "Broken Chains",
-    "description": "The Silent Choir seeks to enthrall the leaders of the Claimants, binding them in chains of whispered compulsions. The Claimants rally to break this grip before their rebellion is shattered from within. Each battle swings between domination and freedom, until only one side remains in control of the Claimants' destiny.",
+    "description": "The Crimson Shroud seeks to enthrall the leaders of the Outer Claim, binding them in chains of whispered compulsions. The Outer Claim rally to break this grip before their rebellion is shattered from within. Each battle swings between domination and freedom, until only one side remains in control of the Outer Claim' destiny.",
     "factions": {
-      "squadTypeA": "CWB",
-      "squadTypeB": "SCH"
+      "factionA": "OCL",
+      "factionB": "CRS"
     },
     "missions": [
       {
         "id": "1",
         "title": "The Ensnared Leaders",
-        "description": "The Choir has already begun its work, dragging Outer Claim leaders toward ritual chambers. The Claimants must intercept and rescue them before they are lost forever.",
+        "description": "The Crimson Shroud has already begun its work, dragging Outer Claim leaders toward ritual chambers. The Outer Claim must intercept and rescue them before they are lost forever.",
         "battlefield": "The Facility",
-        "setup": "Place 3 Leader Tokens in the center of the Central Tile.\nDesignate the Eastern battlefield edge as the **Choir Temple Edge** and the Western battlefield edge as the **Claimant Safe Edge**.",
-        "deployment": "* Silent Choir deploy from the Eastern battlefield edge before Turn 1.\n* Outer Claim deploy from the Western battlefield edge before Turn 1.",
-        "special": "**Mission Action: Compel (2ACT)**  \nA Silent Choir Unit Adjacent to a Leader Token may spend 2ACT to move it 2 Squares toward the Temple Edge.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Rescue (2ACT)**  \nAn Outer Claim Unit Adjacent to a Leader Token may spend 2ACT to move it 2 Squares toward the Safe Edge.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Leader Token is Adjacent to any enemy Units.\n\nLeader Tokens cannot be destroyed and may not be carried.",
-        "victory": "* The Silent Choir wins if at least 2 Leader Tokens are within 2 Squares of the Temple Edge before the end of Turn 4. **Proceed to Mission 2B**\n* The Outer Claim wins if at least 2 Leader Tokens are within 2 Squares of the Safe Edge before the end of Turn 4. **Proceed to Mission 2A**\n* If neither side achieves this, the side with more Tokens closer to their edge wins."
+        "setup": "Place 3 Leader Tokens in the center of the Central Tile.\nDesignate the Eastern battlefield edge as the **Crimson Shroud Temple Edge** and the Western battlefield edge as the **Outer Claim Safe Edge**.",
+        "deployment": "* Crimson Shroud deploy from the Eastern battlefield edge before Turn 1.\n* Outer Claim deploy from the Western battlefield edge before Turn 1.",
+        "special": "**Mission Action: Compel (2ACT)**  \nA Crimson Shroud Unit Adjacent to a Leader Token may spend 2ACT to move it 2 Squares toward the Temple Edge.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Rescue (2ACT)**  \nAn Outer Claim Unit Adjacent to a Leader Token may spend 2ACT to move it 2 Squares toward the Safe Edge.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Leader Token is Adjacent to any enemy Units.\n\nLeader Tokens cannot be destroyed and may not be carried.",
+        "victory": "* The Crimson Shroud wins if at least 2 Leader Tokens are within 2 Squares of the Temple Edge before the end of Turn 4. **Proceed to Mission 2B**\n* The Outer Claim wins if at least 2 Leader Tokens are within 2 Squares of the Safe Edge before the end of Turn 4. **Proceed to Mission 2A**\n* If neither side achieves this, the side with more Tokens closer to their edge wins."
       },
       {
         "id": "2A",
         "title": "Purge the Shrines",
-        "description": "The Claimants press into the Choir's sanctum, where a great shrine pulses with malign power. The ritual is already underway; the Choir seeks to complete its corruption, while the Claimants fight to cleanse it.",
+        "description": "The Outer Claim press into the Crimson Shroud's sanctum, where a great shrine pulses with malign power. The ritual is already underway; the Crimson Shroud seeks to complete its corruption, while the Outer Claim fight to cleanse it.",
         "battlefield": "The Cursed Temple",
         "setup": "Place 1 Central Shrine Marker in the center of the Central Tile.\nPlace 4 Ritual Counters on the Shrine.",
-        "deployment": "* Silent Choir deploy within 2 Squares of the Shrine before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Corrupt Shrine (2ACT)**  \nDuring Turns 1-2, the Silent Choir may perform this Action while Adjacent to the Shrine. Each success adds 1 Ritual Counter (max 6).\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Shrine is Adjacent to any enemy Units.\n\n**Cleanse Shrine (2ACT)**  \nDuring Turns 3-4, the Outer Claim may perform this Action while Adjacent to the Shrine. Each success removes 1 Ritual Counter (min 0).\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Shrine is Adjacent to any enemy Units.",
-        "victory": "* The Silent Choir wins if the Shrine has 4 or more Ritual Counters at the end of Turn 4. **Proceed to Mission 3B**\n* The Outer Claim wins if the Shrine has 2 or fewer Ritual Counters at the end of Turn 4. **Proceed to Mission 3A**\n* If the Shrine has exactly 3 Counters, play 1 extra Turn; at the end, whichever side moved it furthest in their direction is the winner."
+        "deployment": "* Crimson Shroud deploy within 2 Squares of the Shrine before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
+        "special": "**Corrupt Shrine (2ACT)**  \nDuring Turns 1-2, the Crimson Shroud may perform this Action while Adjacent to the Shrine. Each success adds 1 Ritual Counter (max 6).\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Shrine is Adjacent to any enemy Units.\n\n**Cleanse Shrine (2ACT)**  \nDuring Turns 3-4, the Outer Claim may perform this Action while Adjacent to the Shrine. Each success removes 1 Ritual Counter (min 0).\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Shrine is Adjacent to any enemy Units.",
+        "victory": "* The Crimson Shroud wins if the Shrine has 4 or more Ritual Counters at the end of Turn 4. **Proceed to Mission 3B**\n* The Outer Claim wins if the Shrine has 2 or fewer Ritual Counters at the end of Turn 4. **Proceed to Mission 3A**\n* If the Shrine has exactly 3 Counters, play 1 extra Turn; at the end, whichever side moved it furthest in their direction is the winner."
       },
       {
         "id": "2B",
         "title": "The Spreading Blight",
-        "description": "With Claimant leaders enthralled, the Choir's corruption seeps into the wilds. Idols are raised, radiating their influence across the land. The Claimants must shatter them before the rot spreads too far.",
+        "description": "With Outer Claim leaders enthralled, the Crimson Shroud's corruption seeps into the wilds. Idols are raised, radiating their influence across the land. The Outer Claim must shatter them before the rot spreads too far.",
         "battlefield": "The Jungle",
         "setup": "Place 2 Idol Markers: one in the center of the Northwest Tile, one in the center of the Northeast Tile.",
-        "deployment": "* Silent Choir deploy within 3 Squares of any Idol before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
+        "deployment": "* Crimson Shroud deploy within 3 Squares of any Idol before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
         "special": "**Blight Aura**: At the start of each Turn, all Units within 3 Squares of an Idol must roll 1D6. On a 5–6, they lose 1ACT this Turn.\n\n**Mission Action: Shatter Idol (2ACT)**  \nA Unit Adjacent to an Idol may spend 2ACT to destroy it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Idol is Adjacent to any enemy Units.",
-        "victory": "* The Silent Choir wins if at least 1 Idol remains standing at the end of Turn 4. **Proceed to Mission 3B**\n* The Outer Claim wins if both Idols are destroyed by the end of Turn 4. **Proceed to Mission 3A**"
+        "victory": "* The Crimson Shroud wins if at least 1 Idol remains standing at the end of Turn 4. **Proceed to Mission 3B**\n* The Outer Claim wins if both Idols are destroyed by the end of Turn 4. **Proceed to Mission 3A**"
       },
       {
         "id": "3A",
         "title": "Chains Broken",
-        "description": "The Claimants surge through the ruins, desperate to free their kin. The Choir holds captives for the final ritual, but the rebels will not rest until their leaders are safe.",
+        "description": "The Outer Claim surge through the ruins, desperate to free their kin. The Crimson Shroud holds captives for the final ritual, but the rebels will not rest until their leaders are safe.",
         "battlefield": "The Ruined City",
         "setup": "Place 3 Captive Markers: one in the center of each of the Northwest, North, and Northeast tiles.",
-        "deployment": "* Silent Choir deploy within 2 Squares of any Captive before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
+        "deployment": "* Crimson Shroud deploy within 2 Squares of any Captive before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
         "special": "**Mission Action: Free (2ACT)**  \nAn Outer Claim Unit Adjacent to a Captive may spend 2ACT to Free them. Place a Freed marker on the Captive.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Captive is Adjacent to any enemy Units.",
-        "victory": "* The Outer Claim wins if at least 2 Captives are Freed by the end of Turn 4.\n* The Silent Choir wins in all other cases."
+        "victory": "* The Outer Claim wins if at least 2 Captives are Freed by the end of Turn 4.\n* The Crimson Shroud wins in all other cases."
       },
       {
         "id": "3B",
         "title": "Shackled Rebellion",
-        "description": "The Choir's enthralled leaders are brought to the cursed temple for the final compulsion. If the ritual completes, the rebellion will be theirs to command. The Claimants launch a last, desperate attack to shatter the ritual chains.",
+        "description": "The Crimson Shroud's enthralled leaders are brought to the cursed temple for the final compulsion. If the ritual completes, the rebellion will be theirs to command. The Outer Claim launch a last, desperate attack to shatter the ritual chains.",
         "battlefield": "The Cursed Temple",
         "setup": "Place 1 Ritual Track (off-board) starting at 0.",
-        "deployment": "* Silent Choir deploy within 2 Squares of the Central Tile before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Compel (2ACT)**  \nOnce per Turn, a Silent Choir Unit Adjacent to the Central Altar may spend 2ACT to advance the Ritual Track by 1. Max 6.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Altar is Adjacent to any enemy Units.\n\n**Mission Action: Disrupt (2ACT)**  \nOnce per Turn, an Outer Claim Unit Adjacent to the Central Altar may spend 2ACT to reduce the Ritual Track by 1. Min 0.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Altar is Adjacent to any enemy Units.",
-        "victory": "* The Silent Choir wins if the Ritual Track is 4 or higher at the end of Turn 4.\n* The Outer Claim wins if the Ritual Track is 2 or lower at the end of Turn 4.\n* If the Ritual Track is exactly 3, play 1 extra Turn; whichever side shifts it further in their direction is the winner."
+        "deployment": "* Crimson Shroud deploy within 2 Squares of the Central Tile before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
+        "special": "**Mission Action: Compel (2ACT)**  \nOnce per Turn, a Crimson Shroud Unit Adjacent to the Central Altar may spend 2ACT to advance the Ritual Track by 1. Max 6.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Altar is Adjacent to any enemy Units.\n\n**Mission Action: Disrupt (2ACT)**  \nOnce per Turn, an Outer Claim Unit Adjacent to the Central Altar may spend 2ACT to reduce the Ritual Track by 1. Min 0.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Altar is Adjacent to any enemy Units.",
+        "victory": "* The Crimson Shroud wins if the Ritual Track is 4 or higher at the end of Turn 4.\n* The Outer Claim wins if the Ritual Track is 2 or lower at the end of Turn 4.\n* If the Ritual Track is exactly 3, play 1 extra Turn; whichever side shifts it further in their direction is the winner."
       }
     ]
   },
   {
-    "slug": "DRN-DRN",
-    "file": "DRN-DRN.md",
+    "slug": "SWARM-SWARM",
+    "file": "SWARM-SWARM.md",
     "title": "Brood War",
     "description": "Rival hive broods clash, each seeking to establish dominance. Strategic ground is seized for spawning, brood chambers are razed, and the conflict culminates in a primal battle between the Brood Mothers themselves. Only one strain will survive to spread its genes across the stars.",
     "factions": {
-      "squadTypeA": "DRN",
-      "squadTypeB": "DRN"
+      "factionA": "SWARM",
+      "factionB": "SWARM"
     },
     "missions": [
       {
@@ -166,96 +166,96 @@
     ]
   },
   {
-    "slug": "INT-CW",
-    "file": "INT-CW.md",
+    "slug": "HEG-OCL",
+    "file": "HEG-OCL.md",
     "title": "Terror Attack",
-    "description": "A Claimant Warband plots a devastating terror strike, assembling explosives and preparing to unleash them upon the Hegemony. The Interdictors must intercept, contain, and dismantle the threat before the rebellion's strike shakes the sector.",
+    "description": "An Outer Claim plots a devastating terror strike, assembling explosives and preparing to unleash them upon the Hegemony. The Hegemony must intercept, contain, and dismantle the threat before the rebellion's strike shakes the sector.",
     "factions": {
-      "squadTypeA": "INT",
-      "squadTypeB": "CWB"
+      "factionA": "HEG",
+      "factionB": "OCL"
     },
     "missions": [
       {
         "id": "1",
         "title": "Stolen Charges",
-        "description": "The Claimants raid supply stores, gathering explosives for their plot. The Interdictors rush to intercept before the caches can be stolen away.",
+        "description": "The Outer Claim raid supply stores, gathering explosives for their plot. The Hegemony rush to intercept before the caches can be stolen away.",
         "battlefield": "The Facility",
         "setup": "Place 3 Explosive Cache Markers: one in the center of the West, Center, and East tiles.",
         "deployment": "Each Squad deploys from opposite battlefield edges before Turn 1.",
         "special": "**Mission Action: Seize Explosives (2ACT)**  \nA Unit Adjacent to a Cache may spend 2ACT to pick it up. Once it is picked up, it is carried and can be dropped or passed normally.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Cache is Adjacent to any enemy Units.",
-        "victory": "* The Outer Claim wins if they carry at least 2 Explosives Caches at the end of Turn 4. **Proceed to Mission 2A**\n* The Interdictors win in all other cases. **Proceed to Mission 2B**"
+        "victory": "* The Outer Claim wins if they carry at least 2 Explosives Caches at the end of Turn 4. **Proceed to Mission 2A**\n* The Hegemony win in all other cases. **Proceed to Mission 2B**"
       },
       {
         "id": "2A",
         "title": "Assemble the Bomb",
-        "description": "With explosives secured, the Claimants begin assembling their device. The Interdictors strike hard, desperate to dismantle it before it can be completed.",
+        "description": "With explosives secured, the Outer Claim begin assembling their device. The Hegemony strike hard, desperate to dismantle it before it can be completed.",
         "battlefield": "The Ruined City",
         "setup": "Place 1 Bomb Marker in the center of the Central Tile.",
-        "deployment": "* Outer Claim deploy within 2 Squares of the Bomb before Turn 1.\n* Interdictors deploy from any battlefield edge before Turn 1.",
-        "special": "**Mission Action: Assemble (2ACT)**  \nAn Outer Claim Unit Adjacent to the Bomb may spend 2ACT to add 1 Assembly Counter (max 6).\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.\n\n**Mission Action: Dismantle (2ACT)**  \nAn Interdictor Unit Adjacent to the Bomb may spend 2ACT to remove 1 Assembly Counter (min 0).\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.",
-        "victory": "* The Outer Claim wins if the Bomb has 4 or more Assembly Counters by the end of Turn 4. **Proceed to Mission 3A**\n* The Interdictors win in all other cases. **Proceed to Mission 3B**"
+        "deployment": "* Outer Claim deploy within 2 Squares of the Bomb before Turn 1.\n* Hegemony deploy from any battlefield edge before Turn 1.",
+        "special": "**Mission Action: Assemble (2ACT)**  \nAn Outer Claim Unit Adjacent to the Bomb may spend 2ACT to add 1 Assembly Counter (max 6).\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.\n\n**Mission Action: Dismantle (2ACT)**  \nA Hegemony Unit Adjacent to the Bomb may spend 2ACT to remove 1 Assembly Counter (min 0).\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.",
+        "victory": "* The Outer Claim wins if the Bomb has 4 or more Assembly Counters by the end of Turn 4. **Proceed to Mission 3A**\n* The Hegemony win in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "2B",
         "title": "Hidden Stockpiles",
-        "description": "The Interdictors have denied the initial raid, but the Claimants maintain hidden stockpiles in the wilds. If they recover them, the plan may yet succeed.",
+        "description": "The Hegemony have denied the initial raid, but the Outer Claim maintain hidden stockpiles in the wilds. If they recover them, the plan may yet succeed.",
         "battlefield": "The Jungle",
         "setup": "Place 2 Stockpile Markers: one in the center of the Northwest Tile, one in the center of the Northeast Tile.",
-        "deployment": "* Outer Claim deploy within 2 Squares of any Stockpile before Turn 1.\n* Interdictors deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Destroy Stockpile (2ACT)**  \nAn Interdictor Unit Adjacent to a Stockpile may spend 2ACT to destroy it. Remove it from play.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Stockpile is Adjacent to any enemy Units.",
-        "victory": "* The Outer Claim wins if at least 1 Stockpile is Claimed by the end of Turn 4. **Proceed to Mission 3A**\n* The Interdictors win if both Stockpiles are destroyed. **Proceed to Mission 3B**"
+        "deployment": "* Outer Claim deploy within 2 Squares of any Stockpile before Turn 1.\n* Hegemony deploy from the Southern battlefield edge before Turn 1.",
+        "special": "**Mission Action: Destroy Stockpile (2ACT)**  \nA Hegemony Unit Adjacent to a Stockpile may spend 2ACT to destroy it. Remove it from play.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Stockpile is Adjacent to any enemy Units.",
+        "victory": "* The Outer Claim wins if at least 1 Stockpile is Claimed by the end of Turn 4. **Proceed to Mission 3A**\n* The Hegemony win if both Stockpiles are destroyed. **Proceed to Mission 3B**"
       },
       {
         "id": "3A",
         "title": "Detonate the Device",
-        "description": "The bomb is ready, and the Claimants push to plant and detonate it. The Interdictors' only hope is to defuse the device before it can be unleashed.",
+        "description": "The bomb is ready, and the Outer Claim push to plant and detonate it. The Hegemony' only hope is to defuse the device before it can be unleashed.",
         "battlefield": "The Ruined City",
         "setup": "Place 1 Bomb Marker in the center of the Central Tile.",
-        "deployment": "* Outer Claim deploy from the Northern battlefield edge before Turn 1.\n* Interdictors deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Plant Bomb (2ACT)**  \nAn Outer Claim Unit Adjacent to the Bomb may spend 2ACT to Arm it. Place an Armed marker on the Bomb.\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.\n\n**Mission Action: Defuse (2ACT)**  \nAn Interdictor Unit Adjacent to an Armed Bomb may spend 2ACT to remove the Armed marker.\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.",
-        "victory": "* The Outer Claim wins if the Bomb is Armed at the end of Turn 4.\n* The Interdictors win in all other cases."
+        "deployment": "* Outer Claim deploy from the Northern battlefield edge before Turn 1.\n* Hegemony deploy from the Southern battlefield edge before Turn 1.",
+        "special": "**Mission Action: Plant Bomb (2ACT)**  \nAn Outer Claim Unit Adjacent to the Bomb may spend 2ACT to Arm it. Place an Armed marker on the Bomb.\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.\n\n**Mission Action: Defuse (2ACT)**  \nA Hegemony Unit Adjacent to an Armed Bomb may spend 2ACT to remove the Armed marker.\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.",
+        "victory": "* The Outer Claim wins if the Bomb is Armed at the end of Turn 4.\n* The Hegemony win in all other cases."
       },
       {
         "id": "3B",
         "title": "Contain the Blast",
-        "description": "The Claimants' terror strike is incomplete, but dangerous charges remain. The Interdictors work to secure and contain them, while the Claimants attempt to trigger whatever destruction they still can.",
+        "description": "The Outer Claim' terror strike is incomplete, but dangerous charges remain. The Hegemony work to secure and contain them, while the Outer Claim attempt to trigger whatever destruction they still can.",
         "battlefield": "The Facility",
         "setup": "Place 3 Charge Markers: one in the center of the West, Center, and East tiles.",
-        "deployment": "* Outer Claim deploy within 2 Squares of any Charge before Turn 1.\n* Interdictors deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Arm (2ACT)**  \nAn Outer Claim Unit Adjacent to a Charge may spend 2ACT to arm it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Disarm (2ACT)**  \nAn Interdictor Unit Adjacent to an Armed Charge may spend 2ACT to Disarm it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
-        "victory": "* The Outer Claim wins if both Charges are armed at the end of Turn 4.\n* The Interdictors win in all other cases."
+        "deployment": "* Outer Claim deploy within 2 Squares of any Charge before Turn 1.\n* Hegemony deploy from the Southern battlefield edge before Turn 1.",
+        "special": "**Mission Action: Arm (2ACT)**  \nAn Outer Claim Unit Adjacent to a Charge may spend 2ACT to arm it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Disarm (2ACT)**  \nA Hegemony Unit Adjacent to an Armed Charge may spend 2ACT to Disarm it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "victory": "* The Outer Claim wins if both Charges are armed at the end of Turn 4.\n* The Hegemony win in all other cases."
       }
     ]
   },
   {
-    "slug": "INT-DRN",
-    "file": "INT-DRN.md",
+    "slug": "HEG-SWARM",
+    "file": "HEG-SWARM.md",
     "title": "Infestation",
     "description": "The Hegemony seeks to root out the Swarm infestation, while the Swarm fights for survival and dominance.",
     "factions": {
-      "squadTypeA": "INT",
-      "squadTypeB": "DRN"
+      "factionA": "HEG",
+      "factionB": "SWARM"
     },
     "missions": [
       {
         "id": "1",
         "title": "Breach and Infiltrate",
-        "description": "The facility's lower levels are sealed. The Interdictors must breach the perimeter to gain access, while the Swarm defends the hatch and denies entry.",
+        "description": "The facility's lower levels are sealed. The Hegemony must breach the perimeter to gain access, while the Swarm defends the hatch and denies entry.",
         "battlefield": "The Facility",
         "setup": "Place a Hatch marker in the center square of the central tile.",
-        "deployment": "Interdictors deploy before Turn 1 on any battlefield edge.\nThe Swarm deploys before Turn 1 within 3 squares of the Hatch marker.",
+        "deployment": "Hegemony deploy before Turn 1 on any battlefield edge.\nThe Swarm deploys before Turn 1 within 3 squares of the Hatch marker.",
         "special": "The Hatch is an item with `ARM` **4** and `HIT` **4** and may be targeted in Combat.\nIf the Hatch reaches 0 HIT, it is breached.\n\n**Mission Action: Torch Breach (2ACT)**  \nOnce per Turn, a Unit Adjacent to the Hatch may spend 2ACT to remove 1 `HIT` from it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
-        "victory": "- The Interdictors win the Mission if the Hatch is breached before the end of Turn 4. **Proceed to Mission 2A**\n- The Swarm wins in all other cases. **Proceed to Mission 2B**"
+        "victory": "- The Hegemony win the Mission if the Hatch is breached before the end of Turn 4. **Proceed to Mission 2A**\n- The Swarm wins in all other cases. **Proceed to Mission 2B**"
       },
       {
         "id": "2A",
         "title": "Destroy the Nests",
-        "description": "Within the facility, three nests sustain the infestation. The Interdictors aim to destroy them to cripple the Swarm, while the Swarm must hold at all costs.",
+        "description": "Within the facility, three nests sustain the infestation. The Hegemony aim to destroy them to cripple the Swarm, while the Swarm must hold at all costs.",
         "battlefield": "The Alien Hive",
         "setup": "Deploy 3 Spawn Points, one in the center of the West, Center, and East Tiles.",
         "deployment": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.\nBoth Squads deploy from their Battlefield edge before Turn 1.",
         "special": "Spawn Points are treated as items with `ARM` **4** and `HIT` **2**.\nSpawn Points cannot be targeted in Ranged Combat if there is at least one Swarm Unit Adjacent to that Spawn Point.\nIf a Spawn Point is targeted in combat and is not Taken Out as a result of that combat, it regains all of its `HIT`.",
-        "victory": "- Interdictors win the Mission if all three Spawn Points are destroyed before the end of Turn 4. **Proceed to Mission 3A**\n- Swarm wins the Mission in all other cases. **Proceed to Mission 3B**"
+        "victory": "- Hegemony win the Mission if all three Spawn Points are destroyed before the end of Turn 4. **Proceed to Mission 3A**\n- Swarm wins the Mission in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "2B",
@@ -263,40 +263,40 @@
         "description": "With the direct route blocked, an alternate path must be secured. A control room holds the means to open access, but activation takes time and the defenders will not yield it willingly.",
         "battlefield": "The Facility",
         "setup": "Place one Console in the center of each of the Northwest, North, and Northeast tiles.",
-        "deployment": "The Swarm deploys its Units within 2 Squares of a Console before Turn 1.\nInterdictors deploy from the southern edge of the Battlefield before Turn 1.",
+        "deployment": "The Swarm deploys its Units within 2 Squares of a Console before Turn 1.\nHegemony deploy from the southern edge of the Battlefield before Turn 1.",
         "special": "**Mission Action: Activate Console (2ACT)**  \nOne Unit Adjacent to a Console may spend 2ACT to Activate that Console.\nA Unit may not perform this action if it is Adjacent to any enemy Units.",
-        "victory": "- Interdictors win the Mission if all three Consoles are activated before the end of Turn 4. **Proceed to Mission 2A**\n- Swarm wins in all other cases. **Proceed to Mission 3B**"
+        "victory": "- Hegemony win the Mission if all three Consoles are activated before the end of Turn 4. **Proceed to Mission 2A**\n- Swarm wins in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "3A",
         "title": "Purge The Infestation",
-        "description": "With the facility's defenses collapsing, the Interdictors must eradicate the remnants of the Swarm while the Swarm must rally for survival.",
+        "description": "With the facility's defenses collapsing, the Hegemony must eradicate the remnants of the Swarm while the Swarm must rally for survival.",
         "battlefield": "The Ruined City",
         "setup": "",
-        "deployment": "The Swarm deploys anywhere on the Battlefield before Turn 1.\nInterdictors deploy from the southern edge of the Battlefield before Turn 1.",
+        "deployment": "The Swarm deploys anywhere on the Battlefield before Turn 1.\nHegemony deploy from the southern edge of the Battlefield before Turn 1.",
         "special": "",
-        "victory": "- The Interdictors win the Mission if all enemy Units have been Taken Out by the end of Turn 4.\n- The Swarm wins the Mission if at least one Unit remains Standing by the end of Turn 4."
+        "victory": "- The Hegemony win the Mission if all enemy Units have been Taken Out by the end of Turn 4.\n- The Swarm wins the Mission if at least one Unit remains Standing by the end of Turn 4."
       },
       {
         "id": "3B",
         "title": "Hold Until Evac",
-        "description": "The Interdictors operation has failed. They must hold out long enough for extraction, while the Swarm surge from every direction to overwhelm them.",
+        "description": "The Hegemony operation has failed. They must hold out long enough for extraction, while the Swarm surge from every direction to overwhelm them.",
         "battlefield": "The Ruined City",
         "setup": "Set up terrain so that the central tile is at least half enclosed.",
-        "deployment": "Interdictors deploy all Units anywhere on the Central Tile.\nDuring Turn 1, when it is a Swarm Unit's Activation, deploy it on any Battlefield edge.",
-        "special": "Drone Pod always has the Initative in Turn 1.",
+        "deployment": "Hegemony deploy all Units anywhere on the Central Tile.\nDuring Turn 1, when it is a Swarm Unit's Activation, deploy it on any Battlefield edge.",
+        "special": "Swarm always has the Initative in Turn 1.",
         "victory": "At the end of Turn 4, each Squad adds up the remaining HIT of Standing Units on the central tile.\nThe Squad with the highest total wins the Mission.\nIn case of a tie, the Swarm wins the Mission."
       }
     ]
   },
   {
-    "slug": "INT-INT",
-    "file": "INT-INT.md",
+    "slug": "HEG-HEG",
+    "file": "HEG-HEG.md",
     "title": "Splinter Group",
     "description": "Accusations of heresy and corruption splinter the ranks, and brother turns against brother. Each side believes itself the true loyalists, but only one squad will emerge to carry the banner forward.",
     "factions": {
-      "squadTypeA": "INT",
-      "squadTypeB": "INT"
+      "factionA": "HEG",
+      "factionB": "HEG"
     },
     "missions": [
       {
@@ -332,7 +332,7 @@
       {
         "id": "3",
         "title": "Rivals",
-        "description": "The feud reaches its climax. The leaders of each faction have sworn a blood oath: only one will remain standing. Squads clash around them, but the duel of commanders will decide the future of the Interdictors.",
+        "description": "The feud reaches its climax. The leaders of each faction have sworn a blood oath: only one will remain standing. Squads clash around them, but the duel of commanders will decide the future of the Hegemony.",
         "battlefield": "No Man's Land",
         "setup": "",
         "deployment": "Each Squad deploys from opposite battlefield edges before Turn 1.",
@@ -342,49 +342,49 @@
     ]
   },
   {
-    "slug": "INT-KF",
-    "file": "INT-KF.md",
+    "slug": "HEG-GRUTAK",
+    "file": "HEG-GRUTAK.md",
     "title": "Power Grab",
-    "description": "The Grutak raid deep into Hegemony territory, hungry for loot, dominance, and the thrill of proving who's strongest. The Interdictors scramble to protect convoys, sabotage raids, and break the mob before it grows out of control.",
+    "description": "The Grutak raid deep into Hegemony territory, hungry for loot, dominance, and the thrill of proving who's strongest. The Hegemony scramble to protect convoys, sabotage raids, and break the mob before it grows out of control.",
     "factions": {
-      "squadTypeA": "INT",
-      "squadTypeB": "KF"
+      "factionA": "HEG",
+      "factionB": "GRUTAK"
     },
     "missions": [
       {
         "id": "1",
         "title": "Loot the Convoy",
-        "description": "The Interdictors' convoy rumbles across the battlefield, laden with weapons and ordnance. The Krumpfists swarm to board and loot it, even as its armored bulk crushes everything in its path.",
+        "description": "The Hegemony' convoy rumbles across the battlefield, laden with weapons and ordnance. The Grutak swarm to board and loot it, even as its armored bulk crushes everything in its path.",
         "battlefield": "No Man's Land",
         "setup": "The Convoy is represented by a large marker that covers 3x3 Squares and is 1 Square tall.\nIt begins off-board.\nAt the start of Turns 2, place the Convoy covering the central 3×3 Squares of the Western Tile. Inflict 3 Melee Damage on any Units that are directly West of it.\nThe Convoy is unaffected by any battlefield events or effects.",
-        "deployment": "* Interdictors deploy from the Western edge of the Northwest and Southwest tiles before Turn 1.\n* Krumpfists deploy from the Northern and Southern battlefield edges before Turn 1.",
-        "special": "**Convoy Movement:**\nAt the start of each Turn after the first, each Unit that is on the Convoy moves one Square to the West. Then, move the Convoy (and the Units that are still standing on it) 1 Tile East.\nAny Units between its previous and new position are \"run over\", taking 3 Melee Damage.\n\n**Mission Action: Loot Convoy (2ACT)**  \nA Krumpfist Unit standing on the Convoy may spend 2ACT to loot it.\nA Unit may not perform this Action if it is Adjacent to enemy Units.",
-        "victory": "* The Krumpfists win if they perform at least 2 Loot Convoy Actions by the end of Turn 4. **Proceed to Mission 2A**\n* The Interdictors win in all other cases. **Proceed to Mission 2B**"
+        "deployment": "* Hegemony deploy from the Western edge of the Northwest and Southwest tiles before Turn 1.\n* Grutak deploy from the Northern and Southern battlefield edges before Turn 1.",
+        "special": "**Convoy Movement:**\nAt the start of each Turn after the first, each Unit that is on the Convoy moves one Square to the West. Then, move the Convoy (and the Units that are still standing on it) 1 Tile East.\nAny Units between its previous and new position are \"run over\", taking 3 Melee Damage.\n\n**Mission Action: Loot Convoy (2ACT)**  \nA Grutak Unit standing on the Convoy may spend 2ACT to loot it.\nA Unit may not perform this Action if it is Adjacent to enemy Units.",
+        "victory": "* The Grutak win if they perform at least 2 Loot Convoy Actions by the end of Turn 4. **Proceed to Mission 2A**\n* The Hegemony win in all other cases. **Proceed to Mission 2B**"
       },
       {
         "id": "2A",
         "title": "Smash the Depot",
-        "description": "Emboldened by their raid, the Krumpfists storm an Interdictor strongpoint. Inside are the depots where the Hegemony stores its supplies. If the Krumpfists can smash enough of them, the victory will be theirs.",
+        "description": "Emboldened by their raid, the Grutak storm a Hegemony strongpoint. Inside are the depots where the Hegemony stores its supplies. If the Grutak can smash enough of them, the victory will be theirs.",
         "battlefield": "The Facility",
         "setup": "Place 3 Depot Markers: one in the center of each of the Northwest, North, and Northeast tiles.",
-        "deployment": "* Interdictors deploy within 2 Squares of any Depot before Turn 1.\n* Krumpfists deploy from the Southern battlefield edge before Turn 1.",
-        "special": "Depots are items with `ARM` **4** and `HIT` **3**. They may be targeted in Combat.\n\n**Mission Action: Sabotage Depot (2ACT)**  \nA Krumpfist Unit Adjacent to a Depot may spend 2ACT to remove 1 `HIT` from it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Depot is Adjacent to any Interdictors.",
-        "victory": "* INterdcitors win if at least 2 Depots have not been destroyed by the end of Turn 4. **Proceed to Mission 3A**\n* Krumpfists win in all other cases. **Proceed to Mission 3B**"
+        "deployment": "* Hegemony deploy within 2 Squares of any Depot before Turn 1.\n* Grutak deploy from the Southern battlefield edge before Turn 1.",
+        "special": "Depots are items with `ARM` **4** and `HIT` **3**. They may be targeted in Combat.\n\n**Mission Action: Sabotage Depot (2ACT)**  \nA Grutak Unit Adjacent to a Depot may spend 2ACT to remove 1 `HIT` from it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Depot is Adjacent to any Hegemony.",
+        "victory": "* INterdcitors win if at least 2 Depots have not been destroyed by the end of Turn 4. **Proceed to Mission 3A**\n* Grutak win in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "2B",
         "title": "Hold the Line",
-        "description": "The Interdictors repulsed the first assault and fall back to hold a fortified line. The Krumpfists see weakness and rush to smash their defenses before their enemy can regroup.",
+        "description": "The Hegemony repulsed the first assault and fall back to hold a fortified line. The Grutak see weakness and rush to smash their defenses before their enemy can regroup.",
         "battlefield": "The Ruined City",
         "setup": "Place 3 Strongpoint Markers in the center of the West, Center, and East tiles.",
-        "deployment": "* Interdictors deploy within 2 Squares of any Strongpoint before Turn 1.\n* Krumpfists deploy from the Northern or Southern battlefield edge before Turn 1.",
-        "special": "Strongpoints are items with `ARM` **4** and `HIT` **4**. They may be targeted in Combat.\n\n**Mission Action: Fortify (2ACT)**  \nOnce per Turn, an Interdictor Unit Adjacent to a Strongpoint may spend 2ACT to restore 1 lost `HIT` on it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Smash (2ACT)**  \nOnce per Turn, a Krumpfists Unit Adjacent to a Strongpoint may spend 2ACT to smash it and remove 1 `HIT` from it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\nAt the end of the game, any Strongpoint with at least 2 `HIT` remaining is considered Held.",
-        "victory": "* The Interdictors win if at least 2 Strongpoints are Held at the end of Turn 4. **Proceed to Mission 3A**\n* The Krumpfists win in all other cases. **Proceed to Mission 3B**"
+        "deployment": "* Hegemony deploy within 2 Squares of any Strongpoint before Turn 1.\n* Grutak deploy from the Northern or Southern battlefield edge before Turn 1.",
+        "special": "Strongpoints are items with `ARM` **4** and `HIT` **4**. They may be targeted in Combat.\n\n**Mission Action: Fortify (2ACT)**  \nOnce per Turn, a Hegemony Unit Adjacent to a Strongpoint may spend 2ACT to restore 1 lost `HIT` on it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Smash (2ACT)**  \nOnce per Turn, a Grutak Unit Adjacent to a Strongpoint may spend 2ACT to smash it and remove 1 `HIT` from it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\nAt the end of the game, any Strongpoint with at least 2 `HIT` remaining is considered Held.",
+        "victory": "* The Hegemony win if at least 2 Strongpoints are Held at the end of Turn 4. **Proceed to Mission 3A**\n* The Grutak win in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "3A",
         "title": "Grudge Krump",
-        "description": "The Interdictors' victories have eroded the Krumpfists Leader's influence and authority. To prove itself to its Squad and quell a mutiny, it swears a Grudge Krump to defeat the Interdictors' leader.",
+        "description": "The Hegemony' victories have eroded the Grutak Leader's influence and authority. To prove itself to its Squad and quell a mutiny, it swears a Grudge Krump to defeat the Hegemony' leader.",
         "battlefield": "The Ruined City",
         "setup": "",
         "deployment": "- Each Squad deploys from one of two opposing battlefield edges before Turn 1.",
@@ -394,85 +394,85 @@
       {
         "id": "3B",
         "title": "The Last Bastion",
-        "description": "Flush with victory, the Krumpfists launch one last push against the Interdictors' bastion. The Hegemony must hold here or risk losing control of the entire sector.",
+        "description": "Flush with victory, the Grutak launch one last push against the Hegemony' bastion. The Hegemony must hold here or risk losing control of the entire sector.",
         "battlefield": "The Facility",
         "setup": "Place 1 Bastion Marker in the center of the Central Tile.",
-        "deployment": "* Interdictors deploy within 2 Squares of the Bastion before Turn 1.\n* Krumpfists deploy from the Northern and Southern battlefield edges before Turn 1.",
-        "special": "The Bastion has `ARM` **3** and `HIT` **6**. It may be targeted in Combat.\n\n**Mission Action: Reinforce Bastion (2ACT)**  \nOnce per Turn, an Interdictor Unit Adjacent to the Bastion may spend 2ACT to restore 1 `HIT` to it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
-        "victory": "* The Krumpfists win if the Bastion is destroyed (0 HIT) by the end of Turn 4.\n* The Interdictors win in all other cases."
+        "deployment": "* Hegemony deploy within 2 Squares of the Bastion before Turn 1.\n* Grutak deploy from the Northern and Southern battlefield edges before Turn 1.",
+        "special": "The Bastion has `ARM` **3** and `HIT` **6**. It may be targeted in Combat.\n\n**Mission Action: Reinforce Bastion (2ACT)**  \nOnce per Turn, a Hegemony Unit Adjacent to the Bastion may spend 2ACT to restore 1 `HIT` to it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "victory": "* The Grutak win if the Bastion is destroyed (0 HIT) by the end of Turn 4.\n* The Hegemony win in all other cases."
       }
     ]
   },
   {
-    "slug": "INT-SCH",
-    "file": "INT-SCH.md",
+    "slug": "HEG-CRS",
+    "file": "HEG-CRS.md",
     "title": "Dark Ritual",
-    "description": "Centered around an ancient artifact and a blasphemous summoning ritual. The Interdictors seek to deny the Choir at every turn, while the Choir strives to complete their rite no matter the cost.",
+    "description": "Centered around an ancient artifact and a blasphemous summoning ritual. The Hegemony seek to deny the Crimson Shroud at every turn, while the Crimson Shroud strives to complete their rite no matter the cost.",
     "factions": {
-      "squadTypeA": "SCH",
-      "squadTypeB": "INT"
+      "factionA": "CRS",
+      "factionB": "HEG"
     },
     "missions": [
       {
         "id": "1",
         "title": "The Search",
-        "description": "Whispers of the artifact echo through the broken streets. The Silent Choir scours the ruins for the relic, while the Interdictors close in to halt the search. The one who holds the artifact controls the path to what comes next.",
+        "description": "Whispers of the artifact echo through the broken streets. The Crimson Shroud scours the ruins for the relic, while the Hegemony close in to halt the search. The one who holds the artifact controls the path to what comes next.",
         "battlefield": "The Ruined City",
         "setup": "Place 1 Search Marker in the center of each of the West, Central, and East tiles.",
         "deployment": "Each Squad deploys from opposite Battlefield edges before Turn 1.",
-        "special": "**Mission Action: Search (2ACT)**  \nA Silent Choir Unit Adjacent to a Search Marker may spend 2ACT to search it.\nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Artifact is found on a roll of 1\n- On the second searched marker, the Artifact is found on a roll of 1 or 2\n- On the third searched marker, the Artifact is found automatically\n\nAfter searching a marker, remove it from the Battlefield.\nOnce found, the Artifact is carried by the Unit that found it.\n\nA Unit may not perform this Action while Adjacent to any enemy Units, or if the Search Marker is Adjacent to any enemy Units.",
-        "victory": "- The Silent Choir wins if they are carrying the Artifact at the end of Turn 4. **Proceed to Mission 2A**\n- The Interdictors win in all other cases. **Proceed to Mission 2B**"
+        "special": "**Mission Action: Search (2ACT)**  \nA Crimson Shroud Unit Adjacent to a Search Marker may spend 2ACT to search it.\nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Artifact is found on a roll of 1\n- On the second searched marker, the Artifact is found on a roll of 1 or 2\n- On the third searched marker, the Artifact is found automatically\n\nAfter searching a marker, remove it from the Battlefield.\nOnce found, the Artifact is carried by the Unit that found it.\n\nA Unit may not perform this Action while Adjacent to any enemy Units, or if the Search Marker is Adjacent to any enemy Units.",
+        "victory": "- The Crimson Shroud wins if they are carrying the Artifact at the end of Turn 4. **Proceed to Mission 2A**\n- The Hegemony win in all other cases. **Proceed to Mission 2B**"
       },
       {
         "id": "2A",
         "title": "Blood Offering",
-        "description": "The Choir carries the relic into the warzone, aiming to satisfy the ritual's demand for blood. The Interdictors rush to prevent a massacre, but in this dark work even the Choir's own deaths could feed their cause.",
+        "description": "The Crimson Shroud carries the relic into the warzone, aiming to satisfy the ritual's demand for blood. The Hegemony rush to prevent a massacre, but in this dark work even the Crimson Shroud's own deaths could feed their cause.",
         "battlefield": "No Man's Land",
         "setup": "",
         "deployment": "Each Squad selects one of two opposing Battlefield edges as their Deployment Zone. Both deploy before Turn 1.",
         "special": "",
-        "victory": "- The Silent Choir wins if more than half of all Units (across both Squads combined) are Taken Out by the end of Turn 4. **Proceed to Mission 3A**\n- The Interdictors win in all other cases. **Proceed to Mission 3B**"
+        "victory": "- The Crimson Shroud wins if more than half of all Units (across both Squads combined) are Taken Out by the end of Turn 4. **Proceed to Mission 3A**\n- The Hegemony win in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "2B",
         "title": "Ambush in the Jungle",
-        "description": "Believing themselves safe with the artifact, the Interdictors vanish into the choking jungle. But the Choir lies in wait among the shadows, ready to strike and wrest the relic from their grasp.",
+        "description": "Believing themselves safe with the artifact, the Hegemony vanish into the choking jungle. But the Crimson Shroud lies in wait among the shadows, ready to strike and wrest the relic from their grasp.",
         "battlefield": "The Jungle",
         "setup": "Before deployment, secretly mark one Interdictor Unit as the Artifact Carrier.",
-        "deployment": "Before Turn 1, Silent Choir deploys all units anywhere in the Northeast, East, or Southeast Tiles.\nDuring Turn 1, when it is an Interdictor Unit's turn to activate, deploy it on the outer edge of the Western tile. Interdictors always have the initiative in Turn 1.",
+        "deployment": "Before Turn 1, Crimson Shroud deploys all units anywhere in the Northeast, East, or Southeast Tiles.\nDuring Turn 1, when it is a Hegemony Unit's turn to activate, deploy it on the outer edge of the Western tile. Hegemony always have the initiative in Turn 1.",
         "special": "The Artifact may be dropped if the carrier is Taken Out or voluntarily drops it. Another Unit may pick it up by moving Adjacent and spending 1ACT.",
-        "victory": "- The Silent Choir wins if they are carrying the Artifact at the end of Turn 4. **Proceed to Mission 2A**\n- The Interdictors win in all other cases. **Proceed to Mission 3B**"
+        "victory": "- The Crimson Shroud wins if they are carrying the Artifact at the end of Turn 4. **Proceed to Mission 2A**\n- The Hegemony win in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "3A",
         "title": "The Summoning",
-        "description": "With the relic secured and blood spilled, the Choir reaches the cursed temple. At its profane altars they chant to awaken something terrible. The Interdictors charge in, knowing that if they fail here, the galaxy will pay the price.",
+        "description": "With the relic secured and blood spilled, the Crimson Shroud reaches the cursed temple. At its profane altars they chant to awaken something terrible. The Hegemony charge in, knowing that if they fail here, the galaxy will pay the price.",
         "battlefield": "The Cursed Temple",
         "setup": "Place 3 Altar Markers in the central squares of the West, Center, and East tiles.",
-        "deployment": "Silent Choir deploys before Turn 1 within 2 Squares of an Altar.\nInterdictors deploy before Turn 1 on the Southern Battlefield edge.",
+        "deployment": "Crimson Shroud deploys before Turn 1 within 2 Squares of an Altar.\nHegemony deploy before Turn 1 on the Southern Battlefield edge.",
         "special": "A Unit \"Controls\" an Altar if:\n\n- The Unit is Adjacent to that marker,\n- The Unit is not Adjacent to any enemy Units, and\n- There are no enemy Units Adjacent to that Altar",
-        "victory": "- The Silent Choir wins if they control all 3 Altars by the end of Turn 4.\n- The Interdictors win in all other cases."
+        "victory": "- The Crimson Shroud wins if they control all 3 Altars by the end of Turn 4.\n- The Hegemony win in all other cases."
       },
       {
         "id": "3B",
         "title": "Sabotage the Temple",
-        "description": "The Choir's summoning has been thwarted, and now the Interdictors launch a final desperate strike. They will tear down the temple itself if they must, ending the ritual in fire and ruin. The Choir will defend their unholy ground with every last breath.",
+        "description": "The Crimson Shroud's summoning has been thwarted, and now the Hegemony launch a final desperate strike. They will tear down the temple itself if they must, ending the ritual in fire and ruin. The Crimson Shroud will defend their unholy ground with every last breath.",
         "battlefield": "The Cursed Temple",
         "setup": "Place 3 Sabotage Markers central squares of the West, Center, and East tiles.",
-        "deployment": "Silent Choir deploys anywhere within 3 Squares of a Sabotage marker before Turn 1.\nInterdictors deploy from any Battlefield edge before Turn 1.",
+        "deployment": "Crimson Shroud deploys anywhere within 3 Squares of a Sabotage marker before Turn 1.\nHegemony deploy from any Battlefield edge before Turn 1.",
         "special": "**Mission Action: Sabotage (2ACT)**  \nA Unit Adjacent to a Sabotage Marker may spend 2ACT to sabotage it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
-        "victory": "- The Interdictors win if all 3 markers are sabotaged by the end of Turn 4.\n- The Silent Choir wins in all other cases."
+        "victory": "- The Hegemony win if all 3 markers are sabotaged by the end of Turn 4.\n- The Crimson Shroud wins in all other cases."
       }
     ]
   },
   {
-    "slug": "KF-KF",
-    "file": "KF-KF.md",
+    "slug": "GRUTAK-GRUTAK",
+    "file": "GRUTAK-GRUTAK.md",
     "title": "Da Biggest Krump",
     "description": "The clans clash in a brutal contest to decide who's boss. Loot piles are smashed, brawls erupt across the field, and the last warband standing will claim the right to lead. There's no subtlety here, just a whole lotta krumpin'.",
     "factions": {
-      "squadTypeA": "KF",
-      "squadTypeB": "KF"
+      "factionA": "GRUTAK",
+      "factionB": "GRUTAK"
     },
     "missions": [
       {
@@ -508,126 +508,126 @@
     ]
   },
   {
-    "slug": "RW-KF",
-    "file": "RW-KF.md",
+    "slug": "EIR-GRUTAK",
+    "file": "EIR-GRUTAK.md",
     "title": "Iron Break",
-    "description": "The Wardens strive to restore their ancient fortresses, reactivating long-dormant pylons of power. The Krumpfists come crashing in for loot and the thrill of battle, eager to smash stone and bone alike. Only one side will hold the ruins when the dust settles.",
+    "description": "The Eidolon Revenants strive to restore their ancient fortresses, reactivating long-dormant pylons of power. The Grutak come crashing in for loot and the thrill of battle, eager to smash stone and bone alike. Only one side will hold the ruins when the dust settles.",
     "factions": {
-      "squadTypeA": "REL",
-      "squadTypeB": "KF"
+      "factionA": "EIR",
+      "factionB": "GRUTAK"
     },
     "missions": [
       {
         "id": "1",
         "title": "Breach the Fortress",
-        "description": "The Wardens labor to restore their fortress, but the Grutak are already at the gates. Krumpfist mobs surge forward, eager to tear down the walls and plunder whatever lies within.",
+        "description": "The Eidolon Revenants labor to restore their fortress, but the Grutak are already at the gates. Grutak mobs surge forward, eager to tear down the walls and plunder whatever lies within.",
         "battlefield": "The Ruined City",
         "setup": "The Fortress occupies the three Northern tiles (Northeast, North, Northwest).\nPlace 3 Gate Markers: one centered on the Southern edge of each Northern tile. These Gate markers cannot be traversed by Units until they are destroyed.",
-        "deployment": "- Relict Wardens deploy anywhere within the Fortress before Turn 1.\n- Krumpfists deploy within 2 Squares of the Southern battlefield edge before Turn 1.",
-        "special": "Krumpfists have the initiative in Turn 1.\n\nEach Gate Marker has `ARM` **4** and `HIT` **4**.\nGates may be targeted in Combat and are affected by Ruined City battlefield effects just like any Unit. If reduced to 0 HIT, that Gate is destroyed.\n\n**Mission Action: Break Gate (2ACT)**  \nOnce per Turn, a Krumpfist Unit Adjacent to a Gate may spend 2ACT to remove 1 HIT from it.\nA Unit may not perform this Action if it is Adjacent to any enemies.",
-        "victory": "- The Relict Wardens win if at least 2 of the 3 Gates are still standing by the end of Turn 4. **Proceed to Mission 2A**\n- The Krumpfists win in all other cases. **Proceed to Mission 2B**"
+        "deployment": "- Eidolon Revenants deploy anywhere within the Fortress before Turn 1.\n- Grutak deploy within 2 Squares of the Southern battlefield edge before Turn 1.",
+        "special": "Grutak have the initiative in Turn 1.\n\nEach Gate Marker has `ARM` **4** and `HIT` **4**.\nGates may be targeted in Combat and are affected by Ruined City battlefield effects just like any Unit. If reduced to 0 HIT, that Gate is destroyed.\n\n**Mission Action: Break Gate (2ACT)**  \nOnce per Turn, a Grutak Unit Adjacent to a Gate may spend 2ACT to remove 1 HIT from it.\nA Unit may not perform this Action if it is Adjacent to any enemies.",
+        "victory": "- The Eidolon Revenants win if at least 2 of the 3 Gates are still standing by the end of Turn 4. **Proceed to Mission 2A**\n- The Grutak win in all other cases. **Proceed to Mission 2B**"
       },
       {
         "id": "2A",
         "title": "Powering the Pylons",
-        "description": "The Wardens hold the gates long enough to bring the ancient pylons online. Their energy begins to surge across the battlefield as they are charged. The Grutak must smash them down before they stabilize.",
+        "description": "The Eidolon Revenants hold the gates long enough to bring the ancient pylons online. Their energy begins to surge across the battlefield as they are charged. The Grutak must smash them down before they stabilize.",
         "battlefield": "The Facility",
         "setup": "Place 3 Pylon Markers: one in the center of each of the West, Center, and East tiles.",
-        "deployment": "- Relict Wardens deploy within 2 Squares of a Pylon before Turn 1.\n- Krumpfists deploy from the Western battlefield edge before Turn 1.",
-        "special": "**Mission Action: Activate Pylon (2ACT)**  \nA Relict Warden Unit Adjacent to a Pylon may spend 2ACT to Activate it.\nA Unit may not perform this Action if it is Adjacent to any enemies, or if the Pylon is Adjacent to any Krumpfists.\n\nPylons may be targeted in Combat (`ARM` **4**, `HIT` **3**).",
-        "victory": "- The Relict Wardens win if at least 2 Pylons are Activated and still Standing by the end of Turn 4. **Proceed to Mission 3A**\n- The Krumpfists win in all other cases. **Proceed to Mission 3B**"
+        "deployment": "- Eidolon Revenants deploy within 2 Squares of a Pylon before Turn 1.\n- Grutak deploy from the Western battlefield edge before Turn 1.",
+        "special": "**Mission Action: Activate Pylon (2ACT)**  \nAn Eidolon Revenant Unit Adjacent to a Pylon may spend 2ACT to Activate it.\nA Unit may not perform this Action if it is Adjacent to any enemies, or if the Pylon is Adjacent to any Grutak.\n\nPylons may be targeted in Combat (`ARM` **4**, `HIT` **3**).",
+        "victory": "- The Eidolon Revenants win if at least 2 Pylons are Activated and still Standing by the end of Turn 4. **Proceed to Mission 3A**\n- The Grutak win in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "2B",
         "title": "Loot the Works",
-        "description": "The Krumpfists crash through the gates, scattering the Wardens. Deep within the fortress, they find caches of relic-tech. The plunder is ripe for the taking, unless the Wardens can destroy it first.",
+        "description": "The Grutak crash through the gates, scattering the Eidolon Revenants. Deep within the fortress, they find caches of relic-tech. The plunder is ripe for the taking, unless the Eidolon Revenants can destroy it first.",
         "battlefield": "The Ruined City",
         "setup": "Place 3 Cache Markers: one in the center of each of the West, Center, and East tiles.",
         "deployment": "Both squads deploy anywhere on the Battlefield before Turn 1, at least 4 Squares away from any Cache Marker.",
-        "special": "**Mission Action: Loot (2ACT)**  \nOnce per Turn, a Krumpfist Unit Adjacent to a Cache may spend 2ACT to Loot it.\nA Unit may not perform this Action if it is Adjacent to any enemies.\n\n**Mission Action: Sabotage (2ACT)**  \nOnce per Turn, a Relict Warden Unit Adjacent to a Cache may spend 2ACT to Sabotage it.\nA Unit may not perform this Action if it is Adjacent to any enemies.\n\nOnce a Cache is either Looted or Sabotaged, remove it from the Battlefield.",
-        "victory": "- Krumpfists win if at least 2 of the 3 Caches are Looted by the end of Turn 4. **Proceed to Mission 3A**\n- Relict Wardens win in all other cases. **Proceed to Mission 3B**"
+        "special": "**Mission Action: Loot (2ACT)**  \nOnce per Turn, a Grutak Unit Adjacent to a Cache may spend 2ACT to Loot it.\nA Unit may not perform this Action if it is Adjacent to any enemies.\n\n**Mission Action: Sabotage (2ACT)**  \nOnce per Turn, an Eidolon Revenant Unit Adjacent to a Cache may spend 2ACT to Sabotage it.\nA Unit may not perform this Action if it is Adjacent to any enemies.\n\nOnce a Cache is either Looted or Sabotaged, remove it from the Battlefield.",
+        "victory": "- Grutak win if at least 2 of the 3 Caches are Looted by the end of Turn 4. **Proceed to Mission 3A**\n- Eidolon Revenants win in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "3A",
         "title": "Smash the Pylons",
-        "description": "With the fortress broken open, the Krumpfists rampage toward the last active pylons. The Wardens must defend them at all costs, or see their works ground into dust once more.",
+        "description": "With the fortress broken open, the Grutak rampage toward the last active pylons. The Eidolon Revenants must defend them at all costs, or see their works ground into dust once more.",
         "battlefield": "No Man's Land",
         "setup": "Place 3 Pylon Markers: one in the center of the West, Center, and East tiles.",
-        "deployment": "- Relict Wardens deploy within 2 Squares of a Pylon before Turn 1.\n- Krumpfists deploy from any Battlefield edge before Turn 1.",
+        "deployment": "- Eidolon Revenants deploy within 2 Squares of a Pylon before Turn 1.\n- Grutak deploy from any Battlefield edge before Turn 1.",
         "special": "Pylons are treated as items with `ARM` **4** and `HIT` **4**. They may be targeted in Combat.",
-        "victory": "- The Krumpfists win if all 3 Pylons are destroyed by the end of Turn 4.\n- The Relict Wardens win in all other cases."
+        "victory": "- The Grutak win if all 3 Pylons are destroyed by the end of Turn 4.\n- The Eidolon Revenants win in all other cases."
       },
       {
         "id": "3B",
         "title": "The Last Rampart",
-        "description": "The Wardens rally for one final stand, their fortress heart nearly restored. The Krumpfists must break them here or see the ancient power of the Wardens rise again.",
+        "description": "The Eidolon Revenants rally for one final stand, their fortress heart nearly restored. The Grutak must break them here or see the ancient power of the Eidolon Revenants rise again.",
         "battlefield": "The Facility",
         "setup": "The Central Tile represents the fortress core. Place 1 Core Marker in its center.",
-        "deployment": "- Relict Wardens deploy anywhere on the Central Tile before Turn 1.\n- Krumpfists deploy from any two opposite battlefield edges before Turn 1.",
-        "special": "**Mission Action: Defend (1ACT)**\nOnce per Turn, a Relict Warden Unit Adjacent to the Core Marker may spend 1ACT to add a Defense Token to it.\nA Unit may not perform this Action if it is Adjacent to any enemies.",
-        "victory": "- The Relict Wardens win if the Core has at least 3 Defense Tokens on it, and at least one Relict Warden Unit remains Standing.\n- The Krumpfists win in all other cases."
+        "deployment": "- Eidolon Revenants deploy anywhere on the Central Tile before Turn 1.\n- Grutak deploy from any two opposite battlefield edges before Turn 1.",
+        "special": "**Mission Action: Defend (1ACT)**\nOnce per Turn, an Eidolon Revenant Unit Adjacent to the Core Marker may spend 1ACT to add a Defense Token to it.\nA Unit may not perform this Action if it is Adjacent to any enemies.",
+        "victory": "- The Eidolon Revenants win if the Core has at least 3 Defense Tokens on it, and at least one Relict Warden Unit remains Standing.\n- The Grutak win in all other cases."
       }
     ]
   },
   {
-    "slug": "REL-INT",
-    "file": "REL-INT.md",
+    "slug": "EIR-HEG",
+    "file": "EIR-HEG.md",
     "title": "Pylons of Power",
-    "description": "An Interdictors vs Relict Wardens Operation. Beneath the Hegemony's shining city lie the shattered remains of Eidolon pylons: relics of an empire that once wielded world-breaking weapons. The Relict Wardens have returned to reclaim and reactivate these pylons, while the Interdictors fight to prevent catastrophe. What begins as sabotage escalates into horrors in the ruins, and ends with the fate of the pylons decided once and for all.",
+    "description": "A Hegemony vs Eidolon Revenants Operation. Beneath the Hegemony's shining city lie the shattered remains of Eidolon pylons: relics of an empire that once wielded world-breaking weapons. The Eidolon Revenants have returned to reclaim and reactivate these pylons, while the Hegemony fight to prevent catastrophe. What begins as sabotage escalates into horrors in the ruins, and ends with the fate of the pylons decided once and for all.",
     "factions": {
-      "squadTypeA": "REL",
-      "squadTypeB": "INT"
+      "factionA": "EIR",
+      "factionB": "HEG"
     },
     "missions": [
       {
         "id": "1",
         "title": "The Forgotten Entrance",
-        "description": "The Relict Wardens scour the underworks of the Hegemony city, hunting for a hidden entrance into the buried subfoundations where the ancient pylons lie. The Interdictors move to block the search, knowing that if the Wardens find the way in, the city's fate could hang by a thread.",
+        "description": "The Eidolon Revenants scour the underworks of the Hegemony city, hunting for a hidden entrance into the buried subfoundations where the ancient pylons lie. The Hegemony move to block the search, knowing that if the Eidolon Revenants find the way in, the city's fate could hang by a thread.",
         "battlefield": "The Ruined City",
         "setup": "Place 1 Search Marker in the center of each of the West, Central, and East tiles.",
         "deployment": "Each Squad deploys from opposite Battlefield edges before Turn 1.",
-        "special": "**Mission Action: Search (2ACT)**  \nA Relict Wardens Unit Adjacent to a Search Marker may spend 2ACT to search it.  \nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Entrance is found on a roll of 1  \n- On the second searched marker, the Entrance is found on a roll of 1 or 2  \n- On the third searched marker, the Entrance is found automatically  \n\nAfter searching a marker, remove it from the Battlefield.  \nOnce found, the Entrance is carried as Intel by the Unit that found it.  \n\nA Unit may not perform this Action while Adjacent to any enemy Units, or if the Search Marker is Adjacent to any enemy Units.",
-        "victory": "- The Relict Wardens win if they are carrying the Entrance Intel at the end of Turn 4. **Proceed to Mission 2A**\n- The Interdictors win in all other cases. **Proceed to Mission 2B**"
+        "special": "**Mission Action: Search (2ACT)**  \nAn Eidolon Revenant Unit Adjacent to a Search Marker may spend 2ACT to search it.  \nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Entrance is found on a roll of 1  \n- On the second searched marker, the Entrance is found on a roll of 1 or 2  \n- On the third searched marker, the Entrance is found automatically  \n\nAfter searching a marker, remove it from the Battlefield.  \nOnce found, the Entrance is carried as Intel by the Unit that found it.  \n\nA Unit may not perform this Action while Adjacent to any enemy Units, or if the Search Marker is Adjacent to any enemy Units.",
+        "victory": "- The Eidolon Revenants win if they are carrying the Entrance Intel at the end of Turn 4. **Proceed to Mission 2A**\n- The Hegemony win in all other cases. **Proceed to Mission 2B**"
       },
       {
         "id": "2A",
         "title": "The Grim Harvest",
-        "description": "With access secured, the Wardens begin their macabre work. Corpse tokens become a tug-of-war as Wardens drag specimens toward their labs while Interdictors fight to consign them to burn pits.",
+        "description": "With access secured, the Eidolon Revenants begin their macabre work. Corpse tokens become a tug-of-war as Eidolon Revenants drag specimens toward their labs while Hegemony fight to consign them to burn pits.",
         "battlefield": "The Ruined City",
-        "setup": "Place 2 Corpse Tokens in the center 2 Squares of the Central Tile. Designate the Northern battlefield edge as the **Lab Edge** (Relict Wardens) and the Southern battlefield edge as the **Burn Pit Edge** (Interdictors).",
-        "deployment": "- Relict Wardens deploy from the Northern battlefield edge before Turn 1.\n- Interdictors deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Harvest (2ACT)**  \nA Relict Warden Unit Adjacent to a Corpse Token may spend 2ACT to move that Token 2 Squares toward the Lab Edge.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Purge (2ACT)**  \nAn Interdictor Unit Adjacent to a Corpse Token may spend 2ACT to move that Token 2 Squares toward the Burn Pit Edge.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\nCorpse Tokens cannot be carried or destroyed; they remain on the board and may be contested by both sides.",
-        "victory": "- The Relict Wardens win immediately when 2 Corpse Tokens exit the battlefield via the Lab Edge. **Proceed to Mission 3A**\n- The Interdictors win immediately when 2 Corpse Tokens exit via the Burn Pit Edge. **Proceed to Mission 3B**\n- If neither condition is met by the end of Turn 4, the side with the greater total Squares of progress toward their edge wins; if tied, play 1 extra Turn to determine the winner."
+        "setup": "Place 2 Corpse Tokens in the center 2 Squares of the Central Tile. Designate the Northern battlefield edge as the **Lab Edge** (Eidolon Revenants) and the Southern battlefield edge as the **Burn Pit Edge** (Hegemony).",
+        "deployment": "- Eidolon Revenants deploy from the Northern battlefield edge before Turn 1.\n- Hegemony deploy from the Southern battlefield edge before Turn 1.",
+        "special": "**Mission Action: Harvest (2ACT)**  \nAn Eidolon Revenant Unit Adjacent to a Corpse Token may spend 2ACT to move that Token 2 Squares toward the Lab Edge.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Purge (2ACT)**  \nA Hegemony Unit Adjacent to a Corpse Token may spend 2ACT to move that Token 2 Squares toward the Burn Pit Edge.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\nCorpse Tokens cannot be carried or destroyed; they remain on the board and may be contested by both sides.",
+        "victory": "- The Eidolon Revenants win immediately when 2 Corpse Tokens exit the battlefield via the Lab Edge. **Proceed to Mission 3A**\n- The Hegemony win immediately when 2 Corpse Tokens exit via the Burn Pit Edge. **Proceed to Mission 3B**\n- If neither condition is met by the end of Turn 4, the side with the greater total Squares of progress toward their edge wins; if tied, play 1 extra Turn to determine the winner."
       },
       {
         "id": "2B",
         "title": "The Power Nodes",
-        "description": "The Interdictors stall the sabotage, forcing the Wardens to try another route. The Wardens push to reactivate dormant pylons by powering their ancient nodes, while the Interdictors rush to disable them.",
+        "description": "The Hegemony stall the sabotage, forcing the Eidolon Revenants to try another route. The Eidolon Revenants push to reactivate dormant pylons by powering their ancient nodes, while the Hegemony rush to disable them.",
         "battlefield": "The Cursed Temple",
         "setup": "Place 3 Power Node Markers: one in the center of the West, Center, and East tiles.",
-        "deployment": "- Relict Wardens deploy within 2 Squares of any Node before Turn 1.\n- Interdictors deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Reactivate Node (2ACT)**  \nA Relict Warden Unit Adjacent to a Node may spend 2ACT to activate it. Place an Active marker.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Overload Node (2ACT)**  \nAn Interdictor Unit Adjacent to an Active Node may spend 2ACT to disable it. Remove the Active marker.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
-        "victory": "- The Relict Wardens win if at least 2 Nodes are Active at the end of Turn 4. **Proceed to Mission 3A**\n- The Interdictors win in all other cases. **Proceed to Mission 3B**"
+        "deployment": "- Eidolon Revenants deploy within 2 Squares of any Node before Turn 1.\n- Hegemony deploy from the Southern battlefield edge before Turn 1.",
+        "special": "**Mission Action: Reactivate Node (2ACT)**  \nAn Eidolon Revenant Unit Adjacent to a Node may spend 2ACT to activate it. Place an Active marker.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Overload Node (2ACT)**  \nA Hegemony Unit Adjacent to an Active Node may spend 2ACT to disable it. Remove the Active marker.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "victory": "- The Eidolon Revenants win if at least 2 Nodes are Active at the end of Turn 4. **Proceed to Mission 3A**\n- The Hegemony win in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "3A",
         "title": "World-Breaker Awakens",
-        "description": "The pylons begin to sing. Power builds toward a catastrophic discharge while the Interdictors fight to drag the meter back from the brink.",
+        "description": "The pylons begin to sing. Power builds toward a catastrophic discharge while the Hegemony fight to drag the meter back from the brink.",
         "battlefield": "No Man's Land",
         "setup": "Place 1 Central Pylon Marker in the center of the Central Tile. Create an off-board **Power Track** starting at 1.",
-        "deployment": "- Relict Wardens deploy within 2 Squares of the Pylon before Turn 1.\n- Interdictors deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Atune (2ACT)**  \nOnce per Turn, a Relict Warden Unit Adjacent to the Pylon may spend 2ACT to increase the Power Track by 1 (max 6).  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Detune (2ACT)**  \nOnce per Turn, an Interdictor Unit Adjacent to the Pylon may spend 2ACT to decrease the Power Track by 1 (min 1).  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
-        "victory": "- The Relict Wardens win if the Power Track is 4 or higher at the end of Turn 4.\n- The Interdictors win if the Power Track is 2 or lower at the end of Turn 4.\n- If the Power Track is exactly 3, play 1 extra Turn; whichever side shifts it further in their favor wins."
+        "deployment": "- Eidolon Revenants deploy within 2 Squares of the Pylon before Turn 1.\n- Hegemony deploy from the Southern battlefield edge before Turn 1.",
+        "special": "**Mission Action: Atune (2ACT)**  \nOnce per Turn, an Eidolon Revenant Unit Adjacent to the Pylon may spend 2ACT to increase the Power Track by 1 (max 6).  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Detune (2ACT)**  \nOnce per Turn, a Hegemony Unit Adjacent to the Pylon may spend 2ACT to decrease the Power Track by 1 (min 1).  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "victory": "- The Eidolon Revenants win if the Power Track is 4 or higher at the end of Turn 4.\n- The Hegemony win if the Power Track is 2 or lower at the end of Turn 4.\n- If the Power Track is exactly 3, play 1 extra Turn; whichever side shifts it further in their favor wins."
       },
       {
         "id": "3B",
         "title": "Collapse the Subfoundations",
-        "description": "The Interdictors seize control of the subfoundations and collapse the ruins above the pylons. The Wardens hurl themselves into the breach, knowing their chance to awaken ancient power is slipping away.",
+        "description": "The Hegemony seize control of the subfoundations and collapse the ruins above the pylons. The Eidolon Revenants hurl themselves into the breach, knowing their chance to awaken ancient power is slipping away.",
         "battlefield": "The Facility",
         "setup": "Place 3 Collapse Points: one in the center of the West, Center, and East tiles.",
-        "deployment": "- Interdictors deploy within 2 Squares of any Collapse Point before Turn 1.\n- Relict Wardens deploy from the Northern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Demolish (2ACT)**  \nAn Interdictor Unit Adjacent to a Collapse Point may spend 2ACT to collapse it. Remove the marker from play.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Stabilize (2ACT)**  \nA Relict Warden Unit Adjacent to a Collapse Point may spend 2ACT to cancel its demolition. Replace the marker if removed this Turn.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
-        "victory": "- The Interdictors win if at least 2 Collapse Points are demolished by the end of Turn 4.\n- The Relict Wardens win in all other cases."
+        "deployment": "- Hegemony deploy within 2 Squares of any Collapse Point before Turn 1.\n- Eidolon Revenants deploy from the Northern battlefield edge before Turn 1.",
+        "special": "**Mission Action: Demolish (2ACT)**  \nA Hegemony Unit Adjacent to a Collapse Point may spend 2ACT to collapse it. Remove the marker from play.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Stabilize (2ACT)**  \nAn Eidolon Revenant Unit Adjacent to a Collapse Point may spend 2ACT to cancel its demolition. Replace the marker if removed this Turn.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "victory": "- The Hegemony win if at least 2 Collapse Points are demolished by the end of Turn 4.\n- The Eidolon Revenants win in all other cases."
       }
     ]
   }
