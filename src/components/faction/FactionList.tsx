@@ -14,14 +14,14 @@ export default async function FactionList({
     factions = await FactionService.getAllFactions()
   }
   return (
-    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
+    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       {factions.map((faction) => (
         <div key={faction.factionId}>
           <Link href={`/factions/${faction.factionId}`}>
             <h4 className="font-heading">{faction.factionName}</h4>
           </Link>
             
-          <div className="gap-2">
+          <div className="grid gap-4 grid-cols-1">
             {faction.squadTypes.map((squadType) => {
               return <SquadTypeCard key={squadType.squadTypeId} squadType={squadType} />
             })}
