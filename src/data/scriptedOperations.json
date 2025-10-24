@@ -56,7 +56,7 @@
         "battlefield": "The Cursed Temple",
         "setup": "Place 3 Altar Markers: one in the center of the West, Center, and East tiles. Place a Relic atop each Altar.",
         "deployment": "- Eidolon Revenants deploy within 2 Squares of any Altar before Turn 1.\n- Outer Claim deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Sanctify (2ACT)**  \nRelict Warden Units may attempt to Sanctify (2ACT) a relic while Adjacent to an Altar. Place a Sanctify marker on that Relic. At the end of each Turn, roll 1D6 for each of the Sanctified Relics: On a 1 or 2, that Relic is successfully Sanctified.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Altar is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Sanctify (2ACT)**  \nEidolon Revenant Units may attempt to Sanctify (2ACT) a relic while Adjacent to an Altar. Place a Sanctify marker on that Relic. At the end of each Turn, roll 1D6 for each of the Sanctified Relics: On a 1 or 2, that Relic is successfully Sanctified.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Altar is Adjacent to any enemy Units.",
         "victory": "- The Eidolon Revenants win if all 3 Relics are successfully Sanctified by the end of Turn 4.\n- The Outer Claim wins in all other cases."
       }
     ]
@@ -438,7 +438,7 @@
         "title": "Ambush in the Jungle",
         "description": "Believing themselves safe with the artifact, the Hegemony vanish into the choking jungle. But the Crimson Shroud lies in wait among the shadows, ready to strike and wrest the relic from their grasp.",
         "battlefield": "The Jungle",
-        "setup": "Before deployment, secretly mark one Interdictor Unit as the Artifact Carrier.",
+        "setup": "Before deployment, secretly mark one Hegemony Unit as the Artifact Carrier.",
         "deployment": "Before Turn 1, Crimson Shroud deploys all units anywhere in the Northeast, East, or Southeast Tiles.\nDuring Turn 1, when it is a Hegemony Unit's turn to activate, deploy it on the outer edge of the Western tile. Hegemony always have the initiative in Turn 1.",
         "special": "The Artifact may be dropped if the carrier is Taken Out or voluntarily drops it. Another Unit may pick it up by moving Adjacent and spending 1ACT.",
         "victory": "- The Crimson Shroud wins if they are carrying the Artifact at the end of Turn 4. **Proceed to Mission 2A**\n- The Hegemony win in all other cases. **Proceed to Mission 3B**"
@@ -565,7 +565,7 @@
         "setup": "The Central Tile represents the fortress core. Place 1 Core Marker in its center.",
         "deployment": "- Eidolon Revenants deploy anywhere on the Central Tile before Turn 1.\n- Grutak deploy from any two opposite battlefield edges before Turn 1.",
         "special": "**Mission Action: Defend (1ACT)**\nOnce per Turn, an Eidolon Revenant Unit Adjacent to the Core Marker may spend 1ACT to add a Defense Token to it.\nA Unit may not perform this Action if it is Adjacent to any enemies.",
-        "victory": "- The Eidolon Revenants win if the Core has at least 3 Defense Tokens on it, and at least one Relict Warden Unit remains Standing.\n- The Grutak win in all other cases."
+        "victory": "- The Eidolon Revenants win if the Core has at least 3 Defense Tokens on it, and at least one Eidolon Revenant Unit remains Standing.\n- The Grutak win in all other cases."
       }
     ]
   },
