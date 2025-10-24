@@ -124,7 +124,7 @@
     "missionType": "Primary",
     "seq": 11,
     "title": "Bug Bounty",
-    "active": false,
+    "active": true,
     "description": "*\"The hive stirs. Kill them before they overwhelm us.\"*  \r\n  \r\n\nSomething is stirring beneath the battlefield - something ancient, hungry, and unstoppable. A horde of alien creatures has erupted from below, their chitinous bodies swarming over the land, attacking anything that moves. Both squads find themselves trapped in a desperate fight for survival. The mission? Kill as many of these creatures as possible before they are overrun. The battlefield is a feeding ground, and every shot fired is a battle against extinction.",
     "setup": "Deploy 3 Spawn Points, one in the center of the West, Center, and East Tiles.  \nAt the start of each Turn, each player rolls 1D3 for each Spawn Point and spawns that number of Bugs at that Spawn Point.",
     "deployment": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \nBoth Squads deploy from their Battlefield edge before Turn 1.",
