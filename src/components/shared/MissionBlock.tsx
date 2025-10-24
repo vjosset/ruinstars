@@ -29,19 +29,19 @@ export default function MissionBlock({mission, showDescription}: { mission: Miss
           </div>
         </>
       )}
-      {mission.victory && (
-        <>
-          <h6 className="text-main">Victory</h6>
-          <div className="ml-2">
-            <Markdown>{mission.victory}</Markdown>
-          </div>
-        </>
-      )}
       {mission.special && (
         <>
           <h6 className="text-main">Special</h6>
           <div className="ml-2">
             <Markdown>{mission.special}</Markdown>
+          </div>
+        </>
+      )}
+      {mission.victory && (
+        <>
+          <h6 className="text-main">Victory</h6>
+          <div className="ml-2">
+            <Markdown>{mission.victory}</Markdown>
           </div>
         </>
       )}
