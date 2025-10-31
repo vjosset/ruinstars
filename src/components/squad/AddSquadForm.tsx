@@ -139,17 +139,6 @@ export default function AddSquadForm() {
           ) : (
             <div className="space-y-2">
               <div className="grid-cols-2 items-center gap-2">
-                <Label>Squad Name</Label>
-                <Input
-                  type="text"
-                  autoCapitalize="words"
-                  value={squadName ?? ''}
-                  placeholder={selectedSquadType?.squadTypeName || 'Select a Squad Type'}
-                  className="w-full"
-                  onChange={(e) => setSquadName(e.target.value)}
-                />
-              </div>
-              <div className="grid-cols-2 items-center gap-2">
                 <Label>Squad Type</Label>
                 <select
                   className="w-full bg-card border border-border rounded p-2 text-sm"
@@ -160,12 +149,23 @@ export default function AddSquadForm() {
                   }}
                 >
                   <option value="">Select a Squad Type...</option>
-                  {squadTypes.map((squadType) => (
+                  {squadTypes.sort((a, b) => a.squadTypeName.localeCompare(b.squadTypeName)).map((squadType) => (
                     <option key={squadType.squadTypeId} value={squadType.squadTypeId}>
                       {squadType.squadTypeName}
                     </option>
                   ))}
                 </select>
+              </div>
+              <div className="grid-cols-2 items-center gap-2">
+                <Label>Squad Name</Label>
+                <Input
+                  type="text"
+                  autoCapitalize="words"
+                  value={squadName ?? ''}
+                  placeholder={selectedSquadType?.squadTypeName || 'Select a Squad Type'}
+                  className="w-full"
+                  onChange={(e) => setSquadName(e.target.value)}
+                />
               </div>
               {selectedSquadType && selectedSquadType.defaultSquad && (
                 <div className="grid-cols-2 items-center gap-2">
