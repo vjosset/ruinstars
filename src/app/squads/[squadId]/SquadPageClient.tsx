@@ -217,7 +217,7 @@ export default function SquadPageClient({
             backgroundImage: `url('${
               squad.hasCustomPortrait
                 ? `${getSquadPortraitUrl(squad.squadId)}?v=${toEpochMs(squad.portraitUpdatedAt)}`
-                : `/img/squadTypes/${squad.squadType?.squadTypeId}_thumb.webp`
+                : `/img/squadTypes/${squad.squadType?.squadTypeId}.webp`
             }')`,
           }}
         />
