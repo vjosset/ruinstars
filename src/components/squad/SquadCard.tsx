@@ -47,7 +47,7 @@ export default function SquadCard({
               backgroundImage: 
               squad.hasCustomPortrait
                 ? `url(${getSquadPortraitUrl(squad.squadId)}?v=${toEpochMs(squad.portraitUpdatedAt)})`
-                : `url(/img/squadTypes/${squad.squadTypeId}.webp)`
+                : `url(/img/squadTypes/${squad.squadTypeId}_thumb.webp)`
             }}
           />
         </Link>

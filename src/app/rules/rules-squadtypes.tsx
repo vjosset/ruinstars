@@ -52,7 +52,7 @@ export default async function RulesSquadTypes() {
                   <div className="section">
                     <Link href={`/squadTypes/${squadType.squadTypeId}`}>
                       <img
-                        src={`/img/squadTypes/${squadType.squadTypeId}.webp`}
+                        src={`/img/squadTypes/${squadType.squadTypeId}_thumb.webp`}
                         alt={`${squadType.squadTypeName} Portrait`}
                         className="rounded-xl border border-main"
                       />

@@ -54,7 +54,7 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
                   <Link href={`/squadTypes/${squadType.squadTypeId}`}
                     className="w-full md:w-1/2">
                     <img
-                      src={`/img/squadTypes/${squadType.squadTypeId}.webp`}
+                      src={`/img/squadTypes/${squadType.squadTypeId}_thumb.webp`}
                       alt={`${squadType.squadTypeName} Portrait`}
                       className="rounded-xl border border-main"
                     />
