@@ -23,6 +23,7 @@ import Link from 'next/link'
 import PageBreak from '../books/PageBreak'
 import { ScriptedOperation } from '../scriptedoperations/page'
 import RulesAI from './rules-ai'
+import RulesOutro from './rules-outro'
 import RulesPlayingOnAGrid from './rules-playingonagrid'
 import RulesQuickRef from './rules-quickref'
 import RulesScriptedOperations from './rules-scriptedoperations'
@@ -180,6 +181,8 @@ export default async function Rules() {
             })}
           </div>
         </div>
+      
+        <RulesOutro />
       </div>
     </>
   )
