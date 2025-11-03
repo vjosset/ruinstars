@@ -3,6 +3,7 @@ import Markdown from '@/components/ui/Markdown'
 import UnitCard from '@/components/unit/UnitCard'
 import { FactionService, SpecialService, SquadTypeService } from '@/services'
 import Link from 'next/link'
+import PageBreak from '../books/PageBreak'
 
 export default async function RulesSquadTypes() {
   const factions = await FactionService.getAllFactions()
@@ -33,7 +34,7 @@ export default async function RulesSquadTypes() {
           <h1 className="text-main text-center">{faction.factionName}</h1>
           <Markdown className="flavor_disabled">{faction.lore}</Markdown>
           
-          {faction.squadTypes.map(async (st) => {
+          {faction.squadTypes.map(async (st, idx) => {
             const squadType = await SquadTypeService.getSquadType(st.squadTypeId)
 
             if (!squadType) {
@@ -45,14 +46,15 @@ export default async function RulesSquadTypes() {
                 key={squadType.squadTypeId}
                 id={squadType.squadTypeId}
               >
+                {idx > 0 && <PageBreak />}
                 <h2 className="font-heading text-main">
                   <Link href={`/squadTypes/${squadType.squadTypeId}`}>{squadType.squadTypeName}</Link>
                 </h2>
-                <div className="twocols">
+                <div className="section twocols">
                   <div className="section">
                     <Link href={`/squadTypes/${squadType.squadTypeId}`}>
                       <img
-                        src={`/img/squadTypes/${squadType.squadTypeId}_thumb.webp`}
+                        src={`/img/squadTypes/${squadType.squadTypeId}.webp`}
                         alt={`${squadType.squadTypeName} Portrait`}
                         className="rounded-xl border border-main"
                       />
