@@ -15,6 +15,7 @@ export default async function RulesOutro({ num }: {num?: Number | null}) {
           If you have ideas for new features, improvements, or just want to chat about the game, please join our community channels.
 
           <ul>
+            <li><a target="_blank" className="underline" href="https://ruinstars.com">Ruinstars.com</a> - Main website and app</li>
             <li><a target="_blank" className="underline" href="https://discord.gg/Rh8vJzkCrT">Discord</a> - Come say hello!</li>
             <li><a target="_blank" className="underline" href="https://ruinstars.itch.io/ruinstars">itch.io</a> - Includes devlogs for the game</li>
             <li><a target="_blank" className="underline" href="https://github.com/vjosset/ruinstars">GitHub</a> - Full source code</li>
