@@ -37,8 +37,8 @@ export default async function RulesCoreMechanics({ num }: {num?: Number | null})
               <li>Squad B activates its second Unit and performs Actions</li>
               <li>etc.</li>
             </ul>
-            Once per Turn, if a Squad has fewer Standing Units than its opponent, it may choose to delay its next Activation.
-            In this case, the Squad with more Standing Units activates its next Unit instead, then alternating Activations resume normally.
+            In cases where one Squad has at least 2 more Standing Units than the other, the Squad with fewer Units may choose to delay one activation once per Turn.
+            In that case, the Squad with more Units activates two of its Units in a row.
           </div>
         </div>
       </div>
