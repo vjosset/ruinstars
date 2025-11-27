@@ -199,7 +199,7 @@ if args.instructions > 0:
   c.setFont("Helvetica", 11)
   instructions = [
     "• Print this PDF at 100% scale (do NOT use 'Fit to page').",
-    "• Each tile prints at 20×20 cm and forms a grid of 5x5 squares, each 40mm to a side.",
+    "• Each tile prints at 20x20 cm and forms a grid of 5x5 squares, each 40mm to a side.",
     f"• This layout preview shows how to arrange the tiles.",
     "• Cut and align the tiles according to the grid.",
     "• Mount to foam board, wood, or card for maximum durability."
@@ -261,7 +261,7 @@ if args.instructions > 0:
   preview_buffer.seek(0)
   preview_reader = ImageReader(preview_buffer)
 
-  # Convert to PDF dimensions (points), enforcing 10×10 cm max size
+  # Convert to PDF dimensions (points), enforcing 10x10 cm max size
   preview_w_cm = preview_width_px / dpi_preview * 2.54
   preview_h_cm = preview_height_px / dpi_preview * 2.54
 
