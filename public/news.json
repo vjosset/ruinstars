@@ -1,5 +1,10 @@
 [
   {
+    "date": "2025-11-27",
+    "title": "Mission Types and Rewards + Spoils of War",
+    "description": "Primary missions now include two rewards, with the winning Squad selecting their reward first, and the losing Squad selecting the other. Plus new Spoils of War!"
+  },
+  {
     "date": "2025-11-06",
     "title": "Squad Adjustments - Hunter Killers and Despoilers",
     "description": "The [Hunter Killers](/squadTypes/HK) and [Despoilers](/squadTypes/DES) have been updated with more options, tweaks to their skills, and general balance updates."

@@ -10,3 +10,6 @@ deploy.sh
 /==Notes
 /prisma/==DataNotes.md
 /public/fonts/BadLicense
+src/data/missions_BKP_20251109.json
+.gitignore
+src/data/missions_BKP_20251127.json

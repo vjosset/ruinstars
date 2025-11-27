@@ -8,6 +8,7 @@ export type MissionPlain = {
   deployment: string;
   victory: string;
   special: string;
+  rewards: MissionReward[];
 };
 
 export class Mission {
@@ -20,6 +21,7 @@ export class Mission {
   deployment: string
   victory: string
   special: string
+  rewards: MissionReward[]
 
   constructor(data: {
     missionId: number;
@@ -31,6 +33,7 @@ export class Mission {
     deployment: string;
     victory: string;
     special: string;
+    rewards: MissionReward[];
   }) {
     this.missionId = data.missionId
     this.missionType = data.missionType
@@ -41,6 +44,7 @@ export class Mission {
     this.deployment = data.deployment
     this.victory = data.victory
     this.special = data.special
+    this.rewards = data.rewards
   }
 
   toPlain(): MissionPlain {
@@ -54,6 +58,12 @@ export class Mission {
       deployment: this.deployment,
       victory: this.victory,
       special: this.special,
+      rewards: this.rewards
     }
   }
 }
+
+export type MissionReward = {
+  name: string,
+  effect: string
+};
