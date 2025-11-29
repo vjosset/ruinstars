@@ -268,7 +268,7 @@
     "special": null,
     "rewards": [
       { "name": "Extraction Gear", "effect": "One Unit gains Grappling  Hook (ignore vertical distance when climbing up or down) in the next mission." },
-      { "name": "Resourceful Salvage", "effect": "One Unit gains a MedPack (used for 1 ACT to recover 1D3 lost HIT) to use in the next mission." }
+      { "name": "Resourceful Salvage", "effect": "One Unit gains a MedPack (spend 1 ACT to recover 1D3 lost HIT) to use once in the next mission." }
     ]
   }
 ]
