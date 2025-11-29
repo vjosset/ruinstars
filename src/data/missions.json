@@ -6,12 +6,12 @@
     "title": "Secure the Zone",
     "active": true,
     "description": "\"Claim ground, hold fast.\"\n\nThroughout the battle, both sides contest key areas of the warzone. Whoever can consistently secure ground will dictate the flow of the fight.",
-    "setup": "Place 3 Objective markers along the centerline of the battlefield, each at least 6 Paces apart.",
-    "deployment": "Normal deployment.",
-    "victory": "At the end of each Turn, score 1 MP per Objective your Squad controls (has more Units Adjacent than the enemy).",
+    "setup": "Place 3 Objective markers in the center of the West, Central, and East tiles.",
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
+    "victory": "At the end of each Turn, score 1 MP per Objective your Squad controls.",
     "special": "If a Squad controls all 3 Objectives at the end of any Turn, they gain +1 MP immediately (once per game).",
     "rewards": [
-      { "name": "Field Stabilizers", "effect": "One Unit gains +1 ARM during Turn 1 of its next mission (representing improved defensive position setup)." },
+      { "name": "Field Stabilizers", "effect": "One Unit gains +1 ARM during Turn 1 of its next mission." },
       { "name": "Forward Command", "effect": "+1 TO during any Turn in the next mission." }
     ]
   },
@@ -22,13 +22,13 @@
     "title": "Hold the Line",
     "active": true,
     "description": "\"The enemy breaks upon our wall.\"\n\nVictory favors the steadfast. The longer you hold, the stronger your claim.",
-    "setup": "Each Squad places 1 Objective fully within their own half of the Battlefield, at least 8 Paces from any edge.",
-    "deployment": "Normal deployment.",
-    "victory": "At the end of Turn 4, score 2 MP per Objective controlled by your Squad. If both Squads control their own Objectives, the mission is a Draw.",
+    "setup": "Place two Objective markers in the center of the North and South tiles.",
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
+    "victory": "At the end of each turn after the first, score 2 MP per Objective controlled by your Squad.",
     "special": "Units in cover adjacent to an Objective gain +1 ARM against ranged attacks.",
     "rewards": [
-      { "name": "Tactical Resupply", "effect": "One Unit gains auto-cover in the next mission (treated as Cover status against Ranged Attacks)." },
-      { "name": "Healed Injury", "effect": "One Unit may immediately remove one non-Deceased Injury." }
+      { "name": "Tactical Resupply", "effect": "Select one Unit to be always treated as in Cover for the next mission." },
+      { "name": "Healed Injury", "effect": "One Unit may immediately remove one Injury (excluding Deceased)." }
     ]
   },
   {
@@ -38,13 +38,13 @@
     "title": "Power Cycle",
     "active": true,
     "description": "\"Reactivate the grid before the enemy shuts it down.\"\n\nA dormant facility flickers to life. Reactors surge, systems fail, and both sides fight to keep control of unstable nodes.",
-    "setup": "Place 3 Power Nodes along the centerline. Each starts Inactive.",
-    "deployment": "Normal deployment.",
+    "setup": "Place 3 Power Node markers in the center of the West, Central, and East tiles. All Power Nodes start the mission as \"Inactive\".",
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
     "victory": "At the end of each Turn, score 1 MP per Active Node you control.",
-    "special": "A Unit within 1 Pace of a Node may take a Mission Action (Toggle, 1 ACT) to flip it Active/Inactive. Active Nodes emit dangerous radiation: Units within 1 Pace suffer 1 HIT (ignores ARM) on a roll of 5+ at the end of the Turn.",
+    "special": "**Mission Action: Toggle Node (1 ACT):** The Unit toggles the Active state of a Node they control. Active Nodes emit dangerous radiation: At the end of each Turn, all Units Adjacent to an Active node take 1 Damage.",
     "rewards": [
-      { "name": "Voltage Spikes", "effect": "One unit's weapon gains RLT (Relentless) or RND1 (Rending 1) in the next mission." },
-      { "name": "Technician Assist", "effect": "One Unit gains Technician 1 (perform one Mission action for 1 less ACT) for the next mission." }
+      { "name": "Voltage Spikes", "effect": "Select one Unit's weapon to gain RLT (Relentless) or RND1 (Rending 1) in the next mission." },
+      { "name": "Technician Assist", "effect": "Select one Unit to gain Technician 1 (perform one Mission action for 1 less ACT) for the next mission." }
     ]
   },
   {
@@ -54,10 +54,10 @@
     "title": "Sabotage",
     "active": true,
     "description": "\"They built it. You break it.\"\n\nA vital structure powers the enemy advance. One force must destroy it; the other, defend it at all costs.",
-    "setup": "Defender places 2 Objective structures fully within their Deployment Zone.",
-    "deployment": "Attacker deploys second, on the opposite edge.",
+    "setup": "Select one Squad to be the Defender, the other the Attacker.\n\nPlace two larger structures in the West and East tiles and one Sabotage marker on the corner of each structure.",
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
     "victory": "At the end of Turn 4, the Attacker scores 3 MP for each destroyed structure. Defender scores 3 MP for each remaining intact.",
-    "special": "A Unit within 1 Pace of a structure may take a Mission Action (Plant Charges, 2 ACT). At the start of the next Turn, roll a D6; on 4+, the structure is destroyed.",
+    "special": "**Mission Action: Sabotage (1 ACT):** An Attacker Unit that controls a Sabotage marker may perform this Action. Rmove the sabotaged structure from the battlefield. All Units within or Adjacent to that structure take 2 Damage.",
     "rewards": [
       { "name": "Demo Expert", "effect": "One Unit gains \"Demo charge\" (A free Grenade action) for the next mission." },
       { "name": "Quick Prep", "effect": "One Unit gains +1 ACT in Turn 1 of the next mission." }
@@ -70,9 +70,9 @@
     "title": "Push the Line",
     "active": true,
     "description": "\"Drive them back step by step.\"\n\nAdvance across the battlefield and seize ground from the enemy.",
-    "setup": "Place 3 Objectives: one centered on each player’s Deployment edge and one at the exact center.",
-    "deployment": "Normal deployment.",
-    "victory": "At the end of each Turn, score 1 MP if you control your own Objective, 2 MP if you control the center, and 3 MP if you control the enemy’s.",
+    "setup": "Place 3 Objectives: one centered on each Squad's Deployment edge and one at the exact center.",
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
+    "victory": "At the end of each Turn, score 1 MP if you control your own Objective, 2 MP if you control the center, and 3 MP if you control the enemy's.",
     "special": "If you control the enemy Objective at the end of Turn 3 or earlier, gain an additional +1 MP bonus (once per game).",
     "rewards": [
       { "name": "Aggressive Push", "effect": "One Unit gains +1 ACT (Action Point) in Turn 1 of the next mission." },
@@ -87,12 +87,12 @@
     "active": true,
     "description": "\"All roads lead to ruin.\"\n\nThe battle converges on a single decisive location.",
     "setup": "Place 1 Objective at the exact center of the Battlefield.",
-    "deployment": "Normal deployment.",
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
     "victory": "At the end of Turn 4, the Squad controlling the central Objective scores 6 MP.",
-    "special": "Units Adjacent to the Objective may not Evade or go Hidden. It’s too exposed.",
+    "special": null,
     "rewards": [
-      { "name": "Decisive Strike", "effect": "One Unit gets one Spoil of War in the next mission (remove at the end of the mission)." },
-      { "name": "Weapon Calibration", "effect": "One unit's weapon gains RLT or RND1 in the next mission." }
+      { "name": "Decisive Strike", "effect": "One Unit gets one Spoil of War in the next mission (remove at the end of that mission)." },
+      { "name": "Weapon Calibration", "effect": "One unit's weapon gains RLT or RND1 in the next mission (remove at the end of that mission)." }
     ]
   },
   {
@@ -103,12 +103,12 @@
     "active": true,
     "description": "\"Retrieve the data before the uplink burns.\"\n\nValuable intel lies scattered among the ruins.",
     "setup": "Place 3 Data Cores along the centerline.",
-    "deployment": "Normal deployment.",
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
     "victory": "At the end of Turn 4, score 2 MP per Data Core carried by your Units.",
-    "special": "A Unit within 1 Pace may take a Mission Action (Collect, 1 ACT) to claim a Data Core. Units may carry one Core each. If the carrier is Taken Out, the Core drops on its tile.",
+    "special": "**Mission Action: Collect Intel (1 ACT):** A Unit that controls a Data Core may perform this action. That Unit now carries the Data Core. Units may only carry one Data Core each. If a carrier is Taken Out, the Data Core drops on that Units position.",
     "rewards": [
       { "name": "Intelligence Priority", "effect": "Start the next mission with +1 TO and may re-roll TOs once during the next mission." },
-      { "name": "Treasure Trove", "effect": "The Squad may spend an additional 5GP on gear for the next mission." }
+      { "name": "Treasure Trove", "effect": "The Squad may spend an additional 5GP on Weapons and Skills for the next mission. At the end of that mission, remove the added Gear." }
     ]
   },
   {
@@ -118,10 +118,10 @@
     "title": "Ambush",
     "active": true,
     "description": "\"Intercept the courier before they vanish into the wasteland.\"\n\nOne side must extract a critical asset; the other must stop them.",
-    "setup": "Defender selects one Unit as the Courier, carrying a Data Core.",
-    "deployment": "Courier starts deployed; the Attacker deploys second.",
-    "victory": "If the Courier survives to Turn 4, Defender scores 6 MP. If the Courier is Taken Out, Attacker scores 6 MP.",
-    "special": "When the Courier is Taken Out, place the Core on that tile. It can be recovered and carried off by any Unit.",
+    "setup": "Select one Squad to be the Defender, the other the Attacker.\n\nDefender secretly selects one Unit to be the carrier of the Intel.",
+    "deployment": "Attacker Squad deploys before Turn 1 on the Northern or Southern battlefield edge. Defender deploys before Turn 1 on the Western edge of the West tile.",
+    "victory": "At the end of Turn 4, if the Defender Squad is carrying the Intel and the carrier is on the Eastern edge of the East tile, Defender wins the mission. Attacker wins in all other cases.",
+    "special": "When the Courier is Taken Out, place the Core on its Position. It can be recovered and carried off by any Unit.",
     "rewards": [
       { "name": "Disruption Scan", "effect": "One Unit gains +1 MSK (Melee Skill) or +1 RSK (Ranged Skill) for the next mission." },
       { "name": "Targeted Strike", "effect": "The enemy Leader gains -1 ARM (minimum 1) for the next mission." }
@@ -131,160 +131,144 @@
     "missionId": 9,
     "missionType": "Primary",
     "seq": 9,
-    "title": "Breakout",
-    "active": true,
-    "description": "\"Cut them off before they breach the perimeter.\"\n\nThe enemy carries stolen intel and must escape the field.",
-    "setup": "Defender selects a Courier carrying one Core.",
-    "deployment": "Courier deploys within their Deployment Zone.",
-    "victory": "If the Courier exits the Attacker’s battlefield edge carrying the Core, Defender scores 6 MP immediately. Otherwise, Attacker scores 6 MP if the Courier is Taken Out before extraction.",
-    "special": "Courier gains +1 MSK but cannot Attack.",
-    "rewards": [
-      { "name": "Extraction Specialist", "effect": "One Unit may use the MedPack skill (recover 1D3 lost HIT) once in the next mission." },
-      { "name": "Cloaked Movement", "effect": "One Unit cannot be targeted in ranged combat in Turn 1 of the next mission." }
-    ]
-  },
-  {
-    "missionId": 10,
-    "missionType": "Primary",
-    "seq": 10,
     "title": "Relay Run",
     "active": true,
     "description": "\"Grab the beacon and get it home.\"\n\nA beacon must be secured and relayed back to command.",
     "setup": "Place one Beacon Objective at the Battlefield center.",
-    "deployment": "Normal deployment.",
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
     "victory": "A Squad scores 6 MP if any Unit exits their own Battlefield edge carrying the Beacon.",
-    "special": "A Unit within 1 Pace may take a Mission Action (Collect, 1 ACT) to claim the Beacon. Carriers lose -1 ACT while holding it.",
+    "special": "The Beacon is a marker that can be Picked Up. While carrying the Beacon, Units have -1 ACT (minimum 1).",
     "rewards": [
       { "name": "TO Optimization", "effect": "During the next mission, the Squad may re-roll TOs once." },
       { "name": "Swift Runner", "effect": "One Unit gains Swift (first Dash action costs 0 ACT) in the next mission." }
     ]
   },
   {
-    "missionId": 11,
+    "missionId": 10,
     "missionType": "Primary",
-    "seq": 11,
+    "seq": 10,
     "title": "Search and Recover",
     "active": true,
-    "description": "\"Something’s buried here. Find it before they do.\"\n\nYou don’t know where it is—but the longer you search, the better your odds.",
-    "setup": "Place 3 Search Zones along the centerline.",
-    "deployment": "Normal deployment.",
-    "victory": "Once a Squad finds the objective, they score 1 MP each Turn they control it.",
-    "special": "A Unit within a Search Zone may take a Mission Action (Search, 1 ACT). Roll a D6; success on 6+ (Turn 1), 5+ (Turn 2), 4+ (Turn 3+). The first success reveals the hidden Objective in that Zone.",
+    "description": "\"A powerful artifact is buried here. Find it before the enemy does.\"\n\nYou don't know where it is, but the longer you search, the better your odds.",
+    "setup": "Place 3 Search markers in the center of the West, Center, and East tiles.",
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
+    "victory": "At the end of each Turn, the Squad carrying the artifact scores 2 MP.",
+    "special": "**Mission Action: Search (2 ACT):** A Unit that controls a Search marker may perform this Action. Roll 1D6: on 6+ (Turn 1), 5+ (Turn 2), 4+ (Turn 3+), the artifact is found and that Unit is now carrying it. Remove the remaining Search markers from the battlefield.",
     "rewards": [
       { "name": "Ancient Artifact", "effect": "One Spoil of War (SoW) immediately." },
       { "name": "Preemptive Strike", "effect": "One Unit gains +1 HIT in the next mission." }
     ]
   },
   {
-    "missionId": 12,
-    "missionType": "Accumulate and Commit",
-    "seq": 12,
+    "missionId": 11,
+    "missionType": "Primary",
+    "seq": 11,
     "title": "Commitment Protocol",
     "active": true,
     "description": "\"Power must build before the final strike.\"\n\nEnergy charges build throughout the fight until a decisive moment of release.",
     "setup": "Place 1 Reactor Objective at the center of the field.",
-    "deployment": "Normal deployment.",
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
     "victory": "At the end of Turn 4, the Squad that committed the most Energy Tokens scores 6 MP.",
-    "special": "A Unit within 1 Pace may take a Mission Action (Charge, 1 ACT) to add 1 Energy Token to its Squad’s pool. On Turn 4, a Unit within 1 Pace may take a Mission Action (Commit, 1 ACT) to add all stored Tokens to the Reactor. Tokens remain if the carrier is Taken Out.",
+    "special": "**Mission Action: Charge (1ACT):** A Unit that controls the Reactor may perform this action. Add 1 Energy Token to its Squad's pool.\n\n**Mission Action: Commit (2ACT):** In Turn 4, a Unit that controls the Reactor may perform this action. That Unit's Squad scores 1 MP for each Energy Token it has Charged on the Beacon.",
     "rewards": [
-      { "name": "Energy Overflow", "effect": "One Unit gains +1 ACT in any one Turn (announce when activating)." },
-      { "name": "Tactical Reversal", "effect": "Once in the next mission, any Unit may spend 1 ACT to add 1 TO to the Squad's TOs." }
+      { "name": "Energy Overflow", "effect": "One Unit gains +1 ACT in any one Turn in the next Mission (announce when activating)." },
+      { "name": "Tactical Reversal", "effect": "Once in the next mission, any Unit may spend 1 ACT to add 2 TOs to its Squad." }
+    ]
+  },
+  {
+    "missionId": 12,
+    "missionType": "Primary",
+    "seq": 12,
+    "title": "Attrition",
+    "active": true,
+    "description": "\"No prisoners.\"\n\nYour orders are simple: outkill the enemy.",
+    "setup": null,
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
+    "victory": "Each time a Squad Takes Out an enemy, that Squad scores 1 MP.",
+    "special": null,
+    "rewards": [
+      { "name": "Aggressive Momentum", "effect": "One unit gains +1 MSK or +1 RSK the first time it performs a Ranged or Melee combat ACtion in the next mission." },
+      { "name": "Reinforced Armor", "effect": "One Unit gains +1 ARM (Armor) during Turn 1 of the next mission." }
     ]
   },
   {
     "missionId": 13,
     "missionType": "Primary",
     "seq": 13,
-    "title": "Attrition",
+    "title": "Last Stand",
     "active": true,
-    "description": "\"No prisoners.\"\n\nYour orders are simple: outkill the enemy.",
-    "setup": "Normal setup.",
-    "deployment": "Normal deployment.",
-    "victory": "At the end of each Turn, if you have Taken Out more enemy Units than they have Taken Out of yours, score 2 MP.",
-    "special": "No Objectives. Just blood.",
+    "description": "\"Stand your ground until nothing moves.\"\n\nThe battle grinds to dust. Only the unbroken remain.",
+    "setup": null,
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
+    "victory": "At the end of each Turn, the squad with the highest Total GP of Standing Units scores 2 MP.",
+    "special": null,
     "rewards": [
-      { "name": "Aggressive Momentum", "effect": "During the next mission, one unit gains +1 MSK or +1 RSK the first time it performs combat." },
-      { "name": "Reinforced Armor", "effect": "One Unit gains +1 ARM (Armor) for the next mission." }
+      { "name": "Veteran Status", "effect": "One Unit permanently gains +1 SKL on its Melee weapons." },
+      { "name": "Urgent Treatment", "effect": "One Unit may immediately heal one of its Injuries." }
     ]
   },
   {
     "missionId": 14,
     "missionType": "Primary",
     "seq": 14,
-    "title": "Last Stand",
+    "title": "Assassinate",
     "active": true,
-    "description": "\"Stand your ground until nothing moves.\"\n\nThe battle grinds to dust. Only the unbroken remain.",
-    "setup": "Normal setup.",
-    "deployment": "Normal deployment.",
-    "victory": "At the end of Turn 4, total the (ACT + HIT) of all surviving Units in each Squad. The higher total scores 6 MP.",
-    "special": "If both totals are equal, the battle is declared a Draw.",
+    "description": "\"Cut off the head, the body dies.\"\n\nHunt down the enemy commander.",
+    "setup": null,
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
+    "victory": "If the enemy Leader is Taken Out, your Squad immediately scores 6 MP.",
+    "special": "Leaders gain +1 ACT.",
     "rewards": [
-      { "name": "Veteran Status", "effect": "One Unit gains +1 MSK (Melee Skill) permanently." },
-      { "name": "Urgent Treatment", "effect": "One Unit may immediately heal one of its Injuries." }
+      { "name": "Intel Leak", "effect": "In the next mission, enemy Leader gains -1 ARM (minimum 1)." },
+      { "name": "Strategize Bonus", "effect": "Once during the next mission, a Unit may spend 1 ACT to gain 2 TOs." }
     ]
   },
   {
     "missionId": 15,
     "missionType": "Primary",
     "seq": 15,
-    "title": "Assassinate",
+    "title": "Rivals",
     "active": true,
-    "description": "\"Cut off the head, the body dies.\"\n\nHunt down the enemy commander.",
-    "setup": "Each Squad nominates one Leader Unit.",
-    "deployment": "Normal deployment.",
-    "victory": "If the enemy Leader is Taken Out, your Squad scores 6 MP immediately.",
-    "special": "Leaders gain +1 ACT but cannot Hide or Deploy Hidden.",
+    "description": "\"Settle the score.\"\n\nTwo units meet on the battlefield, bound by vengeance or destiny.",
+    "setup": "Each Squad secretly selects one Rival Unit (not the Leader). Reveal simultaneously after deployment.",
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
+    "victory": "If your Rival Takes Out the enemy Rival, score 6 MP. If both Rivals are still alive at game's end, the mission is a draw.",
+    "special": "Rivals gain +1 HIT and +1 to Attack rolls against each other. In addition, Rivals may only be targeted in combat by the enemy Rival.",
     "rewards": [
-      { "name": "Intel Leak", "effect": "In the next mission, enemy Leader gains -1 ARM (minimum 1)." },
-      { "name": "Strategize Bonus", "effect": "Squad gains the ability to use Strategize (1ACT) (gain +1 TO) once per mission in the next mission." }
+      { "name": "Personal Vendetta", "effect": "In the next mission, select one enemy unit (excluding the Leader). Your Units gain +1 SKL (Ranged or Melee Skill) each time that enemy is targeted in combat." },
+      { "name": "Defensive Stance", "effect": "One Unit gains Tough 1 (re-roll 1 Melee Save die) in the next mission." }
     ]
   },
   {
     "missionId": 16,
     "missionType": "Primary",
     "seq": 16,
-    "title": "Rivals",
+    "title": "Encroach",
     "active": true,
-    "description": "\"Settle the score.\"\n\nTwo units meet on the battlefield, bound by vengeance or destiny.",
-    "setup": "Each Squad secretly selects one Rival Unit (not the Leader). Reveal simultaneously after deployment.",
-    "deployment": "Normal deployment.",
-    "victory": "If your Rival Takes Out the enemy Rival, score 6 MP. If both Rivals are still alive at game’s end, no one scores.",
-    "special": "Rivals gain +1 HIT and +1 to Attack rolls against each other.",
+    "description": "\"Push deep and hold the line.\"\n\nDominate enemy territory with strength of arms.",
+    "setup": null,
+    "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
+    "victory": "At the end of each Turn, the Squad with the highest total GP of Standing Units that are closer to the enemy deployment edge than their own deployment edge scores 2 MP.",
+    "special": "Units Adjacent to enemies do not count toward scoring.",
     "rewards": [
-      { "name": "Personal Vendetta", "effect": "In the next mission, select one enemy unit and gains +1 SKL (Ranged or Melee Skill) when targeting that enemy." },
-      { "name": "Defensive Stance", "effect": "One Unit gains Tough 1 (re-roll 1 Melee Save die) in the next mission." }
+      { "name": "Overwhelming Presence", "effect": "Once in the next mission, instead of rolling for TOs, get 4 TOs." },
+      { "name": "Deep Strike", "effect": "One Unit may perform a free move after its deployment. If the next mission deploys Units before Turn 1, perform this move after all Units have been deployed." }
     ]
   },
   {
     "missionId": 17,
     "missionType": "Primary",
     "seq": 17,
-    "title": "Encroach",
-    "active": true,
-    "description": "\"Push deep and hold the line.\"\n\nDominate enemy territory with strength of arms.",
-    "setup": "Normal setup.",
-    "deployment": "Normal deployment.",
-    "victory": "At the end of Turn 4, total (ACT + HIT) of Units standing on the enemy’s half. Higher total scores 6 MP.",
-    "special": "Units Adjacent to enemies do not count toward scoring.",
-    "rewards": [
-      { "name": "Overwhelming Presence", "effect": "Instead of rolling TOs, get 4 TOs in any one turn in the next mission." },
-      { "name": "Deep Strike", "effect": "One Unit may perform a free move after its deployment. If the next mission deploys Units before Turn 1, perform this move after all Units have been deployed." }
-    ]
-  },
-  {
-    "missionId": 18,
-    "missionType": "Primary",
-    "seq": 18,
     "title": "Evac Point",
     "active": true,
     "description": "\"Rendezvous or die trying.\"\n\nThe dropship waits only moments—reach it before the storm consumes the battlefield.",
-    "setup": "The Central Tile of the battlefield is the Evac Zone.",
-    "deployment": "Normal deployment.",
-    "victory": "At the end of Turn 4, total (ACT + HIT) of Units in the Evac Zone not Adjacent to enemies. Higher total scores 6 MP.",
-    "special": "Units may take a Mission Action (Extract, 2 ACT) if within the Evac Zone and unengaged; extracted Units are removed and count as double their (ACT + HIT) for scoring.",
+    "setup": "The Central Tile of the battlefield is the Evac Zone.\n\nSelect one Squad to be the Attacker, the other is the Defender.",
+    "deployment": "Defender Squad deploys before Turn 1 anywhere in the central Tile.\n\nAttacker Squad deploys before Turn 1 on any battlefield edge.",
+    "victory": "At the end of Turn 4, if the total GP of Standing Defender Units that are on the central tile is equal to or higher than the total GP of Standing Attacker Units on the central tile, Defender Squad wins the mission. Attacker Squad wins in all other cases.",
+    "special": null,
     "rewards": [
-      { "name": "Extraction Gear", "effect": "One Unit gains Jump Pack (ignore vertical distance when climbing) in the next mission." },
-      { "name": "Resourceful Salvage", "effect": "Unit gains Resourceful (1 XP) immediately (this is a persistent benefit)." }
+      { "name": "Extraction Gear", "effect": "One Unit gains Grappling  Hook (ignore vertical distance when climbing up or down) in the next mission." },
+      { "name": "Resourceful Salvage", "effect": "One Unit gains a MedPack (used for 1 ACT to recover 1D3 lost HIT) to use in the next mission." }
     ]
   }
 ]
