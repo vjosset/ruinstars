@@ -8,7 +8,7 @@ export type MissionPlain = {
   deployment: string;
   victory: string;
   special: string;
-  rewards: MissionReward[];
+  rewards?: MissionReward[];
 };
 
 export class Mission {
@@ -21,7 +21,7 @@ export class Mission {
   deployment: string
   victory: string
   special: string
-  rewards: MissionReward[]
+  rewards?: MissionReward[]
 
   constructor(data: {
     missionId: number;
@@ -64,6 +64,6 @@ export class Mission {
 }
 
 export type MissionReward = {
-  name: string,
-  effect: string
+  name?: string,
+  effect?: string
 };
