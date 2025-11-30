@@ -187,7 +187,7 @@
     "victory": "Each time a Squad Takes Out an enemy, that Squad scores 1 MP.",
     "special": null,
     "rewards": [
-      { "name": "Aggressive Momentum", "effect": "One unit gains +1 MSK or +1 RSK the first time it performs a Ranged or Melee combat ACtion in the next mission." },
+      { "name": "Aggressive Momentum", "effect": "One unit gains +1 MSK or +1 RSK the first time it performs a Ranged or Melee combat Action in the next mission." },
       { "name": "Reinforced Armor", "effect": "One Unit gains +1 ARM (Armor) during Turn 1 of the next mission." }
     ]
   },
