@@ -64,6 +64,6 @@ export class Mission {
 }
 
 export type MissionReward = {
-  name?: string,
-  effect?: string
+  name?: string | null,
+  effect?: string | null
 };
