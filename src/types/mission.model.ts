@@ -4,7 +4,7 @@ export type MissionPlain = {
   seq: number;
   title: string;
   description: string;
-  setup: string;
+  setup?: string;
   deployment: string;
   victory: string;
   special: string;
@@ -17,7 +17,7 @@ export class Mission {
   seq: number
   title: string
   description: string
-  setup: string
+  setup?: string
   deployment: string
   victory: string
   special: string
@@ -29,7 +29,7 @@ export class Mission {
     seq: number;
     title: string;
     description: string;
-    setup: string;
+    setup?: string;
     deployment: string;
     victory: string;
     special: string;
