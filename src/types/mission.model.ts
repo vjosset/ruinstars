@@ -4,10 +4,10 @@ export type MissionPlain = {
   seq: number;
   title: string;
   description: string;
-  setup?: string;
+  setup?: string | null;
   deployment: string;
   victory: string;
-  special: string;
+  special?: string | null;
   rewards?: MissionReward[];
 };
 
@@ -17,10 +17,10 @@ export class Mission {
   seq: number
   title: string
   description: string
-  setup?: string
+  setup?: string | null
   deployment: string
   victory: string
-  special: string
+  special?: string | null
   rewards?: MissionReward[]
 
   constructor(data: {
@@ -29,11 +29,11 @@ export class Mission {
     seq: number;
     title: string;
     description: string;
-    setup?: string;
+    setup?: string | null;
     deployment: string;
     victory: string;
-    special: string;
-    rewards: MissionReward[];
+    special?: string | null;
+    rewards?: MissionReward[];
   }) {
     this.missionId = data.missionId
     this.missionType = data.missionType
