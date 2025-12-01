@@ -31,7 +31,7 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
           <h4 id="unit-stats">Unit Stats</h4>
           <ul>
             <li>
-              <h6 className="inline">ACT</h6> - Action Points<br/>
+              <h6 className="inline stat text-main">ACT</h6> - Action Points<br/>
               The maximum number of Action Points this Unit can spend on <a className="underline" href="#actions">Actions</a> during its activation.
             </li>
             {/*
@@ -47,26 +47,26 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
             </li>
             */}
             <li>
-              <h6 className="inline">ARM</h6> - Armor<br/>
+              <h6 className="inline stat text-main">ARM</h6> - Armor<br/>
               Indicates how well this Unit resists damage during <a className="underline" href="#combat">combat</a>.<br/>
               When rolling Armor Saves, results of this stat or lower are successful.
             </li>
             <li>
-              <h6 className="inline">HIT</h6> - Hit Points<br/>
+              <h6 className="inline stat text-main">HIT</h6> - Hit Points<br/>
               The Unit's number of Hit Points. When a Unit reaches zero <code>HIT</code>, it is <strong>Taken Out</strong> and removed from the battlefield (see <a className="underline" href="#combat">Combat</a>).<br/>
               If a Unit has at least 1 <code>HIT</code> remaining, it is considered to be <strong>Standing</strong>.
             </li>
             <li>
-              <h6 className="inline">GP</h6> - Gear Points<br/>
+              <h6 className="inline stat text-main">GP</h6> - Gear Points<br/>
               The total cost in Gear Points (GP) for this Unit.
             </li>
             <li>
-              <h6 className="inline">FV</h6> - Force Value<br/>
-              The Force Value of this. FV is used in some missions to determine a Unit's contribution to Mission Points.
-              For example, in the <a href="#missions" className="undeline">Attrition</a> Mission, the enemy Squad gains MP equal to each Taken Out Unit's FV.
+              <h6 className="inline stat text-main">FV</h6> - Force Value<br/>
+              The Force Value of this Unit. <code>FV</code> is used in some missions to determine a Unit's contribution to Mission Points.
+              For example, in the <a href="#missions" className="underline">Attrition</a> Mission, Squads gain MPs equal to Taken Out Units' Force Value.
             </li>
             <li>
-              <h6 className="inline">XP</h6> - Experience Points<br/>
+              <h6 className="inline stat text-main">XP</h6> - Experience Points<br/>
               The <a className="underline" href="#progression">Experience</a> this unit has gained in battle. XP can be used to add certain special gear (skills or weapons) to a Unit.
             </li>
             {/* Moved to skills instead
@@ -83,7 +83,11 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
             <li>He can perform {sampleUnit.ACT} Actions (<code>ACT</code>) during each of his activations.</li>
             <li>Each time he is the target of Combat and rolls Armor Saves, each result of {sampleUnit.ARM} or less (<code>ARM</code>) is a successful Save.</li>
             <li>He starts with {sampleUnit.HIT} Hit Points (<code>HIT</code>).</li>
-            <li>He has the skill {sampleUnit.skills?.[0]?.gearName}.</li>
+            <li>He has {sampleUnit.skills?.length} skills:
+              {
+                sampleUnit.skills?.map((skl, idx) => (idx > 0 ? ', ' : ' ') + skl.gearName)
+              }
+            .</li>
           </ul>
         </div>
         
@@ -96,15 +100,15 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
               <RiSwordFill className="icon" /> indicates a Melee weapon, <RiCrosshair2Fill className="icon" /> indicates a Ranged weapon.
             </li>
             <li>
-              <h6 className="inline">ATT</h6> - Attacks<br/>
+              <h6 className="inline stat text-main">ATT</h6> - Attacks<br/>
               How many Dice are rolled each time this Weapon is used.
             </li>
             <li>
-              <h6 className="inline">SKL</h6> - Skill<br/>
+              <h6 className="inline stat text-main">SKL</h6> - Skill<br/>
               Indicates the skill of this Unit when using this Weapon. Rolls that are equal to or less than this value are successful strikes.
             </li>
             <li>
-              <h6 className="inline">(Special)</h6> - Weapon Specials<br/>
+              <h6 className="inline stat text-main">(Special)</h6> - Weapon Specials<br/>
               Specials for this weapon are listed next to its name.
               In the app and on the website, click or tap on them to read their full description.
               Don't worry about remembering the codes; they will quickly become second nature to you.

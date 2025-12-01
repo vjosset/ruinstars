@@ -258,7 +258,7 @@ export default function UnitCard({
                 )}
                 */}
                 {!unit.isUnitType && (
-                  <div>
+                  <div className="text-muted">
                     {unit?.unitType?.unitTypeName}
                     { ' ' }
                     {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
@@ -268,10 +268,12 @@ export default function UnitCard({
               {!unit.isUnitType && (
                 <div className="text-right whitespace-nowrap">
                   <span className="stat mx-2">
+                    {/*<FaGaugeHigh className="inline-block h-3 w-3" />{ ' ' }*/}
                     FV:{ ' ' }
                     <span className="stat text-main">{Math.floor((unit?.totalGearGP + (unit?.unitType?.GP || 0)) / forceValueFactor)}</span>
                   </span>
                   <span className="stat mx-2 cursor-pointer hover:text-main" onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
+                    {/*<FaMedal className="inline-block h-3 w-3" />{ ' ' }*/}
                     XP:{ ' ' }
                     <span className="stat text-main">{unit.totalMedalXP}</span>
                   </span>
