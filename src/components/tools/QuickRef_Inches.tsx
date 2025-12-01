@@ -39,7 +39,7 @@ export default function QuickRef() {
                 <ul>
                   <li>Not be Adjacent to the Attacker or the Attacker's Squadmates</li>
                   <li>Be within the Weapon's range (<code>RNGx</code>)</li>
-                  <li>Be in the Attacker's <a className="underline" href="#line-of-sight">Line Of Sight</a></li>
+                  <li>Be in the Attacker's <a className="underline" href="#line-of-sight">Line of Sight</a></li>
                 </ul>
                 A Unit may not perform this action if it is <a className="underline" href="#adjacent">Adjacent</a> to any enemy Units.
               </li>
@@ -95,7 +95,7 @@ export default function QuickRef() {
         </table>
         
         <div className="section">
-          <h4 id="line-of-sight">Line Of Sight</h4>
+          <h4 id="line-of-sight">Line of Sight</h4>
           <p>
             A Target is in an Attacker's <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one point of the Attacker's base to two opposite points of the Target's base.<br/>
             A Unit cannot shoot through other Units.

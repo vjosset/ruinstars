@@ -28,15 +28,20 @@ export default async function RulesCampaigns({ num }: {num?: Number | null}) {
         </div>
         <div className="section">
           <h4>Homebase</h4>
-          At the end of each Operation, your Squad returns to Homebase.<br/>
-          During Missions, your Squad will earn XP and GP. These cannot be spent on any Gear or Units until your Squad returns to Homebase.
-          <ul>
-            <li>Add 2 GP to your Squad's Max GP + 2 GP for each Victory in the previous Operation</li>
-            <li>Remove all Deceased Units from your Squad</li>
-            <li>Remove all Injuries from all (non-Deceased) Units</li>
-            <li>Recruit new Units into the Squad</li>
-            <li>Make changes to your Squad's selected Gear and Spoils Of War (for eligible Units). Units may select one Spoil of War for each increment of 5 XP.</li>
-          </ul>
+          At the end of each Operation (after the third Mission), your Squad returns to Homebase to heal injuries, resupply, and utilize accrued resources.<br/>
+          The sequence is as follows:
+          <ol>
+            <li>Calculate GP and XP: All GP and XP earned during the Operation are now available for spending.</li>
+            <li>
+              Unit Status Review: 
+              <ul>
+                <li>Remove Deceased Units: Remove all Units designated as Deceased from your Squad</li>
+                <li>Heal Injuries: Remove all Injuries (except Deceased) from all remaining Standing Units</li>
+              </ul>
+            </li>
+            <li>Recruit & Resupply: Recruit new Units into the Squad. Deceased Units can only be replaced during this Homebase phase.</li>
+            <li>Squad Changes: Make changes to your Squad's selected Gear and Spoils Of War</li>
+          </ol>
         </div>
         <div className="section">
           <h3>Sample Campaign</h3>

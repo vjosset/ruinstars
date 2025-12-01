@@ -20,7 +20,7 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
                   <ul>
                     <li>Not be Adjacent to the Attacker or the Attacker's Squadmates</li>
                     <li>Be within the Weapon's range (<code>RNGx</code>)</li>
-                    <li>Be in the Attacker's <a className="underline" href="#line-of-sight">Line Of Sight</a></li>
+                    <li>Be in the Attacker's <a className="underline" href="#line-of-sight">Line of Sight</a></li>
                   </ul>
                   A Unit may not perform this action if it is <a className="underline" href="#adjacent">Adjacent</a> to any enemy Units.
                 </li>
@@ -76,7 +76,7 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
           </table>
           
           <div className="section">
-            <h4 id="line-of-sight">Line Of Sight</h4>
+            <h4 id="line-of-sight">Line of Sight</h4>
             <p>
               A Target is said to be in an Attacker's <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one of the point of the Attacker's base to two opposite edges of the Target's base.<br/>
               A Unit cannot target an enemy Unit for Ranged Combat if there are other Units on that Line of Sight (i.e. a Unit cannot shoot &quot;through&quot; other Units).<br/>

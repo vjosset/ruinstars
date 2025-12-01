@@ -5,6 +5,7 @@ import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
 import { GearPlain } from '@/types'
 import { RiCrosshair2Fill, RiSwordFill } from 'react-icons/ri'
 import { Checkbox } from '../ui'
+import Markdown from '../ui/Markdown'
 
 type WeaponTableProps = {
   weapons: GearPlain[]
@@ -74,7 +75,7 @@ export default function WeaponTable({
                           {parsed.map((special, idx) => (
                             <div key={idx}>
                               <span className="font-semibold text-muted">({special.code}) {special.specialName}:</span>
-                              <p>{special.description}</p>
+                              <Markdown>{special.description}</Markdown>
                             </div>
                           ))}
                         </div>

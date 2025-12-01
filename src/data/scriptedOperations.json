@@ -369,7 +369,7 @@
         "setup": "Place 3 Depot Markers: one in the center of each of the Northwest, North, and Northeast tiles.",
         "deployment": "* Hegemony deploy within 2 Squares of any Depot before Turn 1.\n* Grutak deploy from the Southern battlefield edge before Turn 1.",
         "special": "Depots are items with `ARM` **4** and `HIT` **3**. They may be targeted in Combat.\n\n**Mission Action: Sabotage Depot (2ACT)**  \nA Grutak Unit Adjacent to a Depot may spend 2ACT to remove 1 `HIT` from it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Depot is Adjacent to any Hegemony.",
-        "victory": "* INterdcitors win if at least 2 Depots have not been destroyed by the end of Turn 4. **Proceed to Mission 3A**\n* Grutak win in all other cases. **Proceed to Mission 3B**"
+        "victory": "* Hegemony wins if at least 2 Depots have not been destroyed by the end of Turn 4. **Proceed to Mission 3A**\n* Grutak win in all other cases. **Proceed to Mission 3B**"
       },
       {
         "id": "2B",

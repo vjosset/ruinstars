@@ -22,7 +22,9 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
                 Set up your Battlefield according to the Mission's briefing. This includes placing buildings and other terrain features, placing objectives, and any other actions defined by the selected Mission.
               </li>
               <li><strong>Deploy Units</strong><br/>
-                Follow the Mission's briefing to deploy your Units. If both teams "deploy before Turn 1", players take turns placing one Unit at a time on the Battlefield, starting with the player who has the initiative in Turn 1.
+                Before deployment begins, both players roll off. The player who wins the roll-off then chooses which Squad gains the Initiative for Turn 1.  
+                Follow the Mission's briefing to deploy your Units. If both teams "deploy before Turn 1," players take turns placing one Unit at a time on the Battlefield, starting with the player who has the Turn 1 Initiative.  
+                The Squad with the Turn 1 Initiative will also activate their first Unit first in the Alternating Activations sequence
               </li>
             </ol>
           </li>
@@ -76,7 +78,8 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
           <h3 id="alternating-activations">Alternating Activations</h3>
           <p>
             {GAME.NAME} uses <strong>Alternating Activations</strong>:<br/>
-            During each turn, players take alternating turns to Activate their Squad's Units. So player 1 activates their first Unit, then player 2 activates their first Unit, followed by player 1 activating their second Unit etc. This ensures dynamic play and avoids having to wait long periods of time before you can actually <em>do</em> something with your Squad.
+            During each Turn, Squads take turns Activating one Unit that has not yet been activated: Player 1 activates their first Unit, then player 2 activates their first Unit, followed by player 1 activating their second Unit etc. 
+            This ensures dynamic play and avoids having to wait long periods of time before you can actually <em>do</em> something with your Squad.
           </p>
           <p>
             Each player takes alternating turns activating the Units in their Squad. For example, in order:
@@ -90,8 +93,8 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
           </ol>
           <p>At the start of each Turn, all Units are marked as "Ready". As each Unit completes their Activation, they are marked as "Activated".</p>
           <p>
-            In cases where one Squad has at least 2 more Standing Units than the other, the Squad with fewer Units may choose to delay one activation once per Turn.
-            In that case, the Squad with more Units activates two of its Units in a row.
+            If one Squad has at least 2 more Standing Units than the other, the Squad with fewer Standing Units may choose to delay one activation once per Turn. 
+            In that case, the Squad with more Units activates two of its Units in a row, then alternating Activations resume normally.
           </p>
         </div>
 

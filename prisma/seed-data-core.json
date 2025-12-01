@@ -849,7 +849,7 @@
     {
       "gearId": "EIR-PROX",
       "gearName": "Proxy",
-      "description": "Each time this Unit makes a Ranged attack, if a Secundus SquadMate is visible to this Unit, you can treat that Secundus as the active Unit for the purposes of determining Line Of Sight.",
+      "description": "Each time this Unit makes a Ranged attack, if a Secundus SquadMate is visible to this Unit, you can treat that Secundus as the active Unit for the purposes of determining Line of Sight.",
       "gearType": "S",
       "gearCategoryId": "SKL",
       "seq": 200,
@@ -1036,7 +1036,7 @@
     {
       "gearId": "FT-COL",
       "gearName": "Collaboration",
-      "description": "*Squad Specialty: Select one Squad Specialty to apply to all Units in this Squad.\n Passives apply to all Units in the Squad throughout the Mission.\n Each TO can only be used once in each Mission.*\n\n- **Passive:** Each time this Unit is the target of a Melee or Ranged Combat Action and it has at least one Squadmate within 3 Squares, it may re-roll up to 1 of its Armor Save rolls.\n- **1 TO:** Until this Unit's next Activation, each time it performs the Ranged Combat Action, it can treat a Squadmate within its Line Of Sight as the attacker for the purposes of determining Line Of Sight and Cover.\n- **1 TO:** Until this Unit's next Activation, each time it performs the Melee or Ranged Combat Action and it is within 4 Squares of a Squadmate, its Weapons have +1 SKL.",
+      "description": "*Squad Specialty: Select one Squad Specialty to apply to all Units in this Squad.\n Passives apply to all Units in the Squad throughout the Mission.\n Each TO can only be used once in each Mission.*\n\n- **Passive:** Each time this Unit is the target of a Melee or Ranged Combat Action and it has at least one Squadmate within 3 Squares, it may re-roll up to 1 of its Armor Save rolls.\n- **1 TO:** Until this Unit's next Activation, each time it performs the Ranged Combat Action, it can treat a Squadmate within its Line of Sight as the attacker for the purposes of determining Line of Sight and Cover.\n- **1 TO:** Until this Unit's next Activation, each time it performs the Melee or Ranged Combat Action and it is within 4 Squares of a Squadmate, its Weapons have +1 SKL.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -1580,7 +1580,7 @@
     {
       "gearId": "INT-SG",
       "gearName": "Smoke Bomb*",
-      "description": "This Unit carries a Smoke Grenade. Once per mission, this Unit may throw its Smoke Grenade by placing a Smoke token up to 3 Squares away from it and within its Line Of Sight. Until the end of the Turn, a cylinder of Smoke occupies that location with a radius of 1 Square. The Smoke cylinder blocks Line Of Sight and Units that are within the Smoke cylinder cannot perform Ranged Attacks against any other Units. This Unit may not perform this action while Adjacent to any enemy Units.",
+      "description": "This Unit carries a Smoke Grenade. Once per mission, this Unit may throw its Smoke Grenade by placing a Smoke token up to 3 Squares away from it and within its Line of Sight. Until the end of the Turn, a cylinder of Smoke occupies that location with a radius of 1 Square. The Smoke cylinder blocks Line of Sight and Units that are within the Smoke cylinder cannot perform Ranged Attacks against any other Units. This Unit may not perform this action while Adjacent to any enemy Units.",
       "gearType": "S",
       "gearCategoryId": "SKL",
       "seq": 204,
