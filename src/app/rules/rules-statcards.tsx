@@ -60,11 +60,15 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
               <h6 className="inline">GP</h6> - Gear Points<br/>
               The total cost in Gear Points (GP) for this Unit.
             </li>
-            {/*Not implemented
+            <li>
+              <h6 className="inline">FV</h6> - Force Value<br/>
+              The Force Value of this. FV is used in some missions to determine a Unit's contribution to Mission Points.
+              For example, in the <a href="#missions" className="undeline">Attrition</a> Mission, the enemy Squad gains MP equal to each Taken Out Unit's FV.
+            </li>
             <li>
               <h6 className="inline">XP</h6> - Experience Points<br/>
               The <a className="underline" href="#progression">Experience</a> this unit has gained in battle. XP can be used to add certain special gear (skills or weapons) to a Unit.
-            </li>*/}
+            </li>
             {/* Moved to skills instead
             <li>
               <h6 className="inline">(Special)</h6> - Specials<br/>

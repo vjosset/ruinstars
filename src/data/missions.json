@@ -184,7 +184,7 @@
     "description": "\"No prisoners.\"\n\nYour orders are simple: outkill the enemy.",
     "setup": null,
     "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
-    "victory": "Each time a Unit is Taken Out, the enemy Squad scores MPs based on that Unit's Total GP:\n\n|**Total GP**|**MP**|\n|:---:|:---:|\n|0-4|0|\n|5-9|1|\n|10-14|2|\n|15-19|3|\n|20-24|4|\n|25+|5|",
+    "victory": "Each time a Unit is Taken Out, the enemy Squad scores MPs equal to that Unit's Force Value (FV).",
     "special": null,
     "rewards": [
       { "name": "Aggressive Momentum", "effect": "One unit gains +1 MSK or +1 RSK the first time it performs a Ranged or Melee combat Action in the next mission." },
@@ -200,7 +200,7 @@
     "description": "\"Stand your ground until nothing moves.\"\n\nThe battle grinds to dust. Only the unbroken remain.",
     "setup": null,
     "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
-    "victory": "At the end of each Turn, the squad with the highest Total GP of Standing Units scores 2 MP.",
+    "victory": "At the end of each Turn, the squad with the highest total FV of Standing Units scores 2 MP.",
     "special": null,
     "rewards": [
       { "name": "Veteran Status", "effect": "One Unit permanently gains +1 SKL on its Melee weapons." },
@@ -248,7 +248,7 @@
     "description": "\"Push deep and hold the line.\"\n\nDominate enemy territory with strength of arms.",
     "setup": null,
     "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
-    "victory": "At the end of each Turn, the Squad with the highest total GP of Standing Units that are closer to the enemy deployment edge than their own deployment edge scores 2 MP.",
+    "victory": "At the end of each Turn, the Squad with the highest total FV of Standing Units that are closer to the enemy deployment edge than their own deployment edge scores 2 MP.",
     "special": "Units Adjacent to enemies do not count toward scoring.",
     "rewards": [
       { "name": "Overwhelming Presence", "effect": "Once in the next mission, instead of rolling for TOs, get 4 TOs." },
@@ -264,7 +264,7 @@
     "description": "\"Rendezvous or die trying.\"\n\nThe dropship waits only moments—reach it before the storm consumes the battlefield.",
     "setup": "The Central Tile of the battlefield is the Evac Zone.\n\nSelect one Squad to be the Attacker, the other is the Defender.",
     "deployment": "Defender Squad deploys before Turn 1 anywhere in the central Tile.\n\nAttacker Squad deploys before Turn 1 on any battlefield edge.",
-    "victory": "At the end of Turn 4, if the total GP of Standing Defender Units that are on the central tile is equal to or higher than the total GP of Standing Attacker Units on the central tile, Defender Squad wins the mission. Attacker Squad wins in all other cases.",
+    "victory": "At the end of Turn 4, if the total FV of Standing Defender Units that are on the central tile is equal to or higher than the total FV of Standing Attacker Units on the central tile, Defender Squad wins the mission. Attacker Squad wins in all other cases.",
     "special": null,
     "rewards": [
       { "name": "Extraction Gear", "effect": "One Unit gains Grappling  Hook (ignore vertical distance when climbing up or down) in the next mission." },

@@ -1,8 +1,7 @@
 'use client'
 
 import { getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
-import { showInfoModal } from '@/lib/utils/showInfoModal'
-import { parseSpecialRules, SpecialRule } from '@/lib/utils/specialRules'
+import { SpecialRule } from '@/lib/utils/specialRules'
 import GearGroupList from '@/src/components/shared/GearGroupList'
 import WeaponTable from '@/src/components/shared/WeaponTable'
 import { Medal, UnitPlain, UnitTypePlain } from '@/types'
@@ -53,6 +52,9 @@ export default function UnitCard({
   const [showUnitEditorModal, setShowUnitEditorModal] = useState(false)
   const [showUnitMedalModal, setShowUnitMedalModal] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
+
+  // Force Value factor - The divisor for total Unit GP to get a Unit's value in MPs for missions like Attrition
+  const forceValueFactor = 8
 
   // Unit state tracking
   const [newHIT, setNewHIT] = useState(unit.currHIT ?? 0)
@@ -229,8 +231,8 @@ export default function UnitCard({
         {!unit.isUnitType && (
           <div className="border-t border-border mt-auto">
             <div className="flex justify-between items-center">
-              <div className="text-muted text-xs italic">
-                {unit?.unitType?.unitTypeName}
+              <div className="text-sm">
+                {/* // OLD UNIT SPECIALS - NOT IN USE
                 {unit.special !== '' && (
                   <span
                     className="italic cursor-pointer hover:text-main text-muted hastip"
@@ -254,18 +256,27 @@ export default function UnitCard({
                     ({unit.special}){ ' ' }
                   </span>
                 )}
-                <span className="text-muted">
-                  { ' ' }
-                  {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
-                </span>
+                */}
+                {!unit.isUnitType && (
+                  <div>
+                    {unit?.unitType?.unitTypeName}
+                    { ' ' }
+                    {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
+                  </div>
+                )}
               </div>
-              <div className="text-right whitespace-nowrap cursor-pointer hover:text-main">
-                {!unit.isUnitType &&
-                  <span onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
-                    <FaMedal className="inline-block h-4 w-4" />{ ' ' }
-                    <span className="stat text-main">{unit.totalMedalXP}</span> XP
-                  </span>}
-              </div>
+              {!unit.isUnitType && (
+                <div className="text-right whitespace-nowrap">
+                  <span className="stat mx-2">
+                    FV:{ ' ' }
+                    <span className="stat text-main">{Math.floor((unit?.totalGearGP + (unit?.unitType?.GP || 0)) / forceValueFactor)}</span>
+                  </span>
+                  <span className="stat mx-2 cursor-pointer hover:text-main" onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
+                    XP:{ ' ' }
+                    <span className="stat text-main">{unit.totalMedalXP}</span>
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         )}
