@@ -169,7 +169,7 @@
     "slug": "HEG-OCL",
     "file": "HEG-OCL.md",
     "title": "Terror Attack",
-    "description": "An Outer Claim plots a devastating terror strike, assembling explosives and preparing to unleash them upon the Hegemony. The Hegemony must intercept, contain, and dismantle the threat before the rebellion's strike shakes the sector.",
+    "description": "The Outer Claim plots a devastating terror strike, assembling explosives and preparing to unleash them upon the Hegemony. The Hegemony must intercept, contain, and dismantle the threat before the rebellion's strike shakes the sector.",
     "factions": {
       "factionA": "HEG",
       "factionB": "OCL"
@@ -573,7 +573,7 @@
     "slug": "EIR-HEG",
     "file": "EIR-HEG.md",
     "title": "Pylons of Power",
-    "description": "A Hegemony vs Eidolon Revenants Operation. Beneath the Hegemony's shining city lie the shattered remains of Eidolon pylons: relics of an empire that once wielded world-breaking weapons. The Eidolon Revenants have returned to reclaim and reactivate these pylons, while the Hegemony fight to prevent catastrophe. What begins as sabotage escalates into horrors in the ruins, and ends with the fate of the pylons decided once and for all.",
+    "description": "Beneath the Hegemony's shining city lie the shattered remains of Eidolon pylons: relics of an empire that once wielded world-breaking weapons. The Eidolon Revenants have returned to reclaim and reactivate these pylons, while the Hegemony fight to prevent catastrophe. What begins as sabotage escalates into horrors in the ruins, and ends with the fate of the pylons decided once and for all.",
     "factions": {
       "factionA": "EIR",
       "factionB": "HEG"

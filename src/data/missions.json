@@ -184,7 +184,7 @@
     "description": "\"No prisoners.\"\n\nYour orders are simple: outkill the enemy.",
     "setup": null,
     "deployment": "Both Squads deploy on their battlefield edge before Turn 1.",
-    "victory": "Each time a Squad Takes Out an enemy, that Squad scores 1 MP.",
+    "victory": "Each time a Unit is Taken Out, the enemy Squad scores MPs based on that Unit's Total GP:\n\n|**Total GP**|**MP**|\n|:---:|:---:|\n|0-4|0|\n|5-9|1|\n|10-14|2|\n|15-19|3|\n|20-24|4|\n|25+|5|",
     "special": null,
     "rewards": [
       { "name": "Aggressive Momentum", "effect": "One unit gains +1 MSK or +1 RSK the first time it performs a Ranged or Melee combat Action in the next mission." },
