@@ -30,10 +30,10 @@ export default async function RulesCampaigns({ num }: {num?: Number | null}) {
           <h4>Homebase</h4>
           At the end of each Operation (after the third Mission), your Squad returns to Homebase to heal injuries, resupply, and utilize accrued resources.
           <ol>
-            <li>Remove all Deceased Units from your Squad</li>
-            <li>Remove all Injuries from remaining Units</li>
+            <li>Remove all Deceased Units from your Squad.</li>
+            <li>Remove all Injuries from remaining Units.</li>
             <li>Recruit new Units into the Squad. Deceased Units can only be replaced during this Homebase phase.</li>
-            <li>Make changes to your Squad's selected Gear and Spoils Of War</li>
+            <li>Make changes to your Squad's selected Gear and Spoils Of War.</li>
           </ol>
         </div>
         <div className="section">
