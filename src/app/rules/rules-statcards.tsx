@@ -92,7 +92,6 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
         </div>
         
         <div className="section">
-          <br/><br/>
           <h4 id="weapon-stats">Weapon Stats</h4>
           <ul>
             <li>
