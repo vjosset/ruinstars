@@ -22,9 +22,9 @@ export default async function RulesCampaigns({ num }: {num?: Number | null}) {
         </div>
         <div className="section">
           <h3>Operations</h3>
-          Each Operation sees your Squad sent to a location to execute three Missions. All three Missions in a given Operation occur on the same Battlefield.<br/>
-          While on an Operation, your Squad is in the field and cannot change its Units or Gear selections.<br/>
-          Once the third Mission of an Operation is done, your Squad returns to Homebase to heal Injuries, make new Gear selections, and recruit new Units.
+          An Operation represents a critical deployment arc within the larger Campaign structure, which is generally composed of three sequential Missions.
+          When the Operation begins, your Squad is considered in the field. While deployed in the field, the Squad cannot change its Units or Gear selections, and any Gear Points (GP) or Experience Points (XP) earned during these missions cannot be spent on new Units or Gear.<br/>
+          Once the third Mission of an Operation is complete, your Squad returns to Homebase to heal Injuries, make new Gear selections, and recruit new Units by spending GP and XP.
         </div>
         <div className="section">
           <h4>Homebase</h4>
@@ -67,25 +67,6 @@ export default async function RulesCampaigns({ num }: {num?: Number | null}) {
             </li>
           </ul>
         </div>
-      
-        <div className="section">
-          <h3>Spoils Of War</h3>
-          <p>
-            For each increment of 5 XP earned, a Unit may take one Spoil Of War when it returns to Homebase at the end of an Operation (unless it is Deceased).<br/>
-            For example, a Unit with 13 XP can take 2 Spoils Of War.
-          </p>
-          <ul>
-            {/* Spoils Of War List */}
-            {
-              spoilsOfWar?.gears.map((sow) => (
-                <li key={`sow_${sow.gearId}`}>
-                  <h6>{sow.gearName}</h6>
-                  <Markdown>{sow.description}</Markdown>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
 
         <div className="section">
           <h3>Injuries</h3>
@@ -125,6 +106,25 @@ export default async function RulesCampaigns({ num }: {num?: Number | null}) {
                 <li key={`medal_${medal.medalId}`}>
                   <h6>{medal.title} - {medal.XP} XP</h6>
                   <Markdown>{medal.description}</Markdown>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      
+        <div className="section">
+          <h3>Spoils Of War</h3>
+          <p>
+            For each increment of 5 XP earned, a Unit may take one Spoil Of War when it returns to Homebase at the end of an Operation (unless it is Deceased).<br/>
+            For example, a Unit with 13 XP can take 2 Spoils Of War.
+          </p>
+          <ul>
+            {/* Spoils Of War List */}
+            {
+              spoilsOfWar?.gears.map((sow) => (
+                <li key={`sow_${sow.gearId}`}>
+                  <h6>{sow.gearName}</h6>
+                  <Markdown>{sow.description}</Markdown>
                 </li>
               ))
             }

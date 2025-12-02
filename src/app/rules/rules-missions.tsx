@@ -65,22 +65,26 @@ export default async function RulesMissions({ num }: {num?: Number | null}) {
       
       <div className="section">
         <div className="section">
-          <h3 className="text-center">Primary Missions</h3><div className="">
-            <div className="twocols">
-              <p>
-                Primary missions are perfect for pick-up or competitive play.
-                You can also use these missions to build your own <a className="underline" href="#campaigns">campaign</a>.<br/>
-              </p>
-              Each Primary mission is a single battle pitting your Squad against its enemies. Select (or randomly pick) a Mission from the list of standard missions below:
-          
-              {
-                missions.filter((mission) => mission.active && (!mission.missionType || mission.missionType == 'Primary')).map((mission) => (
-                  <div className="section" key={mission.missionId}>
-                    <MissionBlock mission={mission} showDescription={true} />
-                  </div>
-                ))
-              }
-            </div>
+          <h3 className="text-center">Primary Missions</h3>
+          <div className="twocols">
+            <p>
+              Your Squad is deployed for desperate struggles fought by the few who dare to step onto the battlefield when hope has long since burned away.
+              Primary missions are designed to be played as quick, one-off skirmishes perfect for pick-up or competitive play.
+              <br/>
+              Each Primary Mission is a single battle pitting your Squad against its enemies, generally lasting 4 Turns. Victory in these engagements is typically decided by calculating the total Mission Points (MP) scored by each Squad at the end of Turn 4.
+              <br/>
+              Alternatively, you can use these missions to build your own <a className="underline" href="#campaigns">Campaign</a>.
+              A full Campaign is structured into three distinct Operations, and each Operation is composed of three Missions, totaling nine confrontations.
+              In Campaign play, the winning Squad selects one of the Mission rewards to apply to their Squad, while the losing Squad gains the remaining reward.
+              These missions offer unique tactical puzzles and narrative flavor, challenging you to adapt your strategy to shifting objectives and hostile environments.
+            </p>
+            {
+              missions.filter((mission) => mission.active && (!mission.missionType || mission.missionType == 'Primary')).map((mission) => (
+                <div className="section" key={mission.missionId}>
+                  <MissionBlock mission={mission} showDescription={true} />
+                </div>
+              ))
+            }
           </div>
         </div>
 

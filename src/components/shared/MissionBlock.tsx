@@ -47,8 +47,7 @@ export default function MissionBlock({mission, showDescription}: { mission: Miss
       )}
       {mission.rewards && mission.rewards.length > 0 && (
         <>
-          <h6 className="text-main">Rewards</h6>
-          <em className="text-muted text-sm">Winning Squad selects one reward first, losing Squad gains the other.</em>
+          <h6 className="text-main">Campaign Rewards</h6>
           <ul className="ml-2">
             {mission.rewards.map((r, idx) =>
               <li key={`mrew_${idx}`}><strong>{r.name}:</strong> {r.effect}</li>
