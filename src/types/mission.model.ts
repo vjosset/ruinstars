@@ -1,5 +1,5 @@
 export type MissionPlain = {
-  missionId: number;
+  missionId: string;
   missionType: string;
   seq: number;
   title: string;
@@ -12,7 +12,7 @@ export type MissionPlain = {
 };
 
 export class Mission {
-  missionId: number
+  missionId: string
   missionType: string
   seq: number
   title: string
@@ -24,7 +24,7 @@ export class Mission {
   rewards?: MissionReward[]
 
   constructor(data: {
-    missionId: number;
+    missionId: string;
     missionType: string;
     seq: number;
     title: string;

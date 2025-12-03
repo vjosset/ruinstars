@@ -2,7 +2,7 @@ import { getAuthSession } from '@/lib/auth'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
-import { SquadService } from '@/services'
+import { FactionService, SquadService } from '@/services'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import SquadPageClient from './SquadPageClient'
@@ -43,6 +43,7 @@ export async function generateMetadata({ params }: { params: Promise<{ squadId: 
 export default async function SquadPage({ params }: { params: Promise<{ squadId: string }> }) {
   const { squadId } = await params
   const squad = (await SquadService.getSquad(squadId))
+  const factions = await FactionService.getAllFactions()
 
   if (!squad) notFound()
 
@@ -51,7 +52,7 @@ export default async function SquadPage({ params }: { params: Promise<{ squadId:
 
   return (
     <div className="mx-auto">
-      <SquadPageClient initialSquad={squad.toPlain()} isOwner={isOwner} />
+      <SquadPageClient initialSquad={squad.toPlain()} isOwner={isOwner} factions={factions.map(f => f.toPlain())} />
     </div>
   )
 }

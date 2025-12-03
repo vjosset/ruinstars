@@ -1,6 +1,6 @@
 'use client'
 
-import { OperationsLink, SquadTypeLink, UserLink } from '@/components/nav/Links'
+import { SquadTypeLink, UserLink } from '@/components/nav/Links'
 import EditSquadForm from '@/components/squad/EditSquadForm'
 import SquadCardMenu from '@/components/squad/SquadCardMenu'
 import SquadTools from '@/components/squad/SquadTools'
@@ -11,7 +11,7 @@ import AddUnitForm from '@/components/unit/AddUnitForm'
 import UnitCard from '@/components/unit/UnitCard'
 import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { SpecialRule } from '@/lib/utils/specialRules'
-import { Medal, SquadPlain, UnitPlain } from '@/types'
+import { FactionPlain, Medal, SquadPlain, UnitPlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
@@ -22,9 +22,11 @@ import { toast } from 'sonner'
 export default function SquadPageClient({
   initialSquad,
   isOwner,
+  factions,
 }: {
   initialSquad: SquadPlain
   isOwner: boolean
+  factions: FactionPlain[]
 }) {
   const router = useRouter()
   const { status } = useSession()
@@ -249,11 +251,6 @@ export default function SquadPageClient({
 
             <UserLink userName={squad.user?.userName ?? ''} />
           </div>
-          {squad.squadTypeId != 'NPC' &&
-            <div>
-              <OperationsLink factionId={squad.squadType?.factionId!} />
-            </div>
-          }
           <div className="flex items-center justify-center gap-2 text-muted">
             {!isOwner && (
               <span className="text-sm">{totalGP}GP</span>
@@ -285,7 +282,7 @@ export default function SquadPageClient({
                     toast.error('Could not import squad')
                   }
                 }}>
-                <FiDownload /> Import
+                <FiDownload />
               </Button>
             )}
           </div>
@@ -451,7 +448,7 @@ export default function SquadPageClient({
           <Modal
             title={squad.squadName}
             onClose={() => setShowSquadTools(false)}>
-            <SquadTools />
+            <SquadTools factionId={squad.squadType?.factionId} factions={factions} />
           </Modal>
         )}
 
