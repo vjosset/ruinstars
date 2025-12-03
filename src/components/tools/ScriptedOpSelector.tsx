@@ -19,7 +19,7 @@ type ScriptedOp = {
 const buildOptionLabel = (op: ScriptedOp, factions: FactionPlain[], playerFactionId?: string) => {
   const opponentId = playerFactionId === op.factions.factionA ? op.factions.factionB : op.factions.factionA
   const opponentName = factions.find(f => f.factionId === opponentId)?.factionName ?? opponentId
-  return `vs ${opponentName}: ${op.title}`
+  return `${op.title} (vs ${opponentName})`
 }
 
 export default function ScriptedOpSelector({ factionId, factions }: { factionId?: string, factions: FactionPlain[] }) {
@@ -33,7 +33,9 @@ export default function ScriptedOpSelector({ factionId, factions }: { factionId?
 
   const availableOps: ScriptedOp[] = useMemo(() => {
     if (!factionId) return []
-    return (ops as ScriptedOp[]).filter(op => op.factions?.factionA === factionId || op.factions?.factionB === factionId)
+    return (ops as ScriptedOp[])
+      .filter(op => op.factions?.factionA === factionId || op.factions?.factionB === factionId)
+      .sort((a, b) => a.title.localeCompare(b.title))
   }, [factionId])
 
   useEffect(() => {
