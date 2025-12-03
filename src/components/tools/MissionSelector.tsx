@@ -174,7 +174,7 @@ export default function MissionSelector() {
               <option value="">Select a battlefield...</option>
               {battlefields.map((battlefield) => (
                 <option key={battlefield.battlefieldId} value={battlefield.battlefieldId}>
-                  {battlefield.battlefieldId} - {battlefield.title}
+                  {battlefield.title}
                 </option>
               ))}
             </select>

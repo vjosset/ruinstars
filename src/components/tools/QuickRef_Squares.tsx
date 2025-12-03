@@ -22,7 +22,7 @@ export default function QuickRef() {
             <strong>Nothing</strong>: The Crate is empty, nothing happens.
           </li>
           <li>
-            <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares.
+            <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Adjacent Units.
           </li>
         </ol>
       </div>
@@ -32,7 +32,7 @@ export default function QuickRef() {
         <p>
         If you choose to play with Barrels, randomly place 5 on the battlefield.
         Barrels may be attacked in Ranged or Melee combat. The Barrel is a Unit that cannot roll Armor Saves; if it is attacked in combat and at least one strike is successful, it explodes.
-        When a Barrel explodes, it causes an explosion dealing 2 Ranged Damage to all Units in its current Square and all Adjacent Squares, then it is removed from the Battlefield.
+        When a Barrel explodes, it causes an explosion dealing 2 Ranged Damage to all Adjacent Units, then it is removed from the Battlefield.
         </p>
       </div>
       
