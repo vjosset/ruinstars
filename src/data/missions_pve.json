@@ -1,6 +1,6 @@
 [
   {
-    "missionId": 1,
+    "missionId": "1",
     "missionType": "PvE",
     "seq": 1,
     "title": "Bug Bounty",
@@ -13,7 +13,7 @@
     "rewards": []
   },
   {
-    "missionId": 2,
+    "missionId": "2",
     "missionType": "PvE",
     "seq": 2,
     "title": "Asset Denial",
@@ -26,7 +26,7 @@
     "rewards": []
   },
   {
-    "missionId": 3,
+    "missionId": "3",
     "missionType": "PvE",
     "seq": 3,
     "title": "Deliver The Payload",
