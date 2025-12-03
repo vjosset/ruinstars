@@ -70,8 +70,22 @@ export default function MissionSelector() {
     (mission) => mission.missionId === selectedSecondaryMissionId
   )
 
+  useEffect(() => {
+    if (
+      selectedPrimaryMission?.battlefieldId &&
+      selectedPrimaryMission.battlefieldId !== selectedBattlefieldId
+    ) {
+      setSelectedBattlefieldId(selectedPrimaryMission.battlefieldId)
+    } else if (
+      selectedSecondaryMission?.battlefieldId &&
+      selectedSecondaryMission.battlefieldId !== selectedBattlefieldId
+    ) {
+      setSelectedBattlefieldId(selectedSecondaryMission.battlefieldId)
+    }
+  }, [selectedBattlefieldId, selectedPrimaryMission?.battlefieldId, selectedSecondaryMission?.battlefieldId])
+
   const selectedBattlefield = battlefields.find(
-    (battlefield) => battlefield.battlefieldId === Number(selectedBattlefieldId)
+    (battlefield) => battlefield.battlefieldId === selectedBattlefieldId
   )
 
   return (

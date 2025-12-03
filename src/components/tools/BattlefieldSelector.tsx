@@ -1,11 +1,14 @@
 'use client'
+
+import battlefieldsData from '@/data/battlefields.json'
 import { getRandom } from '@/lib/utils/utils'
+import { BattlefieldPlain } from '@/types'
 import { useEffect, useState } from 'react'
 import { GiRollingDices } from 'react-icons/gi'
 import BattlefieldBlock from '../shared/BattlefieldBlock'
 
 export default function BattlefieldSelector() {
-  const [battlefields, setBattlefields] = useState<any[]>([])
+  const [battlefields] = useState<BattlefieldPlain[]>(battlefieldsData as BattlefieldPlain[])
   const [selectedBattlefieldId, setSelectedBattlefieldId] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('selectedBattlefieldId') || ''
@@ -13,15 +16,6 @@ export default function BattlefieldSelector() {
     return ''
   })
 
-  useEffect(() => {
-    fetch('/api/battlefields')
-      .then((res) => res.json())
-      .then((data) => {
-        setBattlefields(data)
-      })
-      .catch((err) => console.error('Failed to load battlefields:', err))
-  }, [])
-  
   useEffect(() => {
     if (selectedBattlefieldId) {
       localStorage.setItem('selectedBattlefieldId', selectedBattlefieldId)
@@ -31,7 +25,7 @@ export default function BattlefieldSelector() {
   }, [selectedBattlefieldId])
 
   const selectedBattlefield = battlefields.find(
-    (m) => m.battlefieldId === Number(selectedBattlefieldId)
+    (m) => m.battlefieldId === selectedBattlefieldId
   )
 
   return (
@@ -45,7 +39,7 @@ export default function BattlefieldSelector() {
           <option value="">Select a battlefield...</option>
           {battlefields.map((battlefield) => (
             <option key={battlefield.battlefieldId} value={battlefield.battlefieldId}>
-              {battlefield.battlefieldId} - {battlefield.title}
+              {battlefield.title}
             </option>
           ))}
         </select>

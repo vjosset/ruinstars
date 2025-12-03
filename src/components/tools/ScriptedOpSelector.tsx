@@ -2,10 +2,12 @@
 
 import ops from '@/data/scriptedOperations.json'
 import { FactionPlain, MissionPlain } from '@/types'
+import battlefields from '@/data/battlefields.json'
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { FiExternalLink } from 'react-icons/fi'
 import MissionBlock from '../shared/MissionBlock'
+import BattlefieldBlock from '../shared/BattlefieldBlock'
 import Markdown from '../ui/Markdown'
 
 type ScriptedOp = {
@@ -13,7 +15,7 @@ type ScriptedOp = {
   title: string
   description: string
   factions: { factionA: string, factionB: string }
-  missions?: { id: string | number, title: string, description?: string, setup?: string, deployment?: string, special?: string, victory?: string }[]
+  missions?: { id: string | number, title: string, description?: string, setup?: string, deployment?: string, special?: string, victory?: string, battlefieldId?: string | null }[]
 }
 
 const buildOptionLabel = (op: ScriptedOp, factions: FactionPlain[], playerFactionId?: string) => {
@@ -64,6 +66,7 @@ export default function ScriptedOpSelector({ factionId, factions }: { factionId?
       seq: idx + 1,
       title: m.title || 'Untitled Mission',
       description: m.description || '',
+      battlefieldId: m.battlefieldId ?? null,
       setup: m.setup || '',
       deployment: m.deployment || '',
       victory: m.victory || '',
@@ -142,13 +145,17 @@ export default function ScriptedOpSelector({ factionId, factions }: { factionId?
 
               {normalizedMissions
                 .filter(m => m.missionId === (selectedMissionId || normalizedMissions[0]?.missionId))
-                .map(m => (
-                  <MissionBlock
-                    key={`${selectedOp.slug}-${m.missionId}`}
-                    mission={m}
-                    showDescription={true}
-                  />
-                ))}
+                .map(m => {
+                  const battlefield = battlefields.find(
+                    (bf) => bf.battlefieldId === m.battlefieldId
+                  )
+                  return (
+                    <div key={`${selectedOp.slug}-${m.missionId}`} className="space-y-2">
+                      <MissionBlock mission={m} showDescription={true} />
+                      {battlefield && <BattlefieldBlock battlefield={battlefield} />}
+                    </div>
+                  )
+                })}
             </div>
           )}
         </div>

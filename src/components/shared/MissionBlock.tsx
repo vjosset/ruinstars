@@ -1,7 +1,13 @@
 import Markdown from '@/components/ui/Markdown'
-import { Mission, MissionPlain } from '@/types'
+import battlefieldsData from '@/data/battlefields.json'
+import { BattlefieldPlain, Mission, MissionPlain } from '@/types'
+
+const battlefields = battlefieldsData as BattlefieldPlain[]
 
 export default function MissionBlock({mission, showDescription}: { mission: Mission | MissionPlain, showDescription: boolean }) {
+  if (mission.battlefieldId) {
+    var battlefield = battlefields.find((a) => a.battlefieldId == mission.battlefieldId)
+  }
   return (
     <div className="bg-card border border-main p-1 rounded mb-2">
       <h4 className="text-main font-semibold mb-1">
@@ -12,6 +18,12 @@ export default function MissionBlock({mission, showDescription}: { mission: Miss
         <div className="flavor mx-4">
           <Markdown>{mission.description}</Markdown>
         </div>
+      )}
+      {battlefield && (
+        <>
+          <h6 className="text-main">Battlefield</h6>
+          <span className="ml-2">{battlefield.title}</span>
+        </>
       )}
       {mission.setup && (
         <>

@@ -4,7 +4,7 @@ import { Battlefield, BattlefieldPlain } from '@/types'
 export default function BattlefieldBlock({battlefield}: { battlefield: Battlefield | BattlefieldPlain }) {
   return (
     <div className="bg-card border border-main p-1 rounded mb-2">
-      <h4 className="text-main font-semibold mb-1">{battlefield.battlefieldId} - {battlefield.title}</h4>
+      <h4 className="text-main font-semibold mb-1">{battlefield.title}</h4>
       
       {battlefield.setup && (
         <>

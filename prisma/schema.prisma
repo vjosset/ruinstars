@@ -167,15 +167,6 @@ model Mission {
   missionResults MissionResult[]
 }
 
-model Battlefield {
-  battlefieldId    Int     @id
-  title            String  @db.VarChar(250)
-  description      String  @db.Text
-  setup            String  @db.Text
-  effects          String  @db.Text
-  battlefieldNames String? @db.Text
-}
-
 model Medal {
   medalId     String @id @db.VarChar(20)
   title       String @db.VarChar(250)

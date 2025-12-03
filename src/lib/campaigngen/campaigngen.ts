@@ -1,5 +1,6 @@
+import battlefieldsData from '@/data/battlefields.json'
 import { SquadService, UserService } from '@/services'
-import { BattlefieldService } from '@/services/battlefield.service'
+import { BattlefieldPlain } from '@/types'
 import artifactNames from './data/artifactNames.json'
 import campaignNames from './data/campaignNames.json'
 import missions from './data/missions.json'
@@ -49,7 +50,7 @@ function generateSubsectorName() {
 }
 
 // Load data
-const battlefields = await BattlefieldService.getAllBattlefields()
+const battlefields = battlefieldsData as BattlefieldPlain[]
 const playerSquad = await SquadService.getSquad('VgL2Y')
 const enemySquads = (await UserService.getUserByUsername('NPC'))?.squads?.filter(
   (s) => s.squadTypeId !== playerSquad?.squadTypeId && s.squadTypeId !== 'NPC'
@@ -115,7 +116,7 @@ export function generateCampaign(operationsPerCampaign: number, missionsPerOpera
 
     const opMissions = selectedMissions.map((mission, mIdx) => {
       const battlefield = battlefieldsShuffled[opIdx * missionsPerOperation + mIdx]
-      const battlefieldName = getRandom(battlefield.battlefieldNames?.split(',') ?? [''])
+      const battlefieldName = getRandom(battlefield.battlefieldNames ?? [''])
       const description = getRandom(mission.descriptions)
 
       const placeholders = {
