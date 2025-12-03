@@ -63,11 +63,11 @@ export default function MissionSelector() {
   }, [selectedSecondaryMissionId])
 
   const selectedPrimaryMission = primaryMissions.find(
-    (mission) => mission.missionId === Number(selectedPrimaryMissionId)
+    (mission) => mission.missionId === selectedPrimaryMissionId
   )
 
   const selectedSecondaryMission = secondaryMissions.find(
-    (mission) => mission.missionId === Number(selectedSecondaryMissionId)
+    (mission) => mission.missionId === selectedSecondaryMissionId
   )
 
   const selectedBattlefield = battlefields.find(
