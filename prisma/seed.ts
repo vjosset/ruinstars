@@ -160,22 +160,6 @@ async function runSeed(seed: any) {
       })
     }
   }
-  
-  // Battlefields
-  if (seed.battlefields) {
-    console.log('  Seeding Battlefields...')
-    for (const battlefield of seed.battlefields) {
-      // Seed battlefield
-      const bf = JSON.parse(JSON.stringify(battlefield))
-      await prisma.battlefield.upsert({
-        where: { battlefieldId: bf.battlefieldId },
-        update: {},
-        create: {
-          ...bf
-        }
-      })
-    }
-  }
 
   // Finally, update special users' passwords so they can't log in
   prisma.user.updateMany(
