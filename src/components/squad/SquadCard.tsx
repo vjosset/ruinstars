@@ -7,23 +7,28 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { FiMoreVertical } from 'react-icons/fi'
-import { SquadTypeLink } from '../nav/Links'
+import { SquadTypeLink, UserLink } from '../nav/Links'
+import Markdown from '../ui/Markdown'
 import { Button, Modal } from '../ui'
 import SquadCardMenu from './SquadCardMenu'
 
 type SquadCardProps = {
   squad: SquadPlain
   isOwner: boolean
-  onMoveUp: () => void
-  onMoveFirst: () => void
-  onMoveDown: () => void
-  onMoveLast: () => void
+  showUserLink?: boolean
+  showSquadTypeLink?: boolean
+  onMoveUp?: () => void
+  onMoveFirst?: () => void
+  onMoveDown?: () => void
+  onMoveLast?: () => void
   onDelete?: (squadId: string) => void
 }
 
 export default function SquadCard({
   squad,
   isOwner,
+  showUserLink = true,
+  showSquadTypeLink = true,
   onMoveUp,
   onMoveFirst,
   onMoveDown,
@@ -35,6 +40,11 @@ export default function SquadCard({
   const [deleting, setDeleting] = useState(false)
 
   const router = useRouter()
+  const noop = () => {}
+  const handleMoveUp = onMoveUp || noop
+  const handleMoveFirst = onMoveFirst || noop
+  const handleMoveDown = onMoveDown || noop
+  const handleMoveLast = onMoveLast || noop
   
   return (
     <>
@@ -73,17 +83,30 @@ export default function SquadCard({
                   isOwner={isOwner}
                   onEdit={() => router.push(`/squads/${squad.squadId}`)}
                   onDelete={() => setShowDeleteConfirm(true)}
-                  onMoveUp={onMoveUp}
-                  onMoveDown={onMoveDown}
-                  onMoveFirst={onMoveFirst}
-                  onMoveLast={onMoveLast}
+                  onMoveUp={handleMoveUp}
+                  onMoveDown={handleMoveDown}
+                  onMoveFirst={handleMoveFirst}
+                  onMoveLast={handleMoveLast}
                 />
               </Menu>
             )}
           </div>
+
+          {squad.description && (
+            <div className="text-sm text-muted line-clamp-2">
+              <Markdown>{squad.description}</Markdown>
+            </div>
+          )}
           
           <p className="text-sm flex items-baseline justify-between gap-2">
-            <SquadTypeLink squadTypeId={squad.squadTypeId} squadTypeName={squad.squadType?.squadTypeName || 'Missing'} />
+            <span className="flex items-center gap-2 min-w-0">
+              {showSquadTypeLink && squad.squadType?.squadTypeName && (
+                <SquadTypeLink squadTypeId={squad.squadTypeId} squadTypeName={squad.squadType?.squadTypeName || 'Missing'} />
+              )}
+              {showUserLink && squad.user && (
+                <>By <UserLink userName={squad.user.userName || 'Missing'} /></>
+              )}
+            </span>
             <span className="font-medium whitespace-nowrap">{(squad.totalUnitGP ?? 0)}GP/{squad.unitCount ?? 0}U</span>
           </p>
         </div>

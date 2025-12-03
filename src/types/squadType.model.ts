@@ -12,6 +12,7 @@ export type SquadTypePlain = {
   faction: FactionPlain
   unitTypes: UnitTypePlain[]
   defaultSquad?: SquadPlain | null
+  spotlights?: SquadPlain[]
 }
 
 export class SquadType {
@@ -26,6 +27,7 @@ export class SquadType {
   faction: Faction
   unitTypes: UnitType[]
   defaultSquad?: Squad | null
+  spotlights: Squad[]
 
   constructor(data: {
     squadTypeId: string
@@ -39,6 +41,7 @@ export class SquadType {
     faction: Faction
     unitTypes: UnitType[]
     defaultSquad?: Squad | null
+    spotlights?: Squad[]
   }) {
     this.squadTypeId = data.squadTypeId
     this.factionId = data.factionId
@@ -51,6 +54,7 @@ export class SquadType {
     this.faction = data.faction instanceof Faction? data.faction : new Faction(data.faction)
     this.unitTypes = data.unitTypes?.map(unitType => unitType instanceof UnitType ? unitType : new UnitType(unitType))
     this.defaultSquad = data.defaultSquad ? (data.defaultSquad instanceof Squad? data.defaultSquad : new Squad(data.defaultSquad)) : null
+    this.spotlights = data.spotlights?.map(squad => squad instanceof Squad ? squad : new Squad(squad)) || []
   }
 
   toPlain(): SquadTypePlain {
@@ -66,6 +70,7 @@ export class SquadType {
       faction: this.faction.toPlain(),
       unitTypes: this.unitTypes?.map((unitType) => unitType.toPlain()),
       defaultSquad: this.defaultSquad?.toPlain() ?? null,
+      spotlights: this.spotlights?.map(squad => squad.toPlain()),
     }
   }
 }

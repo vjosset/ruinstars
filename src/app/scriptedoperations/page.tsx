@@ -177,7 +177,7 @@ export function ScriptedOperation({ op, factions }: { op: any, factions: { facti
         <div className="text-muted">
           Scripted Operation: { ' ' }<br/>
           <FactionLink factionId={op.factions.factionA} factionName={factions.find(f => f.factionId === op.factions.factionA)?.factionName!} />
-          vs.
+          { ' ' }vs.{ ' ' }
           <FactionLink factionId={op.factions.factionB} factionName={factions.find(f => f.factionId === op.factions.factionB)?.factionName!} />
         </div>
       </div>

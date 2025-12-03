@@ -143,7 +143,7 @@ export class SquadService {
       squadTypeId: sourceSquad.squadTypeId,
       seq: -1,
       squadName: destSquadName,
-      description: sourceSquad.description,
+      description: '', // Do not copy description from source
       campaign: sourceSquad.campaign,
     })
 

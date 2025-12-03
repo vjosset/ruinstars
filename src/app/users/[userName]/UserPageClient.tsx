@@ -54,6 +54,8 @@ export default function UserPageClient({ squads: initialSquads, isOwner }: UserP
             key={squad.squadId}
             squad={squad}
             isOwner={isOwner}
+            showUserLink={false}
+            showSquadTypeLink={true}
             onMoveUp={isOwner ? () => moveSquad(idx, idx - 1) : () => {}}
             onMoveDown={isOwner ? () => moveSquad(idx, idx + 1) : () => {}}
             onMoveFirst={isOwner ? () => moveSquad(idx, 0) : () => {}}

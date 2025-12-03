@@ -19,7 +19,38 @@ export class SquadTypeRepository extends BaseRepository {
           ]
         },
         defaultSquad: true,
-        faction: true
+        faction: {
+          include: {
+            squadTypes: {
+              where: { isPublished: true },
+              orderBy: { seq: 'asc' },
+              include: {
+                faction: true
+              }
+            }
+          }
+        },
+        squads: {
+          where: { isSpotlight: true },
+          include: {
+            user: true,
+            units: {
+              include: { unitType: true },
+              orderBy: { seq: 'asc' }
+            }
+          },
+          orderBy: [
+            { seq: 'asc' },
+            { squadName: 'asc' }
+          ]
+        }
+      }
+    }).then(squadType => {
+      if (!squadType) return null
+      const { squads, ...rest } = squadType
+      return {
+        ...rest,
+        spotlights: squads
       }
     })
   }
