@@ -292,7 +292,7 @@ export default function SquadPageClient({
       {/* Trackers */}
       {isOwner && (
         <>
-          <div className="sticky top-0 lg:top-[3.5rem] max-w-xl mx-auto z-10 bg-background py-2 px-1 flex gap-2 items-center justify-between noprint">
+          <div className="sticky top-0 lg:top-[3.5rem] max-w-xl mx-auto z-10 bg-background py-1 mt-0 mb-6 px-1 flex gap-2 items-center justify-between noprint">
             {[
               { label: 'TURN', key: 'turn' },
               { label: 'MP', key: 'MP' },
@@ -300,7 +300,7 @@ export default function SquadPageClient({
             ].map(({ label, key }) => (
               <div key={key} className="flex flex-col items-center gap-1">
                 <h6 className="font-bold">{label}:</h6>
-                <div className="flex gap-2 items-center justify-center">
+                <div className="flex gap-1 items-center justify-center">
                   <button
                     className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
                     onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] - 1)}
@@ -349,7 +349,6 @@ export default function SquadPageClient({
               </div>
             </div>
           </div>
-          <div className="my-2 mx-24">&nbsp;</div>
         </>
       )}
 
