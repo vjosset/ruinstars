@@ -16,7 +16,7 @@ import { Menu, MenuButton } from '@headlessui/react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { FiDownload, FiEdit2, FiInfo, FiMoreVertical, FiRotateCcw } from 'react-icons/fi'
+import { FiDownload, FiEdit2, FiInfo, FiMoreVertical } from 'react-icons/fi'
 import { toast } from 'sonner'
 
 export default function SquadPageClient({
@@ -316,15 +316,9 @@ export default function SquadPageClient({
             <div className="flex flex-col items-center gap-1">
               <h6 className="font-bold" onClick={handleEditSquadClick}>{totalGP}GP</h6>
 
-              {/* Reset and Info/tools */}
+              {/* Info/tools */}
               <div className="flex items-center">
                 <div className="flex gap-1 items-center justify-center">
-                  <button
-                    className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
-                    onClick={handleResetClick}
-                  >
-                    <FiRotateCcw/>
-                  </button>
                   <button 
                     className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
                     onClick={handleSquadToolsClick}
@@ -341,6 +335,7 @@ export default function SquadPageClient({
                         squad={squad}
                         isOwner={isOwner}
                         onEdit={handleEditSquadClick}
+                        onReset={handleResetClick}
                         onPrint={handleSquadPrint}
                       />
                     </Menu>

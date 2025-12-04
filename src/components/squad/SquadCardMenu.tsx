@@ -6,7 +6,7 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { QRCodeSVG } from 'qrcode.react'
-import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiCopy, FiEdit, FiPrinter, FiShare2, FiTrash } from 'react-icons/fi'
+import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiCopy, FiEdit, FiPrinter, FiRotateCcw, FiShare2, FiTrash } from 'react-icons/fi'
 import { toast } from 'sonner'
 import { Button } from '../ui'
 
@@ -19,7 +19,8 @@ export default function SquadCardMenu({
   onMoveFirst,
   onMoveDown,
   onMoveLast,
-  onPrint
+  onPrint,
+  onReset,
 }: {
   squad: SquadPlain
   isOwner: boolean,
@@ -30,6 +31,7 @@ export default function SquadCardMenu({
   onMoveDown?: () => void
   onMoveLast?: () => void
   onPrint?: () => void
+  onReset?: () => void
 }) {
 
   const router = useRouter()
@@ -116,6 +118,17 @@ export default function SquadCardMenu({
         <div className="flex flex-col space-y-1">
           {isOwner && 
             <>
+              {onReset &&
+                <MenuItem>
+                  {({ focus }) => (
+                    <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground')}
+                      onClick={onReset}
+                    >
+                      <FiRotateCcw /> Reset
+                    </button>
+                  )}
+                </MenuItem>
+              }
               <MenuItem>
                 {({ focus }) => (
                   <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground')}

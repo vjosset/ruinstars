@@ -96,6 +96,8 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
               <Link
                 key={tab.id}
                 href={tabHref(tab.id)}
+                replace
+                scroll={false}
                 className={`pb-2 text-sm uppercase tracking-wide transition-colors ${activeTab === tab.id ? 'text-main border-b-2 border-main' : 'text-muted hover:text-foreground border-b-2 border-transparent'}`}
               >
                 {tab.label}
