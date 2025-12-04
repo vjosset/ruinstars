@@ -24,7 +24,7 @@ export default function ToolsPageClient() {
 
   const tabClasses = (selected: boolean) =>
     clsx(
-      'px-4 py-2 border-b-2 transition-colors',
+      'uppercase px-4 py-2 border-b-2 transition-colors',
       selected
         ? 'border-main text-main'
         : 'border-transparent text-muted hover:text-foreground'
