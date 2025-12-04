@@ -291,63 +291,66 @@ export default function SquadPageClient({
 
       {/* Trackers */}
       {isOwner && (
-        <div className="sticky top-0 lg:top-[3.5rem] max-w-xl mx-auto z-10 bg-background py-2 px-1 flex gap-2 items-center justify-between noprint">
-          {[
-            { label: 'TURN', key: 'turn' },
-            { label: 'MP', key: 'MP' },
-            { label: 'TO', key: 'TO' },
-          ].map(({ label, key }) => (
-            <div key={key} className="flex flex-col items-center gap-1">
-              <h6 className="font-bold">{label}:</h6>
-              <div className="flex gap-2 items-center justify-center">
-                <button
-                  className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
-                  onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] - 1)}
-                >−</button>
-                <h4 className="stat w-7 text-center text-main">{squad[key as 'turn' | 'MP' | 'TO']}</h4>
-                <button
-                  className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
-                  onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] + 1)}
-                >+</button>
-              </div>
-            </div>
-          ))}
-          <div className="flex flex-col items-center gap-1">
-            <h6 className="font-bold" onClick={handleEditSquadClick}>{totalGP}GP</h6>
-
-            {/* Reset and Info/tools */}
-            <div className="flex items-center">
-              <div className="flex gap-1 items-center justify-center">
-                <button
-                  className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
-                  onClick={handleResetClick}
-                >
-                  <FiRotateCcw/>
-                </button>
-                <button 
-                  className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
-                  onClick={handleSquadToolsClick}
-                  aria-label="Tools"
-                >
-                  <FiInfo/>
-                </button>
+        <>
+          <div className="sticky top-0 lg:top-[3.5rem] max-w-xl mx-auto z-10 bg-background py-2 px-1 flex gap-2 items-center justify-between noprint">
+            {[
+              { label: 'TURN', key: 'turn' },
+              { label: 'MP', key: 'MP' },
+              { label: 'TO', key: 'TO' },
+            ].map(({ label, key }) => (
+              <div key={key} className="flex flex-col items-center gap-1">
+                <h6 className="font-bold">{label}:</h6>
                 <div className="flex gap-2 items-center justify-center">
-                  <Menu as="div" className="relative justify-center flex-shrink-0 rounded border border-border w-6 h-6 text-lg">
-                    <MenuButton as="button" className="w-full h-full flex items-center justify-center">
-                      <FiMoreVertical />
-                    </MenuButton>
-                    <SquadCardMenu
-                      squad={squad}
-                      isOwner={isOwner}
-                      onEdit={handleEditSquadClick}
-                      onPrint={handleSquadPrint}
-                    />
-                  </Menu>
+                  <button
+                    className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
+                    onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] - 1)}
+                  >−</button>
+                  <h4 className="stat w-7 text-center text-main">{squad[key as 'turn' | 'MP' | 'TO']}</h4>
+                  <button
+                    className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
+                    onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] + 1)}
+                  >+</button>
+                </div>
+              </div>
+            ))}
+            <div className="flex flex-col items-center gap-1">
+              <h6 className="font-bold" onClick={handleEditSquadClick}>{totalGP}GP</h6>
+
+              {/* Reset and Info/tools */}
+              <div className="flex items-center">
+                <div className="flex gap-1 items-center justify-center">
+                  <button
+                    className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
+                    onClick={handleResetClick}
+                  >
+                    <FiRotateCcw/>
+                  </button>
+                  <button 
+                    className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
+                    onClick={handleSquadToolsClick}
+                    aria-label="Tools"
+                  >
+                    <FiInfo/>
+                  </button>
+                  <div className="flex gap-2 items-center justify-center">
+                    <Menu as="div" className="relative justify-center flex-shrink-0 rounded border border-border w-6 h-6 text-lg">
+                      <MenuButton as="button" className="w-full h-full flex items-center justify-center">
+                        <FiMoreVertical />
+                      </MenuButton>
+                      <SquadCardMenu
+                        squad={squad}
+                        isOwner={isOwner}
+                        onEdit={handleEditSquadClick}
+                        onPrint={handleSquadPrint}
+                      />
+                    </Menu>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+          <div className="my-2 mx-24">&nbsp;</div>
+        </>
       )}
 
       {/* UnitCards */}

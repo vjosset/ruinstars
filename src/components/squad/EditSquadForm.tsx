@@ -188,7 +188,7 @@ const EditSquadForm = forwardRef(function EditSquadForm(
 
           {hasCustomPortrait && (
             <>
-              <hr className="my-4" />
+              <hr/>
               <div className="flex justify-between items-center">
                 <h5>Delete Portrait</h5>
                 <Button onClick={() => setShowDeletePortraitConfirm(true)}>

@@ -171,7 +171,7 @@ thead {
 }
 
 hr {
-	@apply my-12 mx-12 border-border;
+	@apply my-4 mx-12 border-border;
 }
 
 .markdown td, .markdown th {
@@ -270,6 +270,10 @@ hr {
 
 .unitcard h1, .unitcard h2, .unitcard h3, .unitcard h4, .unitcard h5, .unitcard h6 {
 	@apply pt-0
+}
+
+.rules hr {
+	@apply my-12 mx-12 border-border;
 }
 
 .twocols { columns: 2; }
