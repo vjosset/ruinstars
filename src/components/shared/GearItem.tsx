@@ -8,7 +8,7 @@ export default function GearItem({ gear }: { gear: GearPlain }) {
 
   const handleClick = () => {
     showInfoModal({
-      title: `${gear.gearName}${gear.ACT && gear.ACT > 0 ? ` - ${gear.ACT} ACT` : ''}${gear.TO && gear.TO > 0 ? ` - ${gear.TO} TO` : ''}`,
+      title: `${gear.gearName}${gear.ACT && gear.ACT > 0 ? ` (${gear.ACT} ACT)` : ''}${gear.TO && gear.TO > 0 ? ` (${gear.TO} TO)` : ''}`,
       body: (
         <div className="prose prose-invert max-w-none">
           <Markdown>

@@ -120,7 +120,11 @@ export default function UnitMedalModal({
                 <Checkbox
                   checked={medalIds.includes(medal.medalId)}
                   className="mt-1"
-                // No onChange handler needed - click bubbles to parent div's onClick
+                  onChange={(e) => {
+                    e.stopPropagation()
+                    toggleMedal(medal.medalId)
+                  }}
+                  onClick={(e) => e.stopPropagation()}
                 />
               )}
               <div>

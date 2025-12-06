@@ -53,8 +53,13 @@ export default function UnitCard({
   const [showUnitMedalModal, setShowUnitMedalModal] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
 
-  // Force Value factor - The divisor for total Unit GP to get a Unit's value in MPs for missions like Attrition
-  const forceValueFactor = 8
+  //const forceValue = {Math.floor((unit?.totalGearGP + (unit?.unitType?.GP || 0)) / 8)}
+  const forceValue = unit.isUnitType ? null :
+    Math.round(
+      ((unit?.totalGearGP + (unit?.unitType?.GP || 0.0)) / 100.0)
+      * 10.0
+    )
+    + Math.floor(unit.totalMedalXP / 5)
 
   // Unit state tracking
   const [newHIT, setNewHIT] = useState(unit.currHIT ?? 0)
@@ -270,7 +275,7 @@ export default function UnitCard({
                   <span className="stat mx-2">
                     {/*<FaGaugeHigh className="inline-block h-3 w-3" />{ ' ' }*/}
                     FV:{ ' ' }
-                    <span className="stat text-main">{Math.floor((unit?.totalGearGP + (unit?.unitType?.GP || 0)) / forceValueFactor)}</span>
+                    <span className="stat text-main">{forceValue}</span>
                   </span>
                   <span className="stat mx-2 cursor-pointer hover:text-main" onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
                     {/*<FaMedal className="inline-block h-3 w-3" />{ ' ' }*/}
