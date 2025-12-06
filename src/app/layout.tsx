@@ -3,10 +3,14 @@ import NavBarBottom from '@/components/nav/NavBarBottom'
 import NavBarTop from '@/components/nav/NavBarTop'
 import ServiceWorkerRegister from '@/components/tools/ServiceWorkerRegister'
 import { ClientProviders } from '@/components/ui/ClientProviders'
+import { authOptions } from '@/lib/auth'
 import '@/src/styles/globals.css'
+import { getServerSession } from 'next-auth'
 import Script from 'next/script'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const session = await getServerSession(authOptions)
+
   return (
     <html lang="en">
       <head>
@@ -36,7 +40,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
   
       <body className="text-foreground font-main">
-        <ClientProviders session={null}>
+        <ClientProviders session={session}>
           <NavBarTop />
           <main className="pb-16 lg:pb-0">{children}</main>
           <NewsPopup />
