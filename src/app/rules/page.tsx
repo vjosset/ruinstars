@@ -28,6 +28,8 @@ import RulesPlayingOnAGrid from './rules-playingonagrid'
 import RulesQuickRef from './rules-quickref'
 import RulesScriptedOperations from './rules-scriptedoperations'
 
+export const revalidate = 86400
+
 export async function generateMetadata() {
   return generatePageMetadata({
     title: 'Rules',
