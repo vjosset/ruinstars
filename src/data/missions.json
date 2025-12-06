@@ -8,7 +8,7 @@
     "description": "\"Claim ground, hold fast.\"\n\nThroughout the battle, both sides contest key areas of the warzone. Whoever can consistently secure ground will dictate the flow of the fight.",
     "setup": "Place 3 Objective markers in the center of the West, Central, and East tiles.",
     "deployment": "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    "victory": "At the end of each Turn, score 1 MP per Objective your Squad controls.",
+    "victory": "At the end of each Turn, Squads score 1 MP per Objective they control.",
     "special": "If a Squad controls all 3 Objectives at the end of any Turn, they gain +1 MP immediately (once per game).",
     "rewards": [
       {
@@ -30,7 +30,7 @@
     "description": "\"The enemy breaks upon our wall.\"\n\nVictory favors the steadfast. The longer you hold, the stronger your claim.",
     "setup": "Place two Objective markers in the center of the North and South tiles.",
     "deployment": "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    "victory": "At the end of each turn after the first, score 2 MP per Objective controlled by your Squad.",
+    "victory": "At the end of each turn after the first, Squads score 2 MP per Objective they control.",
     "special": "Units in cover Adjacent to an Objective gain +1 ARM against ranged attacks.",
     "rewards": [
       {
@@ -52,8 +52,8 @@
     "description": "\"Reactivate the grid before the enemy shuts it down.\"\n\nA dormant facility flickers to life. Reactors surge, systems fail, and both sides fight to keep control of unstable nodes.",
     "setup": "Place 3 Power Node markers in the center of the West, Central, and East tiles. All Power Nodes start the mission as \"Inactive\".",
     "deployment": "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    "victory": "At the end of each Turn, score 1 MP per Active Node you control.",
-    "special": "**Mission Action: Toggle Node (1 ACT):** The Unit toggles the Active state of a Node they control. Active Nodes emit dangerous radiation: At the end of each Turn, all Units Adjacent to an Active node take 1 Damage.",
+    "victory": "At the end of each Turn, Squads score 1 MP per Active Node they control.",
+    "special": "At the start of each Turn, all Power Nodes are reset to \"Inactive\" state.\n\n**Mission Action: Toggle Node (1 ACT):** The Unit toggles the Active state of a Node they control. Active Nodes emit dangerous radiation: At the end of each Turn, all Units Adjacent to an Active node take 1 Damage.",
     "rewards": [
       {
         "name": "Voltage Spikes",
@@ -79,7 +79,7 @@
     "rewards": [
       {
         "name": "Demo Expert",
-        "effect": "One Unit gains \"Demo charge\" (A free Grenade action) for the next mission."
+        "effect": "One Unit gains \"Demo charge\" (a free Grenade action) to use once in the next mission."
       },
       {
         "name": "Quick Prep",
@@ -101,7 +101,7 @@
     "rewards": [
       {
         "name": "Aggressive Push",
-        "effect": "One Unit gains +1 ACT (Action Point) in Turn 1 of the next mission."
+        "effect": "One Unit gains +1 ACT in Turn 1 of the next mission."
       },
       {
         "name": "Rapid Deployment",
@@ -123,11 +123,11 @@
     "rewards": [
       {
         "name": "Decisive Strike",
-        "effect": "One Unit gets one Spoil of War in the next mission (remove at the end of that mission)."
+        "effect": "One Unit gets one Spoil of War for the next mission."
       },
       {
         "name": "Weapon Calibration",
-        "effect": "One unit's weapon gains RLT or RND1 in the next mission (remove at the end of that mission)."
+        "effect": "Select one Unit's weapon to gain RLT (Relentless) or RND1 (Rending 1) in the next mission."
       }
     ]
   },
@@ -145,7 +145,7 @@
     "rewards": [
       {
         "name": "Intelligence Priority",
-        "effect": "Start the next mission with +1 TO and may re-roll TOs once during the next mission."
+        "effect": "Start the next mission with +1 TO. Once during the next mission, you may re-roll any number of your TO dice."
       },
       {
         "name": "Treasure Trove",
@@ -160,10 +160,10 @@
     "title": "Ambush",
     "active": true,
     "description": "\"Intercept the courier before they vanish into the wasteland.\"\n\nOne side must extract a critical asset; the other must stop them.",
-    "setup": "Select one Squad to be the Defender, the other the Attacker.\n\nDefender secretly selects one Unit to be the carrier of the Intel.",
-    "deployment": "Attacker Squad deploys before Turn 1 on the Northern or Southern battlefield edge. Defender deploys before Turn 1 on the Western edge of the West tile.",
+    "setup": "Select one Squad to be the Defender, the other the Attacker.\n\nDefender secretly selects one Unit (excluding the Leader) to be the carrier of the Intel.",
+    "deployment": "Both Squads deploy before Turn 1. Defender deploys all their Units on the Western battlefield edge first. Then Attacker Squad deploys all their Units on the Northern edge of the North and Northeast tiles, or the Southern edge of the South and Southeast tiles.",
     "victory": "At the end of Turn 4, if the Defender Squad is carrying the Intel and the carrier is on the Eastern edge of the East tile, Defender wins the mission. Attacker wins in all other cases.",
-    "special": "When the Courier is Taken Out, place the Core on its Position. It can be recovered and carried off by any Unit.",
+    "special": "When a Unit carrying the Intel is Taken Out, place the Core on its position. It can be recovered and carried off by any Unit.",
     "rewards": [
       {
         "name": "Disruption Scan",
@@ -207,15 +207,15 @@
     "setup": "Place 3 Search markers in the center of the West, Center, and East tiles.",
     "deployment": "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
     "victory": "At the end of each Turn, the Squad carrying the artifact scores 2 MP.",
-    "special": "**Mission Action: Search (2 ACT):** A Unit that controls a Search marker may perform this Action. Roll 1D6: on 6+ (Turn 1), 5+ (Turn 2), 4+ (Turn 3+), the artifact is found and that Unit is now carrying it. Remove the remaining Search markers from the battlefield.",
+    "special": "**Mission Action: Search (2ACT)**  \nA Unit that Controls a Search Marker may spend 2ACT to search it.\nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Artifact is found on a roll of 1\n- On the second searched marker, the Artifact is found on a roll of 1 or 2\n- On the third searched marker, the Artifact is found automatically\n\nAfter searching a marker, remove it from the Battlefield.\nOnce found, the Artifact is carried by the Unit that found it.",
     "rewards": [
       {
         "name": "Ancient Artifact",
-        "effect": "One Spoil of War (SoW) immediately."
+        "effect": "The carrier gains one Spoil of War. If it is not Taken Out by the end of the mission, it may keep that Spoil of War. If the Unit is Taken Out by the end of the mission, remove that Spoil of War."
       },
       {
         "name": "Preemptive Strike",
-        "effect": "One Unit gains +1 HIT in the next mission."
+        "effect": "Select one enemy Unit to start the mission with -1 HIT."
       }
     ]
   },
@@ -255,7 +255,7 @@
     "rewards": [
       {
         "name": "Aggressive Momentum",
-        "effect": "One unit gains +1 MSK or +1 RSK the first time it performs a Ranged or Melee combat Action in the next mission."
+        "effect": "One Unit gains +1 MSK or +1 RSK the first time it performs a Ranged or Melee combat Action in the next mission."
       },
       {
         "name": "Reinforced Armor",
@@ -295,7 +295,7 @@
     "setup": null,
     "deployment": "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
     "victory": "If the enemy Leader is Taken Out, your Squad immediately scores 6 MP.",
-    "special": "Leaders gain +1 ACT.",
+    "special": "Leaders gain +1 ACT for this mission.",
     "rewards": [
       {
         "name": "Intel Leak",
@@ -313,15 +313,15 @@
     "seq": 15,
     "title": "Rivals",
     "active": true,
-    "description": "\"Settle the score.\"\n\nTwo units meet on the battlefield, bound by vengeance or destiny.",
+    "description": "\"Settle the score.\"\n\nTwo Units meet on the battlefield, bound by vengeance or destiny.",
     "setup": "Each Squad secretly selects one Rival Unit (not the Leader). Reveal simultaneously after deployment.",
     "deployment": "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    "victory": "If your Rival Takes Out the enemy Rival, score 6 MP. If both Rivals are still alive at game's end, the mission is a draw.",
-    "special": "Rivals gain +1 HIT and +1 to Attack rolls against each other. In addition, Rivals may only be targeted in combat by the enemy Rival.",
+    "victory": "If your Rival Takes Out the enemy Rival, score 6 MP. If both Rivals are still Standing at the end of the mission, the mission is a draw (randomly select rewards).",
+    "special": "Rivals' weapons gain +1 ATT and +1 SKL against each other. In addition, Rivals may only be targeted in combat by the enemy Rival.",
     "rewards": [
       {
         "name": "Personal Vendetta",
-        "effect": "In the next mission, select one enemy unit (excluding the Leader). Your Units gain +1 SKL (Ranged or Melee Skill) each time that enemy is targeted in combat."
+        "effect": "In the next mission, select one enemy Unit (excluding the Leader). Your Units gain +1 SKL (Ranged or Melee Skill) each time that enemy is targeted in combat."
       },
       {
         "name": "Defensive Stance",
@@ -359,7 +359,7 @@
     "active": true,
     "description": "\"Rendezvous or die trying.\"\n\nThe dropship waits only moments—reach it before the storm consumes the battlefield.",
     "setup": "The Central Tile of the battlefield is the Evac Zone.\n\nSelect one Squad to be the Attacker, the other is the Defender.",
-    "deployment": "Defender Squad deploys before Turn 1 anywhere in the central Tile.\n\nAttacker Squad deploys before Turn 1 on any battlefield edge.",
+    "deployment": "Squads deploy before Turn 1. First, Defender Squad deploys anywhere in the central Tile.\n\nThen Attacker Squad deploys before on any battlefield edge.",
     "victory": "At the end of Turn 4, if the total FV of Standing Defender Units that are on the central tile is equal to or higher than the total FV of Standing Attacker Units on the central tile, Defender Squad wins the mission. Attacker Squad wins in all other cases.",
     "special": null,
     "rewards": [
