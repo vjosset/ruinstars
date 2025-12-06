@@ -49,6 +49,17 @@ export default async function RulesMovement({ num }: {num?: Number | null}) {
             <li>There is no wall between them.</li>
           </ul>
         </div>
+        
+        <div className="section">
+          <h4 id="control">Control</h4>
+          A Unit <strong>Controls</strong> a marker or objective if all the following conditions are met:
+          <ul>
+            <li>The Unit is Adjacent to that marker,</li>
+            <li>The Unit is not Adjacent to any enemy Units, and</li>
+            <li>The marker is not Adjacent to any enemy Units</li>
+          </ul>
+        </div>
+
         <div className="section">
           <h4 id="attack-of-opportunity">Attack of Opportunity</h4>
           <p>
