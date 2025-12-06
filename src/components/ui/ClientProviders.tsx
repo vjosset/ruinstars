@@ -2,6 +2,7 @@
 
 import type { Session } from 'next-auth'
 import { SessionProvider } from 'next-auth/react'
+import { Suspense } from 'react'
 import { Toaster } from 'sonner'
 import { Tracker } from './Tracker'
 
@@ -25,7 +26,9 @@ export function ClientProviders({ children, session }: Props) {
           }
         }}
       />
-      <Tracker />
+      <Suspense fallback={null}>
+        <Tracker />
+      </Suspense>
     </SessionProvider>
   )
 }
