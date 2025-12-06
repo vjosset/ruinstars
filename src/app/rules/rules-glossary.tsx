@@ -26,6 +26,10 @@ export default async function RulesItems({ num }: {num?: Number | null}) {
       definition: 'A series of Missions grouped into Operations. Units gain Medals, XP, GP, Injuries, and Spoils Of War during Campaign play.'
     },
     {
+      key: 'Control',
+      definition: 'A Unit Controls a marker if it is Adjacent to that marker, it is not Adjacent to any enemy Units, and that marker is not Adjacent to any enemy Units.'
+    },
+    {
       key: 'Critical Strike',
       definition: 'A Combat die roll of 1. Automatically inflicts double Damage (2 points) instead of 1. May have special effects.'
     },
