@@ -1,5 +1,5 @@
+import PageBreak from '@/components/ui/PageBreak'
 import { SpecialService } from '@/services'
-import PageBreak from '../books/PageBreak'
 
 export default async function RulesItems({ num }: {num?: Number | null}) {
   const allSpecials = await SpecialService.getAllSpecials()

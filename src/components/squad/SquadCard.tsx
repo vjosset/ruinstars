@@ -5,11 +5,11 @@ import { SquadPlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiMoreVertical } from 'react-icons/fi'
 import { SquadTypeLink, UserLink } from '../nav/Links'
-import Markdown from '../ui/Markdown'
 import { Button, Modal } from '../ui'
+import Markdown from '../ui/Markdown'
 import SquadCardMenu from './SquadCardMenu'
 
 type SquadCardProps = {
@@ -45,6 +45,11 @@ export default function SquadCard({
   const handleMoveFirst = onMoveFirst || noop
   const handleMoveDown = onMoveDown || noop
   const handleMoveLast = onMoveLast || noop
+
+  // Temporary: avoid SSR/headlessui useId mismatch under React 19 by only rendering the owner menu after mount.
+  // Remove when headlessui/react combo is stable again and SSR output matches hydration.
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
   
   return (
     <>
@@ -71,7 +76,7 @@ export default function SquadCard({
               </h5>
             </Link>
             {/* Action menu */}
-            {isOwner && (
+            {isOwner && mounted && (
               <Menu>
                 <MenuButton as="div">
                   <button className='p-1 rounded-sm transition-colors'>

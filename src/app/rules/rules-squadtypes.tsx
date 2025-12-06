@@ -1,9 +1,9 @@
 import FactionList from '@/components/faction/FactionList'
 import Markdown from '@/components/ui/Markdown'
+import PageBreak from '@/components/ui/PageBreak'
 import UnitCard from '@/components/unit/UnitCard'
 import { FactionService, SpecialService, SquadTypeService } from '@/services'
 import Link from 'next/link'
-import PageBreak from '../books/PageBreak'
 
 export default async function RulesSquadTypes() {
   const factions = await FactionService.getAllFactions()

@@ -1,13 +1,13 @@
 import { FactionLink } from '@/components/nav/Links'
 import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
 import Markdown from '@/components/ui/Markdown'
+import PageBreak from '@/components/ui/PageBreak'
 import PageTitle from '@/components/ui/PageTitle'
 import ops from '@/data/scriptedOperations.json'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { FactionService } from '@/services'
 import Link from 'next/link'
-import PageBreak from '../books/PageBreak'
 
 // This page varies by querystring (opId), so render per-request
 export const dynamic = 'force-dynamic'
