@@ -226,10 +226,10 @@
     "title": "Commitment Protocol",
     "active": true,
     "description": "\"Power must build before the final strike.\"\n\nEnergy charges build throughout the fight until a decisive moment of release.",
-    "setup": "Place 1 Reactor Objective at the center of the field.",
+    "setup": "Place 2 Uplink Node markers in the center of the West and East tiles. Place one Transmit Beacon in the center of the Central tile. Set up a tracker for each Squad's Data Packets, starting at zero.",
     "deployment": "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    "victory": "At the end of Turn 4, the Squad that committed the most Energy Tokens scores 6 MP.",
-    "special": "**Mission Action: Charge (1ACT):** A Unit that controls the Reactor may perform this action. Add 1 Energy Token to its Squad's pool.\n\n**Mission Action: Commit (2ACT):** In Turn 4, a Unit that controls the Reactor may perform this action. That Unit's Squad scores 1 MP for each Energy Token it has Charged on the Beacon.",
+    "victory": "At the end of Turn 4, the Squad with the most MP wins the Mission. In case of a tie, the Squad with the highest remaining Data Packets wins the mission.",
+    "special": "**Mission Action: Uplink (1ACT):** A Unit that Controls an Uplink Node increases its Squad's Data Packets by 1.\n\n**Mission Action: Transmit (1 ACT):** A Unit that Controls the Transmit Beacon reduces its Squad's Data Packets by 1 and scores 1 MP. This can only be done in Turns 3 and 4.",
     "rewards": [
       {
         "name": "Energy Overflow",
