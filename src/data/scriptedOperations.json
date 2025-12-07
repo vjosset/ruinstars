@@ -17,7 +17,7 @@
         "battlefieldId": "RC",
         "setup": "Place 3 Cache Markers: one in the center of the West, Center, and East tiles.",
         "deployment": "Each Squad deploys from opposite Battlefield edges before Turn 1.",
-        "special": "**Mission Action: Claim (2ACT)**  \nA Unit Adjacent to a Cache may spend 2ACT to secure it for their side. Once Claimed, place a marker indicating its ownership. A Claimed marker may be reclaimed by the opposing Squad.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Cache is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Claim (2ACT)**  \nA Unit that Controls a Cache may spend 2ACT to secure it for their side. Once Claimed, place a marker indicating its ownership. A Claimed marker may be reclaimed by the opposing Squad.",
         "victory": "- The Outer Claim wins if they own at least 2 Caches by the end of Turn 4. **Proceed to Mission 2A**\n- The Eidolon Revenants win in all other cases. **Proceed to Mission 2B**"
       },
       {
@@ -50,7 +50,7 @@
         "battlefieldId": "RC",
         "setup": "Outer Claim secretly marks 3 Units as Relic Carriers.\n\nPlace one Cursed Pit marker in the center of the Central tile.",
         "deployment": "- Eidolon Revenants deploy from the Southern battlefield edge before Turn 1.\n- Outer Claim deploy from the Northern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Destroy (2ACT)**  \nAn Outer Claim Relic Carrier Adjacent to the Cursed Pit may spend 2ACT to Ignite it. At the end of each Turn, roll 1D6 for each Ignited Relic: on 3+, that Relic is destroyed.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Destroy (2ACT)**  \nAn Outer Claim Relic Carrier that Controls the Cursed Pit may spend 2ACT to Ignite it. At the end of each Turn, roll 1D6 for each Ignited Relic: on 3+, that Relic is destroyed.",
         "victory": "- The Outer Claim wins if all 3 Relics are destroyed by the end of Turn 4.\n- The Eidolon Revenants win in all other cases."
       },
       {
@@ -61,7 +61,7 @@
         "battlefieldId": "TMPL",
         "setup": "Place 3 Altar Markers: one in the center of the West, Center, and East tiles. Place a Relic atop each Altar.",
         "deployment": "- Eidolon Revenants deploy within 2 Squares of any Altar before Turn 1.\n- Outer Claim deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Sanctify (2ACT)**  \nEidolon Revenant Units may attempt to Sanctify (2ACT) a relic while Adjacent to an Altar. Place a Sanctify marker on that Relic. At the end of each Turn, roll 1D6 for each of the Sanctified Relics: On a 1 or 2, that Relic is successfully Sanctified.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Altar is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Sanctify (2ACT)**  \nAn Eidolon Revenant Unit that Controls an Altar may attempt to Sanctify (2ACT) a relic. Place a Sanctified marker on that Altar. At the end of each Turn, roll 1D6 for each of the Sanctified Altars: On a 1 or 2, that Relic is successfully Sanctified.",
         "victory": "- The Eidolon Revenants win if all 3 Relics are successfully Sanctified by the end of Turn 4.\n- The Outer Claim wins in all other cases."
       }
     ]
@@ -84,7 +84,7 @@
         "battlefieldId": "FAC",
         "setup": "Place 3 Leader Tokens in the center of the Central Tile.\nDesignate the Eastern battlefield edge as the **Crimson Shroud Temple Edge** and the Western battlefield edge as the **Outer Claim Safe Edge**.",
         "deployment": "* Crimson Shroud deploy from the Eastern battlefield edge before Turn 1.\n* Outer Claim deploy from the Western battlefield edge before Turn 1.",
-        "special": "**Mission Action: Compel (2ACT)**  \nA Crimson Shroud Unit Adjacent to a Leader Token may spend 2ACT to move it 2 Squares toward the Temple Edge.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Rescue (2ACT)**  \nAn Outer Claim Unit Adjacent to a Leader Token may spend 2ACT to move it 2 Squares toward the Safe Edge.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Leader Token is Adjacent to any enemy Units.\n\nLeader Tokens cannot be destroyed and may not be carried.",
+        "special": "**Mission Action: Compel (2ACT)**  \nA Crimson Shroud Unit that Controls a Leader Token may spend 2ACT to move it 2 Squares toward the Temple Edge.\n\n**Mission Action: Rescue (2ACT)**  \nAn Outer Claim Unit that Controls a Leader Token may spend 2ACT to move it 2 Squares toward the Safe Edge.\n\nLeader Tokens cannot be destroyed and may not be carried.",
         "victory": "* The Crimson Shroud wins if at least 2 Leader Tokens are within 2 Squares of the Temple Edge before the end of Turn 4. **Proceed to Mission 2B**\n* The Outer Claim wins if at least 2 Leader Tokens are within 2 Squares of the Safe Edge before the end of Turn 4. **Proceed to Mission 2A**\n* If neither side achieves this, the side with more Tokens closer to their edge wins."
       },
       {
@@ -93,9 +93,9 @@
         "description": "The Outer Claim press into the Crimson Shroud's sanctum, where a great shrine pulses with malign power. The ritual is already underway; the Crimson Shroud seeks to complete its corruption, while the Outer Claim fight to cleanse it.",
         "battlefield": "The Cursed Temple",
         "battlefieldId": "TMPL",
-        "setup": "Place 1 Central Shrine Marker in the center of the Central Tile.\nPlace 4 Ritual Counters on the Shrine.",
+        "setup": "Place 1 Shrine Marker in the center of the Central Tile.\nPlace 4 Ritual Counters on the Shrine.",
         "deployment": "* Crimson Shroud deploy within 2 Squares of the Shrine before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Corrupt Shrine (2ACT)**  \nDuring Turns 1-2, the Crimson Shroud may perform this Action while Adjacent to the Shrine. Each success adds 1 Ritual Counter (max 6).\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Shrine is Adjacent to any enemy Units.\n\n**Cleanse Shrine (2ACT)**  \nDuring Turns 3-4, the Outer Claim may perform this Action while Adjacent to the Shrine. Each success removes 1 Ritual Counter (min 0).\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Shrine is Adjacent to any enemy Units.",
+        "special": "**Corrupt Shrine (2ACT)**  \nDuring Turns 1-2, the Crimson Shroud may perform this Action while they Control the Shrine. Add 1 to the Ritual Counter (max 6).\n\n**Cleanse Shrine (2ACT)**  \nDuring Turns 3-4, an Outer Claim Unit may perform this Action while it Controls the Shrine. Remove 1 Ritual Counter (min 0).",
         "victory": "* The Crimson Shroud wins if the Shrine has 4 or more Ritual Counters at the end of Turn 4. **Proceed to Mission 3B**\n* The Outer Claim wins if the Shrine has 2 or fewer Ritual Counters at the end of Turn 4. **Proceed to Mission 3A**\n* If the Shrine has exactly 3 Counters, play 1 extra Turn; at the end, whichever side moved it furthest in their direction is the winner."
       },
       {
@@ -106,7 +106,7 @@
         "battlefieldId": "JUNG",
         "setup": "Place 2 Idol Markers: one in the center of the Northwest Tile, one in the center of the Northeast Tile.",
         "deployment": "* Crimson Shroud deploy within 3 Squares of any Idol before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Blight Aura**: At the start of each Turn, all Units within 3 Squares of an Idol must roll 1D6. On a 5–6, they lose 1ACT this Turn.\n\n**Mission Action: Shatter Idol (2ACT)**  \nA Unit Adjacent to an Idol may spend 2ACT to destroy it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Idol is Adjacent to any enemy Units.",
+        "special": "**Blight Aura**: At the start of each Turn, all Units within 3 Squares of an Idol must roll 1D6. On a 5-6, they lose 1ACT this Turn.\n\n**Mission Action: Shatter Idol (2ACT)**  \nA Unit that Controls an Idol may spend 2ACT to destroy it.",
         "victory": "* The Crimson Shroud wins if at least 1 Idol remains standing at the end of Turn 4. **Proceed to Mission 3B**\n* The Outer Claim wins if both Idols are destroyed by the end of Turn 4. **Proceed to Mission 3A**"
       },
       {
@@ -117,7 +117,7 @@
         "battlefieldId": "RC",
         "setup": "Place 3 Captive Markers: one in the center of each of the Northwest, North, and Northeast tiles.",
         "deployment": "* Crimson Shroud deploy within 2 Squares of any Captive before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Free (2ACT)**  \nAn Outer Claim Unit Adjacent to a Captive may spend 2ACT to Free them. Place a Freed marker on the Captive.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Captive is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Free (2ACT)**  \nAn Outer Claim Unit that Controls a Captive may spend 2ACT to Free them. Place a Freed marker on the Captive.",
         "victory": "* The Outer Claim wins if at least 2 Captives are Freed by the end of Turn 4.\n* The Crimson Shroud wins in all other cases."
       },
       {
@@ -128,7 +128,7 @@
         "battlefieldId": "TMPL",
         "setup": "Place 1 Ritual Track (off-board) starting at 0.",
         "deployment": "* Crimson Shroud deploy within 2 Squares of the Central Tile before Turn 1.\n* Outer Claim deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Compel (2ACT)**  \nOnce per Turn, a Crimson Shroud Unit Adjacent to the Central Altar may spend 2ACT to advance the Ritual Track by 1. Max 6.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Altar is Adjacent to any enemy Units.\n\n**Mission Action: Disrupt (2ACT)**  \nOnce per Turn, an Outer Claim Unit Adjacent to the Central Altar may spend 2ACT to reduce the Ritual Track by 1. Min 0.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Altar is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Compel (2ACT)**  \nOnce per Turn, a Crimson Shroud Unit that Controls the Central Altar may spend 2ACT to advance the Ritual Track by 1 (max 6).\n\n**Mission Action: Disrupt (2ACT)**  \nOnce per Turn, an Outer Claim Unit that Controls the Central Altar may spend 2ACT to reduce the Ritual Track by 1 (min 0).",
         "victory": "* The Crimson Shroud wins if the Ritual Track is 4 or higher at the end of Turn 4.\n* The Outer Claim wins if the Ritual Track is 2 or lower at the end of Turn 4.\n* If the Ritual Track is exactly 3, play 1 extra Turn; whichever side shifts it further in their direction is the winner."
       }
     ]
@@ -151,7 +151,7 @@
         "battlefieldId": "JUNG",
         "setup": "Place 3 Strategic Point Markers: one in the center of the West, Center, and East tiles.",
         "deployment": "Each Squad deploys from opposite battlefield edges before Turn 1.",
-        "special": "**Mission Action: Infest (2ACT)**  \nA Unit Adjacent to a Strategic Point may spend 2ACT to Infest it. Place a marker showing its control.",
+        "special": "**Mission Action: Infest (2ACT)**  \nA Unit that Controls a Strategic Point may spend 2ACT to Infest it. Place a marker showing its control.",
         "victory": "- A Squad wins if they control at least 2 Strategic Points at the end of Turn 4. **Proceed to Mission 2**"
       },
       {
@@ -196,7 +196,7 @@
         "battlefieldId": "FAC",
         "setup": "Place 3 Explosive Cache Markers: one in the center of the West, Center, and East tiles.",
         "deployment": "Each Squad deploys from opposite battlefield edges before Turn 1.",
-        "special": "**Mission Action: Seize Explosives (2ACT)**  \nA Unit Adjacent to a Cache may spend 2ACT to pick it up. Once it is picked up, it is carried and can be dropped or passed normally.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Cache is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Seize Explosives (2ACT)**  \nA Unit that Controls a Cache may spend 2ACT to pick it up. Once it is picked up, it is carried and can be dropped or passed normally.",
         "victory": "* The Outer Claim wins if they carry at least 2 Explosives Caches at the end of Turn 4. **Proceed to Mission 2A**\n* The Hegemony win in all other cases. **Proceed to Mission 2B**"
       },
       {
@@ -207,7 +207,7 @@
         "battlefieldId": "RC",
         "setup": "Place 1 Bomb Marker in the center of the Central Tile.",
         "deployment": "* Outer Claim deploy within 2 Squares of the Bomb before Turn 1.\n* Hegemony deploy from any battlefield edge before Turn 1.",
-        "special": "**Mission Action: Assemble (2ACT)**  \nAn Outer Claim Unit Adjacent to the Bomb may spend 2ACT to add 1 Assembly Counter (max 6).\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.\n\n**Mission Action: Dismantle (2ACT)**  \nA Hegemony Unit Adjacent to the Bomb may spend 2ACT to remove 1 Assembly Counter (min 0).\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Assemble (2ACT)**  \nAn Outer Claim Unit that Controls the Bomb may spend 2ACT to add 1 Assembly Counter (max 6).\n\n**Mission Action: Dismantle (2ACT)**  \nA Hegemony Unit that Controls the Bomb may spend 2ACT to remove 1 Assembly Counter (min 0).",
         "victory": "* The Outer Claim wins if the Bomb has 4 or more Assembly Counters by the end of Turn 4. **Proceed to Mission 3A**\n* The Hegemony win in all other cases. **Proceed to Mission 3B**"
       },
       {
@@ -218,7 +218,7 @@
         "battlefieldId": "JUNG",
         "setup": "Place 2 Stockpile Markers: one in the center of the Northwest Tile, one in the center of the Northeast Tile.",
         "deployment": "* Outer Claim deploy within 2 Squares of any Stockpile before Turn 1.\n* Hegemony deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Destroy Stockpile (2ACT)**  \nA Hegemony Unit Adjacent to a Stockpile may spend 2ACT to destroy it. Remove it from play.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Stockpile is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Destroy Stockpile (2ACT)**  \nA Hegemony Unit that Controls a Stockpile may spend 2ACT to destroy it. Remove it from play.",
         "victory": "* The Outer Claim wins if at least 1 Stockpile is Claimed by the end of Turn 4. **Proceed to Mission 3A**\n* The Hegemony win if both Stockpiles are destroyed. **Proceed to Mission 3B**"
       },
       {
@@ -229,7 +229,7 @@
         "battlefieldId": "RC",
         "setup": "Place 1 Bomb Marker in the center of the Central Tile.",
         "deployment": "* Outer Claim deploy from the Northern battlefield edge before Turn 1.\n* Hegemony deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Arm Bomb (2ACT)**  \nAn Outer Claim Unit Adjacent to the Bomb may spend 2ACT to Arm it. Place an Armed marker on the Bomb.\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.\n\n**Mission Action: Defuse (2ACT)**  \nA Hegemony Unit Adjacent to an Armed Bomb may spend 2ACT to remove the Armed marker.\nA Unit may not perform this Action if it is Adjacent to any enemy Units or if the Bomb is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Arm Bomb (2ACT)**  \nAn Outer Claim Unit that Controls the Bomb may spend 2ACT to Arm it. Place an Armed marker on the Bomb.\n\n**Mission Action: Defuse (2ACT)**  \nA Hegemony Unit that Controls an Armed Bomb may spend 2ACT to remove the Armed marker.",
         "victory": "* The Outer Claim wins if the Bomb is Armed at the end of Turn 4.\n* The Hegemony win in all other cases."
       },
       {
@@ -240,7 +240,7 @@
         "battlefieldId": "FAC",
         "setup": "Place 3 Charge Markers: one in the center of the West, Center, and East tiles.",
         "deployment": "* Outer Claim deploy within 2 Squares of any Charge before Turn 1.\n* Hegemony deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Arm (2ACT)**  \nAn Outer Claim Unit Adjacent to a Charge may spend 2ACT to arm it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Disarm (2ACT)**  \nA Hegemony Unit Adjacent to an Armed Charge may spend 2ACT to Disarm it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Arm (2ACT)**  \nAn Outer Claim Unit that Controls a Charge may spend 2ACT to arm it.\n\n**Mission Action: Disarm (2ACT)**  \nA Hegemony Unit that Controls an Armed Charge may spend 2ACT to Disarm it.",
         "victory": "* The Outer Claim wins if both Charges are armed at the end of Turn 4.\n* The Hegemony win in all other cases."
       }
     ]
@@ -263,7 +263,7 @@
         "battlefieldId": "FAC",
         "setup": "Place a Hatch marker in the center square of the central tile.",
         "deployment": "Hegemony deploy before Turn 1 on any battlefield edge.\nThe Swarm deploys before Turn 1 within 3 squares of the Hatch marker.",
-        "special": "The Hatch is an item with `ARM` **4** and `HIT` **4** and may be targeted in Combat.\nIf the Hatch reaches 0 HIT, it is breached.\n\n**Mission Action: Torch Breach (2ACT)**  \nOnce per Turn, a Unit Adjacent to the Hatch may spend 2ACT to remove 1 `HIT` from it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "special": "The Hatch is an item with `ARM` **4** and `HIT` **4** and may be targeted in Combat.\nIf the Hatch reaches 0 HIT, it is breached.\n\n**Mission Action: Torch Breach (2ACT)**  \nOnce per Turn, a Unit that Controls the Hatch may spend 2ACT to remove 1 `HIT` from it.",
         "victory": "- The Hegemony win the Mission if the Hatch is breached before the end of Turn 4. **Proceed to Mission 2A**\n- The Swarm wins in all other cases. **Proceed to Mission 2B**"
       },
       {
@@ -285,7 +285,7 @@
         "battlefieldId": "FAC",
         "setup": "Place one Console in the center of each of the Northwest, North, and Northeast tiles.",
         "deployment": "The Swarm deploys its Units within 2 Squares of a Console before Turn 1.\nHegemony deploy from the southern edge of the Battlefield before Turn 1.",
-        "special": "**Mission Action: Activate Console (2ACT)**  \nOne Unit Adjacent to a Console may spend 2ACT to Activate that Console.\nA Unit may not perform this action if it is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Activate Console (2ACT)**  \nOne Unit that Controls a Console may spend 2ACT to Activate that Console.",
         "victory": "- Hegemony win the Mission if all three Consoles are activated before the end of Turn 4. **Proceed to Mission 2A**\n- Swarm wins in all other cases. **Proceed to Mission 3B**"
       },
       {
@@ -341,7 +341,7 @@
         "battlefieldId": "FAC",
         "setup": "Place 1 Gate Marker in the center of the Eastern edge of the Central Tile.\n\nAll Squares North and South of the Gate are considered an impassable wall. Units may shoot through those Squares, but may not move through them.\n\nAll Squares East of the Gate are considered to be Ramparts: Units on those Squares should be considered to be 2 Squares above the western part of the battlefield and have High Ground (no cover when targeting enemies lower than them).",
         "deployment": "- Splinter Group deploys anywhere East of the Gate before Turn 1.\n- Loyalists deploy from the Western battlefield edge before Turn 1.",
-        "special": "The Gate has `ARM` **4** and `HIT` **6**. It may be targeted in Combat.\n\n**Mission Action: Override Gate (2ACT)**  \nOnce per Turn, a Loyalist Unit Adjacent to the Gate may spend 2ACT to reduce its `HIT` by 1.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "special": "The Gate has `ARM` **4** and `HIT` **6**. It may be targeted in Combat.\n\n**Mission Action: Override Gate (2ACT)**  \nOnce per Turn, a Loyalist Unit that Controls the Gate may spend 2ACT to reduce its `HIT` by 1.",
         "victory": "- The Loyalists win if the Gate is destroyed (reduced to 0 HIT) before the end of Turn 4. **Proceed to Mission 3A**\n- The Splinter Group wins in all other cases. **Proceed to Mission 3B**"
       },
       {
@@ -352,7 +352,7 @@
         "battlefieldId": "RC",
         "setup": "Place 1 Informant Marker in the center of the Central Tile.",
         "deployment": "- Splinter Group deploys within 2 Squares of the Informant Marker before Turn 1.\n- Loyalists deploy from the Southern battlefield edge before Turn 1.",
-        "special": "The Informant cannot be targeted, attacked, or destroyed; both sides require them alive.\n\n**Mission Action: Secure Informant (2ACT)**  \nA Loyalist Unit Adjacent to the Informant may spend 2ACT to Secure them. Place a Secured marker on the Informant.\nA Unit may not perform this action if it is Adjacent to any enemies, or if the Informant is Adjacent to any Splinter Group Units.\n\nAt the end of the game, if the Informant is Secured and at least one Loyalist Unit is Standing within 2 Squares of the Informant, the Loyalists hold the Informant.",
+        "special": "The Informant cannot be targeted, attacked, or destroyed; both sides require them alive.\n\n**Mission Action: Secure Informant (2ACT)**  \nA Loyalist Unit that Controls the Informant may spend 2ACT to Secure them. Place a Secured marker on the Informant.\n\nAt the end of the game, if the Informant is Secured and at least one Loyalist Unit is Standing within 2 Squares of the Informant, the Loyalists hold the Informant.",
         "victory": "- The Loyalists win if they hold the Informant at the end of Turn 4. **Proceed to Mission 3**\n- The Splinter Group wins in all other cases. **Proceed to Mission 3**"
       },
       {
@@ -397,7 +397,7 @@
         "battlefieldId": "FAC",
         "setup": "Place 3 Depot Markers: one in the center of each of the Northwest, North, and Northeast tiles.",
         "deployment": "* Hegemony deploy within 2 Squares of any Depot before Turn 1.\n* Grutak deploy from the Southern battlefield edge before Turn 1.",
-        "special": "Depots are items with `ARM` **4** and `HIT` **3**. They may be targeted in Combat.\n\n**Mission Action: Sabotage Depot (2ACT)**  \nA Grutak Unit Adjacent to a Depot may spend 2ACT to remove 1 `HIT` from it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Depot is Adjacent to any Hegemony.",
+        "special": "Depots are items with `ARM` **4** and `HIT` **3**. They may be targeted in Combat.\n\n**Mission Action: Sabotage Depot (2ACT)**  \nA Grutak Unit that Controls a Depot may spend 2ACT to remove 1 `HIT` from it.",
         "victory": "* Hegemony wins if at least 2 Depots have not been destroyed by the end of Turn 4. **Proceed to Mission 3A**\n* Grutak win in all other cases. **Proceed to Mission 3B**"
       },
       {
@@ -408,7 +408,7 @@
         "battlefieldId": "RC",
         "setup": "Place 3 Strongpoint Markers in the center of the West, Center, and East tiles.",
         "deployment": "* Hegemony deploy within 2 Squares of any Strongpoint before Turn 1.\n* Grutak deploy from the Northern or Southern battlefield edge before Turn 1.",
-        "special": "Strongpoints are items with `ARM` **4** and `HIT` **4**. They may be targeted in Combat.\n\n**Mission Action: Fortify (2ACT)**  \nOnce per Turn, a Hegemony Unit Adjacent to a Strongpoint may spend 2ACT to restore 1 lost `HIT` on it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Smash (2ACT)**  \nOnce per Turn, a Grutak Unit Adjacent to a Strongpoint may spend 2ACT to smash it and remove 1 `HIT` from it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\nAt the end of the game, any Strongpoint with at least 2 `HIT` remaining is considered Held.",
+        "special": "Strongpoints are items with `ARM` **4** and `HIT` **4**. They may be targeted in Combat.\n\n**Mission Action: Fortify (2ACT)**  \nOnce per Turn, a Hegemony Unit that Controls a Strongpoint may spend 2ACT to restore 1 lost `HIT` on it.\n\n**Mission Action: Smash (2ACT)**  \nOnce per Turn, a Grutak Unit that Controls a Strongpoint may spend 2ACT to smash it and remove 1 `HIT` from it.\n\nAt the end of the mission, any Strongpoint with at least 2 `HIT` remaining is considered Held.",
         "victory": "* The Hegemony win if at least 2 Strongpoints are Held at the end of Turn 4. **Proceed to Mission 3A**\n* The Grutak win in all other cases. **Proceed to Mission 3B**"
       },
       {
@@ -430,7 +430,7 @@
         "battlefieldId": "FAC",
         "setup": "Place 1 Bastion Marker in the center of the Central Tile.",
         "deployment": "* Hegemony deploy within 2 Squares of the Bastion before Turn 1.\n* Grutak deploy from the Northern and Southern battlefield edges before Turn 1.",
-        "special": "The Bastion has `ARM` **3** and `HIT` **6**. It may be targeted in Combat.\n\n**Mission Action: Reinforce Bastion (2ACT)**  \nOnce per Turn, a Hegemony Unit Adjacent to the Bastion may spend 2ACT to restore 1 `HIT` to it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "special": "The Bastion has `ARM` **3** and `HIT` **6**. It may be targeted in Combat.\n\n**Mission Action: Reinforce Bastion (2ACT)**  \nOnce per Turn, a Hegemony Unit that Controls the Bastion may spend 2ACT to restore 1 `HIT` to it.",
         "victory": "* The Grutak win if the Bastion is destroyed (0 HIT) by the end of Turn 4.\n* The Hegemony win in all other cases."
       }
     ]
@@ -453,7 +453,7 @@
         "battlefieldId": "RC",
         "setup": "Place 1 Search Marker in the center of each of the West, Central, and East tiles.",
         "deployment": "Each Squad deploys from opposite Battlefield edges before Turn 1.",
-        "special": "**Mission Action: Search (2ACT)**  \nA Crimson Shroud Unit Adjacent to a Search Marker may spend 2ACT to search it.\nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Artifact is found on a roll of 1\n- On the second searched marker, the Artifact is found on a roll of 1 or 2\n- On the third searched marker, the Artifact is found automatically\n\nAfter searching a marker, remove it from the Battlefield.\nOnce found, the Artifact is carried by the Unit that found it.\n\nA Unit may not perform this Action while Adjacent to any enemy Units, or if the Search Marker is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Search (2ACT)**  \nA Crimson Shroud Unit that Controls a Search Marker may spend 2ACT to search it.\nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Artifact is found on a roll of 1\n- On the second searched marker, the Artifact is found on a roll of 1 or 2\n- On the third searched marker, the Artifact is found automatically\n\nAfter searching a marker, remove it from the Battlefield.\nOnce found, the Artifact is carried by the Unit that found it.",
         "victory": "- The Crimson Shroud wins if they are carrying the Artifact at the end of Turn 4. **Proceed to Mission 2A**\n- The Hegemony win in all other cases. **Proceed to Mission 2B**"
       },
       {
@@ -475,7 +475,7 @@
         "battlefieldId": "JUNG",
         "setup": "Before deployment, secretly mark one Hegemony Unit as the Artifact Carrier.",
         "deployment": "Before Turn 1, Crimson Shroud deploys all units anywhere in the Northeast, East, or Southeast Tiles.\nDuring Turn 1, when it is a Hegemony Unit's turn to activate, deploy it on the outer edge of the Western tile. Hegemony always have the initiative in Turn 1.",
-        "special": "The Artifact may be dropped if the carrier is Taken Out or voluntarily drops it. Another Unit may pick it up by moving Adjacent and spending 1ACT.",
+        "special": "The Artifact may be dropped if the carrier is Taken Out or voluntarily drops it. The Artifact may be picked up or passed as normal.",
         "victory": "- The Crimson Shroud wins if they are carrying the Artifact at the end of Turn 4. **Proceed to Mission 2A**\n- The Hegemony win in all other cases. **Proceed to Mission 3B**"
       },
       {
@@ -486,7 +486,7 @@
         "battlefieldId": "TMPL",
         "setup": "Place 3 Altar Markers in the central squares of the West, Center, and East tiles.",
         "deployment": "Crimson Shroud deploys before Turn 1 within 2 Squares of an Altar.\nHegemony deploy before Turn 1 on the Southern Battlefield edge.",
-        "special": "A Unit \"Controls\" an Altar if:\n\n- The Unit is Adjacent to that marker,\n- The Unit is not Adjacent to any enemy Units, and\n- There are no enemy Units Adjacent to that Altar",
+        "special": null,
         "victory": "- The Crimson Shroud wins if they control all 3 Altars by the end of Turn 4.\n- The Hegemony win in all other cases."
       },
       {
@@ -497,7 +497,7 @@
         "battlefieldId": "TMPL",
         "setup": "Place 3 Sabotage Markers central squares of the West, Center, and East tiles.",
         "deployment": "Crimson Shroud deploys anywhere within 3 Squares of a Sabotage marker before Turn 1.\nHegemony deploy from any Battlefield edge before Turn 1.",
-        "special": "**Mission Action: Sabotage (2ACT)**  \nA Unit Adjacent to a Sabotage Marker may spend 2ACT to sabotage it.\nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Sabotage (2ACT)**  \nA Unit that Controls a Sabotage Marker may spend 2ACT to sabotage it.",
         "victory": "- The Hegemony win if all 3 markers are sabotaged by the end of Turn 4.\n- The Crimson Shroud wins in all other cases."
       }
     ]
@@ -520,7 +520,7 @@
         "battlefieldId": "RC",
         "setup": "Place 3 Loot Pile Markers: one in the center of the West, Center, and East tiles.",
         "deployment": "Each Squad deploys from opposite battlefield edges before Turn 1.",
-        "special": "**Mission Action: Grab Loot (2ACT)**  \nA Unit Adjacent to a Loot Pile may spend 2ACT to claim it. The Unit's Squad gains 1MP.\nA Unit may not perform this action if it is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Grab Loot (2ACT)**  \nA Unit that Controls a Loot Pile may spend 2ACT to claim it. The Unit's Squad gains 1MP.",
         "victory": "- The Squad with the most MP by the end of Turn 4 wins the mission. In case of a tie, the Squad with the most remaining Standing Units wins the mission. In case of a tie, play one more Turn until a winner is clear. **Proceed to Mission 2**"
       },
       {
@@ -542,7 +542,7 @@
         "battlefieldId": "JUNG",
         "setup": "- Place three Totem markers in the center of the Northeast, East, and Southeast tiles. These are Squad A's totems.\n- Place three Totem markers in the center of the Northwest, West, and SouthWest tiles. These are Squad B's totems",
         "deployment": "- Each Squad deploys their Units within 3 Squares of their Totems before Turn 1.",
-        "special": "Totems are items with `ARM` **4** and `HIT` **3**. Totems may be targeted in combat. When a Totem reaches 0 `HIT`, it is destroyed.\n\n**Mission Action: Smash Totem (2ACT)**  \nA Unit Adjacent to a Totem may spend 2ACT to remove 1 `HIT` from it.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units, or if the Totem is Adjacent to any enemy Units.",
+        "special": "Totems are items with `ARM` **4** and `HIT` **3**. Totems may be targeted in combat. When a Totem reaches 0 `HIT`, it is destroyed.\n\n**Mission Action: Smash Totem (2ACT)**  \nA Unit that Controls a Totem may spend 2ACT to remove 1 `HIT` from it.",
         "victory": "- The Squad that destroyed the most enemy Totems wins the mission. In case of a tie, the Squad with more Standing Units wins. In case of a Tie, play more Turns until a winner is clear."
       }
     ]
@@ -565,7 +565,7 @@
         "battlefieldId": "RC",
         "setup": "The Fortress occupies the three Northern tiles (Northeast, North, Northwest).\nPlace 3 Gate Markers: one centered on the Southern edge of each Northern tile. These Gate markers cannot be traversed by Units until they are destroyed.",
         "deployment": "- Eidolon Revenants deploy anywhere within the Fortress before Turn 1.\n- Grutak deploy within 2 Squares of the Southern battlefield edge before Turn 1.",
-        "special": "Grutak have the initiative in Turn 1.\n\nEach Gate Marker has `ARM` **4** and `HIT` **4**.\nGates may be targeted in Combat and are affected by Ruined City battlefield effects just like any Unit. If reduced to 0 HIT, that Gate is destroyed.\n\n**Mission Action: Break Gate (2ACT)**  \nOnce per Turn, a Grutak Unit Adjacent to a Gate may spend 2ACT to remove 1 HIT from it.\nA Unit may not perform this Action if it is Adjacent to any enemies.",
+        "special": "Grutak have the initiative in Turn 1.\n\nEach Gate Marker has `ARM` **4** and `HIT` **4**.\nGates may be targeted in Combat and are affected by Ruined City battlefield effects just like any Unit. If reduced to 0 HIT, that Gate is destroyed.\n\n**Mission Action: Break Gate (2ACT)**  \nOnce per Turn, a Grutak Unit that Controls a Gate may spend 2ACT to remove 1 HIT from it.",
         "victory": "- The Eidolon Revenants win if at least 2 of the 3 Gates are still standing by the end of Turn 4. **Proceed to Mission 2A**\n- The Grutak win in all other cases. **Proceed to Mission 2B**"
       },
       {
@@ -576,7 +576,7 @@
         "battlefieldId": "FAC",
         "setup": "Place 3 Pylon Markers: one in the center of each of the West, Center, and East tiles.",
         "deployment": "- Eidolon Revenants deploy within 2 Squares of a Pylon before Turn 1.\n- Grutak deploy from the Western battlefield edge before Turn 1.",
-        "special": "**Mission Action: Activate Pylon (2ACT)**  \nAn Eidolon Revenant Unit Adjacent to a Pylon may spend 2ACT to Activate it.\nA Unit may not perform this Action if it is Adjacent to any enemies, or if the Pylon is Adjacent to any Grutak.\n\nPylons may be targeted in Combat (`ARM` **4**, `HIT` **3**).",
+        "special": "**Mission Action: Activate Pylon (2ACT)**  \nAn Eidolon Revenant Unit that Controls a Pylon may spend 2ACT to Activate it.\n\nPylons may be targeted in Combat (`ARM` **4**, `HIT` **3**).",
         "victory": "- The Eidolon Revenants win if at least 2 Pylons are Activated and still Standing by the end of Turn 4. **Proceed to Mission 3A**\n- The Grutak win in all other cases. **Proceed to Mission 3B**"
       },
       {
@@ -587,7 +587,7 @@
         "battlefieldId": "RC",
         "setup": "Place 3 Cache Markers: one in the center of each of the West, Center, and East tiles.",
         "deployment": "Both squads deploy anywhere on the Battlefield before Turn 1, at least 4 Squares away from any Cache Marker.",
-        "special": "**Mission Action: Loot (2ACT)**  \nOnce per Turn, a Grutak Unit Adjacent to a Cache may spend 2ACT to Loot it.\nA Unit may not perform this Action if it is Adjacent to any enemies.\n\n**Mission Action: Sabotage (2ACT)**  \nOnce per Turn, an Eidolon Revenant Unit Adjacent to a Cache may spend 2ACT to Sabotage it.\nA Unit may not perform this Action if it is Adjacent to any enemies.\n\nOnce a Cache is either Looted or Sabotaged, remove it from the Battlefield.",
+        "special": "**Mission Action: Loot (2ACT)**  \nOnce per Turn, a Grutak Unit that Controls a Cache may spend 2ACT to Loot it.\n\n**Mission Action: Sabotage (2ACT)**  \nOnce per Turn, an Eidolon Revenant Unit that Controls a Cache may spend 2ACT to Sabotage it.\n\nOnce a Cache is either Looted or Sabotaged, remove it from the Battlefield.",
         "victory": "- Grutak win if at least 2 of the 3 Caches are Looted by the end of Turn 4. **Proceed to Mission 3A**\n- Eidolon Revenants win in all other cases. **Proceed to Mission 3B**"
       },
       {
@@ -609,7 +609,7 @@
         "battlefieldId": "FAC",
         "setup": "The Central Tile represents the fortress core. Place 1 Core Marker in its center.",
         "deployment": "- Eidolon Revenants deploy anywhere on the Central Tile before Turn 1.\n- Grutak deploy from any two opposite battlefield edges before Turn 1.",
-        "special": "**Mission Action: Defend (1ACT)**\nOnce per Turn, an Eidolon Revenant Unit Adjacent to the Core Marker may spend 1ACT to add a Defense Token to it.\nA Unit may not perform this Action if it is Adjacent to any enemies.",
+        "special": "**Mission Action: Defend (1ACT)**\nOnce per Turn, an Eidolon Revenant Unit that Controls the Core may spend 1ACT to add a Defense Token to it.",
         "victory": "- The Eidolon Revenants win if the Core has at least 3 Defense Tokens on it, and at least one Eidolon Revenant Unit remains Standing.\n- The Grutak win in all other cases."
       }
     ]
@@ -632,7 +632,7 @@
         "battlefieldId": "RC",
         "setup": "Place 1 Search Marker in the center of each of the West, Central, and East tiles.",
         "deployment": "Each Squad deploys from opposite Battlefield edges before Turn 1.",
-        "special": "**Mission Action: Search (2ACT)**  \nAn Eidolon Revenant Unit Adjacent to a Search Marker may spend 2ACT to search it.  \nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Entrance is found on a roll of 1  \n- On the second searched marker, the Entrance is found on a roll of 1 or 2  \n- On the third searched marker, the Entrance is found automatically  \n\nAfter searching a marker, remove it from the Battlefield.  \nOnce found, the Entrance is carried as Intel by the Unit that found it.  \n\nA Unit may not perform this Action while Adjacent to any enemy Units, or if the Search Marker is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Search (2ACT)**  \nAn Eidolon Revenant Unit that Controls a Search Marker may spend 2ACT to search it.  \nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Entrance is found on a roll of 1  \n- On the second searched marker, the Entrance is found on a roll of 1 or 2  \n- On the third searched marker, the Entrance is found automatically  \n\nAfter searching a marker, remove it from the Battlefield.  \nOnce found, the Entrance is carried as Intel by the Unit that found it.",
         "victory": "- The Eidolon Revenants win if they are carrying the Entrance Intel at the end of Turn 4. **Proceed to Mission 2A**\n- The Hegemony win in all other cases. **Proceed to Mission 2B**"
       },
       {
@@ -643,7 +643,7 @@
         "battlefieldId": "RC",
         "setup": "Place 2 Corpse Tokens in the center 2 Squares of the Central Tile. Designate the Northern battlefield edge as the **Lab Edge** (Eidolon Revenants) and the Southern battlefield edge as the **Burn Pit Edge** (Hegemony).",
         "deployment": "- Eidolon Revenants deploy from the Northern battlefield edge before Turn 1.\n- Hegemony deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Harvest (2ACT)**  \nAn Eidolon Revenant Unit Adjacent to a Corpse Token may spend 2ACT to move that Token 2 Squares toward the Lab Edge.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Purge (2ACT)**  \nA Hegemony Unit Adjacent to a Corpse Token may spend 2ACT to move that Token 2 Squares toward the Burn Pit Edge.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\nCorpse Tokens cannot be carried or destroyed; they remain on the board and may be contested by both sides.",
+        "special": "**Mission Action: Harvest (2ACT)**  \nAn Eidolon Revenant Unit that Controls a Corpse Token may spend 2ACT to move that Token 2 Squares toward the Lab Edge.\n\n**Mission Action: Purge (2ACT)**  \nA Hegemony Unit that Controls a Corpse Token may spend 2ACT to move that Token 2 Squares toward the Burn Pit Edge.\n\nCorpse Tokens cannot be carried or destroyed; they remain on the board and may be contested by both sides.",
         "victory": "- The Eidolon Revenants win immediately when 2 Corpse Tokens exit the battlefield via the Lab Edge. **Proceed to Mission 3A**\n- The Hegemony win immediately when 2 Corpse Tokens exit via the Burn Pit Edge. **Proceed to Mission 3B**\n- If neither condition is met by the end of Turn 4, the side with the greater total Squares of progress toward their edge wins; if tied, play 1 extra Turn to determine the winner."
       },
       {
@@ -654,7 +654,7 @@
         "battlefieldId": "TMPL",
         "setup": "Place 3 Power Node Markers: one in the center of the West, Center, and East tiles.",
         "deployment": "- Eidolon Revenants deploy within 2 Squares of any Node before Turn 1.\n- Hegemony deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Reactivate Node (2ACT)**  \nAn Eidolon Revenant Unit Adjacent to a Node may spend 2ACT to activate it. Place an Active marker.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Overload Node (2ACT)**  \nA Hegemony Unit Adjacent to an Active Node may spend 2ACT to disable it. Remove the Active marker.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Reactivate Node (2ACT)**  \nAn Eidolon Revenant Unit that Controls a Node may spend 2ACT to activate it. Place an Active marker.\n\n**Mission Action: Overload Node (2ACT)**  \nA Hegemony Unit that Controls an Active Node may spend 2ACT to disable it. Remove the Active marker.",
         "victory": "- The Eidolon Revenants win if at least 2 Nodes are Active at the end of Turn 4. **Proceed to Mission 3A**\n- The Hegemony win in all other cases. **Proceed to Mission 3B**"
       },
       {
@@ -665,7 +665,7 @@
         "battlefieldId": "NML",
         "setup": "Place 1 Central Pylon Marker in the center of the Central Tile. Create an off-board **Power Track** starting at 1.",
         "deployment": "- Eidolon Revenants deploy within 2 Squares of the Pylon before Turn 1.\n- Hegemony deploy from the Southern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Atune (2ACT)**  \nOnce per Turn, an Eidolon Revenant Unit Adjacent to the Pylon may spend 2ACT to increase the Power Track by 1 (max 6).  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Detune (2ACT)**  \nOnce per Turn, a Hegemony Unit Adjacent to the Pylon may spend 2ACT to decrease the Power Track by 1 (min 1).  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Atune (2ACT)**  \nOnce per Turn, an Eidolon Revenant Unit that Controls the Pylon may spend 2ACT to increase the Power Track by 1 (max 6).\n\n**Mission Action: Detune (2ACT)**  \nOnce per Turn, a Hegemony Unit that Controls the Pylon may spend 2ACT to decrease the Power Track by 1 (min 1).",
         "victory": "- The Eidolon Revenants win if the Power Track is 4 or higher at the end of Turn 4.\n- The Hegemony win if the Power Track is 2 or lower at the end of Turn 4.\n- If the Power Track is exactly 3, play 1 extra Turn; whichever side shifts it further in their favor wins."
       },
       {
@@ -676,7 +676,7 @@
         "battlefieldId": "FAC",
         "setup": "Place 3 Collapse Points: one in the center of the West, Center, and East tiles.",
         "deployment": "- Hegemony deploy within 2 Squares of any Collapse Point before Turn 1.\n- Eidolon Revenants deploy from the Northern battlefield edge before Turn 1.",
-        "special": "**Mission Action: Demolish (2ACT)**  \nA Hegemony Unit Adjacent to a Collapse Point may spend 2ACT to collapse it. Remove the marker from play.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.\n\n**Mission Action: Stabilize (2ACT)**  \nAn Eidolon Revenant Unit Adjacent to a Collapse Point may spend 2ACT to cancel its demolition. Replace the marker if removed this Turn.  \nA Unit may not perform this Action if it is Adjacent to any enemy Units.",
+        "special": "**Mission Action: Demolish (2ACT)**  \nA Hegemony Unit that Controls a Collapse Point may spend 2ACT to collapse it. Remove the marker from play.\n\n**Mission Action: Stabilize (2ACT)**  \nAn Eidolon Revenant Unit that Controls a Collapse Point may spend 2ACT to cancel its demolition. Replace the marker if removed this Turn.",
         "victory": "- The Hegemony win if at least 2 Collapse Points are demolished by the end of Turn 4.\n- The Eidolon Revenants win in all other cases."
       }
     ]
