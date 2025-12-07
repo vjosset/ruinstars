@@ -28,8 +28,6 @@ import RulesPlayingOnAGrid from './rules-playingonagrid'
 import RulesQuickRef from './rules-quickref'
 import RulesScriptedOperations from './rules-scriptedoperations'
 
-export const revalidate = 86400
-
 export async function generateMetadata() {
   return generatePageMetadata({
     title: 'Rules',
@@ -84,6 +82,7 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
         </div>
 
         <RulesToc />
+
         <RulesIntro showTitle={true} num={1} />
 
         <RulesAI />
@@ -129,7 +128,7 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
         <hr />
       
         <RulesQuickRef num={15} />
-      
+
         {showPrintSections && (
           <>
             <div className="printonly">
@@ -138,7 +137,7 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
               {/* Full SquadTypes for printed book */}
               <RulesSquadTypes />
               <hr />
-              
+
               {/* Full ScriptedOps for printed book */}
               <h1 className="text-center pt-48 mb-10 font-title"   id="allscriptedoperations" style={{position: 'relative', top: '50%' }}>
                 Scripted Operations
@@ -191,10 +190,10 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
                 })}
               </div>
             </div>
-
-            <RulesOutro />
           </>
         )}
+        
+        <RulesOutro />
       
       </div>
     </>
