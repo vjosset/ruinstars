@@ -3,7 +3,7 @@ export type MissionDiagramLegendEntry = string | {
   color?: string;
 };
 
-export type MissionDiagramLegend = Record<string, MissionDiagramLegendEntry>;
+export type MissionDiagramLegend = Partial<Record<string, MissionDiagramLegendEntry>>;
 
 export type MissionPlain = {
   missionId: string;

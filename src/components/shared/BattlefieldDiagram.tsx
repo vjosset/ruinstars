@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from 'react';
 
 type DiagramGrid = string[][]
 type LegendEntry = string | { label: string; color?: string }
-type DiagramLegend = Record<string, LegendEntry>
+type DiagramLegend = Partial<Record<string, LegendEntry>>
 
 export type BattlefieldDiagramProps = {
   grid: DiagramGrid
