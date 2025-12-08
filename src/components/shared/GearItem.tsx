@@ -10,7 +10,7 @@ export default function GearItem({ gear }: { gear: GearPlain }) {
     showInfoModal({
       title: `${gear.gearName}${gear.ACT && gear.ACT > 0 ? ` (${gear.ACT} ACT)` : ''}${gear.TO && gear.TO > 0 ? ` (${gear.TO} TO)` : ''}`,
       body: (
-        <div className="prose prose-invert max-w-none">
+        <div className="max-w-none">
           <Markdown>
             {gear.description || '*No description available.*'}
           </Markdown>
