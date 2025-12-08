@@ -1,3 +1,10 @@
+export type MissionDiagramLegendEntry = string | {
+  label: string;
+  color?: string;
+};
+
+export type MissionDiagramLegend = Record<string, MissionDiagramLegendEntry>;
+
 export type MissionPlain = {
   missionId: string;
   missionType: string;
@@ -10,6 +17,8 @@ export type MissionPlain = {
   victory: string;
   special?: string | null;
   rewards?: MissionReward[];
+  diagram?: string[][];
+  diagramLegend?: MissionDiagramLegend;
 };
 
 export class Mission {
@@ -24,6 +33,8 @@ export class Mission {
   victory: string
   special?: string | null
   rewards?: MissionReward[]
+  diagram?: string[][]
+  diagramLegend?: MissionDiagramLegend
 
   constructor(data: {
     missionId: string;
@@ -37,6 +48,8 @@ export class Mission {
     victory: string;
     special?: string | null;
     rewards?: MissionReward[];
+    diagram?: string[][];
+    diagramLegend?: MissionDiagramLegend;
   }) {
     this.missionId = data.missionId
     this.missionType = data.missionType
@@ -49,6 +62,8 @@ export class Mission {
     this.victory = data.victory
     this.special = data.special
     this.rewards = data.rewards
+    this.diagram = data.diagram
+    this.diagramLegend = data.diagramLegend
   }
 
   toPlain(): MissionPlain {
@@ -63,7 +78,9 @@ export class Mission {
       deployment: this.deployment,
       victory: this.victory,
       special: this.special,
-      rewards: this.rewards
+      rewards: this.rewards,
+      diagram: this.diagram,
+      diagramLegend: this.diagramLegend
     }
   }
 }

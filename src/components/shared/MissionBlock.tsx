@@ -1,6 +1,7 @@
 import Markdown from '@/components/ui/Markdown'
 import battlefieldsData from '@/data/battlefields.json'
 import { BattlefieldPlain, Mission, MissionPlain } from '@/types'
+import BattlefieldDiagram from './BattlefieldDiagram'
 
 const battlefields = battlefieldsData as BattlefieldPlain[]
 
@@ -23,6 +24,18 @@ export default function MissionBlock({mission, showDescription}: { mission: Miss
         <>
           <h6 className="text-main">Battlefield</h6>
           <span className="ml-2">{battlefield.title}</span>
+        </>
+      )}
+      {mission.diagram && mission.diagram.length > 0 && (
+        <>
+          <h6 className="text-main">Battlefield Diagram</h6>
+          <div className="ml-2">
+            <BattlefieldDiagram
+              grid={mission.diagram}
+              legend={mission.diagramLegend}
+              className="max-w-full"
+            />
+          </div>
         </>
       )}
       {mission.setup && (
