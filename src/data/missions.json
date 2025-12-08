@@ -338,8 +338,8 @@
     "description": "\"Push deep and hold the line.\"\n\nDominate enemy territory with strength of arms.",
     "setup": null,
     "deployment": "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    "victory": "At the end of each Turn, the Squad with the highest total FV of Standing Units that are closer to the enemy deployment edge than their own deployment edge scores 2 MP.",
-    "special": "Units Adjacent to enemies do not count toward scoring.",
+    "victory": "At the end of each Turn, the Squad with the highest total FV of Standing Units that are not Adjacent to any enemies and that are closer to the enemy deployment edge than their own deployment edge scores 2 MP.",
+    "special": null,
     "rewards": [
       {
         "name": "Overwhelming Presence",
