@@ -22,6 +22,15 @@ export default function BattlefieldBlock({battlefield}: { battlefield: Battlefie
           </div>
         </>
       )}
+      {(battlefield.pdfA4 || battlefield.pdfLetter) && (
+        <>
+          <h6 className="text-main">Print-At-Home</h6>
+          <ul>
+            {battlefield.pdfA4 && <li><a href={battlefield.pdfA4} className="underline" target="_blank">{battlefield.title} - A4</a></li>}
+            {battlefield.pdfLetter && <li><a href={battlefield.pdfLetter} className="underline" target="_blank">{battlefield.title} - US Letter</a></li>}
+          </ul>
+        </>
+      )}
       <div className="flavor">
         <Markdown>{battlefield.description}</Markdown>
       </div>

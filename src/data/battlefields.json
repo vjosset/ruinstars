@@ -26,7 +26,9 @@
       "The Silence Ring",
       "Redglass Wards",
       "The Forgotten Spires"
-    ]
+    ],
+    "pdfA4": "/assets/battlefields/TheRuinedCity_A4.pdf",
+    "pdfLetter": "/assets/battlefields/TheRuinedCity_Letter.pdf"
   },
   {
     "battlefieldId": "FAC",
@@ -55,7 +57,9 @@
       "Depthwell Stack",
       "The Bunkerward",
       "Wastegate Sector"
-    ]
+    ],
+    "pdfA4": "/assets/battlefields/TheFacility_A4.pdf",
+    "pdfLetter": "/assets/battlefields/TheFacility_Letter.pdf"
   },
   {
     "battlefieldId": "JUNG",
@@ -84,7 +88,9 @@
       "Tangleroot Expanse",
       "Glowvine Hollow",
       "Fungal Span"
-    ]
+    ],
+    "pdfA4": "",
+    "pdfLetter": ""
   },
   {
     "battlefieldId": "HIVE",
@@ -113,7 +119,9 @@
       "Infestation Bloom",
       "The Trembling Root",
       "Hive Remnant 7B"
-    ]
+    ],
+    "pdfA4": "",
+    "pdfLetter": ""
   },
   {
     "battlefieldId": "TMPL",
@@ -142,7 +150,9 @@
       "The Chapel of Dust",
       "The Severed Sanctum",
       "Ruinspire"
-    ]
+    ],
+    "pdfA4": "",
+    "pdfLetter": ""
   },
   {
     "battlefieldId": "NML",
@@ -171,6 +181,8 @@
       "Artillery Scar",
       "Last Watch Line",
       "Emberfall Divide"
-    ]
+    ],
+    "pdfA4": "/assets/battlefields/NoMansLand_A4.pdf",
+    "pdfLetter": "/assets/battlefields/NoMansLand_Letter.pdf"
   }
 ]
