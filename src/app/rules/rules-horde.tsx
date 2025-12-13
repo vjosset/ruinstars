@@ -34,12 +34,6 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           Victory comes only by enduring to the final Boss, or by finding how long your Squad can stand before being overwhelmed.
         </p>
       </div>
-      
-      <h3>To Do</h3>
-      <ul>
-        <li>Define battlefields/map setup</li>
-        <li>Define victory/extraction condition</li>
-      </ul>
 
       <div className="section">
         <h3>The Game Cycle</h3>
