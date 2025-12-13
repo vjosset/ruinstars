@@ -17,9 +17,13 @@ const CODE_COLORS: Record<string, string> = {
   DA: '#dc2626',
   DB: '#2563eb',
   DD: '#2563eb',
+  DU: '#2563eb',
   O1: '#059669',
   O2: '#059669',
   O3: '#059669',
+  S1: '#dc2626',
+  S2: '#dc2626',
+  S3: '#dc2626',
 }
 
 const COLOR_PALETTE = [

@@ -23,6 +23,7 @@ import { FactionService } from '@/services'
 import Link from 'next/link'
 import { ScriptedOperation } from '../scriptedoperations/page'
 import RulesAI from './rules-ai'
+import RulesHorde from './rules-horde'
 import RulesOutro from './rules-outro'
 import RulesPlayingOnAGrid from './rules-playingonagrid'
 import RulesQuickRef from './rules-quickref'
@@ -120,14 +121,17 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
 
         <RulesScriptedOperations num={12} />
         <hr />
-      
-        <RulesGlossary num={13} />
+
+        <RulesHorde num={13} />
         <hr />
       
-        <RulesPlayingOnAGrid num={14} />
+        <RulesGlossary num={14} />
         <hr />
       
-        <RulesQuickRef num={15} />
+        <RulesPlayingOnAGrid num={15} />
+        <hr />
+      
+        <RulesQuickRef num={16} />
 
         {showPrintSections && (
           <>
