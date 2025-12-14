@@ -18,6 +18,7 @@ const CODE_COLORS: Record<string, string> = {
   DB: '#2563eb',
   DD: '#2563eb',
   DU: '#2563eb',
+  UC: '#facc15',
   O1: '#059669',
   O2: '#059669',
   O3: '#059669',
