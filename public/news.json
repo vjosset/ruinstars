@@ -1,5 +1,10 @@
 [
   {
+    "date": "2025-12-14",
+    "title": "Horde Mode",
+    "description": "[Horde Mode rules](/rules#horde) are live!"
+  },
+  {
     "date": "2025-12-12",
     "title": "DevLog: Previewing Horde Mode",
     "description": "New DevLog! We've been working on **Horde Mode**, a solo/coop mode of endless waves of enemies where no two runs are the same. [Check it out](https://ruinstars.itch.io/ruinstars/devlog/1141512/endure-the-endless-introducing-horde-mode)!"
