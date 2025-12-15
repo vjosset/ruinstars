@@ -41,7 +41,6 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <ol>
             <li>Set up battlefield<ul>
               <li>Define deployment and spawn zones</li>
-              <li>Place Upgrade Console</li>
             </ul>
             </li>
             <li>Deploy</li>
@@ -116,7 +115,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             Downed Units are ignored by Horde Units, cannot be targeted in combat, and do not take any Damage.
             <br/>
             At the start of each Turn, Downed Units may perform a free Dash. This does not trigger an Attack of Opportunity. Downed Units don't activate during the Turn.
-            A Standing Unit may revive a Downed Unit it Controls (<code>2 ACT</code>): Downed Unit returns as Standing with 1D3 <code>HIT</code> remaining.
+            A Standing Unit may revive a Downed Unit it Controls (<code>2 ACT</code> Mission Action): The Downed Unit returns as Standing with 1D3 <code>HIT</code> remaining.
             <br/>
             If all Units are Downed, the Mission ends in failure.
           </div>
@@ -323,7 +322,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
       <div className="section twocols">
         <div className="section">
           <h3>Purchasing Upgrades and Defenses</h3>
-          <p>Spend MP on upgrades and defenses during the Regroup phase, but only if Unit controls the Upgrade Console.</p>
+          <p>During the Regroup phase, after spending your Regroup `ACT`, you may spend your earned MP on upgrades.</p>
           <p>MPs are gained in the following ways:</p>
           <ul>
             <li>For each Horde Unit Taken Out, the Player Squad gains MPs equal to that Unit's Force Value</li>
@@ -331,17 +330,15 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <li>Opening a Crate and rolling &quot;Stockpile&quot;</li>
           </ul>
 
-          <strong>Console Upgrades:</strong>
+          <strong>Available Upgrades:</strong>
           <ul>
-            <li><strong>Barbed Wire (1 MP):</strong> Place barbed wire Adjacent to Unit (can be placed later). All Horde Units that start a Move or Dash Adjacent to Barbed Wire take 2 Melee damage.</li>
-            <li><strong>Refill (1 MP):</strong> One of the Unit's Limited (<code>LIM</code>) weapons can be used one additional time</li>
-            <li><strong>Barricade (2 MP):</strong> Place a barricade 1 Pace wide Adjacent to Unit (can be placed later). Barricades provide cover to Adjacent Units.</li>
-            <li><strong>Heal (2MP):</strong> One Unit immediately regains up to 2 lost HIT</li>
-            <li><strong>Grenade (2 MP):</strong> Unit has a Grenade it can use once for 1 ACT: Throw grenade within 3 Paces (1 ACT). Deals 3 Ranged Damage to all Adjacent Units.</li>
-            <li><strong>Medpack (2MP):</strong> Unit has a Medpack it can use once for 1 ACT: The Unit or a Squadmate it Controls regains 1D3 lost HIT.</li>
-            <li><strong>Turret (4 MP):</strong> Unit has a portable Turret it can place once for 1 ACT: Place Gun Turret Adjacent to Unit. Player Units that Control the Gun Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4, SKL 5</code>. No ACT penalty for multiple uses in same activation. Remove the Gun Turret from the battlefield once it has been used 5 times.</li>
-            <li><strong>SoW (6MP):</strong> Unit gains one SoW</li>
-            <li><strong>Reinforcements (6MP):</strong> One Downed Unit returns to Standing with all its HIT remaining.</li>
+            <li><strong>Refill (2 MP):</strong> One Unit's Limited (<code>LIM</code>) weapons can be used one additional time</li>
+            <li><strong>Heal (4MP):</strong> One Unit immediately regains up to 2 lost HIT</li>
+            <li><strong>Grenade (4 MP):</strong> One Unit gains a Grenade it can use once for 1 ACT: Throw grenade within 3 Paces (1 ACT). Deals 3 Ranged Damage to all Adjacent Units.</li>
+            <li><strong>Medpack (4MP):</strong> One Unit gains a Medpack it can use once for 1 ACT: The Unit or a Squadmate it Controls regains 1D3 lost HIT.</li>
+            <li><strong>Turret (6 MP):</strong> One Unit gains a portable Turret it can place once for 1 ACT: Place Gun Turret Adjacent to Unit. Player Units that Control the Gun Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4, SKL 5</code>. No ACT penalty for multiple uses in same activation. Remove the Gun Turret from the battlefield once it has been used 5 times.</li>
+            <li><strong>SoW (8 MP):</strong> OneUnit gains one Spoil Of War</li>
+            <li><strong>Reinforcements (8 MP):</strong> One Downed Unit returns to Standing with all its HIT remaining.</li>
           </ul>
         </div>
 
