@@ -251,15 +251,15 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <p>As Difficulty increases, lower Turn Events become impossible and extreme events become more common.</p>
             <ol className="twocols">
               <li><strong>Strategic Command:</strong><br/> Player Squad gains +2 TOs</li>
-              <li><strong>Scrambled Comms:</strong><br/> Player Squad cannot use TOs this Turn.</li>
               <li><strong>Supply drop:</strong><br/> Place 3 crates in random places on the board. If a crate lands on a Unit, immediately treat it as a "Booby Trap" crate and deal damage accordingly. Do not place that crate on the battlefield.</li>
-              <li><strong>Enemy Reinforcements:</strong><br/> Spawn 1D3 new Horde Units using current difficulty. Reinforcements count as part of the current Wave and must be Taken Out for the Wave to end.</li>
-              <li><strong>Overrun:</strong><br/> All Horde Units that don't have a Ranged weapon immediately perform a move followed by a melee attack.</li>
+              <li><strong>Enemy Reinforcements:</strong><br/> Spawn <code>1D3 + Wave Difficulty</code> new Horde Units. Reinforcements count as part of the current Wave and must be Taken Out for the Wave to end.</li>
               <li><strong>Second Wind:</strong><br/> A Downed Unit returns as Standing with 1D3 <code>HIT</code> remaining.</li>
-              <li><strong>Fog of War:</strong><br/> Until the end of the Turn, all Ranged weapons get -2 <code>SKL</code> (min 1).</li>
-              <li><strong>Field Dressing:</strong><br/> Two Units regain 1 lost <code>HIT</code>, or one Unit regains 2 lost <code>HIT</code>.</li>
+              <li><strong>Overrun:</strong><br/> All Horde Units that don't have a Ranged weapon immediately perform a move followed by a melee attack.</li>
+              <li><strong>Field Dressing:</strong><br/> Two Player Units regain 1 lost <code>HIT</code>, or one Player Unit regains 2 lost <code>HIT</code>.</li>
               <li><strong>Firefight:</strong><br/> All Units gain +1 <code>ATT</code> on their Ranged weapons.</li>
               <li><strong>Bloodlust:</strong><br/> All Units gain +1 <code>ATT</code> on their Melee weapons.</li>
+              <li><strong>Fog of War:</strong><br/> Until the end of the Turn, all Ranged weapons get -2 <code>SKL</code> (min 1).</li>
+              <li><strong>Scrambled Comms:</strong><br/> Player Squad cannot use TOs this Turn.</li>
             </ol>
           </div>
         </div>
@@ -270,7 +270,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <p>Once a Wave Objective's Victory condition is met, the player Squad immediately selects one reward from the list below:</p>
           <ul>
             <li>+4 MP</li>
-            <li>+4 TO</li>
+            <li>+4 TO - If this Wave Objective is determined at the end of the Wave, those TO are given in the next Turn.</li>
             <li>One Downed Unit immediately returns to Standing with 1D3 <code>HIT</code> remaining</li>
             <li>One Standing Unit immediately gains one Spoil of War</li>
             <li>1D3 Player Units perform a free Move action</li>
@@ -287,14 +287,14 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             </li>
             <li className="section"><strong>Destroy Nexus:</strong>
               <ul>
-                <li><strong>Setup:</strong> Place 3 Nexus markers in the center of the West, Center, and East Tiles.</li>
+                <li><strong>Setup:</strong> Place 3 Nexus markers as close as possible to the center of the West, Center, and East Tiles.</li>
                 <li><strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.</li>
                 <li><strong>Victory:</strong> All Nexus Markers Taken Out by the end of the Wave.</li>
               </ul>
             </li>
             <li className="section"><strong>Overwhelming Force:</strong>
               <ul>
-                <li><strong>Victory:</strong> End the Wave within 3 Turns of its start.</li>
+                <li><strong>Victory:</strong> End the Wave within 2 Turns.</li>
               </ul>
             </li>
             <li className="section"><strong>Extract Sample:</strong>
@@ -304,7 +304,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             </li>
             <li className="section"><strong>Suppression Field:</strong>
               <ul>
-                <li><strong>Setup:</strong> Place 3 Disruptor Pylons in the center of three random Tiles.</li>
+                <li><strong>Setup:</strong> Place 3 Disruptor Pylons as close as possible to the center of three random Tiles.</li>
                 <li><strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Pylon calibrates it. Gain 1 MP and remove that Pylon from the battlefield.</li>
                 <li><strong>Victory:</strong> All 3 Pylons have been calibrated by the end of the Wave.</li>
               </ul>
