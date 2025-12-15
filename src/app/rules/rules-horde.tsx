@@ -332,12 +332,12 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
 
           <strong>Available Upgrades:</strong>
           <ul>
-            <li><strong>Refill (2 MP):</strong> One Unit's Limited (<code>LIM</code>) weapons can be used one additional time</li>
+            <li><strong>Refill (2 MP):</strong> One Unit's Limited (<code>LIM</code>) weapon can be used one additional time</li>
             <li><strong>Heal (4MP):</strong> One Unit immediately regains up to 2 lost HIT</li>
-            <li><strong>Grenade (4 MP):</strong> One Unit gains a Grenade it can use once for 1 ACT: Throw grenade within 3 Paces (1 ACT). Deals 3 Ranged Damage to all Adjacent Units.</li>
-            <li><strong>Medpack (4MP):</strong> One Unit gains a Medpack it can use once for 1 ACT: The Unit or a Squadmate it Controls regains 1D3 lost HIT.</li>
+            <li><strong>Grenade (4 MP):</strong> One Unit gains a Grenade that can be used once for 1 ACT: Throw grenade within 3 Paces (1 ACT). Deals 3 Ranged Damage to all Adjacent Units.</li>
+            <li><strong>Medpack (4MP):</strong> One Unit gains a Medpack that can be used once for 1 ACT: The Unit or a Squadmate it Controls regains 1D3 lost HIT.</li>
             <li><strong>Turret (6 MP):</strong> One Unit gains a portable Turret it can place once for 1 ACT: Place Gun Turret Adjacent to Unit. Player Units that Control the Gun Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4, SKL 5</code>. No ACT penalty for multiple uses in same activation. Remove the Gun Turret from the battlefield once it has been used 5 times.</li>
-            <li><strong>SoW (8 MP):</strong> OneUnit gains one Spoil Of War</li>
+            <li><strong>Spoil Of War (8 MP):</strong> One Unit gains one Spoil Of War</li>
             <li><strong>Reinforcements (8 MP):</strong> One Downed Unit returns to Standing with all its HIT remaining.</li>
           </ul>
         </div>
