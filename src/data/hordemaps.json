@@ -3,14 +3,14 @@
     "missionId": "1",
     "missionType": "Primary",
     "seq": 1,
-    "title": "The Ruined City",
+    "title": "The War-Torn Metropolis",
     "active": true,
     "deployment": "",
     "victory": "",
     "description": "The city is already dead. We're just fighting over the remains.\n\nTowering shells of buildings loom overhead, their interiors gutted by fire and artillery, rebar jutting like so much exposed bone. The streets are choked with overturned transports, shattered armor hulks, and smoldering craters where something fell hard and did not get back up. Ash drifts through the air, stinging the eyes and clogging lungs, while distant fires cast a dull orange glow through the smoke. The ground itself is treacherous, cracked and unstable, threatening collapse under careless movement.\n\n\n\nAnd from every alley, breach, and shadowed ruin, the enemy pours in without end.",
     "diagram": [
-      [ "S1", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "S2" ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
+      [ "  ", "S1", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "S2", "  " ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
@@ -24,8 +24,8 @@
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "S3", "  ", "  ", "  ", "  ", "  ", "  ", "  " ]
+      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "S3", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
+      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ]
     ],
     "diagramLegend": {
       "DU": "Player Squad Deployment Zone",
@@ -38,7 +38,7 @@
     "missionId": "2",
     "missionType": "Primary",
     "seq": 2,
-    "title": "The Facility",
+    "title": "Weapons Manufacture",
     "active": true,
     "deployment": "",
     "victory": "",
@@ -46,19 +46,19 @@
     "diagram": [
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
-      [ "S1", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
+      [ "  ", "S1", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
 
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "DU", "DU", "DU", "DU", "DU" ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "DU", "DU", "DU", "DU", "DU" ],
-      [ "S2", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "DU", "DU", "DU", "DU", "DU" ],
+      [ "  ", "S2", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "DU", "DU", "DU", "DU", "DU" ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "DU", "DU", "DU", "DU", "DU" ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "DU", "DU", "DU", "DU", "DU" ],
 
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
-      [ "S3 ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
+      [ "  ", "S3", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ]
     ],

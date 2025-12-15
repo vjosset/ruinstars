@@ -282,7 +282,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <ol>
             <li className="section"><strong>Battlefield Control:</strong>
               <ul>
-                <li><strong>Victory:</strong> At the end of the Wave, there is at least one Standing Player Unit on 4 different Tiles.</li>
+                <li><strong>Victory:</strong> At the end of the Wave, there is at least one Standing Player Unit on the NW, NE, SW, and SE Tiles.</li>
               </ul>
             </li>
             <li className="section"><strong>Destroy Nexus:</strong>
