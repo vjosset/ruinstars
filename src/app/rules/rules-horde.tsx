@@ -117,6 +117,8 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             At the start of each Turn, Downed Units may perform a free Dash. This does not trigger an Attack of Opportunity. Downed Units don't activate during the Turn.
             A Standing Unit may revive a Downed Unit it Controls (<code>2 ACT</code> Mission Action): The Downed Unit returns as Standing with 1D3 <code>HIT</code> remaining.
             <br/>
+            Whenever a Downed Unit is revived, it gains one random Injury.
+            <br/>
             If all Units are Downed, the Mission ends in failure.
           </div>
         </div>
@@ -256,8 +258,8 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               <li><strong>Second Wind:</strong><br/> A Downed Unit returns as Standing with 1D3 <code>HIT</code> remaining.</li>
               <li><strong>Fog of War:</strong><br/> Until the end of the Turn, all Ranged weapons get -2 <code>SKL</code> (min 1).</li>
               <li><strong>Field Dressing:</strong><br/> Two Units regain 1 lost <code>HIT</code>, or one Unit regains 2 lost <code>HIT</code>.</li>
-              <li><strong>Firefight:</strong><br/> All Units gain +1 <code>SKL</code> on their Ranged weapons.</li>
-              <li><strong>Bloodlust:</strong><br/> All Units gain +1 <code>SKL</code> on their Melee weapons.</li>
+              <li><strong>Firefight:</strong><br/> All Units gain +1 <code>ATT</code> on their Ranged weapons.</li>
+              <li><strong>Bloodlust:</strong><br/> All Units gain +1 <code>ATT</code> on their Melee weapons.</li>
             </ol>
           </div>
         </div>
@@ -336,7 +338,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <li><strong>Heal (4MP):</strong> One Unit immediately regains up to 2 lost HIT</li>
             <li><strong>Grenade (4 MP):</strong> One Unit gains a Grenade that can be used once for 1 ACT: Throw grenade within 3 Paces (1 ACT). Deals 3 Ranged Damage to all Adjacent Units.</li>
             <li><strong>Medpack (4MP):</strong> One Unit gains a Medpack that can be used once for 1 ACT: The Unit or a Squadmate it Controls regains 1D3 lost HIT.</li>
-            <li><strong>Turret (6 MP):</strong> One Unit gains a portable Turret it can place once for 1 ACT: Place Gun Turret Adjacent to Unit. Player Units that Control the Gun Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4, SKL 5</code>. No ACT penalty for multiple uses in same activation. Remove the Gun Turret from the battlefield once it has been used 5 times.</li>
+            <li><strong>Turret (6 MP):</strong> One Unit gains a portable Turret it can place once for 1 ACT: Place Gun Turret Adjacent to Unit. Player Units that Control the Gun Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4 - SKL 5</code>. No ACT penalty for multiple uses in same activation. Remove the Gun Turret from the battlefield once it has been used 5 times.</li>
             <li><strong>Spoil Of War (8 MP):</strong> One Unit gains one Spoil Of War</li>
             <li><strong>Reinforcements (8 MP):</strong> One Downed Unit returns to Standing with all its HIT remaining.</li>
           </ul>
