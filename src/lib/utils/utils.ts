@@ -1,4 +1,4 @@
-import { GearPlain, SquadPlain, UnitPlain } from '@/types'
+import { GearPlain, SquadPlain, UnitPlain, UnitTypePlain } from '@/types'
 
 export function toLocalIsoDate(date: Date): string {
   const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
@@ -24,7 +24,6 @@ export function sanitizeFileName(fileName: string): string {
     .replace(/[\s_-]+/g, '_') // Replace spaces or multiple underscores with a single underscore
     .toLowerCase() // Optionally make it lowercase for consistency
 }
-
 
 export function getUnitUniqueSkills(squad?: SquadPlain, unit?: UnitPlain) {
 
@@ -86,4 +85,27 @@ export function getSquadRepeatedSkills(squad: SquadPlain | undefined) {
 
 export function userPath(userName: string) {
   return `/users/${encodeURIComponent(userName)}`
+}
+
+
+export function calcGP(unit: UnitPlain | UnitTypePlain): string {
+  const unitGP = 
+    5 +
+    ((unit.ACT ?? 0) - 2) +
+    ((unit.MSK ?? 0) - 2) +
+    ((unit.RSK ?? 0) - 2) +
+    ((unit.ARM ?? 0) - 2) +
+    ((unit.HIT ?? 0) - 2)
+  
+  let wepGP = 0
+
+  unit.weapons?.forEach(wep => {
+    wepGP +=
+      (wep.ATT ?? 0) + (wep.TYP == 'M' ? -1 : 0) +
+      (wep.special == '' ? 0 : 
+        ((wep.special ?? '').split(' ').length)
+      )
+  })
+
+  return unitGP + '+' + wepGP + '=' + (unitGP + wepGP)
 }
