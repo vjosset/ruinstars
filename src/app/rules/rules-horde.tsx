@@ -39,11 +39,8 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
         <div className="section">
           <h3>The Game Cycle</h3>
           <ol>
-            <li>Set up battlefield<ul>
-              <li>Define deployment and spawn zones</li>
-            </ul>
-            </li>
-            <li>Deploy</li>
+            <li>Set up battlefield</li>
+            <li>Deploy Player Squad</li>
             <li>Start Wave 1: Spawn Horde Units (no Wave mod in Wave 1)</li>
             <li>
             Turns
@@ -52,7 +49,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <li>Roll Turn Events</li>
                 <li>Roll Tactical Orders(TO)</li>
                 <li>Activations<ul>
-                  <li>Player has initiative in each Turn</li>
+                  <li>Player Squad has initiative in each Turn</li>
                   <li>Activate a player Unit</li>
                   <li>If all Horde Units are Taken Out, Turn immediately ends</li>
                   <li>Activate a Horde Unit (follow its &quot;Behavior&quot; skill)</li>
@@ -79,7 +76,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <div className="section">
             <h3>Player Squads</h3>
 
-            In Horde mode, players use a normal 100GP Squad.  
+            In Horde mode, players deploy a normal 100GP Squad.  
             When playing cooperatively, players may choose one of the following formats:
             <ul>
               <li>
@@ -120,9 +117,9 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             At the start of each Turn, Downed Units may perform a free Dash. This does not trigger an Attack of Opportunity. Downed Units don't activate during the Turn.
             A Standing Unit may revive a Downed Unit it Controls (<code>2 ACT</code> Mission Action): The Downed Unit returns as Standing with <code>1D3 HIT</code> remaining.
             <br/>
-            Whenever a Downed Unit is revived, it gains one random Injury.
+            Whenever a Downed Unit is revived, it gains one random Injury. If that Injury is one that the Unit already has, the Unit is Deceased and removed from the battlefield.
             <br/>
-            If all Units are Downed, the Mission ends in failure.
+            If all Units are Downed or Deceased, the Mission ends in failure.
           </div>
         </div>
       </div>
@@ -270,12 +267,12 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               <li><strong>Strategic Command:</strong><br/> Player Squad gains +2 TO</li>
               <li><strong>Supply drop:</strong><br/> Place 3 crates in random places on the board. If a crate lands on a Unit, immediately treat it as a "Booby Trap" crate and deal damage accordingly. Do not place that crate on the battlefield.</li>
               <li><strong>Enemy Reinforcements:</strong><br/> Spawn <code>1D3 + Wave Difficulty</code> new Horde Units. Reinforcements count as part of the current Wave and must be Taken Out for the Wave to end.</li>
-              <li><strong>Second Wind:</strong><br/> A Downed Unit returns as Standing with 1D3 <code>HIT</code> remaining.</li>
+              <li><strong>Second Wind:</strong><br/> A Downed Unit returns as Standing with <code>1D3 HIT</code> remaining.</li>
               <li><strong>Overrun:</strong><br/> All Horde Units immediately perform two Actions according to their Behavior.</li>
               <li><strong>Field Dressing:</strong><br/> Two Player Units regain 1 lost <code>HIT</code>, or one Player Unit regains 2 lost <code>HIT</code>.</li>
-              <li><strong>Firefight:</strong><br/> Until the end of the Turn, all Units gain +1 <code>ATT</code> on their Ranged weapons.</li>
-              <li><strong>Bloodlust:</strong><br/> Until the end of the Turn, all Units gain +1 <code>ATT</code> on their Melee weapons.</li>
-              <li><strong>Fog of War:</strong><br/> Until the end of the Turn, all Ranged weapons get -2 <code>SKL</code> (min 1).</li>
+              <li><strong>Firefight:</strong><br/> Until the end of the Turn, all Units gain <code>+1 ATT</code> on their Ranged weapons.</li>
+              <li><strong>Bloodlust:</strong><br/> Until the end of the Turn, all Units gain <code>+1 ATT</code> on their Melee weapons.</li>
+              <li><strong>Fog of War:</strong><br/> Until the end of the Turn, all Ranged Weapons have a maximum range of 3 Paces.</li>
               <li><strong>Scrambled Comms:</strong><br/> Player Squad loses -2 TO (min 0).</li>
             </ol>
           </div>
@@ -287,7 +284,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <p>Once a Wave Objective's Victory condition is met, the player Squad immediately selects one reward from the list below:</p>
           <ul>
             <li>+4 MP</li>
-            <li>+4 TO - If this Wave Objective is determined at the end of the Wave, those TO are given in the next Turn.</li>
+            <li>+4 TO - If this Wave Objective's Victory is determined at the end of the Wave, those TO are given in the first Turn of the next Wave.</li>
             <li>One Downed Unit immediately returns to Standing with <code>1D3 HIT</code> remaining</li>
             <li>One Standing Unit immediately gains one Spoil of War</li>
             <li><code>1D3</code> Player Units perform a free Move action</li>
@@ -316,7 +313,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             </li>
             <li className="section"><strong>Protect The Asset:</strong>
               <ul>
-                <li><strong>Setup:</strong> Place an Asset marker in the Center of a random Tile (excluding the player deployment Tile). Assets are Items with <code>ARM 4 HIT 4</code>.</li>
+                <li><strong>Setup:</strong> Place an Asset marker as close as possible to the Center of a random Tile (excluding the player deployment Tile). Assets are Items with <code>ARM 4 HIT 4</code>.</li>
                 <li><strong>Special:</strong> Horde Units will always prioritize targeting the Asset instead of Player Units in combat.</li>
                 <li><strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of the Wave.</li>
               </ul>
@@ -324,8 +321,8 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <li className="section"><strong>Suppression Field:</strong>
               <ul>
                 <li><strong>Setup:</strong> Place 3 Disruptor Pylons as close as possible to the center of three random Tiles.</li>
-                <li><strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Pylon calibrates it. Gain 1 MP and remove that Pylon from the battlefield.</li>
-                <li><strong>Victory:</strong> All 3 Pylons have been calibrated by the end of the Wave.</li>
+                <li><strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Pylon calibrates it. Remove that Pylon from the battlefield.</li>
+                <li><strong>Victory:</strong> All 3 Pylons have been calibrated.</li>
               </ul>
             </li>
             <li className="section">
@@ -333,7 +330,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               <ul>
                 <li><strong>Setup:</strong> Place 3 Search Markers in the center of three random Tiles.</li>
                 <li><strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. On a 1 or 2, the Artifact is found.</li>
-                <li><strong>Victory:</strong> The Artifact is found by the end of the Wave.</li>
+                <li><strong>Victory:</strong> The Artifact is found.</li>
               </ul>
             </li>
           </ol>
@@ -343,10 +340,10 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
       <div className="section twocols">
         <div className="section">
           <h3>Purchasing Upgrades</h3>
-          <p>During the Regroup phase, after spending your Regroup `ACT`, you may spend your earned Mission Points on upgrades.</p>
+          <p>During the Regroup phase, after spending your Regroup <code>ACT</code>, you may spend your earned Mission Points on upgrades.</p>
           <p>MP are gained in the following ways:</p>
           <ul>
-            <li>For each Horde Unit Taken Out, the Player Squad gains MP equal to that Unit's Force Value</li>
+            <li>For each Horde Unit Taken Out, the Player Squad immediately gains MP equal to that Unit's Force Value</li>
             <li>Completing Wave Objectives</li>
             <li>Opening a Crate and rolling &quot;Stockpile&quot;</li>
           </ul>
@@ -354,10 +351,10 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <strong>Available Upgrades:</strong>
           <ul>
             <li><strong>Refill (2 MP):</strong> One Unit's Limited (<code>LIM</code>) weapon can be used one additional time</li>
-            <li><strong>Heal (4MP):</strong> One Unit immediately regains up to 2 lost HIT</li>
+            <li><strong>Heal (4MP):</strong> One Unit immediately regains up to 2 lost <code>HIT</code></li>
             <li><strong>Grenade (4 MP):</strong> One Unit gains a Grenade that can be used once for 1 ACT: Throw grenade within 3 Paces (1 ACT). Deals 3 Ranged Damage to all Adjacent Units.</li>
             <li><strong>Medpack (4MP):</strong> One Unit gains a Medpack that can be used once for 1 ACT: The Unit or a Squadmate it Controls regains <code>1D3</code> lost <code>HIT</code>.</li>
-            <li><strong>Turret (6 MP):</strong> One Unit gains a portable Turret it can place once for 1 ACT: Place Gun Turret Adjacent to Unit. Player Units that Control the Gun Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4 - SKL 5</code>. No ACT penalty for multiple uses in same activation. Remove the Gun Turret from the battlefield once it has been used 5 times.</li>
+            <li><strong>Turret (6 MP):</strong> One Unit gains a portable Turret it can place once for 1 ACT: Place Turret Adjacent to Unit. Player Units that Control the Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4 SKL 5</code>. No ACT penalty for multiple uses in same activation. Remove the Turret from the battlefield once it has been used 5 times.</li>
             <li><strong>Spoil Of War (8 MP):</strong> One Unit gains one Spoil Of War</li>
             <li><strong>Reinforcements (8 MP):</strong> One Downed Unit returns to Standing with all its HIT remaining.</li>
           </ul>
@@ -367,16 +364,16 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <h3>Crates</h3>
           <p>
           Crate contents are unknown until they are opened.
-          Crates can be targeted in combat, causing explosions dealing 3 DAM to all Adjacent Units. <code>ARM 3 HIT 1</code>.
+          Crates can be targeted in combat, causing explosions dealing 3 Damage to all Adjacent Units. <code>ARM 3 HIT 1</code>.
           </p>
           <strong>Mission Action - Open Crate (1 ACT):</strong> A Unit that Controls a Crate opens it. Roll to determine its contents.
           <ol>
             <li><strong>Stockpile:</strong> +3 MP</li>
             <li><strong>Command Uplink:</strong> +2 TO</li>
-            <li><strong>Map:</strong> Free Move for any Unit</li>
-            <li><strong>Relay Order:</strong> Free Action for any Unit</li>
+            <li><strong>Map:</strong> Free Move for any Standing Player Unit</li>
+            <li><strong>Relay Order:</strong> Free Action for any Standing Player Unit</li>
             <li><strong>Upgrade:</strong> Select and apply one free Upgrade of your choice (see "Upgrades" below)</li>
-            <li><strong>Booby Trap:</strong> Causes explosions dealing 3 DAM to all Adjacent Units</li>
+            <li><strong>Booby Trap:</strong> Causes explosions dealing 3 Damage to all Adjacent Units</li>
           </ol>
         </div>
       </div>
