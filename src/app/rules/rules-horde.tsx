@@ -138,92 +138,101 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
 
       <div className="section">
         <h3>Spawning Horde Units</h3>
-        For non-Boss Waves, roll the specified number of D6 and add the Difficulty to each result.
-        Each result gives the Spawn Value of the Horde Unit to spawn (see Horde Units below).
+        For each enemy to Spawn in the current wave, roll <code>1D3</code> and add the Wave's Difficulty.
+        The result indicates the Horde Unit to Spawn (see Horde Units' "Spawn" skill below).
         <br/>
+        For example, in Wave 5, we will roll <code>4D3</code> (4 enemies) and add <code>3</code> (difficulty) to each result.
+        If the results are <code>1, 2, 2, 3</code>, we add the difficulty to end up with <code>4, 5, 5, 6</code> which maps to:
+        <ul>
+          <li>1 Ruin Stalker (<code>4</code>)</li>
+          <li>2 Ashline Gunners (<code>5, 5</code>)</li>
+          <li>1 Dustborn Thrall (<code>6</code>)</li>
+        </ul>
+        
         For Boss Waves, roll for a random Boss Unit and follow its Spawn instructions for placement and other rules.
         <br/>
-        When placing Spawned Units, place the first one on the first Spawn point, the second on the second one, etc. If you run out of Spawn points, just start back on the first one.
+        When placing Spawned Units, place the first Adjacent to the first Spawn point, the second Unit Adjacent to the second Spawn point, etc.
+        If you run out of Spawn points, just start back on the first one.
         <table>
           <thead>
             <tr>
               <th className="text-center">Wave</th>
-              <th>What To Spawn</th>
               <th className="text-center">Difficulty</th>
+              <th>Enemies</th>
               <th className="text-center">Regroup ACT</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td className="text-center">1</td>
+              <th className="text-center">Wave 1</th>
+              <td className="text-center">0</td>
               <td>4 Units</td>
-              <td className="text-center">0</td>
               <td className="text-center">2</td>
             </tr>
             <tr>
-              <td className="text-center">2</td>
+              <th className="text-center">Wave 2</th>
+              <td className="text-center">1</td>
               <td>5 Units</td>
-              <td className="text-center">0</td>
               <td className="text-center">2</td>
             </tr>
             <tr>
-              <td className="text-center">3</td>
+              <th className="text-center">Wave 3</th>
+              <td className="text-center">2</td>
               <td>6 Units</td>
-              <td className="text-center">0</td>
               <td className="text-center">2</td>
             </tr>
+            <tr className="border-b border-border">
+              <th className="text-center">Wave 4</th>
+              <td className="text-center">2</td>
+              <td><strong>Boss</strong> + 4 Units</td>
+              <td className="text-center">3</td>
+            </tr>
             <tr>
+              <th className="text-center">Wave 5</th>
+              <td className="text-center">3</td>
+              <td>4 Units</td>
+              <td className="text-center">3</td>
+            </tr>
+            <tr>
+              <th className="text-center">Wave 6</th>
               <td className="text-center">4</td>
-              <td><strong>Boss</strong></td>
-              <td className="text-center">0</td>
-              <td className="text-center">3</td>
-            </tr>
-            <tr>
-              <td className="text-center">5</td>
               <td>5 Units</td>
-              <td className="text-center">2</td>
               <td className="text-center">3</td>
             </tr>
             <tr>
+              <th className="text-center">Wave 7</th>
+              <td className="text-center">5</td>
+              <td>6 Units</td>
+              <td className="text-center">3</td>
+            </tr>
+            <tr className="border-b border-border">
+              <th className="text-center">Wave 8</th>
+              <td className="text-center">5</td>
+              <td><strong>Boss</strong> + 4 Units</td>
+              <td className="text-center">4</td>
+            </tr>
+            <tr>
+              <th className="text-center">Wave 9</th>
+              <td className="text-center">6</td>
+              <td>4 Units</td>
+              <td className="text-center">4</td>
+            </tr>
+            <tr>
+              <th className="text-center">Wave 10</th>
+              <td className="text-center">6</td>
+              <td>5 Units</td>
+              <td className="text-center">4</td>
+            </tr>
+            <tr>
+              <th className="text-center">Wave 11</th>
               <td className="text-center">6</td>
               <td>6 Units</td>
-              <td className="text-center">2</td>
-              <td className="text-center">3</td>
-            </tr>
-            <tr>
-              <td className="text-center">7</td>
-              <td>7 Units</td>
-              <td className="text-center">2</td>
-              <td className="text-center">3</td>
-            </tr>
-            <tr>
-              <td className="text-center">8</td>
-              <td><strong>Boss</strong></td>
-              <td className="text-center">2</td>
               <td className="text-center">4</td>
             </tr>
-            <tr>
-              <td className="text-center">9</td>
-              <td>6 Units</td>
-              <td className="text-center">4</td>
-              <td className="text-center">4</td>
-            </tr>
-            <tr>
-              <td className="text-center">10</td>
-              <td>7 Units</td>
-              <td className="text-center">4</td>
-              <td className="text-center">4</td>
-            </tr>
-            <tr>
-              <td className="text-center">11</td>
-              <td>8 Units</td>
-              <td className="text-center">4</td>
-              <td className="text-center">4</td>
-            </tr>
-            <tr>
-              <td className="text-center">12</td>
-              <td><strong>Boss</strong></td>
-              <td className="text-center">4</td>
+            <tr className="border-b border-border">
+              <th className="text-center">Wave 12</th>
+              <td className="text-center">6</td>
+              <td><strong>Boss</strong> + 4 Units</td>
               <td className="text-center">-</td>
             </tr>
           </tbody>
