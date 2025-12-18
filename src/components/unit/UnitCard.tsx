@@ -270,19 +270,19 @@ export default function UnitCard({
                   </span>
                 )}
                 */}
-                {/*
-                !unit.isUnitType && (
+                {!unit.isUnitType && (
                   <div className="text-muted">
                     {unit?.unitType?.unitTypeName}
                     { ' ' }
                     {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
+                    {/*
                     { ' ' }
                     <code className="text-xs">
                       CalcGP: {calcGP(unit)}
                     </code>
+                    */}
                   </div>
-                )
-                */}
+                )}
               </div>
               {!unit.isUnitType && (
                 <div className="text-right whitespace-nowrap">
