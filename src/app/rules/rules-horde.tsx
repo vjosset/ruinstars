@@ -308,7 +308,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             </li>
             <li className="section"><strong>Protect The Asset:</strong>
               <ul>
-                <li><strong>Setup:</strong> Place a Asset marker in the Center of a random Tile (excluding the player deployment Tile). Assets are Items with <code>ARM 4 HIT 4</code>.</li>
+                <li><strong>Setup:</strong> Place an Asset marker in the Center of a random Tile (excluding the player deployment Tile). Assets are Items with <code>ARM 4 HIT 4</code>.</li>
                 <li><strong>Special:</strong> Horde Units will always prioritize targeting the Asset instead of Player Units in combat.</li>
                 <li><strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of the Wave.</li>
               </ul>
