@@ -152,7 +152,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <li>2 Ashline Gunners (<code>5, 5</code>)</li>
             <li>1 Dustborn Thrall (<code>6</code>)</li>
           </ul>
-          When placing Spawned Units, place the first Adjacent to the first Spawn point, the second Unit Adjacent to the second Spawn point, etc.
+          When placing Spawned Units, place the first Unit Adjacent to the first Spawn point, the second Unit Adjacent to the second Spawn point, etc.
           If you run out of Spawn points, just start back on the first one.
           <br/>
           For Boss Waves, select a random Boss Unit and follow its Spawn instructions for placement and other rules.
