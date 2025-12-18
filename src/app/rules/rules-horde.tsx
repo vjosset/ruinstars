@@ -138,7 +138,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
 
       <div className="section">
         <h3>Spawning Horde Units</h3>
-        For each enemy to Spawn in the current wave, roll <code>1D3</code> and add the Wave's Difficulty.
+        For each enemy Unit indicated by the Wave table, roll <code>1D3</code> and add the Wave's Difficulty.
         The result indicates the Horde Unit to Spawn (see Horde Units' "Spawn" skill below).
         <br/>
         For example, in Wave 5, we will roll <code>4D3</code> (4 enemies) and add <code>3</code> (difficulty) to each result.
