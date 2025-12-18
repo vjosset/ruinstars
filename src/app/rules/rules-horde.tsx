@@ -306,9 +306,11 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <li><strong>Victory:</strong> End the Wave within 2 Turns.</li>
               </ul>
             </li>
-            <li className="section"><strong>Extract Sample:</strong>
+            <li className="section"><strong>Protect The Asset:</strong>
               <ul>
-                <li><strong>Victory:</strong> Once in this Wave, when a Player Unit deals unsaved Melee damage against a Horde Unit, instead of reducing that Unit's <code>HIT</code>, score 1 MP for each point of unsaved damage.</li>
+                <li><strong>Setup:</strong> Place a Asset marker in the Center of a random Tile (excluding the player deployment Tile). Assets are Items with <code>ARM 4 HIT 4</code>.</li>
+                <li><strong>Special:</strong> Horde Units will always prioritize targeting the Asset instead of Player Units in combat.</li>
+                <li><strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of the Wave.</li>
               </ul>
             </li>
             <li className="section"><strong>Suppression Field:</strong>
