@@ -231,6 +231,14 @@ export default function UnitCard({
           )}
         </div>
 
+        {((unit.isUnitType && unit?.description) || (!unit.isUnitType && unit?.unitType?.description)) && (
+          <div className="flavor">
+            <Markdown>
+              {(unit.isUnitType ? unit?.description : unit?.unitType?.description) ?? ''}
+            </Markdown>
+          </div>
+        )}
+
         {/* Footer */}
         {/* Note we hide this for UnitType cards since we moved all Unit specials to Abilities for clarity */}
         {!unit.isUnitType && (

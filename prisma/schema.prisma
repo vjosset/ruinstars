@@ -47,6 +47,7 @@ model UnitType {
   squadTypeId  String    @db.VarChar(20)
   seq          Int       @default(0)
   unitTypeName String    @db.VarChar(250)
+  description  String?   @db.Text
   ACT          Int
   MOV          Int
   MSK          Int

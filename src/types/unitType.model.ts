@@ -5,6 +5,7 @@ export type UnitTypePlain = {
   squadTypeId: string
   seq: number
   unitTypeName: string
+  description?: string | null
   ACT: number
   MOV: number
   MSK: number
@@ -32,6 +33,7 @@ export class UnitType {
   squadTypeId: string
   seq: number
   unitTypeName: string
+  description?: string | null
   ACT: number
   MOV: number
   MSK: number
@@ -53,6 +55,7 @@ export class UnitType {
     squadTypeId: string
     seq: number
     unitTypeName: string
+    description?: string | null
     ACT: number
     MOV: number
     MSK: number
@@ -72,6 +75,7 @@ export class UnitType {
     this.squadTypeId = data.squadTypeId
     this.seq = data.seq
     this.unitTypeName = data.unitTypeName
+    this.description = data.description
     this.ACT = data.ACT
     this.MOV = data.MOV
     this.MSK = data.MSK
@@ -95,6 +99,7 @@ export class UnitType {
       squadTypeId: this.squadTypeId,
       seq: this.seq,
       unitTypeName: this.unitTypeName,
+      description: this.description,
       ACT: this.ACT,
       MOV: this.MOV,
       MSK: this.MSK,
