@@ -212,7 +212,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               <tr className="border-b border-border">
                 <th className="text-center">Wave 8</th>
                 <td className="text-center">5</td>
-                <td><strong>Boss</strong> + 4 Units</td>
+                <td><strong>Boss</strong> + 5 Units</td>
                 <td className="text-center">4</td>
               </tr>
               <tr>
@@ -236,7 +236,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               <tr className="border-b border-border">
                 <th className="text-center">Wave 12</th>
                 <td className="text-center">6</td>
-                <td><strong>Boss</strong> + 4 Units</td>
+                <td><strong>Boss</strong> + 6 Units</td>
                 <td className="text-center">-</td>
               </tr>
             </tbody>
