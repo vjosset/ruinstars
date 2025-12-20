@@ -47,7 +47,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               <ul>
                 <li>Start Turn</li>
                 <li>Roll Turn Events</li>
-                <li>Roll Tactical Orders(TO)</li>
+                <li>Roll Tactical Orders (TO)</li>
                 <li>Activations<ul>
                   <li>Player Squad has initiative in each Turn</li>
                   <li>Activate a player Unit</li>

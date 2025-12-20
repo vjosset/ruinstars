@@ -4,7 +4,7 @@ export default async function RulesToc() {
       <h3 className="py-3 font-title" id="introduction">
         Table Of Contents
       </h3>
-      <ol style={{columns: '150px'}}>
+      <ol style={{columns: '200px'}}>
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#core-mechanics">Core Mechanics</a></li>
         <li><a href="#game-cycle">Game Cycle</a></li>

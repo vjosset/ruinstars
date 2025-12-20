@@ -37,7 +37,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
             </h3>
             <ol>
               <li>
-                Download the <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">Rules</Link>
+                Download the <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">Rules</Link> { ' ' }
                 (or <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules.pdf">Printer-Friendly Version</Link>)
               </li>
               <li>Select your <Link className="underline" href="/factions">Faction</Link></li>
