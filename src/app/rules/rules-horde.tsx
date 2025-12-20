@@ -50,10 +50,10 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <li>Roll Tactical Orders (TO)</li>
                 <li>Activations<ul>
                   <li>Player Squad has initiative in each Turn</li>
-                  <li>Activate a player Unit</li>
+                  <li>Activate a Player Unit</li>
                   <li>If all Horde Units are Taken Out, Turn immediately ends</li>
                   <li>Activate a Horde Unit (follow its &quot;Behavior&quot; skill)</li>
-                  <li>Activate next player Unit</li>
+                  <li>Activate next Player Unit</li>
                 </ul>
                 </li>
                 <li>End of Turn</li>
@@ -253,7 +253,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               <li><strong>Nothing:</strong> Nothing special this Wave</li>
               <li><strong>Lull:</strong> -1 difficulty for this wave (min 0)</li>
               <li><strong>Surge:</strong> After spawning Horde Units for this Wave, all Horde Units perform 1 free Action</li>
-              <li><strong>Preempt:</strong> After spawning Horde Units for this Wave, all player Units may perform 1 free Action</li>
+              <li><strong>Preempt:</strong> After spawning Horde Units for this Wave, all Player Units may perform 1 free Action</li>
               <li><strong>Rage:</strong> +1 difficulty for this wave (max 6)</li>
               <li><strong>Clear Shots:</strong> During the first Turn of this Wave, Player Units gain +1 <code>ATT</code> on their Ranged weapons</li>
             </ol>
@@ -281,7 +281,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
         <div className="section">
           <h3>Wave Objectives</h3>
           <p>At the start of each Wave, roll <code>1D6</code> to determine the Wave's Objective. If a Wave Objective is not completed by the end of the Wave, that Wave Objective is failed.</p>
-          <p>Once a Wave Objective's Victory condition is met, the player Squad immediately selects one reward from the list below:</p>
+          <p>Once a Wave Objective's Victory condition is met, the Player Squad immediately selects one reward from the list below:</p>
           <ul>
             <li>+4 MP</li>
             <li>+4 TO - If this Wave Objective's Victory is determined at the end of the Wave, those TO are given in the first Turn of the next Wave.</li>
