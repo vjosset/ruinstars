@@ -349,13 +349,14 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
 
           <strong>Available Upgrades:</strong>
           <ul>
-            <li><strong>Ammunition (2 MP):</strong> One Unit's Limited (<code>LIM</code>) weapon can be used one additional time</li>
+            <li><strong>Ammunition (2 MP):</strong> One Unit's Limited (<code>LIM</code>) weapon or "once per mission" ability can be used one additional time</li>
             <li><strong>Heal (4MP):</strong> One Unit immediately regains up to 2 lost <code>HIT</code></li>
             <li><strong>Grenade (4 MP):</strong> One Unit gains a Grenade that can be used once for <code>1 ACT</code>: Throw grenade within 3 Paces. Deals 3 Ranged Damage to all Adjacent Units.</li>
             <li><strong>Medpack (4MP):</strong> One Unit gains a Medpack that can be used once for <code>1 ACT</code>: The Unit or a Squadmate it Controls regains <code>1D3</code> lost <code>HIT</code>.</li>
             <li><strong>Turret (6 MP):</strong> One Unit gains a portable Turret it can place once for <code>1 ACT</code>: Place Turret Adjacent to Unit. Player Units that Control the Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4 SKL 5</code>. When using the Turret, draw Line of Sight from the Turret instead of the active Unit. No <code>ACT</code> penalty for multiple uses in same activation. Remove the Turret from the battlefield once it has been used 5 times.</li>
             <li><strong>Spoil Of War (8 MP):</strong> One Standing Unit gains one Spoil Of War</li>
-            <li><strong>Reinforcements (8 MP):</strong> One Downed Unit returns to Standing with all its HIT remaining.</li>
+            <li><strong>Reinforcements (8 MP):</strong> One Downed Unit returns to Standing with all its HIT remaining</li>
+            <li><strong>Battlefield Chirurgy (8 MP):</strong> Remove one Injury from one Standing Unit</li>
           </ul>
         </div>
 
