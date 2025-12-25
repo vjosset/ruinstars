@@ -46,8 +46,8 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             Turns
               <ul>
                 <li>Start Turn</li>
-                <li>Roll Turn Events</li>
                 <li>Roll Tactical Orders (TO)</li>
+                <li>Roll Turn Events</li>
                 <li>Activations<ul>
                   <li>Player Squad has initiative in each Turn</li>
                   <li>Activate a Player Unit</li>
@@ -260,22 +260,20 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
 
           <div className="section">
             <h3>Turn Events</h3>
-            <p>At the start of each Turn, roll <code>1D6</code> and add Difficulty.</p>
-            <p>As Difficulty increases, lower Turn Events become impossible and extreme events become more common.</p>
-            <ol className="twocols">
-              <li><strong>Strategic Command:</strong><br/> Player Squad gains +2 TO</li>
-              <li><strong>Supply drop:</strong><br/> Place 3 crates in random places on the board. If a crate lands on a Unit, immediately treat it as a "Booby Trap" crate and deal damage accordingly. Do not place that crate on the battlefield.</li>
-              <li><strong>Enemy Reinforcements:</strong><br/> Spawn <code>1D3 + Wave Difficulty</code> new Horde Units. Reinforcements count as part of the current Wave and must be Taken Out for the Wave to end.</li>
-              <li><strong>Second Wind:</strong><br/> A Downed Unit returns as Standing with <code>1D3 HIT</code> remaining.</li>
-              <li><strong>Overrun:</strong><br/> All Horde Units immediately perform 1 Action according to their Behavior.</li>
-              <li><strong>Field Dressing:</strong><br/> Two Standing Player Units regain 1 lost <code>HIT</code>, or one Stnading Player Unit regains 2 lost <code>HIT</code>.</li>
-              <li><strong>Firefight:</strong><br/> Until the end of the Turn, all Units gain <code>+1 ATT</code> on their Ranged weapons.</li>
-              <li><strong>Bloodlust:</strong><br/> Until the end of the Turn, all Units gain <code>+1 ATT</code> on their Melee weapons.</li>
-              <li><strong>Fog of War:</strong><br/> Until the end of the Turn, all Ranged Weapons have a maximum range of 3 Paces.</li>
-              <li><strong>Scrambled Comms:</strong><br/> Player Squad loses -2 TO (min 0).</li>
-              <li><strong>[TBD]:</strong><br/> tbd</li>
-              <li><strong>[TBD]:</strong><br/> tbd</li>
-            </ol>
+            <p>At the start of each Turn, roll <code>2D6</code> to determine a special event for the Turn.</p>
+            <ul>
+              <li><strong>2: Second Wind</strong><br/>	A Downed Unit returns as Standing with <code>1D3 HIT</code> remaining.</li>
+              <li><strong>3: Field Dressing</strong><br/>	One Standing Player Unit regains 1 lost <code>HIT</code>.</li>
+              <li><strong>4: Opportunity</strong><br/>	One Player Unit may immediately spend up to <code>2 ACT</code> on actions before the start of the Turn. This does not count as that Unit's activation for the Turn.</li>
+              <li><strong>5: Supply Drop</strong><br/>	Place 3 crates in random places on the board. If a crate lands on a Unit, immediately treat it as a "Booby Trap" crate and deal damage accordingly. Do not place that crate on the battlefield.</li>
+              <li><strong>6: Strategic Command</strong><br/>	Player Squad gains <code>+2 TO</code></li>
+              <li><strong>7: Relentless Advance</strong><br/>	The Horde presses on</li>
+              <li><strong>8: Scrambled Comms</strong><br/>	Player Squad loses <code>-2 TO</code> (minimum 0)</li>
+              <li><strong>9: Encroaching Threat</strong><br/>	Each time a Horde Unit performs a Move Action during this Turn, it may move 1 additional Pace</li>
+              <li><strong>10: Enemy Reinforcements</strong><br/>	Spawn <code>1D3+2</code> new Horde Units at current Difficulty.</li>
+              <li><strong>11: Coordinated Assault</strong><br/>	Horde Units have <code>+1 ACT</code> this Turn</li>
+              <li><strong>12: Overrun</strong><br/>	All Horde Units immediately perform 1 Action according to their Behavior</li>
+            </ul>
           </div>
         </div>
 
@@ -285,11 +283,10 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <p>Once a Wave Objective's Victory condition is met, the Player Squad immediately selects one reward from the list below:</p>
           <ul>
             <li>+4 MP</li>
-            <li>+4 TO - If this Wave Objective's Victory is determined at the end of the Wave, those TO are given in the first Turn of the next Wave.</li>
+            <li>+4 TO. If this Wave Objective's Victory is determined at the end of the Wave, those TO are given in the first Turn of the next Wave.</li>
             <li>One Downed Unit immediately returns to Standing with <code>1D3 HIT</code> remaining.</li>
             <li>One Standing Unit immediately gains one Spoil of War</li>
             <li><code>1D3</code> Player Units perform a free Move action</li>
-            <li>Remove one Injury from one Standing Player Unit</li>
           </ul>
         </div>
 
