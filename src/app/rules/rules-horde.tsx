@@ -141,10 +141,10 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           For each enemy Unit indicated by the Wave table, roll <code>1D3</code> and add the Wave's Difficulty.
           The result indicates the Horde Unit to Spawn (see Horde Units' "Spawn" skill below).
           <br/>
-          For example, in Wave 5, we will roll <code>4D3</code> (4 enemies) and add <code>3</code> (difficulty) to each result.
-          If the results are <code>1, 2, 2, 3</code>, we add the difficulty to end up with <code>4, 5, 5, 6</code> which maps to:
+          For example, in Wave 5, we will roll <code>5D3</code> (5 enemies) and add <code>3</code> (difficulty) to each result.
+          If the results are <code>1, 1, 2, 2, 3</code>, we add the difficulty to end up with <code>4, 4, 5, 5, 6</code> which maps to:
           <ul>
-            <li>1 Ruin Stalker (<code>4</code>)</li>
+            <li>2 Ruin Stalkers (<code>4, 4</code>)</li>
             <li>2 Ashline Gunners (<code>5, 5</code>)</li>
             <li>1 Dustborn Thrall (<code>6</code>)</li>
           </ul>
@@ -347,16 +347,16 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <li>Opening a Crate and rolling &quot;Stockpile&quot;</li>
           </ul>
 
-          <strong>Available Upgrades:</strong>
+          <h4>Upgrades:</h4>
           <ul>
-            <li><strong>Ammunition (2 MP):</strong> One Unit's Limited (<code>LIM</code>) weapon or "once per mission" ability can be used one additional time</li>
-            <li><strong>Heal (4MP):</strong> One Unit immediately regains up to 2 lost <code>HIT</code></li>
-            <li><strong>Grenade (4 MP):</strong> One Unit gains a Grenade that can be used once for <code>1 ACT</code>: Throw grenade within 3 Paces. Deals 3 Ranged Damage to all Adjacent Units.</li>
-            <li><strong>Medpack (4MP):</strong> One Unit gains a Medpack that can be used once for <code>1 ACT</code>: The Unit or a Squadmate it Controls regains <code>1D3</code> lost <code>HIT</code>.</li>
-            <li><strong>Turret (6 MP):</strong> One Unit gains a portable Turret it can place once for <code>1 ACT</code>: Place Turret Adjacent to Unit. Player Units that Control the Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4 SKL 5</code>. When using the Turret, draw Line of Sight from the Turret instead of the active Unit. No <code>ACT</code> penalty for multiple uses in same activation. Remove the Turret from the battlefield once it has been used 5 times.</li>
-            <li><strong>Spoil Of War (8 MP):</strong> One Standing Unit gains one Spoil Of War</li>
-            <li><strong>Reinforcements (8 MP):</strong> One Downed Unit returns to Standing with all its HIT remaining</li>
-            <li><strong>Battlefield Chirurgy (8 MP):</strong> Remove one Injury from one Standing Unit</li>
+            <li><strong>Ammunition (2 MP):</strong><br/> One Unit's Limited (<code>LIM</code>) weapon or "once per mission" ability can be used one additional time</li>
+            <li><strong>Heal (4MP):</strong><br/> One Unit immediately regains up to 2 lost <code>HIT</code></li>
+            <li><strong>Grenade (4 MP):</strong><br/> One Unit gains a Grenade that can be used once for <code>1 ACT</code>: Throw grenade within 3 Paces. Deals 3 Ranged Damage to all Adjacent Units.</li>
+            <li><strong>Medpack (4MP):</strong><br/> One Unit gains a Medpack that can be used once for <code>1 ACT</code>: The Unit or a Squadmate it Controls regains <code>1D3</code> lost <code>HIT</code>.</li>
+            <li><strong>Turret (6 MP):</strong><br/> One Unit gains a portable Turret it can place once for <code>1 ACT</code>: Place Turret Adjacent to Unit. Player Units that Control the Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4 SKL 5</code>. When using the Turret, draw Line of Sight from the Turret instead of the active Unit. No <code>ACT</code> penalty for multiple uses in same activation. Remove the Turret from the battlefield once it has been used 5 times.</li>
+            <li><strong>Spoil Of War (8 MP):</strong><br/> One Standing Unit gains one Spoil Of War</li>
+            <li><strong>Reinforcements (8 MP):</strong><br/> One Downed Unit returns to Standing with all its HIT remaining</li>
+            <li><strong>Battlefield Chirurgy (8 MP):</strong><br/> Remove one Injury from one Standing Unit</li>
           </ul>
         </div>
 
@@ -366,15 +366,15 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           Crate contents are unknown until they are opened.
           Crates can be targeted in combat, causing explosions dealing 3 Damage to all Adjacent Units. <code>ARM 3 HIT 1</code>.
           </p>
-          <strong>Mission Action - Open Crate (<code>1 ACT</code>):</strong> A Unit that Controls a Crate opens it. Roll to determine its contents, then remove that Crate from the battlefield.
-          <ol>
-            <li><strong>Stockpile:</strong> +3 MP</li>
-            <li><strong>Command Uplink:</strong> +2 TO</li>
-            <li><strong>Map:</strong> Free Move for any Standing Player Unit</li>
-            <li><strong>Relay Order:</strong> Free Action for any Standing Player Unit</li>
-            <li><strong>Upgrade:</strong> Select and apply one free Upgrade of your choice (see "Upgrades" above)</li>
-            <li><strong>Booby Trap:</strong> Causes explosions dealing 3 Damage to all Adjacent Units</li>
-          </ol>
+          <strong>Mission Action - Open Crate (1 ACT):</strong> A Unit that Controls a Crate opens it. Roll to determine its contents, then remove that Crate from the battlefield.
+          <ul>
+            <li><strong>1: Stockpile</strong><br/> Player Squad gains +3 MP</li>
+            <li><strong>2: Command Uplink</strong><br/>  Player Squad gains +2 TO</li>
+            <li><strong>3: Map</strong><br/> One Standing Player Unit may immediately perform a free Move action</li>
+            <li><strong>4: Relay Order</strong><br/> One Standing Player Unit may immediately perform a free Basic or Mission action for <code>1 ACT</code></li>
+            <li><strong>5: Upgrade</strong><br/> Select and apply one free Upgrade of your choice (see "Upgrades" above)</li>
+            <li><strong>6: Booby Trap</strong><br/> Causes explosions dealing 3 Damage to all Adjacent Units</li>
+          </ul>
         </div>
       </div>
 
