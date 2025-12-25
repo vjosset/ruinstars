@@ -57,14 +57,13 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 </ul>
                 </li>
                 <li>End of Turn</li>
-                <li>If all Horde Units are Taken Out
+                <li>
+                  If all Horde Units are Taken Out, the Wave ends:
                   <ul>
-                    <li>Regroup:<ul>
-                      <li>Spend the Wave's &quot;Regroup ACT&quot; as shared ACT between Units to do what they need to do. Regroup ACT may be spent by any Units in the Player Squad in any combination.</li>
-                      <li>Spend MP on upgrades</li>
-                    </ul>
-                    </li>
-                    <li>Start next Wave: Roll Wave Mod and Spawn Horde Units</li>
+                    <li>Spend MP on Upgrades (see below)</li>
+                    <li>Roll next Wave mod</li>
+                    <li>Spawn enemies</li>
+                    <li>Roll Wave Objective</li>
                   </ul>
                 </li>
               </ul>
@@ -163,80 +162,80 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <th className="text-center">Wave</th>
                 <th className="text-center">Difficulty</th>
                 <th>Enemies</th>
-                <th className="text-center">Regroup ACT</th>
+                <th className="text-center">MP</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th className="text-center">Wave 1</th>
                 <td className="text-center">0</td>
-                <td>4 Units</td>
-                <td className="text-center">2</td>
+                <td>5 Units</td>
+                <td className="text-center">4</td>
               </tr>
               <tr>
                 <th className="text-center">Wave 2</th>
                 <td className="text-center">1</td>
-                <td>5 Units</td>
-                <td className="text-center">2</td>
+                <td>6 Units</td>
+                <td className="text-center">5</td>
               </tr>
               <tr>
                 <th className="text-center">Wave 3</th>
                 <td className="text-center">2</td>
-                <td>6 Units</td>
-                <td className="text-center">2</td>
+                <td>7 Units</td>
+                <td className="text-center">6</td>
               </tr>
               <tr className="border-b border-border">
                 <th className="text-center">Wave 4</th>
                 <td className="text-center">2</td>
-                <td><strong>Boss</strong> + 4 Units</td>
-                <td className="text-center">3</td>
+                <td><strong>Boss</strong> + 5 Units</td>
+                <td className="text-center">9</td>
               </tr>
               <tr>
                 <th className="text-center">Wave 5</th>
                 <td className="text-center">3</td>
-                <td>4 Units</td>
-                <td className="text-center">3</td>
+                <td>5 Units</td>
+                <td className="text-center">7</td>
               </tr>
               <tr>
                 <th className="text-center">Wave 6</th>
                 <td className="text-center">4</td>
-                <td>5 Units</td>
-                <td className="text-center">3</td>
+                <td>6 Units</td>
+                <td className="text-center">8</td>
               </tr>
               <tr>
                 <th className="text-center">Wave 7</th>
                 <td className="text-center">5</td>
-                <td>6 Units</td>
-                <td className="text-center">3</td>
+                <td>7 Units</td>
+                <td className="text-center">9</td>
               </tr>
               <tr className="border-b border-border">
                 <th className="text-center">Wave 8</th>
                 <td className="text-center">5</td>
-                <td><strong>Boss</strong> + 5 Units</td>
-                <td className="text-center">4</td>
+                <td><strong>Boss</strong> + 6 Units</td>
+                <td className="text-center">12</td>
               </tr>
               <tr>
                 <th className="text-center">Wave 9</th>
                 <td className="text-center">6</td>
-                <td>4 Units</td>
-                <td className="text-center">4</td>
+                <td>5 Units</td>
+                <td className="text-center">10</td>
               </tr>
               <tr>
                 <th className="text-center">Wave 10</th>
                 <td className="text-center">6</td>
-                <td>5 Units</td>
-                <td className="text-center">4</td>
+                <td>6 Units</td>
+                <td className="text-center">11</td>
               </tr>
               <tr>
                 <th className="text-center">Wave 11</th>
                 <td className="text-center">6</td>
-                <td>6 Units</td>
-                <td className="text-center">4</td>
+                <td>7 Units</td>
+                <td className="text-center">12</td>
               </tr>
               <tr className="border-b border-border">
                 <th className="text-center">Wave 12</th>
                 <td className="text-center">6</td>
-                <td><strong>Boss</strong> + 6 Units</td>
+                <td><strong>Boss</strong> + 7 Units</td>
                 <td className="text-center">-</td>
               </tr>
             </tbody>
@@ -267,13 +266,15 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               <li><strong>Strategic Command:</strong><br/> Player Squad gains +2 TO</li>
               <li><strong>Supply drop:</strong><br/> Place 3 crates in random places on the board. If a crate lands on a Unit, immediately treat it as a "Booby Trap" crate and deal damage accordingly. Do not place that crate on the battlefield.</li>
               <li><strong>Enemy Reinforcements:</strong><br/> Spawn <code>1D3 + Wave Difficulty</code> new Horde Units. Reinforcements count as part of the current Wave and must be Taken Out for the Wave to end.</li>
-              <li><strong>Second Wind:</strong><br/> A Downed Unit returns as Standing with <code>1D3 HIT</code> remaining. Do not apply an Injury to that Unit.</li>
+              <li><strong>Second Wind:</strong><br/> A Downed Unit returns as Standing with <code>1D3 HIT</code> remaining.</li>
               <li><strong>Overrun:</strong><br/> All Horde Units immediately perform 1 Action according to their Behavior.</li>
               <li><strong>Field Dressing:</strong><br/> Two Standing Player Units regain 1 lost <code>HIT</code>, or one Stnading Player Unit regains 2 lost <code>HIT</code>.</li>
               <li><strong>Firefight:</strong><br/> Until the end of the Turn, all Units gain <code>+1 ATT</code> on their Ranged weapons.</li>
               <li><strong>Bloodlust:</strong><br/> Until the end of the Turn, all Units gain <code>+1 ATT</code> on their Melee weapons.</li>
               <li><strong>Fog of War:</strong><br/> Until the end of the Turn, all Ranged Weapons have a maximum range of 3 Paces.</li>
               <li><strong>Scrambled Comms:</strong><br/> Player Squad loses -2 TO (min 0).</li>
+              <li><strong>[TBD]:</strong><br/> tbd</li>
+              <li><strong>[TBD]:</strong><br/> tbd</li>
             </ol>
           </div>
         </div>
@@ -285,9 +286,10 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <ul>
             <li>+4 MP</li>
             <li>+4 TO - If this Wave Objective's Victory is determined at the end of the Wave, those TO are given in the first Turn of the next Wave.</li>
-            <li>One Downed Unit immediately returns to Standing with <code>1D3 HIT</code> remaining. Do not apply an Injury to that Unit.</li>
+            <li>One Downed Unit immediately returns to Standing with <code>1D3 HIT</code> remaining.</li>
             <li>One Standing Unit immediately gains one Spoil of War</li>
             <li><code>1D3</code> Player Units perform a free Move action</li>
+            <li>Remove one Injury from one Standing Player Unit</li>
           </ul>
         </div>
 
@@ -340,10 +342,10 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
       <div className="section twocols">
         <div className="section">
           <h3>Purchasing Upgrades</h3>
-          <p>During the Regroup phase, after spending your Regroup <code>ACT</code>, you may spend your earned Mission Points on upgrades.</p>
+          <p>At the end of each Wave, you may spend your earned Mission Points on upgrades.</p>
           <p>MP are gained in the following ways:</p>
           <ul>
-            <li>For each Horde Unit Taken Out, the Player Squad immediately gains MP equal to that Unit's Force Value</li>
+            <li>Completing waves</li>
             <li>Completing Wave Objectives</li>
             <li>Opening a Crate and rolling &quot;Stockpile&quot;</li>
           </ul>
@@ -356,7 +358,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <li><strong>Medpack (4MP):</strong> One Unit gains a Medpack that can be used once for <code>1 ACT</code>: The Unit or a Squadmate it Controls regains <code>1D3</code> lost <code>HIT</code>.</li>
             <li><strong>Turret (6 MP):</strong> One Unit gains a portable Turret it can place once for <code>1 ACT</code>: Place Turret Adjacent to Unit. Player Units that Control the Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4 SKL 5</code>. When using the Turret, draw Line of Sight from the Turret instead of the active Unit. No <code>ACT</code> penalty for multiple uses in same activation. Remove the Turret from the battlefield once it has been used 5 times.</li>
             <li><strong>Spoil Of War (8 MP):</strong> One Standing Unit gains one Spoil Of War</li>
-            <li><strong>Reinforcements (8 MP):</strong> One Downed Unit returns to Standing with all its HIT remaining. Do not apply an Injury to this Unit.</li>
+            <li><strong>Reinforcements (8 MP):</strong> One Downed Unit returns to Standing with all its HIT remaining.</li>
           </ul>
         </div>
 

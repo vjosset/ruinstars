@@ -43,8 +43,8 @@ export default async function RulesActions({ num }: {num?: Number | null}) {
         </p>
         <ul>
           <li><strong>Base:</strong> <code>3D6</code>. All Squads roll at least 3 dice for Tactical Orders.</li>
-          <li><strong>Leader:</strong> If the Squad's Leader is still Standing, add 1 die for its Leader skill (e.g. "Leader 2" means roll an additional 2 dice for Tactical Orders, for a total of 5).</li>
-          <li><strong>Taken Out:</strong> For each Unit that was Taken Out during the Mission, the player may re-roll 1 Tactical Order die (e.g. if 2 Units were Taken Out, the player may re-roll up to 2 Tactical Order dice).</li>
+          <li><strong>Leader:</strong> If the Squad's Leader is still Standing, add dice for its Leader skill (e.g. "Leader 2" means roll an additional 2 dice for Tactical Orders, for a total of 5).</li>
+          <li><strong>Taken Out:</strong> For each Unit that was Taken Out during the Mission, the Squad gains 1 additional Tactical Order die (e.g. if 2 Units were Taken Out, the Squad gains 2 Tactical Orders on top of the results of the roll).</li>
         </ul>
         <p>At the end of each Turn, any unused Tactical Orders are lost; they do not carry over to the following Turn.</p>
         <p>Note that rolling for Tactical Orders cannot be modified by using Tactical Orders.</p>
