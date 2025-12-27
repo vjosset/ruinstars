@@ -1,6 +1,7 @@
 import { getAuthSession } from '@/lib/auth'
 import { GAME } from '@/lib/config/game_config'
 import Link from 'next/link'
+import IgnoreFirstMission from './rules-ignorefirstmission'
 
 export default async function RulesIntro({ num, showTitle }: {num?: number | null, showTitle: boolean | false }) {
   const session = await getAuthSession()
@@ -52,6 +53,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               <li><strong>Dice:</strong> <code>D6</code>-based core resolution</li>
               <li><strong>Table Size:</strong> Works on compact tables with dense terrain, typically 2' x 2'</li>
               <li><strong>Campaign:</strong> Missions link into Operations: your Squad evolves, and the war remembers</li>
+              <li><strong>Horde Mode:</strong> A solo or co-op mode where your Squad faces increasingly tough waves of enemies</li>
             </ul>
             <h3 className="py-3 font-title" id="introduction">
               Getting Started
@@ -72,12 +74,9 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
                 <li>Build your <Link className="underline" href="/me">Squads</Link></li>
               )}
               <li>Gather some dice (<code>D{GAME.DICE_BASIS}</code>), your miniatures, and <Link className="underline" target="_blank" href="/assets/Ruinstars_Tokens.pdf">tokens</Link></li>
-              <li>Play your first Mission!</li>
+              <li>Play your <Link className="underline" href="/rules#firstmission">first Mission</Link>!</li>
             </ol>
-            <p>
-              For your first mission, ignore Tactical Orders, Unit skills, and weapon specials.
-              Just get comfortable with the core concepts for actions, movement, and combat, then introduce those topics in your next game.
-            </p>
+            <IgnoreFirstMission keyword="Tactical Orders, Unit Skills, and Weapon Specials" />
           </div>
         </div>
       </div>

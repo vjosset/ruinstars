@@ -1,7 +1,7 @@
 import UnitCard from '@/components/unit/UnitCard'
 import { SpecialService, UnitService } from '@/services'
 import { RiCrosshair2Fill, RiSwordFill } from 'react-icons/ri'
-import FirstMission from './rules-firstmission'
+import IgnoreFirstMission from './rules-ignorefirstmission'
 
 export default async function RulesStatCards({ num }: {num?: Number | null}) {
   const sampleUnit = (await UnitService.getUnit('ST-0'))!.toPlain()
@@ -109,7 +109,7 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
               Don't worry about remembering the codes; they will quickly become second nature to you.
             </li>
           </ul>
-          <FirstMission keyword="weapon specials" />
+          <IgnoreFirstMission keyword="weapon specials" />
           <br/>
           <strong>For example: </strong>
           <ul>
@@ -130,7 +130,7 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
             <li>Skills and Equipment that do not have an <code>ACT</code> or <code>TO</code> cost are passive skills that do not require spending an Action Point or Tactical Order.</li>
           </ul>
           For example, {sampleUnit.unitName} has {sampleUnit.skills?.length} skills: { sampleUnit.skills?.map((skl, idx) => (idx > 0 ? ', ' : ' ') + skl.gearName) }.
-          <FirstMission keyword="Unit skills" />
+          <IgnoreFirstMission keyword="Unit skills" />
         </div>
       </div>
     </div>

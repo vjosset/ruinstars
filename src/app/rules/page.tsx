@@ -23,6 +23,7 @@ import { FactionService } from '@/services'
 import Link from 'next/link'
 import { ScriptedOperation } from '../scriptedoperations/page'
 import RulesAI from './rules-ai'
+import RulesFirstMission from './rules-firstmission'
 import RulesHorde from './rules-horde'
 import RulesOutro from './rules-outro'
 import RulesPlayingOnAGrid from './rules-playingonagrid'
@@ -98,40 +99,43 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
         <RulesStatCards num={4} />
         <hr />
 
-        <RulesActions num={5} />
+        <RulesFirstMission num={5} />
         <hr />
 
-        <RulesMovement num={6} />
+        <RulesActions num={6} />
         <hr />
 
-        <RulesCombat num={7} />
+        <RulesMovement num={7} />
+        <hr />
+
+        <RulesCombat num={8} />
         <hr />
       
-        <RulesItems num={8} />
+        <RulesItems num={9} />
         <hr />
 
-        <RulesYourSquad num={9} />
+        <RulesYourSquad num={10} />
         <hr />
 
-        <RulesMissions num={10} />
+        <RulesMissions num={11} />
         <hr />
 
-        <RulesCampaigns num={11} />
+        <RulesCampaigns num={12} />
         <hr />
 
-        <RulesScriptedOperations num={12} />
+        <RulesScriptedOperations num={13} />
         <hr />
 
-        <RulesHorde num={13} />
+        <RulesHorde num={14} />
         <hr />
       
-        <RulesGlossary num={14} />
+        <RulesGlossary num={15} />
         <hr />
       
-        <RulesPlayingOnAGrid num={15} />
+        <RulesPlayingOnAGrid num={16} />
         <hr />
       
-        <RulesQuickRef num={16} />
+        <RulesQuickRef num={17} />
 
         {showPrintSections && (
           <>

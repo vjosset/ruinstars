@@ -2,6 +2,7 @@
 
 import { getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { SpecialRule } from '@/lib/utils/specialRules'
+import { calcGP } from '@/lib/utils/utils'
 import GearGroupList from '@/src/components/shared/GearGroupList'
 import WeaponTable from '@/src/components/shared/WeaponTable'
 import { Medal, UnitPlain, UnitTypePlain } from '@/types'
@@ -275,12 +276,14 @@ export default function UnitCard({
                     {unit?.unitType?.unitTypeName}
                     { ' ' }
                     {unit.unitType?.GP}{unit.totalGearGP > 0 ? '+' + unit.totalGearGP : ''}GP
-                    {/*
-                    { ' ' }
-                    <code className="text-xs">
-                      CalcGP: {calcGP(unit)}
-                    </code>
-                    */}
+                    {false && (
+                      <>
+                        { ' ' }
+                        <code className="text-xs">
+                        CalcGP: {calcGP(unit)}
+                        </code>
+                      </>
+                    )}
                   </div>
                 )}
               </div>
