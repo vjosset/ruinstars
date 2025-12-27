@@ -13,7 +13,7 @@ export default async function RulesScriptedOperations({ num }: {num?: Number | n
       </h2>
       
       <p>
-        Instead of playing a primary mission or rolling your own Campaign, you may choose to play a Scripted Operation.<br/>
+        Instead of playing a core mission or rolling your own Campaign, you may choose to play a Scripted Operation.<br/>
         Scripted Operations are pre-built mini-campaigns tailored to specific squads and factions, and include branching missions based on successes and failures.
       </p>
       <p className="printonly">

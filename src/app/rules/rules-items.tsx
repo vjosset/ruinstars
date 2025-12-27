@@ -19,36 +19,7 @@ export default async function RulesItems({ num }: {num?: Number | null}) {
             <li>Roll <code>1D6</code> to determine the X coordinate (in Paces) within that Tile to place the item on. On a roll of <code>6</code>, the player chooses which coordinate to place the item on.</li>
             <li>Roll <code>1D6</code> to determine the Y coordinate (in Paces) within that Tile to place the item on. On a roll of <code>6</code>, the player chooses which coordinate to place the item on.</li>
           </ul>
-
-          <h4>Crates</h4>
-          <p>
-            If you choose to play with Crates, randomly place 4 Crates on the battlefield.
-            To open a crate, a Unit must be Adjacent to the crate and spend 1 <code>ACT</code> to open it.
-            This counts as a Mission Action.
-            When opened, roll <code>1D{GAME.DICE_BASIS}</code> to determine the contents of that Crate, then remove it from the Battlefield:
-          </p>
-          <ol>
-            <li>
-              <strong>TO</strong>: The Unit's Squad immediately gains 1 Tactical Order.
-            </li>
-            <li>
-              <strong>Stims</strong>: The Unit may immediately perform a free Basic or Mission Action.
-            </li>
-            <li>
-              <strong>Map</strong>: The Unit or one of its Squadmates may immediately perform a free Move Action.
-            </li>
-            <li>
-              <strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for <code>1 ACT</code> during any of this Unit's activations. When used, the Unit or an Adjacent Squadmate regains <code>1D3</code> lost <code>HIT</code>. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.
-            </li>
-            <li>
-              <strong>Nothing</strong>: The Crate is empty, nothing happens.
-            </li>
-            <li>
-              <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Adjacent Units and Items.
-            </li>
-          </ol>
         </div>
-
         <div className="section">
           <h4>Barrels</h4>
           <p>
@@ -59,6 +30,36 @@ export default async function RulesItems({ num }: {num?: Number | null}) {
             Barrels may be attacked in Ranged or Melee combat. The Barrel is a Unit that cannot roll Armor Saves; if it is attacked in combat and at least one strike is successful, it explodes.
             When a Barrel explodes, it causes an explosion dealing 2 Ranged Damage to all Adjacent Units and Items, then it is removed from the Battlefield.<br/>
           </p>
+        </div>
+
+        <div className="section">
+          <h4>Crates</h4>
+          <p>
+            If you choose to play with Crates, randomly place 4 Crates on the battlefield.
+            To open a crate, a Unit must be Adjacent to the crate and spend 1 <code>ACT</code> to open it.
+            This counts as a Mission Action.
+            When opened, roll <code>1D{GAME.DICE_BASIS}</code> to determine the contents of that Crate, then remove it from the Battlefield:
+          </p>
+          <ol>
+            <li>
+              <strong>TO</strong><br/>The Unit's Squad immediately gains 1 Tactical Order.
+            </li>
+            <li>
+              <strong>Relay Order</strong><br/>The Unit may immediately perform a free Basic or Mission Action.
+            </li>
+            <li>
+              <strong>Map</strong><br/>The Unit or one of its Squadmates may immediately perform a free Move Action.
+            </li>
+            <li>
+              <strong>MedPack</strong><br/>The Unit gains a MedPack. This MedPack can be used for <code>1 ACT</code> during any of this Unit's activations. When used, the Unit or an Adjacent Squadmate regains <code>1D3</code> lost <code>HIT</code>. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.
+            </li>
+            <li>
+              <strong>Nothing</strong><br/>The Crate is empty, nothing happens.
+            </li>
+            <li>
+              <strong>Booby Trap</strong><br/>The crate explodes, dealing 2 Ranged Damage to all Adjacent Units and Items.
+            </li>
+          </ol>
         </div>
       </div>
     </div>

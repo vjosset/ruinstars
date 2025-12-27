@@ -17,7 +17,7 @@ export default async function RulesCampaigns({ num }: {num?: Number | null}) {
           <h3>Campaign Structure</h3>
           A Campaign is composed of three Operations, and each Operation is composed of three Missions.<br/>
           At the end of each Operation, your Squad returns to Homebase to heal injuries, resupply, and recruit new Units into the Squad.<br/>
-          To build a Campaign, randomly select the nine missions from the list of <a className="underline" href="#missions">Primary Missions</a>,
+          To build a Campaign, randomly select the nine missions from the list of <a className="underline" href="#missions">Missions</a>,
           or string together three <a className="underline" href="#scriptedoperations">Scripted Operations</a>.
         </div>
         <div className="section">

@@ -17,6 +17,11 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
             StatCards describe your Units and their Weapons with numerical values, and any special Skills they may have. In general, the higher the stat number, the better the Unit or Weapon.<br/>
             Note that in the app and on the website, you can click or tap Specials to view what they mean, and Skills or Equipment to get their full description.
           </p>
+          <br/>
+          <IgnoreFirstMission keyword="weapon specials and Unit skills" />
+          <br/>
+        </div>
+        <div className="section">
           <div className="p-1">
             <UnitCard 
               unit={sampleUnit}
@@ -26,8 +31,9 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
               allMedals={[]} />
           </div>
         </div>
-        <br/><br/>
-
+      </div>
+      <hr/>
+      <div className="section twocols">
         <div className="section">
           <h4 id="unit-stats">Unit Stats</h4>
           <ul>
@@ -109,7 +115,6 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
               Don't worry about remembering the codes; they will quickly become second nature to you.
             </li>
           </ul>
-          <IgnoreFirstMission keyword="weapon specials" />
           <br/>
           <strong>For example: </strong>
           <ul>
@@ -130,7 +135,6 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
             <li>Skills and Equipment that do not have an <code>ACT</code> or <code>TO</code> cost are passive skills that do not require spending an Action Point or Tactical Order.</li>
           </ul>
           For example, {sampleUnit.unitName} has {sampleUnit.skills?.length} skills: { sampleUnit.skills?.map((skl, idx) => (idx > 0 ? ', ' : ' ') + skl.gearName) }.
-          <IgnoreFirstMission keyword="Unit skills" />
         </div>
       </div>
     </div>

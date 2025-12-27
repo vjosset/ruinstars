@@ -1,34 +1,11 @@
 import ops from '@/data/scriptedOperations.json'
 import { GAME } from '@/lib/config/game_config'
-import RulesActions from './rules-actions'
-import RulesCampaigns from './rules-campaigns'
-import RulesCombat from './rules-combat'
-import RulesCoreMechanics from './rules-coremechanics'
-import RulesGameCycle from './rules-gamecycle'
-import RulesGlossary from './rules-glossary'
-import RulesHeader from './rules-header'
-import RulesIntro from './rules-intro'
-import RulesItems from './rules-items'
-import RulesMissions from './rules-missions'
-import RulesMovement from './rules-movement'
-import RulesSquadTypes from './rules-squadtypes'
-import RulesStatCards from './rules-statcards'
-import RulesToc from './rules-toc'
-import RulesYourSquad from './rules-yoursquad'
 
+import { ScriptedOperation } from '@/app/scriptedoperations/page'
 import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
 import PageBreak from '@/components/ui/PageBreak'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { FactionService } from '@/services'
-import Link from 'next/link'
-import { ScriptedOperation } from '../scriptedoperations/page'
-import RulesAI from './rules-ai'
-import RulesFirstMission from './rules-firstmission'
-import RulesHorde from './rules-horde'
-import RulesOutro from './rules-outro'
-import RulesPlayingOnAGrid from './rules-playingonagrid'
-import RulesQuickRef from './rules-quickref'
-import RulesScriptedOperations from './rules-scriptedoperations'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -38,14 +15,14 @@ export async function generateMetadata() {
       url: '/icons/icon-big.png',
     }],
     keywords: ['free', 'rules', 'pdf'],
-    pagePath: '/rules'
+    pagePath: '/rules/scriptedoperations'
   })
 }
 
-export default async function Rules({ searchParams }: { searchParams?: Promise<{ print?: string }> }) {
+export default async function RuleBookScriptedOperations({ searchParams }: { searchParams?: Promise<{ print?: string }> }) {
   const resolvedSearchParams = searchParams ? await searchParams : undefined
-  const operations = ops
   const factions = await FactionService.getAllFactions()
+  const operations = ops
   const versionTimestamp = new Intl.DateTimeFormat('en-CA', {
     year: 'numeric',
     month: '2-digit',
@@ -61,6 +38,7 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
           <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} />
           <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
             <div className="text-white font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
+              <h2>Scripted Operations</h2>
               Version {versionTimestamp}
             </div>
           </div>
@@ -68,84 +46,9 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
       )}
 
       <div className="rules px-3 max-w-7xl mx-auto">
-        <RulesHeader />
-
-        <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
-          Download the Rules:
-          { ' ' }
-          <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules.pdf">Easy Print PDF</Link>
-          { ' / ' }
-          <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">Full Color PDF</Link>
-        </div>
-        <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
-          Print the Tokens:
-          { ' ' }
-          <Link className="underline" target="_blank" href="/assets/Ruinstars_Tokens.pdf">Tokens PDF</Link>
-        </div>
-
-        <RulesToc />
-
-        <RulesIntro showTitle={true} num={1} />
-
-        <RulesAI />
-        <hr />
-
-        <RulesCoreMechanics num={2} />
-        <hr />
-
-        <RulesGameCycle num={3} />
-        <hr />
-
-        <RulesFirstMission num={4} />
-        <hr />
-
-        <RulesStatCards num={5} />
-        <hr />
-
-        <RulesActions num={6} />
-        <hr />
-
-        <RulesMovement num={7} />
-        <hr />
-
-        <RulesCombat num={8} />
-        <hr />
-      
-        <RulesItems num={9} />
-        <hr />
-
-        <RulesYourSquad num={10} />
-        <hr />
-
-        <RulesMissions num={11} />
-        <hr />
-
-        <RulesCampaigns num={12} />
-        <hr />
-
-        <RulesScriptedOperations num={13} />
-        <hr />
-
-        <RulesHorde num={14} />
-        <hr />
-      
-        <RulesGlossary num={15} />
-        <hr />
-      
-        <RulesPlayingOnAGrid num={16} />
-        <hr />
-      
-        <RulesQuickRef num={17} />
-
         {showPrintSections && (
           <>
             <div className="printonly">
-              <hr />
-
-              {/* Full SquadTypes for printed book */}
-              <RulesSquadTypes />
-              <hr />
-
               {/* Full ScriptedOps for printed book */}
               <h1 className="text-center pt-48 mb-10 font-title"   id="allscriptedoperations" style={{position: 'relative', top: '50%' }}>
                 Scripted Operations
@@ -200,9 +103,6 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
             </div>
           </>
         )}
-        
-        <RulesOutro />
-      
       </div>
     </>
   )

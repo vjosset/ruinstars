@@ -52,7 +52,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               <li><strong>Model Count:</strong> 4-10 per side</li>
               <li><strong>Dice:</strong> <code>D6</code>-based core resolution</li>
               <li><strong>Table Size:</strong> Works on compact tables with dense terrain, typically 2' x 2'</li>
-              <li><strong>Campaign:</strong> Missions link into Operations: your Squad evolves, and the war remembers</li>
+              <li><strong>Campaign:</strong> Missions link into Operations: your Squad evolves, and each Mission has real consequences</li>
               <li><strong>Horde Mode:</strong> A solo or co-op mode where your Squad faces increasingly tough waves of enemies</li>
             </ul>
             <h3 className="py-3 font-title" id="introduction">
@@ -63,19 +63,11 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
                 Download the <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">Rules</Link> { ' ' }
                 (or <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules.pdf">Printer-Friendly Version</Link>)
               </li>
-              <li>Select your <Link className="underline" href="/factions">Faction</Link></li>
-              {!isAuth && (
-                <li>
-                  Use a <Link href="/users/ruinstars" className="underline">sample squad</Link> or { ' ' }
-                  <Link className="underline" href="/auth/signup">Sign Up</Link> to start building your own squads
-                </li>
-              )}
-              {isAuth && (
-                <li>Build your <Link className="underline" href="/me">Squads</Link></li>
-              )}
+              <li>Play the introductory <Link className="underline" href="/rules#firstmission">first Mission</Link></li>
+              <li>Select your <Link className="underline" href="/factions">Faction</Link> and build your <Link className="underline" href="/rules#buildingsquad">Squad</Link></li>
               <li>Gather some dice (<code>D{GAME.DICE_BASIS}</code>), your miniatures, and <Link className="underline" target="_blank" href="/assets/Ruinstars_Tokens.pdf">tokens</Link></li>
-              <li>Play your <Link className="underline" href="/rules#firstmission">first Mission</Link>!</li>
-            </ol>
+              <li>Play your first <Link className="underline" href="/rules#missions">Mission</Link> or start your <Link className="underline" href="/rules#campaigns">Campaign</Link>!</li>
+            </ol><br/>
             <IgnoreFirstMission keyword="Tactical Orders, Unit Skills, and Weapon Specials" />
           </div>
         </div>

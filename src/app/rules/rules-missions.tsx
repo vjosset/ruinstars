@@ -49,35 +49,41 @@ export default async function RulesMissions({ num }: {num?: Number | null}) {
         </div>
 
         <h2 className="mt-4">Playing a Mission</h2>
-        <p>
-          A Mission is a single battle played between two (or more) Squads.<br/>
-          Whether you are playing a quick one-off mission or a long, epic <a className="underline" href="#campaigns">campaign</a>, the rules for playing each Mission are the same:
-        </p>
-        
-        <ol>
-          <li>Select a Primary Mission</li>
-          {/* <li>(Optional) Select a Secondary Mission</li>*/}
-          <li>Select a Battlefield</li>
-          <li>Set up your Squads</li>
-          <li>Play!</li>
-        </ol>
-      </div>
-      
-      <div className="section">
-        <div className="section">
-          <h3 className="text-center">Primary Missions</h3>
-          <div className="twocols">
+        <div className="section twocols">
+          <div className="section">
             <p>
               Your Squad is deployed for desperate struggles fought by the few who dare to step onto the battlefield when hope has long since burned away.
-              Primary missions are designed to be played as quick, one-off skirmishes perfect for pick-up or competitive play.
+              These missions are designed to be played as quick, one-off skirmishes perfect for pick-up or competitive play.
               <br/>
-              Each Primary Mission is a single battle pitting your Squad against its enemies, generally lasting 4 Turns. Victory in these engagements is typically decided by calculating the total Mission Points (MP) scored by each Squad at the end of Turn 4.
+              Each Mission is a single battle pitting your Squad against its enemies, generally lasting 4 Turns. Victory in these engagements is typically decided by calculating the total Mission Points (MP) scored by each Squad at the end of Turn 4.
               <br/>
               Alternatively, you can use these missions to build your own <a className="underline" href="#campaigns">Campaign</a>.
               A full Campaign is structured into three distinct Operations, and each Operation is composed of three Missions, totaling nine confrontations.
               In Campaign play, the winning Squad selects one of the Mission rewards to apply to their Squad, while the losing Squad gains the remaining reward.
               These missions offer unique tactical puzzles and narrative flavor, challenging you to adapt your strategy to shifting objectives and hostile environments.
             </p>
+            <br/><br/>
+          </div>
+          <div className="section">
+            <p>
+              Whether you are playing a quick one-off mission or a long, epic <a className="underline" href="#campaigns">campaign</a>, the rules for playing each Mission are the same:
+            </p>
+            
+            <ol>
+              <li>Select a Mission</li>
+              {/* <li>(Optional) Select a Secondary Mission</li>*/}
+              <li>Select a Battlefield</li>
+              <li>Set up your Squads</li>
+              <li>Play!</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      
+      <div className="section">
+        <div className="section">
+          <h3 className="text-center">Mission List</h3>
+          <div className="twocols">
             {
               missions.filter((mission) => mission.active && (!mission.missionType || mission.missionType == 'Primary')).map((mission) => (
                 <div className="section" key={mission.missionId}>

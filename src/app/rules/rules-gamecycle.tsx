@@ -62,7 +62,7 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
           <ol>
             <li>
               <strong>Select Mission</strong><br/>
-              Select a primary Mission, scripted operation Mission, or Horde mode
+              Select a Mission, scripted operation, or Horde mode
             </li>
             <li>
               <strong>Prepare Battlefield</strong><br/>

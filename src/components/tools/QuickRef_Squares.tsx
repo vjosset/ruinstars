@@ -7,22 +7,22 @@ export default function QuickRef() {
         Roll 1D6, then remove the Crate from the Battlefield:
         <ol>
           <li>
-            <strong>TO</strong>: The Unit's Squad immediately gains 1 Tactical Order.
+            <strong>TO</strong><br/>The Unit's Squad immediately gains 1 Tactical Order.
           </li>
           <li>
-            <strong>Stims</strong>: The Unit may immediately perform a free Basic or Mission Action.
+            <strong>Relay Order</strong><br/>The Unit may immediately perform a free Basic or Mission Action.
           </li>
           <li>
-            <strong>Map</strong>: The Unit or one of its Squadmates may immediately perform a Move Action.
+            <strong>Map</strong><br/>The Unit or one of its Squadmates may immediately perform a Move Action.
           </li>
           <li>
-            <strong>MedPack</strong>: The Unit gains a MedPack. This MedPack can be used for <code>1 ACT</code> during any of this Unit's activations. When used, the Unit or an Adjacent Squadmate regain <code>1D3</code> lost <code>HIT</code>. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.
+            <strong>MedPack</strong><br/>The Unit gains a MedPack. This MedPack can be used for <code>1 ACT</code> during any of this Unit's activations. When used, the Unit or an Adjacent Squadmate regain <code>1D3</code> lost <code>HIT</code>. The MedPack may not be used if this Unit or the selected Squadmate are Adjacent to any Enemy Units. Once used, remove the MedPack from the Unit.
           </li>
           <li>
-            <strong>Nothing</strong>: The Crate is empty, nothing happens.
+            <strong>Nothing</strong><br/>The Crate is empty, nothing happens.
           </li>
           <li>
-            <strong>Booby Trap</strong>: The crate explodes, dealing 2 Ranged Damage to all Adjacent Units.
+            <strong>Booby Trap</strong><br/>The crate explodes, dealing 2 Ranged Damage to all Adjacent Units.
           </li>
         </ol>
       </div>

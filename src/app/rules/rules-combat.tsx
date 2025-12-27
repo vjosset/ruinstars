@@ -8,6 +8,7 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
         {num && `${num}. `}Combat
       </h2>
       <div className="twocols">
+        <IgnoreFirstMission keyword="combat modifiers, weapon specials, and attacks of opportunity" />
         <div className="">
           <h3>Ranged Combat</h3>
           <h4>Sequence</h4>
@@ -57,7 +58,6 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
             </li>
           </ol>
           <h4>Modifiers</h4>
-          <IgnoreFirstMission keyword="combat modifiers" />
           <table>
             <thead>
               <tr className="border-b border-border">
@@ -168,7 +168,6 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
           <em>Unfamiliar terms and weapon specials are defined in the <a className="underline" href="#glossary">Glossary</a>.</em>
 
           <h4>Modifiers</h4>
-          <IgnoreFirstMission keyword="combat modifiers" />
           <table>
             <thead>
               <tr className="border-b border-border">
@@ -188,7 +187,6 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
             </tbody>
           </table>
           <h4 id="attack-of-opportunity">Attack of Opportunity</h4>
-          <IgnoreFirstMission keyword="attacks of opportunity" />
           <p>
             When a Unit Moves or Dashes out of Adjacency to an enemy Unit, that enemy may immediately perform a free Melee attack against the moving Unit.
             This is called an <strong>Attack of Opportunity</strong>.<br/>

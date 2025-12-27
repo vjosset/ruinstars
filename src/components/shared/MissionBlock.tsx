@@ -10,7 +10,7 @@ export default function MissionBlock({mission, showDescription}: { mission: Miss
     var battlefield = battlefields.find((a) => a.battlefieldId == mission.battlefieldId)
   }
   return (
-    <div className="bg-card border border-main p-1 rounded mb-2">
+    <div className="bg-card border border-main p-1 rounded mb-2 section">
       <h4 className="text-main font-semibold mb-1">
         {mission.missionId} - {mission.title}
       </h4>
