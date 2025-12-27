@@ -14,6 +14,10 @@ export default async function RulesItems({ num }: {num?: Number | null}) {
       definition: 'Points a Unit spends to perform Actions during its Activation. Each Unit has a maximum ACT value listed on its StatCard.'
     },
     {
+      key: 'Adjacent',
+      definition: 'Two Units or Items are considered to be Adjacent if: The closest edges of their bases are within 1 Pace of each other, They are on the same elevation, and There is no wall between them.'
+    },
+    {
       key: 'Armor Save',
       definition: 'A die roll made when a Unit is hit in Combat to prevent Damage. A result equal to or less than the Unit\'s ARM stat is a success.'
     },
@@ -27,7 +31,7 @@ export default async function RulesItems({ num }: {num?: Number | null}) {
     },
     {
       key: 'Control',
-      definition: 'A Unit Controls a marker if it is Adjacent to that marker, it is not Adjacent to any enemy Units, and that marker is not Adjacent to any enemy Units.'
+      definition: 'A Unit Controls an objective marker if it is Adjacent to that marker, it is not Adjacent to any enemy Units, and that marker is not Adjacent to any enemy Units.'
     },
     {
       key: 'Critical Strike',
