@@ -1,6 +1,7 @@
 import UnitCard from '@/components/unit/UnitCard'
 import { SpecialService, UnitService } from '@/services'
 import { RiCrosshair2Fill, RiSwordFill } from 'react-icons/ri'
+import FirstMission from './rules-firstmission'
 
 export default async function RulesStatCards({ num }: {num?: Number | null}) {
   const sampleUnit = (await UnitService.getUnit('ST-0'))!.toPlain()
@@ -82,12 +83,7 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
             <li>{sampleUnit.unitName} is a {sampleUnit.unitTypeName}</li>
             <li>He can perform {sampleUnit.ACT} Actions (<code>ACT</code>) during each of his activations.</li>
             <li>Each time he is the target of Combat and rolls Armor Saves, each result of {sampleUnit.ARM} or less (<code>ARM</code>) is a successful Save.</li>
-            <li>He starts with {sampleUnit.HIT} Hit Points (<code>HIT</code>).</li>
-            <li>He has {sampleUnit.skills?.length} skills:
-              {
-                sampleUnit.skills?.map((skl, idx) => (idx > 0 ? ', ' : ' ') + skl.gearName)
-              }
-            .</li>
+            <li>He starts each Mission with {sampleUnit.HIT} Hit Points (<code>HIT</code>).</li>
           </ul>
         </div>
         
@@ -113,6 +109,7 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
               Don't worry about remembering the codes; they will quickly become second nature to you.
             </li>
           </ul>
+          <FirstMission keyword="weapon specials" />
           <br/>
           <strong>For example: </strong>
           <ul>
@@ -132,6 +129,8 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
             <li>Skills that have a <code>TO</code> cost cannot be performed using the Unit's <code>ACT</code> Stat; they must be performed by spending <a className="underline" href="#tactical-orders">Tactical Orders</a>.</li>
             <li>Skills and Equipment that do not have an <code>ACT</code> or <code>TO</code> cost are passive skills that do not require spending an Action Point or Tactical Order.</li>
           </ul>
+          For example, {sampleUnit.unitName} has {sampleUnit.skills?.length} skills: { sampleUnit.skills?.map((skl, idx) => (idx > 0 ? ', ' : ' ') + skl.gearName) }.
+          <FirstMission keyword="Unit skills" />
         </div>
       </div>
     </div>

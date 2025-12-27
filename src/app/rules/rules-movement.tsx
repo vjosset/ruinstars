@@ -26,7 +26,7 @@ export default async function RulesMovement({ num }: {num?: Number | null}) {
           <h4 id="paces">Paces</h4>
           <p>
             All movement and distance measurements are measured in <strong>Paces</strong>.<br/>
-            A Pace is 40mm or about 1.5". Use a ruler, our use our print-at-home <a className="underline" href="/tools">Gauges</a> for quick measurement.
+            A Pace typically is 40mm or about 1.5". Use a ruler, our use our print-at-home <a className="underline" href="/tools">Gauges</a> for quick measurement.
             If you prefer, playing on a <a className="underline" href="#playingonagrid">grid</a> provides simplicity of movement and measurement and avoids imprecision in moving miniatures and checking weapon ranges.
           </p>
 

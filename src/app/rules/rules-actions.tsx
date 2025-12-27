@@ -1,3 +1,4 @@
+import FirstMission from './rules-firstmission'
 
 export default async function RulesActions({ num }: {num?: Number | null}) {
   return (
@@ -36,6 +37,7 @@ export default async function RulesActions({ num }: {num?: Number | null}) {
         <p>Certain Missions will define special Actions that can be performed by Units. Read the Mission Briefing to determine if the Mission defines any such Actions.</p>
       
         <h3 id="tactical-orders">Tactical Orders</h3>
+        <FirstMission keyword="Tactical Orders" />
         <p>
           At the start of each Turn, players roll for <strong>Tactical Orders</strong> (<code>TO</code>).
           Each roll of 1-3 is a success and give that Squad 1 <code>TO</code>.
