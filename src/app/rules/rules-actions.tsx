@@ -36,6 +36,9 @@ export default async function RulesActions({ num }: {num?: Number | null}) {
               <tr><th>Mission Action</th><td className="text-center">-</td><td>Mission Actions are special mission-specific Actions that can be performed according to the Mission Briefing.</td></tr>
             </tbody>
           </table>
+
+          <em>Unfamiliar terms and weapon specials are defined in the <a className="underline" href="#glossary">Glossary</a>.</em>
+
           <h3 id="mission-actions">Mission Actions</h3>
           <p>Certain Missions will define special Actions that can be performed by Units. Read the Mission Briefing to determine if the Mission defines any such Actions.</p>
         

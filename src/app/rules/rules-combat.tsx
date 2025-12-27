@@ -164,6 +164,9 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
               </ol>
             </li>
           </ol>
+
+          <em>Unfamiliar terms and weapon specials are defined in the <a className="underline" href="#glossary">Glossary</a>.</em>
+
           <h4>Modifiers</h4>
           <IgnoreFirstMission keyword="combat modifiers" />
           <table>
