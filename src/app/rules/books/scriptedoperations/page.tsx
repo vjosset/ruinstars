@@ -37,8 +37,8 @@ export default async function RuleBookScriptedOperations({ searchParams }: { sea
           {/* Cover */}
           <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} />
           <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
-            <div className="text-white font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
-              <h2>Scripted Operations</h2>
+            <div className="text-white text-center font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
+              <h1>Operations</h1>
               Version {versionTimestamp}
             </div>
           </div>
