@@ -66,7 +66,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               <li>Play the introductory <Link className="underline" href="/rules#firstmission">first Mission</Link></li>
               <li>Select your <Link className="underline" href="/factions">Faction</Link> and build your <Link className="underline" href="/rules#buildingsquad">Squad</Link></li>
               <li>Gather some dice (<code>D{GAME.DICE_BASIS}</code>), your miniatures, and <Link className="underline" target="_blank" href="/assets/Ruinstars_Tokens.pdf">tokens</Link></li>
-              <li>Play your first <Link className="underline" href="/rules#missions">Mission</Link> or start your <Link className="underline" href="/rules#campaigns">Campaign</Link>!</li>
+              <li>Play your first <Link className="underline" href="/rules#missions">Core Mission</Link> or start your <Link className="underline" href="/rules#campaigns">Campaign</Link>!</li>
             </ol><br/>
             <IgnoreFirstMission keyword="Tactical Orders, Unit Skills, and Weapon Specials" />
           </div>

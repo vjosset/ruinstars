@@ -98,7 +98,7 @@ export default async function RulesMissions({ num }: {num?: Number | null}) {
           <h3 id="battlefields" className="text-center">Battlefields</h3>
           <div className="twocols">
             After selecting a Mission, pick or randomly select one of the following battlefields. The Mission will be played on that Battlefield.<br/>
-            The Galaxy is a dangerous and deadly place; each Battlefield has <strong>Effects</strong> that affect your Units.<br/>
+            The Galaxy is a dangerous and deadly place; each Battlefield has <strong>Effects</strong> that affect your Units or transform the Battlefield itself.<br/>
             Use your own battlemats, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the tiles and Paces pre-marked in a grid.
               
             {/* Battlefields List */}
