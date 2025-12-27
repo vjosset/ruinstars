@@ -24,14 +24,35 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               <br/>
               Welcome to {GAME.NAME} - where only ruins remain, and only war endures.
             </div>
-          </div>
-          <div className="section">
             <h3>What Is This Game?</h3>
             <p>
-              {GAME.NAME} is an open-source, fast-paced, miniatures-agnostic tabletop skirmish game set during the final age of the galaxy.<br/>
-              Players command small, hardened squads in high-lethality black ops missions across fractured star systems.<br/>
-              Fight in the shadows of dying gods, decaying empires, and forgotten horrors as the last battles rage.
+              {GAME.NAME} is a squad-scale sci-fi skirmish wargame about doomed squads, impossible missions, and the brutal choices that decide who gets to walk away.<br/>
+              The stars are dying. The empires are ash. Your Squad is what remains.
             </p>
+            <p >
+              Fast, lethal, objective-driven skirmishes with campaign persistence, built for PvP, solo, and co-op play.
+              <br/><br/>
+            </p>
+            <ul>
+              <li><strong>Squad-Scale Tactics:</strong> Command 4-10 Units in tight, terrain-heavy fights where positioning and timing matter more than raw stats.</li>
+              <li><strong>Lethal & Decisive:</strong> Units don't sponge damage. Mistakes get punished. Victories are earned.</li>
+              <li><strong>Mission First:</strong> Ruinstars is built around objectives, not just body counts. Every game is a mission with a clear payoff and consequences.</li>
+              <li><strong>Narrative Without the Bloat:</strong> Campaign play adds scars, rewards, and hard choices, without turning your table into bookkeeping.</li>
+              <li><strong>Play How You Like:</strong> Designed for head-to-head, solo, or co-op using NPC behaviors, campaign and operation structure, and Horde Mode.</li>
+            </ul>
+          </div>
+          <div className="section">
+            <h3 className="py-3 font-title" id="introduction">
+              At A Glance
+            </h3>
+            <ul>
+              <li><strong>Players:</strong> 2 (PvP) • 1-2 (Solo/Co-op)</li>
+              <li><strong>Session Length:</strong> ~45-90 minutes depending on mission and squad size</li>
+              <li><strong>Model Count:</strong> 4-10 per side</li>
+              <li><strong>Dice:</strong> <code>D6</code>-based core resolution</li>
+              <li><strong>Table Size:</strong> Works on compact tables with dense terrain, typically 2' x 2'</li>
+              <li><strong>Campaign:</strong> Missions link into Operations: your Squad evolves, and the war remembers</li>
+            </ul>
             <h3 className="py-3 font-title" id="introduction">
               Getting Started
             </h3>
@@ -53,6 +74,10 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               <li>Gather some dice (<code>D{GAME.DICE_BASIS}</code>), your miniatures, and <Link className="underline" target="_blank" href="/assets/Ruinstars_Tokens.pdf">tokens</Link></li>
               <li>Play your first Mission!</li>
             </ol>
+            <p>
+              For your first mission, ignore Tactical Orders, Unit skills, and weapon specials.
+              Just get comfortable with the core concepts for actions, movement, and combat, then introduce those topics in your next game.
+            </p>
           </div>
         </div>
       </div>
