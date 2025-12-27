@@ -88,52 +88,36 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
         <RulesIntro showTitle={true} num={1} />
 
         <RulesAI />
-        <hr />
 
         <RulesCoreMechanics num={2} />
-        <hr />
 
         <RulesGameCycle num={3} />
-        <hr />
 
         <RulesFirstMission num={4} />
-        <hr />
 
         <RulesStatCards num={5} />
-        <hr />
 
         <RulesActions num={6} />
-        <hr />
 
         <RulesMovement num={7} />
-        <hr />
 
         <RulesCombat num={8} />
-        <hr />
       
         <RulesItems num={9} />
-        <hr />
 
         <RulesYourSquad num={10} />
-        <hr />
 
         <RulesMissions num={11} />
-        <hr />
 
         <RulesCampaigns num={12} />
-        <hr />
 
         <RulesScriptedOperations num={13} />
-        <hr />
 
         <RulesHorde num={14} />
-        <hr />
       
         <RulesGlossary num={15} />
-        <hr />
       
         <RulesPlayingOnAGrid num={16} />
-        <hr />
       
         <RulesQuickRef num={17} />
 
