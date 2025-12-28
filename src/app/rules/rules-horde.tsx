@@ -114,7 +114,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             Downed Units are ignored by Horde Units, cannot be targeted in combat, and do not take any Damage.
             <br/>
             At the start of each Turn, Downed Units may perform a free Dash. This does not trigger an Attack of Opportunity. Downed Units don't activate during the Turn.
-            A Standing Unit may revive a Downed Unit it Controls (<code>2 ACT</code> Mission Action): The Downed Unit returns as Standing with <code>1D3 HIT</code> remaining.
+            A Standing Unit may revive a Downed Unit it Controls (<code>2 ACT</code> Mission Action): The Downed Unit returns as Standing with <code>1 HIT</code> remaining.
             <br/>
             Whenever a Downed Unit is revived, it gains one random Injury. If that Injury is one that the Unit already has, the Unit is Deceased and removed from the battlefield.
             <br/>
@@ -280,7 +280,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <p>At the start of each Turn, roll <code>2D6</code> to determine a special event for the Turn.</p>
             <div>
               <strong>2: Second Wind</strong>
-              <div className="ml-4">A Downed Unit returns as Standing with <code>1D3 HIT</code> remaining.</div>
+              <div className="ml-4">A Downed Unit returns as Standing with <code>1 HIT</code> remaining.</div>
             </div>
             <div>
               <strong>3: Field Dressing</strong>
@@ -380,7 +380,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <ul>
             <li>+4 MP</li>
             <li>+4 TO. If this Wave Objective's Victory is determined at the end of the Wave, those TO are given in the first Turn of the next Wave, after resolving Turn events.</li>
-            <li>One Downed Unit immediately returns to Standing with <code>1D3 HIT</code> remaining.</li>
+            <li>One Downed Unit immediately returns to Standing with <code>1 HIT</code> remaining.</li>
             <li>One Standing Unit immediately gains one Spoil of War</li>
             <li><code>1D3</code> Player Units perform a free Move action</li>
           </ul>
