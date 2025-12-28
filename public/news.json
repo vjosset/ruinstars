@@ -1,5 +1,10 @@
 [
   {
+    "date": "2025-12-27",
+    "title": "First Mission and split books",
+    "description": "For new players, we added a sample [First Mission](/rules#first-mission) to introduce the core concepts of the game without more advanced topics like weapon specials, unit skills, or Tactical Orders. We also split [some sections](/rules) of the complete rulebook for easy printing and reference."
+  },
+  {
     "date": "2025-12-14",
     "title": "Horde Mode",
     "description": "[Horde Mode rules](/rules#horde) are live!"
@@ -12,12 +17,12 @@
   {
     "date": "2025-12-08",
     "title": "Battlefield Diagrams",
-    "description": "All [primary missions](/rules#missions) now include a diagram of the battlefield, including deployment zones, markers, etc. Check it out!"
+    "description": "All [missions](/rules#missions) now include a diagram of the battlefield, including deployment zones, markers, etc. Check it out!"
   },
   {
     "date": "2025-11-27",
     "title": "Mission Types and Rewards + Spoils Of War",
-    "description": "Primary missions now include two rewards, with the winning Squad selecting their reward first, and the losing Squad selecting the other. Plus new Spoils Of War! See the devlog [here](https://ruinstars.itch.io/ruinstars/devlog/1130684/factions-missions-campaign-updates) for more info!"
+    "description": "Missions now include two rewards, with the winning Squad selecting their reward first, and the losing Squad selecting the other. Plus new Spoils Of War! See the devlog [here](https://ruinstars.itch.io/ruinstars/devlog/1130684/factions-missions-campaign-updates) for more info!"
   },
   {
     "date": "2025-11-06",
