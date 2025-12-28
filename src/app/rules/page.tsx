@@ -73,14 +73,15 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
         <div className="text-left text-muted mx-auto noprint mt-4">
           Download the PDFs:
           <ul className="columns-2 md:columns-4">
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Rules.pdf">Complete Rulebook</Link> (Easy Print)</li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">Complete Rulebook</Link> (Full Color)</li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_CoreRules.pdf">Core Rules</Link></li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_FirstMission.pdf">First Mission</Link></li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Factions.pdf">Factions</Link></li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Missions.pdf">Missions</Link></li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_ScriptedOperations.pdf">Scripted Operations</Link></li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_HordeMode.pdf">Horde Mode</Link></li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Rules.pdf">Complete Rulebook</Link> (77 pages - Easy Print)</li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">Complete Rulebook</Link> (77 pages - Full Color)</li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_CoreRules.pdf">Core Rules</Link> (16 pages)</li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_FirstMission.pdf">First Mission</Link> (1 page)</li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_SquadSheet.pdf">Fillable Squad Sheet</Link> (2 pages)</li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Factions.pdf">Factions</Link> (22 pages)</li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Missions.pdf">Missions</Link> (13 pages)</li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_ScriptedOperations.pdf">Scripted Operations</Link> (21 pages)</li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_HordeMode.pdf">Horde Mode</Link> (8 pages)</li>
           </ul>
         </div>
 
