@@ -21,7 +21,7 @@ import Link from 'next/link'
 
 export async function generateMetadata() {
   return generatePageMetadata({
-    title: 'Rules',
+    title: 'Core Rules',
     description: `The core rules for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
     images: [{
       url: '/icons/icon-big.png',

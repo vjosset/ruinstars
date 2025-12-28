@@ -5,8 +5,8 @@ import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 
 export async function generateMetadata() {
   return generatePageMetadata({
-    title: 'Rules',
-    description: `The complete rules for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
+    title: 'First Mission',
+    description: `A beginner mission for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame. This mission introduces the core concepts of the game in a one-page, easy to follow document.`,
     images: [{
       url: '/icons/icon-big.png',
     }],

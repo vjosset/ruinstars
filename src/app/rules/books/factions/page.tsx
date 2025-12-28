@@ -6,8 +6,8 @@ import RulesSquadTypes from '../../rules-squadtypes'
 
 export async function generateMetadata() {
   return generatePageMetadata({
-    title: 'Rules',
-    description: `The complete rules for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
+    title: 'Factions',
+    description: `The complete factions list for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
     images: [{
       url: '/icons/icon-big.png',
     }],
