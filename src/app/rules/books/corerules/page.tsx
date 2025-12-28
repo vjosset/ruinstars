@@ -27,7 +27,7 @@ export async function generateMetadata() {
       url: '/icons/icon-big.png',
     }],
     keywords: ['free', 'rules', 'pdf'],
-    pagePath: '/rules/core'
+    pagePath: '/rules/books/core'
   })
 }
 

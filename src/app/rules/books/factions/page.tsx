@@ -12,7 +12,7 @@ export async function generateMetadata() {
       url: '/icons/icon-big.png',
     }],
     keywords: ['free', 'rules', 'pdf'],
-    pagePath: '/rules/factions'
+    pagePath: '/rules/books/factions'
   })
 }
 
