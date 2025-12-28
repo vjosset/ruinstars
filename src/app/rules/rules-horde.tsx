@@ -248,91 +248,142 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <div className="section">
             <h3>Wave Mods</h3>
             <p>At the start of each Wave, before spawning Horde Units, roll <code>1D6</code> to determine a modifier for this wave.</p>
-            <ol>
-              <li><strong>Nothing:</strong> Nothing special this Wave</li>
-              <li><strong>Lull:</strong> -1 difficulty for this wave (min 0)</li>
-              <li><strong>Surge:</strong> After spawning Horde Units for this Wave, all Horde Units perform 1 free Action</li>
-              <li><strong>Preempt:</strong> After spawning Horde Units for this Wave, all Player Units may perform 1 free Action</li>
-              <li><strong>Rage:</strong> +1 difficulty for this wave (max 6)</li>
-              <li><strong>Clear Shots:</strong> During the first Turn of this Wave, Player Units gain +1 <code>ATT</code> on their Ranged weapons</li>
-            </ol>
+            
+            <div>
+              <strong>1: Nothing</strong>
+              <div className="ml-4">Nothing special this Wave.</div>
+            </div>
+            <div>
+              <strong>2: Lull</strong>
+              <div className="ml-4">-1 difficulty for this wave (minimum 0).</div>
+            </div>
+            <div>
+              <strong>3: Surge</strong>
+              <div className="ml-4">After spawning Horde Units for this Wave, all Horde Units perform 1 free Action.</div>
+            </div>
+            <div>
+              <strong>4: Preempt</strong>
+              <div className="ml-4">After spawning Horde Units for this Wave, all Player Units may perform 1 free Action.</div>
+            </div>
+            <div>
+              <strong>5: Rage</strong>
+              <div className="ml-4">+1 difficulty for this wave (maximum 6).</div>
+            </div>
+            <div>
+              <strong>6: Clear Shots</strong>
+              <div className="ml-4">During the first Turn of this Wave, Player Units gain +1 <code>ATT</code> on their Ranged weapons.</div>
+            </div>
           </div>
 
           <div className="section">
             <h3>Turn Events</h3>
             <p>At the start of each Turn, roll <code>2D6</code> to determine a special event for the Turn.</p>
-            <ul>
-              <li><strong>2: Second Wind</strong><br/>	A Downed Unit returns as Standing with <code>1D3 HIT</code> remaining.</li>
-              <li><strong>3: Field Dressing</strong><br/>	One Standing Player Unit regains 1 lost <code>HIT</code>.</li>
-              <li><strong>4: Opportunity</strong><br/>	One Player Unit may immediately spend up to <code>2 ACT</code> on actions before the start of the Turn. This does not count as that Unit's activation for the Turn.</li>
-              <li><strong>5: Supply Drop</strong><br/>	Place 3 crates in random places on the board. If a crate lands on a Unit, immediately treat it as a "Booby Trap" crate and deal damage accordingly. Do not place that crate on the battlefield.</li>
-              <li><strong>6: Strategic Command</strong><br/>	Player Squad gains <code>+2 TO</code></li>
-              <li><strong>7: Relentless Advance</strong><br/>	The Horde presses on</li>
-              <li><strong>8: Scrambled Comms</strong><br/>	Player Squad loses <code>-2 TO</code> (minimum 0)</li>
-              <li><strong>9: Encroaching Threat</strong><br/>	Each time a Horde Unit performs a Move Action during this Turn, it may move 1 additional Pace</li>
-              <li><strong>10: Enemy Reinforcements</strong><br/>	Spawn <code>1D3+2</code> new Horde Units at current Difficulty.</li>
-              <li><strong>11: Coordinated Assault</strong><br/>	Horde Units have <code>+1 ACT</code> this Turn</li>
-              <li><strong>12: Overrun</strong><br/>	All Horde Units immediately perform 1 Action according to their Behavior</li>
-            </ul>
+            <div>
+              <strong>2: Second Wind</strong>
+              <div className="ml-4">A Downed Unit returns as Standing with <code>1D3 HIT</code> remaining.</div>
+            </div>
+            <div>
+              <strong>3: Field Dressing</strong>
+              <div className="ml-4">One Standing Player Unit regains 1 lost <code>HIT</code>.</div>
+            </div>
+            <div>
+              <strong>4: Opportunity</strong>
+              <div className="ml-4">One Player Unit may immediately spend up to <code>2 ACT</code> on actions before the start of the Turn. This does not count as that Unit's activation for the Turn.<code>HIT</code>.</div>
+            </div>
+            <div>
+              <strong>5: Supply Drop</strong>
+              <div className="ml-4">Place 3 crates in random places on the board. If a crate lands on a Unit, immediately treat it as a "Booby Trap" crate and deal damage accordingly. Do not place that crate on the battlefield.</div>
+            </div>
+            <div>
+              <strong>6: Strategic Command</strong>
+              <div className="ml-4">Player Squad gains <code>+2 TO</code>.</div>
+            </div>
+            <div>
+              <strong>7: Relentless Advance</strong>
+              <div className="ml-4">The Horde presses on (no special event this Turn).</div>
+            </div>
+            <div>
+              <strong>8: Scrambled Comms</strong>
+              <div className="ml-4">Player Squad loses <code>-2 TO</code> (minimum 0).</div>
+            </div>
+            <div>
+              <strong>9: Encroaching Threat</strong>
+              <div className="ml-4">Each time a Horde Unit performs a Move Action during this Turn, it may move 1 additional Pace.</div>
+            </div>
+            <div>
+              <strong>10: Enemy Reinforcements</strong>
+              <div className="ml-4">Spawn <code>1D3+2</code> new Horde Units at current Difficulty.</div>
+            </div>
+            <div>
+              <strong>11: Coordinated Assault</strong>
+              <div className="ml-4">Horde Units have <code>+1 ACT</code> this Turn.</div>
+            </div>
+            <div>
+              <strong>12: Overrun</strong>
+              <div className="ml-4">All Horde Units immediately perform 1 Action according to their Behavior.</div>
+            </div>
           </div>
         </div>
 
         <div className="section">
           <h3>Wave Objectives</h3>
           <p>At the start of each Wave, roll <code>1D6</code> to determine the Wave's Objective. If a Wave Objective is not completed by the end of the Wave, that Wave Objective is failed.</p>
+
+          <h4>Objectives</h4>
+          <div>
+            <strong>1: Battlefield Control</strong>
+            <div className="ml-4">
+              <strong>Victory:</strong> At the end of the Wave, there is at least one Standing Player Unit on the NW, NE, SW, and SE Tiles.
+            </div>
+          </div>
+          <div>
+            <strong>2: Destroy Nexus</strong>
+            <div className="ml-4">
+              <strong>Setup:</strong> Place 3 Nexus markers as close as possible to the center of the West, Center, and East Tiles.<br/>
+              <strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
+              <strong>Victory:</strong> All Nexus Markers Taken Out by the end of the Wave.
+            </div>
+          </div>
+          <div>
+            <strong>3: Overwhelming Force</strong>
+            <div className="ml-4">
+              <strong>Victory:</strong> End the Wave within 2 Turns.
+            </div>
+          </div>
+          <div>
+            <strong>4: Protect The Asset</strong>
+            <div className="ml-4">
+              <strong>Setup:</strong> Place an Asset marker as close as possible to the Center of a random Tile (excluding the player deployment Tile). Assets are Items with <code>ARM 4 HIT 4</code>.<br/>
+              <strong>Special:</strong> Horde Units will always prioritize targeting the Asset instead of Player Units in combat.<br/>
+              <strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of the Wave.
+            </div>
+          </div>
+          <div>
+            <strong>5: Suppression Field</strong>
+            <div className="ml-4">
+              <strong>Setup:</strong> Place 3 Disruptor Pylons as close as possible to the center of three random Tiles.<br/>
+              <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
+              <strong>Victory:</strong> All 3 Pylons have been calibrated.
+            </div>
+          </div>
+          <div>
+            <strong>6: The Artifact</strong>
+            <div className="ml-4">
+              <strong>Setup:</strong> Place 3 Search Markers in the center of three random Tiles.<br/>
+              <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. Roll <code>1D6</code>: On a 1 or 2, the Artifact is found. This roll cannot be modified or re-rolled using TO.<br/>
+              <strong>Victory:</strong> The Artifact is found.
+            </div>
+          </div>
+
+          <h4>Rewards</h4>
           <p>Once a Wave Objective's Victory condition is met, the Player Squad immediately selects one reward from the list below:</p>
           <ul>
             <li>+4 MP</li>
-            <li>+4 TO. If this Wave Objective's Victory is determined at the end of the Wave, those TO are given in the first Turn of the next Wave.</li>
+            <li>+4 TO. If this Wave Objective's Victory is determined at the end of the Wave, those TO are given in the first Turn of the next Wave, after resolving Turn events.</li>
             <li>One Downed Unit immediately returns to Standing with <code>1D3 HIT</code> remaining.</li>
             <li>One Standing Unit immediately gains one Spoil of War</li>
             <li><code>1D3</code> Player Units perform a free Move action</li>
           </ul>
-        </div>
-
-        <div className="section">
-          <h4>Objectives</h4>
-          <ol>
-            <li className="section"><strong>Battlefield Control:</strong>
-              <ul>
-                <li><strong>Victory:</strong> At the end of the Wave, there is at least one Standing Player Unit on the NW, NE, SW, and SE Tiles.</li>
-              </ul>
-            </li>
-            <li className="section"><strong>Destroy Nexus:</strong>
-              <ul>
-                <li><strong>Setup:</strong> Place 3 Nexus markers as close as possible to the center of the West, Center, and East Tiles.</li>
-                <li><strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.</li>
-                <li><strong>Victory:</strong> All Nexus Markers Taken Out by the end of the Wave.</li>
-              </ul>
-            </li>
-            <li className="section"><strong>Overwhelming Force:</strong>
-              <ul>
-                <li><strong>Victory:</strong> End the Wave within 2 Turns.</li>
-              </ul>
-            </li>
-            <li className="section"><strong>Protect The Asset:</strong>
-              <ul>
-                <li><strong>Setup:</strong> Place an Asset marker as close as possible to the Center of a random Tile (excluding the player deployment Tile). Assets are Items with <code>ARM 4 HIT 4</code>.</li>
-                <li><strong>Special:</strong> Horde Units will always prioritize targeting the Asset instead of Player Units in combat.</li>
-                <li><strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of the Wave.</li>
-              </ul>
-            </li>
-            <li className="section"><strong>Suppression Field:</strong>
-              <ul>
-                <li><strong>Setup:</strong> Place 3 Disruptor Pylons as close as possible to the center of three random Tiles.</li>
-                <li><strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Pylon calibrates it. Remove that Pylon from the battlefield.</li>
-                <li><strong>Victory:</strong> All 3 Pylons have been calibrated.</li>
-              </ul>
-            </li>
-            <li className="section">
-              <strong>The Artifact:</strong>
-              <ul>
-                <li><strong>Setup:</strong> Place 3 Search Markers in the center of three random Tiles.</li>
-                <li><strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. Roll <code>1D6</code>: On a 1 or 2, the Artifact is found. This roll cannot be modified or re-rolled using TO.</li>
-                <li><strong>Victory:</strong> The Artifact is found.</li>
-              </ul>
-            </li>
-          </ol>
         </div>
       </div>
 
@@ -367,14 +418,31 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           Crates can be targeted in combat, causing explosions dealing 3 Damage to all Adjacent Units. <code>ARM 3 HIT 1</code>.
           </p>
           <strong>Mission Action - Open Crate (1 ACT):</strong> A Unit that Controls a Crate opens it. Roll to determine its contents, then remove that Crate from the battlefield.
-          <ul>
-            <li><strong>1: Stockpile</strong><br/> Player Squad gains +3 MP</li>
-            <li><strong>2: Command Uplink</strong><br/>  Player Squad gains +2 TO</li>
-            <li><strong>3: Map</strong><br/> One Standing Player Unit may immediately perform a free Move action</li>
-            <li><strong>4: Relay Order</strong><br/> One Standing Player Unit may immediately perform a free Basic or Mission action for <code>1 ACT</code></li>
-            <li><strong>5: Upgrade</strong><br/> Select and apply one free Upgrade of your choice (see "Upgrades" above)</li>
-            <li><strong>6: Booby Trap</strong><br/> Causes explosions dealing 3 Damage to all Adjacent Units</li>
-          </ul>
+
+          <div>
+            <strong>1: Stockpile</strong>
+            <div className="ml-4">Player Squad gains +3 MP.</div>
+          </div>
+          <div>
+            <strong>2: Command Uplink</strong>
+            <div className="ml-4">Player Squad gains +2 TO.</div>
+          </div>
+          <div>
+            <strong>3: Map</strong>
+            <div className="ml-4">One Standing Player Unit may immediately perform a free Move action.</div>
+          </div>
+          <div>
+            <strong>4: Relay Order</strong>
+            <div className="ml-4">One Standing Player Unit may immediately perform a free Basic or Mission action for <code>1 ACT</code>.</div>
+          </div>
+          <div>
+            <strong>5: Upgrade</strong>
+            <div className="ml-4">Select and apply one free Upgrade of your choice (see "Upgrades" above).</div>
+          </div>
+          <div>
+            <strong>6: Booby Trap</strong>
+            <div className="ml-4">Causes an explosion dealing 3 Damage to all Adjacent Units.</div>
+          </div>
         </div>
       </div>
 
