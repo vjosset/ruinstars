@@ -70,17 +70,18 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
       <div className="rules px-3 max-w-7xl mx-auto">
         <RulesHeader />
 
-        <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
-          Download the Rules:
-          { ' ' }
-          <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules.pdf">Easy Print PDF</Link>
-          { ' / ' }
-          <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">Full Color PDF</Link>
-        </div>
-        <div className="text-center text-muted max-w-lg mx-auto noprint mt-4">
-          Print the Tokens:
-          { ' ' }
-          <Link className="underline" target="_blank" href="/assets/Ruinstars_Tokens.pdf">Tokens PDF</Link>
+        <div className="text-left text-muted mx-auto noprint mt-4">
+          Download the PDFs:
+          <ul className="columns-2 md:columns-4">
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Rules.pdf">Complete Rulebook</Link> (Easy Print)</li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">Complete Rulebook</Link> (Full Color)</li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_CoreRules.pdf">Core Rules</Link></li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_FirstMission.pdf">First Mission</Link></li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Factions.pdf">Factions</Link></li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Missions.pdf">Missions</Link></li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_ScriptedOperations.pdf">Scripted Operations</Link></li>
+            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_HordeMode.pdf">Horde Mode</Link></li>
+          </ul>
         </div>
 
         <RulesToc />

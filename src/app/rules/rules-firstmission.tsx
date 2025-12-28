@@ -10,7 +10,7 @@ export default async function RulesFirstMission({ num }: {num?: number | null })
         {num && `${num}. `}Your First Mission
       </h2>
       <div className="flavor">
-        This mission introduces the core flow of Ruinstars: actions, movement, combat, and objectives. These are the core concepts of the game.
+        This mission introduces the core flow of Ruinstars: actions, movement, combat, and objectives. These are the main concepts of the game.
         In your next missions, you can introduce more advanced topics like Tactical Orders, weapon specials, and Unit Skills.
       </div>
       <div className="twocols">
