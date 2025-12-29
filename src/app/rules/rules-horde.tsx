@@ -26,7 +26,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <strong>Horde Mode</strong> is a solo or cooperative survival mode for Ruinstars in which one Squad fights against escalating waves of enemies.
           Each Wave brings new threats, stronger enemies, and unpredictable battlefield events.
           Players must balance aggression, positioning, resource management, and emergency recovery as the enemy pressure steadily increases.
-          The Horde never stops coming; only brief Regroup windows between Waves allow Units to patch wounds, recover supplies, and deploy defenses.
+          The Horde never stops coming; only brief respites between Waves allowing Units to patch wounds, recover supplies, and deploy defenses.
           <br/>
           Unlike standard Missions, Horde Mode has no fixed objective beyond survival.
           Waves only end when all Horde Units are Taken Out, and difficulty steadily rises as the battle grinds on.
@@ -51,25 +51,24 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                   Turns
                   <ol>
                     <li>Roll Tactical Orders (TO)</li>
-                    <li>Roll Turn Event</li>
+                    <li>Turns 1-4: Roll Turn Event</li>
+                    <li>Turns 5+: Turn Event is "Enemy Reinforcements"</li>
                     <li>
                       Activations
                       <ul>
-                        <li>Player Squad has initiative in each Turn</li>
                         <li>Activate a Player Unit</li>
-                        <li>Activate a Horde Unit (follow its &quot;Behavior&quot; skill)</li>
+                        <li>Activate a Horde Unit (follow its &quot;Behavior&quot; skill). If there is a Horde Boss, that Boss should be the first Horde Unit to activate.</li>
                         <li>Activate next Player Unit</li>
                       </ul>
                     </li>
                     <li>
                       End of Turn
                       <ul>
-                        <li>If all Horde Units are Taken Out, the Wave ends. Spend MP on Upgrades (see "Upgrades" below) and prepare for the next Wave.</li>
+                        <li>If all Horde Units are Taken Out, the Wave ends.<br/>Spend MP on Upgrades (see "Upgrades" below) and prepare for the next Wave.</li>
                         <li>
                           If this is the end of Turn 4 for the Wave and there are any Standing Horde Units:
                           <ul>
                             <li>The Wave enters <strong>Containment Breach</strong> mode</li>
-                            <li>Do not roll Turn Events</li>
                             <li>All Turn Events for the remainder of this Wave are treated as "Reinforcements"</li>
                           </ul>
                         </li>
