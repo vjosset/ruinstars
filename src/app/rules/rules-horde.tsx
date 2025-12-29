@@ -41,32 +41,43 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <ol>
             <li>Set up battlefield</li>
             <li>Deploy Player Squad</li>
-            <li>Start Wave 1: Spawn Horde Units (no Wave mod in Wave 1)</li>
             <li>
-            Turns
-              <ul>
-                <li>Start Turn</li>
-                <li>Roll Tactical Orders (TO)</li>
-                <li>Roll Turn Events</li>
-                <li>Activations<ul>
-                  <li>Player Squad has initiative in each Turn</li>
-                  <li>Activate a Player Unit</li>
-                  <li>If all Horde Units are Taken Out, Turn immediately ends</li>
-                  <li>Activate a Horde Unit (follow its &quot;Behavior&quot; skill)</li>
-                  <li>Activate next Player Unit</li>
-                </ul>
-                </li>
-                <li>End of Turn</li>
+              <strong>Waves</strong>
+              <ol>
+                <li>Roll Wave mod</li>
+                <li>Spawn Horde Units (see Wave table below)</li>
+                <li>Roll Wave Objective</li>
                 <li>
-                  If all Horde Units are Taken Out, the Wave ends:
-                  <ul>
-                    <li>Spend MP on Upgrades (see below)</li>
-                    <li>Roll next Wave mod</li>
-                    <li>Spawn enemies</li>
-                    <li>Roll Wave Objective</li>
-                  </ul>
+                  Turns
+                  <ol>
+                    <li>Roll Tactical Orders (TO)</li>
+                    <li>Roll Turn Event</li>
+                    <li>
+                      Activations
+                      <ul>
+                        <li>Player Squad has initiative in each Turn</li>
+                        <li>Activate a Player Unit</li>
+                        <li>Activate a Horde Unit (follow its &quot;Behavior&quot; skill)</li>
+                        <li>Activate next Player Unit</li>
+                      </ul>
+                    </li>
+                    <li>
+                      End of Turn
+                      <ul>
+                        <li>If all Horde Units are Taken Out, the Wave ends. Spend MP on Upgrades (see "Upgrades" below) and prepare for the next Wave.</li>
+                        <li>
+                          If this is the end of Turn 4 for the Wave and there are any Standing Horde Units:
+                          <ul>
+                            <li>The Wave enters <strong>Containment Breach</strong> mode</li>
+                            <li>Do not roll Turn Events</li>
+                            <li>All Turn Events for the remainder of this Wave are treated as "Reinforcements"</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ol>
                 </li>
-              </ul>
+              </ol>
             </li>
           </ol>
         </div>
@@ -110,10 +121,11 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
 
           <div className="section">
             <h3>Downed Units</h3>
-            When a Player Unit reaches zero <code>HIT</code>, don't remove it from the battlefield. Instead, set it on its side to indicate its <strong>Downed</strong> status.
+            When a Player Unit reaches zero <code>HIT</code>, do not remove it from the battlefield.
+            Instead, set it on its side to indicate its <strong>Downed</strong> status.
             Downed Units are ignored by Horde Units, cannot be targeted in combat, and do not take any Damage.
             <br/>
-            At the start of each Turn, Downed Units may perform a free Dash. This does not trigger an Attack of Opportunity. Downed Units don't activate during the Turn.
+            During their activation, Downed Units may only perform the Dash action. <br/>
             A Standing Unit may revive a Downed Unit it Controls (<code>2 ACT</code> Mission Action): The Downed Unit returns as Standing with <code>1 HIT</code> remaining.
             <br/>
             Whenever a Downed Unit is revived, it gains one random Injury. If that Injury is one that the Unit already has, the Unit is Deceased and removed from the battlefield.
@@ -277,7 +289,10 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
 
           <div className="section">
             <h3>Turn Events</h3>
-            <p>At the start of each Turn, roll <code>2D6</code> to determine a special event for the Turn.</p>
+            <p>
+              At the start of each Turn, roll <code>2D6</code> to determine a special event for the Turn.
+              If the Wave is in <strong>Containment Breach</strong> mode (Wave is in Turn 5 or later), do not roll Turn Events and use the Enemy Reinforcements event instead.
+            </p>
             <div>
               <strong>2: Second Wind</strong>
               <div className="ml-4">A Downed Unit returns as Standing with <code>1 HIT</code> remaining.</div>
@@ -312,7 +327,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             </div>
             <div>
               <strong>10: Enemy Reinforcements</strong>
-              <div className="ml-4">Spawn <code>1D3+2</code> new Horde Units at current Difficulty.</div>
+              <div className="ml-4">Spawn <code>1D3</code> new Horde Units at current Difficulty.</div>
             </div>
             <div>
               <strong>11: Coordinated Assault</strong>
