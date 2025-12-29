@@ -44,27 +44,27 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <li>
               <strong>Waves</strong>
               <ol>
-                <li>Roll Wave mod</li>
+                {/* <li>Roll Wave mod</li> */}
                 <li>Spawn Horde Units (see Wave table below)</li>
                 <li>Roll Wave Objective</li>
                 <li>
-                  Turns
+                  <strong>Turns</strong>
                   <ol>
                     <li>Roll Tactical Orders (TO)</li>
                     <li>Turns 1-4: Roll Turn Event</li>
-                    <li>Turns 5+: Turn Event is "Enemy Reinforcements"</li>
+                    <li>Turns 5+: <strong>Containment Breach</strong> - Turn Event is "Enemy Reinforcements"</li>
                     <li>
                       Activations
                       <ul>
                         <li>Activate a Player Unit</li>
                         <li>Activate a Horde Unit (follow its &quot;Behavior&quot; skill). If there is a Horde Boss, that Boss should be the first Horde Unit to activate.</li>
-                        <li>Activate next Player Unit</li>
+                        <li>Repeat until all Units have been activated</li>
                       </ul>
                     </li>
                     <li>
                       End of Turn
                       <ul>
-                        <li>If all Horde Units are Taken Out, the Wave ends.<br/>Spend MP on Upgrades (see "Upgrades" below) and prepare for the next Wave.</li>
+                        <li>If there are no Standing Horde Units, the Wave ends.<br/>Spend MP on Upgrades (see "Upgrades" below) and prepare for the next Wave.</li>
                         <li>
                           If this is the end of Turn 4 for the Wave and there are any Standing Horde Units:
                           <ul>
@@ -256,7 +256,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
 
       <div className="section twocols">
         <div className="section">
-          <div className="section">
+          {/* <div className="section">
             <h3>Wave Mods</h3>
             <p>At the start of each Wave, before spawning Horde Units, roll <code>1D6</code> to determine a modifier for this wave.</p>
             
@@ -285,7 +285,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               <div className="ml-4">During the first Turn of this Wave, Player Units gain +1 <code>ATT</code> on their Ranged weapons.</div>
             </div>
           </div>
-
+          */}
           <div className="section">
             <h3>Turn Events</h3>
             <p>
