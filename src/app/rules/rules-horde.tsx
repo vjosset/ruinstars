@@ -303,7 +303,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             </div>
             <div>
               <strong>4: Opportunity</strong>
-              <div className="ml-4">One Player Unit may immediately spend up to <code>2 ACT</code> on actions before the start of the Turn. This does not count as that Unit's activation for the Turn.<code>HIT</code>.</div>
+              <div className="ml-4">One Player Unit may immediately spend up to <code>2 ACT</code> on actions before the start of the Turn. This does not count as that Unit's activation for the Turn.</div>
             </div>
             <div>
               <strong>5: Supply Drop</strong>
