@@ -571,6 +571,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
 
         <div className="section">
           <h3>Wave Objectives</h3>
+          <p>Wave Objectives are optional bonuses; failure does not end the Wave.</p>
           <p>At the start of each Wave, roll <code>1D6</code> to determine the Wave's Objective. If a Wave Objective is not completed by the end of the Wave, that Wave Objective is failed.</p>
 
           <h4>Objectives</h4>
