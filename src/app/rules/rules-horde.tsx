@@ -1,12 +1,15 @@
 import MissionBlock from '@/components/shared/MissionBlock'
+import Markdown from '@/components/ui/Markdown'
 import PageBreak from '@/components/ui/PageBreak'
 import UnitCard from '@/components/unit/UnitCard'
 import hordemaps from '@/data/hordemaps.json'
-import { SpecialService, SquadService } from '@/services'
+import { GearCategoryService, SpecialService, SquadService } from '@/services'
 
 export default async function RulesHorde({ num }: {num?: Number | null}) {
   const hordeUnits = await SquadService.getSquad('HRD')
   const allSpecials = await SpecialService.getAllSpecials()
+  const injuries = await GearCategoryService.getGearCategory('INJ')
+  const spoilsOfWar = await GearCategoryService.getGearCategory('SOW')
 
   return (
     <div className="section">
@@ -56,7 +59,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
 
         <div className="section">
           <h4>Set up Battlefield</h4>
-          Set up the battlefield following the mission's instructions. Define player deployment zones, enemy spawn zones, and place any mission markers.
+          Set up the battlefield following its instructions. Define player deployment zones, enemy spawn zones, and place any terrain.
           See the battlefields listed below for details.
         </div>
 
@@ -688,6 +691,43 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <strong>6: Booby Trap</strong>
             <div className="ml-4">Causes an explosion dealing 3 Damage to all Adjacent Units.</div>
           </div>
+        </div>
+      </div>
+
+      <div className="section twocols">
+        <div className="section">
+          <h3>Injuries</h3>
+          <p>
+            Each time a Downed Unit is revived, roll <code>1D6</code> to determine the Injury this Unit received.<br/>
+            If the Injury is one that the Unit already had, that Unit is Deceased. Remove the Unit from the Battlefield.<br/>
+            If the Injury is Healed, remove one other Injury from that Unit. If it has no other Injuries, Healed has no effect.
+          </p>
+          <ul>
+            {/* Injuries List */}
+            {
+              injuries?.gears.map((injury) => (
+                <li key={`inj_${injury.gearId}`}>
+                  <h6>{injury.gearName}</h6>
+                  <Markdown>{injury.description}</Markdown>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div className="section">
+          <h3>Spoils Of War</h3>
+          <ul>
+            {/* Spoils Of War List */}
+            {
+              spoilsOfWar?.gears.map((sow) => (
+                <li key={`sow_${sow.gearId}`}>
+                  <h6>{sow.gearName}</h6>
+                  <Markdown>{sow.description}</Markdown>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </div>
 
