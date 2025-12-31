@@ -203,7 +203,7 @@
     ],
     "setup": "Each Squad selects one of two opposing Battlefield edges to be their Deployment zone.  \r\nPlace 3 Sabotage markers in the center of three random tiles.  \r\nSelect or randomly pick one Squad to be the Attacker, and the other to be the Defender. ",
     "deployment": "During Turn 1, when it is a Unit's turn to activate, deploy it on your Battlefield edge. ",
-    "special": "**Mission Action - Sabotage (2 ACT):**  \r\nA Unit may Sabotage an Adjacent Sabotage marker if there are not Adjacent enemy Units. When a marker is sabotaged, remove it from the battlefield.",
+    "special": "**Mission Action - Sabotage (2 ACT):**  \r\nA Unit may Sabotage an Adjacent Sabotage marker if there are no Adjacent enemy Units. When a marker is sabotaged, remove it from the battlefield.",
     "victory": "All three saborage markers have been sabotaged by end of Turn 4.",
     "successresult": "[TBD]",
     "failureresult": "[TBD]"
