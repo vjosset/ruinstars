@@ -149,108 +149,305 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
       <div className="section twocols">
         <div className="section">
           <h3>Spawning Horde Units</h3>
-          For each enemy Unit indicated by the Wave table, roll <code>1D3</code> and add the Wave's Difficulty.
-          The result indicates the Horde Unit to Spawn (see Horde Units' "Spawn" skill below).
+          At the start of each wave, roll <code>3D6</code>. Each die result maps to a Horde Unit and its quantity to Spawn.
           <br/>
-          For example, in Wave 5, we will roll <code>5D3</code> (5 enemies) and add <code>3</code> (difficulty) to each result.
-          If the results are <code>1, 1, 2, 2, 3</code>, we add the difficulty to end up with <code>4, 4, 5, 5, 6</code> which maps to:
+          For example, in Wave 5, we roll <code>3D6</code> and get 1, 3, and 6. This maps to:
           <ul>
-            <li>2 Ruin Stalkers (<code>4, 4</code>)</li>
-            <li>2 Ashline Gunners (<code>5, 5</code>)</li>
-            <li>1 Dustborn Thrall (<code>6</code>)</li>
+            <li>4 Ruin Stalkers (<code>1, 3</code>, each mapping to 2 Ruin Stalkers)</li>
+            <li>1 Razorhowl Reaver (<code>6</code>)</li>
           </ul>
           When placing Spawned Units, place the first Unit Adjacent to the first Spawn point, the second Unit Adjacent to the second Spawn point, etc.
           If you run out of Spawn points, just start back on the first one.
           <br/>
-          For Boss Waves, select a random Boss Unit and follow its Spawn instructions for placement and other rules.
+          For Boss Waves (4, 8, and 12), select a random Boss Unit and follow its Spawn instructions for placement and other rules.
           If you already fought the selected Boss in a previous Wave, re-roll until you get a Boss you haven't fought yet.
         </div>
-        <div className="section">
-          <h3>Wave Table</h3>
-          <table>
-            <thead>
-              <tr>
-                <th className="text-center">Wave</th>
-                <th className="text-center">Difficulty</th>
-                <th>Enemies</th>
-                <th className="text-center">MP</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th className="text-center">Wave 1</th>
-                <td className="text-center">0</td>
-                <td>5 Units</td>
-                <td className="text-center">4</td>
-              </tr>
-              <tr>
-                <th className="text-center">Wave 2</th>
-                <td className="text-center">1</td>
-                <td>6 Units</td>
-                <td className="text-center">5</td>
-              </tr>
-              <tr>
-                <th className="text-center">Wave 3</th>
-                <td className="text-center">2</td>
-                <td>7 Units</td>
-                <td className="text-center">6</td>
-              </tr>
-              <tr className="border-b border-border">
-                <th className="text-center">Wave 4</th>
-                <td className="text-center">2</td>
-                <td><strong>Boss</strong> + 5 Units</td>
-                <td className="text-center">9</td>
-              </tr>
-              <tr>
-                <th className="text-center">Wave 5</th>
-                <td className="text-center">3</td>
-                <td>5 Units</td>
-                <td className="text-center">7</td>
-              </tr>
-              <tr>
-                <th className="text-center">Wave 6</th>
-                <td className="text-center">4</td>
-                <td>6 Units</td>
-                <td className="text-center">8</td>
-              </tr>
-              <tr>
-                <th className="text-center">Wave 7</th>
-                <td className="text-center">5</td>
-                <td>7 Units</td>
-                <td className="text-center">9</td>
-              </tr>
-              <tr className="border-b border-border">
-                <th className="text-center">Wave 8</th>
-                <td className="text-center">5</td>
-                <td><strong>Boss</strong> + 6 Units</td>
-                <td className="text-center">12</td>
-              </tr>
-              <tr>
-                <th className="text-center">Wave 9</th>
-                <td className="text-center">6</td>
-                <td>5 Units</td>
-                <td className="text-center">10</td>
-              </tr>
-              <tr>
-                <th className="text-center">Wave 10</th>
-                <td className="text-center">6</td>
-                <td>6 Units</td>
-                <td className="text-center">11</td>
-              </tr>
-              <tr>
-                <th className="text-center">Wave 11</th>
-                <td className="text-center">6</td>
-                <td>7 Units</td>
-                <td className="text-center">12</td>
-              </tr>
-              <tr className="border-b border-border">
-                <th className="text-center">Wave 12</th>
-                <td className="text-center">6</td>
-                <td><strong>Boss</strong> + 7 Units</td>
-                <td className="text-center">-</td>
-              </tr>
-            </tbody>
-          </table>
+      </div>
+      <div className="section">
+        <h3>Wave Table</h3>
+
+        <div className="columns-3">
+          <div className="section">
+            <h4 id="act-1-waves-1-4">ACT 1 - WAVES 1-4</h4>
+
+            <table>
+              <thead>
+                <tr>
+                  <th style={{textAlign: 'center'}}>Wave</th>
+                  <th style={{textAlign: 'center'}}>Roll</th>
+                  <th>Spawns</th>
+                  <th>MP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style={{textAlign: 'center'}}><strong>Wave 1</strong></td>
+                  <td style={{textAlign: 'center'}}>1-4</td>
+                  <td>2x Carrion Leech</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>5</td>
+                  <td>2x Blight Herald</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>6</td>
+                  <td>1x Ruin Fiend</td>
+                </tr>
+                <tr className="border-t border-border">
+                  <td style={{textAlign: 'center'}}><strong>Wave 2</strong></td>
+                  <td style={{textAlign: 'center'}}>1-4</td>
+                  <td>2x Toxin Spitter</td>
+                  <th>5</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>5</td>
+                  <td>2x Blight Herald</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>6</td>
+                  <td>1x Ashline Gunner</td>
+                </tr>
+                <tr className="border-t border-border">
+                  <td style={{textAlign: 'center'}}><strong>Wave 3</strong></td>
+                  <td style={{textAlign: 'center'}}>1-2</td>
+                  <td>3x Carrion Leech</td>
+                  <th>6</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>3-4</td>
+                  <td>2x Toxin Spitter</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>5</td>
+                  <td>2x Blight Herald</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>6</td>
+                  <td>1x Ruin Fiend</td>
+                </tr>
+                <tr className="border-t border-border">
+                  <td style={{textAlign: 'center'}}><strong>Wave 4</strong></td>
+                  <td style={{textAlign: 'center'}}>1-2</td>
+                  <td>3x Carrion Leech</td>
+                  <th>10</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>3-4</td>
+                  <td>2x Toxin Spitter</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>5</td>
+                  <td>2x Blight Herald</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>6</td>
+                  <td>1x Ashline Gunner</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}></td>
+                  <td>+ 1 Random Boss</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="section">
+            <h4 id="act-2-waves-5-8">ACT 2 - WAVES 5-8</h4>
+
+            <table>
+              <thead>
+                <tr>
+                  <th style={{textAlign: 'center'}}>Wave</th>
+                  <th style={{textAlign: 'center'}}>Roll</th>
+                  <th>Spawns</th>
+                  <th>MP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style={{textAlign: 'center'}}><strong>Wave 5</strong></td>
+                  <td style={{textAlign: 'center'}}>1-4</td>
+                  <td>2x Ruin Fiend</td>
+                  <th>8</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>5</td>
+                  <td>2x Dustborn Thrall</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>6</td>
+                  <td>1x Razorhowl Reaver</td>
+                </tr>
+                <tr className="border-t border-border">
+                  <td style={{textAlign: 'center'}}><strong>Wave 6</strong></td>
+                  <td style={{textAlign: 'center'}}>1-4</td>
+                  <td>2x Ashline Gunner</td>
+                  <th>9</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>5</td>
+                  <td>2x Dustborn Thrall</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>6</td>
+                  <td>1x Graveward Sentinel</td>
+                </tr>
+                <tr className="border-t border-border">
+                  <td style={{textAlign: 'center'}}><strong>Wave 7</strong></td>
+                  <td style={{textAlign: 'center'}}>1-2</td>
+                  <td>3x Ruin Fiend</td>
+                  <th>10</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>3-4</td>
+                  <td>2x Ashline Gunner</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>5</td>
+                  <td>2x Dustborn Thrall</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>6</td>
+                  <td>1x Razorhowl Reaver</td>
+                </tr>
+                <tr className="border-t border-border">
+                  <td style={{textAlign: 'center'}}><strong>Wave 8</strong></td>
+                  <td style={{textAlign: 'center'}}>1-2</td>
+                  <td>3x Ruin Fiend</td>
+                  <th>14</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>3-4</td>
+                  <td>2x Ashline Gunner</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>5</td>
+                  <td>2x Dustborn Thrall</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>6</td>
+                  <td>1x Graveward Sentinel</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}></td>
+                  <td>+ 1 Random Boss</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="section">
+            <h4 id="act-3-waves-9-12">ACT 3 - WAVES 9-12</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th style={{textAlign: 'center'}}>Wave</th>
+                  <th style={{textAlign: 'center'}}>Roll</th>
+                  <th>Spawns</th>
+                  <th>MP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style={{textAlign: 'center'}}><strong>Wave 9</strong></td>
+                  <td style={{textAlign: 'center'}}>1-4</td>
+                  <td>2x Razorhowl Reaver</td>
+                  <th>12</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>5</td>
+                  <td>2x Last-Light Executioner</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>6</td>
+                  <td>2x Last-Light Executioner</td>
+                </tr>
+                <tr className="border-t border-border">
+                  <td style={{textAlign: 'center'}}><strong>Wave 10</strong></td>
+                  <td style={{textAlign: 'center'}}>1-4</td>
+                  <td>2x Graveward Sentinel</td>
+                  <th>13</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>5</td>
+                  <td>2x Last-Light Executioner</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>6</td>
+                  <td>2x Last-Light Executioner</td>
+                </tr>
+                <tr className="border-t border-border">
+                  <td style={{textAlign: 'center'}}><strong>Wave 11</strong></td>
+                  <td style={{textAlign: 'center'}}>1-2</td>
+                  <td>3x Razorhowl Reaver</td>
+                  <th>14</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>3-4</td>
+                  <td>2x Graveward Sentinel</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>5</td>
+                  <td>2x Last-Light Executioner</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>6</td>
+                  <td>2x Last-Light Executioner</td>
+                </tr>
+                <tr className="border-t border-border">
+                  <td style={{textAlign: 'center'}}><strong>Wave 12</strong></td>
+                  <td style={{textAlign: 'center'}}>1-2</td>
+                  <td>3x Razorhowl Reaver</td>
+                  <th>18</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>3-4</td>
+                  <td>2x Graveward Sentinel</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}>5-6</td>
+                  <td>2x Last-Light Executioner</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style={{textAlign: 'center'}}></td>
+                  <td>+ 1 Random Boss</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -326,7 +523,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             </div>
             <div>
               <strong>10: Enemy Reinforcements</strong>
-              <div className="ml-4">Spawn <code>1D3</code> new Horde Units at current Difficulty.</div>
+              <div className="ml-4">Roll <code>1D6</code> and Spawn Horder Units according to the Wave table for this Wave.</div>
             </div>
             <div>
               <strong>11: Coordinated Assault</strong>
