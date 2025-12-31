@@ -610,8 +610,8 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <strong>5: Suppression Field</strong>
             <div className="ml-4">
               <strong>Setup:</strong> Place 3 Disruptor Pylons as close as possible to the center of three random Tiles.<br/>
-              <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
-              <strong>Victory:</strong> All 3 Pylons have been calibrated.
+              <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Disruptor Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
+              <strong>Victory:</strong> All 3 Disruptor Pylons have been calibrated.
             </div>
           </div>
           <div>
