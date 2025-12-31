@@ -1,4 +1,5 @@
 import MissionBlock from '@/components/shared/MissionBlock'
+import PageBreak from '@/components/ui/PageBreak'
 import UnitCard from '@/components/unit/UnitCard'
 import hordemaps from '@/data/hordemaps.json'
 import { SpecialService, SquadService } from '@/services'
@@ -146,23 +147,24 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
         </div>
       </div>
 
-      <div className="section twocols">
-        <div className="section">
-          <h3>Spawning Horde Units</h3>
-          At the start of each wave, roll <code>3D6</code>. Each die result maps to a Horde Unit and its quantity to Spawn.
-          <br/>
-          For example, in Wave 5, we roll <code>3D6</code> and get 1, 3, and 6. This maps to:
-          <ul>
-            <li>4 Ruin Stalkers (<code>1, 3</code>, each mapping to 2 Ruin Stalkers)</li>
-            <li>1 Razorhowl Reaver (<code>6</code>)</li>
-          </ul>
-          When placing Spawned Units, place the first Unit Adjacent to the first Spawn point, the second Unit Adjacent to the second Spawn point, etc.
-          If you run out of Spawn points, just start back on the first one.
-          <br/>
-          For Boss Waves (4, 8, and 12), select a random Boss Unit and follow its Spawn instructions for placement and other rules.
-          If you already fought the selected Boss in a previous Wave, re-roll until you get a Boss you haven't fought yet.
-        </div>
+      <PageBreak />
+      <div className="section">
+        <h3>Spawning Horde Units</h3>
+        At the start of each wave, roll <code>3D6</code>. Each die result maps to a Horde Unit and its quantity to Spawn.
+        <br/>
+        For example, in Wave 5, we roll <code>3D6</code> and get <code>1, 3, 6</code>.
+        This maps to:
+        <ul>
+          <li>4 Ruin Stalkers (<code>1</code> and <code>3</code>, each mapping to 2 Ruin Stalkers)</li>
+          <li>1 Razorhowl Reaver (<code>6</code>)</li>
+        </ul>
+        When placing Spawned Units, place the first Unit Adjacent to the first Spawn point, the second Unit Adjacent to the second Spawn point, etc.
+        If you run out of Spawn points, just start back on the first one.
+        <br/><br/>
+        For Boss Waves (4, 8, and 12), select a random Boss Unit and follow its Spawn instructions for placement and other rules.
+        If you already fought the selected Boss in a previous Wave, re-roll until you get a Boss you haven't fought yet.
       </div>
+      
       <div className="section">
         <h3>Wave Table</h3>
 
