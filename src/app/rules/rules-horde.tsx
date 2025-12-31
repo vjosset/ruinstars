@@ -28,7 +28,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           Each Wave brings new threats, stronger enemies, and unpredictable battlefield events.
           Players must balance aggression, positioning, resource management, and emergency recovery as the enemy pressure steadily increases.
           The Horde never stops coming; only brief respites between Waves allowing Units to patch wounds, recover supplies, and deploy defenses.
-          <br/>
+          <br/><br/>
           Unlike standard Missions, Horde Mode has no fixed objective beyond survival.
           Waves only end when all Horde Units are Taken Out, and difficulty steadily rises as the battle grinds on.
           Special Turn Events, supply drops, reinforcements, and Boss encounters ensure that no two runs play the same.
@@ -36,89 +36,120 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
         </p>
       </div>
 
-      <div className="section twocols">
+      <h3>The Game Cycle</h3>
+      <div className="twocols">
         <div className="section">
-          <h3>The Game Cycle</h3>
-          <ol>
+          <ol className="border border-main rounded-md m-2 mx-24">
             <li>Set up battlefield</li>
             <li>Deploy Player Squad</li>
             <li>
-              <strong>Waves</strong>
+              Play a Wave
               <ol>
-                {/* <li>Roll Wave mod</li> */}
-                <li>Spawn Horde Units (see Wave table below)</li>
+                <li>Spawn Enemies</li>
                 <li>Roll Wave Objective</li>
-                <li>
-                  <strong>Turns</strong>
-                  <ol>
-                    <li>Roll Tactical Orders (TO)</li>
-                    <li>Turns 1-4: Roll Turn Event</li>
-                    <li>Turns 5+: <strong>Containment Breach</strong> - Turn Event is "Enemy Reinforcements"</li>
-                    <li>
-                      Activations
-                      <ul>
-                        <li>Activate a Player Unit</li>
-                        <li>Activate a Horde Unit (follow its &quot;Behavior&quot; skill). If there is a Horde Boss, that Boss should be the first Horde Unit to activate.</li>
-                        <li>Repeat until all Units have been activated</li>
-                      </ul>
-                    </li>
-                    <li>
-                      End of Turn
-                      <ul>
-                        <li>If there are no Standing Horde Units, the Wave ends.<br/>Spend MP on Upgrades (see "Upgrades" below) and prepare for the next Wave.</li>
-                        <li>
-                          If this is the end of Turn 4 for the Wave and there are any Standing Horde Units:
-                          <ul>
-                            <li>The Wave enters <strong>Containment Breach</strong> mode</li>
-                            <li>All Turn Events for the remainder of this Wave are treated as "Reinforcements"</li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                  </ol>
-                </li>
+                <li>Play Turns until the Wave Ends</li>
+                <li>Spend MP and prepare for the next Wave</li>
               </ol>
             </li>
           </ol>
         </div>
 
         <div className="section">
-          <div className="section">
-            <h3>Player Squads</h3>
+          <h4>Set up Battlefield</h4>
+          Set up the battlefield following the mission's instructions. Define player deployment zones, enemy spawn zones, and place any mission markers.
+          See the battlefields listed below for details.
+        </div>
 
-            In Horde mode, players deploy a normal 100GP Squad.  
-            When playing cooperatively, players may choose one of the following formats:
-            <ul>
-              <li>
-                <strong>Shared Squad:</strong><br/>
-                Players share control of one full 100 GP Squad.
-                Players take turns activating Units in that Squad.
-              </li>
-              <li>
-                <strong>Mini Squads:</strong><br/>
-                Each player deploys a reduced-size Squad:
-                <ul>
-                  <li>2 Players → 50 GP each</li>
-                  <li>3 Players → 34 GP each</li>
-                  <li>4 Players → 25 GP each</li>
-                </ul>
-                Notes:
-                <ul>
-                  <li>
-                    Each mini-squad may have a Leader, but their Leader effect is ignored and each mini-squad rolls <code>1D3</code> for TO.
-                    <ul>
-                      <li>
-                        Alternatively, select one mini-squad to have the sole leader, and roll TO normally (including the Leader's <code>Leader x</code> skill).
-                        In this case, all mini-squads share the obtained TO.
-                      </li>
-                    </ul>
-                  </li>
-                  <li>Units that are in different mini-Squads are considered to be Squadmates.</li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+        <div className="section">
+          <h4>Deploy the Player Squad</h4>
+          Deploy all Player Units in the battlefield's deployment zone.<br/>
+          In Horde mode, players deploy a normal 100GP Squad.  
+          When playing cooperatively, players may choose one of the following formats:
+          <ul>
+            <li>
+              <strong>Shared Squad:</strong><br/>
+              Players share control of one full 100 GP Squad.
+              Players take turns activating Units in that Squad.
+            </li>
+            <li>
+              <strong>Mini Squads:</strong><br/>
+              Each player deploys a reduced-size Squad:
+              <ul>
+                <li>2 Players → 50 GP each</li>
+                <li>3 Players → 34 GP each</li>
+                <li>4 Players → 25 GP each</li>
+              </ul>
+              Notes:
+              <ul>
+                <li>
+                  Each mini-squad may have a Leader, but their Leader effect is ignored and each mini-squad rolls <code>1D3</code> for TO.
+                  <ul>
+                    <li>
+                      Alternatively, select one mini-squad to have the sole leader, and roll TO normally (including the Leader's <code>Leader x</code> skill).
+                      In this case, all mini-squads share the obtained TO.
+                    </li>
+                  </ul>
+                </li>
+                <li>Units that are in different mini-Squads are considered to be Squadmates.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
 
+        <div className="section">
+          <h4>Play a Wave</h4>
+          Each Wave follows the same sequence:
+          <ol>
+            <li>
+              <strong>Spawn Horde Units</strong><br/>
+              Spawn Horde Units according to the Wave table below. Place Units starting from the primary spawn point and following the placement rules listed under Spawn.
+            </li>
+            <li>
+              <strong>Roll Wave Objective</strong><br/>
+              Roll or select a Wave Objective (see below). This objective remains in effect for the duration of the Wave.
+            </li>
+            <li>
+              <strong>Play Turns</strong><br/>
+              Each Wave lasts for a series of Turns until all Horde Units are Taken Out.
+            </li>
+            <li>
+              <strong>Upgrades</strong><br/>
+              Spend your earned MP on Upgrades (see below), then prepare for the next Wave.
+            </li>
+          </ol>
+        </div>
+
+        <div className="section">
+          <h4>Turn Sequence</h4>
+          <ol>
+            <li>Roll Tactical Orders (TO)</li>
+            <li>
+              Turn Event<br/>
+              For Turns 1-4 of a Wave, roll on the Turn Events table below.<br/>
+              For Turns 5+ of a Wave, the Turn Event is always <strong>Enemy Reinforcements</strong>.
+            </li>
+            <li>
+              Activations
+              <ul>
+                <li>Player Squad always has initiative</li>
+                <li>Activate one Player Unit</li>
+                <li>
+                  Activate one Horde Unit. Follow that Unit's <strong>Behavior</strong> skill.<br/>
+                  <u>Note:</u> If a Horde Boss is present, it activates first
+                </li>
+                <li>Repeat until all Units have activated</li>
+              </ul>
+            </li>
+            <li>
+              End of Turn<br/>
+              If there are no Standing Horde Units, the Wave ends.
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div className="section twocols">
+        <div className="section">
           <div className="section">
             <h3>Downed Units</h3>
             When a Player Unit reaches zero <code>HIT</code>, do not remove it from the battlefield.
@@ -525,7 +556,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             </div>
             <div>
               <strong>10: Enemy Reinforcements</strong>
-              <div className="ml-4">Roll <code>1D6</code> and Spawn Horder Units according to the Wave table for this Wave.</div>
+              <div className="ml-4">Roll <code>1D6</code> and Spawn Horde Units according to the Wave table for this Wave.</div>
             </div>
             <div>
               <strong>11: Coordinated Assault</strong>
