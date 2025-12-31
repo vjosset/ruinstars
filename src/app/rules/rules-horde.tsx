@@ -168,7 +168,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
       <div className="section">
         <h3>Wave Table</h3>
 
-        <div className="columns-3">
+        <div style={{columns: '300px'}}>
           <div className="section">
             <h4 id="act-1-waves-1-4">ACT 1 - WAVES 1-4</h4>
 
@@ -196,7 +196,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr>
                   <td></td>
                   <td style={{textAlign: 'center'}}>6</td>
-                  <td>1x Ruin Fiend</td>
+                  <td>1x Ruin Stalker</td>
                 </tr>
                 <tr className="border-t border-border">
                   <td style={{textAlign: 'center'}}><strong>Wave 2</strong></td>
@@ -233,7 +233,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr>
                   <td></td>
                   <td style={{textAlign: 'center'}}>6</td>
-                  <td>1x Ruin Fiend</td>
+                  <td>1x Ruin Stalker</td>
                 </tr>
                 <tr className="border-t border-border">
                   <td style={{textAlign: 'center'}}><strong>Wave 4</strong></td>
@@ -281,7 +281,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr>
                   <td style={{textAlign: 'center'}}><strong>Wave 5</strong></td>
                   <td style={{textAlign: 'center'}}>1-4</td>
-                  <td>2x Ruin Fiend</td>
+                  <td>2x Ruin Stalker</td>
                   <th>8</th>
                 </tr>
                 <tr>
@@ -313,7 +313,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr className="border-t border-border">
                   <td style={{textAlign: 'center'}}><strong>Wave 7</strong></td>
                   <td style={{textAlign: 'center'}}>1-2</td>
-                  <td>3x Ruin Fiend</td>
+                  <td>3x Ruin Stalker</td>
                   <th>10</th>
                 </tr>
                 <tr>
@@ -334,7 +334,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr className="border-t border-border">
                   <td style={{textAlign: 'center'}}><strong>Wave 8</strong></td>
                   <td style={{textAlign: 'center'}}>1-2</td>
-                  <td>3x Ruin Fiend</td>
+                  <td>3x Ruin Stalker</td>
                   <th>14</th>
                 </tr>
                 <tr>
