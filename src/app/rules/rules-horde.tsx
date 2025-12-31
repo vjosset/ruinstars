@@ -114,7 +114,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             </li>
             <li>
               <strong>Upgrades</strong><br/>
-              Spend your earned MP on Upgrades (see below), then prepare for the next Wave.
+              Earn the MP listed for the Wave and spend your earned MP on Upgrades (see below), then prepare for the next Wave.
             </li>
           </ol>
         </div>
