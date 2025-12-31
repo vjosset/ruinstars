@@ -659,8 +659,8 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
         <div className="section">
           <h3>Crates</h3>
           <p>
-          Crate contents are unknown until they are opened.
-          Crates can be targeted in combat, causing explosions dealing 3 Damage to all Adjacent Units. <code>ARM 3 HIT 1</code>.
+            Crate contents are unknown until they are opened.
+            Crates are items with <code>ARM 3 HIT 1</code> and can be targeted in combat. If a crate reaches 0 <code>HIT</code>, it causes an explosion dealing 3 Damage to all Adjacent Units, then remove it from the battlefield.
           </p>
           <strong>Mission Action - Open Crate (1 ACT):</strong> A Unit that Controls a Crate opens it. Roll to determine its contents, then remove that Crate from the battlefield.
 
