@@ -45,9 +45,9 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <li>
               Play Waves
               <ol>
-                <li>Spawn Enemies</li>
+                <li>Spawn Horde Units</li>
                 <li>Roll Wave Objective</li>
-                <li>Play Turns until the Wave Ends</li>
+                <li>Play Turns until all Horde Units are Taken Out</li>
                 <li>Spend MP and prepare for the next Wave</li>
               </ol>
             </li>
@@ -97,7 +97,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
         </div>
 
         <div className="section">
-          <h4>Play a Wave</h4>
+          <h4>Playing a Wave</h4>
           Each Wave follows the same sequence:
           <ol>
             <li>
