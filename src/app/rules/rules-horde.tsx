@@ -39,7 +39,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
       <h3>The Game Cycle</h3>
       <div className="twocols">
         <div className="section">
-          <ol className="border border-main rounded-md m-2 mx-24">
+          <ol className="border border-main rounded-md m-2 mx-4 xl:mx-24">
             <li>Set up battlefield</li>
             <li>Deploy Player Squad</li>
             <li>
