@@ -43,7 +43,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <li>Set up battlefield</li>
             <li>Deploy Player Squad</li>
             <li>
-              Play a Wave
+              Play Waves
               <ol>
                 <li>Spawn Enemies</li>
                 <li>Roll Wave Objective</li>
