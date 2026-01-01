@@ -189,7 +189,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
         For example, in Wave 5, we roll <code>3D6</code> and get <code>1, 3, 6</code>.
         This maps to:
         <ul>
-          <li>4 Ruin Stalkers (<code>1</code> and <code>3</code>, each mapping to 2 Ruin Stalkers)</li>
+          <li>6 Ruin Stalkers (<code>1</code> and <code>3</code>, each mapping to 3 Ruin Stalkers)</li>
           <li>1 Razorhowl Reaver (<code>6</code>)</li>
         </ul>
         When placing Spawned Units, place the first Unit Adjacent to the first Spawn point, the second Unit Adjacent to the second Spawn point, etc.
@@ -219,7 +219,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr>
                   <td style={{textAlign: 'center'}}><strong>Wave 1</strong></td>
                   <td style={{textAlign: 'center'}}>1-4</td>
-                  <td>2x Carrion Leech</td>
+                  <td>3x Carrion Leech</td>
                   <td>4</td>
                 </tr>
                 <tr>
@@ -235,7 +235,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr className="border-t border-border">
                   <td style={{textAlign: 'center'}}><strong>Wave 2</strong></td>
                   <td style={{textAlign: 'center'}}>1-4</td>
-                  <td>2x Toxin Spitter</td>
+                  <td>3x Toxin Spitter</td>
                   <th>5</th>
                 </tr>
                 <tr>
@@ -257,7 +257,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr>
                   <td></td>
                   <td style={{textAlign: 'center'}}>3-4</td>
-                  <td>2x Toxin Spitter</td>
+                  <td>3x Toxin Spitter</td>
                 </tr>
                 <tr>
                   <td></td>
@@ -278,7 +278,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr>
                   <td></td>
                   <td style={{textAlign: 'center'}}>3-4</td>
-                  <td>2x Toxin Spitter</td>
+                  <td>3x Toxin Spitter</td>
                 </tr>
                 <tr>
                   <td></td>
@@ -315,7 +315,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr>
                   <td style={{textAlign: 'center'}}><strong>Wave 5</strong></td>
                   <td style={{textAlign: 'center'}}>1-4</td>
-                  <td>2x Ruin Stalker</td>
+                  <td>3x Ruin Stalker</td>
                   <th>8</th>
                 </tr>
                 <tr>
@@ -331,7 +331,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr className="border-t border-border">
                   <td style={{textAlign: 'center'}}><strong>Wave 6</strong></td>
                   <td style={{textAlign: 'center'}}>1-4</td>
-                  <td>2x Ashline Gunner</td>
+                  <td>3x Ashline Gunner</td>
                   <th>9</th>
                 </tr>
                 <tr>
@@ -353,7 +353,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr>
                   <td></td>
                   <td style={{textAlign: 'center'}}>3-4</td>
-                  <td>2x Ashline Gunner</td>
+                  <td>3x Ashline Gunner</td>
                 </tr>
                 <tr>
                   <td></td>
@@ -374,7 +374,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr>
                   <td></td>
                   <td style={{textAlign: 'center'}}>3-4</td>
-                  <td>2x Ashline Gunner</td>
+                  <td>3x Ashline Gunner</td>
                 </tr>
                 <tr>
                   <td></td>
@@ -410,34 +410,24 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr>
                   <td style={{textAlign: 'center'}}><strong>Wave 9</strong></td>
                   <td style={{textAlign: 'center'}}>1-4</td>
-                  <td>2x Razorhowl Reaver</td>
+                  <td>3x Razorhowl Reaver</td>
                   <th>12</th>
                 </tr>
                 <tr>
                   <td></td>
-                  <td style={{textAlign: 'center'}}>5</td>
-                  <td>2x Last-Light Executioner</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td style={{textAlign: 'center'}}>6</td>
-                  <td>2x Last-Light Executioner</td>
+                  <td style={{textAlign: 'center'}}>5-6</td>
+                  <td>3x Last-Light Executioner</td>
                 </tr>
                 <tr className="border-t border-border">
                   <td style={{textAlign: 'center'}}><strong>Wave 10</strong></td>
                   <td style={{textAlign: 'center'}}>1-4</td>
-                  <td>2x Graveward Sentinel</td>
+                  <td>3x Graveward Sentinel</td>
                   <th>13</th>
                 </tr>
                 <tr>
                   <td></td>
-                  <td style={{textAlign: 'center'}}>5</td>
-                  <td>2x Last-Light Executioner</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td style={{textAlign: 'center'}}>6</td>
-                  <td>2x Last-Light Executioner</td>
+                  <td style={{textAlign: 'center'}}>5-6</td>
+                  <td>3x Last-Light Executioner</td>
                 </tr>
                 <tr className="border-t border-border">
                   <td style={{textAlign: 'center'}}><strong>Wave 11</strong></td>
@@ -448,17 +438,12 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr>
                   <td></td>
                   <td style={{textAlign: 'center'}}>3-4</td>
-                  <td>2x Graveward Sentinel</td>
+                  <td>3x Graveward Sentinel</td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td style={{textAlign: 'center'}}>5</td>
-                  <td>2x Last-Light Executioner</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td style={{textAlign: 'center'}}>6</td>
-                  <td>2x Last-Light Executioner</td>
+                  <td style={{textAlign: 'center'}}>5-6</td>
+                  <td>3x Last-Light Executioner</td>
                 </tr>
                 <tr className="border-t border-border">
                   <td style={{textAlign: 'center'}}><strong>Wave 12</strong></td>
@@ -469,12 +454,12 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
                 <tr>
                   <td></td>
                   <td style={{textAlign: 'center'}}>3-4</td>
-                  <td>2x Graveward Sentinel</td>
+                  <td>3x Graveward Sentinel</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td style={{textAlign: 'center'}}>5-6</td>
-                  <td>2x Last-Light Executioner</td>
+                  <td>3x Last-Light Executioner</td>
                 </tr>
                 <tr>
                   <td></td>
