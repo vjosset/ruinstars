@@ -105,7 +105,9 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <ol>
             <li>
               <strong>Spawn Horde Units</strong><br/>
-              Spawn Horde Units according to the Wave table below. Place Units starting from the primary spawn point and following the placement rules listed under Spawn.
+              Spawn Horde Units according to the Wave table below.<br/>
+              Starting with Spawn Point #1, place one Unit Adjacent to that Spawn Point, then move to Spawn Point #2, and so on.
+              If all Spawn Points have been used and Units remain to be placed, return to Spawn Point #1 and repeat until all Units are placed.
             </li>
             <li>
               <strong>Roll Wave Objective</strong><br/>
