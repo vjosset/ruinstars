@@ -25,6 +25,9 @@ const CODE_COLORS: Record<string, string> = {
   S1: '#dc2626',
   S2: '#dc2626',
   S3: '#dc2626',
+  S4: '#dc2626',
+  S5: '#dc2626',
+  S6: '#dc2626',
 }
 
 const COLOR_PALETTE = [
