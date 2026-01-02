@@ -508,7 +508,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <h3>Turn Events</h3>
             <p>
               At the start of each Turn, roll <code>2D6</code> to determine a special event for the Turn.
-              If the Wave is in <strong>Containment Breach</strong> mode (Wave is in Turn 5 or later), do not roll Turn Events and use the Enemy Reinforcements event instead.
+              If the Wave is in Turn 5 or later, do not roll Turn Events and apply the <strong>Enemy Reinforcements</strong> event instead.
             </p>
             <div>
               <strong>2: Second Wind</strong>
@@ -561,12 +561,18 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <h3>Wave Objectives</h3>
           <p>Wave Objectives are optional bonuses; failure does not end the Wave.</p>
           <p>At the start of each Wave, roll <code>1D6</code> to determine the Wave's Objective. If a Wave Objective is not completed by the end of the Wave, that Wave Objective is failed.</p>
-
+          <p>Once a Wave Objective is completed according to its Victory condition, select one of the rewards to apply to the Player Squad immediately.</p>
           <h4>Objectives</h4>
           <div>
             <strong>1: Battlefield Control</strong>
             <div className="ml-4">
               <strong>Victory:</strong> At the end of the Wave, there is at least one Standing Player Unit on the NW, NE, SW, and SE Tiles.
+              <br/>
+              <strong>Rewards</strong> (pick one):
+              <ul>
+                <li>+4 MP</li>
+                <li>2 Player Units may immediately perform a free Move action, or one Player Unit performs 2 free Move Actions.</li>
+              </ul>
             </div>
           </div>
           <div>
@@ -574,13 +580,23 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <div className="ml-4">
               <strong>Setup:</strong> Place 3 Nexus markers as close as possible to the center of the West, Center, and East Tiles.<br/>
               <strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
-              <strong>Victory:</strong> All Nexus Markers Taken Out by the end of the Wave.
+              <strong>Victory:</strong> All Nexus Markers Taken Out by the end of the Wave.<br/>
+              <strong>Rewards</strong> (pick one):
+              <ul>
+                <li>+4 MP</li>
+                <li>All Horde Units immediately take 2 damage.</li>
+              </ul>
             </div>
           </div>
           <div>
             <strong>3: Overwhelming Force</strong>
             <div className="ml-4">
-              <strong>Victory:</strong> End the Wave within 2 Turns.
+              <strong>Victory:</strong> End the Wave within 2 Turns.<br/>
+              <strong>Rewards</strong> (pick one):
+              <ul>
+                <li>+4 MP</li>
+                <li>One Standing Player Unit regains 1 lost <code>HIT</code>.</li>
+              </ul>
             </div>
           </div>
           <div>
@@ -588,15 +604,25 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <div className="ml-4">
               <strong>Setup:</strong> Place an Asset marker as close as possible to the Center of a random Tile (excluding the player deployment Tile). Assets are Items with <code>ARM 4 HIT 4</code>.<br/>
               <strong>Special:</strong> Horde Units will always prioritize targeting the Asset instead of Player Units in combat.<br/>
-              <strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of the Wave.
+              <strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of the Wave.<br/>
+              <strong>Rewards</strong> (pick one):
+              <ul>
+                <li>+4 MP</li>
+                <li>Player Squad gains +4 TO in the first Turn of the next Wave.</li>
+              </ul>
             </div>
           </div>
           <div>
-            <strong>5: Suppression Field</strong>
+            <strong>5: Disruption Field</strong>
             <div className="ml-4">
               <strong>Setup:</strong> Place 3 Disruptor Pylons as close as possible to the center of three random Tiles.<br/>
               <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Disruptor Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
-              <strong>Victory:</strong> All 3 Disruptor Pylons have been calibrated.
+              <strong>Victory:</strong> All 3 Disruptor Pylons have been calibrated.<br/>
+              <strong>Rewards</strong> (pick one):
+              <ul>
+                <li>+4 MP</li>
+                <li>All Player Units gain +1 <code>ATT</code> on their Ranged and Melee weapons until the end of the Wave.</li>
+              </ul>
             </div>
           </div>
           <div>
@@ -604,19 +630,14 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <div className="ml-4">
               <strong>Setup:</strong> Place 3 Search Markers in the center of three random Tiles.<br/>
               <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. Roll <code>1D6</code>: On a 1 or 2, the Artifact is found. This roll cannot be modified or re-rolled using TO.<br/>
-              <strong>Victory:</strong> The Artifact is found.
+              <strong>Victory:</strong> The Artifact is found.<br/>
+              <strong>Rewards</strong> (pick one):
+              <ul>
+                <li>+4 MP</li>
+                <li>One Player Unit immediately gains 1 Spoil of War</li>
+              </ul>
             </div>
           </div>
-
-          <h4>Rewards</h4>
-          <p>Once a Wave Objective's Victory condition is met, the Player Squad immediately selects one reward from the list below:</p>
-          <ul>
-            <li>+4 MP</li>
-            <li>+4 TO. If this Wave Objective's Victory is determined at the end of the Wave, those TO are given in the first Turn of the next Wave, after resolving Turn events.</li>
-            <li>One Downed Unit immediately returns to Standing with <code>1 HIT</code> remaining.</li>
-            <li>One Standing Unit immediately gains one Spoil of War</li>
-            <li><code>1D3</code> Player Units perform a free Move action</li>
-          </ul>
         </div>
       </div>
 
