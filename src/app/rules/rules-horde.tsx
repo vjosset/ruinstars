@@ -632,7 +632,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               <strong>Rewards</strong> (pick one):
               <ul>
                 <li>+4 MP</li>
-                <li>All Player Units gain +1 <code>ATT</code> on their Ranged and Melee weapons until the end of the Wave.</li>
+                <li>All Horde Units lose -1 <code>ATT</code> (minimum 1) on their Ranged and Melee weapons until the end of the Wave.</li>
               </ul>
             </div>
           </div>
