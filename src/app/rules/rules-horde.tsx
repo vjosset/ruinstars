@@ -157,16 +157,25 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
         <div className="section">
           <div className="section">
             <h3>Downed Units</h3>
-            When a Player Unit reaches zero <code>HIT</code>, do not remove it from the battlefield.
-            Instead, set it on its side to indicate its <strong>Downed</strong> status.
-            Downed Units are ignored by Horde Units, cannot be targeted in combat, and do not take any Damage.
-            <br/>
-            During their activation, Downed Units may only perform the Dash action. <br/>
-            A Standing Unit may revive a Downed Unit it Controls (<code>2 ACT</code> Mission Action): The Downed Unit returns as Standing with <code>1 HIT</code> remaining.
-            <br/>
-            Whenever a Downed Unit is revived, it gains one random Injury. If that Injury is one that the Unit already has, the Unit is Deceased and removed from the battlefield.
-            <br/>
-            If all Player Units are Downed or Deceased, the Mission ends in failure.
+            <p>
+              When a Player Unit reaches zero <code>HIT</code>, do not remove it from the battlefield.
+              Instead, set it on its side to indicate its <strong>Downed</strong> status.
+              Downed Units are ignored by Horde Units, cannot be targeted in combat, and do not take any Damage.
+              <br/>
+              During their activation, Downed Units may only perform the Move, Dash, or Revive actions. Move and Dash do not trigger Attacks of Opportunity.<br/>
+              If all Player Units are Downed or Deceased, the Mission ends in failure.
+            </p>
+            <p>
+              <h5>Reviving Downed Units</h5>
+              A Standing Unit may revive a Downed Squadmate it Controls:<br/>
+              <strong>Mission Action - Revive - 2 ACT</strong>: The Downed Unit returns as Standing with <code>1 HIT</code> remaining.<br/>
+              A Downed Unit may revive itself if it Controls a Squadmate:<br/>
+              <strong>Mission Action - Revive - 2 ACT</strong>: The Downed Unit returns as Standing with <code>1 HIT</code> remaining.
+            </p>
+            <p>
+              Whenever a Downed Unit is revived, it gains one random Injury (see Injuries below).
+              If that Injury is one that the Unit already has, the Unit is Deceased and permanently removed from the battlefield.
+            </p>
           </div>
         </div>
       </div>
@@ -514,7 +523,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             </p>
             <div>
               <strong>2: Second Wind</strong>
-              <div className="ml-4">A Downed Unit returns as Standing with <code>1 HIT</code> remaining.</div>
+              <div className="ml-4">A Downed Unit is Revived and returns as Standing with <code>1 HIT</code> remaining. Apply one random injury to that Unit.</div>
             </div>
             <div>
               <strong>3: Field Dressing</strong>
@@ -546,11 +555,11 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             </div>
             <div>
               <strong>10: Enemy Reinforcements</strong>
-              <div className="ml-4">Roll <code>1D6</code> and Spawn Horde Units according to the Wave table for this Wave.</div>
+              <div className="ml-4">Roll <code>1D6</code> and Spawn 1 Horde Unit according to the Wave table for this Wave (ignore the Wave Table quantity).</div>
             </div>
             <div>
               <strong>11: Coordinated Assault</strong>
-              <div className="ml-4">Horde Units have <code>+1 ACT</code> this Turn.</div>
+              <div className="ml-4">Horde Units have <code>+1 ATT</code> on their Melee and Ranged Weapons this Turn.</div>
             </div>
             <div>
               <strong>12: Overrun</strong>
@@ -656,13 +665,13 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
 
           <h4>Upgrades:</h4>
           <ul>
-            <li><strong>Ammunition (2 MP):</strong><br/> One Unit's Limited (<code>LIM</code>) weapon or "once per mission" ability can be used one additional time</li>
+            <li><strong>Ammunition (2 MP):</strong><br/> One Unit's Limited (<code>LIM</code>) weapon or "once per mission" skill can be used one additional time</li>
             <li><strong>Heal (4MP):</strong><br/> One Unit immediately regains 1 lost <code>HIT</code></li>
-            <li><strong>Grenade (4 MP):</strong><br/> One Unit gains a Grenade that can be used once for <code>1 ACT</code>: Throw grenade within 3 Paces. Deals 3 Ranged Damage to all Adjacent Units.</li>
+            <li><strong>Grenade (4 MP):</strong><br/> One Unit gains a Grenade that can be used once for <code>1 ACT</code>: Throw grenade within 3 Paces. Deals 2 Ranged Damage to all Adjacent Units.</li>
             <li><strong>Medpack (4MP):</strong><br/> One Unit gains a Medpack that can be used once for <code>1 ACT</code>: The Unit or a Squadmate it Controls regains <code>1D3</code> lost <code>HIT</code>.</li>
             <li><strong>Turret (6 MP):</strong><br/> One Unit gains a portable Turret it can place once for <code>1 ACT</code>: Place Turret Adjacent to Unit. Player Units that Control the Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4 SKL 5</code>. When using the Turret, draw Line of Sight from the Turret instead of the active Unit. No <code>ACT</code> penalty for multiple uses in same activation. Remove the Turret from the battlefield once it has been used 5 times.</li>
             <li><strong>Spoil Of War (8 MP):</strong><br/> One Standing Unit gains one Spoil Of War</li>
-            <li><strong>Reinforcements (8 MP):</strong><br/> One Downed Unit returns to Standing with all its HIT remaining</li>
+            <li><strong>Reinforcements (8 MP):</strong><br/> One Downed Unit returns to Standing with all its HIT remaining. Apply one random injury to that Unit.</li>
             <li><strong>Battlefield Chirurgy (8 MP):</strong><br/> Remove one Injury from one Standing Unit</li>
           </ul>
         </div>
@@ -671,7 +680,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           <h3>Crates</h3>
           <p>
             Crate contents are unknown until they are opened.
-            Crates are items with <code>ARM 3 HIT 1</code> and can be targeted in combat. If a crate reaches 0 <code>HIT</code>, it causes an explosion dealing 3 Damage to all Adjacent Units, then remove it from the battlefield.
+            Crates are items with <code>ARM 3 HIT 1</code> and can be targeted in combat. If a crate reaches 0 <code>HIT</code>, it causes an explosion dealing 2 Damage to all Adjacent Units, then remove it from the battlefield.
           </p>
           <strong>Mission Action - Open Crate (1 ACT):</strong> A Unit that Controls a Crate opens it. Roll to determine its contents, then remove that Crate from the battlefield.
 
@@ -697,7 +706,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
           </div>
           <div>
             <strong>6: Booby Trap</strong>
-            <div className="ml-4">Causes an explosion dealing 3 Damage to all Adjacent Units.</div>
+            <div className="ml-4">Causes an explosion dealing 2 Damage to all Adjacent Units.</div>
           </div>
         </div>
       </div>
