@@ -3,11 +3,11 @@
     "missionId": "1",
     "missionType": "Primary",
     "seq": 1,
-    "title": "The War-Torn Metropolis",
+    "title": "Last Stand",
     "active": true,
     "deployment": "",
     "victory": "",
-    "description": "The city is already dead. We're just fighting over the remains.\n\nTowering shells of buildings loom overhead, their interiors gutted by fire and artillery, rebar jutting like so much exposed bone. The streets are choked with overturned transports, shattered armor hulks, and smoldering craters where something fell hard and did not get back up. Ash drifts through the air, stinging the eyes and clogging lungs, while distant fires cast a dull orange glow through the smoke. The ground itself is treacherous, cracked and unstable, threatening collapse under careless movement.",
+    "description": "The city is gone, reduced to a maze of ruins and burning streets. At its center, a final strongpoint holds as the horde closes in from every direction. Surrounded by shattered towers and choked avenues, the defenders stand their ground, buying time with blood and fire while the metropolis collapses around them.",
     "diagram": [
       [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
       [ "  ", "S1", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "S2", "  " ],
