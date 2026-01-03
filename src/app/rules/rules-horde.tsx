@@ -153,10 +153,10 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
         </div>
       </div>
 
-      <div className="section twocols">
-        <div className="section">
+      <div className="section">
+        <h3>Downed Units</h3>
+        <div className="twocols">
           <div className="section">
-            <h3>Downed Units</h3>
             <p>
               When a Player Unit reaches zero <code>HIT</code>, do not remove it from the battlefield.
               Instead, set it on its side to indicate its <strong>Downed</strong> status.
@@ -165,6 +165,8 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               During their activation, Downed Units may only perform the Move, Dash, or Revive actions. Move and Dash do not trigger Attacks of Opportunity.<br/>
               If all Player Units are Downed or Deceased, the Mission ends in failure.
             </p>
+          </div>
+          <div className="section">
             <p>
               <h5>Reviving Downed Units</h5>
               A Standing Unit may revive a Downed Squadmate it Controls:<br/>
