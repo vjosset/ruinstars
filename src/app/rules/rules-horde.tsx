@@ -584,7 +584,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               <strong>Rewards</strong> (pick one):
               <ul>
                 <li>+4 MP</li>
-                <li>2 Player Units may immediately perform a free Move action, or one Player Unit performs 2 free Move Actions.</li>
+                <li>In the next Wave, roll <code>2D6</code> for Horde Spawns instead of <code>3D6</code>.</li>
               </ul>
             </div>
           </div>
@@ -673,8 +673,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             <li><strong>Medpack (4MP):</strong><br/> One Unit gains a Medpack that can be used once for <code>1 ACT</code>: The Unit or a Squadmate it Controls regains <code>1D3</code> lost <code>HIT</code>.</li>
             <li><strong>Turret (6 MP):</strong><br/> One Unit gains a portable Turret it can place once for <code>1 ACT</code>: Place Turret Adjacent to Unit. Player Units that Control the Turret can use it instead of their Ranged Weapon(s) when performing a Ranged Combat attack, using <code>ATT 4 SKL 5</code>. When using the Turret, draw Line of Sight from the Turret instead of the active Unit. No <code>ACT</code> penalty for multiple uses in same activation. Remove the Turret from the battlefield once it has been used 5 times.</li>
             <li><strong>Spoil Of War (8 MP):</strong><br/> One Standing Unit gains one Spoil Of War</li>
-            <li><strong>Reinforcements (8 MP):</strong><br/> One Downed Unit returns to Standing with all its HIT remaining. Apply one random injury to that Unit.</li>
-            <li><strong>Battlefield Chirurgy (8 MP):</strong><br/> Remove one Injury from one Standing Unit</li>
+            <li><strong>Reinforcements (8 MP):</strong><br/> One Downed Unit returns to Standing with 1 <code>HIT</code>s remaining. Apply one random injury to that Unit.</li>
           </ul>
         </div>
 
