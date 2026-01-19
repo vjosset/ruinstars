@@ -4,6 +4,7 @@ export type GearPlain = {
   gearId: string
   gearName: string
   description: string
+  flavor?: string
   gearType: string
   gearCategoryId: string
   seq: number
@@ -23,6 +24,7 @@ export class Gear {
   gearId: string
   gearName: string
   description: string
+  flavor?: string
   gearType: string
   gearCategoryId: string
   seq: number
@@ -41,6 +43,7 @@ export class Gear {
     gearId: string,
     gearName: string,
     description: string,
+    flavor?: string
     gearType: string,
     gearCategoryId: string,
     seq: number,
@@ -58,6 +61,7 @@ export class Gear {
     this.gearId = data.gearId
     this.gearName = data.gearName
     this.description = data.description
+    this.flavor = data.flavor
     this.gearType = data.gearType
     this.gearCategoryId = data.gearCategoryId
     this.seq = data.seq
@@ -78,6 +82,7 @@ export class Gear {
       gearId: this.gearId,
       gearName: this.gearName,
       description: this.description,
+      flavor: this.flavor,
       gearType: this.gearType,
       gearCategoryId: this.gearCategoryId,
       seq: this.seq,

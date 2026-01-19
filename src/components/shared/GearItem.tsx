@@ -14,6 +14,11 @@ export default function GearItem({ gear }: { gear: GearPlain }) {
           <Markdown>
             {gear.description || '*No description available.*'}
           </Markdown>
+          {gear.flavor && (
+            <Markdown className="flavor">
+              {gear.flavor}
+            </Markdown>
+          )}
         </div>
       )
     })

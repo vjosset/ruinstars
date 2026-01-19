@@ -232,10 +232,10 @@ export default function UnitCard({
           )}
         </div>
 
-        {((unit.isUnitType && unit?.description) || (!unit.isUnitType && unit?.unitType?.description)) && (
+        {(unit.isUnitType && unit?.description) && (
           <div className="flavor">
             <Markdown>
-              {(unit.isUnitType ? unit?.description : unit?.unitType?.description) ?? ''}
+              {unit?.description}
             </Markdown>
           </div>
         )}

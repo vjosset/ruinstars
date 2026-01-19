@@ -76,6 +76,7 @@ model Gear {
   gearId         String       @id @db.VarChar(20)
   gearName       String       @db.VarChar(250)
   description    String       @db.Text
+  flavor         String?      @db.Text
   gearType       String       @db.VarChar(1)
   gearCategoryId String       @db.VarChar(20)
   seq            Int          @default(0)
