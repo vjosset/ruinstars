@@ -1,11 +1,8 @@
-import { getAuthSession } from '@/lib/auth'
 import { GAME } from '@/lib/config/game_config'
 import Link from 'next/link'
-import IgnoreFirstMission from './rules-ignorefirstmission'
+import IgnoreForIntroMission from './rules-ignorefirstmission'
 
-export default async function RulesIntro({ num, showTitle }: {num?: number | null, showTitle: boolean | false }) {
-  const session = await getAuthSession()
-  const isAuth = !!session?.user?.userId
+export default async function RulesIntro({ num, showTitle, showIntroIgnore }: {num?: number | null, showTitle: boolean | false, showIntroIgnore: boolean | true }) {
   return (
     <>
       <div className="section">
@@ -63,12 +60,14 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
                 Download the <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">Rules</Link> { ' ' }
                 (or <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules.pdf">Printer-Friendly Version</Link>)
               </li>
-              <li>Play the introductory <Link className="underline" href="/rules#first-mission">first Mission</Link></li>
+              <li>Play the <Link className="underline" href="/rules#intro-mission">Introductory Mission</Link></li>
               <li>Select your <Link className="underline" href="/factions">Faction</Link> and build your <Link className="underline" href="/rules#buildingsquad">Squad</Link></li>
               <li>Gather some dice (<code>D{GAME.DICE_BASIS}</code>), your miniatures, and <Link className="underline" target="_blank" href="/assets/Ruinstars_Tokens.pdf">tokens</Link></li>
               <li>Play your first <Link className="underline" href="/rules#missions">Core Mission</Link> or start your <Link className="underline" href="/rules#campaigns">Campaign</Link>!</li>
             </ol><br/>
-            <IgnoreFirstMission keyword="Tactical Orders, Unit Skills, and Weapon Specials" />
+            {showIntroIgnore && (
+              <IgnoreForIntroMission keyword="Tactical Orders, Unit Skills, and Weapon Specials" />
+            )}
           </div>
         </div>
       </div>

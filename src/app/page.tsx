@@ -71,7 +71,7 @@ export default async function Home() {
 
       {/* About/Intro */}
       <div className="px-2 py-8 rules section max-w-7xl mx-auto">
-        <RulesIntro showTitle={false} />
+        <RulesIntro showTitle={false} showIntroIgnore={false} />
       </div>
 
       {/* SquadTypes List */}

@@ -1,16 +1,16 @@
 import UnitCard from '@/components/unit/UnitCard'
 import { SpecialService, SquadService } from '@/services'
 
-export default async function RulesFirstMission({ num }: {num?: number | null }) {
+export default async function RulesIntroMission({ num }: {num?: number | null }) {
   const squadUnits = await SquadService.getSquad('FM')
   const allSpecials = await SpecialService.getAllSpecials()
   return (
     <div className="section">
-      <h2 className="text-center py-3 font-title"   id="first-mission">
+      <h2 className="text-center py-3 font-title"   id="intro-mission">
         {num && `${num}. `}Your First Mission
       </h2>
       <div className="flavor">
-        This mission introduces the core flow of Ruinstars: actions, movement, combat, and objectives. These are the main concepts of the game.
+        This first mission introduces the core flow of Ruinstars: actions, movement, combat, and objectives. These are the main concepts of the game.
         In your next missions, you can introduce more advanced topics like Tactical Orders, weapon specials, and Unit Skills.
       </div>
       <div className="twocols">

@@ -1,7 +1,7 @@
 import UnitCard from '@/components/unit/UnitCard'
 import { SpecialService, UnitService } from '@/services'
 import { RiCrosshair2Fill, RiSwordFill } from 'react-icons/ri'
-import IgnoreFirstMission from './rules-ignorefirstmission'
+import IgnoreForIntroMission from './rules-ignorefirstmission'
 
 export default async function RulesStatCards({ num }: {num?: Number | null}) {
   const sampleUnit = (await UnitService.getUnit('ST-0'))!.toPlain()
@@ -18,7 +18,7 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
             Note that in the app and on the website, you can click or tap Specials to view what they mean, and Skills or Equipment to get their full description.
           </p>
           <br/>
-          <IgnoreFirstMission keyword="weapon specials and Unit skills" />
+          <IgnoreForIntroMission keyword="weapon specials and Unit skills" />
           <br/>
         </div>
         <div className="section">

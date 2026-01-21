@@ -14,7 +14,7 @@ import RulesYourSquad from '@/app/rules/rules-yoursquad'
 import { GAME } from '@/lib/config/game_config'
 
 import RulesAI from '@/app/rules/rules-ai'
-import RulesFirstMission from '@/app/rules/rules-firstmission'
+import RulesIntroMission from '@/app/rules/rules-intromission'
 import RulesOutro from '@/app/rules/rules-outro'
 import RulesPlayingOnAGrid from '@/app/rules/rules-playingonagrid'
 import RulesQuickRef from '@/app/rules/rules-quickref'
@@ -76,7 +76,7 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
 
         <RulesToc />
 
-        <RulesIntro showTitle={true} num={1} />
+        <RulesIntro showTitle={true} num={1} showIntroIgnore={true} />
 
         <RulesAI />
         <hr />
@@ -87,7 +87,7 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
         <RulesGameCycle num={3} />
         <hr />
 
-        <RulesFirstMission num={4} />
+        <RulesIntroMission num={4} />
         <hr />
 
         <RulesStatCards num={5} />

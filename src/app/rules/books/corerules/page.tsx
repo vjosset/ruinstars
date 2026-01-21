@@ -12,7 +12,7 @@ import RulesStatCards from '@/app/rules/rules-statcards'
 import { GAME } from '@/lib/config/game_config'
 
 import RulesAI from '@/app/rules/rules-ai'
-import RulesFirstMission from '@/app/rules/rules-firstmission'
+import RulesIntroMission from '@/app/rules/rules-intromission'
 import RulesOutro from '@/app/rules/rules-outro'
 import RulesPlayingOnAGrid from '@/app/rules/rules-playingonagrid'
 import RulesQuickRef from '@/app/rules/rules-quickref'
@@ -71,7 +71,7 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
           <Link className="underline" target="_blank" href="/assets/Ruinstars_Tokens.pdf">Tokens PDF</Link>
         </div>
 
-        <RulesIntro showTitle={true} num={1} />
+        <RulesIntro showTitle={true} num={1} showIntroIgnore={true} />
 
         <RulesAI />
 
@@ -79,7 +79,7 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
 
         <RulesGameCycle num={3} />
 
-        <RulesFirstMission num={4} />
+        <RulesIntroMission num={4} />
 
         <RulesStatCards num={5} />
 

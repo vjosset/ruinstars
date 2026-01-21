@@ -21,7 +21,8 @@ export async function GET() {
     '/assets/Ruinstars_Rules_FullColor.pdf',
     '/assets/Ruinstars_Tokens.pdf',
     '/assets/Ruinstars_Gauge_Letter.pdf',
-    '/assets/Ruinstars_Gauge_A4.pdf'
+    '/assets/Ruinstars_Gauge_A4.pdf',
+    '/scripedoperations'
   ]
 
   // Fetch factions

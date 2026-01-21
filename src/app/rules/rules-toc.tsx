@@ -8,7 +8,7 @@ export default async function RulesToc() {
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#core-mechanics">Core Mechanics</a></li>
         <li><a href="#game-cycle">Game Cycle</a></li>
-        <li><a href="#first-mission">Playing your First Mission</a></li>
+        <li><a href="#intro-mission">Playing your First Mission</a></li>
         <li><a href="#stat-cards">Stat Cards</a></li>
         <li><a href="#actions">Actions</a></li>
         <li><a href="#movement">Movement</a></li>
