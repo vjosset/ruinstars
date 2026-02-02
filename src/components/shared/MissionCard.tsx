@@ -48,6 +48,7 @@ export default function MissionCard({mission}: { mission: Mission | MissionPlain
               </div>
             </>
           )}
+          {/*
           {mission.rewards && mission.rewards.length > 0 && (
             <>
               <h6 className="text-main">Campaign Rewards</h6>
@@ -58,6 +59,7 @@ export default function MissionCard({mission}: { mission: Mission | MissionPlain
               </ul>
             </>
           )}
+          */}
         </div>
 
         {mission.diagram && mission.diagram.length > 0 && (
