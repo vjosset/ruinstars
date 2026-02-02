@@ -12,6 +12,7 @@ export default async function FactionList({
 }: FactionListProps) {
   if (!factions || factions.length == 0) {
     factions = await FactionService.getAllFactions()
+    factions = factions.filter((fa) => fa.squadTypes.length > 0)
   }
   return (
     <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
