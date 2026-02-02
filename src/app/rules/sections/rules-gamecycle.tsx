@@ -70,9 +70,7 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
             </li>
             <li>
               <strong>Deploy Units</strong><br/>
-              Before deployment begins, both players roll off. The player who wins the roll-off then chooses which Squad gains the Initiative for Turn 1.  
-              Follow the Mission's briefing to deploy your Units. If both teams "deploy before Turn 1," players take turns placing one Unit at a time on the Battlefield, starting with the player who does not have the Turn 1 Initiative.  
-              The Squad with the Turn 1 Initiative will activate their Unit first in the Alternating Activations sequence.
+              Follow the Mission's briefing to deploy your Units and spawn enemy Units.
             </li>
           </ol>
         </div>
@@ -85,15 +83,12 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
               <ol>
                 <li>Mark all Units as Ready (not Activated)</li>
                 <li>Resolve all &quot;Start of Turn&quot; skills or events</li>
-                <li>
-                  Roll-off for Initiative.
-                  Lowest roll wins Initiative and will Activate first.
-                </li>
               </ol>
             </li>
             <li>
               <strong>Activate Units</strong><br/>
               The Squad with the Initiative activates their first Unit, then Squads alternate activating their Units until all Units have been activated.<br/>
+              After each Player Unit activation, the same player activates a Ready enemy Unit.
               See also <a className="underline" href="#alternating-activations">Alternating Activations</a>.
             </li>
             <li>
@@ -107,17 +102,15 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
           <ol>
             <li>
               <strong>Victory</strong><br/>
-              Determine the winner of the Mission according to the Mission briefing.
+              Determine success or failure of the Mission.
             </li>
             <li>
-              <strong>Earn XP</strong><br/>
-              If playing a Campaign or Operation mission, apply XP and Medals to the Units.
-              See also <a href="#campaigns" className="underline">Campaigns</a>.
+              <strong>Earn MP</strong><br/>
+              Player Squad gains MP according to the mission briefing.
             </li>
             <li>
               <strong>Apply Injuries</strong><br/>
-              If playing a Campaign or Operation mission, roll <code>1D6</code> for each Unit that was Taken Out at the end of the Mission, and apply the corresponding Injury.
-              See also <a href="#campaigns" className="underline">Campaigns</a>.
+              Roll <code>1D6</code> for each Unit that was Taken Out during the Mission, and apply the corresponding Injury.
             </li>
           </ol>
         </div>
@@ -125,23 +118,8 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
           <h3 id="alternating-activations">Alternating Activations</h3>
           <p>
             {GAME.NAME} uses <strong>Alternating Activations</strong>:<br/>
-            During each Turn, Squads take turns Activating one Unit that has not yet been activated: Player 1 activates their first Unit, then player 2 activates their first Unit, followed by player 1 activating their second Unit etc. 
-            This ensures dynamic play and avoids having to wait long periods of time before you can actually <em>do</em> something with your Squad.
-          </p>
-          <p>
-            Each player takes alternating turns activating the Units in their Squad. For example, in order:
-          </p>
-          <ol>
-            <li>Player 1 activates their first Unit</li>
-            <li>Player 2 activates their first Unit</li>
-            <li>Player 1 activates their second Unit</li>
-            <li>Player 2 activates their second Unit</li>
-            <li>(etc)</li>
-          </ol>
-          <p>At the start of each Turn, all Units are marked as "Ready". As each Unit completes their Activation, they are marked as "Activated".</p>
-          <p>
-            If one Squad has at least 2 more Standing Units than the other, the Squad with fewer Standing Units may choose to delay one activation once per Turn. 
-            In that case, the Squad with more Units activates two of its Units in a row, then alternating Activations resume normally.
+            At the start of each Turn, all Units are marked as "Ready". As each Unit completes their Activation, they are marked as "Activated".
+            During each Turn, Players activate one Ready Player Unit, followed by activating a Ready Enemy Unit.
           </p>
         </div>
       </div>
