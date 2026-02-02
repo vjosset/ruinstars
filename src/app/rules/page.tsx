@@ -1,9 +1,8 @@
+import { PDFLink } from '@/components/nav/Links'
 import PageTitle from '@/components/ui/PageTitle'
 import { GAME } from '@/lib/config/game_config'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import Link from 'next/link'
-import { BsFilePdf } from 'react-icons/bs'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -31,23 +30,23 @@ export default async function Rules() {
 
           <ol className="text-left">
             <li>
-              <Link className="underline" target="_blank" href="/assets/Ruinstars_CoreRules.pdf"><BsFilePdf className="inline-block" /> Core Rules</Link><br/>
+              <PDFLink href="/assets/Ruinstars_CoreRules.pdf" title="Core Rules" /><br/>
               <strong>Start here</strong> - Everything you need to get started
             </li>
             <li>
-              <Link className="underline" target="_blank" href="/assets/Ruinstars_Factions.pdf"><BsFilePdf className="inline-block" /> Factions</Link><br/>
+              <PDFLink href="/assets/Ruinstars_Factions.pdf" title="Factions" /><br/>
               Choose a faction and build your Squad
             </li>
             <li>
-              <Link className="underline" target="_blank" href="/assets/Ruinstars_Missions.pdf"><BsFilePdf className="inline-block" /> Missions</Link><br/>
+              <PDFLink href="/assets/Ruinstars_Missions.pdf" title="Missions" /><br/>
               All core primary missions and objective types
             </li>
             <li>
-              <Link className="underline" target="_blank" href="/assets/Ruinstars_CampaignsOperations.pdf"><BsFilePdf className="inline-block" /> Campaigns and Operations</Link><br/>
+              <PDFLink href="/assets/Ruinstars_CampaignsOperations.pdf" title="Campaigns and Operations" /><br/>
               Optional narrative campaigns and scripted operations
             </li>
             <li>
-              <Link className="underline" target="_blank" href="/assets/Ruinstars_HordeMode.pdf"><BsFilePdf className="inline-block" /> Horde Mode</Link><br/>
+              <PDFLink href="/assets/Ruinstars_HordeMode.pdf" title="Horde Mode" /><br/>
               A standalone solo or co-op survival mode
             </li>
           </ol>

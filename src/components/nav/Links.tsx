@@ -2,10 +2,19 @@
 
 import { userPath } from '@/lib/utils/utils'
 import Link from 'next/link'
+import { BsFilePdf } from 'react-icons/bs'
 import { FaScroll } from 'react-icons/fa6'
 import { FiBook, FiList, FiUser, FiUsers } from 'react-icons/fi'
 
 const badgeClass = 'inline-flex text-foreground items-center gap-1 px-1 py-0.5 font-medium rounded border border-main bg-background hover:bg-card'
+
+export function PDFLink({href, title}: {href: string, title: string}) {
+  return (
+    <Link href={href} className={badgeClass} target="_blank">
+      <BsFilePdf className="inline-block" /> {title} PDF
+    </Link>
+  )
+}
 
 export function FactionLink({ factionId, factionName }: { factionId: string, factionName: string }) {
   return (

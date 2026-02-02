@@ -1,5 +1,5 @@
 import BattlefieldBlock from '@/components/shared/BattlefieldBlock'
-import MissionBlock from '@/components/shared/MissionBlock'
+import MissionCard from '@/components/shared/MissionCard'
 import battlefields from '@/data/battlefields.json'
 import missions from '@/data/missions.json'
 
@@ -83,15 +83,13 @@ export default async function RulesMissions({ num }: {num?: Number | null}) {
       <div className="section">
         <div className="section">
           <h3 className="text-center">Mission List</h3>
-          <div className="twocols">
-            {
-              missions.filter((mission) => mission.active && (!mission.missionType || mission.missionType == 'Primary')).map((mission) => (
-                <div className="section" key={mission.missionId}>
-                  <MissionBlock mission={mission} showDescription={true} />
-                </div>
-              ))
-            }
-          </div>
+          {
+            missions.filter((mission) => mission.active && (!mission.missionType || mission.missionType == 'Primary')).map((mission) => (
+              <div className="section" key={mission.missionId}>
+                <MissionCard mission={mission} showDescription={true} />
+              </div>
+            ))
+          }
         </div>
 
         <div className="" style={{pageBreakBefore: 'always'}}>
@@ -123,7 +121,7 @@ export default async function RulesMissions({ num }: {num?: Number | null}) {
             {
               missions.filter((mission) => mission.active && mission.missionType == 'Secondary').map((mission) => (
                 <div className="section" key={mission.missionId}>
-                  <MissionBlock mission={mission} showDescription={true} />
+                  <MissionCard mission={mission} showDescription={true} />
                 </div>
               ))
             }
