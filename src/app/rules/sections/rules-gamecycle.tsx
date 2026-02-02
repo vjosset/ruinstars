@@ -89,8 +89,6 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
                   Roll-off for Initiative.
                   Lowest roll wins Initiative and will Activate first.
                 </li>
-                <li>Roll for <a className="underline" href="#tactical-orders">Tactical Orders</a> for the Turn</li>
-                <li>The Squad with the Initiative rolls for the Battlefield's Events (if any) for this Turn</li>
               </ol>
             </li>
             <li>
@@ -146,16 +144,6 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
             In that case, the Squad with more Units activates two of its Units in a row, then alternating Activations resume normally.
           </p>
         </div>
-        <div className="section">
-          <h3 id="mission-points">Mission Points</h3>
-          <p>
-            Mission Points (MP) determine the winner of the Mission.
-            Each Mission defines the conditions under which a Squad can score Mission Points.
-            At the end of the Mission, the Squad with the most MP wins.
-          </p>
-        </div>
       </div>
-
-
     </div>
   )}
