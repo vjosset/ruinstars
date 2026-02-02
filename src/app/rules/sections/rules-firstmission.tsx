@@ -1,9 +1,9 @@
 import MissionCard from '@/components/shared/MissionCard'
-import missions from '@/data/missions.json'
+import missions from '@/data/missions_pve.json'
 import Link from 'next/link'
 
 export default async function RulesFirstMission({ num }: {num?: Number | null}) {
-  const introMission = missions.filter((mission) => mission.title == 'Secure the Zone')[0]
+  const introMission = missions[0]
   return (
     <>
       <div className="section">

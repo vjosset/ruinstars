@@ -72,7 +72,7 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
               </tr>
               <tr>
                 <th className="px-1">High&nbsp;Ground</th>
-                <td className="px-1">If the Attacker is at least 2 Paces higher than its Target, the Target does not benefit from Cover</td>
+                <td className="px-1">If the Attacker is at least 4" higher than its Target, the Target does not benefit from Cover</td>
               </tr>
             </tbody>
           </table>
@@ -100,7 +100,7 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
             <p>
               If a Target is only partially visible to the Attacker (for example, there is a short wall between the two Units), that Target is said to be in cover.
               Cover only applies to Ranged attacks; there is no Cover benefit for Melee attacks.<br/>
-              A Target is in Cover if a piece of terrain blocks the Attacker's full view of the Target and that terrain is within 1 Pace of the Target.
+              A Target is in Cover if a piece of terrain blocks the Attacker's full view of the Target and that terrain is within 1" of the Target.
             </p>
           
             <div className="grid grid-cols-2 gap-4">
@@ -112,7 +112,7 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
                 />
               </div>
               <div>
-                <em>The bug marked <strong>C</strong> is in Cover. The bug marked <strong>NC</strong> is not in Cover because the wall is not within 1 Pace of the Target.</em>
+                <em>The bug marked <strong>C</strong> is in Cover. The bug marked <strong>NC</strong> is not in Cover because the wall is not within 1" of the Target.</em>
               </div>
             </div>
           </div>
@@ -165,8 +165,6 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
             </li>
           </ol>
 
-          <em>Unfamiliar terms and weapon specials are defined in the <a className="underline" href="#glossary">Glossary</a>.</em>
-
           <h4>Modifiers</h4>
           <table>
             <thead>
@@ -186,7 +184,7 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
               </tr>
             </tbody>
           </table>
-          <h4 id="attack-of-opportunity">Attack of Opportunity</h4>
+          <h4 id="attack-of-opportunity">Attacks of Opportunity</h4>
           <p>
             When a Unit Moves or Dashes out of Adjacency to an enemy Unit, that enemy may immediately perform a free Melee attack against the moving Unit.
             This is called an <strong>Attack of Opportunity</strong>.<br/>
