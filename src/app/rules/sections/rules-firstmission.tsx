@@ -1,11 +1,15 @@
+import { PDFLink } from '@/components/nav/Links'
 import MissionCard from '@/components/shared/MissionCard'
+import UnitCard from '@/components/unit/UnitCard'
 import missions from '@/data/missions_pve.json'
-import Link from 'next/link'
+import { SpecialService, SquadService } from '@/services'
 
 export default async function RulesFirstMission({ num }: {num?: Number | null}) {
+  const squadUnits = await SquadService.getSquad('FM')
+  const allSpecials = await SpecialService.getAllSpecials()
   const introMission = missions[0]
   return (
-    <>
+    <div className="section">
       <div className="section">
         <h2 className="text-center py-3 font-title"   id="firstmission">
           {num && `${num}. `}First Mission
@@ -18,8 +22,24 @@ export default async function RulesFirstMission({ num }: {num?: Number | null}) 
           </p>
         </div>
       </div>
+
       <div className="section" key={introMission.missionId}>
         <MissionCard mission={introMission} showDescription={true} />
+      </div>
+      <div className="section">
+        <h3>First Mission Units</h3>
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {squadUnits?.units?.map((u) => (
+            <UnitCard 
+              key={u.unitId}
+              seq={u.seq}
+              unit={u.toPlain()}
+              isOwner={false}
+              allSpecials={allSpecials.map((spec) => spec.toPlain())}
+              allMedals={[]}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="section">
@@ -37,20 +57,18 @@ export default async function RulesFirstMission({ num }: {num?: Number | null}) 
               <li>Recover Intel - Use Mission Actions to pick up and carry objectives under fire</li>
             </ul>
             
-            The full list of primary missions is available in the <Link className="underline" href="/assets/Ruinstars-Missions.pdf">Missions PDF</Link>.
+            The full list of primary missions is available in the <PDFLink href="/assets/Ruinstars-Missions.pdf" title="Missions" />.
           </div>
           <div className="section">
             <h4>Beyond Skirmish Play</h4>
-
-              Ruinstars also supports two additional ways to play:
-
+            Ruinstars also supports two additional ways to play:
             <ul>
               <li>
-                <Link className="underline" href="/assets/Ruinstars-CampaignsAndOperations.pdf">Campaigns and Operations</Link><br/>
+                <PDFLink href="/assets/Ruinstars-CampaignsAndOperations.pdf" title="Campaigns and Operations" /><br/>
                 Linked narrative missions with branching objectives and escalating stakes.
               </li>
               <li>
-                <Link className="underline" href="/assets/Ruinstars-HordeMode.pdf">Horde Mode</Link><br/>
+                <PDFLink href="/assets/Ruinstars-HordeMode.pdf" title="Horde Mode" /><br/>
                 A standalone solo or co-op survival mode where your Squad faces increasingly dangerous waves of enemies.
               </li>
             </ul>
@@ -60,5 +78,5 @@ export default async function RulesFirstMission({ num }: {num?: Number | null}) 
           </div>
         </div>
       </div>
-    </>
+    </div>
   )}

@@ -16,7 +16,7 @@ import { Menu, MenuButton } from '@headlessui/react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { FiDownload, FiEdit2, FiInfo, FiMoreVertical } from 'react-icons/fi'
+import { FiDownload, FiEdit2, FiMoreVertical } from 'react-icons/fi'
 import { toast } from 'sonner'
 
 export default function SquadPageClient({
@@ -319,6 +319,7 @@ export default function SquadPageClient({
               {/* Info/tools */}
               <div className="flex items-center">
                 <div className="flex gap-1 items-center justify-center">
+                  {/*
                   <button 
                     className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
                     onClick={handleSquadToolsClick}
@@ -326,6 +327,7 @@ export default function SquadPageClient({
                   >
                     <FiInfo/>
                   </button>
+                  */}
                   <div className="flex gap-2 items-center justify-center">
                     <Menu as="div" className="relative justify-center flex-shrink-0 rounded border border-border w-6 h-6 text-lg">
                       <MenuButton as="button" className="w-full h-full flex items-center justify-center">

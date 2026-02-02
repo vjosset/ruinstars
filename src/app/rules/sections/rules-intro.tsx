@@ -33,7 +33,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               <li><strong>Lethal & Decisive:</strong> Fast and brutal combat rewards tactical decisions.</li>
               <li><strong>Mission First:</strong> Every game is a mission with a clear payoff and consequences.</li>
               <li><strong>Narrative Without the Bloat:</strong> Campaign play adds scars, rewards, and hard choices, without turning your table into bookkeeping.</li>
-              <li><strong>Play How You Like:</strong> Designed for one-off missions, narrative campaigns, and the gauntlet that is Horde Mode.</li>
+              <li><strong>Play How You Like:</strong> Designed for one-off missions, narrative campaigns, or the gauntlet that is Horde Mode.</li>
             </ul>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               <li><strong>Model Count:</strong> 4-10 per side</li>
               <li><strong>Dice:</strong> <code>D6</code>-based core resolution</li>
               <li><strong>Table Size:</strong> Works on compact tables with dense terrain, typically 2' x 2'</li>
-              <li><strong>Play Modes:</strong> PvE solo or co-op campaigns and Horde Mode</li>
+              <li><strong>Play Modes:</strong> PvE solo or co-op campaigns, Horde Mode, and PvP</li>
             </ul>
           </div>
           <div className="section">
@@ -57,9 +57,9 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
             </h3>
             <ol>
               <li>Download the <Link className="underline" target="_blank" href="/assets/Ruinstars_CoreRules.pdf">Core Rules</Link></li>
-              <li>Play the first Mission</li>
-              <li>Select your <Link className="underline" href="/factions">Faction</Link> and build your Squad</li>
               <li>Gather some dice (<code>D{GAME.DICE_BASIS}</code>) and your miniatures</li>
+              <li>Play the introductory first Mission</li>
+              <li>Select your <Link className="underline" href="/factions">Faction</Link> and build your Squad</li>
               <li>Play your first Core Mission, start your Campaign, or test your mettle in Horde Mode!</li>
             </ol>
           </div>

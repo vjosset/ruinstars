@@ -14,6 +14,29 @@ export default async function RulesCoreMechanics({ num }: {num?: Number | null})
             Some rolls will require more than one die. For those, the number of dice to roll will be indicated before <code>D{GAME.DICE_BASIS}</code>.<br/>
             For example, to indicate a roll of 3 dice: <code>3D{GAME.DICE_BASIS}</code>. To indicate a roll of 1 die: <code>1D{GAME.DICE_BASIS}</code>.
           </p>
+          <p>
+            Some rules and abilities will include rolling a `D3`. To rall a `D3`, simply roll a normal `D6` and divide the result by 2, rounding up.
+          </p>
+          <table>
+            <tr className="border-border border-b">
+              <th><code>D6</code> Roll</th>
+              <th><code>D3</code> Result</th>
+            </tr>
+            <tr>
+              <th>1-2</th>
+              <td>1</td>
+            </tr>
+            <tr>
+              <th>3-4</th>
+              <td>2</td>
+            </tr>
+            <tr>
+              <th>5-6</th>
+              <td>3</td>
+            </tr>
+          </table>
+        </div>
+        <div className="section">
           <h4 id="successes-and-failures">Successes and Failures</h4>
           <p>
             When rolling against a Unit or weapon stat, a die roll is a success if its value is equal to or lower than that stat.<br/>
@@ -26,34 +49,6 @@ export default async function RulesCoreMechanics({ num }: {num?: Number | null})
             Once a die is re-rolled, its result is final and it cannot be re-rolled again.
           </p>
         </div>
-        
-        <div className="section">
-          <h3 id="activations">Alternating Activations</h3>
-          <div>
-            During each Turn, Squads take turns Activating one Unit that has not yet been activated.<br/>
-            For example, during each Turn:
-            <ul className="section">
-              <li>Squad A activates its first Unit and performs Actions</li>
-              <li>Squad B activates its first Unit and performs Actions</li>
-              <li>Squad A activates its second Unit and performs Actions</li>
-              <li>Squad B activates its second Unit and performs Actions</li>
-              <li>etc.</li>
-            </ul>
-            In cases where one Squad has at least 2 more Standing Units than the other, the Squad with fewer Units may choose to delay one activation once per Turn.
-            In that case, the Squad with more Units activates two of its Units in a row.
-          </div>
-        </div>
-        {/*
-        <div className="section">
-          <h3 id="paces">Paces</h3>
-          <p>
-            All movement and distance measurements are measured in <strong>Paces</strong>.<br/>
-            A Pace is typically 40mm or about 1.5". Use a ruler, our use our print-at-home <a className="underline" href="/tools">Gauges</a> for quick measurement.
-            If you prefer, playing on a <a className="underline" href="#playingonagrid">grid</a> simplifies movement and measurement and avoids imprecision in moving miniatures and checking weapon ranges.
-          </p>
-        </div>
-        */}
       </div>
-
     </div>
   )}

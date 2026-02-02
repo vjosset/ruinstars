@@ -1,4 +1,3 @@
-import { GAME } from '@/lib/config/game_config'
 
 export default async function RulesGameCycle({ num }: {num?: Number | null}) {
   return (
@@ -115,12 +114,18 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
           </ol>
         </div>
         <div className="section">
-          <h3 id="alternating-activations">Alternating Activations</h3>
-          <p>
-            {GAME.NAME} uses <strong>Alternating Activations</strong>:<br/>
-            At the start of each Turn, all Units are marked as "Ready". As each Unit completes their Activation, they are marked as "Activated".
-            During each Turn, Players activate one Ready Player Unit, followed by activating a Ready Enemy Unit.
-          </p>
+          <h3 id="activations">Alternating Activations</h3>
+          <div>
+            During each Turn, Players take turns Activating one PLayer Unit that has not yet been activated, followed by activating one Enemy Unit.<br/>
+            For example, during each Turn:
+            <ul className="section">
+              <li>Player 1 activates the first Player Unit and performs Actions</li>
+              <li>Player 1 activates the first Enemy Unit and performs Actions</li>
+              <li>Player 2 activates the next Player Unit and performs Actions</li>
+              <li>Player 2 activates the next Enemy Unit and performs Actions</li>
+              <li>etc.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
