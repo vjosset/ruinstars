@@ -5,6 +5,78 @@ export type MissionDiagramLegendEntry = string | {
 
 export type MissionDiagramLegend = Partial<Record<string, MissionDiagramLegendEntry>>;
 
+export type MissionDiagramElementBase = {
+  id: string
+  label?: string
+  color?: string
+  strokeColor?: string
+  fillOpacity?: number
+  showLabel?: boolean
+  showInLegend?: boolean
+  labelSizeIn?: number
+}
+
+export type MissionDiagramCircle = MissionDiagramElementBase & {
+  type: 'circle'
+  cxIn: number
+  cyIn: number
+  rIn: number
+}
+
+export type MissionDiagramRect = MissionDiagramElementBase & {
+  type: 'rect'
+  xIn: number
+  yIn: number
+  wIn: number
+  hIn: number
+  cornerRadiusIn?: number
+}
+
+export type MissionDiagramMarker = MissionDiagramElementBase & {
+  type: 'marker'
+  xIn: number
+  yIn: number
+  sizeIn?: number
+}
+
+export type MissionDiagramText = MissionDiagramElementBase & {
+  type: 'text'
+  xIn: number
+  yIn: number
+  text: string
+  anchor?: 'start' | 'middle' | 'end'
+}
+
+export type MissionDiagramCallout = MissionDiagramElementBase & {
+  type: 'callout'
+  x1In: number
+  y1In: number
+  x2In: number
+  y2In: number
+  text?: string
+  textOffsetIn?: number
+  tickSizeIn?: number
+  textAnchor?: 'start' | 'middle' | 'end'
+}
+
+export type MissionDiagramElement =
+  | MissionDiagramCircle
+  | MissionDiagramRect
+  | MissionDiagramMarker
+  | MissionDiagramText
+  | MissionDiagramCallout
+
+export type MissionDiagram = {
+  board?: {
+    widthIn?: number
+    heightIn?: number
+  }
+  pixelsPerInch?: number
+  showCenterLines?: boolean
+  elements: MissionDiagramElement[]
+  legend?: MissionDiagramLegend
+}
+
 export type MissionPlain = {
   missionId: string;
   missionType: string;
@@ -17,8 +89,7 @@ export type MissionPlain = {
   victory: string;
   special?: string | null;
   rewards?: MissionReward[];
-  diagram?: string[][];
-  diagramLegend?: MissionDiagramLegend;
+  diagram?: MissionDiagram;
 };
 
 export class Mission {
@@ -33,8 +104,7 @@ export class Mission {
   victory: string
   special?: string | null
   rewards?: MissionReward[]
-  diagram?: string[][]
-  diagramLegend?: MissionDiagramLegend
+  diagram?: MissionDiagram
 
   constructor(data: {
     missionId: string;
@@ -48,8 +118,7 @@ export class Mission {
     victory: string;
     special?: string | null;
     rewards?: MissionReward[];
-    diagram?: string[][];
-    diagramLegend?: MissionDiagramLegend;
+    diagram?: MissionDiagram;
   }) {
     this.missionId = data.missionId
     this.missionType = data.missionType
@@ -63,7 +132,6 @@ export class Mission {
     this.special = data.special
     this.rewards = data.rewards
     this.diagram = data.diagram
-    this.diagramLegend = data.diagramLegend
   }
 
   toPlain(): MissionPlain {
@@ -79,8 +147,7 @@ export class Mission {
       victory: this.victory,
       special: this.special,
       rewards: this.rewards,
-      diagram: this.diagram,
-      diagramLegend: this.diagramLegend
+      diagram: this.diagram
     }
   }
 }

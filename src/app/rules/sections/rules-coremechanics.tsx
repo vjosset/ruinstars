@@ -18,22 +18,26 @@ export default async function RulesCoreMechanics({ num }: {num?: Number | null})
             Some rules and abilities will include rolling a `D3`. To rall a `D3`, simply roll a normal `D6` and divide the result by 2, rounding up.
           </p>
           <table>
-            <tr className="border-border border-b">
-              <th><code>D6</code> Roll</th>
-              <th><code>D3</code> Result</th>
-            </tr>
-            <tr>
-              <th>1-2</th>
-              <td>1</td>
-            </tr>
-            <tr>
-              <th>3-4</th>
-              <td>2</td>
-            </tr>
-            <tr>
-              <th>5-6</th>
-              <td>3</td>
-            </tr>
+            <thead>
+              <tr className="border-border border-b">
+                <th><code>D6</code> Roll</th>
+                <th><code>D3</code> Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1-2</th>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th>3-4</th>
+                <td>2</td>
+              </tr>
+              <tr>
+                <th>5-6</th>
+                <td>3</td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div className="section">

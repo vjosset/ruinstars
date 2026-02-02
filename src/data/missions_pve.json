@@ -5,36 +5,33 @@
     "title": "Survive",
     "active": true,
     "description": "The city is gone, reduced to a maze of ruins and burning streets. At its center, a final strongpoint holds as the horde closes in from every direction. Surrounded by shattered towers and choked avenues, the defenders stand their ground, buying time with blood and fire while the metropolis collapses around them.",
-    "setup": "Deploy a Spawn Point in the center of 3 random Tiles.",
-    "deployment": "Player Units deploy from the Southern battlefield edge before Turn 1.",
+    "setup": "",
+    "deployment": "Player Units deploy anywhere within 4\" of the center of the battlefield",
     "victory": "At the end of Turn 4, if all Spawn Points have been Taken Out, your Squad wins the mission.",
-    "special": "At the start of each Turn, spawn `x` Bugs (max 4) Adjacent to each Spawn Point, where `x` is the Turn number (i.e. one bug in Turn 1, two bugs in Turn 2, etc.).\n\nBug Units are activated after each player Unit activation, alternating player control.\n\n|**Unit**|**ACT**|**ARM**|**HIT**|\n|-----|:---:|:---:|:---:|\n|Bug|2|3|1|\n|**Weapon**||**ATT**|**SKL**|\n|(M) Bite (Rending 1)||3|5|\n\nSpawn Points are treated as items and can be targeted in combat. Spawn Points cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Spawn Point.\nIf a Spawn Point is targeted in combat and is not Taken Out as a result, spawn one Bug Adjacent to that Spawn Point.\n\n|**Item**|**ACT**|**ARM**|**HIT**|\n|-----|:---:|:---:|:---:|\n|Spawn Point|-|4|1|",
-    "diagram": [
-      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "S1", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "S2", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
-
-      [ "  ", "  ", "  ", "  ", "  ", "DU", "DU", "DU", "DU", "DU", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "DU", "DU", "DU", "DU", "DU", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "DU", "DU", "DU", "DU", "DU", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "DU", "DU", "DU", "DU", "DU", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "DU", "DU", "DU", "DU", "DU", "  ", "  ", "  ", "  ", "  " ],
-
-      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "S3", "  ", "  ", "  ", "  ", "  ", "  ", "  " ],
-      [ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " ]
-    ],
-    "diagramLegend": {
-      "DU": "Player Squad Deployment Zone",
-      "S1": "Spawn Point 1",
-      "S2": "Spawn Point 2",
-      "S3": "Spawn Point 3"
-    },
-    "rewards": []
+    "special": "At the start of each Turn, spawn `x` Bugs (max 4) Adjacent to each Spawn Point, where `x` is the Turn number (i.e. one bug in Turn 1, two bugs in Turn 2, etc.).\n\nBug Units are activated after each player Unit activation, alternating player control.\n\n|**Unit**|**ACT**|**ARM**|**HIT**|\n|-----|:---:|:---:|:---:|\n|Bug|2|3|1|\n|**Weapon**||**ATT**|**SKL**|\n|(M) Bite||3|5|\n\nSpawn Points are treated as items and can be targeted in combat. Spawn Points cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Spawn Point.\nIf a Spawn Point is targeted in combat and is not Taken Out as a result, spawn one Bug Adjacent to that Spawn Point.\n\n|**Item**|**ACT**|**ARM**|**HIT**|\n|-----|:---:|:---:|:---:|\n|Spawn Point|-|4|1|",
+    "rewards": [],
+    "diagram": {
+      "board": { "widthIn": 24, "heightIn": 24 },
+      "showCenterLines": true,
+      "elements": [
+        { "type": "circle", "id": "DU", "cxIn": 12, "cyIn": 12, "rIn": 4, "label": "DU", "color": "#2563eb" },
+        { "type": "marker", "id": "S1", "xIn": 3, "yIn": 3, "label": "S1" },
+        { "type": "marker", "id": "S2", "xIn": 21, "yIn": 3, "label": "S2" },
+        { "type": "marker", "id": "S3", "xIn": 12, "yIn": 21, "label": "S3" },
+        { "type": "callout", "id": "S1-x", "x1In": 0, "y1In": 3.7, "x2In": 3, "y2In": 3.7, "text": "3\"" },
+        { "type": "callout", "id": "S1-y", "x1In": 3.7, "y1In": 0, "x2In": 3.7, "y2In": 3, "text": "3\"" },
+        { "type": "callout", "id": "S2-x", "x1In": 24, "y1In": 3.7, "x2In": 21, "y2In": 3.7, "text": "3\"" },
+        { "type": "callout", "id": "S2-y", "x1In": 20.3, "y1In": 0, "x2In": 20.3, "y2In": 3, "text": "3\"" },
+        { "type": "callout", "id": "S3-y", "x1In": 12.7, "y1In": 24, "x2In": 12.7, "y2In": 21, "text": "3\"" },
+        { "type": "callout", "id": "D-rad", "x1In": 12, "y1In": 12.7, "x2In": 16, "y2In": 12.7, "text": "4\"" }
+      ],
+      "legend": {
+        "DU": "Player Squad Deployment Zone",
+        "S1": "Spawn Point 1",
+        "S2": "Spawn Point 2",
+        "S3": "Spawn Point 3"
+      }
+    }
   },
   {
     "missionId": "2",

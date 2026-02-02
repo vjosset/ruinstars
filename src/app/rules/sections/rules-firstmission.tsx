@@ -52,9 +52,9 @@ export default async function RulesFirstMission({ num }: {num?: Number | null}) 
             The introductory mission focuses on area control and core movement and combat.
             To see how missions can change the flow of a battle, try one of these next:
             <ul>
-              <li>Secure the Zone - Control multiple objectives across the battlefield</li>
-              <li>Centerpoint - Commit everything to a single, high-stakes objective</li>
-              <li>Recover Intel - Use Mission Actions to pick up and carry objectives under fire</li>
+              <li><strong>Secure the Zone</strong> - Control multiple objectives across the battlefield</li>
+              <li><strong>Centerpoint</strong> - Commit everything to a single, high-stakes objective</li>
+              <li><strong>Recover Intel</strong> - Use Mission Actions to pick up and carry objectives under fire</li>
             </ul>
             
             The full list of primary missions is available in the <PDFLink href="/assets/Ruinstars-Missions.pdf" title="Missions" />.

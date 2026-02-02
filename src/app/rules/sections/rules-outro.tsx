@@ -4,7 +4,7 @@ import news from '@/public/news.json'
 
 export default async function RulesOutro({ num }: {num?: Number | null}) {
   return (
-    <div className="section printonly">
+    <div className="section">
       <h2 className="text-center py-3 font-title"   id="outro">
         {num && `${num}. `}Afterword
       </h2>

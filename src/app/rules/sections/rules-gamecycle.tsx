@@ -45,7 +45,7 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
                 Victory
               </div>
               <div className="rounded-md bg-main px-3 py-2 text-center text-sm uppercase tracking-wide">
-                Earn XP
+                Earn MP
               </div>
               <div className="rounded-md bg-main px-3 py-2 text-center text-sm uppercase tracking-wide">
                 Apply Injuries

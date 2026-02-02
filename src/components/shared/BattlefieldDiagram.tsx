@@ -1,27 +1,98 @@
 'use client'
 
-import { useEffect, useMemo, useRef } from 'react';
+import { useMemo } from 'react'
 
-type DiagramGrid = string[][]
-type LegendEntry = string | { label: string; color?: string }
-type DiagramLegend = Partial<Record<string, LegendEntry>>
+export type DiagramLegendEntry = string | { label: string; color?: string }
+export type DiagramLegend = Partial<Record<string, DiagramLegendEntry>>
+
+type DiagramElementBase = {
+  id: string
+  label?: string
+  color?: string
+  strokeColor?: string
+  fillOpacity?: number
+  showLabel?: boolean
+  showInLegend?: boolean
+  labelSizeIn?: number
+}
+
+export type DiagramCircle = DiagramElementBase & {
+  type: 'circle'
+  cxIn: number
+  cyIn: number
+  rIn: number
+}
+
+export type DiagramRect = DiagramElementBase & {
+  type: 'rect'
+  xIn: number
+  yIn: number
+  wIn: number
+  hIn: number
+  cornerRadiusIn?: number
+}
+
+export type DiagramMarker = DiagramElementBase & {
+  type: 'marker'
+  xIn: number
+  yIn: number
+  sizeIn?: number
+}
+
+export type DiagramText = DiagramElementBase & {
+  type: 'text'
+  xIn: number
+  yIn: number
+  text: string
+  anchor?: 'start' | 'middle' | 'end'
+}
+
+export type DiagramCallout = DiagramElementBase & {
+  type: 'callout'
+  x1In: number
+  y1In: number
+  x2In: number
+  y2In: number
+  text?: string
+  textOffsetIn?: number
+  tickSizeIn?: number
+  textAnchor?: 'start' | 'middle' | 'end'
+}
+
+export type DiagramElement =
+  | DiagramCircle
+  | DiagramRect
+  | DiagramMarker
+  | DiagramText
+  | DiagramCallout
+
+export type BattlefieldDiagramConfig = {
+  board?: {
+    widthIn?: number
+    heightIn?: number
+  }
+  pixelsPerInch?: number
+  showCenterLines?: boolean
+  elements: DiagramElement[]
+  legend?: DiagramLegend
+}
 
 export type BattlefieldDiagramProps = {
-  grid: DiagramGrid
-  legend?: DiagramLegend
-  cellSize?: number
+  diagram: BattlefieldDiagramConfig
   className?: string
 }
 
+const DEFAULT_BOARD = { widthIn: 24, heightIn: 24 }
+const DEFAULT_PIXELS_PER_INCH = 16
+const DEFAULT_LABEL_SIZE_IN = 0.6
+const DEFAULT_CALLOUT_TEXT_SIZE_IN = 0.55
+const DEFAULT_CALLOUT_TICK_IN = 0.3
+const DEFAULT_MARKER_SIZE_IN = 1
+const DEFAULT_STROKE_IN = 0.06
+const DEFAULT_CENTER_LINE_IN = 0.08
+
 const CODE_COLORS: Record<string, string> = {
-  DA: '#dc2626',
-  DB: '#2563eb',
-  DD: '#2563eb',
   DU: '#2563eb',
-  UC: '#facc15',
-  O1: '#059669',
-  O2: '#059669',
-  O3: '#059669',
   S1: '#dc2626',
   S2: '#dc2626',
   S3: '#dc2626',
@@ -43,213 +114,322 @@ const COLOR_PALETTE = [
 
 const backgroundColor = '#ffffff'
 const gridColor = '#0f172a'
-const tileLabelColor = '#94a3b8'
-const TILE_ROW_LABELS = ['N', 'C', 'S']
-const TILE_COL_LABELS = ['W', 'C', 'E']
+const calloutColor = '#f97316'
 const FONT_FAMILY = '"Geist", "Geist Sans", system-ui, sans-serif'
 
-function buildColorMap(codes: string[], legend?: DiagramLegend) {
+function getLegendLabel(entry?: DiagramLegendEntry) {
+  if (!entry) return 'Unspecified'
+  if (typeof entry === 'string') return entry
+  return entry.label ?? 'Unspecified'
+}
+
+function buildColorMap(
+  ids: string[],
+  elements: DiagramElement[],
+  legend?: DiagramLegend
+) {
   const map = new Map<string, string>()
   let paletteIndex = 0
-  codes.forEach((code, index) => {
-    const legendEntry = legend?.[code]
+  ids.forEach((id) => {
+    const element = elements.find((item) => item.id === id)
+    const legendEntry = legend?.[id]
     const legendColor =
       typeof legendEntry === 'object' && legendEntry !== null
         ? legendEntry.color
         : undefined
     const color =
-      CODE_COLORS[code] ??
+      element?.color ??
+      CODE_COLORS[id] ??
       legendColor ??
       COLOR_PALETTE[paletteIndex++ % COLOR_PALETTE.length]
-    map.set(code, color)
+    map.set(id, color)
   })
   return map
 }
 
-function getLegendLabel(entry?: LegendEntry) {
-  if (!entry) {
-    return 'Unspecified zone'
+function resolveElementLabel(element: DiagramElement) {
+  if (element.type === 'text') {
+    return element.text
   }
-
-  if (typeof entry === 'string') {
-    return entry
-  }
-
-  return entry.label ?? 'Unspecified zone'
-}
-
-function resolveTileLabel(rowIndex: number, colIndex: number) {
-  const rowSymbol = TILE_ROW_LABELS[rowIndex] ?? ''
-  const colSymbol = TILE_COL_LABELS[colIndex] ?? ''
-
-  const parts: string[] = []
-  if (rowSymbol && rowSymbol !== 'C') {
-    parts.push(rowSymbol)
-  }
-  if (colSymbol && colSymbol !== 'C') {
-    parts.push(colSymbol)
-  }
-
-  if (parts.length > 0) {
-    return parts.join('')
-  }
-
-  if (rowSymbol === 'C' || colSymbol === 'C') {
-    return 'C'
-  }
-
-  return ''
+  return element.label ?? element.id
 }
 
 export default function BattlefieldDiagram({
-  grid,
-  legend,
-  cellSize = 20,
+  diagram,
   className
 }: BattlefieldDiagramProps) {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const board = diagram.board ?? DEFAULT_BOARD
+  const widthIn = board.widthIn ?? DEFAULT_BOARD.widthIn
+  const heightIn = board.heightIn ?? DEFAULT_BOARD.heightIn
+  const pixelsPerInch = diagram.pixelsPerInch ?? DEFAULT_PIXELS_PER_INCH
+  const showCenterLines = diagram.showCenterLines ?? true
 
-  const uniqueCodes = useMemo(() => {
-    const set = new Set<string>()
-    grid.forEach((row) =>
-      row.forEach((cell) => {
-        const trimmed = cell?.trim()
-        if (trimmed) {
-          set.add(trimmed)
-        }
-      })
-    )
-    return Array.from(set).sort()
-  }, [grid])
+  const legendIds = useMemo(() => {
+    const ids = new Set<string>()
+    if (diagram.legend) {
+      Object.keys(diagram.legend).forEach((key) => ids.add(key))
+    }
+    diagram.elements.forEach((element) => {
+      if (element.showInLegend === false) return
+      if (element.label || diagram.legend?.[element.id]) {
+        ids.add(element.id)
+      }
+    })
+    return Array.from(ids)
+  }, [diagram.elements, diagram.legend])
 
   const colorMap = useMemo(
-    () => buildColorMap(uniqueCodes, legend),
-    [uniqueCodes, legend]
+    () => buildColorMap(legendIds, diagram.elements, diagram.legend),
+    [legendIds, diagram.elements, diagram.legend]
   )
 
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas || grid.length === 0) {
-      return
-    }
-
-    const rows = grid.length
-    const cols = grid[0]?.length ?? 0
-    const dpr = window.devicePixelRatio || 1
-    const width = cols * cellSize
-    const height = rows * cellSize
-
-    canvas.width = width * dpr
-    canvas.height = height * dpr
-    canvas.style.width = `${width}px`
-    canvas.style.height = `${height}px`
-
-    const context = canvas.getContext('2d')
-    if (!context) {
-      return
-    }
-
-    context.setTransform(1, 0, 0, 1, 0, 0)
-    context.scale(dpr, dpr)
-    context.fillStyle = backgroundColor
-    context.fillRect(0, 0, width, height)
-
-    const renderTileLabels = () => {
-      const tilesPerRow = Math.ceil(cols / 5)
-      const tilesPerColumn = Math.ceil(rows / 5)
-      const tileSize = cellSize * 5
-      const tileLabelFontSize = Math.max(32, tileSize * 0.5)
-      context.fillStyle = tileLabelColor
-      context.globalAlpha = 0.35
-      context.font = `bold ${tileLabelFontSize}px ${FONT_FAMILY}`
-      context.textAlign = 'center'
-      context.textBaseline = 'middle'
-
-      for (let tileRow = 0; tileRow < tilesPerColumn; tileRow += 1) {
-        for (let tileCol = 0; tileCol < tilesPerRow; tileCol += 1) {
-          const label = resolveTileLabel(tileRow, tileCol)
-          if (!label) continue
-          const x = tileCol * tileSize + tileSize / 2
-          const y = tileRow * tileSize + tileSize / 2
-          const maxWidth = tileSize * 0.9
-          context.fillText(label, x, y, maxWidth)
-        }
-      }
-      context.globalAlpha = 1
-    }
-
-    const renderCells = () => {
-      grid.forEach((row, rowIndex) => {
-        row.forEach((cell, columnIndex) => {
-          const trimmed = cell?.trim()
-          if (!trimmed) return
-          const x = columnIndex * cellSize
-          const y = rowIndex * cellSize
-          context.fillStyle = `${colorMap.get(trimmed)}33`
-          context.fillRect(x, y, cellSize, cellSize)
-          context.strokeStyle = colorMap.get(trimmed) ?? gridColor
-          context.lineWidth = 2
-          context.strokeRect(x, y, cellSize, cellSize)
-
-          context.fillStyle = gridColor
-          context.font = `bold ${Math.max(10, cellSize * 0.4)}px ${FONT_FAMILY}`
-          context.textAlign = 'center'
-          context.textBaseline = 'middle'
-          context.fillText(
-            trimmed,
-            x + cellSize / 2,
-            y + cellSize / 2,
-            cellSize - 4
-          )
-        })
-      })
-    }
-
-    const renderGridLines = () => {
-      context.strokeStyle = gridColor
-      for (let i = 0; i <= rows; i += 1) {
-        const lineWidth = i % 5 === 0 ? 2 : 1
-        context.lineWidth = lineWidth
-        context.beginPath()
-        context.moveTo(0, i * cellSize)
-        context.lineTo(width, i * cellSize)
-        context.stroke()
-      }
-
-      for (let j = 0; j <= cols; j += 1) {
-        const lineWidth = j % 5 === 0 ? 2 : 1
-        context.lineWidth = lineWidth
-        context.beginPath()
-        context.moveTo(j * cellSize, 0)
-        context.lineTo(j * cellSize, height)
-        context.stroke()
-      }
-    }
-
-    renderTileLabels()
-    renderCells()
-    renderGridLines()
-  }, [grid, cellSize, colorMap])
-
-  if (!grid.length) {
-    return null
-  }
+  const widthPx = widthIn * pixelsPerInch
+  const heightPx = heightIn * pixelsPerInch
+  const inToPx = (valueIn: number) => valueIn * pixelsPerInch
 
   return (
     <div className={className}>
       <div className="bg-card p-3">
-        <canvas
-          ref={canvasRef}
-          className="block"
-          style={{ touchAction: 'pan-x pan-y' }}
-        />
+        <div
+          className="w-full"
+          style={{ aspectRatio: `${widthIn} / ${heightIn}` }}
+        >
+          <svg
+            className="block h-full w-full"
+            viewBox={`0 0 ${widthPx} ${heightPx}`}
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Battlefield diagram"
+          >
+            <rect
+              x={0}
+              y={0}
+              width={widthPx}
+              height={heightPx}
+              fill={backgroundColor}
+              stroke={gridColor}
+              strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+            />
+            {showCenterLines && (
+              <>
+                <line
+                  x1={widthPx / 2}
+                  y1={0}
+                  x2={widthPx / 2}
+                  y2={heightPx}
+                  stroke={gridColor}
+                  strokeWidth={inToPx(DEFAULT_CENTER_LINE_IN)}
+                />
+                <line
+                  x1={0}
+                  y1={heightPx / 2}
+                  x2={widthPx}
+                  y2={heightPx / 2}
+                  stroke={gridColor}
+                  strokeWidth={inToPx(DEFAULT_CENTER_LINE_IN)}
+                />
+              </>
+            )}
+            {diagram.elements.map((element) => {
+              const baseColor =
+                element.color ?? colorMap.get(element.id) ?? gridColor
+              const strokeColor = element.strokeColor ?? baseColor
+              const fillOpacity = element.fillOpacity ?? 0.2
+              const labelSizeIn = element.labelSizeIn ?? DEFAULT_LABEL_SIZE_IN
+              const labelText = resolveElementLabel(element)
+              const showLabel = element.showLabel ?? element.type !== 'callout'
+
+              if (element.type === 'circle') {
+                return (
+                  <g key={element.id}>
+                    <circle
+                      cx={inToPx(element.cxIn)}
+                      cy={inToPx(element.cyIn)}
+                      r={inToPx(element.rIn)}
+                      fill={baseColor}
+                      fillOpacity={fillOpacity}
+                      stroke={strokeColor}
+                      strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                    />
+                    {showLabel && (
+                      <text
+                        x={inToPx(element.cxIn)}
+                        y={inToPx(element.cyIn)}
+                        fontFamily={FONT_FAMILY}
+                        fontSize={inToPx(labelSizeIn)}
+                        fontWeight={700}
+                        fill={gridColor}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                      >
+                        {labelText}
+                      </text>
+                    )}
+                  </g>
+                )
+              }
+
+              if (element.type === 'rect') {
+                const x = inToPx(element.xIn)
+                const y = inToPx(element.yIn)
+                const width = inToPx(element.wIn)
+                const height = inToPx(element.hIn)
+                return (
+                  <g key={element.id}>
+                    <rect
+                      x={x}
+                      y={y}
+                      width={width}
+                      height={height}
+                      rx={inToPx(element.cornerRadiusIn ?? 0)}
+                      fill={baseColor}
+                      fillOpacity={fillOpacity}
+                      stroke={strokeColor}
+                      strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                    />
+                    {showLabel && (
+                      <text
+                        x={x + width / 2}
+                        y={y + height / 2}
+                        fontFamily={FONT_FAMILY}
+                        fontSize={inToPx(labelSizeIn)}
+                        fontWeight={700}
+                        fill={gridColor}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                      >
+                        {labelText}
+                      </text>
+                    )}
+                  </g>
+                )
+              }
+
+              if (element.type === 'marker') {
+                const sizeIn = element.sizeIn ?? DEFAULT_MARKER_SIZE_IN
+                const sizePx = inToPx(sizeIn)
+                const x = inToPx(element.xIn) - sizePx / 2
+                const y = inToPx(element.yIn) - sizePx / 2
+                return (
+                  <g key={element.id}>
+                    <rect
+                      x={x}
+                      y={y}
+                      width={sizePx}
+                      height={sizePx}
+                      fill={baseColor}
+                      fillOpacity={fillOpacity}
+                      stroke={strokeColor}
+                      strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                    />
+                    {showLabel && (
+                      <text
+                        x={x + sizePx / 2}
+                        y={y + sizePx / 2}
+                        fontFamily={FONT_FAMILY}
+                        fontSize={inToPx(labelSizeIn)}
+                        fontWeight={700}
+                        fill={gridColor}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                      >
+                        {labelText}
+                      </text>
+                    )}
+                  </g>
+                )
+              }
+
+              if (element.type === 'text') {
+                return (
+                  <text
+                    key={element.id}
+                    x={inToPx(element.xIn)}
+                    y={inToPx(element.yIn)}
+                    fontFamily={FONT_FAMILY}
+                    fontSize={inToPx(element.labelSizeIn ?? DEFAULT_LABEL_SIZE_IN)}
+                    fontWeight={700}
+                    fill={baseColor}
+                    textAnchor={element.anchor ?? 'middle'}
+                    dominantBaseline="middle"
+                  >
+                    {element.text}
+                  </text>
+                )
+              }
+
+              const x1 = inToPx(element.x1In)
+              const y1 = inToPx(element.y1In)
+              const x2 = inToPx(element.x2In)
+              const y2 = inToPx(element.y2In)
+              const dx = x2 - x1
+              const dy = y2 - y1
+              const length = Math.hypot(dx, dy) || 1
+              const nx = -dy / length
+              const ny = dx / length
+              const tickSize =
+                inToPx(element.tickSizeIn ?? DEFAULT_CALLOUT_TICK_IN) / 2
+              const textOffset = inToPx(
+                element.textOffsetIn ?? DEFAULT_LABEL_SIZE_IN
+              )
+              const textX = (x1 + x2) / 2 + nx * textOffset
+              const textY = (y1 + y2) / 2 + ny * textOffset
+              const calloutStroke = element.strokeColor ?? calloutColor
+
+              return (
+                <g key={element.id}>
+                  <line
+                    x1={x1}
+                    y1={y1}
+                    x2={x2}
+                    y2={y2}
+                    stroke={calloutStroke}
+                    strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                  />
+                  <line
+                    x1={x1 - nx * tickSize}
+                    y1={y1 - ny * tickSize}
+                    x2={x1 + nx * tickSize}
+                    y2={y1 + ny * tickSize}
+                    stroke={calloutStroke}
+                    strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                  />
+                  <line
+                    x1={x2 - nx * tickSize}
+                    y1={y2 - ny * tickSize}
+                    x2={x2 + nx * tickSize}
+                    y2={y2 + ny * tickSize}
+                    stroke={calloutStroke}
+                    strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                  />
+                  {element.text && (
+                    <text
+                      x={textX}
+                      y={textY}
+                      fontFamily={FONT_FAMILY}
+                      fontSize={inToPx(
+                        element.labelSizeIn ?? DEFAULT_CALLOUT_TEXT_SIZE_IN
+                      )}
+                      fontWeight={700}
+                      fill={calloutStroke}
+                      textAnchor={element.textAnchor ?? 'middle'}
+                      dominantBaseline="middle"
+                    >
+                      {element.text}
+                    </text>
+                  )}
+                </g>
+              )
+            })}
+          </svg>
+        </div>
       </div>
-      {uniqueCodes.length > 0 && (
+      {legendIds.length > 0 && (
         <div className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
-          {uniqueCodes.map((code) => {
-            const resolvedColor = colorMap.get(code) ?? gridColor
+          {legendIds.map((id) => {
+            const resolvedColor = colorMap.get(id) ?? gridColor
             return (
-              <div key={code} className="flex items-center gap-2">
+              <div key={id} className="flex items-center gap-2">
                 <span
                   className="inline-block h-4 w-4 rounded border"
                   style={{
@@ -257,9 +437,9 @@ export default function BattlefieldDiagram({
                     borderColor: resolvedColor
                   }}
                 />
-                <span className="font-semibold">{code}</span>
+                <span className="font-semibold">{id}</span>
                 <span className="text-muted">
-                  {getLegendLabel(legend?.[code])}
+                  {getLegendLabel(diagram.legend?.[id])}
                 </span>
               </div>
             )

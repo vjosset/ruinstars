@@ -43,7 +43,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               At A Glance
             </h3>
             <ul>
-              <li><strong>Players:</strong> 1-3 in solo/co-op, or 2 in PvP</li>
+              <li><strong>Players:</strong> 1-4 in PvE solo/co-op, or 2 in PvP</li>
               <li><strong>Session Length:</strong> ~30-60 minutes depending on mission and squad size</li>
               <li><strong>Model Count:</strong> 4-10 per side</li>
               <li><strong>Dice:</strong> <code>D6</code>-based core resolution</li>

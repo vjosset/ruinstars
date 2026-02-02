@@ -62,15 +62,11 @@ export default function MissionCard({mission}: { mission: Mission | MissionPlain
           */}
         </div>
 
-        {mission.diagram && mission.diagram.length > 0 && (
+        {mission.diagram && (
           <div className="lg:w-1/2 lg:max-w-md print:w-1/2 print:max-w-none">
             <h6 className="text-main">Battlefield Diagram</h6>
             <div className="ml-2">
-              <BattlefieldDiagram
-                grid={mission.diagram}
-                legend={mission.diagramLegend}
-                className="max-w-full"
-              />
+              <BattlefieldDiagram diagram={mission.diagram} className="max-w-full" />
             </div>
           </div>
         )}
