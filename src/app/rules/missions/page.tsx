@@ -1,4 +1,4 @@
-import RulesMissions from '@/app/rules/rules-missions'
+import RulesMissions from '@/app/rules/sections/rules-missions'
 import { GAME } from '@/lib/config/game_config'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'

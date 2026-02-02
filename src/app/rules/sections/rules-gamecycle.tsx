@@ -149,7 +149,8 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
         <div className="section">
           <h3 id="mission-points">Mission Points</h3>
           <p>
-            Mission Points (MP) determine the winner of the battle. Each Mission will define conditions under which a Squad can score Mission Points.
+            Mission Points (MP) determine the winner of the Mission.
+            Each Mission defines the conditions under which a Squad can score Mission Points.
             At the end of the Mission, the Squad with the most MP wins.
           </p>
         </div>

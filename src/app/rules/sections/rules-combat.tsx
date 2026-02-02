@@ -191,8 +191,8 @@ export default async function RulesCombat({ num }: {num?: Number | null}) {
             When a Unit Moves or Dashes out of Adjacency to an enemy Unit, that enemy may immediately perform a free Melee attack against the moving Unit.
             This is called an <strong>Attack of Opportunity</strong>.<br/>
             If the moving Unit is Adjacent to multiple enemies, only one of those enemies may perform an Attack of Opportunity, though they still get support in the Melee Combat Action.<br/>
-            The moving Unit may choose to spend some or all of its remaining movement Paces to blunt the attack.
-            For each Pace of movement it spends in this way, reduce the number of attack dice the enemy rolls (the weapon's <code>ATT</code> stat) by <code>1</code>.<br/>
+            The moving Unit may choose to spend some or all of its remaining movement inches to blunt the attack.
+            For each 2" of movement it spends in this way, reduce the number of attack dice the enemy rolls (the weapon's <code>ATT</code> stat) by <code>1</code>.<br/>
             Each Unit can perform only one Attack of Opportunity per Turn.
           </p>
         </div>

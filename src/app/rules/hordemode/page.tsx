@@ -1,6 +1,6 @@
 import { GAME } from '@/lib/config/game_config'
 
-import RulesHorde from '@/app/rules/rules-horde'
+import RulesHorde from '@/app/rules/sections/rules-horde'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 
 export async function generateMetadata() {
@@ -38,6 +38,15 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
           </div>
         </>
       )}
+
+      <div className="text-center">
+        <h1>MP</h1>
+        <h1>TO</h1>
+        <h1>MV</h1>
+        <h1>RO</h1>
+        <h1>UP</h1>
+        <h1>TR</h1>
+      </div>
 
       <div className="rules px-3 max-w-7xl mx-auto">
         <RulesHorde />

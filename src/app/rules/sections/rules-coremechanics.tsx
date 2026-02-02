@@ -16,7 +16,7 @@ export default async function RulesCoreMechanics({ num }: {num?: Number | null})
           </p>
           <h4 id="successes-and-failures">Successes and Failures</h4>
           <p>
-            When rolling against a character or weapon stat, a die roll is a success if its value is equal to or lower than that stat.<br/>
+            When rolling against a Unit or weapon stat, a die roll is a success if its value is equal to or lower than that stat.<br/>
             Irrespective of any modifiers or Stats, a die roll of <code>{GAME.DICE_BASIS}</code> is always a failure.<br/>
             Die rolls of <code>1</code> are always Critical successes and may have special effects depending on the roll in question (see Combat).
           </p>
@@ -43,6 +43,7 @@ export default async function RulesCoreMechanics({ num }: {num?: Number | null})
             In that case, the Squad with more Units activates two of its Units in a row.
           </div>
         </div>
+        {/*
         <div className="section">
           <h3 id="paces">Paces</h3>
           <p>
@@ -51,6 +52,7 @@ export default async function RulesCoreMechanics({ num }: {num?: Number | null})
             If you prefer, playing on a <a className="underline" href="#playingonagrid">grid</a> simplifies movement and measurement and avoids imprecision in moving miniatures and checking weapon ranges.
           </p>
         </div>
+        */}
       </div>
 
     </div>

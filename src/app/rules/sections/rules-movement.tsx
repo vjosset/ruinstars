@@ -8,9 +8,9 @@ export default async function RulesMovement({ num }: {num?: Number | null}) {
         <div className="section">
           <h3>Battlefield</h3>
           <p>
-            The Battlefield is typically 2' by 2', or 60cm x 60cm.
-            All movement and distance/range measurements are done by counting <strong>Paces</strong>.<br/>
-            You can bring your own battlefield, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the tiles and Paces pre-marked.
+            The Battlefield is typically 2' by 2', or 60cm x 60cm. Other valid formats include 3' x 3', 2' x 3', and 30" x 22".
+            {/*All movement and distance/range measurements are done by counting <strong>Paces</strong>.<br/>*/}
+            You can bring your own battlefield, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the Tiles pre-marked.
           </p>
           <p>
             If you prefer to play with a grid, see <a className="underline" href="#playingonagrid">Playing on a Grid</a> for details.
@@ -44,7 +44,8 @@ export default async function RulesMovement({ num }: {num?: Number | null}) {
           <h4 id="adjacent">Adjacent</h4>
           Two Units or Items are considered to be <strong>Adjacent</strong> if:
           <ul>
-            <li>The closest edges of their bases are within 1 Pace of each other,</li>
+            {/*<li>The closest edges of their bases are within 1 Pace of each other,</li>*/}
+            <li>The closest edges of their bases are within 1" of each other,</li>
             <li>They are on the same elevation, and</li>
             <li>There is no wall between them.</li>
           </ul>
