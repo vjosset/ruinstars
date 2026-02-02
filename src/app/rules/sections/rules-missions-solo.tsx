@@ -1,5 +1,5 @@
 
-import MissionBlock from '@/components/shared/MissionBlock'
+import MissionCard from '@/components/shared/MissionCard'
 import rawPveMissions from '@/data/missions_pve.json'
 import { MissionPlain } from '@/types'
 
@@ -20,7 +20,7 @@ export default function RulesMissionsSolo() {
         {
           pvemissions.filter((mission) => (mission as any).active).map((mission) => (
             <div className="section" key={mission.missionId}>
-              <MissionBlock mission={mission} showDescription={true} />
+              <MissionCard mission={mission} showDescription={true} />
             </div>
           ))
         }

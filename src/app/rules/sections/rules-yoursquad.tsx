@@ -1,4 +1,5 @@
 import FactionList from '@/components/faction/FactionList'
+import { PDFLink } from '@/components/nav/Links'
 import Link from 'next/link'
 
 export default async function RulesYourSquad({ num }: {num?: Number | null}) {
@@ -15,10 +16,10 @@ export default async function RulesYourSquad({ num }: {num?: Number | null}) {
         </p>
         <br/>
         <p>
-          Full Faction lists are available in the <Link className="underline" href="/assets/Ruinstars-Factions.pdf">Factions PDF</Link> or on the <Link className="underline" href="/factions">Factions Page</Link>.
+          Full Faction lists are available in the <PDFLink href="/assets/Ruinstars_Factions.pdf" title="Factions" /> or on the <Link className="underline" href="/factions">Factions Page</Link>.
           <br/>
           For your first mission, use the Starter Squad at the end of this book.
-          The Starter Squad is a solid, multi-purpose Squad of Hegemony Interdictors that exposes the core principles of the game without overloading players with synergies and complex abilities.
+          The Starter Squad is a multi-purpose Squad of Hegemony Interdictors that exposes the core principles of the game.
         </p>
         <p>
           Select the <a href="/factions">Faction</a> that best fits the way you want to play and build your squad using the <a href="/me">App</a>.

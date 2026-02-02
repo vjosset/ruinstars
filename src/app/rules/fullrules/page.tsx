@@ -1,20 +1,20 @@
 import ops from '@/data/scriptedOperations.json'
 import { GAME } from '@/lib/config/game_config'
-import RulesActions from './rules-actions'
-import RulesCampaigns from './rules-campaigns'
-import RulesCombat from './rules-combat'
-import RulesCoreMechanics from './rules-coremechanics'
-import RulesGameCycle from './rules-gamecycle'
-import RulesGlossary from './rules-glossary'
-import RulesHeader from './rules-header'
-import RulesIntro from './rules-intro'
-import RulesItems from './rules-items'
-import RulesMissions from './rules-missions'
-import RulesMovement from './rules-movement'
-import RulesSquadTypes from './rules-squadtypes'
-import RulesStatCards from './rules-statcards'
-import RulesToc from './rules-toc'
-import RulesYourSquad from './rules-yoursquad'
+import RulesActions from '../sections/rules-actions'
+import RulesCampaigns from '../sections/rules-campaigns'
+import RulesCombat from '../sections/rules-combat'
+import RulesCoreMechanics from '../sections/rules-coremechanics'
+import RulesGameCycle from '../sections/rules-gamecycle'
+import RulesGlossary from '../sections/rules-glossary'
+import RulesHeader from '../sections/rules-header'
+import RulesIntro from '../sections/rules-intro'
+import RulesItems from '../sections/rules-items'
+import RulesMissions from '../sections/rules-missions'
+import RulesMovement from '../sections/rules-movement'
+import RulesSquadTypes from '../sections/rules-squadtypes'
+import RulesStatCards from '../sections/rules-statcards'
+import RulesToc from '../sections/rules-toc'
+import RulesYourSquad from '../sections/rules-yoursquad'
 
 import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
 import PageBreak from '@/components/ui/PageBreak'
@@ -22,13 +22,13 @@ import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { FactionService } from '@/services'
 import Link from 'next/link'
 import { ScriptedOperation } from '../../scriptedoperations/page'
-import RulesAI from './rules-ai'
-import RulesHorde from './rules-horde'
-import RulesIntroMission from './rules-intromission'
-import RulesOutro from './rules-outro'
-import RulesPlayingOnAGrid from './rules-playingonagrid'
-import RulesQuickRef from './rules-quickref'
-import RulesScriptedOperations from './rules-scriptedoperations'
+import RulesAI from '../sections/rules-ai'
+import RulesHorde from '../sections/rules-horde'
+import RulesIntroMission from '../sections/rules-intromission'
+import RulesOutro from '../sections/rules-outro'
+import RulesPlayingOnAGrid from '../sections/rules-playingonagrid'
+import RulesQuickRef from '../sections/rules-quickref'
+import RulesScriptedOperations from '../sections/rules-scriptedoperations'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -87,7 +87,7 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
 
         <RulesToc />
 
-        <RulesIntro showTitle={true} num={1} showIntroIgnore={true} />
+        <RulesIntro showTitle={true} num={1} />
 
         <RulesAI />
 

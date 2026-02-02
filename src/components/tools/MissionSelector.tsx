@@ -1,6 +1,6 @@
 'use client'
 
-import MissionBlock from '@/components/shared/MissionBlock'
+import MissionCard from '@/components/shared/MissionCard'
 import battlefieldsData from '@/data/battlefields.json'
 import missionsData from '@/data/missions.json'
 import { getRandom } from '@/lib/utils/utils'
@@ -199,10 +199,10 @@ export default function MissionSelector() {
         </div>
 
         {selectedPrimaryMission && (
-          <MissionBlock mission={selectedPrimaryMission} showDescription={false} />
+          <MissionCard mission={selectedPrimaryMission} showDescription={false} />
         )}
         {selectedSecondaryMission && (
-          <MissionBlock mission={selectedSecondaryMission} showDescription={false} />
+          <MissionCard mission={selectedSecondaryMission} showDescription={false} />
         )}
         {selectedBattlefield && <BattlefieldBlock battlefield={selectedBattlefield} />}
       </div>

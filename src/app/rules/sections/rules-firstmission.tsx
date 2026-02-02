@@ -1,4 +1,4 @@
-import MissionBlock from '@/components/shared/MissionBlock'
+import MissionCard from '@/components/shared/MissionCard'
 import missions from '@/data/missions.json'
 import Link from 'next/link'
 
@@ -25,15 +25,15 @@ export default async function RulesFirstMission({ num }: {num?: Number | null}) 
             </p>
             <br/><br/>
           </div>
-            {
-              missions.filter((mission) => mission.title == 'Secure the Zone').map((mission) => (
-                <div className="section" key={mission.missionId}>
-                  <MissionBlock mission={mission} showDescription={true} />
-                </div>
-              ))
-            }
         </div>
       </div>
+      {
+        missions.filter((mission) => mission.title == 'Secure the Zone').map((mission) => (
+          <div className="section" key={mission.missionId}>
+            <MissionCard mission={mission} showDescription={true} />
+          </div>
+        ))
+      }
 
       <div className="section">
         <h3>After Your First Mission</h3>
