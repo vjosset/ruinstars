@@ -55,9 +55,9 @@ export default async function CoreRules() {
 
         <RulesGameCycle num={3} />
 
-        <RulesYourSquad num={4} />
+        <RulesStatCards num={4} />
 
-        <RulesStatCards num={5} />
+        <RulesYourSquad num={5} />
 
         <RulesActions num={6} />
 
