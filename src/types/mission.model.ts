@@ -79,8 +79,8 @@ export type MissionDiagram = {
 
 export type MissionPlain = {
   missionId: string;
-  missionType: string;
-  seq: number;
+  missionType?: string | null;
+  seq?: number | null;
   title: string;
   description: string;
   battlefieldId?: string | null;
@@ -94,8 +94,8 @@ export type MissionPlain = {
 
 export class Mission {
   missionId: string
-  missionType: string
-  seq: number
+  missionType?: string | null
+  seq?: number | null
   title: string
   description: string
   battlefieldId?: string | null
@@ -108,8 +108,8 @@ export class Mission {
 
   constructor(data: {
     missionId: string;
-    missionType: string;
-    seq: number;
+    missionType?: string | null;
+    seq?: number | null;
     title: string;
     description: string;
     battlefieldId?: string | null;

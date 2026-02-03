@@ -290,11 +290,6 @@ code {
   color: theme('colors.main.DEFAULT');
 }
 
-.section {
-	page-break-inside: avoid;
-	page-break-before: auto;
-}
-
 .printonly { display: none !important; }
 
 /* For images/portraits to show even in print with or without "print backgrounds" enabled */

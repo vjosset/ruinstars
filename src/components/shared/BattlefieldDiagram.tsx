@@ -113,7 +113,8 @@ const COLOR_PALETTE = [
 ]
 
 const backgroundColor = '#ffffff'
-const gridColor = '#0f172a'
+const gridColor = '#666'
+const textColor = '#000'
 const calloutColor = '#f97316'
 const FONT_FAMILY = '"Geist", "Geist Sans", system-ui, sans-serif'
 
@@ -191,15 +192,19 @@ export default function BattlefieldDiagram({
     <div className={className}>
       <div className="bg-card p-3">
         <div
-          className="w-full"
-          style={{ aspectRatio: `${widthIn} / ${heightIn}` }}
+          className="relative w-full"
+          style={{ paddingTop: `${(heightIn / widthIn) * 100}%` }}
         >
           <svg
-            className="block h-full w-full"
+            className="absolute inset-0 block h-full w-full"
             viewBox={`0 0 ${widthPx} ${heightPx}`}
             xmlns="http://www.w3.org/2000/svg"
             role="img"
             aria-label="Battlefield diagram"
+            style={{
+              printColorAdjust: 'exact',
+              WebkitPrintColorAdjust: 'exact'
+            }}
           >
             <rect
               x={0}
@@ -258,7 +263,7 @@ export default function BattlefieldDiagram({
                         fontFamily={FONT_FAMILY}
                         fontSize={inToPx(labelSizeIn)}
                         fontWeight={700}
-                        fill={gridColor}
+                        fill={textColor}
                         textAnchor="middle"
                         dominantBaseline="middle"
                       >
@@ -294,7 +299,7 @@ export default function BattlefieldDiagram({
                         fontFamily={FONT_FAMILY}
                         fontSize={inToPx(labelSizeIn)}
                         fontWeight={700}
-                        fill={gridColor}
+                        fill={textColor}
                         textAnchor="middle"
                         dominantBaseline="middle"
                       >
@@ -329,7 +334,7 @@ export default function BattlefieldDiagram({
                         fontFamily={FONT_FAMILY}
                         fontSize={inToPx(labelSizeIn)}
                         fontWeight={700}
-                        fill={gridColor}
+                        fill={textColor}
                         textAnchor="middle"
                         dominantBaseline="middle"
                       >
