@@ -229,7 +229,7 @@ export default function SquadPageClient({
         {/* Foreground content */}
         <div className="relative z-10 flex flex-col items-center justify-end text-center h-full pt-28 md:pt-20 pb-6 px-4 print:pt-1 print:pb-1">
           <div className="flex items-center justify-center gap-2">
-            <PageTitle onClick={isOwner && handleEditSquadClick}>
+            <PageTitle onClick={(isOwner && handleEditSquadClick) || null}>
               {squad.squadName}
             </PageTitle>
             {isOwner && (
