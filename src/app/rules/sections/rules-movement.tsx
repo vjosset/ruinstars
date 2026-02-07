@@ -80,7 +80,7 @@ export default async function RulesMovement({ num }: {num?: Number | null}) {
           <h4 id="vertical-movement">Vertical Movement</h4>
           <p>
             <strong>Climbing Up:</strong><br/>
-            When a Unit climbs vertical terrain, it spends movement distance inch-for-inch on the vertical height, then spends an additional 1" to move onto the top of the terrain. All of this distance counts toward the Unit’s total movement for the action.
+            When a Unit climbs vertical terrain, it spends movement distance inch-for-inch on the vertical height, then spends an additional 1" to move onto the top of the terrain. All of this distance counts toward the Unit's total movement for the action.
 
             A wall or surface may only be climbed if all players agree it is Climbable at the start of the battle. Climbable terrain should be clearly identifiable, such as by ladders, handholds, or similar features.
             <br/>

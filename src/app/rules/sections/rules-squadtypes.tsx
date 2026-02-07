@@ -6,7 +6,7 @@ import { FactionService, SpecialService, SquadTypeService } from '@/services'
 import Link from 'next/link'
 
 export default async function RulesSquadTypes() {
-  const factions = await FactionService.getAllFactions()
+  const factions = (await FactionService.getAllFactions()).filter((fa => fa.squadTypes.length > 0))
 
   for (const faction of factions) {
     for (let squadType of faction.squadTypes) {
@@ -21,13 +21,96 @@ export default async function RulesSquadTypes() {
       <h1 className="text-center pt-48 mb-12 font-title"   id="allsquadTypes" style={{position: 'relative', top: '50%' }}>
         Factions
       </h1>
-      <p className="mb-8">
-        Select the <a className="underline" href="/factions">Faction</a> that best fits the way you want to play and build your squad using the <a href="/me">App</a>.
-        Squads are typically built with a maximum value of 100 total GP (including all unit and gear costs).<br/>
-        Your Squad can only include one Leader (with the <code>Leader x</code> Special), and it cannot include more than 1 of each Unique Unit (marked with an asterisk <code>*</code>).<br/>
-        When selecting Gear for your Squad (Weapons, Equipment, etc), any item whose name ends with an asterisk (<code>*</code>) is Unique and cannot be added more than once to your squad.
-      </p>
-      <FactionList />
+
+      <div className="section twocols">
+        <div className="section">
+          <h2>Introduction</h2>
+          <div className="flavor">
+            The galaxy is dying.
+            <br/><br/>
+            Empires rot from within, ancient horrors stir in the void, and the last habitable worlds are fought over like scraps of meat.
+            There are no clean wars anymore—only raids, interdictions, containment failures, and desperate last stands.
+          </div>
+        </div>
+        <div className="section">
+          <h2>Factions</h2>
+          The factions of Ruinstars are not armies in the traditional sense.
+          They are specialized forces, cult cells, strike teams, and expendable operatives sent where conventional power has already failed.
+          Some fight to preserve order.
+          Others to hasten collapse. Many simply fight to survive one more mission.
+          <br/><br/>
+          This book details those factions: who they are, how they fight, and what kinds of Units make up their squads.
+        </div>
+      </div>
+      <div className="section">
+        <h2>Building a Squad</h2>
+        <div className="section twocols">
+          <div className="section">
+            <h3>Full Squads (100 GP)</h3>
+            A Full Squad is the standard way to play Ruinstars.
+            <ul>
+              <li>You have 100GP to spend</li>
+              <li>All Units and gear are selected by a single player</li>
+              <li>This squad is used as-is for PvE, PvP, or Horde play</li>
+            </ul>
+
+            Full Squads are recommended for:            
+            <ul>
+              <li>Solo play</li>
+              <li>One-player-per-side PvP</li>
+              <li>Campaign play</li>
+              <li>First-time players</li>
+            </ul>
+
+            A typical Full Squad consists of:
+            <ul>
+              <li>4-10 Units</li>
+              <li>A mix of specialists and line Units</li>
+              <li>Enough redundancy to absorb losses without immediate failure</li>
+            </ul>
+          </div>
+          <div className="section">
+            <h3>Mini Squads (Shared 100 GP)</h3>
+            In games with multiple players on the same side, the squad can be split into <strong>Mini Squads</strong>.
+            <ul>
+              <li>2 Players → 50 GP each</li>
+              <li>3 Players → 34 GP each</li>
+              <li>4 Players → 25 GP each</li>
+            </ul>
+            Notes:
+            <ul>
+              <li>Each mini-squad may have a Leader, but their Leader effect is ignored for rolling TOs (i.e. only one player rolls for TOs).</li>
+              <li>Units that are in different mini-Squads are considered to be Squadmates.</li>
+            </ul>
+          </div>
+          <div className="section">
+            <h3>Unit and Gear Selection</h3>
+            <ul>
+              <li>
+                <strong>Select Faction</strong><br/>
+                Choose the <a className="underline" href="/factions">Faction</a> that best fits
+                the way you want to play and build your squad using the <a className="underline" href="/me">App</a> or
+                by filling out the cards at the end of this book.
+              </li>
+              <li>
+                <strong>Select Units</strong><br/>
+                Select Units from that faction's Unit list.
+                Your Squad can only include one Leader, and it cannot include more than 1 of each Unique Unit (marked with an asterisk <code>*</code>).
+              </li>
+              <li>
+                <strong>Select Gear, Weapons, and Skills</strong><br/>
+                Equip Units with any allowed gear
+                 When selecting Gear for your Squad (Weapons, Equipment, etc), any item whose name ends with an asterisk (<code>*</code>) is Unique and cannot be added more than once to your squad.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <h2>Factions</h2>
+        <FactionList />
+      </div>
 
       {factions.map((faction) => (
         <div className="section" id={`faction-${faction.factionId}`} key={`faction-${faction.factionId}`}>

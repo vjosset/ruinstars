@@ -19,7 +19,7 @@ export default async function RulesYourSquad({ num }: {num?: Number | null}) {
           <p>
             Full Faction lists are available in the <PDFLink href="/assets/Ruinstars_Factions.pdf" title="Factions" /> or on the <Link className="underline" href="/factions">Factions Page</Link>.
             <br/>
-            For your first mission, use the Starter Squad at the end of this book.
+            <strong>For your <a className="underline" href="#firstmission">first mission</a></strong>, use the Starter Squad at the end of this book.
             The Starter Squad is a multi-purpose Squad of Hegemony Interdictors that exposes the core principles of the game.
           </p>
           <p>

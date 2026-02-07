@@ -2,7 +2,8 @@
   {
     "slug": "OP-SWARM",
     "title": "Infestation",
-    "description": "Root out the Swarm infestation, while the Swarm fights for survival and dominance.",
+    "description": "We underestimated how deep the infestation had already taken hold. Initial contact cleared surface resistance around the breach site, but deeper scans confirmed multiple active nests beyond the first perimeter. The organisms aren't operating independently. They're coordinated, expanding, and recycling losses faster than expected. Every position we secure draws a counter-push, and every delay allows the Swarm to reinforce through secondary hatches we didn't have on record. This isn't a cleanup operation anymore. It's containment under pressure, and if we don't collapse the nests, the infestation will spread beyond control.",
+    "objectives": "Breach - Contain - Purge",
     "npcSquadId_Real": "NPC-SWARM",
     "npcSquadId": "OvsuFwS2",
     "npcSpawnRules": "- **Threat Level 1**\n\t- **1-4:** 2x Desecrator (M)\n\t- **5:** 2x Desecrator (R)\n\t- **6:** 1x Ravager\n- **Threat Level 2**\n\t- **1-3:** 3x Desecrator (M)\n\t- **4-5:** 3x Desecrator (R)\n\t- **6:** 1x Ravager\n- **Threat Level 3**\n\t- **1:** 4x Desecrator (M)\n\t- **4-5:** 4x Desecrator (R)\n\t- **6:** 2x Ravager",
@@ -175,6 +176,68 @@
             "SW": "Swarm Deployment"
           }
         }
+      }
+    ]
+  },
+  {
+    "slug": "CRS",
+    "title": "Dark Ritual",
+    "description": "Centered around an ancient artifact and a blasphemous summoning ritual. The Crimson Shroud strives to complete their rite no matter the cost.",
+    "missions": [
+      {
+        "missionId": "1",
+        "title": "The Search",
+        "description": "Whispers of the artifact echo through the broken streets. The Crimson Shroud scours the ruins for the relic, while the Hegemony close in to halt the search. The one who holds the artifact controls the path to what comes next.",
+        "battlefield": "The Ruined City",
+        "battlefieldId": "RC",
+        "setup": "Place 1 Search Marker in the center of each of the West, Central, and East tiles.",
+        "deployment": "Each Squad deploys from opposite Battlefield edges before Turn 1.",
+        "special": "**Mission Action: Search (2ACT)**  \nA Crimson Shroud Unit that Controls a Search Marker may spend 2ACT to search it.\nRoll 1D6. This roll cannot be modified or re-rolled by using TOs.\n\n- On the first searched marker, the Artifact is found on a roll of 1\n- On the second searched marker, the Artifact is found on a roll of 1 or 2\n- On the third searched marker, the Artifact is found automatically\n\nAfter searching a marker, remove it from the Battlefield.\nOnce found, the Artifact is carried by the Unit that found it.",
+        "victory": "- The Crimson Shroud wins if they are carrying the Artifact at the end of Turn 4. **Proceed to Mission 2A**\n- The Hegemony win in all other cases. **Proceed to Mission 2B**"
+      },
+      {
+        "missionId": "2A",
+        "title": "Blood Offering",
+        "description": "The Crimson Shroud carries the relic into the warzone, aiming to satisfy the ritual's demand for blood. The Hegemony rush to prevent a massacre, but in this dark work even the Crimson Shroud's own deaths could feed their cause.",
+        "battlefield": "No Man's Land",
+        "battlefieldId": "NML",
+        "setup": "",
+        "deployment": "Each Squad selects one of two opposing Battlefield edges as their Deployment Zone. Both deploy before Turn 1.",
+        "special": "",
+        "victory": "- The Crimson Shroud wins if more than half of all Units (across both Squads combined) are Taken Out by the end of Turn 4. **Proceed to Mission 3A**\n- The Hegemony win in all other cases. **Proceed to Mission 3B**"
+      },
+      {
+        "missionId": "2B",
+        "title": "Ambush in the Jungle",
+        "description": "Believing themselves safe with the artifact, the Hegemony vanish into the choking jungle. But the Crimson Shroud lies in wait among the shadows, ready to strike and wrest the relic from their grasp.",
+        "battlefield": "The Jungle",
+        "battlefieldId": "JUNG",
+        "setup": "Before deployment, secretly mark one Hegemony Unit as the Artifact Carrier.",
+        "deployment": "Before Turn 1, Crimson Shroud deploys all units anywhere in the Northeast, East, or Southeast Tiles.\nDuring Turn 1, when it is a Hegemony Unit's turn to activate, deploy it on the outer edge of the Western tile. Hegemony always have the initiative in Turn 1.",
+        "special": "The Artifact may be dropped if the carrier is Taken Out or voluntarily drops it. The Artifact may be picked up or passed as normal.",
+        "victory": "- The Crimson Shroud wins if they are carrying the Artifact at the end of Turn 4. **Proceed to Mission 2A**\n- The Hegemony win in all other cases. **Proceed to Mission 3B**"
+      },
+      {
+        "missionId": "3A",
+        "title": "The Summoning",
+        "description": "With the relic secured and blood spilled, the Crimson Shroud reaches the cursed temple. At its profane altars they chant to awaken something terrible. The Hegemony charge in, knowing that if they fail here, the galaxy will pay the price.",
+        "battlefield": "The Cursed Temple",
+        "battlefieldId": "TMPL",
+        "setup": "Place 3 Altar Markers in the central squares of the West, Center, and East tiles.",
+        "deployment": "Crimson Shroud deploys before Turn 1 within 2 Squares of an Altar.\nHegemony deploy before Turn 1 on the Southern Battlefield edge.",
+        "special": null,
+        "victory": "- The Crimson Shroud wins if they control all 3 Altars by the end of Turn 4.\n- The Hegemony win in all other cases."
+      },
+      {
+        "missionId": "3B",
+        "title": "Sabotage the Temple",
+        "description": "The Crimson Shroud's summoning has been thwarted, and now the Hegemony launch a final desperate strike. They will tear down the temple itself if they must, ending the ritual in fire and ruin. The Crimson Shroud will defend their unholy ground with every last breath.",
+        "battlefield": "The Cursed Temple",
+        "battlefieldId": "TMPL",
+        "setup": "Place 3 Sabotage Markers central squares of the West, Center, and East tiles.",
+        "deployment": "Crimson Shroud deploys anywhere within 3 Squares of a Sabotage marker before Turn 1.\nHegemony deploy from any Battlefield edge before Turn 1.",
+        "special": "**Mission Action: Sabotage (2ACT)**  \nA Unit that Controls a Sabotage Marker may spend 2ACT to sabotage it.",
+        "victory": "- The Hegemony win if all 3 markers are sabotaged by the end of Turn 4.\n- The Crimson Shroud wins in all other cases."
       }
     ]
   }
