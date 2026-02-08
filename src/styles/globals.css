@@ -69,7 +69,8 @@ Font notes:
 
 @font-face {
   font-family: 'main';
-  src: url('/fonts/Oswald.ttf');
+  /*src: url('/fonts/Oswald.ttf');*/
+	src: url('/fonts/Rajdhani-SemiBold.ttf');
   font-weight: normal;
   font-style: normal;
 }
@@ -122,13 +123,12 @@ body {
 
 h1 {
   @apply font-heading uppercase text-5xl font-title text-main grunge;
-  font-weight: normal;
   color: theme('colors.foreground.DEFAULT');
 }
 
 h2, h3, h4, h5, h6 {
   @apply font-main uppercase grunge;
-  font-weight: normal;
+  font-weight: 700;
 }
 
 h2 { @apply text-4xl; }
