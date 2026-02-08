@@ -4,7 +4,8 @@ import PageBreak from '@/components/ui/PageBreak'
 import { GAME } from '@/lib/config/game_config'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import { GearCategoryService } from '@/services'
+import { GearCategoryService, SpecialService, UserService } from '@/services'
+import UnitCard from '@/components/unit/UnitCard'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -26,6 +27,9 @@ export default async function PvEMissions() {
   }).format(new Date()).replaceAll('-', '')
   const injuries = await GearCategoryService.getGearCategory('INJ')
   const spoilsOfWar = await GearCategoryService.getGearCategory('SOW')
+  const pveUser = (await UserService.getUserByUsername('pve')) ?? (await UserService.getUser('pve'))
+  const pveSquads = (pveUser?.squads ?? []).slice().sort((a, b) => (a.seq ?? 0) - (b.seq ?? 0))
+  const allSpecials = await SpecialService.getAllSpecials()
   
   const objectiveDiagram = {
     board: { widthIn: 24, heightIn: 24 },
@@ -51,6 +55,9 @@ export default async function PvEMissions() {
       { type: 'callout', id: 'h6', x1In: 18, y1In: 18, x2In: 24, y2In: 18, text: '6"' },
       { type: 'callout', id: 'v3', x1In: 18, y1In: 0, x2In: 18, y2In: 6, text: '6"' },
       { type: 'callout', id: 'v4', x1In: 18, y1In: 18, x2In: 18, y2In: 24, text: '6"' },
+
+      { type: 'rect', id: 'PD', xIn: 0, yIn: 0, wIn: 24, hIn: 2, label: 'NPC Squad Deployment', showInLegend: false },
+      { type: 'rect', id: 'ND', xIn: 0, yIn: 22, wIn: 24, hIn: 2, label: 'Player Squad Deployment', showInLegend: false }
     ]
   } satisfies BattlefieldDiagramConfig
 
@@ -113,7 +120,7 @@ export default async function PvEMissions() {
 
                 <strong>Roll Objectives</strong>
                 <p className="ml-4">
-                  Roll <code>2D6</code> (re-roll duplicates) and consult the <strong>Objectives</strong> table. 
+                  Roll <code>1D6</code> (re-roll duplicates) and consult the <strong>Objectives</strong> below. 
                   These two results will be the objectives for the mission.
                 </p>
 
@@ -131,12 +138,12 @@ export default async function PvEMissions() {
 
                 <strong>Deploy the NPC Squad</strong>
                 <p className="ml-4">
-                  Deploy all NPC Units in the battlefield's deployment zone.
+                  Deploy all NPC Units on the Northern edge of the battlefield.
                 </p>
 
                 <strong>Deploy the Player Squad</strong>
                 <p className="ml-4">
-                  Deploy all Player Units in the battlefield's deployment zone.
+                  Deploy all Player Units on the Southern edge of the battlefield.
                 </p>
               </div>
               <div className="section">
@@ -166,7 +173,7 @@ export default async function PvEMissions() {
               </div>
               <div className="section">
                 <h3>Extraction</h3>
-                The Player Squad may <strong>Extract</strong> at any time. To Extract, all Standing Units in the Squad must not be Adjacent to any enemy Units.
+                The Player Squad may <strong>Extract</strong> at the end of any Turn. To Extract, all Standing Units in the Squad must not be Adjacent to any enemy Units.
                 Once a Squad extracts, the Mission ends.<br/>
                 Upon extraction, the Squad scores <strong>Mission Points</strong> (MP) based on their objectives and the Threat Level:
                 <ul>
@@ -229,7 +236,8 @@ export default async function PvEMissions() {
                   <h4>Anchors</h4>
                   <p>
                     Some Objectives and Events include placing markers or tokens on "Anchors".
-                    Anchors are simply evenly-spaced spots (6" apart) on the battlefield as illustrated below.
+                    Anchors are simply evenly-spaced spots (6" apart) on the battlefield as illustrated below.<br/>
+                    When placing a marker on a random Anchor, roll <code>1D10</code> and use the diagram. On a <code>10</code>, select one anchor of your choice.<br/>
                     If an Objective instructs you to place a marker on an Anchor that is already occupied, re-roll that placement.
                   </p>
                   <BattlefieldDiagram diagram={objectiveDiagram} className="max-w-md" />
@@ -374,6 +382,38 @@ export default async function PvEMissions() {
                 </ul>
               </div>
             </div>
+          </div>
+          
+          <PageBreak />
+          <div className="section">
+            <h2>NPC Units</h2>
+            {!pveSquads.length && (
+              <p className="text-sm text-muted">No NPC squads found for user <strong>pve</strong>.</p>
+            )}
+            {pveSquads.map((squad) => (
+              <div key={squad.squadId} className="section">
+                <h3 className="text-main font-semibold">{squad.squadName}</h3>
+                <h4>Spawn Table</h4>
+                {squad.spawnTable && (
+                  <div className="mb-3">
+                    <Markdown>{squad.spawnTable}</Markdown>
+                  </div>
+                )}
+                <h4>Units</h4>
+                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                  {squad.units?.map((unit) => (
+                    <UnitCard
+                      key={unit.unitId}
+                      seq={unit.seq}
+                      unit={unit.toPlain()}
+                      isOwner={false}
+                      allSpecials={allSpecials.map((spec) => spec.toPlain())}
+                      allMedals={[]}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

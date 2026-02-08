@@ -101,6 +101,7 @@ model Squad {
   seq               Int       @default(0)
   squadName         String    @db.VarChar(250)
   description       String?   @db.Text
+  spawnTable        String?   @db.Text
   isSpotlight       Boolean   @default(false)
   hasCustomPortrait Boolean   @default(false)
   portraitUpdatedAt DateTime  @default(now())
