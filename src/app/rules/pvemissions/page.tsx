@@ -1,5 +1,6 @@
 import BattlefieldDiagram, { type BattlefieldDiagramConfig } from '@/components/shared/BattlefieldDiagram'
 import Markdown from '@/components/ui/Markdown'
+import PageBreak from '@/components/ui/PageBreak'
 import { GAME } from '@/lib/config/game_config'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
@@ -110,56 +111,58 @@ export default async function PvEMissions() {
                   <li>Extract and resolve consequences</li>
                 </ol>
 
-                <h4>Roll Objectives</h4>
+                <strong>Roll Objectives</strong>
                 <p className="ml-4">
                   Roll <code>2D6</code> (re-roll duplicates) and consult the <strong>Objectives</strong> table. 
                   These two results will be the objectives for the mission.
                 </p>
 
-                <h4>Select Threat Level and NPC Faction</h4>
+                <strong>Select Threat Level and NPC Faction</strong>
                 <p className="ml-4">
                   Select the enemy faction for the NPC Squad, and select a Threat Level (1-3).
                   If playing a Campaign, the Threat Level should be the same as the Operation number.<br/>
                   Roll <code>3D6</code> to identify the NPC Units to deploy for this Mission (see <strong>NPC Units</strong> below).
                 </p>
 
-                <h4>Set up Battlefield</h4>
+                <strong>Set up Battlefield</strong>
                 <p className="ml-4">
                   Set up the battlefield according to the rolled objectives and deploy the NPC Squad.
                 </p>
 
-                <h4>Deploy the NPC Squad</h4>
+                <strong>Deploy the NPC Squad</strong>
                 <p className="ml-4">
                   Deploy all NPC Units in the battlefield's deployment zone.
                 </p>
 
-                <h4>Deploy the Player Squad</h4>
+                <strong>Deploy the Player Squad</strong>
                 <p className="ml-4">
                   Deploy all Player Units in the battlefield's deployment zone.
                 </p>
               </div>
               <div className="section">
-                <h4>Play the Mission</h4>
-                <strong>Turn Sequence</strong>
-                <ol>
-                  <li>Roll Tactical Orders (TO)</li>
-                  <li>
-                    Turn Event<br/>
-                    For Turns 1-4 of the Mission, roll on the <strong>Turn Events</strong> table.<br/>
-                    For Turns 5+ of the Mission, the Turn Event is always <strong>Enemy Reinforcements</strong>.
-                  </li>
-                  <li>
-                    Activations
-                    <ul>
-                      <li>Player Squad always has initiative</li>
-                      <li>Activate one Player Unit</li>
-                      <li>
-                        Activate one NPC Unit. Follow that Unit's <strong>Behavior</strong> skill.<br/>
-                      </li>
-                      <li>Repeat until all Units have activated</li>
-                    </ul>
-                  </li>
-                </ol>
+                <strong>Play the Mission</strong>
+                <div>
+                  Turn Sequence:
+                  <ol>
+                    <li>Roll Tactical Orders (TO)</li>
+                    <li>
+                      Turn Event<br/>
+                      For Turns 1-4 of the Mission, roll on the <strong>Turn Events</strong> table.<br/>
+                      For Turns 5+ of the Mission, the Turn Event is always <strong>Enemy Reinforcements</strong>.
+                    </li>
+                    <li>
+                      Activations
+                      <ul>
+                        <li>Player Squad always has initiative</li>
+                        <li>Activate one Player Unit</li>
+                        <li>
+                          Activate one NPC Unit. Follow that Unit's <strong>Behavior</strong> skill.<br/>
+                        </li>
+                        <li>Repeat until all Units have activated</li>
+                      </ul>
+                    </li>
+                  </ol>
+                </div>
               </div>
               <div className="section">
                 <h3>Extraction</h3>
@@ -225,7 +228,7 @@ export default async function PvEMissions() {
                 <div className="center">
                   <h4>Anchors</h4>
                   <p>
-                    Some Objectives include placing markers or tokens on "Anchors".
+                    Some Objectives and Events include placing markers or tokens on "Anchors".
                     Anchors are simply evenly-spaced spots (6" apart) on the battlefield as illustrated below.
                     If an Objective instructs you to place a marker on an Anchor that is already occupied, re-roll that placement.
                   </p>
@@ -266,13 +269,48 @@ export default async function PvEMissions() {
             </div>
           </div>
 
-          <div className="section">
+          <PageBreak />
+          <div>
             <h2>Campaigns</h2>
-            <div className="section twocols">
+            <div className="twocols">
               <div className="section">
                 <h3>Campaign Structure</h3>
                 A Campaign is composed of three Operations, and each Operation is composed of three Missions.<br/>
                 At the end of each Operation, your Squad returns to Homebase to heal injuries, resupply, and recruit new Units into the Squad.
+
+                <h4>Sample Campaign</h4>
+                <ul>
+                  <li>
+                    Operation 1<br/>
+                    <em>Threat Level 1</em>
+                    <ul>
+                      <li>Mission 1.1</li>
+                      <li>Mission 1.2</li>
+                      <li>Mission 1.3</li>
+                      <li>Homebase</li>
+                    </ul>
+                  </li>
+                  <li>
+                    Operation 2<br/>
+                    <em>Threat Level 2</em>
+                    <ul>
+                      <li>Mission 2.1</li>
+                      <li>Mission 2.2</li>
+                      <li>Mission 2.3</li>
+                      <li>Homebase</li>
+                    </ul>
+                  </li>
+                  <li>
+                    Operation 3<br/>
+                    <em>Threat Level 3</em>
+                    <ul>
+                      <li>Mission 3.1</li>
+                      <li>Mission 3.2</li>
+                      <li>Mission 3.3</li>
+                      <li>Homebase</li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
               <div className="section">
                 <h3>Operations</h3>
@@ -283,10 +321,9 @@ export default async function PvEMissions() {
                 <h4>Enemy Faction and Threat Level</h4>
                 The Threat Level to use when building NPC Squads should be the same as the Operation number (i.e. TL1 for Missions in Operation 1, TL2 for Operation 2, TL3 for Operation 3).
                 For simplicity, we also recommend using the same faction for all Missions in a given Operation but you may choose to change factions for each Mission.
-              </div>
-              <div className="section">
+
                 <h4>Homebase</h4>
-                At the end of each Operation (after the third Mission), your Squad returns to Homebase to heal injuries, resupply, and utilize accrued resources.
+                At the end of each Operation, after the third Mission, your Squad returns to Homebase to heal injuries, resupply, and utilize accrued resources.
                 <ol>
                   <li>Remove all Deceased Units from your Squad.</li>
                   <li>Remove all Injuries from remaining Units.</li>
@@ -294,6 +331,8 @@ export default async function PvEMissions() {
                   <li>Make changes to your Squad's selected Gear and Spoils Of War.</li>
                 </ol>
               </div>
+            </div>
+            <div className="section twocols">
               <div className="section">
                 <h3>Injuries</h3>
                 <p>
