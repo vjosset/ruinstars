@@ -56,7 +56,7 @@ export default async function PvEMissions() {
   return (
     <>
       {/* Cover */}
-      <img src="/img/rules/BookCover_Framed.webp" className="fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} />
+      <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} />
       <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
         <div className="text-center text-white font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
           <h1>PvE Missions</h1>
@@ -187,7 +187,7 @@ export default async function PvEMissions() {
                 <div>
                   <strong>2: Destroy Nexus</strong>
                   <div className="ml-4">
-                    <strong>Setup:</strong> Place 3 Nexus markers on 3 random Anchors.<br/>
+                    <strong>Setup:</strong> Place a Nexus marker on 3 random Anchors.<br/>
                     <strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
                     <strong>Victory:</strong> All Nexus Markers are Taken Out.
                   </div>
@@ -201,15 +201,15 @@ export default async function PvEMissions() {
                 <div>
                   <strong>4: Protect The Asset</strong>
                   <div className="ml-4">
-                    <strong>Setup:</strong> Place an Asset marker as close as possible to the Center fo the battlefield. Assets are Items with <code>ARM 3 HIT 3</code>.<br/>
-                    <strong>Special:</strong> Enemy Units will always prioritize targeting the Asset instead of Player Units in combat.<br/>
+                    <strong>Setup:</strong> Place an Asset marker as close as possible to the Center of the battlefield. Assets are Items with <code>ARM 3 HIT 3</code> and can be targeted in Combat.<br/>
+                    <strong>Special:</strong> NPC Units always prioritize targeting the Asset instead of Player Units.<br/>
                     <strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of Turn 4.
                   </div>
                 </div>
                 <div>
                   <strong>5: Disruption Field</strong>
                   <div className="ml-4">
-                    <strong>Setup:</strong> Place 3 Disruptor Pylons on 3 random Anchors.<br/>
+                    <strong>Setup:</strong> Place a Disruptor Pylon on 3 random Anchors.<br/>
                     <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Disruptor Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
                     <strong>Victory:</strong> All 3 Disruptor Pylons have been calibrated.
                   </div>
@@ -225,8 +225,8 @@ export default async function PvEMissions() {
                 <div className="center">
                   <h4>Anchors</h4>
                   <p>
-                    Some Objective include placing markers or tokens on "Anchors".
-                    Anchors are simply evenly-spaced spots, (6" apart) on the battlefield as described below.
+                    Some Objectives include placing markers or tokens on "Anchors".
+                    Anchors are simply evenly-spaced spots (6" apart) on the battlefield as illustrated below.
                     If an Objective instructs you to place a marker on an Anchor that is already occupied, re-roll that placement.
                   </p>
                   <BattlefieldDiagram diagram={objectiveDiagram} className="max-w-md" />

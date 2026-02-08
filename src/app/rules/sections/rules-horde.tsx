@@ -166,8 +166,8 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
             </p>
           </div>
           <div className="section">
+            <h5>Reviving Downed Units</h5>
             <p>
-              <h5>Reviving Downed Units</h5>
               A Standing Unit may revive a Downed Squadmate it Controls:<br/>
               <strong>Mission Action - Revive - 2 ACT</strong>: The Downed Unit returns as Standing with <code>1 HIT</code> remaining.<br/>
               A Downed Unit may revive itself if it Controls a Squadmate:<br/>
