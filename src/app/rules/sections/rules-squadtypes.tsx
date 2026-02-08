@@ -42,6 +42,7 @@ export default async function RulesSquadTypes() {
           This book details those factions: who they are, how they fight, and what kinds of Units make up their squads.
         </div>
       </div>
+      
       <div className="section">
         <h2>Building a Squad</h2>
         <div className="section twocols">

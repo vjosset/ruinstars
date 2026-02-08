@@ -1,4 +1,3 @@
-import MissionCard from '@/components/shared/MissionCard'
 import Markdown from '@/components/ui/Markdown'
 import PageBreak from '@/components/ui/PageBreak'
 import UnitCard from '@/components/unit/UnitCard'
@@ -188,7 +187,9 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
         <div className="twocols">
           {hordemaps.map((map) => {
             return (
-              <MissionCard key={map.missionId} mission={map} showDescription={true} />
+              <>
+                {/*<MissionCard key={map.missionId} mission={map} showDescription={true} />*/}
+              </>
             )
           })}
         </div>
