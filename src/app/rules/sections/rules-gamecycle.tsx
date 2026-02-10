@@ -120,9 +120,9 @@ export default async function RulesGameCycle({ num }: {num?: Number | null}) {
             For example, during each Turn:
             <ul className="section">
               <li>Player 1 activates the first Player Unit and performs Actions</li>
-              <li>Player 1 activates the first Enemy Unit and performs Actions</li>
+              <li>Player 1 activates the first NPC Unit and performs Actions</li>
               <li>Player 2 activates the next Player Unit and performs Actions</li>
-              <li>Player 2 activates the next Enemy Unit and performs Actions</li>
+              <li>Player 2 activates the next NPC Unit and performs Actions</li>
               <li>etc.</li>
             </ul>
           </div>
