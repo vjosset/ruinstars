@@ -2,6 +2,7 @@ import UnitCard from '@/components/unit/UnitCard'
 import { SpecialService, UnitService } from '@/services'
 import { RiCrosshair2Fill, RiSwordFill } from 'react-icons/ri'
 import IgnoreForIntroMission from './rules-ignorefirstmission'
+import Link from 'next/link'
 
 export default async function RulesStatCards({ num }: {num?: Number | null}) {
   const sampleUnit = (await UnitService.getUnit('ST-0'))!.toPlain()
@@ -15,7 +16,7 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
         <div className="section">
           <p>
             StatCards describe your Units and their Weapons with numerical values, and any special Skills they may have. In general, the higher the stat number, the better the Unit or Weapon.<br/>
-            Note that in the app and on the website, you can click or tap Specials to view what they mean, and Skills or Equipment to get their full description.
+            Note that in the <Link className="underline" href="/me">app</Link> and on the website, you can click or tap Specials to view what they mean, and Skills or Equipment to get their full description.
           </p>
           <br/>
           <IgnoreForIntroMission keyword="weapon specials and Unit skills" />
@@ -84,14 +85,13 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
               The <a className="underline" href="#unit-specials">Specials</a> that apply to this Unit.
             </li>*/}
           </ul>
-          Note that in the app and on the website, each special (e.g. <code>2RC</code>) and skill (e.g. "Duty Before Death") can be clicked or tapped to view their detailed description.
-          <br/>
+          
           <strong>For example: </strong>
           <ul>
             <li>{sampleUnit.unitName} is a {sampleUnit.unitTypeName}</li>
-            <li>He can perform {sampleUnit.ACT} Actions (<code>ACT</code>) during each of his activations.</li>
-            <li>Each time he is the target of Combat and rolls Armor Saves, each result of {sampleUnit.ARM} or less (<code>ARM</code>) is a successful Save.</li>
-            <li>He starts each Mission with {sampleUnit.HIT} Hit Points (<code>HIT</code>).</li>
+            <li><code>ACT</code> - He can spend up to <strong>{sampleUnit.ACT}</strong> Action Points on Actions during each of his activations.</li>
+            <li><code>ARM</code> - Each time he is the target of Combat and rolls Armor Saves, each result of <strong>{sampleUnit.ARM}</strong> or less is a successful Save.</li>
+            <li><code>HIT</code> - He starts each Mission with <strong>{sampleUnit.HIT}</strong> Hit Points.</li>
           </ul>
         </div>
         
@@ -113,16 +113,16 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
             <li>
               <h6 className="inline stat text-main">(Special)</h6> - Weapon Specials<br/>
               Specials for this weapon are listed next to its name.
-              In the app and on the website, click or tap on them to read their full description.
+              In the <Link className="underline" href="/me">app</Link> and on the <Link className="underline" href="/">website</Link>, click or tap on them to read their full description.
               Don't worry about remembering the codes; they will quickly become second nature to you.
             </li>
           </ul>
           <br/>
           <strong>For example: </strong>
           <ul>
-            <li>{sampleUnit.unitName}'s <strong>{sampleUnit.weapons?.[1].gearName}</strong> is a {sampleUnit.weapons?.[1].TYP == 'R' ? 'Ranged' : 'Melee'} weapon ({ sampleUnit.weapons?.[1].TYP == 'M' ? (<RiSwordFill className="icon" />) : (<RiCrosshair2Fill className="icon" />) }).</li>
-            <li>Each time it is used, {sampleUnit.unitName} rolls {sampleUnit.weapons?.[1].ATT} dice (<code>ATT</code>).</li>
-            <li>Each result of {sampleUnit.weapons?.[1].TYP == 'R' ? sampleUnit.RSK : sampleUnit.MSK} or less (<code>SKL</code>) is a success.</li>
+            <li>{ sampleUnit.weapons?.[1].TYP == 'M' ? (<RiSwordFill className="icon" />) : (<RiCrosshair2Fill className="icon" />) } - {sampleUnit.unitName}'s <strong>{sampleUnit.weapons?.[1].gearName}</strong> is a {sampleUnit.weapons?.[1].TYP == 'R' ? 'Ranged' : 'Melee'} weapon.</li>
+            <li><code>ATT</code> - Each time it is used, {sampleUnit.unitName} rolls {sampleUnit.weapons?.[1].ATT} dice.</li>
+            <li><code>SKL</code> - Each result of {sampleUnit.weapons?.[1].TYP == 'R' ? sampleUnit.RSK : sampleUnit.MSK} or less is a success.</li>
             {/*<li>It has the <code>ACC1</code> (Accurate 1) and <code>HVY</code> (Heavy) <a className="underline" href="#weapon-specials">specials</a>.</li>*/}
           </ul>
         </div>
