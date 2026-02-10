@@ -49,21 +49,21 @@ Font notes:
 @font-face {
   font-family: 'title';
   src: url('/fonts/Russo_One/RussoOne-Regular.ttf');
-  font-weight: 900;
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'heading';
   src: url('/fonts/Russo_One/RussoOne-Regular.ttf');
-  font-weight: 900;
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'stat';
   src: url('/fonts/Russo_One/RussoOne-Regular.ttf');
-  font-weight: 900;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -128,7 +128,7 @@ h1 {
 
 h2, h3, h4, h5, h6 {
   @apply font-main uppercase grunge;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 h2 { @apply text-4xl; }
