@@ -23,7 +23,6 @@ type UnitCardProps = {
   seq: Number
   isOwner: boolean
   allSpecials: SpecialRule[]
-  allMedals: Medal[]
   onUnitUpdated?: (u: UnitPlain) => void
   onMoveUp?: () => void
   onMoveFirst?: () => void
@@ -39,7 +38,6 @@ export default function UnitCard({
   seq,
   isOwner,
   allSpecials,
-  allMedals,
   onUnitUpdated,
   onMoveUp,
   onMoveFirst,
@@ -355,24 +353,6 @@ export default function UnitCard({
           onSave={(updated) => {
             onUnitUpdated?.(updated) // 💡 call back to parent
             setShowUnitEditorModal(false)
-          }}
-        />
-      )}
-
-      {/* Medal Modal */}
-      {showUnitMedalModal && !unit.isUnitType && (
-        <UnitMedalModal
-          key="editor-modal"
-          isOpen={true}
-          squadId={unit.squadId || ''}
-          squadTypeId={unit.unitType?.squadTypeId ?? ''}
-          unit={unit}
-          onClose={() => setShowUnitMedalModal(false)}
-          allMedals={allMedals}
-          isOwner={isOwner}
-          onSave={(updated) => {
-            onUnitUpdated?.(updated) // 💡 call back to parent
-            setShowUnitMedalModal(false)
           }}
         />
       )}

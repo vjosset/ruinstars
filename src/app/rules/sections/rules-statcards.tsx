@@ -28,8 +28,7 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
               unit={sampleUnit}
               seq={1}
               isOwner={false}
-              allSpecials={allSpecials}
-              allMedals={[]} />
+              allSpecials={allSpecials} />
           </div>
         </div>
       </div>

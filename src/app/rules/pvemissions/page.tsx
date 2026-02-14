@@ -408,7 +408,6 @@ export default async function PvEMissions() {
                       unit={unit.toPlain()}
                       isOwner={false}
                       allSpecials={allSpecials.map((spec) => spec.toPlain())}
-                      allMedals={[]}
                     />
                   ))}
                 </div>

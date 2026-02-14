@@ -38,7 +38,6 @@ export default async function RulesFirstMission({ num }: {num?: Number | null}) 
               unit={u.toPlain()}
               isOwner={false}
               allSpecials={allSpecials.map((spec) => spec.toPlain())}
-              allMedals={[]}
             />
           ))}
         </div>

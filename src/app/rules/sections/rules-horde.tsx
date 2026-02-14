@@ -761,7 +761,6 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
               unit={u.toPlain()}
               isOwner={false}
               allSpecials={allSpecials.map((spec) => spec.toPlain())}
-              allMedals={[]}
             />
           ))}
         </div>

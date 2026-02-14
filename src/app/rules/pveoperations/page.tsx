@@ -139,8 +139,12 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
               <div className="section border border-main bg-card rounded my-4 p-2">
                 <h4>Operation:</h4>
                 <h5>{operation.title}</h5>
-                <h4>Enemy Faction:</h4>
-                <h5>{squadMap.get(operation.npcSquadId)?.squadType?.faction?.factionName}</h5>
+                {operation.npcSquadId &&
+                  <>
+                    <h4>Enemy Faction:</h4>
+                    <h5>{squadMap.get(operation.npcSquadId)?.squadType?.faction?.factionName}</h5>
+                  </>
+                }
                 <h4>Objectives:</h4>
                 <h5>{operation.objectives}</h5>
               </div>
@@ -192,7 +196,6 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
                         unit={unit.toPlain()}
                         isOwner={false}
                         allSpecials={allSpecials.map((spec) => spec.toPlain())}
-                        allMedals={[]}
                       />
                     ))}
                   </div>

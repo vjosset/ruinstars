@@ -160,7 +160,6 @@ export default async function RulesSquadTypes() {
                       unit={u.toPlain()}
                       isOwner={false}
                       allSpecials={allSpecials.map((spec) => spec.toPlain())}
-                      allMedals={[]}
                     />
                   ))}
                 </div>

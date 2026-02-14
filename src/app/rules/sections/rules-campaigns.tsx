@@ -3,7 +3,6 @@ import { GearCategoryService } from '@/services'
 import { MedalService } from '@/services/medal.service'
 
 export default async function RulesCampaigns({ num }: {num?: Number | null}) {
-  const medals = await MedalService.getAllMedals()
   const injuries = await GearCategoryService.getGearCategory('INJ')
   const spoilsOfWar = await GearCategoryService.getGearCategory('SOW')
 
@@ -86,26 +85,6 @@ export default async function RulesCampaigns({ num }: {num?: Number | null}) {
                 <li key={`inj_${injury.gearId}`}>
                   <h6>{injury.gearName}</h6>
                   <Markdown>{injury.description}</Markdown>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      
-        <div className="section">
-          <h3>Medals</h3>
-          <p>
-          As your Squad completes Missions and achieves objectives, it grows in skill and available resources.<br/>
-          During each Mission, your Squad's Units gain XP from medals as described below.
-          Each Medal can only be claimed once per Unit.
-          </p>
-          <ul className="twocols">
-            {/* Medals List */}
-            {
-              medals.map((medal) => (
-                <li key={`medal_${medal.medalId}`}>
-                  <h6>{medal.title} - {medal.XP} XP</h6>
-                  <Markdown>{medal.description}</Markdown>
                 </li>
               ))
             }

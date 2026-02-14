@@ -116,7 +116,6 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
                   unit={unitType.toPlain()}
                   isOwner={false}
                   allSpecials={allSpecials.map((spec) => spec.toPlain())}
-                  allMedals={[]}
                 />
               ))}
             </div>
