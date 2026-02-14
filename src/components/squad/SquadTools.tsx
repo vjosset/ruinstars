@@ -2,7 +2,6 @@
 
 import clsx from 'clsx'
 import { useState } from 'react'
-import MissionSelector from '../tools/MissionSelector'
 import QuickRef from '../tools/QuickRef_Squares'
 import ScriptedOpSelector from '../tools/ScriptedOpSelector'
 import { FactionPlain } from '@/types'
@@ -35,9 +34,6 @@ export default function SquadTools({ factionId, factions }: { factionId?: string
       <div className="leading-relaxed max-h-[60vh] overflow-y-auto px-0">
         <div className={tab === 'quickref' ? 'block' : 'hidden'}>
           <QuickRef />
-        </div>
-        <div className={tab === 'mission' ? 'block' : 'hidden'}>
-          <MissionSelector />
         </div>
         <div className={tab === 'ops' ? 'block' : 'hidden'}>
           <ScriptedOpSelector factionId={factionId} factions={factions} />

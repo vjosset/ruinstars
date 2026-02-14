@@ -74,7 +74,7 @@ export default function SquadCardMenu({
       <div className={`grid ${showMoveCol ? 'grid-cols-2' : 'grid-cols-1'} gap-1 p-1`}>
         {/* Left Column: Move Actions (only if any provided) */}
         {isOwner && showMoveCol && (
-          <div className="flex flex-col space-y-1">
+          <div className="flex flex-col">
             <MenuItem>
               {({ focus }) => (
                 <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground')}
@@ -115,7 +115,7 @@ export default function SquadCardMenu({
         )}
         
         {/* Right Column: General Actions */}
-        <div className="flex flex-col space-y-1">
+        <div className="flex flex-col">
           {isOwner && 
             <>
               {onReset &&
