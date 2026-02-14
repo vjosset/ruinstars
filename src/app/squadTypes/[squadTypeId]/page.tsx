@@ -187,7 +187,7 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
                 {squadType.faction.squadTypes?.filter(st => st.squadTypeId !== squadType.squadTypeId).length > 0 && (
                   <div className="space-y-3">
                     <h5 className="font-heading text-main">Other {squadType.faction.factionName} Squad Types</h5>
-                    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid gap-4 grid-cols-1">
                       {squadType.faction.squadTypes
                         .filter(st => st.squadTypeId !== squadType.squadTypeId)
                         .map(st => (
