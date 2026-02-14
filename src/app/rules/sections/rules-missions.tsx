@@ -1,7 +1,7 @@
 import BattlefieldBlock from '@/components/shared/BattlefieldBlock'
 import MissionCard from '@/components/shared/MissionCard'
 import battlefields from '@/data/battlefields.json'
-import missions from '@/data/missions.json'
+import missions from '@/data/missions'
 
 export default async function RulesMissions({ num }: {num?: Number | null}) {
   return (
@@ -90,42 +90,6 @@ export default async function RulesMissions({ num }: {num?: Number | null}) {
               </div>
             ))
           }
-        </div>
-
-        <div className="" style={{pageBreakBefore: 'always'}}>
-          <h3 id="battlefields" className="text-center">Battlefields</h3>
-          After selecting a Mission, pick or randomly select one of the following battlefields. The Mission will be played on that Battlefield.<br/>
-          The Galaxy is a dangerous and deadly place; each Battlefield has <strong>Effects</strong> that affect your Units or transform the Battlefield itself.<br/>
-          Use your own battlemats, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the tiles and Paces pre-marked in a grid.
-          <div className="twocols">
-            {/* Battlefields List */}
-            {
-              battlefields.map((battlefield) => (
-                <div className="section" key={battlefield.battlefieldId}>
-                  <BattlefieldBlock key={`bf_${battlefield.battlefieldId}`} battlefield={battlefield} />
-                </div>
-              ))
-            }
-          </div>
-        </div>
-
-        <div className="section hidden">
-          <h3 className="text-center">Secondary Missions</h3>
-          <p>
-            Secondary missions are optional secret missions that can be selected to add variety to your game.
-            Each Squad selects or randomly picks a secondary mission before the game begins, and only reveals it to the opponent once the Mission ends.
-            Each secondary mission has its own unique objective and can break a tie or steal victory from the jaws of defeat.
-          </p>
-        
-          <div className="twocols">
-            {
-              missions.filter((mission) => mission.active && mission.missionType == 'Secondary').map((mission) => (
-                <div className="section" key={mission.missionId}>
-                  <MissionCard mission={mission} showDescription={true} />
-                </div>
-              ))
-            }
-          </div>
         </div>
       </div>
     </>

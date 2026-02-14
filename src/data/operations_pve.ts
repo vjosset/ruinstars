@@ -1,0 +1,702 @@
+import { MissionPlain } from '@/types'
+
+type PveOperation = {
+  slug: string
+  title: string
+  description?: string
+  objectives?: string
+  npcSquadId_Real?: string
+  npcSquadId?: string
+  npcSpawnRules?: string
+  npcSpawn?: Record<string, Array<Record<string, string>>>
+  npcSquadComp?: Record<string, string>
+  missions?: MissionPlain[]
+}
+
+const dedent = (value: string) => {
+  const lines = value.replace(/^\n/, '').replace(/\n\s*$/, '').split('\n')
+  const nonEmpty = lines.filter((line) => line.trim().length > 0)
+  const minIndent = nonEmpty.length
+    ? Math.min(...nonEmpty.map((line) => (line.match(/^\s*/)?.[0].length ?? 0)))
+    : 0
+  return lines.map((line) => line.slice(minIndent)).join('\n')
+}
+
+const operations = [
+  {
+    slug: "OP-SWARM",
+    title: "Infestation",
+    description: "We underestimated how deep the infestation had already taken hold. Initial contact cleared surface resistance around the breach site, but deeper scans confirmed multiple active nests beyond the first perimeter. The organisms aren't operating independently. They're coordinated, expanding, and recycling losses faster than expected. Every position we secure draws a counter-push, and every delay allows the Swarm to reinforce through secondary hatches we didn't have on record. This isn't a cleanup operation anymore. It's containment under pressure, and if we don't collapse the nests, the infestation will spread beyond control.",
+    objectives: "Breach - Contain - Purge",
+    npcSquadId_Real: "NPC-SWARM",
+    npcSquadId: "OvsuFwS2",
+    npcSpawnRules: dedent(`
+- **Threat Level 1**
+	- **1-4:** 2x Desecrator (M)
+	- **5:** 2x Desecrator (R)
+	- **6:** 1x Ravager
+- **Threat Level 2**
+	- **1-3:** 3x Desecrator (M)
+	- **4-5:** 3x Desecrator (R)
+	- **6:** 1x Ravager
+- **Threat Level 3**
+	- **1:** 4x Desecrator (M)
+	- **4-5:** 4x Desecrator (R)
+	- **6:** 2x Ravager
+`),
+    npcSpawn: {
+      TL1: [
+        {
+          "6": "1x Brood Mother",
+          "1-3": "2x Swarmling",
+          "4-5": "2x Drone"
+        }
+      ],
+      TL2: [
+        {
+          "6": "1x Brood Mother",
+          "1-3": "3x Swarmling",
+          "4-5": "3x Drone"
+        }
+      ],
+      TL3: [
+        {
+          "6": "2x Brood Mother",
+          "1-2": "4x Swarmling",
+          "3-5": "4x Drone"
+        }
+      ]
+    },
+    npcSquadComp: {
+      TL1: "6 Drones",
+      TL2: "8 Drones, 1 Brood Mother",
+      TL3: "10 Drones, 2 Brood Mothers"
+    },
+    missions: [
+      {
+        missionId: "1",
+        title: "Breach and Infiltrate",
+        description: "The facility's lower levels are sealed. Breach the perimeter to gain access, while the Swarm defends the hatch and denies entry.",
+        setup: "Place a Hatch marker in the center of the battlefield.",
+        deployment: dedent(`
+Player Squad deploys before Turn 1 on any battlefield edge.
+The Swarm deploys before Turn 1 within 4" of the Hatch marker.
+`),
+        special: dedent(`
+The Hatch is an item with \`ARM\` **4** and \`HIT\` **4** and may be targeted in Combat.
+If the Hatch reaches 0 HIT, it is breached.
+
+**Mission Action: Torch Breach (2ACT)**  
+Once per Turn, a Unit that Controls the Hatch may spend 2ACT to remove 1 \`HIT\` from it.
+`),
+        victory: dedent(`
+- Player Squad wins the Mission if the Hatch is breached before the end of Turn 4. **Proceed to Mission 2A**
+- The Swarm wins in all other cases. **Proceed to Mission 2B**
+`),
+        diagram: {
+          board: {
+            widthIn: 24,
+            heightIn: 24
+          },
+          showCenterLines: true,
+          elements: [
+            {
+              type: "rect",
+              id: "PS",
+              xIn: 0,
+              yIn: 0,
+              wIn: 24,
+              hIn: 1,
+              label: "PS",
+              color: "#2563eb",
+              fillOpacity: 0.2,
+              showInLegend: true
+            },
+            {
+              type: "rect",
+              id: "PS-Bottom",
+              xIn: 0,
+              yIn: 23,
+              wIn: 24,
+              hIn: 1,
+              label: "PS",
+              color: "#2563eb",
+              fillOpacity: 0.2,
+              showInLegend: false
+            },
+            {
+              type: "rect",
+              id: "PS-Left",
+              xIn: 0,
+              yIn: 1,
+              wIn: 1,
+              hIn: 22,
+              label: "PS",
+              color: "#2563eb",
+              fillOpacity: 0.2,
+              showInLegend: false
+            },
+            {
+              type: "rect",
+              id: "PS-Right",
+              xIn: 23,
+              yIn: 1,
+              wIn: 1,
+              hIn: 22,
+              label: "PS",
+              color: "#2563eb",
+              fillOpacity: 0.2,
+              showInLegend: false
+            },
+            {
+              type: "marker",
+              id: "H",
+              xIn: 12,
+              yIn: 12,
+              label: "H",
+              color: "#dc2626",
+              sizeIn: 1.2
+            },
+            {
+              type: "circle",
+              id: "SW",
+              cxIn: 12,
+              cyIn: 12,
+              rIn: 4,
+              label: "",
+              color: "#dc2626"
+            },
+            {
+              type: "callout",
+              id: "D-rad",
+              x1In: 12,
+              y1In: 12.7,
+              x2In: 16,
+              y2In: 12.7,
+              text: "4\""
+            }
+          ],
+          legend: {
+            PS: "Player Squad",
+            H: "Hatch",
+            SW: "Swarm Deployment"
+          }
+        }
+      },
+      {
+        missionId: "2A",
+        title: "Destroy the Nests",
+        description: "Within the facility, three nests sustain the infestation. Destroy them to cripple the Swarm, while the Swarm must hold at all costs.",
+        setup: "Place 3 Spawn Points along the battlefield centerline.",
+        deployment: "Both Squads deploy from their Battlefield edge before Turn 1.",
+        special: dedent(`
+Spawn Points are treated as items with \`ARM\` **4** and \`HIT\` **2**.
+Spawn Points cannot be targeted in Ranged Combat if there is at least one Swarm Unit Adjacent to that Spawn Point.
+If a Spawn Point is targeted in combat and is not Taken Out as a result of that combat, it regains all of its \`HIT\`.
+`),
+        victory: dedent(`
+- Player Squad wins the Mission if all three Spawn Points are destroyed before the end of Turn 4. **Proceed to Mission 3A**
+- Swarm wins the Mission in all other cases. **Proceed to Mission 3B**
+`),
+        diagram: {
+          board: {
+            widthIn: 24,
+            heightIn: 24
+          },
+          showCenterLines: true,
+          elements: [
+            {
+              type: "rect",
+              id: "SW",
+              xIn: 0,
+              yIn: 0,
+              wIn: 24,
+              hIn: 1,
+              label: "SW",
+              color: "#dc2626",
+              fillOpacity: 0.2,
+              showInLegend: false
+            },
+            {
+              type: "rect",
+              id: "PS",
+              xIn: 0,
+              yIn: 23,
+              wIn: 24,
+              hIn: 1,
+              label: "PS",
+              color: "#2563eb",
+              fillOpacity: 0.2,
+              showInLegend: false
+            },
+            {
+              type: "marker",
+              id: "S",
+              xIn: 6,
+              yIn: 12,
+              label: "S1",
+              color: "#dc2626",
+              sizeIn: 1.2,
+              showInLegend: false
+            },
+            {
+              type: "marker",
+              id: "S2",
+              xIn: 12,
+              yIn: 12,
+              label: "S2",
+              color: "#dc2626",
+              sizeIn: 1.2,
+              showInLegend: false
+            },
+            {
+              type: "marker",
+              id: "S3",
+              xIn: 18,
+              yIn: 12,
+              label: "S3",
+              color: "#dc2626",
+              sizeIn: 1.2,
+              showInLegend: false
+            },
+            {
+              type: "callout",
+              id: "S1-dist",
+              x1In: 0,
+              y1In: 12,
+              x2In: 6,
+              y2In: 12,
+              text: "6\""
+            },
+            {
+              type: "callout",
+              id: "S2-dist",
+              x1In: 6,
+              y1In: 12,
+              x2In: 12,
+              y2In: 12,
+              text: "6\""
+            },
+            {
+              type: "callout",
+              id: "S3-dist",
+              x1In: 12,
+              y1In: 12,
+              x2In: 18,
+              y2In: 12,
+              text: "6\""
+            },
+            {
+              type: "callout",
+              id: "S4-dist",
+              x1In: 18,
+              y1In: 12,
+              x2In: 24,
+              y2In: 12,
+              text: "6\""
+            }
+          ],
+          legend: {
+            PS: "Player Squad",
+            SW: "Swarm Deployment",
+            S: "Spawn Point"
+          }
+        }
+      },
+      {
+        missionId: "2B",
+        title: "Another Way",
+        description: "With the direct route blocked, an alternate path must be secured. A control room holds the means to open access, but activation takes time and the defenders will not yield it willingly.",
+        setup: "Place 3 Console markers as described in the diagram.",
+        deployment: dedent(`
+The Swarm deploys its Units within 4" of a Console before Turn 1.
+Player Squad deploys from the southern edge of the Battlefield before Turn 1.
+`),
+        special: dedent(`
+**Mission Action: Activate Console (2ACT)**  
+One Unit that Controls a Console may spend 2ACT to Activate that Console.
+`),
+        victory: dedent(`
+- Player Squad wins the Mission if all three Consoles are activated before the end of Turn 4. **Proceed to Mission 2A**
+- Swarm wins in all other cases. **Proceed to Mission 3B**
+`),
+        diagram: {
+          board: {
+            widthIn: 24,
+            heightIn: 24
+          },
+          showCenterLines: true,
+          elements: [
+            {
+              type: "rect",
+              id: "PS",
+              xIn: 0,
+              yIn: 23,
+              wIn: 24,
+              hIn: 1,
+              label: "PS",
+              color: "#2563eb",
+              fillOpacity: 0.2,
+              showInLegend: false
+            },
+            {
+              type: "circle",
+              id: "SW",
+              cxIn: 6,
+              cyIn: 3,
+              rIn: 3,
+              label: "",
+              color: "#dc2626",
+              showInLegend: true
+            },
+            {
+              type: "callout",
+              id: "D-rad1",
+              x1In: 6,
+              y1In: 3,
+              x2In: 9,
+              y2In: 3,
+              text: "3\""
+            },
+            {
+              type: "circle",
+              id: "SW2",
+              cxIn: 12,
+              cyIn: 3,
+              rIn: 3,
+              label: "",
+              color: "#dc2626",
+              showInLegend: false
+            },
+            {
+              type: "callout",
+              id: "D-rad2",
+              x1In: 12,
+              y1In: 3,
+              x2In: 15,
+              y2In: 3,
+              text: "3\""
+            },
+            {
+              type: "circle",
+              id: "SW3",
+              cxIn: 18,
+              cyIn: 3,
+              rIn: 3,
+              label: "",
+              color: "#dc2626",
+              showInLegend: false
+            },
+            {
+              type: "callout",
+              id: "D-rad3",
+              x1In: 18,
+              y1In: 3,
+              x2In: 21,
+              y2In: 3,
+              text: "3\""
+            },
+            {
+              type: "marker",
+              id: "C",
+              xIn: 6,
+              yIn: 3,
+              label: "C",
+              color: "#26dc26",
+              sizeIn: 1.2,
+              showInLegend: true
+            },
+            {
+              type: "marker",
+              id: "C2",
+              xIn: 12,
+              yIn: 3,
+              label: "C",
+              color: "#26dc26",
+              sizeIn: 1.2,
+              showInLegend: false
+            },
+            {
+              type: "marker",
+              id: "C3",
+              xIn: 18,
+              yIn: 3,
+              label: "C",
+              color: "#26dc26",
+              sizeIn: 1.2,
+              showInLegend: false
+            }
+          ],
+          legend: {
+            PS: "Player Squad",
+            SW: "Swarm Deployment",
+            C: "Console"
+          }
+        }
+      },
+      {
+        missionId: "3A",
+        title: "Purge The Infestation",
+        description: "Now that the facility's defenses are collapsing, eradicate the remnants of the Swarm while the Swarm must rally for survival.",
+        setup: "",
+        deployment: dedent(`
+The Swarm deploys within 4" of the northern battlefield edge before Turn 1.
+Player Squad deploys from the southern edge of the Battlefield before Turn 1.
+`),
+        special: "",
+        victory: dedent(`
+- Player Squad wins the Mission if all Swarm Units have been Taken Out by the end of Turn 4.
+- The Swarm wins the Mission if at least one Swarm Unit remains Standing by the end of Turn 4.
+`),
+        diagram: {
+          board: {
+            widthIn: 24,
+            heightIn: 24
+          },
+          showCenterLines: true,
+          elements: [
+            {
+              type: "rect",
+              id: "PS",
+              xIn: 0,
+              yIn: 23,
+              wIn: 24,
+              hIn: 1,
+              label: "PS",
+              color: "#2563eb",
+              fillOpacity: 0.2,
+              showInLegend: false
+            },
+            {
+              type: "rect",
+              id: "SW",
+              xIn: 0,
+              yIn: 0,
+              wIn: 24,
+              hIn: 4,
+              label: "SW",
+              color: "#dc2626",
+              fillOpacity: 0.2,
+              showInLegend: false
+            },
+            {
+              type: "callout",
+              id: "SW-dist",
+              x1In: 10,
+              y1In: 0,
+              x2In: 10,
+              y2In: 4,
+              text: "4\""
+            }
+          ],
+          legend: {
+            PS: "Player Squad",
+            SW: "Swarm Deployment"
+          }
+        }
+      },
+      {
+        missionId: "3B",
+        title: "Hold Until Evac",
+        description: "The operation has failed. Hold out long enough for extraction, while the Swarm surges from every direction.",
+        setup: "Set up terrain to build a partially-enclosed Extraction Zone as a 6\" square in the center of the battlefield.",
+        deployment: dedent(`
+Player Squad deploys all Units anywhere within the Extraction Zone before Turn 1.
+During Turn 1, when it is a Swarm Unit's Activation, deploy it on any Battlefield edge.
+`),
+        special: "Swarm always has the Initative in Turn 1.",
+        victory: dedent(`
+At the end of Turn 4, each Squad adds up the remaining HIT of Standing Units within the Extraction Zone.
+The Squad with the highest total wins the Mission.
+In case of a tie, the Swarm wins the Mission.
+`),
+        diagram: {
+          board: {
+            widthIn: 24,
+            heightIn: 24
+          },
+          showCenterLines: true,
+          elements: [
+            {
+              type: "rect",
+              id: "SW",
+              xIn: 0,
+              yIn: 0,
+              wIn: 24,
+              hIn: 1,
+              label: "SW",
+              color: "#dc2626",
+              fillOpacity: 0.2,
+              showInLegend: true
+            },
+            {
+              type: "rect",
+              id: "SW-Bottom",
+              xIn: 0,
+              yIn: 23,
+              wIn: 24,
+              hIn: 1,
+              label: "SW",
+              color: "#dc2626",
+              fillOpacity: 0.2,
+              showInLegend: false
+            },
+            {
+              type: "rect",
+              id: "SW-Left",
+              xIn: 0,
+              yIn: 1,
+              wIn: 1,
+              hIn: 22,
+              label: "SW",
+              color: "#dc2626",
+              fillOpacity: 0.2,
+              showInLegend: false
+            },
+            {
+              type: "rect",
+              id: "SW-Right",
+              xIn: 23,
+              yIn: 1,
+              wIn: 1,
+              hIn: 22,
+              label: "SW",
+              color: "#dc2626",
+              fillOpacity: 0.2,
+              showInLegend: false
+            },
+            {
+              type: "rect",
+              id: "EZ",
+              xIn: 9,
+              yIn: 9,
+              wIn: 6,
+              hIn: 6,
+              label: "EZ",
+              color: "#2563eb",
+              fillOpacity: 0.2,
+              showInLegend: false
+            },
+            {
+              type: "callout",
+              id: "D-rad",
+              x1In: 12,
+              y1In: 12.7,
+              x2In: 15,
+              y2In: 12.7,
+              text: "3\""
+            },
+            {
+              type: "rect",
+              id: "Walls",
+              xIn: 8.8,
+              yIn: 8.8,
+              wIn: 6.4,
+              hIn: 6.4,
+              label: "",
+              color: "#000",
+              fillOpacity: 0,
+              showInLegend: false
+            }
+          ],
+          legend: {
+            EZ: "Extraction Zone",
+            SW: "Swarm Deployment"
+          }
+        }
+      }
+    ]
+  },
+  {
+    slug: "CRS",
+    title: "Dark Ritual",
+    description: "Centered around an ancient artifact and a blasphemous summoning ritual. The Crimson Shroud strives to complete their rite no matter the cost.",
+    missions: [
+      {
+        missionId: "1",
+        title: "The Search",
+        description: "Whispers of the artifact echo through the broken streets. The Crimson Shroud scours the ruins for the relic, while the Hegemony close in to halt the search. The one who holds the artifact controls the path to what comes next.",
+        setup: "Place 1 Search Marker in the center of each of the West, Central, and East tiles.",
+        deployment: "Each Squad deploys from opposite Battlefield edges before Turn 1.",
+        special: dedent(`
+**Mission Action: Search (2ACT)**  
+A Crimson Shroud Unit that Controls a Search Marker may spend 2ACT to search it.
+Roll 1D6. This roll cannot be modified or re-rolled by using TOs.
+
+- On the first searched marker, the Artifact is found on a roll of 1
+- On the second searched marker, the Artifact is found on a roll of 1 or 2
+- On the third searched marker, the Artifact is found automatically
+
+After searching a marker, remove it from the Battlefield.
+Once found, the Artifact is carried by the Unit that found it.
+`),
+        victory: dedent(`
+- The Crimson Shroud wins if they are carrying the Artifact at the end of Turn 4. **Proceed to Mission 2A**
+- The Hegemony win in all other cases. **Proceed to Mission 2B**
+`)
+      },
+      {
+        missionId: "2A",
+        title: "Blood Offering",
+        description: "The Crimson Shroud carries the relic into the warzone, aiming to satisfy the ritual's demand for blood. The Hegemony rush to prevent a massacre, but in this dark work even the Crimson Shroud's own deaths could feed their cause.",
+        setup: "",
+        deployment: "Each Squad selects one of two opposing Battlefield edges as their Deployment Zone. Both deploy before Turn 1.",
+        special: "",
+        victory: dedent(`
+- The Crimson Shroud wins if more than half of all Units (across both Squads combined) are Taken Out by the end of Turn 4. **Proceed to Mission 3A**
+- The Hegemony win in all other cases. **Proceed to Mission 3B**
+`)
+      },
+      {
+        missionId: "2B",
+        title: "Ambush in the Jungle",
+        description: "Believing themselves safe with the artifact, the Hegemony vanish into the choking jungle. But the Crimson Shroud lies in wait among the shadows, ready to strike and wrest the relic from their grasp.",
+        setup: "Before deployment, secretly mark one Hegemony Unit as the Artifact Carrier.",
+        deployment: dedent(`
+Before Turn 1, Crimson Shroud deploys all units anywhere in the Northeast, East, or Southeast Tiles.
+During Turn 1, when it is a Hegemony Unit's turn to activate, deploy it on the outer edge of the Western tile. Hegemony always have the initiative in Turn 1.
+`),
+        special: "The Artifact may be dropped if the carrier is Taken Out or voluntarily drops it. The Artifact may be picked up or passed as normal.",
+        victory: dedent(`
+- The Crimson Shroud wins if they are carrying the Artifact at the end of Turn 4. **Proceed to Mission 2A**
+- The Hegemony win in all other cases. **Proceed to Mission 3B**
+`)
+      },
+      {
+        missionId: "3A",
+        title: "The Summoning",
+        description: "With the relic secured and blood spilled, the Crimson Shroud reaches the cursed temple. At its profane altars they chant to awaken something terrible. The Hegemony charge in, knowing that if they fail here, the galaxy will pay the price.",
+        setup: "Place 3 Altar Markers in the central squares of the West, Center, and East tiles.",
+        deployment: dedent(`
+Crimson Shroud deploys before Turn 1 within 2 Squares of an Altar.
+Hegemony deploy before Turn 1 on the Southern Battlefield edge.
+`),
+        special: null,
+        victory: dedent(`
+- The Crimson Shroud wins if they control all 3 Altars by the end of Turn 4.
+- The Hegemony win in all other cases.
+`)
+      },
+      {
+        missionId: "3B",
+        title: "Sabotage the Temple",
+        description: "The Crimson Shroud's summoning has been thwarted, and now the Hegemony launch a final desperate strike. They will tear down the temple itself if they must, ending the ritual in fire and ruin. The Crimson Shroud will defend their unholy ground with every last breath.",
+        setup: "Place 3 Sabotage Markers central squares of the West, Center, and East tiles.",
+        deployment: dedent(`
+Crimson Shroud deploys anywhere within 3 Squares of a Sabotage marker before Turn 1.
+Hegemony deploy from any Battlefield edge before Turn 1.
+`),
+        special: dedent(`
+**Mission Action: Sabotage (2ACT)**  
+A Unit that Controls a Sabotage Marker may spend 2ACT to sabotage it.
+`),
+        victory: dedent(`
+- The Hegemony win if all 3 markers are sabotaged by the end of Turn 4.
+- The Crimson Shroud wins in all other cases.
+`)
+      }
+    ]
+  }
+ ] satisfies PveOperation[]
+
+export default operations

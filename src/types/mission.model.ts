@@ -82,6 +82,7 @@ export type MissionPlain = {
   missionType?: string | null;
   seq?: number | null;
   title: string;
+  active?: boolean;
   description: string;
   battlefieldId?: string | null;
   setup?: string | null;
@@ -97,6 +98,7 @@ export class Mission {
   missionType?: string | null
   seq?: number | null
   title: string
+  active?: boolean
   description: string
   battlefieldId?: string | null
   setup?: string | null
@@ -111,6 +113,7 @@ export class Mission {
     missionType?: string | null;
     seq?: number | null;
     title: string;
+    active?: boolean;
     description: string;
     battlefieldId?: string | null;
     setup?: string | null;
@@ -124,6 +127,7 @@ export class Mission {
     this.missionType = data.missionType
     this.seq = data.seq
     this.title = data.title
+    this.active = data.active
     this.description = data.description
     this.battlefieldId = data.battlefieldId ?? null
     this.setup = data.setup
@@ -140,6 +144,7 @@ export class Mission {
       missionType: this.missionType,
       seq: this.seq,
       title: this.title,
+      active: this.active,
       description: this.description,
       battlefieldId: this.battlefieldId ?? null,
       setup: this.setup,

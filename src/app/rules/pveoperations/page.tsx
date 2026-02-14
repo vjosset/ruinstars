@@ -1,6 +1,6 @@
 import MissionCard from '@/components/shared/MissionCard'
 import UnitCard from '@/components/unit/UnitCard'
-import pveOperations from '@/data/operations_pve.json'
+import pveOperations from '@/data/operations_pve'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { SpecialService, SquadService } from '@/services'
@@ -206,7 +206,7 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
               <h2>Missions</h2>
               {operation.missions?.map((mission) => (
                 <div key={mission.missionId} className="section">
-                  <MissionCard mission={mission} />
+                  <MissionCard mission={mission} showDescription={true} />
                 </div>
               ))}
             </div>
