@@ -49,21 +49,24 @@ Font notes:
 @font-face {
   font-family: 'title';
   src: url('/fonts/Russo_One/RussoOne-Regular.ttf');
-  font-weight: 700;
+	/*src: url('/fonts/Rajdhani-Bold.ttf');*/
+  font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'heading';
-  src: url('/fonts/Russo_One/RussoOne-Regular.ttf');
-  font-weight: 700;
+  /*src: url('/fonts/Russo_One/RussoOne-Regular.ttf');*/
+	src: url('/fonts/Rajdhani-Bold.ttf');
+  font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'stat';
-  src: url('/fonts/Russo_One/RussoOne-Regular.ttf');
-  font-weight: 700;
+  /*src: url('/fonts/Russo_One/RussoOne-Regular.ttf');*/
+	src: url('/fonts/Rajdhani-Bold.ttf');
+  font-weight: bold;
   font-style: normal;
 }
 
