@@ -11,7 +11,7 @@ import AddUnitForm from '@/components/unit/AddUnitForm'
 import UnitCard from '@/components/unit/UnitCard'
 import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { SpecialRule } from '@/lib/utils/specialRules'
-import { FactionPlain, Medal, SquadPlain, UnitPlain } from '@/types'
+import { FactionPlain, SquadPlain, UnitPlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
@@ -35,9 +35,9 @@ export default function SquadPageClient({
   const [squad, setSquad] = useState(initialSquad)
   const [allSpecials, setSpecials] = useState<SpecialRule[] | null>(null)
   const formRef = useRef<{ handleSubmit: () => void }>(null)
-  const [showResetModal, setShowResetModal] = useState<Boolean>(false)
-  const [showEditSquadModal, setShowEditSquadModal] = useState<Boolean>(false)
-  const [showSquadTools, setShowSquadTools] = useState<Boolean>(false)
+  const [showResetModal, setShowResetModal] = useState<boolean>(false)
+  const [showEditSquadModal, setShowEditSquadModal] = useState<boolean>(false)
+  const [showSquadTools, setShowSquadTools] = useState<boolean>(false)
   const [carouselIsOpen, setCarouselIsOpen] = useState(false)
   const [carouselStartIndex, setCarouselStartIndex] = useState(0)
 
@@ -105,7 +105,7 @@ export default function SquadPageClient({
 
   const updateSquadField = async (field: string, value: number) => {
     if (value < 0) return
-    if (value < 1 && field == 'turn') return
+    if (value < 1 && field === 'turn') return
 
     const patch: Partial<typeof squad> = { [field]: value }
 
@@ -150,8 +150,6 @@ export default function SquadPageClient({
   const handleSquadPrint = () => {
     window.print()
   }
-
-  const handleSquadToolsClick = () => { setShowSquadTools(true)}
 
   // Add resetSquad function after other state updates
   const resetSquad = async () => {

@@ -1,4 +1,4 @@
-export default async function RulesPlayingOnAGrid({ num }: {num?: Number | null}) {
+export default async function RulesPlayingOnAGrid({ num }: {num?: number | null}) {
   return (
     <>
       <div className="section">

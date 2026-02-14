@@ -1,8 +1,6 @@
-// @ts-nocheck
 import { SquadTypeRepository } from '@/src/repositories/squadType.repository'
 import { SquadType } from '@/types'
 import { GearService } from './gear.service'
-import { MedalService } from './medal.service'
 import { UnitService } from './unit.service'
 import { SquadService } from './squad.service'
 
@@ -10,8 +8,7 @@ export class SquadTypeService {
   private static repository = new SquadTypeRepository()
 
   static async getSquadTypeRow(squadTypeId: string): Promise<SquadType | null> {
-    const squadType = await this.repository.getSquadTypeRow(squadTypeId)
-    return squadType ? new SquadType(squadType) : null
+    return this.repository.getSquadTypeRow(squadTypeId)
   }
 
   static async getSquadType(squadTypeId: string): Promise<SquadType | null> {
@@ -20,7 +17,7 @@ export class SquadTypeService {
     if (!squadType) return null
 
     await Promise.all(squadType.unitTypes?.map(async unitType => {
-      await GearService.loadUnitGear(unitType)
+      await GearService.loadUnitTypeGear(unitType)
     }))
 
     if (squadType.spotlights?.length) {
@@ -29,7 +26,6 @@ export class SquadTypeService {
 
         await Promise.all(squad.units.map(async unit => {
           await GearService.loadUnitGear(unit)
-          await MedalService.loadUnitMedals(unit)
           await UnitService.applyGearMods(unit)
         }))
       }))
@@ -45,18 +41,16 @@ export class SquadTypeService {
         if (defaultSquad.units?.length) {
           await Promise.all(defaultSquad.units.map(async unit => {
             await GearService.loadUnitGear(unit)
-            await MedalService.loadUnitMedals(unit)
             await UnitService.applyGearMods(unit)
           }))
         }
       }
     }
 
-    return squadType ? new SquadType(squadType) : null
+    return squadType
   }
 
   static async getAllSquadTypes(): Promise<SquadType[]> {
-    const squadTypes = await this.repository.getAllSquadTypes()
-    return squadTypes.map(squadType => new SquadType(squadType))
+    return this.repository.getAllSquadTypes()
   }
 }

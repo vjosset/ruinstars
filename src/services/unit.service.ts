@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { GAME } from '@/lib/config/game_config'
 import { generateId } from '@/lib/id'
 import { UnitRepository } from '@/src/repositories/unit.repository'
@@ -6,28 +5,26 @@ import { Unit } from '@/types'
 import fs from 'fs/promises'
 import path from 'path'
 import { GearService } from './gear.service'
-import { MedalService } from './medal.service'
 import { SquadService } from './squad.service'
+import { Gear } from '@/types/gear.model'
 
 export class UnitService {
   private static repository = new UnitRepository()
 
   static async getUnitRow(unitId: string): Promise<Unit | null> {
-    const unit = await this.repository.getUnitRow(unitId)
-    return unit ? new Unit(unit) : null
+    return this.repository.getUnitRow(unitId)
   }
 
   static async getUnit(unitId: string): Promise<Unit | null> {
-    const raw = await this.repository.getUnit(unitId)
-    if (!raw) return null
-
-    const unit = raw ? new Unit(raw) : null
+    const unit = await this.repository.getUnit(unitId)
+    if (!unit) {
+      return null
+    }
     await GearService.loadUnitGear(unit)
 
-    await MedalService.loadUnitMedals(unit)
-
-    unit.weapons = unit.gears.filter(gear => gear.gearType == 'W')
-    unit.skills = unit.gears.filter(gear => gear.gearType != 'W')
+    const gears = unit.gears ?? []
+    unit.weapons = gears.filter(gear => gear.gearType === 'W')
+    unit.skills = gears.filter(gear => gear.gearType !== 'W')
     
     // Now that we have the unit's gear loaded, let's apply the mods
     this.applyGearMods(unit)
@@ -107,22 +104,22 @@ export class UnitService {
         case 'UNIT':
           switch (params[1]) {
           case 'ACT':
-            unit.ACT = Math.min(unit.ACT + Number(params[2]), GAME.DICE_BASIS - 1)
+            unit.ACT = Math.min((unit.ACT ?? 0) + Number(params[2]), GAME.DICE_BASIS - 1)
             break
           case 'MOV':
-            unit.MOV = Math.min(unit.MOV + Number(params[2]), GAME.DICE_BASIS - 1)
+            unit.MOV = Math.min((unit.MOV ?? 0) + Number(params[2]), GAME.DICE_BASIS - 1)
             break
           case 'MSK':
-            unit.MSK = Math.min(unit.MSK + Number(params[2]), GAME.DICE_BASIS - 1)
+            unit.MSK = Math.min((unit.MSK ?? 0) + Number(params[2]), GAME.DICE_BASIS - 1)
             break
           case 'RSK':
-            unit.RSK = Math.min(unit.RSK + Number(params[2]), GAME.DICE_BASIS - 1)
+            unit.RSK = Math.min((unit.RSK ?? 0) + Number(params[2]), GAME.DICE_BASIS - 1)
             break
           case 'ARM':
-            unit.ARM = Math.min(unit.ARM + Number(params[2]), GAME.DICE_BASIS - 1)
+            unit.ARM = Math.min((unit.ARM ?? 0) + Number(params[2]), GAME.DICE_BASIS - 1)
             break
           case 'HIT':
-            unit.HIT += Number(params[2])
+            unit.HIT = (unit.HIT ?? 0) + Number(params[2])
             break
           case 'SPECIAL':
             if (params[2].startsWith('-')) {

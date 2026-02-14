@@ -11,28 +11,28 @@ const dedent = (value: string) => {
 
 const missions = [
   {
-    missionId: "1",
-    missionType: "Primary",
+    missionId: '1',
+    missionType: 'Primary',
     seq: 1,
-    title: "Secure the Zone",
+    title: 'Secure the Zone',
     active: true,
     description: dedent(`
 "Claim ground, hold fast."
 
 Throughout the battle, both sides contest key areas of the warzone. Whoever can consistently secure ground will dictate the flow of the fight.
 `),
-    setup: "Place 3 Objective markers equally spaced (6\" apart) along the center line.",
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "At the end of each Turn, Squads score 1 MP per Objective they control.",
-    special: "If a Squad controls all 3 Objectives at the end of any Turn, they gain +1 MP immediately (max once per mission).",
+    setup: 'Place 3 Objective markers equally spaced (6" apart) along the center line.',
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'At the end of each Turn, Squads score 1 MP per Objective they control.',
+    special: 'If a Squad controls all 3 Objectives at the end of any Turn, they gain +1 MP immediately (max once per mission).',
     rewards: [
       {
-        name: "Field Stabilizers",
-        effect: "One Unit gains +1 ARM during Turn 1 of its next mission."
+        name: 'Field Stabilizers',
+        effect: 'One Unit gains +1 ARM during Turn 1 of its next mission.'
       },
       {
-        name: "Forward Command",
-        effect: "+1 TO during any Turn in the next mission."
+        name: 'Forward Command',
+        effect: '+1 TO during any Turn in the next mission.'
       }
     ],
     diagram: {
@@ -43,108 +43,108 @@ Throughout the battle, both sides contest key areas of the warzone. Whoever can 
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
-          label: "Deployment Zone A",
+          color: '#059669',
+          label: 'Deployment Zone A',
           showInLegend: false
         },
         {
-          id: "mrect_1_2_7_2_7",
-          type: "rect",
+          id: 'mrect_1_2_7_2_7',
+          type: 'rect',
           xIn: 5.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#7c3aed",
+          color: '#7c3aed',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_2_7_7_7_7",
-          type: "rect",
+          id: 'mrect_2_7_7_7_7',
+          type: 'rect',
           xIn: 11.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#0ea5e9",
+          color: '#0ea5e9',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_3_12_7_12_7",
-          type: "rect",
+          id: 'mrect_3_12_7_12_7',
+          type: 'rect',
           xIn: 17.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#d946ef",
+          color: '#d946ef',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_4_0_14_14_14",
-          type: "rect",
+          id: 'mrect_4_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         },
         O1: {
-          label: "Objective 1",
-          color: "#7c3aed"
+          label: 'Objective 1',
+          color: '#7c3aed'
         },
         O2: {
-          label: "Objective 2",
-          color: "#0ea5e9"
+          label: 'Objective 2',
+          color: '#0ea5e9'
         },
         O3: {
-          label: "Objective 3",
-          color: "#d946ef"
+          label: 'Objective 3',
+          color: '#d946ef'
         }
       }
     }
   },
   {
-    missionId: "2",
-    missionType: "Primary",
+    missionId: '2',
+    missionType: 'Primary',
     seq: 2,
-    title: "Hold the Line",
+    title: 'Hold the Line',
     active: true,
     description: dedent(`
 "The enemy breaks upon our wall."
 
 Victory favors the steadfast. The longer you hold, the stronger your claim.
 `),
-    setup: "Place two Objective markers in the center of the North and South tiles.",
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "At the end of each turn after the first, Squads score 2 MP per Objective they control.",
-    special: "Units in cover Adjacent to an Objective gain +1 ARM against ranged attacks.",
+    setup: 'Place two Objective markers in the center of the North and South tiles.',
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'At the end of each turn after the first, Squads score 2 MP per Objective they control.',
+    special: 'Units in cover Adjacent to an Objective gain +1 ARM against ranged attacks.',
     rewards: [
       {
-        name: "Tactical Resupply",
-        effect: "Select one Unit to be always treated as in Cover for the next mission."
+        name: 'Tactical Resupply',
+        effect: 'Select one Unit to be always treated as in Cover for the next mission.'
       },
       {
-        name: "Healed Injury",
-        effect: "One Unit may immediately remove one Injury (excluding Deceased)."
+        name: 'Healed Injury',
+        effect: 'One Unit may immediately remove one Injury (excluding Deceased).'
       }
     ],
     diagram: {
@@ -155,84 +155,84 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_7_2_7_2",
-          type: "rect",
+          id: 'mrect_1_7_2_7_2',
+          type: 'rect',
           xIn: 11.5,
           yIn: 4,
           wIn: 1,
           hIn: 1,
-          color: "#7c3aed",
+          color: '#7c3aed',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_2_7_12_7_12",
-          type: "rect",
+          id: 'mrect_2_7_12_7_12',
+          type: 'rect',
           xIn: 11.5,
           yIn: 17.5,
           wIn: 1,
           hIn: 1,
-          color: "#0ea5e9",
+          color: '#0ea5e9',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_3_0_14_14_14",
-          type: "rect",
+          id: 'mrect_3_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         },
         O1: {
-          label: "Objective 1",
-          color: "#7c3aed"
+          label: 'Objective 1',
+          color: '#7c3aed'
         },
         O2: {
-          label: "Objective 2",
-          color: "#0ea5e9"
+          label: 'Objective 2',
+          color: '#0ea5e9'
         }
       }
     }
   },
   {
-    missionId: "3",
-    missionType: "Primary",
+    missionId: '3',
+    missionType: 'Primary',
     seq: 3,
-    title: "Power Cycle",
+    title: 'Power Cycle',
     active: true,
     description: dedent(`
 "Reactivate the grid before the enemy shuts it down."
 
 A dormant facility flickers to life. Reactors surge, systems fail, and both sides fight to keep control of unstable nodes.
 `),
-    setup: "Place 3 Power Node markers in the center of the West, Central, and East tiles. All Power Nodes start the mission as \"Inactive\".",
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "At the end of each Turn, Squads score 1 MP per Active Node they control.",
+    setup: 'Place 3 Power Node markers in the center of the West, Central, and East tiles. All Power Nodes start the mission as "Inactive".',
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'At the end of each Turn, Squads score 1 MP per Active Node they control.',
     special: dedent(`
 At the start of each Turn, all Power Nodes are reset to "Inactive" state.
 
@@ -240,12 +240,12 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
 `),
     rewards: [
       {
-        name: "Voltage Spikes",
-        effect: "Select one Unit's weapon to gain RLT (Relentless) or RND1 (Rending 1) in the next mission."
+        name: 'Voltage Spikes',
+        effect: 'Select one Unit\'s weapon to gain RLT (Relentless) or RND1 (Rending 1) in the next mission.'
       },
       {
-        name: "Technician Assist",
-        effect: "Select one Unit to gain Technician 1 (perform one Mission action for 1 less ACT) for the next mission."
+        name: 'Technician Assist',
+        effect: 'Select one Unit to gain Technician 1 (perform one Mission action for 1 less ACT) for the next mission.'
       }
     ],
     diagram: {
@@ -256,90 +256,90 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_2_7_2_7",
-          type: "rect",
+          id: 'mrect_1_2_7_2_7',
+          type: 'rect',
           xIn: 5.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#7c3aed",
+          color: '#7c3aed',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_2_7_7_7_7",
-          type: "rect",
+          id: 'mrect_2_7_7_7_7',
+          type: 'rect',
           xIn: 11.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#0ea5e9",
+          color: '#0ea5e9',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_3_12_7_12_7",
-          type: "rect",
+          id: 'mrect_3_12_7_12_7',
+          type: 'rect',
           xIn: 17.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#d946ef",
+          color: '#d946ef',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_4_0_14_14_14",
-          type: "rect",
+          id: 'mrect_4_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         },
         O1: {
-          label: "Power Node 1",
-          color: "#7c3aed"
+          label: 'Power Node 1',
+          color: '#7c3aed'
         },
         O2: {
-          label: "Power Node 2",
-          color: "#0ea5e9"
+          label: 'Power Node 2',
+          color: '#0ea5e9'
         },
         O3: {
-          label: "Power Node 3",
-          color: "#d946ef"
+          label: 'Power Node 3',
+          color: '#d946ef'
         }
       }
     }
   },
   {
-    missionId: "4",
-    missionType: "Primary",
+    missionId: '4',
+    missionType: 'Primary',
     seq: 4,
-    title: "Sabotage",
+    title: 'Sabotage',
     active: true,
     description: dedent(`
 "They built it. You break it."
@@ -351,17 +351,17 @@ Select one Squad to be the Defender, the other the Attacker.
 
 Place two larger structures in the West and East tiles and one Sabotage marker on the corner of each structure.
 `),
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "At the end of Turn 4, the Attacker scores 3 MP for each destroyed structure. Defender scores 3 MP for each remaining intact.",
-    special: "**Mission Action: Sabotage (1 ACT):** An Attacker Unit that controls a Sabotage marker may perform this Action. Remove the sabotaged structure from the battlefield. All Units within or Adjacent to that structure take 2 Damage.",
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'At the end of Turn 4, the Attacker scores 3 MP for each destroyed structure. Defender scores 3 MP for each remaining intact.',
+    special: '**Mission Action: Sabotage (1 ACT):** An Attacker Unit that controls a Sabotage marker may perform this Action. Remove the sabotaged structure from the battlefield. All Units within or Adjacent to that structure take 2 Damage.',
     rewards: [
       {
-        name: "Demo Expert",
-        effect: "One Unit gains \"Demo charge\" (a free Grenade action) to use once in the next mission."
+        name: 'Demo Expert',
+        effect: 'One Unit gains "Demo charge" (a free Grenade action) to use once in the next mission.'
       },
       {
-        name: "Quick Prep",
-        effect: "One Unit gains +1 ACT in Turn 1 of the next mission."
+        name: 'Quick Prep',
+        effect: 'One Unit gains +1 ACT in Turn 1 of the next mission.'
       }
     ],
     diagram: {
@@ -372,93 +372,93 @@ Place two larger structures in the West and East tiles and one Sabotage marker o
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_0_5_4_9",
-          type: "rect",
+          id: 'mrect_1_0_5_4_9',
+          type: 'rect',
           xIn: 0,
           yIn: 8,
           wIn: 8,
           hIn: 8,
-          color: "#dc2626",
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_10_5_14_9",
-          type: "rect",
+          id: 'mrect_1_10_5_14_9',
+          type: 'rect',
           xIn: 16,
           yIn: 8,
           wIn: 8,
           hIn: 8,
-          color: "#dc2626",
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_2_0_14_14_14",
-          type: "rect",
+          id: 'mrect_2_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Attacker Deployment Zone",
-          color: "#059669"
+          label: 'Attacker Deployment Zone',
+          color: '#059669'
         },
         DD: {
-          label: "Defender Deployment Zone",
-          color: "#f97316"
+          label: 'Defender Deployment Zone',
+          color: '#f97316'
         },
         S1: {
-          label: "Sabotage Target 1",
-          color: "#dc2626"
+          label: 'Sabotage Target 1',
+          color: '#dc2626'
         },
         S2: {
-          label: "Sabotage Target 2",
-          color: "#dc2626"
+          label: 'Sabotage Target 2',
+          color: '#dc2626'
         }
       }
     }
   },
   {
-    missionId: "5",
-    missionType: "Primary",
+    missionId: '5',
+    missionType: 'Primary',
     seq: 5,
-    title: "Push the Line",
+    title: 'Push the Line',
     active: true,
     description: dedent(`
 "Drive them back step by step."
 
 Advance across the battlefield and seize ground from the enemy.
 `),
-    setup: "Place 3 Objectives: one centered on each Squad's Deployment edge and one at the exact center.",
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "At the end of each Turn, score 1 MP if you control your own Objective, 2 MP if you control the center, and 3 MP if you control the enemy's.",
-    special: "If you control the enemy Objective at the end of Turn 3 or earlier, gain an additional +1 MP bonus (once per game).",
+    setup: 'Place 3 Objectives: one centered on each Squad\'s Deployment edge and one at the exact center.',
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'At the end of each Turn, score 1 MP if you control your own Objective, 2 MP if you control the center, and 3 MP if you control the enemy\'s.',
+    special: 'If you control the enemy Objective at the end of Turn 3 or earlier, gain an additional +1 MP bonus (once per game).',
     rewards: [
       {
-        name: "Aggressive Push",
-        effect: "One Unit gains +1 ACT in Turn 1 of the next mission."
+        name: 'Aggressive Push',
+        effect: 'One Unit gains +1 ACT in Turn 1 of the next mission.'
       },
       {
-        name: "Rapid Deployment",
-        effect: "One Unit may perform a free move after its deployment. If the next mission deploys Units before Turn 1, perform this move after all Units have been deployed, before Turn 1."
+        name: 'Rapid Deployment',
+        effect: 'One Unit may perform a free move after its deployment. If the next mission deploys Units before Turn 1, perform this move after all Units have been deployed, before Turn 1.'
       }
     ],
     diagram: {
@@ -469,108 +469,108 @@ Advance across the battlefield and seize ground from the enemy.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_6_0",
-          type: "rect",
+          id: 'mrect_0_0_0_6_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_7_0_7_0",
-          type: "rect",
+          id: 'mrect_1_7_0_7_0',
+          type: 'rect',
           xIn: 11.5,
           yIn: 0,
           wIn: 1,
           hIn: 1,
-          color: "#7c3aed",
+          color: '#7c3aed',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_2_7_7_7_7",
-          type: "rect",
+          id: 'mrect_2_7_7_7_7',
+          type: 'rect',
           xIn: 11.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#d946ef",
+          color: '#d946ef',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_3_0_14_6_14",
-          type: "rect",
+          id: 'mrect_3_0_14_6_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_4_7_14_7_14",
-          type: "rect",
+          id: 'mrect_4_7_14_7_14',
+          type: 'rect',
           xIn: 11.5,
           yIn: 23,
           wIn: 1,
           hIn: 1,
-          color: "#0ea5e9",
+          color: '#0ea5e9',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         },
         O1: {
-          label: "Objective 1",
-          color: "#7c3aed"
+          label: 'Objective 1',
+          color: '#7c3aed'
         },
         O2: {
-          label: "Objective 2",
-          color: "#0ea5e9"
+          label: 'Objective 2',
+          color: '#0ea5e9'
         },
         O3: {
-          label: "Objective 3",
-          color: "#d946ef"
+          label: 'Objective 3',
+          color: '#d946ef'
         }
       }
     }
   },
   {
-    missionId: "6",
-    missionType: "Primary",
+    missionId: '6',
+    missionType: 'Primary',
     seq: 6,
-    title: "Centerpoint",
+    title: 'Centerpoint',
     active: true,
     description: dedent(`
 "All roads lead to ruin."
 
 The battle converges on a single decisive location.
 `),
-    setup: "Place 1 Objective at the exact center of the Battlefield.",
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "At the end of Turn 4, the Squad controlling the central Objective scores 6 MP.",
+    setup: 'Place 1 Objective at the exact center of the Battlefield.',
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'At the end of Turn 4, the Squad controlling the central Objective scores 6 MP.',
     special: null,
     rewards: [
       {
-        name: "Decisive Strike",
-        effect: "One Unit gets one Spoil of War for the next mission."
+        name: 'Decisive Strike',
+        effect: 'One Unit gets one Spoil of War for the next mission.'
       },
       {
-        name: "Weapon Calibration",
-        effect: "Select one Unit's weapon to gain RLT (Relentless) or RND1 (Rending 1) in the next mission."
+        name: 'Weapon Calibration',
+        effect: 'Select one Unit\'s weapon to gain RLT (Relentless) or RND1 (Rending 1) in the next mission.'
       }
     ],
     diagram: {
@@ -581,78 +581,78 @@ The battle converges on a single decisive location.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_7_7_7_7",
-          type: "rect",
+          id: 'mrect_1_7_7_7_7',
+          type: 'rect',
           xIn: 11.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#7c3aed",
+          color: '#7c3aed',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_2_0_14_14_14",
-          type: "rect",
+          id: 'mrect_2_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         },
         O1: {
-          label: "Objective",
-          color: "#7c3aed"
+          label: 'Objective',
+          color: '#7c3aed'
         }
       }
     }
   },
   {
-    missionId: "7",
-    missionType: "Primary",
+    missionId: '7',
+    missionType: 'Primary',
     seq: 7,
-    title: "Recover Intel",
+    title: 'Recover Intel',
     active: true,
     description: dedent(`
 "Retrieve the data before the uplink burns."
 
 Valuable intel lies scattered among the ruins.
 `),
-    setup: "Place 3 Data Core markers in the center of the West, Central, and East tiles.",
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "At the end of Turn 4, score 2 MP per Data Core carried by your Units.",
-    special: "**Mission Action: Collect Intel (1 ACT):** A Unit that controls a Data Core may perform this action. That Unit now carries the Data Core. Units may only carry one Data Core each. If a carrier is Taken Out, the Data Core drops on that Units position.",
+    setup: 'Place 3 Data Core markers in the center of the West, Central, and East tiles.',
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'At the end of Turn 4, score 2 MP per Data Core carried by your Units.',
+    special: '**Mission Action: Collect Intel (1 ACT):** A Unit that controls a Data Core may perform this action. That Unit now carries the Data Core. Units may only carry one Data Core each. If a carrier is Taken Out, the Data Core drops on that Units position.',
     rewards: [
       {
-        name: "Intelligence Priority",
-        effect: "Start the next mission with +1 TO. Once during the next mission, you may re-roll any number of your TO dice."
+        name: 'Intelligence Priority',
+        effect: 'Start the next mission with +1 TO. Once during the next mission, you may re-roll any number of your TO dice.'
       },
       {
-        name: "Treasure Trove",
-        effect: "The Squad may spend an additional 5GP on Weapons and Skills for the next mission. At the end of that mission, remove the added Gear."
+        name: 'Treasure Trove',
+        effect: 'The Squad may spend an additional 5GP on Weapons and Skills for the next mission. At the end of that mission, remove the added Gear.'
       }
     ],
     diagram: {
@@ -663,90 +663,90 @@ Valuable intel lies scattered among the ruins.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_2_7_2_7",
-          type: "rect",
+          id: 'mrect_1_2_7_2_7',
+          type: 'rect',
           xIn: 5.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#7c3aed",
+          color: '#7c3aed',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_2_7_7_7_7",
-          type: "rect",
+          id: 'mrect_2_7_7_7_7',
+          type: 'rect',
           xIn: 11.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#0ea5e9",
+          color: '#0ea5e9',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_3_12_7_12_7",
-          type: "rect",
+          id: 'mrect_3_12_7_12_7',
+          type: 'rect',
           xIn: 17.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#d946ef",
+          color: '#d946ef',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_4_0_14_14_14",
-          type: "rect",
+          id: 'mrect_4_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         },
         O1: {
-          label: "Intel 1",
-          color: "#7c3aed"
+          label: 'Intel 1',
+          color: '#7c3aed'
         },
         O2: {
-          label: "Intel 2",
-          color: "#0ea5e9"
+          label: 'Intel 2',
+          color: '#0ea5e9'
         },
         O3: {
-          label: "Intel 3",
-          color: "#d946ef"
+          label: 'Intel 3',
+          color: '#d946ef'
         }
       }
     }
   },
   {
-    missionId: "8",
-    missionType: "Primary",
+    missionId: '8',
+    missionType: 'Primary',
     seq: 8,
-    title: "Ambush",
+    title: 'Ambush',
     active: true,
     description: dedent(`
 "Intercept the courier before they vanish into the wasteland."
@@ -758,17 +758,17 @@ Select one Squad to be the Defender, the other the Attacker.
 
 Defender secretly selects one Unit (excluding the Leader) to be the carrier of the Intel.
 `),
-    deployment: "Both Squads deploy before Turn 1. Defender deploys all their Units on the Western battlefield edge first. Then Attacker Squad deploys all their Units on the Northern edge of the North and Northeast tiles, or the Southern edge of the South and Southeast tiles.",
-    victory: "At the end of Turn 4, if the Defender Squad is carrying the Intel and the carrier is on the Eastern edge of the East tile, Defender wins the mission. Attacker wins in all other cases.",
-    special: "When a Unit carrying the Intel is Taken Out, place the Core on its position. It can be recovered and carried off by any Unit.",
+    deployment: 'Both Squads deploy before Turn 1. Defender deploys all their Units on the Western battlefield edge first. Then Attacker Squad deploys all their Units on the Northern edge of the North and Northeast tiles, or the Southern edge of the South and Southeast tiles.',
+    victory: 'At the end of Turn 4, if the Defender Squad is carrying the Intel and the carrier is on the Eastern edge of the East tile, Defender wins the mission. Attacker wins in all other cases.',
+    special: 'When a Unit carrying the Intel is Taken Out, place the Core on its position. It can be recovered and carried off by any Unit.',
     rewards: [
       {
-        name: "Disruption Scan",
-        effect: "One Unit gains +1 MSK (Melee Skill) or +1 RSK (Ranged Skill) for the next mission."
+        name: 'Disruption Scan',
+        effect: 'One Unit gains +1 MSK (Melee Skill) or +1 RSK (Ranged Skill) for the next mission.'
       },
       {
-        name: "Targeted Strike",
-        effect: "The enemy Leader gains -1 ARM (minimum 1) for the next mission."
+        name: 'Targeted Strike',
+        effect: 'The enemy Leader gains -1 ARM (minimum 1) for the next mission.'
       }
     ],
     diagram: {
@@ -779,74 +779,74 @@ Defender secretly selects one Unit (excluding the Leader) to be the carrier of t
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_0_14",
-          type: "rect",
+          id: 'mrect_0_0_0_0_14',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 1,
           hIn: 24,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_5_0_14_0",
-          type: "rect",
+          id: 'mrect_1_5_0_14_0',
+          type: 'rect',
           xIn: 8,
           yIn: 0,
           wIn: 16,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_5_14_14_14",
-          type: "rect",
+          id: 'mrect_1_5_14_14_14',
+          type: 'rect',
           xIn: 8,
           yIn: 23,
           wIn: 16,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Attacker Deployment Zone",
-          color: "#059669"
+          label: 'Attacker Deployment Zone',
+          color: '#059669'
         },
         DD: {
-          label: "Defender Deployment Zone",
-          color: "#f97316"
+          label: 'Defender Deployment Zone',
+          color: '#f97316'
         }
       }
     }
   },
   {
-    missionId: "9",
-    missionType: "Primary",
+    missionId: '9',
+    missionType: 'Primary',
     seq: 9,
-    title: "Relay Run",
+    title: 'Relay Run',
     active: true,
     description: dedent(`
 "Grab the beacon and get it home."
 
 A beacon must be secured and relayed back to command.
 `),
-    setup: "Place one Beacon Objective at the Battlefield center.",
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "A Squad scores 6 MP if any Unit exits their own Battlefield edge carrying the Beacon.",
-    special: "The Beacon is a marker that can be Picked Up. While carrying the Beacon, Units have -1 ACT (minimum 1).",
+    setup: 'Place one Beacon Objective at the Battlefield center.',
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'A Squad scores 6 MP if any Unit exits their own Battlefield edge carrying the Beacon.',
+    special: 'The Beacon is a marker that can be Picked Up. While carrying the Beacon, Units have -1 ACT (minimum 1).',
     rewards: [
       {
-        name: "TO Optimization",
-        effect: "During the next mission, the Squad may re-roll TOs once."
+        name: 'TO Optimization',
+        effect: 'During the next mission, the Squad may re-roll TOs once.'
       },
       {
-        name: "Swift Runner",
-        effect: "One Unit gains Swift (first Dash action costs 0 ACT) in the next mission."
+        name: 'Swift Runner',
+        effect: 'One Unit gains Swift (first Dash action costs 0 ACT) in the next mission.'
       }
     ],
     diagram: {
@@ -857,69 +857,69 @@ A beacon must be secured and relayed back to command.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_7_7_7_7",
-          type: "rect",
+          id: 'mrect_1_7_7_7_7',
+          type: 'rect',
           xIn: 11.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#7c3aed",
+          color: '#7c3aed',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_2_0_14_14_14",
-          type: "rect",
+          id: 'mrect_2_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         },
         O1: {
-          label: "Beacon",
-          color: "#7c3aed"
+          label: 'Beacon',
+          color: '#7c3aed'
         }
       }
     }
   },
   {
-    missionId: "10",
-    missionType: "Primary",
+    missionId: '10',
+    missionType: 'Primary',
     seq: 10,
-    title: "Search and Recover",
+    title: 'Search and Recover',
     active: true,
     description: dedent(`
 "A powerful artifact is buried here. Find it before the enemy does."
 
 You don't know where it is, but the longer you search, the better your odds.
 `),
-    setup: "Place 3 Search markers in the center of the West, Center, and East tiles.",
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "At the end of each Turn, the Squad carrying the artifact scores 2 MP.",
+    setup: 'Place 3 Search markers in the center of the West, Center, and East tiles.',
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'At the end of each Turn, the Squad carrying the artifact scores 2 MP.',
     special: dedent(`
 **Mission Action: Search (2ACT)**  
 A Unit that Controls a Search Marker may spend 2ACT to search it.
@@ -934,12 +934,12 @@ Once found, the Artifact is carried by the Unit that found it.
 `),
     rewards: [
       {
-        name: "Ancient Artifact",
-        effect: "The carrier gains one Spoil of War. If it is not Taken Out by the end of the mission, it may keep that Spoil of War. If the Unit is Taken Out by the end of the mission, remove that Spoil of War."
+        name: 'Ancient Artifact',
+        effect: 'The carrier gains one Spoil of War. If it is not Taken Out by the end of the mission, it may keep that Spoil of War. If the Unit is Taken Out by the end of the mission, remove that Spoil of War.'
       },
       {
-        name: "Preemptive Strike",
-        effect: "Select one enemy Unit to start the mission with -1 HIT."
+        name: 'Preemptive Strike',
+        effect: 'Select one enemy Unit to start the mission with -1 HIT.'
       }
     ],
     diagram: {
@@ -950,99 +950,99 @@ Once found, the Artifact is carried by the Unit that found it.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_2_7_2_7",
-          type: "rect",
+          id: 'mrect_1_2_7_2_7',
+          type: 'rect',
           xIn: 5.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#7c3aed",
+          color: '#7c3aed',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_2_7_7_7_7",
-          type: "rect",
+          id: 'mrect_2_7_7_7_7',
+          type: 'rect',
           xIn: 11.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#0ea5e9",
+          color: '#0ea5e9',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_3_12_7_12_7",
-          type: "rect",
+          id: 'mrect_3_12_7_12_7',
+          type: 'rect',
           xIn: 17.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#d946ef",
+          color: '#d946ef',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_4_0_14_14_14",
-          type: "rect",
+          id: 'mrect_4_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         },
         O1: {
-          label: "Search 1",
-          color: "#7c3aed"
+          label: 'Search 1',
+          color: '#7c3aed'
         },
         O2: {
-          label: "Search 2",
-          color: "#0ea5e9"
+          label: 'Search 2',
+          color: '#0ea5e9'
         },
         O3: {
-          label: "Search 3",
-          color: "#d946ef"
+          label: 'Search 3',
+          color: '#d946ef'
         }
       }
     }
   },
   {
-    missionId: "11",
-    missionType: "Primary",
+    missionId: '11',
+    missionType: 'Primary',
     seq: 11,
-    title: "Commitment Protocol",
+    title: 'Commitment Protocol',
     active: true,
     description: dedent(`
 "Power must build before the final strike."
 
 Energy charges build throughout the fight until a decisive moment of release.
 `),
-    setup: "Place 2 Uplink Node markers in the center of the West and East tiles. Place one Transmit Beacon in the center of the Central tile. Set up a tracker for each Squad's Data Packets, starting at zero.",
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "At the end of Turn 4, the Squad with the most MP wins the Mission. In case of a tie, the Squad with the highest remaining Data Packets wins the mission.",
+    setup: 'Place 2 Uplink Node markers in the center of the West and East tiles. Place one Transmit Beacon in the center of the Central tile. Set up a tracker for each Squad\'s Data Packets, starting at zero.',
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'At the end of Turn 4, the Squad with the most MP wins the Mission. In case of a tie, the Squad with the highest remaining Data Packets wins the mission.',
     special: dedent(`
 **Mission Action: Uplink (1ACT):** A Unit that Controls an Uplink Node increases its Squad's Data Packets by 1.
 
@@ -1050,12 +1050,12 @@ Energy charges build throughout the fight until a decisive moment of release.
 `),
     rewards: [
       {
-        name: "Energy Overflow",
-        effect: "One Unit gains +1 ACT in any one Turn in the next Mission (announce when activating)."
+        name: 'Energy Overflow',
+        effect: 'One Unit gains +1 ACT in any one Turn in the next Mission (announce when activating).'
       },
       {
-        name: "Tactical Reversal",
-        effect: "Once in the next mission, any Unit may spend 1 ACT to add 2 TOs to its Squad."
+        name: 'Tactical Reversal',
+        effect: 'Once in the next mission, any Unit may spend 1 ACT to add 2 TOs to its Squad.'
       }
     ],
     diagram: {
@@ -1066,90 +1066,90 @@ Energy charges build throughout the fight until a decisive moment of release.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_2_7_2_7",
-          type: "rect",
+          id: 'mrect_1_2_7_2_7',
+          type: 'rect',
           xIn: 5.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#7c3aed",
+          color: '#7c3aed',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_2_7_7_7_7",
-          type: "rect",
+          id: 'mrect_2_7_7_7_7',
+          type: 'rect',
           xIn: 11.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#d946ef",
+          color: '#d946ef',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_3_12_7_12_7",
-          type: "rect",
+          id: 'mrect_3_12_7_12_7',
+          type: 'rect',
           xIn: 17.5,
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: "#0ea5e9",
+          color: '#0ea5e9',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_4_0_14_14_14",
-          type: "rect",
+          id: 'mrect_4_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         },
         UA: {
-          label: "UA",
-          color: "#7c3aed"
+          label: 'UA',
+          color: '#7c3aed'
         },
         UB: {
-          label: "UB",
-          color: "#0ea5e9"
+          label: 'UB',
+          color: '#0ea5e9'
         },
         TB: {
-          label: "TB",
-          color: "#d946ef"
+          label: 'TB',
+          color: '#d946ef'
         }
       }
     }
   },
   {
-    missionId: "12",
-    missionType: "Primary",
+    missionId: '12',
+    missionType: 'Primary',
     seq: 12,
-    title: "Attrition",
+    title: 'Attrition',
     active: true,
     description: dedent(`
 "No prisoners."
@@ -1157,17 +1157,17 @@ Energy charges build throughout the fight until a decisive moment of release.
 Your orders are simple: outkill the enemy.
 `),
     setup: null,
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "Each time a Unit is Taken Out, the enemy Squad scores MPs equal to that Unit's Force Value (FV).",
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'Each time a Unit is Taken Out, the enemy Squad scores MPs equal to that Unit\'s Force Value (FV).',
     special: null,
     rewards: [
       {
-        name: "Aggressive Momentum",
-        effect: "One Unit gains +1 MSK or +1 RSK the first time it performs a Ranged or Melee combat Action in the next mission."
+        name: 'Aggressive Momentum',
+        effect: 'One Unit gains +1 MSK or +1 RSK the first time it performs a Ranged or Melee combat Action in the next mission.'
       },
       {
-        name: "Reinforced Armor",
-        effect: "One Unit gains +1 ARM (Armor) during Turn 1 of the next mission."
+        name: 'Reinforced Armor',
+        effect: 'One Unit gains +1 ARM (Armor) during Turn 1 of the next mission.'
       }
     ],
     diagram: {
@@ -1178,45 +1178,45 @@ Your orders are simple: outkill the enemy.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_0_14_14_14",
-          type: "rect",
+          id: 'mrect_1_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         }
       }
     }
   },
   {
-    missionId: "13",
-    missionType: "Primary",
+    missionId: '13',
+    missionType: 'Primary',
     seq: 13,
-    title: "Last Stand",
+    title: 'Last Stand',
     active: true,
     description: dedent(`
 "Stand your ground until nothing moves."
@@ -1224,17 +1224,17 @@ Your orders are simple: outkill the enemy.
 The battle grinds to dust. Only the unbroken remain.
 `),
     setup: null,
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "At the end of each Turn, the squad with the highest total FV of Standing Units scores 2 MP.",
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'At the end of each Turn, the squad with the highest total FV of Standing Units scores 2 MP.',
     special: null,
     rewards: [
       {
-        name: "Veteran Status",
-        effect: "One Unit permanently gains +1 SKL on its Melee weapons."
+        name: 'Veteran Status',
+        effect: 'One Unit permanently gains +1 SKL on its Melee weapons.'
       },
       {
-        name: "Urgent Treatment",
-        effect: "One Unit may immediately heal one of its Injuries."
+        name: 'Urgent Treatment',
+        effect: 'One Unit may immediately heal one of its Injuries.'
       }
     ],
     diagram: {
@@ -1245,45 +1245,45 @@ The battle grinds to dust. Only the unbroken remain.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_0_14_14_14",
-          type: "rect",
+          id: 'mrect_1_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         }
       }
     }
   },
   {
-    missionId: "14",
-    missionType: "Primary",
+    missionId: '14',
+    missionType: 'Primary',
     seq: 14,
-    title: "Assassinate",
+    title: 'Assassinate',
     active: true,
     description: dedent(`
 "Cut off the head, the body dies."
@@ -1291,17 +1291,17 @@ The battle grinds to dust. Only the unbroken remain.
 Hunt down the enemy commander.
 `),
     setup: null,
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "If the enemy Leader is Taken Out, your Squad immediately scores 6 MP.",
-    special: "Leaders gain +1 ACT for this mission.",
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'If the enemy Leader is Taken Out, your Squad immediately scores 6 MP.',
+    special: 'Leaders gain +1 ACT for this mission.',
     rewards: [
       {
-        name: "Intel Leak",
-        effect: "In the next mission, enemy Leader gains -1 ARM (minimum 1)."
+        name: 'Intel Leak',
+        effect: 'In the next mission, enemy Leader gains -1 ARM (minimum 1).'
       },
       {
-        name: "Strategize Bonus",
-        effect: "Once during the next mission, a Unit may spend 1 ACT to gain 2 TOs."
+        name: 'Strategize Bonus',
+        effect: 'Once during the next mission, a Unit may spend 1 ACT to gain 2 TOs.'
       }
     ],
     diagram: {
@@ -1312,63 +1312,63 @@ Hunt down the enemy commander.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_0_14_14_14",
-          type: "rect",
+          id: 'mrect_1_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         }
       }
     }
   },
   {
-    missionId: "15",
-    missionType: "Primary",
+    missionId: '15',
+    missionType: 'Primary',
     seq: 15,
-    title: "Rivals",
+    title: 'Rivals',
     active: true,
     description: dedent(`
 "Settle the score."
 
 Two Units meet on the battlefield, bound by vengeance or destiny.
 `),
-    setup: "Each Squad secretly selects one Rival Unit (not the Leader). Reveal simultaneously after deployment.",
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "If your Rival Takes Out the enemy Rival, score 6 MP. If both Rivals are still Standing at the end of the mission, the mission is a draw (randomly select rewards).",
-    special: "Rivals' weapons gain +1 ATT and +1 SKL against each other. In addition, Rivals may only be targeted in combat by the enemy Rival.",
+    setup: 'Each Squad secretly selects one Rival Unit (not the Leader). Reveal simultaneously after deployment.',
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'If your Rival Takes Out the enemy Rival, score 6 MP. If both Rivals are still Standing at the end of the mission, the mission is a draw (randomly select rewards).',
+    special: 'Rivals\' weapons gain +1 ATT and +1 SKL against each other. In addition, Rivals may only be targeted in combat by the enemy Rival.',
     rewards: [
       {
-        name: "Personal Vendetta",
-        effect: "In the next mission, select one enemy Unit (excluding the Leader). Your Units gain +1 SKL (Ranged or Melee Skill) each time that enemy is targeted in combat."
+        name: 'Personal Vendetta',
+        effect: 'In the next mission, select one enemy Unit (excluding the Leader). Your Units gain +1 SKL (Ranged or Melee Skill) each time that enemy is targeted in combat.'
       },
       {
-        name: "Defensive Stance",
-        effect: "One Unit gains Tough 1 (re-roll 1 Melee Save die) in the next mission."
+        name: 'Defensive Stance',
+        effect: 'One Unit gains Tough 1 (re-roll 1 Melee Save die) in the next mission.'
       }
     ],
     diagram: {
@@ -1379,45 +1379,45 @@ Two Units meet on the battlefield, bound by vengeance or destiny.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_0_14_14_14",
-          type: "rect",
+          id: 'mrect_1_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         }
       }
     }
   },
   {
-    missionId: "16",
-    missionType: "Primary",
+    missionId: '16',
+    missionType: 'Primary',
     seq: 16,
-    title: "Encroach",
+    title: 'Encroach',
     active: true,
     description: dedent(`
 "Push deep and hold the line."
@@ -1425,17 +1425,17 @@ Two Units meet on the battlefield, bound by vengeance or destiny.
 Dominate enemy territory with strength of arms.
 `),
     setup: null,
-    deployment: "Both Squads deploy on their battlefield edge (North or South) before Turn 1.",
-    victory: "At the end of each Turn, the Squad with the highest total FV of Standing Units that are not Adjacent to any enemies and that are closer to the enemy deployment edge than their own deployment edge scores 2 MP.",
+    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    victory: 'At the end of each Turn, the Squad with the highest total FV of Standing Units that are not Adjacent to any enemies and that are closer to the enemy deployment edge than their own deployment edge scores 2 MP.',
     special: null,
     rewards: [
       {
-        name: "Overwhelming Presence",
-        effect: "Once in the next mission, instead of rolling for TOs, get 4 TOs."
+        name: 'Overwhelming Presence',
+        effect: 'Once in the next mission, instead of rolling for TOs, get 4 TOs.'
       },
       {
-        name: "Deep Strike",
-        effect: "One Unit may perform a free move after its deployment. If the next mission deploys Units before Turn 1, perform this move after all Units have been deployed."
+        name: 'Deep Strike',
+        effect: 'One Unit may perform a free move after its deployment. If the next mission deploys Units before Turn 1, perform this move after all Units have been deployed.'
       }
     ],
     diagram: {
@@ -1446,45 +1446,45 @@ Dominate enemy territory with strength of arms.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_0_14_14_14",
-          type: "rect",
+          id: 'mrect_1_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DA: {
-          label: "Deployment Zone A",
-          color: "#059669"
+          label: 'Deployment Zone A',
+          color: '#059669'
         },
         DB: {
-          label: "Deployment Zone B",
-          color: "#f97316"
+          label: 'Deployment Zone B',
+          color: '#f97316'
         }
       }
     }
   },
   {
-    missionId: "17",
-    missionType: "Primary",
+    missionId: '17',
+    missionType: 'Primary',
     seq: 17,
-    title: "Evac Point",
+    title: 'Evac Point',
     active: true,
     description: dedent(`
 "Rendezvous or die trying."
@@ -1501,16 +1501,16 @@ Squads deploy before Turn 1. First, Defender Squad deploys anywhere in the centr
 
 Then Attacker Squad deploys before on any battlefield edge.
 `),
-    victory: "At the end of Turn 4, if the total FV of Standing Defender Units that are on the central tile is equal to or higher than the total FV of Standing Attacker Units on the central tile, Defender Squad wins the mission. Attacker Squad wins in all other cases.",
+    victory: 'At the end of Turn 4, if the total FV of Standing Defender Units that are on the central tile is equal to or higher than the total FV of Standing Attacker Units on the central tile, Defender Squad wins the mission. Attacker Squad wins in all other cases.',
     special: null,
     rewards: [
       {
-        name: "Extraction Gear",
-        effect: "One Unit gains Grappling  Hook (ignore vertical distance when climbing up or down) in the next mission."
+        name: 'Extraction Gear',
+        effect: 'One Unit gains Grappling  Hook (ignore vertical distance when climbing up or down) in the next mission.'
       },
       {
-        name: "Resourceful Salvage",
-        effect: "One Unit gains a MedPack (spend 1 ACT to recover 1D3 lost HIT) to use once in the next mission."
+        name: 'Resourceful Salvage',
+        effect: 'One Unit gains a MedPack (spend 1 ACT to recover 1D3 lost HIT) to use once in the next mission.'
       }
     ],
     diagram: {
@@ -1521,69 +1521,69 @@ Then Attacker Squad deploys before on any battlefield edge.
       showCenterLines: true,
       elements: [
         {
-          id: "mrect_0_0_0_14_0",
-          type: "rect",
+          id: 'mrect_0_0_0_14_0',
+          type: 'rect',
           xIn: 0,
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_0_0_14_14_14",
-          type: "rect",
+          id: 'mrect_0_0_14_14_14',
+          type: 'rect',
           xIn: 0,
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_0_0_1_0_13",
-          type: "rect",
+          id: 'mrect_0_0_1_0_13',
+          type: 'rect',
           xIn: 0,
           yIn: 1,
           wIn: 1,
           hIn: 22,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_0_14_1_14_13",
-          type: "rect",
+          id: 'mrect_0_14_1_14_13',
+          type: 'rect',
           xIn: 23,
           yIn: 1,
           wIn: 1,
           hIn: 22,
-          color: "#f97316",
+          color: '#f97316',
           showLabel: false,
           showInLegend: false
         },
         {
-          id: "mrect_1_5_5_9_9",
-          type: "rect",
+          id: 'mrect_1_5_5_9_9',
+          type: 'rect',
           xIn: 8,
           yIn: 8,
           wIn: 8,
           hIn: 8,
-          color: "#059669",
+          color: '#059669',
           showLabel: false,
           showInLegend: false
         }
       ],
       legend: {
         DD: {
-          label: "Defender Deployment Zone",
-          color: "#059669"
+          label: 'Defender Deployment Zone',
+          color: '#059669'
         },
         DA: {
-          label: "Attacker Deployment Zone",
-          color: "#f97316"
+          label: 'Attacker Deployment Zone',
+          color: '#f97316'
         }
       }
     }

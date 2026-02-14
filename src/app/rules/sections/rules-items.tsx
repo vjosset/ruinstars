@@ -1,6 +1,6 @@
 import { GAME } from '@/lib/config/game_config'
 
-export default async function RulesItems({ num }: {num?: Number | null}) {
+export default async function RulesItems({ num }: {num?: number | null}) {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="items">

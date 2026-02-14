@@ -1,4 +1,4 @@
-export default function IgnoreForIntroMission({ keyword }: { keyword: string}) {
+export default function IgnoreForIntroMission({ keyword: _keyword }: { keyword: string}) {
   return (
     <>
       {/*<div className="rounded-md border border-main p-2 mx-16">

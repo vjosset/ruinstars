@@ -2,7 +2,7 @@ import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
 import ops from '@/data/scriptedOperations.json'
 import { FactionService } from '@/services'
 
-export default async function RulesScriptedOperations({ num }: {num?: Number | null}) {
+export default async function RulesScriptedOperations({ num }: {num?: number | null}) {
   const operations = ops.sort((a, b) => a.title.localeCompare(b.title))
   const factions = await FactionService.getAllFactions()
 

@@ -1,8 +1,7 @@
 import Markdown from '@/components/ui/Markdown'
 import { GearCategoryService } from '@/services'
-import { MedalService } from '@/services/medal.service'
 
-export default async function RulesCampaigns({ num }: {num?: Number | null}) {
+export default async function RulesCampaigns({ num }: {num?: number | null}) {
   const injuries = await GearCategoryService.getGearCategory('INJ')
   const spoilsOfWar = await GearCategoryService.getGearCategory('SOW')
 

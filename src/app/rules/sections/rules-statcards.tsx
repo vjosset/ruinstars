@@ -4,7 +4,7 @@ import { RiCrosshair2Fill, RiSwordFill } from 'react-icons/ri'
 import IgnoreForIntroMission from './rules-ignorefirstmission'
 import Link from 'next/link'
 
-export default async function RulesStatCards({ num }: {num?: Number | null}) {
+export default async function RulesStatCards({ num }: {num?: number | null}) {
   const sampleUnit = (await UnitService.getUnit('ST-0'))!.toPlain()
   const allSpecials = (await SpecialService.getAllSpecials()).map((spec) => spec.toPlain())
   return (
@@ -119,9 +119,9 @@ export default async function RulesStatCards({ num }: {num?: Number | null}) {
           <br/>
           <strong>For example: </strong>
           <ul>
-            <li>{ sampleUnit.weapons?.[1].TYP == 'M' ? (<RiSwordFill className="icon" />) : (<RiCrosshair2Fill className="icon" />) } - {sampleUnit.unitName}'s <strong>{sampleUnit.weapons?.[1].gearName}</strong> is a {sampleUnit.weapons?.[1].TYP == 'R' ? 'Ranged' : 'Melee'} weapon.</li>
+            <li>{ sampleUnit.weapons?.[1].TYP === 'M' ? (<RiSwordFill className="icon" />) : (<RiCrosshair2Fill className="icon" />) } - {sampleUnit.unitName}'s <strong>{sampleUnit.weapons?.[1].gearName}</strong> is a {sampleUnit.weapons?.[1].TYP === 'R' ? 'Ranged' : 'Melee'} weapon.</li>
             <li><code>ATT</code> - Each time it is used, {sampleUnit.unitName} rolls {sampleUnit.weapons?.[1].ATT} dice.</li>
-            <li><code>SKL</code> - Each result of {sampleUnit.weapons?.[1].TYP == 'R' ? sampleUnit.RSK : sampleUnit.MSK} or less is a success.</li>
+            <li><code>SKL</code> - Each result of {sampleUnit.weapons?.[1].TYP === 'R' ? sampleUnit.RSK : sampleUnit.MSK} or less is a success.</li>
             {/*<li>It has the <code>ACC1</code> (Accurate 1) and <code>HVY</code> (Heavy) <a className="underline" href="#weapon-specials">specials</a>.</li>*/}
           </ul>
         </div>

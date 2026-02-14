@@ -5,7 +5,7 @@ import rawMissions from '@/data/missions_pve.json'
 import { SpecialService, SquadService } from '@/services'
 import { MissionPlain } from '@/types'
 
-export default async function RulesFirstMission({ num }: {num?: Number | null}) {
+export default async function RulesFirstMission({ num }: {num?: number | null}) {
   const squadUnits = await SquadService.getSquad('FM')
   const allSpecials = await SpecialService.getAllSpecials()
   const missions = rawMissions as MissionPlain[]

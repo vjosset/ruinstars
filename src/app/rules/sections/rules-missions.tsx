@@ -1,9 +1,7 @@
-import BattlefieldBlock from '@/components/shared/BattlefieldBlock'
 import MissionCard from '@/components/shared/MissionCard'
-import battlefields from '@/data/battlefields.json'
 import missions from '@/data/missions'
 
-export default async function RulesMissions({ num }: {num?: Number | null}) {
+export default async function RulesMissions({ num }: {num?: number | null}) {
   return (
     <>
       <div className="section">
@@ -84,7 +82,7 @@ export default async function RulesMissions({ num }: {num?: Number | null}) {
         <div className="section">
           <h3 className="text-center">Mission List</h3>
           {
-            missions.filter((mission) => mission.active && (!mission.missionType || mission.missionType == 'Primary')).map((mission) => (
+            missions.filter((mission) => mission.active && (!mission.missionType || mission.missionType === 'Primary')).map((mission) => (
               <div className="section" key={mission.missionId}>
                 <MissionCard mission={mission} showDescription={true} />
               </div>

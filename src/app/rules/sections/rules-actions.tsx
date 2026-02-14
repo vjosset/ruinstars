@@ -1,6 +1,6 @@
 import IgnoreForIntroMission from './rules-ignorefirstmission'
 
-export default async function RulesActions({ num }: {num?: Number | null}) {
+export default async function RulesActions({ num }: {num?: number | null}) {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="actions">

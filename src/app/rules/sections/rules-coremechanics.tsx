@@ -1,6 +1,6 @@
 import { GAME } from '@/lib/config/game_config'
 
-export default async function RulesCoreMechanics({ num }: {num?: Number | null}) {
+export default async function RulesCoreMechanics({ num }: {num?: number | null}) {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="core-mechanics">

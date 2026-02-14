@@ -6,7 +6,9 @@ import { NextResponse } from 'next/server'
 // Get the stats
 export async function GET() {
   const session = await getAuthSession()
-  if (!session?.user || session.user.userId != 'vince') return new NextResponse('Unauthorized', { status: 401 })
+  if (!session?.user || session.user.userId !== 'vince'){
+    return new NextResponse('Unauthorized', { status: 401 })
+  }
 
   const days = getLastNDates(9)
   const startDate = new Date(days[days.length - 1])

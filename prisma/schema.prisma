@@ -118,8 +118,8 @@ model Squad {
   squadType         SquadType @relation(fields: [squadTypeId], references: [squadTypeId], onDelete: Cascade)
   user              User      @relation(fields: [userId], references: [userId], onDelete: Cascade)
 
-  matchesAsSquadA     MissionResult[] @relation("SquadA")
-  matchesAsSquadB     MissionResult[] @relation("SquadB")
+  matchesAsSquadA     MissionResult[] @relation("SquadA") @ignore
+  matchesAsSquadB     MissionResult[] @relation("SquadB") @ignore
   units               Unit[]
   defaultForSquadType SquadType?      @relation("SquadTypeDefaultSquad")
 
@@ -157,6 +157,8 @@ model Special {
 }
 
 model Mission {
+  @@ignore
+
   missionId   Int    @id
   missionType String @db.VarChar(25)
   seq         Int
@@ -166,8 +168,6 @@ model Mission {
   deployment  String @db.Text
   special     String @db.Text
   victory     String @db.Text
-
-  missionResults MissionResult[]
 }
 
 model Medal {
@@ -200,6 +200,7 @@ model WebEvent {
 }
 
 model MissionResult {
+  @@ignore
   missionResultId Int      @id @default(autoincrement())
   squadAId        String   @db.VarChar(20)
   squadBId        String   @db.VarChar(20)
@@ -215,9 +216,7 @@ model MissionResult {
   missionId       Int
   squadA          Squad    @relation("SquadA", fields: [squadAId], references: [squadId], onDelete: Cascade)
   squadB          Squad    @relation("SquadB", fields: [squadBId], references: [squadId], onDelete: Cascade)
-  mission         Mission  @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
 
   @@index([squadAId], map: "MissionResult_squadAId_fkey")
   @@index([squadBId], map: "MissionResult_squadBId_fkey")
-  @@index([missionId], map: "MissionResult_missionId_fkey")
 }

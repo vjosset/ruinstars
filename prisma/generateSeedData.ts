@@ -18,7 +18,6 @@ async function exportCoreData() {
       gearCategories,
       gears,
       unitTypes, 
-      missions,
       specials,
       users,
       squads,
@@ -29,7 +28,6 @@ async function exportCoreData() {
       prisma.gearCategory.findMany({ orderBy: { seq: 'asc' } }),
       prisma.gear.findMany({ orderBy: { gearId: 'asc' } }),
       prisma.unitType.findMany({ orderBy: [{ squadTypeId: 'asc' }, { seq: 'asc' }] }),
-      prisma.mission.findMany({ orderBy: [{ missionType: 'asc' }, { missionId: 'asc' }] }),
       prisma.special.findMany({ orderBy: [{scope: 'asc'}, {code: 'asc' }]}),
       prisma.user.findMany({ where: { userId: 'ruinstars' }}),
       prisma.squad.findMany({
@@ -53,7 +51,6 @@ async function exportCoreData() {
       gearCategories,
       gears,
       unitTypes,
-      missions,
       specials,
       users,
       squads,

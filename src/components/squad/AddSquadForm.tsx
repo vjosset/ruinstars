@@ -82,7 +82,7 @@ export default function AddSquadForm() {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                          squadName: squadName == '' ? selectedSquadType?.squadTypeName : squadName,
+                          squadName: squadName === '' ? selectedSquadType?.squadTypeName : squadName,
                           squadTypeId: selectedSquadType.squadTypeId,
                         }),
                       })
@@ -105,7 +105,7 @@ export default function AddSquadForm() {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                          squadName: squadName == '' ? selectedSquadType?.squadTypeName : squadName,
+                          squadName: squadName === '' ? selectedSquadType?.squadTypeName : squadName,
                           squadTypeId: selectedSquadType?.squadTypeId,
                         }),
                       })

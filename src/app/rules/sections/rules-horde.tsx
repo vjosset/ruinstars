@@ -4,7 +4,7 @@ import UnitCard from '@/components/unit/UnitCard'
 import hordemaps from '@/data/hordemaps.json'
 import { GearCategoryService, SpecialService, SquadService } from '@/services'
 
-export default async function RulesHorde({ num }: {num?: Number | null}) {
+export default async function RulesHorde({ num }: {num?: number | null}) {
   const hordeUnits = await SquadService.getSquad('HRD')
   const allSpecials = await SpecialService.getAllSpecials()
   const injuries = await GearCategoryService.getGearCategory('INJ')
@@ -185,7 +185,7 @@ export default async function RulesHorde({ num }: {num?: Number | null}) {
         <h3>Battlefields</h3>
 
         <div className="twocols">
-          {hordemaps.map((map) => {
+          {hordemaps.map((_map) => {
             return (
               <>
                 {/*<MissionCard key={map.missionId} mission={map} showDescription={true} />*/}

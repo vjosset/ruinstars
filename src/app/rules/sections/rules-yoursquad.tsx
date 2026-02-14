@@ -2,7 +2,7 @@ import FactionList from '@/components/faction/FactionList'
 import { PDFLink } from '@/components/nav/Links'
 import Link from 'next/link'
 
-export default async function RulesYourSquad({ num }: {num?: Number | null}) {
+export default async function RulesYourSquad({ num }: {num?: number | null}) {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="buildingsquad">

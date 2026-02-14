@@ -1,8 +1,8 @@
 import Markdown from '@/components/ui/Markdown'
-import { Mission, MissionPlain } from '@/types'
+import { MissionPlain } from '@/types'
 import BattlefieldDiagram from './BattlefieldDiagram'
 
-export default function MissionCard({mission}: { mission: Mission | MissionPlain, showDescription: boolean }) {
+export default function MissionCard({mission}: { mission: MissionPlain, showDescription: boolean }) {
   return (
     <div className="bg-card border border-main p-1 rounded mb-2 section">
       <h4 className="text-main font-semibold mb-1">

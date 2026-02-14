@@ -1,7 +1,7 @@
 import { GAME } from '@/lib/config/game_config'
 import IgnoreForIntroMission from './rules-ignorefirstmission'
 
-export default async function RulesCombat({ num }: {num?: Number | null}) {
+export default async function RulesCombat({ num }: {num?: number | null}) {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title" id="combat">

@@ -5,7 +5,7 @@ import { SpecialRule } from '@/lib/utils/specialRules'
 import { calcGP } from '@/lib/utils/utils'
 import GearGroupList from '@/src/components/shared/GearGroupList'
 import WeaponTable from '@/src/components/shared/WeaponTable'
-import { Medal, UnitPlain, UnitTypePlain } from '@/types'
+import { UnitPlain, UnitTypePlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import { useEffect, useState } from 'react'
 import { FaHeartPulse, FaMedal } from 'react-icons/fa6'
@@ -16,11 +16,10 @@ import { Button, Checkbox, Modal } from '../ui'
 import Markdown from '../ui/Markdown'
 import UnitCardMenu from './UnitCardMenu'
 import UnitEditorModal from './UnitEditorModal'
-import UnitMedalModal from './UnitMedalModal'
 
 type UnitCardProps = {
   unit: UnitPlain | UnitTypePlain
-  seq: Number
+  seq: number
   isOwner: boolean
   allSpecials: SpecialRule[]
   onUnitUpdated?: (u: UnitPlain) => void
@@ -49,10 +48,8 @@ export default function UnitCard({
   // Modal visibility states
   const [showHITModal, setShowHITModal] = useState(false)
   const [showUnitEditorModal, setShowUnitEditorModal] = useState(false)
-  const [showUnitMedalModal, setShowUnitMedalModal] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
 
-  //const forceValue = {Math.floor((unit?.totalGearGP + (unit?.unitType?.GP || 0)) / 8)}
   const forceValue = unit.isUnitType ? null :
     Math.round(
       ((unit?.totalGearGP + (unit?.unitType?.GP || 0.0)) / 100.0)
@@ -103,7 +100,7 @@ export default function UnitCard({
           {!unit.isUnitType && unit.hasCustomPortrait && (
             <div className="cursor-pointer col-span-1 border border-muted/50 rounded-md" style={{maxHeight: '100%', maxWidth: '100%', overflow: 'hidden'}} onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>
               <img
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: (!unit.isUnitType && (unit.currHIT == 0)) ? 'grayscale(1)' : 'none' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: (!unit.isUnitType && (unit.currHIT === 0)) ? 'grayscale(1)' : 'none' }}
                 src={`${getUnitPortraitUrl(unit.unitId)}?v=${toEpochMs(unit.portraitUpdatedAt)}`}
               />
             </div>
@@ -287,12 +284,10 @@ export default function UnitCard({
               </div>
               {!unit.isUnitType && (
                 <div className="text-right whitespace-nowrap">
-                  {/*
                   <span className="stat mx-2">
                     FV:{ ' ' }
                     <span className="stat text-main">{forceValue}</span>
                   </span>
-                  */}
                   {/*
                   <span className="stat mx-2 cursor-pointer hover:text-main" onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
                     <FaMedal className="inline-block h-3 w-3" />{ ' ' }
@@ -360,7 +355,7 @@ export default function UnitCard({
       {/* Unit Deletion Modal*/}
       {showDeleteConfirm && 
         <Modal
-          title={`Delete ${unit.unitName == '' ? unit.unitTypeName : unit.unitName}`}
+          title={`Delete ${unit.unitName === '' ? unit.unitTypeName : unit.unitName}`}
           onClose={() => setShowDeleteConfirm(false)}
           footer={
             <div className="flex justify-end gap-2">
@@ -398,7 +393,7 @@ export default function UnitCard({
           }
         >
           <p className="text-sm text-foreground">
-            Are you sure you want to delete <strong>{unit.unitName == '' ? unit.unitTypeName : unit.unitName}</strong>?<br/>
+            Are you sure you want to delete <strong>{unit.unitName === '' ? unit.unitTypeName : unit.unitName}</strong>?<br/>
             This cannot be undone.
           </p>
 

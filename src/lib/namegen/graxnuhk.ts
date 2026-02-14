@@ -7,9 +7,5 @@ export function name_graxnuhk(): string {
   const names4 = ['a', 'o', 'u']
   const names5 = ['d', 'g', 'gar', 'gas', 'gg', 'gus', 'k', 'kh', 'kk', 'm', 'nak', 'r', 'rd', 'rk', 'x', 'z', 'zak', 'zz',]
 
-  // Unused
-  const names6 = ['Barb', 'Battle', 'Big', 'Blood', 'Blud', 'Bone', 'Brain', 'Crook', 'Crown', 'Dark', 'Dome', 'Doom', 'Dream', 'Ead', 'Ed', 'Face', 'Fire', 'Fist', 'Gloom', 'Glum', 'God', 'Gore', 'Grave', 'Grim', 'Gut', 'Gutz', 'Hed', 'Hell', 'Ice', 'Iron', 'Jaw', 'Jowl', 'Kill', 'Klaw', 'Krook', 'Mad', 'Mighty', 'Mug', 'Muzzle', 'Rabid', 'Rage', 'Rekk', 'Rock', 'Scalp', 'Skar', 'Skull', 'Slay', 'Strong', 'War', 'Wild']
-  const names7 = ['acka', 'ackah', 'basha', 'bashah', 'boila', 'boilah', 'braka', 'brakah', 'brakka', 'brakkah', 'breaka', 'breakah', 'busta', 'choppa', 'choppah', 'cleava', 'cleavah', 'clompa', 'clompah', 'cooka', 'cookah', 'cracka', 'crackah', 'crasha', 'crashah', 'crumpa', 'crumpah', 'crusha', 'crushah', 'cutta', 'cuttah', 'dagga', 'daggah', 'fang', 'fist', 'gasha', 'gashah', 'gutta', 'guttah', 'hacka', 'hackah', 'kleava', 'kleavah', 'krak', 'kraka', 'krakah', 'krumpa', 'krumpah', 'krusha', 'krushah', 'rippa', 'rippah', 'shredda', 'shreddah', 'skar', 'skorcha', 'skorchah', 'slasha', 'slashah', 'smasha', 'smashah', 'snagga', 'snaggah', 'snappa', 'snappah', 'spitta', 'spittah', 'splitta', 'splittah', 'stampa', 'stampah', 'stompa', 'stompah', 'trasha', 'trashah', 'wakka', 'wakkah', 'whacka', 'whackah']
-
   return `${rand(names1)}${rand(names2)}${rand(names3)}${rand(names4)}${rand(names5)}`
 }

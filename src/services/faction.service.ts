@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { FactionRepository } from '@/src/repositories/faction.repository'
 import { Faction } from '@/types'
 
@@ -6,17 +5,14 @@ export class FactionService {
   private static repository = new FactionRepository()
 
   static async getFactionRow(factionId: string): Promise<Faction | null> {
-    const faction = await this.repository.getFactionRow(factionId)
-    return faction ? new Faction(faction) : null
+    return this.repository.getFactionRow(factionId)
   }
 
   static async getFaction(factionId: string): Promise<Faction | null> {
-    const faction = await this.repository.getFaction(factionId)
-    return faction ? new Faction(faction) : null
+    return this.repository.getFaction(factionId)
   }
 
   static async getAllFactions(): Promise<Faction[]> {
-    const factions = await this.repository.getAllFactions()
-    return factions.map(faction => new Faction(faction))
+    return this.repository.getAllFactions()
   }
 }

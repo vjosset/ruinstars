@@ -16,7 +16,7 @@ export function name_fyhucho() {
   let name = ''
 
   for (let i = 0; i < len || name.length < minlen; i++) {
-    const chars = i % 2 == 1 ? vow : con
+    const chars = i % 2 === 1 ? vow : con
     name += getRandom(chars)
   }
   

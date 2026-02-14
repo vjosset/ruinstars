@@ -10,7 +10,7 @@ type FactionListProps = {
 export default async function FactionList({
   factions = null
 }: FactionListProps) {
-  if (!factions || factions.length == 0) {
+  if (!factions || factions.length === 0) {
     factions = await FactionService.getAllFactions()
     factions = factions.filter((fa) => fa.squadTypes.length > 0)
   }

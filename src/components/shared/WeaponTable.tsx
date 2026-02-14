@@ -62,10 +62,10 @@ export default function WeaponTable({
                 )}
                 { ' ' }
                 {/*<img className="inline highlightblack" src={`/icons/white/weptype${gear.TYP}.png`} width="13" />*/}
-                { gear.TYP == 'M' ? (<RiSwordFill className="icon" />) : (<RiCrosshair2Fill className="icon" />) }
+                { gear.TYP === 'M' ? (<RiSwordFill className="icon" />) : (<RiCrosshair2Fill className="icon" />) }
                 { ' ' }
                 {gear.gearName}
-                {gear.special != '' &&
+                {gear.special !== '' &&
                   <span className="cursor-pointer text-xs hover:text-main text-muted hastip" onClick={() => {
                     const parsed = parseSpecialRules(allSpecials, 'W', gear.special ?? '')
                     showInfoModal({

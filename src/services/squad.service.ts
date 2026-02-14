@@ -1,11 +1,9 @@
-//@ts-nocheck
 import { SquadRepository } from '@/src/repositories/squad.repository'
 import { Squad } from '@/types'
 import fs from 'fs/promises'
 import { generateId } from '@/lib/id'
 import path from 'path'
 import { GearService } from './gear.service'
-import { MedalService } from './medal.service'
 import { UnitService } from './unit.service'
 import { UserService } from './user.service'
 
@@ -25,7 +23,6 @@ export class SquadService {
     if (squad?.units && squad.units.length > 0) {
       await Promise.all(squad.units.map(async unit => {
         await GearService.loadUnitGear(unit)
-        await MedalService.loadUnitMedals(unit)
         await UnitService.applyGearMods(unit)
       }))
     }
@@ -126,7 +123,7 @@ export class SquadService {
     // Reset all units' activation and currHIT
     await Promise.all(squad.units.map(async unit => {
       // If the Unit is Deceased (has GearID INJ-DC), don't reset its HIT
-      const newHIT = unit.gearIds?.includes('INJ-DC') ? 0 : unit.HIT
+      const newHIT = unit.gearIds?.includes('INJ-DC') ? 0 : (unit.HIT ?? unit.currHIT)
       await UnitService.updateUnit(unit.unitId, { currHIT: newHIT, isActivated: false})
     }))
 

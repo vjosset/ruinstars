@@ -1,12 +1,10 @@
 'use client'
 
-import battlefields from '@/data/battlefields.json'
 import ops from '@/data/scriptedOperations.json'
 import { FactionPlain, MissionPlain } from '@/types'
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { FiExternalLink } from 'react-icons/fi'
-import BattlefieldBlock from '../shared/BattlefieldBlock'
 import MissionCard from '../shared/MissionCard'
 import Markdown from '../ui/Markdown'
 
@@ -146,13 +144,9 @@ export default function ScriptedOpSelector({ factionId, factions }: { factionId?
               {normalizedMissions
                 .filter(m => m.missionId === (selectedMissionId || normalizedMissions[0]?.missionId))
                 .map(m => {
-                  const battlefield = battlefields.find(
-                    (bf) => bf.battlefieldId === m.battlefieldId
-                  )
                   return (
                     <div key={`${selectedOp.slug}-${m.missionId}`} className="space-y-2">
                       <MissionCard mission={m} showDescription={true} />
-                      {battlefield && <BattlefieldBlock battlefield={battlefield} />}
                     </div>
                   )
                 })}

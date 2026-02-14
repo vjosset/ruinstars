@@ -43,7 +43,7 @@ export default function ToolsPageClient() {
             <button className={tabClasses(tab === 'settings')} onClick={() => setTab('settings')}>
               Settings
             </button>
-            {session?.user?.userId == 'vince' && (
+            {session?.user?.userId === 'vince' && (
               <button className={tabClasses(tab === 'admin')} onClick={() => setTab('admin')}>
                 Admin
               </button>
@@ -57,7 +57,7 @@ export default function ToolsPageClient() {
             <div className={'w-full max-w-md mx-auto ' + (tab === 'settings' ? 'block' : 'hidden')}>
               <SettingsForm />
             </div>
-            {session?.user?.userId == 'vince' && (
+            {session?.user?.userId === 'vince' && (
               <div className={'w-full max-w-md mx-auto ' + (tab === 'admin' ? 'block' : 'hidden')}>
                 <AdminTools />
               </div>

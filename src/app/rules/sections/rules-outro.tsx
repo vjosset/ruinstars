@@ -2,7 +2,7 @@
 import NewsCard from '@/components/home/NewsCard'
 import news from '@/public/news.json'
 
-export default async function RulesOutro({ num }: {num?: Number | null}) {
+export default async function RulesOutro({ num }: {num?: number | null}) {
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="outro">
