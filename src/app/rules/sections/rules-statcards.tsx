@@ -1,7 +1,6 @@
 import UnitCard from '@/components/unit/UnitCard'
 import { SpecialService, UnitService } from '@/services'
 import { RiCrosshair2Fill, RiSwordFill } from 'react-icons/ri'
-import IgnoreForIntroMission from './rules-ignorefirstmission'
 import Link from 'next/link'
 
 export default async function RulesStatCards({ num }: {num?: number | null}) {
@@ -18,8 +17,6 @@ export default async function RulesStatCards({ num }: {num?: number | null}) {
             StatCards describe your Units and their Weapons with numerical values, and any special Skills they may have. In general, the higher the stat number, the better the Unit or Weapon.<br/>
             Note that in the <Link className="underline" href="/me">app</Link> and on the website, you can click or tap Specials to view what they mean, and Skills or Equipment to get their full description.
           </p>
-          <br/>
-          <IgnoreForIntroMission keyword="weapon specials and Unit skills" />
           <br/>
         </div>
         <div className="section">

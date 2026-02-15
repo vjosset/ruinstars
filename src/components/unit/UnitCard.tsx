@@ -167,22 +167,6 @@ export default function UnitCard({
                   <h3 className="stat text-main">{unit.ACT}</h3>
                 </span>
               </div>
-              {/*}
-              <div className="text-xs">
-                MSK<br/>
-                <span className="flex items-center justify-center gap-1">
-                  <RiSwordFill className="text-xl" />
-                  <h5 className="stat text-main">{unit.MSK}</h5>
-                </span>
-              </div>
-              <div className="text-xs">
-                RSK<br/>
-                <span className="flex items-center justify-center gap-1">
-                  <RiCrosshair2Fill className="text-xl" />
-                  <h5 className="stat text-main">{unit.RSK}</h5>
-                </span>
-              </div>
-              */}
               <div className="text-sm">
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiShieldFill className="text-lg" />*/}
@@ -241,31 +225,6 @@ export default function UnitCard({
           <div className="border-t border-border mt-auto">
             <div className="flex justify-between items-center">
               <div className="text-sm">
-                {/* // OLD UNIT SPECIALS - NOT IN USE
-                {unit.special !== '' && (
-                  <span
-                    className="italic cursor-pointer hover:text-main text-muted hastip"
-                    onClick={() => {
-                      const parsed = parseSpecialRules(allSpecials, 'U', unit.special ?? '')
-                      showInfoModal({
-                        title: unit.unitName ?? unit.unitTypeName + ' - Special',
-                        body: (
-                          <div className="space-y-4">
-                            {parsed.map((rule, idx) => (
-                              <div key={idx}>
-                                <span className="font-semibold text-muted">({rule.code}) {rule.specialName}:</span>
-                                <p className="text-sm text-muted">{rule.description}</p>
-                              </div>
-                            ))}
-                          </div>
-                        ),
-                      })
-                    }}
-                  > { ' ' }
-                    ({unit.special}){ ' ' }
-                  </span>
-                )}
-                */}
                 {!unit.isUnitType && (
                   <div className="text-muted">
                     {unit?.unitType?.unitTypeName}
@@ -288,13 +247,6 @@ export default function UnitCard({
                     FV:{ ' ' }
                     <span className="stat text-main">{forceValue}</span>
                   </span>
-                  {/*
-                  <span className="stat mx-2 cursor-pointer hover:text-main" onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
-                    <FaMedal className="inline-block h-3 w-3" />{ ' ' }
-                    XP:{ ' ' }
-                    <span className="stat text-main">{unit.totalMedalXP}</span>
-                  </span>
-                  */}
                 </div>
               )}
             </div>

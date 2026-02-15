@@ -1,5 +1,4 @@
 import { GAME } from '@/lib/config/game_config'
-import IgnoreForIntroMission from './rules-ignorefirstmission'
 
 export default async function RulesCombat({ num }: {num?: number | null}) {
   return (
@@ -8,7 +7,6 @@ export default async function RulesCombat({ num }: {num?: number | null}) {
         {num && `${num}. `}Combat
       </h2>
       <div className="twocols">
-        <IgnoreForIntroMission keyword="combat modifiers, weapon specials, and attacks of opportunity" />
         <div className="">
           <h3>Ranged Combat</h3>
           <h4>Sequence</h4>

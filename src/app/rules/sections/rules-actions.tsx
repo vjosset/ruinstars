@@ -1,5 +1,3 @@
-import IgnoreForIntroMission from './rules-ignorefirstmission'
-
 export default async function RulesActions({ num }: {num?: number | null}) {
   return (
     <div className="section">
@@ -42,7 +40,6 @@ export default async function RulesActions({ num }: {num?: number | null}) {
         <p>Certain Missions will define special Actions that can be performed by Units. Read the Mission Briefing to determine if the Mission defines any such Actions.</p>
       
         <h3 id="tactical-orders">Tactical Orders</h3>
-        <IgnoreForIntroMission keyword="Tactical Orders" />
         <p>
           <strong>Tactical Orders</strong> are a shared Squad resource that represents command, coordination, and the ability to react when the plan starts to fall apart.
         </p>

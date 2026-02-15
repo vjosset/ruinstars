@@ -311,15 +311,6 @@ export default function SquadPageClient({
               {/* Info/tools */}
               <div className="flex items-center">
                 <div className="flex gap-1 items-center justify-center">
-                  {/*
-                  <button 
-                    className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
-                    onClick={handleSquadToolsClick}
-                    aria-label="Tools"
-                  >
-                    <FiInfo/>
-                  </button>
-                  */}
                   <div className="flex gap-2 items-center justify-center">
                     <Menu as="div" className="relative justify-center flex-shrink-0 rounded border border-border w-6 h-6 text-lg">
                       <MenuButton as="button" className="w-full h-full flex items-center justify-center">
