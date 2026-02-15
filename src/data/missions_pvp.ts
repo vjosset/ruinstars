@@ -1517,9 +1517,9 @@ Set up the Evac Zone as an 8" square at the center of the battlefield.
 Select one Squad to be the Attacker, the other is the Defender.
 `),
     deployment: dedent(`
-Squads deploy before Turn 1. First, Defender Squad deploys anywhere in the Evac Zone.
+Squads deploy before Turn 1. First, Defender Squad deploys all Units anywhere in the Evac Zone.
 
-Then Attacker Squad deploys before Turn 1 on any battlefield edge.
+Then Attacker Squad deploys all Units on any battlefield edge.
 `),
     victory: 'At the end of Turn 4, if the total FV of Standing Defender Units that are on the Evac Zone is equal to or higher than the total FV of Standing Attacker Units on the Evac Zone, Defender Squad wins the mission. Attacker Squad wins in all other cases.',
     special: null,
