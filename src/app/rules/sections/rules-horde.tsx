@@ -719,8 +719,7 @@ export default async function RulesHorde({ num }: {num?: number | null}) {
           <h3>Injuries</h3>
           <p>
             Each time a Downed Unit is revived, roll <code>1D6</code> to determine the Injury this Unit received.<br/>
-            If the Injury is one that the Unit already had, that Unit is Deceased. Remove the Unit from the Battlefield.<br/>
-            If the Injury is Healed, remove one other Injury from that Unit. If it has no other Injuries, Healed has no effect.
+            If the Injury is one that the Unit already had, that Unit is Deceased. Remove the Unit from the Battlefield.
           </p>
           <ul>
             {/* Injuries List */}

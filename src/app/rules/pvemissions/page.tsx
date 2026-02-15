@@ -344,13 +344,12 @@ export default async function PvEMissions() {
               <div className="section">
                 <h3>Injuries</h3>
                 <p>
-                  At the end of each Mission, each of your Units that were Taken Out during the mission may have a persistent injury.
+                  At the end of each Mission, each of your Units that was Taken Out during the mission may have a persistent injury.
                   Note that when playing a campaign, all Injuries (except Deceased) are removed from your Units when they return to Homebase at the end of each Operation.
                 </p>
                 <p>
                   At the end of each Mission, for each Player Unit that was Taken Out, roll <code>1D6</code> to determine the Injury this Unit received.<br/>
-                  If the Injury is one that the Unit already had, that Unit is Deceased. Remove the Unit from the Squad. That Unit cannot be replaced until the Squad returns to Homebase at the end of the Operation.<br/>
-                  If the Injury is Healed, remove one other Injury from that Unit. If it has no other Injuries, Healed has no effect.
+                  If the Injury is one that the Unit already had, that Unit is Deceased. Remove the Unit from the Squad. That Unit cannot be replaced until the Squad returns to Homebase at the end of the Operation.
                 </p>
                 <ul>
                   {/* Injuries List */}
