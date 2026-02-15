@@ -316,13 +316,37 @@ export class SquadTypeRepository extends BaseRepository {
     row: PrismaSquadTypeWithRelations | PrismaSquadTypeRow,
     spotlights: Array<PrismaSquadTypeWithRelations['squads'][number]>
   ): SquadTypeCtorInput {
+    const factionSquadTypes = 'squadTypes' in row.faction
+      ? row.faction.squadTypes.map(st => new SquadType({
+        squadTypeId: st.squadTypeId,
+        factionId: st.factionId,
+        seq: st.seq,
+        squadTypeName: st.squadTypeName,
+        description: st.description,
+        lore: st.lore,
+        isPublished: st.isPublished,
+        defaultSquadId: st.defaultSquadId ?? null,
+        faction: new Faction({
+          factionId: st.faction.factionId,
+          seq: st.faction.seq,
+          factionName: st.faction.factionName,
+          description: st.faction.description,
+          lore: st.faction.lore,
+          squadTypes: []
+        }),
+        unitTypes: [],
+        defaultSquad: null,
+        spotlights: []
+      }))
+      : []
+
     const faction = new Faction({
       factionId: row.faction.factionId,
       seq: row.faction.seq,
       factionName: row.faction.factionName,
       description: row.faction.description,
       lore: row.faction.lore,
-      squadTypes: []
+      squadTypes: factionSquadTypes
     })
 
     return {

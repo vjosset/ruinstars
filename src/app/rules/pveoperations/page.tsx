@@ -125,7 +125,7 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
               At the end of each Operation (after the third Mission), your Squad returns to Homebase to heal injuries, resupply, and utilize accrued resources.
               <ol>
                 <li>Remove all Deceased Units from your Squad.</li>
-                <li>Remove all Injuries from remaining Units.</li>
+                <li>Remove one Injury from remaining Units.</li>
                 <li>Recruit new Units into the Squad. Deceased Units can only be replaced during this Homebase phase.</li>
                 <li>Make changes to your Squad's selected Gear and Spoils Of War.</li>
               </ol>

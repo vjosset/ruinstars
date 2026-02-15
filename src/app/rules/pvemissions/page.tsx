@@ -334,7 +334,7 @@ export default async function PvEMissions() {
                 At the end of each Operation, after the third Mission, your Squad returns to Homebase to heal injuries, resupply, and utilize accrued resources.
                 <ol>
                   <li>Remove all Deceased Units from your Squad.</li>
-                  <li>Remove all Injuries from remaining Units.</li>
+                  <li>Remove one Injury from remaining Units.</li>
                   <li>Recruit new Units into the Squad (to maximum 100 GP).</li>
                   <li>Make changes to your Squad's selected Gear and Spoils Of War.</li>
                 </ol>
