@@ -187,15 +187,15 @@ Once per Turn, a Unit that Controls the Hatch may spend 2ACT to remove 1 \`HIT\`
         missionId: '2A',
         title: 'Destroy the Nests',
         description: 'Within the facility, three nests sustain the infestation. Destroy them to cripple the Swarm, while the Swarm must hold at all costs.',
-        setup: 'Place 3 Spawn Points along the battlefield centerline.',
+        setup: 'Place 3 Nests along the battlefield centerline.',
         deployment: 'Both Squads deploy from their Battlefield edge before Turn 1.',
         special: dedent(`
-Spawn Points are treated as items with \`ARM\` **4** and \`HIT\` **2**.
-Spawn Points cannot be targeted in Ranged Combat if there is at least one Swarm Unit Adjacent to that Spawn Point.
-If a Spawn Point is targeted in combat and is not Taken Out as a result of that combat, it regains all of its \`HIT\`.
+Nests are treated as items with \`ARM\` **4** and \`HIT\` **2**.
+Nests cannot be targeted in Ranged Combat if there is at least one Swarm Unit Adjacent to that Nest.
+If a Nest is targeted in combat and is not Taken Out as a result of that combat, it regains all of its \`HIT\`.
 `),
         victory: dedent(`
-- Player Squad wins the Mission if all three Spawn Points are destroyed before the end of Turn 4. **Proceed to Mission 3A**
+- Player Squad wins the Mission if all three Nests are destroyed before the end of Turn 4. **Proceed to Mission 3A**
 - Swarm wins the Mission in all other cases. **Proceed to Mission 3B**
 `),
         diagram: {

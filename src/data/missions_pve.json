@@ -27,9 +27,9 @@
       ],
       "legend": {
         "DU": "Player Squad Deployment Zone",
-        "S1": "Spawn Point 1",
-        "S2": "Spawn Point 2",
-        "S3": "Spawn Point 3"
+        "N1": "Nest 1",
+        "N2": "Nest 2",
+        "N3": "Nest 3"
       }
     }
   },

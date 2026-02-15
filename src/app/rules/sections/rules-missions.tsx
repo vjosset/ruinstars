@@ -81,13 +81,15 @@ export default async function RulesMissions({ num }: {num?: number | null}) {
       <div className="section">
         <div className="section">
           <h3 className="text-center">Mission List</h3>
-          {
-            missions_pvp.filter((mission) => mission.active && (!mission.missionType || mission.missionType === 'Primary')).map((mission) => (
-              <div className="section" key={mission.missionId}>
-                <MissionCard mission={mission} showDescription={true} />
-              </div>
-            ))
-          }
+          <div className='twocols'>
+            {
+              missions_pvp.filter((mission) => mission.active && (!mission.missionType || mission.missionType === 'Primary')).map((mission) => (
+                <div className="section" key={mission.missionId}>
+                  <MissionCard mission={mission} showDescription={true} />
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     </>

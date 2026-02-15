@@ -205,11 +205,13 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
             }
             <div className="section">
               <h2>Missions</h2>
-              {operation.missions?.map((mission) => (
-                <div key={mission.missionId} className="section">
-                  <MissionCard mission={mission} showDescription={true} />
-                </div>
-              ))}
+              <div className="twocols">
+                {operation.missions?.map((mission) => (
+                  <div key={mission.missionId} className="section">
+                    <MissionCard mission={mission} showDescription={true} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         ))}
