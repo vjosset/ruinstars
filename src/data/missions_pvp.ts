@@ -135,7 +135,7 @@ Throughout the battle, both sides contest key areas of the warzone. Whoever can 
 
 Victory favors the steadfast. The longer you hold, the stronger your claim.
 `),
-    setup: 'Place two Objective markers in the center of the North and South tiles.',
+    setup: 'Place two Objective markers 6" from the North and South battlefield edges.',
     deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
     victory: 'At the end of each turn after the first, Squads score 2 MP per Objective they control.',
     special: 'Units in cover Adjacent to an Objective gain +1 ARM against ranged attacks.',
@@ -234,7 +234,7 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
 
 A dormant facility flickers to life. Reactors surge, systems fail, and both sides fight to keep control of unstable nodes.
 `),
-    setup: 'Place 3 Power Node markers in the center of the West, Central, and East tiles. All Power Nodes start the mission as "Inactive".',
+    setup: 'Place 3 Power Node markers 6" apart along the battlefield center line. All Power Nodes start the mission as "Inactive".',
     deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
     victory: 'At the end of each Turn, Squads score 1 MP per Active Node they control.',
     special: dedent(`
@@ -355,7 +355,7 @@ A vital structure powers the enemy advance. One force must destroy it; the other
     setup: dedent(`
 Select one Squad to be the Defender, the other the Attacker.
 
-Place two larger structures in the West and East tiles and one Sabotage marker on the corner of each structure.
+Place two larger structures in the West and East sides and one Sabotage marker at each corner of each structure.
 `),
     deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
     victory: 'At the end of Turn 4, the Attacker scores 3 MP for each destroyed structure. Defender scores 3 MP for each remaining intact.',
@@ -651,7 +651,7 @@ The battle converges on a single decisive location.
 
 Valuable intel lies scattered among the ruins.
 `),
-    setup: 'Place 3 Data Core markers in the center of the West, Central, and East tiles.',
+    setup: 'Place 3 Data Core markers along the center line of the battlefield.',
     deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
     victory: 'At the end of Turn 4, score 2 MP per Data Core carried by your Units.',
     special: '**Mission Action: Collect Intel (1 ACT):** A Unit that controls a Data Core may perform this action. That Unit now carries the Data Core. Units may only carry one Data Core each. If a carrier is Taken Out, the Data Core drops on that Units position.',
@@ -770,8 +770,8 @@ Select one Squad to be the Defender, the other the Attacker.
 
 Defender secretly selects one Unit (excluding the Leader) to be the carrier of the Intel.
 `),
-    deployment: 'Both Squads deploy before Turn 1. Defender deploys all their Units on the Western battlefield edge first. Then Attacker Squad deploys all their Units on the Northern edge of the North and Northeast tiles, or the Southern edge of the South and Southeast tiles.',
-    victory: 'At the end of Turn 4, if the Defender Squad is carrying the Intel and the carrier is on the Eastern edge of the East tile, Defender wins the mission. Attacker wins in all other cases.',
+    deployment: 'Both Squads deploy before Turn 1. Defender deploys all their Units on the Western battlefield edge first. Then Attacker Squad deploys all their Units on the Northern or Southern edge of the battlefield, at least 8" from the Western edge.',
+    victory: 'At the end of Turn 4, if the Defender Squad is carrying the Intel and the carrier is on the Eastern edge of the battlefield, Defender wins the mission. Attacker wins in all other cases.',
     special: 'When a Unit carrying the Intel is Taken Out, place the Core on its position. It can be recovered and carried off by any Unit.',
     rewards: [
       {
@@ -823,8 +823,10 @@ Defender secretly selects one Unit (excluding the Leader) to be the carrier of t
           showLabel: false,
           showInLegend: false
         },
-        { type: 'callout', id: 'dn', x1In: 8, y1In: 2, x2In: 24, y2In: 2, text: '16"', labelSizeIn: 1 },
-        { type: 'callout', id: 'ds', x1In: 8, y1In: 22, x2In: 24, y2In: 22, text: '16"', labelSizeIn: 1 },
+        { type: 'callout', id: 'dn1', x1In: 8, y1In: 2, x2In: 24, y2In: 2, text: '16"', labelSizeIn: 1 },
+        { type: 'callout', id: 'dn2', x1In: 0, y1In: 2, x2In: 8, y2In: 2, text: '8"', labelSizeIn: 1 },
+        { type: 'callout', id: 'ds1', x1In: 8, y1In: 22, x2In: 24, y2In: 22, text: '16"', labelSizeIn: 1 },
+        { type: 'callout', id: 'ds2', x1In: 0, y1In: 22, x2In: 8, y2In: 22, text: '8"', labelSizeIn: 1 },
       ],
       legend: {
         DA: {
@@ -931,7 +933,7 @@ A beacon must be secured and relayed back to command.
 
 You don't know where it is, but the longer you search, the better your odds.
 `),
-    setup: 'Place 3 Search markers in the center of the West, Center, and East tiles.',
+    setup: 'Place 3 Search markers 6" apart along the center line of the battlefield.',
     deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
     victory: 'At the end of each Turn, the Squad carrying the artifact scores 2 MP.',
     special: dedent(`
@@ -1056,7 +1058,7 @@ Once found, the Artifact is carried by the Unit that found it.
 
 Energy charges build throughout the fight until a decisive moment of release.
 `),
-    setup: 'Place 2 Uplink Node markers in the center of the West and East tiles. Place one Transmit Beacon in the center of the Central tile. Set up a tracker for each Squad\'s Data Packets, starting at zero.',
+    setup: 'Place 2 Uplink Node markers 6" from the center of the battlefield. Place one Transmit Beacon in the center of the battlefield. Set up a tracker for each Squad\'s Data Packets, starting at zero.',
     deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
     victory: 'At the end of Turn 4, the Squad with the most MP wins the Mission. In case of a tie, the Squad with the highest remaining Data Packets wins the mission.',
     special: dedent(`
@@ -1510,16 +1512,16 @@ Dominate enemy territory with strength of arms.
 The dropship waits only moments—reach it before the storm consumes the battlefield.
 `),
     setup: dedent(`
-The Central Tile of the battlefield is the Evac Zone.
+Set up the Evac Zone as an 8" square at the center of the battlefield.
 
 Select one Squad to be the Attacker, the other is the Defender.
 `),
     deployment: dedent(`
-Squads deploy before Turn 1. First, Defender Squad deploys anywhere in the central Tile.
+Squads deploy before Turn 1. First, Defender Squad deploys anywhere in the Evac Zone.
 
-Then Attacker Squad deploys before on any battlefield edge.
+Then Attacker Squad deploys before Turn 1 on any battlefield edge.
 `),
-    victory: 'At the end of Turn 4, if the total FV of Standing Defender Units that are on the central tile is equal to or higher than the total FV of Standing Attacker Units on the central tile, Defender Squad wins the mission. Attacker Squad wins in all other cases.',
+    victory: 'At the end of Turn 4, if the total FV of Standing Defender Units that are on the Evac Zone is equal to or higher than the total FV of Standing Attacker Units on the Evac Zone, Defender Squad wins the mission. Attacker Squad wins in all other cases.',
     special: null,
     rewards: [
       {
