@@ -50,12 +50,16 @@ export default function UnitCard({
   const [showUnitEditorModal, setShowUnitEditorModal] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
 
+  const spoilCount = unit.isUnitType
+    ? 0
+    : (unit.gears?.filter((gear) => gear.gearCategoryId === 'SOW').length ?? 0)
+
   const forceValue = unit.isUnitType ? null :
     Math.round(
       ((unit?.totalGearGP + (unit?.unitType?.GP || 0.0)) / 100.0)
       * 10.0
     )
-    + Math.floor(unit.totalMedalXP / 5)
+    + spoilCount
 
   // Unit state tracking
   const [newHIT, setNewHIT] = useState(unit.currHIT ?? 0)

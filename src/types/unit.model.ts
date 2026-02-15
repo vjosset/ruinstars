@@ -27,7 +27,6 @@ export type UnitPlain = {
   squad?: SquadPlain | null
   isUnitType: false
   totalGearGP: number
-  totalMedalXP: number
   unitTypeName?: string
   GP?: number
 }
@@ -116,11 +115,6 @@ export class Unit {
     return this.gears.reduce((total, gear) => total + (gear.GP || 0), 0)
   }
 
-  totalMedalXP(): number {
-    if (!this.medals) return 0
-    return this.medals.reduce((total, medal) => total + (medal.XP || 0), 0)
-  }
-
   toPlain(): UnitPlain {
     return {
       unitId: this.unitId,
@@ -149,7 +143,6 @@ export class Unit {
       medalIds: this.medalIds,
       medals: this.medals ? this.medals.map(medal => medal.toPlain()) : null,
       totalGearGP: this.totalGearGP(),
-      totalMedalXP: this.totalMedalXP(),
       unitTypeName: this.unitType?.unitTypeName,
       GP: this.unitType?.GP,
     }
