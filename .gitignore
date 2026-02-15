@@ -14,3 +14,4 @@ src/data/missions_BKP_20251109.json
 .gitignore
 src/data/missions_BKP_20251127.json
 next-env.d.ts
+tsconfig.tsbuildinfo
