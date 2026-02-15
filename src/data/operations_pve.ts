@@ -22,7 +22,7 @@ const dedent = (value: string) => {
   return lines.map((line) => line.slice(minIndent)).join('\n')
 }
 
-const operations = [
+const operations_pve = [
   {
     slug: 'OP-SWARM',
     title: 'Infestation',
@@ -699,4 +699,4 @@ A Unit that Controls a Sabotage Marker may spend 2ACT to sabotage it.
   }
 ] satisfies PveOperation[]
 
-export default operations
+export default operations_pve

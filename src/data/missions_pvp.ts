@@ -9,7 +9,7 @@ const dedent = (value: string) => {
   return lines.map((line) => line.slice(minIndent)).join('\n')
 }
 
-const missions = [
+const missions_pvp = [
   {
     missionId: '1',
     missionType: 'Primary',
@@ -49,40 +49,7 @@ Throughout the battle, both sides contest key areas of the warzone. Whoever can 
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
-          label: 'Deployment Zone A',
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_2_7_2_7',
-          type: 'rect',
-          xIn: 5.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#7c3aed',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_2_7_7_7_7',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#0ea5e9',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_3_12_7_12_7',
-          type: 'rect',
-          xIn: 17.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#d946ef',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -93,7 +60,40 @@ Throughout the battle, both sides contest key areas of the warzone. Whoever can 
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
+          showLabel: false,
+          showInLegend: false
+        },
+        {
+          id: 'mrect_1_2_7_2_7',
+          type: 'rect',
+          xIn: 5.5,
+          yIn: 11.5,
+          wIn: 1,
+          hIn: 1,
+          color: '#26dc26',
+          showLabel: false,
+          showInLegend: false
+        },
+        {
+          id: 'mrect_2_7_7_7_7',
+          type: 'rect',
+          xIn: 11.5,
+          yIn: 11.5,
+          wIn: 1,
+          hIn: 1,
+          color: '#26dc26',
+          showLabel: false,
+          showInLegend: false
+        },
+        {
+          id: 'mrect_3_12_7_12_7',
+          type: 'rect',
+          xIn: 17.5,
+          yIn: 11.5,
+          wIn: 1,
+          hIn: 1,
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         }
@@ -101,23 +101,23 @@ Throughout the battle, both sides contest key areas of the warzone. Whoever can 
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         },
         O1: {
           label: 'Objective 1',
-          color: '#7c3aed'
+          color: '#26dc26'
         },
         O2: {
           label: 'Objective 2',
-          color: '#0ea5e9'
+          color: '#26dc26'
         },
         O3: {
           label: 'Objective 3',
-          color: '#d946ef'
+          color: '#26dc26'
         }
       }
     }
@@ -161,7 +161,7 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -172,7 +172,7 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
           yIn: 4,
           wIn: 1,
           hIn: 1,
-          color: '#7c3aed',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -183,7 +183,7 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
           yIn: 17.5,
           wIn: 1,
           hIn: 1,
-          color: '#0ea5e9',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -194,7 +194,7 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -202,19 +202,19 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         },
         O1: {
           label: 'Objective 1',
-          color: '#7c3aed'
+          color: '#26dc26'
         },
         O2: {
           label: 'Objective 2',
-          color: '#0ea5e9'
+          color: '#26dc26'
         }
       }
     }
@@ -262,7 +262,7 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -273,7 +273,7 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#7c3aed',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -284,7 +284,7 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#0ea5e9',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -295,7 +295,7 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#d946ef',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -306,7 +306,7 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -314,23 +314,23 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         },
         O1: {
           label: 'Power Node 1',
-          color: '#7c3aed'
+          color: '#26dc26'
         },
         O2: {
           label: 'Power Node 2',
-          color: '#0ea5e9'
+          color: '#26dc26'
         },
         O3: {
           label: 'Power Node 3',
-          color: '#d946ef'
+          color: '#26dc26'
         }
       }
     }
@@ -378,7 +378,7 @@ Place two larger structures in the West and East tiles and one Sabotage marker o
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -411,7 +411,7 @@ Place two larger structures in the West and East tiles and one Sabotage marker o
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -419,11 +419,11 @@ Place two larger structures in the West and East tiles and one Sabotage marker o
       legend: {
         DA: {
           label: 'Attacker Deployment Zone',
-          color: '#059669'
+          color: '#dc2626'
         },
         DD: {
           label: 'Defender Deployment Zone',
-          color: '#f97316'
+          color: '#2563eb'
         },
         S1: {
           label: 'Sabotage Target 1',
@@ -475,7 +475,7 @@ Advance across the battlefield and seize ground from the enemy.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -486,7 +486,7 @@ Advance across the battlefield and seize ground from the enemy.
           yIn: 0,
           wIn: 1,
           hIn: 1,
-          color: '#7c3aed',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -497,7 +497,7 @@ Advance across the battlefield and seize ground from the enemy.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#d946ef',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -508,7 +508,7 @@ Advance across the battlefield and seize ground from the enemy.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         },
@@ -519,7 +519,7 @@ Advance across the battlefield and seize ground from the enemy.
           yIn: 23,
           wIn: 1,
           hIn: 1,
-          color: '#0ea5e9',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         }
@@ -527,23 +527,23 @@ Advance across the battlefield and seize ground from the enemy.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         },
         O1: {
           label: 'Objective 1',
-          color: '#7c3aed'
+          color: '#26dc26'
         },
         O2: {
           label: 'Objective 2',
-          color: '#0ea5e9'
+          color: '#26dc26'
         },
         O3: {
           label: 'Objective 3',
-          color: '#d946ef'
+          color: '#26dc26'
         }
       }
     }
@@ -587,7 +587,7 @@ The battle converges on a single decisive location.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -598,7 +598,7 @@ The battle converges on a single decisive location.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#7c3aed',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -609,7 +609,7 @@ The battle converges on a single decisive location.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -617,15 +617,15 @@ The battle converges on a single decisive location.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         },
         O1: {
           label: 'Objective',
-          color: '#7c3aed'
+          color: '#26dc26'
         }
       }
     }
@@ -669,7 +669,7 @@ Valuable intel lies scattered among the ruins.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -680,7 +680,7 @@ Valuable intel lies scattered among the ruins.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#7c3aed',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -691,7 +691,7 @@ Valuable intel lies scattered among the ruins.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#0ea5e9',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -702,7 +702,7 @@ Valuable intel lies scattered among the ruins.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#d946ef',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -713,7 +713,7 @@ Valuable intel lies scattered among the ruins.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -721,23 +721,23 @@ Valuable intel lies scattered among the ruins.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         },
         O1: {
           label: 'Intel 1',
-          color: '#7c3aed'
+          color: '#26dc26'
         },
         O2: {
           label: 'Intel 2',
-          color: '#0ea5e9'
+          color: '#26dc26'
         },
         O3: {
           label: 'Intel 3',
-          color: '#d946ef'
+          color: '#26dc26'
         }
       }
     }
@@ -785,7 +785,7 @@ Defender secretly selects one Unit (excluding the Leader) to be the carrier of t
           yIn: 0,
           wIn: 1,
           hIn: 24,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         },
@@ -796,7 +796,7 @@ Defender secretly selects one Unit (excluding the Leader) to be the carrier of t
           yIn: 0,
           wIn: 16,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -807,7 +807,7 @@ Defender secretly selects one Unit (excluding the Leader) to be the carrier of t
           yIn: 23,
           wIn: 16,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         }
@@ -815,11 +815,11 @@ Defender secretly selects one Unit (excluding the Leader) to be the carrier of t
       legend: {
         DA: {
           label: 'Attacker Deployment Zone',
-          color: '#059669'
+          color: '#dc2626'
         },
         DD: {
           label: 'Defender Deployment Zone',
-          color: '#f97316'
+          color: '#2563eb'
         }
       }
     }
@@ -863,7 +863,7 @@ A beacon must be secured and relayed back to command.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -874,7 +874,7 @@ A beacon must be secured and relayed back to command.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#7c3aed',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -885,7 +885,7 @@ A beacon must be secured and relayed back to command.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -893,15 +893,15 @@ A beacon must be secured and relayed back to command.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         },
         O1: {
           label: 'Beacon',
-          color: '#7c3aed'
+          color: '#26dc26'
         }
       }
     }
@@ -956,7 +956,7 @@ Once found, the Artifact is carried by the Unit that found it.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -967,7 +967,7 @@ Once found, the Artifact is carried by the Unit that found it.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#7c3aed',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -978,7 +978,7 @@ Once found, the Artifact is carried by the Unit that found it.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#0ea5e9',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -989,7 +989,7 @@ Once found, the Artifact is carried by the Unit that found it.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#d946ef',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -1000,7 +1000,7 @@ Once found, the Artifact is carried by the Unit that found it.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -1008,23 +1008,23 @@ Once found, the Artifact is carried by the Unit that found it.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         },
         O1: {
           label: 'Search 1',
-          color: '#7c3aed'
+          color: '#26dc26'
         },
         O2: {
           label: 'Search 2',
-          color: '#0ea5e9'
+          color: '#26dc26'
         },
         O3: {
           label: 'Search 3',
-          color: '#d946ef'
+          color: '#26dc26'
         }
       }
     }
@@ -1072,7 +1072,7 @@ Energy charges build throughout the fight until a decisive moment of release.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -1083,7 +1083,7 @@ Energy charges build throughout the fight until a decisive moment of release.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#7c3aed',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -1094,7 +1094,7 @@ Energy charges build throughout the fight until a decisive moment of release.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#d946ef',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -1105,7 +1105,7 @@ Energy charges build throughout the fight until a decisive moment of release.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#0ea5e9',
+          color: '#26dc26',
           showLabel: false,
           showInLegend: false
         },
@@ -1116,7 +1116,7 @@ Energy charges build throughout the fight until a decisive moment of release.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -1124,23 +1124,23 @@ Energy charges build throughout the fight until a decisive moment of release.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         },
         UA: {
           label: 'UA',
-          color: '#7c3aed'
+          color: '#26dc26'
         },
         UB: {
           label: 'UB',
-          color: '#0ea5e9'
+          color: '#26dc26'
         },
         TB: {
           label: 'TB',
-          color: '#d946ef'
+          color: '#26dc26'
         }
       }
     }
@@ -1184,7 +1184,7 @@ Your orders are simple: outkill the enemy.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -1195,7 +1195,7 @@ Your orders are simple: outkill the enemy.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -1203,11 +1203,11 @@ Your orders are simple: outkill the enemy.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         }
       }
     }
@@ -1251,7 +1251,7 @@ The battle grinds to dust. Only the unbroken remain.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -1262,7 +1262,7 @@ The battle grinds to dust. Only the unbroken remain.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -1270,11 +1270,11 @@ The battle grinds to dust. Only the unbroken remain.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         }
       }
     }
@@ -1318,7 +1318,7 @@ Hunt down the enemy commander.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -1329,7 +1329,7 @@ Hunt down the enemy commander.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -1337,11 +1337,11 @@ Hunt down the enemy commander.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         }
       }
     }
@@ -1385,7 +1385,7 @@ Two Units meet on the battlefield, bound by vengeance or destiny.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -1396,7 +1396,7 @@ Two Units meet on the battlefield, bound by vengeance or destiny.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -1404,11 +1404,11 @@ Two Units meet on the battlefield, bound by vengeance or destiny.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         }
       }
     }
@@ -1452,7 +1452,7 @@ Dominate enemy territory with strength of arms.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         },
@@ -1463,7 +1463,7 @@ Dominate enemy territory with strength of arms.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         }
@@ -1471,11 +1471,11 @@ Dominate enemy territory with strength of arms.
       legend: {
         DA: {
           label: 'Deployment Zone A',
-          color: '#059669'
+          color: '#dc2626'
         },
         DB: {
           label: 'Deployment Zone B',
-          color: '#f97316'
+          color: '#2563eb'
         }
       }
     }
@@ -1527,7 +1527,7 @@ Then Attacker Squad deploys before on any battlefield edge.
           yIn: 0,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         },
@@ -1538,7 +1538,7 @@ Then Attacker Squad deploys before on any battlefield edge.
           yIn: 23,
           wIn: 24,
           hIn: 1,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         },
@@ -1549,7 +1549,7 @@ Then Attacker Squad deploys before on any battlefield edge.
           yIn: 1,
           wIn: 1,
           hIn: 22,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         },
@@ -1560,7 +1560,7 @@ Then Attacker Squad deploys before on any battlefield edge.
           yIn: 1,
           wIn: 1,
           hIn: 22,
-          color: '#f97316',
+          color: '#2563eb',
           showLabel: false,
           showInLegend: false
         },
@@ -1571,7 +1571,7 @@ Then Attacker Squad deploys before on any battlefield edge.
           yIn: 8,
           wIn: 8,
           hIn: 8,
-          color: '#059669',
+          color: '#dc2626',
           showLabel: false,
           showInLegend: false
         }
@@ -1579,15 +1579,15 @@ Then Attacker Squad deploys before on any battlefield edge.
       legend: {
         DD: {
           label: 'Defender Deployment Zone',
-          color: '#059669'
+          color: '#dc2626'
         },
         DA: {
           label: 'Attacker Deployment Zone',
-          color: '#f97316'
+          color: '#2563eb'
         }
       }
     }
   }
 ] satisfies MissionPlain[]
 
-export default missions
+export default missions_pvp

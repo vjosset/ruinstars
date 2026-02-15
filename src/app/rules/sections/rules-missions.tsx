@@ -1,5 +1,5 @@
 import MissionCard from '@/components/shared/MissionCard'
-import missions from '@/data/missions'
+import missions_pvp from '@/data/missions_pvp'
 
 export default async function RulesMissions({ num }: {num?: number | null}) {
   return (
@@ -82,7 +82,7 @@ export default async function RulesMissions({ num }: {num?: number | null}) {
         <div className="section">
           <h3 className="text-center">Mission List</h3>
           {
-            missions.filter((mission) => mission.active && (!mission.missionType || mission.missionType === 'Primary')).map((mission) => (
+            missions_pvp.filter((mission) => mission.active && (!mission.missionType || mission.missionType === 'Primary')).map((mission) => (
               <div className="section" key={mission.missionId}>
                 <MissionCard mission={mission} showDescription={true} />
               </div>

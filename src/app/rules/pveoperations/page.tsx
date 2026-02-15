@@ -76,14 +76,15 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
             The final mission reflects the cumulative pressure of earlier results, representing either a decisive push or a desperate holding action.
             <br/><br/>
             To play an Operation:
-            <ul>
-              <li>Select an Operation and your Player Squad.</li>
-              <li>Choose a Threat Level (in Campaign play, this would typically be the same as the operation number)</li>
-              <li>Begin with Mission 1 and follow the setup and victory conditions as written.</li>
-              <li>At the end of each mission, proceed to the next mission indicated by the outcome.</li>
-              <li>Complete Mission 3 to conclude the Operation.</li>
-            </ul>
-
+          </p>
+          <ul>
+            <li>Select an Operation and your Player Squad.</li>
+            <li>Choose a Threat Level (in Campaign play, this would typically be the same as the operation number)</li>
+            <li>Begin with Mission 1 and follow the setup and victory conditions as written.</li>
+            <li>At the end of each mission, proceed to the next mission indicated by the outcome.</li>
+            <li>Complete Mission 3 to conclude the Operation.</li>
+          </ul>
+          <p>
             Operations may be played as standalone experiences or linked together as part of a larger campaign.
             When used in a campaign, later Operations will naturally be more dangerous, reflecting the growing scope of the conflict.
           </p>
