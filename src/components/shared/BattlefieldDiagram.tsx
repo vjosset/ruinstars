@@ -85,7 +85,7 @@ export type BattlefieldDiagramProps = {
 const DEFAULT_BOARD = { widthIn: 24, heightIn: 24 }
 const DEFAULT_PIXELS_PER_INCH = 16
 const DEFAULT_LABEL_SIZE_IN = 0.6
-const DEFAULT_CALLOUT_TEXT_SIZE_IN = 0.55
+const DEFAULT_CALLOUT_TEXT_SIZE_IN = 0.8
 const DEFAULT_CALLOUT_TICK_IN = 0.3
 const DEFAULT_MARKER_SIZE_IN = 1
 const DEFAULT_STROKE_IN = 0.06
@@ -191,266 +191,269 @@ export default function BattlefieldDiagram({
   return (
     <div className={className}>
       <div className="bg-card p-3">
-        <div
-          className="relative w-full"
-          style={{ paddingTop: `${(heightIn / widthIn) * 100}%` }}
-        >
-          <svg
-            className="absolute inset-0 block h-full w-full"
-            viewBox={`0 0 ${widthPx} ${heightPx}`}
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Battlefield diagram"
-            style={{
-              printColorAdjust: 'exact',
-              WebkitPrintColorAdjust: 'exact'
-            }}
+        <div className={`grid gap-6 ${legendIds.length > 0 ? 'grid-cols-2 items-start' : ''}`}>
+          <div
+            className="relative w-full"
+            style={{ paddingTop: `${(heightIn / widthIn) * 100}%` }}
           >
-            <rect
-              x={0}
-              y={0}
-              width={widthPx}
-              height={heightPx}
-              fill={backgroundColor}
-              stroke={gridColor}
-              strokeWidth={inToPx(DEFAULT_STROKE_IN)}
-            />
-            {showCenterLines && (
-              <>
-                <line
-                  x1={widthPx / 2}
-                  y1={0}
-                  x2={widthPx / 2}
-                  y2={heightPx}
-                  stroke={gridColor}
-                  strokeWidth={inToPx(DEFAULT_CENTER_LINE_IN)}
-                />
-                <line
-                  x1={0}
-                  y1={heightPx / 2}
-                  x2={widthPx}
-                  y2={heightPx / 2}
-                  stroke={gridColor}
-                  strokeWidth={inToPx(DEFAULT_CENTER_LINE_IN)}
-                />
-              </>
-            )}
-            {diagram.elements.map((element) => {
-              const baseColor =
-                element.color ?? colorMap.get(element.id) ?? gridColor
-              const strokeColor = element.strokeColor ?? baseColor
-              const fillOpacity = element.fillOpacity ?? 0.2
-              const labelSizeIn = element.labelSizeIn ?? DEFAULT_LABEL_SIZE_IN
-              const labelText = resolveElementLabel(element)
-              const showLabel = element.showLabel ?? element.type !== 'callout'
-
-              if (element.type === 'circle') {
-                return (
-                  <g key={element.id}>
-                    <circle
-                      cx={inToPx(element.cxIn)}
-                      cy={inToPx(element.cyIn)}
-                      r={inToPx(element.rIn)}
-                      fill={baseColor}
-                      fillOpacity={fillOpacity}
-                      stroke={strokeColor}
-                      strokeWidth={inToPx(DEFAULT_STROKE_IN)}
-                    />
-                    {showLabel && (
-                      <text
-                        x={inToPx(element.cxIn)}
-                        y={inToPx(element.cyIn)}
-                        fontFamily={FONT_FAMILY}
-                        fontSize={inToPx(labelSizeIn)}
-                        fontWeight={700}
-                        fill={textColor}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                      >
-                        {labelText}
-                      </text>
-                    )}
-                  </g>
-                )
-              }
-
-              if (element.type === 'rect') {
-                const x = inToPx(element.xIn)
-                const y = inToPx(element.yIn)
-                const width = inToPx(element.wIn)
-                const height = inToPx(element.hIn)
-                return (
-                  <g key={element.id}>
-                    <rect
-                      x={x}
-                      y={y}
-                      width={width}
-                      height={height}
-                      rx={inToPx(element.cornerRadiusIn ?? 0)}
-                      fill={baseColor}
-                      fillOpacity={fillOpacity}
-                      stroke={strokeColor}
-                      strokeWidth={inToPx(DEFAULT_STROKE_IN)}
-                    />
-                    {showLabel && (
-                      <text
-                        x={x + width / 2}
-                        y={y + height / 2}
-                        fontFamily={FONT_FAMILY}
-                        fontSize={inToPx(labelSizeIn)}
-                        fontWeight={700}
-                        fill={textColor}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                      >
-                        {labelText}
-                      </text>
-                    )}
-                  </g>
-                )
-              }
-
-              if (element.type === 'marker') {
-                const sizeIn = element.sizeIn ?? DEFAULT_MARKER_SIZE_IN
-                const sizePx = inToPx(sizeIn)
-                const x = inToPx(element.xIn) - sizePx / 2
-                const y = inToPx(element.yIn) - sizePx / 2
-                return (
-                  <g key={element.id}>
-                    <rect
-                      x={x}
-                      y={y}
-                      width={sizePx}
-                      height={sizePx}
-                      fill={baseColor}
-                      fillOpacity={fillOpacity}
-                      stroke={strokeColor}
-                      strokeWidth={inToPx(DEFAULT_STROKE_IN)}
-                    />
-                    {showLabel && (
-                      <text
-                        x={x + sizePx / 2}
-                        y={y + sizePx / 2}
-                        fontFamily={FONT_FAMILY}
-                        fontSize={inToPx(labelSizeIn)}
-                        fontWeight={700}
-                        fill={textColor}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                      >
-                        {labelText}
-                      </text>
-                    )}
-                  </g>
-                )
-              }
-
-              if (element.type === 'text') {
-                return (
-                  <text
-                    key={element.id}
-                    x={inToPx(element.xIn)}
-                    y={inToPx(element.yIn)}
-                    fontFamily={FONT_FAMILY}
-                    fontSize={inToPx(element.labelSizeIn ?? DEFAULT_LABEL_SIZE_IN)}
-                    fontWeight={700}
-                    fill={baseColor}
-                    textAnchor={element.anchor ?? 'middle'}
-                    dominantBaseline="middle"
-                  >
-                    {element.text}
-                  </text>
-                )
-              }
-
-              const x1 = inToPx(element.x1In)
-              const y1 = inToPx(element.y1In)
-              const x2 = inToPx(element.x2In)
-              const y2 = inToPx(element.y2In)
-              const dx = x2 - x1
-              const dy = y2 - y1
-              const length = Math.hypot(dx, dy) || 1
-              const nx = -dy / length
-              const ny = dx / length
-              const tickSize =
-                inToPx(element.tickSizeIn ?? DEFAULT_CALLOUT_TICK_IN) / 2
-              const textOffset = inToPx(
-                element.textOffsetIn ?? DEFAULT_LABEL_SIZE_IN
-              )
-              const textX = (x1 + x2) / 2 + nx * textOffset
-              const textY = (y1 + y2) / 2 + ny * textOffset
-              const calloutStroke = element.strokeColor ?? calloutColor
-
-              return (
-                <g key={element.id}>
+            <svg
+              className="absolute inset-0 block h-full w-full"
+              viewBox={`0 0 ${widthPx} ${heightPx}`}
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Battlefield diagram"
+              style={{
+                printColorAdjust: 'exact',
+                WebkitPrintColorAdjust: 'exact'
+              }}
+            >
+              <rect
+                x={0}
+                y={0}
+                width={widthPx}
+                height={heightPx}
+                fill={backgroundColor}
+                stroke={gridColor}
+                strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+              />
+              {showCenterLines && (
+                <>
                   <line
-                    x1={x1}
-                    y1={y1}
-                    x2={x2}
-                    y2={y2}
-                    stroke={calloutStroke}
-                    strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                    x1={widthPx / 2}
+                    y1={0}
+                    x2={widthPx / 2}
+                    y2={heightPx}
+                    stroke={gridColor}
+                    strokeWidth={inToPx(DEFAULT_CENTER_LINE_IN)}
                   />
                   <line
-                    x1={x1 - nx * tickSize}
-                    y1={y1 - ny * tickSize}
-                    x2={x1 + nx * tickSize}
-                    y2={y1 + ny * tickSize}
-                    stroke={calloutStroke}
-                    strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                    x1={0}
+                    y1={heightPx / 2}
+                    x2={widthPx}
+                    y2={heightPx / 2}
+                    stroke={gridColor}
+                    strokeWidth={inToPx(DEFAULT_CENTER_LINE_IN)}
                   />
-                  <line
-                    x1={x2 - nx * tickSize}
-                    y1={y2 - ny * tickSize}
-                    x2={x2 + nx * tickSize}
-                    y2={y2 + ny * tickSize}
-                    stroke={calloutStroke}
-                    strokeWidth={inToPx(DEFAULT_STROKE_IN)}
-                  />
-                  {element.text && (
-                    <text
-                      x={textX}
-                      y={textY}
-                      fontFamily={FONT_FAMILY}
-                      fontSize={inToPx(
-                        element.labelSizeIn ?? DEFAULT_CALLOUT_TEXT_SIZE_IN
+                </>
+              )}
+              {diagram.elements.map((element) => {
+                const baseColor =
+                  element.color ?? colorMap.get(element.id) ?? gridColor
+                const strokeColor = element.strokeColor ?? baseColor
+                const fillOpacity = element.fillOpacity ?? 0.2
+                const labelSizeIn = element.labelSizeIn ?? DEFAULT_LABEL_SIZE_IN
+                const labelText = resolveElementLabel(element)
+                const showLabel = element.showLabel ?? element.type !== 'callout'
+
+                if (element.type === 'circle') {
+                  return (
+                    <g key={element.id}>
+                      <circle
+                        cx={inToPx(element.cxIn)}
+                        cy={inToPx(element.cyIn)}
+                        r={inToPx(element.rIn)}
+                        fill={baseColor}
+                        fillOpacity={fillOpacity}
+                        stroke={strokeColor}
+                        strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                      />
+                      {showLabel && (
+                        <text
+                          x={inToPx(element.cxIn)}
+                          y={inToPx(element.cyIn)}
+                          fontFamily={FONT_FAMILY}
+                          fontSize={inToPx(labelSizeIn)}
+                          fontWeight={700}
+                          fill={textColor}
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                        >
+                          {labelText}
+                        </text>
                       )}
+                    </g>
+                  )
+                }
+
+                if (element.type === 'rect') {
+                  const x = inToPx(element.xIn)
+                  const y = inToPx(element.yIn)
+                  const width = inToPx(element.wIn)
+                  const height = inToPx(element.hIn)
+                  return (
+                    <g key={element.id}>
+                      <rect
+                        x={x}
+                        y={y}
+                        width={width}
+                        height={height}
+                        rx={inToPx(element.cornerRadiusIn ?? 0)}
+                        fill={baseColor}
+                        fillOpacity={fillOpacity}
+                        stroke={strokeColor}
+                        strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                      />
+                      {showLabel && (
+                        <text
+                          x={x + width / 2}
+                          y={y + height / 2}
+                          fontFamily={FONT_FAMILY}
+                          fontSize={inToPx(labelSizeIn)}
+                          fontWeight={700}
+                          fill={textColor}
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                        >
+                          {labelText}
+                        </text>
+                      )}
+                    </g>
+                  )
+                }
+
+                if (element.type === 'marker') {
+                  const sizeIn = element.sizeIn ?? DEFAULT_MARKER_SIZE_IN
+                  const sizePx = inToPx(sizeIn)
+                  const x = inToPx(element.xIn) - sizePx / 2
+                  const y = inToPx(element.yIn) - sizePx / 2
+                  return (
+                    <g key={element.id}>
+                      <rect
+                        x={x}
+                        y={y}
+                        width={sizePx}
+                        height={sizePx}
+                        fill={baseColor}
+                        fillOpacity={fillOpacity}
+                        stroke={strokeColor}
+                        strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                      />
+                      {showLabel && (
+                        <text
+                          x={x + sizePx / 2}
+                          y={y + sizePx / 2}
+                          fontFamily={FONT_FAMILY}
+                          fontSize={inToPx(labelSizeIn)}
+                          fontWeight={700}
+                          fill={textColor}
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                        >
+                          {labelText}
+                        </text>
+                      )}
+                    </g>
+                  )
+                }
+
+                if (element.type === 'text') {
+                  return (
+                    <text
+                      key={element.id}
+                      x={inToPx(element.xIn)}
+                      y={inToPx(element.yIn)}
+                      fontFamily={FONT_FAMILY}
+                      fontSize={inToPx(element.labelSizeIn ?? DEFAULT_LABEL_SIZE_IN)}
                       fontWeight={700}
-                      fill={calloutStroke}
-                      textAnchor={element.textAnchor ?? 'middle'}
+                      fill={baseColor}
+                      textAnchor={element.anchor ?? 'middle'}
                       dominantBaseline="middle"
                     >
                       {element.text}
                     </text>
-                  )}
-                </g>
-              )
-            })}
-          </svg>
+                  )
+                }
+
+                const x1 = inToPx(element.x1In)
+                const y1 = inToPx(element.y1In)
+                const x2 = inToPx(element.x2In)
+                const y2 = inToPx(element.y2In)
+                const dx = x2 - x1
+                const dy = y2 - y1
+                const length = Math.hypot(dx, dy) || 1
+                const nx = -dy / length
+                const ny = dx / length
+                const tickSize =
+                  inToPx(element.tickSizeIn ?? DEFAULT_CALLOUT_TICK_IN) / 2
+                const textOffset = inToPx(
+                  element.textOffsetIn ?? DEFAULT_LABEL_SIZE_IN
+                )
+                const textX = (x1 + x2) / 2 + nx * textOffset
+                const textY = (y1 + y2) / 2 + ny * textOffset
+                const calloutStroke = element.strokeColor ?? calloutColor
+
+                return (
+                  <g key={element.id}>
+                    <line
+                      x1={x1}
+                      y1={y1}
+                      x2={x2}
+                      y2={y2}
+                      stroke={calloutStroke}
+                      strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                    />
+                    <line
+                      x1={x1 - nx * tickSize}
+                      y1={y1 - ny * tickSize}
+                      x2={x1 + nx * tickSize}
+                      y2={y1 + ny * tickSize}
+                      stroke={calloutStroke}
+                      strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                    />
+                    <line
+                      x1={x2 - nx * tickSize}
+                      y1={y2 - ny * tickSize}
+                      x2={x2 + nx * tickSize}
+                      y2={y2 + ny * tickSize}
+                      stroke={calloutStroke}
+                      strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                    />
+                    {element.text && (
+                      <text
+                        x={textX}
+                        y={textY}
+                        fontFamily={FONT_FAMILY}
+                        fontSize={inToPx(
+                          element.labelSizeIn ?? DEFAULT_CALLOUT_TEXT_SIZE_IN
+                        )}
+                        fontWeight={700}
+                        fill={calloutStroke}
+                        textAnchor={element.textAnchor ?? 'middle'}
+                        dominantBaseline="middle"
+                      >
+                        {element.text}
+                      </text>
+                    )}
+                  </g>
+                )
+              })}
+            </svg>
+          </div>
+
+          {legendIds.length > 0 && (
+            <div className="min-w-0 content-start grid gap-2 text-sm">
+              {legendIds.map((id) => {
+                const resolvedColor = colorMap.get(id) ?? gridColor
+                return (
+                  <div key={id} className="flex items-center gap-2">
+                    <span
+                      className="inline-block h-4 w-4 rounded border"
+                      style={{
+                        backgroundColor: `${resolvedColor}33`,
+                        borderColor: resolvedColor
+                      }}
+                    />
+                    <span className="font-semibold">{id}</span>
+                    <span className="text-muted">
+                      {getLegendLabel(diagram.legend?.[id])}
+                    </span>
+                  </div>
+                )
+              })}
+            </div>
+          )}
         </div>
       </div>
-      {legendIds.length > 0 && (
-        <div className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
-          {legendIds.map((id) => {
-            const resolvedColor = colorMap.get(id) ?? gridColor
-            return (
-              <div key={id} className="flex items-center gap-2">
-                <span
-                  className="inline-block h-4 w-4 rounded border"
-                  style={{
-                    backgroundColor: `${resolvedColor}33`,
-                    borderColor: resolvedColor
-                  }}
-                />
-                <span className="font-semibold">{id}</span>
-                <span className="text-muted">
-                  {getLegendLabel(diagram.legend?.[id])}
-                </span>
-              </div>
-            )
-          })}
-        </div>
-      )}
     </div>
   )
 }

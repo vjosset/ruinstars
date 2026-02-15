@@ -10,8 +10,14 @@ export default function MissionCard({ mission, showDescription }: { mission: Mis
       </h3>
 
       <div className="mt-2 flex flex-col gap-3">
+        {mission.description && showDescription && (
+          <div className="flavor mx-4">
+            <Markdown>{mission.description}</Markdown>
+          </div>
+        )}
         {mission.diagram && (
           <div className="section">
+            <h6 className="text-main">Battlefield</h6>
             <div className="mx-1 sm:mx-2">
               <BattlefieldDiagram diagram={mission.diagram} className="max-w-full" />
             </div>
@@ -19,11 +25,6 @@ export default function MissionCard({ mission, showDescription }: { mission: Mis
         )}
 
         <div className="min-w-0">
-          {mission.description && showDescription && (
-            <div className="flavor mx-4">
-              <Markdown>{mission.description}</Markdown>
-            </div>
-          )}
 
           {mission.setup && (
             <>

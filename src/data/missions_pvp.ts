@@ -71,7 +71,7 @@ Throughout the battle, both sides contest key areas of the warzone. Whoever can 
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -82,7 +82,7 @@ Throughout the battle, both sides contest key areas of the warzone. Whoever can 
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -93,10 +93,12 @@ Throughout the battle, both sides contest key areas of the warzone. Whoever can 
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
-        }
+        },
+        { type: 'callout', id: 'o2-x', x1In: 6, y1In: 13, x2In: 12, y2In: 13, text: '6"', labelSizeIn: 1 },
+        { type: 'callout', id: 'o3-x', x1In: 12, y1In: 13, x2In: 18, y2In: 13, text: '6"', labelSizeIn: 1 },
       ],
       legend: {
         DA: {
@@ -109,15 +111,15 @@ Throughout the battle, both sides contest key areas of the warzone. Whoever can 
         },
         O1: {
           label: 'Objective 1',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         O2: {
           label: 'Objective 2',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         O3: {
           label: 'Objective 3',
-          color: '#26dc26'
+          color: '#2b7c2b'
         }
       }
     }
@@ -169,10 +171,10 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
           id: 'mrect_1_7_2_7_2',
           type: 'rect',
           xIn: 11.5,
-          yIn: 4,
+          yIn: 5.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -183,7 +185,7 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
           yIn: 17.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -197,7 +199,9 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
           color: '#2563eb',
           showLabel: false,
           showInLegend: false
-        }
+        },
+        { type: 'callout', id: 'o1-Y', x1In: 11, y1In: 0, x2In: 11, y2In: 6, text: '6"', labelSizeIn: 1 },
+        { type: 'callout', id: 'o2-Y', x1In: 11, y1In: 24, x2In: 11, y2In: 18, text: '6"', labelSizeIn: 1 }
       ],
       legend: {
         DA: {
@@ -210,11 +214,11 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
         },
         O1: {
           label: 'Objective 1',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         O2: {
           label: 'Objective 2',
-          color: '#26dc26'
+          color: '#2b7c2b'
         }
       }
     }
@@ -273,7 +277,7 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -284,7 +288,7 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -295,7 +299,7 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -309,7 +313,9 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
           color: '#2563eb',
           showLabel: false,
           showInLegend: false
-        }
+        },
+        { type: 'callout', id: 'o2-x', x1In: 6, y1In: 13, x2In: 12, y2In: 13, text: '6"', labelSizeIn: 1 },
+        { type: 'callout', id: 'o3-x', x1In: 12, y1In: 13, x2In: 18, y2In: 13, text: '6"', labelSizeIn: 1 },
       ],
       legend: {
         DA: {
@@ -322,15 +328,15 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
         },
         O1: {
           label: 'Power Node 1',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         O2: {
           label: 'Power Node 2',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         O3: {
           label: 'Power Node 3',
-          color: '#26dc26'
+          color: '#2b7c2b'
         }
       }
     }
@@ -414,7 +420,11 @@ Place two larger structures in the West and East tiles and one Sabotage marker o
           color: '#2563eb',
           showLabel: false,
           showInLegend: false
-        }
+        },
+        { type: 'callout', id: 'o1-x', x1In: 0, y1In: 7, x2In: 8, y2In: 7, text: '8"', labelSizeIn: 1 },
+        { type: 'callout', id: 'o1-y', x1In: 9, y1In: 8, x2In: 9, y2In: 16, text: '8"', labelSizeIn: 1 },
+        { type: 'callout', id: 'o2-x', x1In: 16, y1In: 7, x2In: 24, y2In: 7, text: '8"', labelSizeIn: 1 },
+        { type: 'callout', id: 'o2-y', x1In: 15, y1In: 8, x2In: 15, y2In: 16, text: '8"', labelSizeIn: 1 },
       ],
       legend: {
         DA: {
@@ -486,7 +496,7 @@ Advance across the battlefield and seize ground from the enemy.
           yIn: 0,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -497,7 +507,7 @@ Advance across the battlefield and seize ground from the enemy.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -519,7 +529,7 @@ Advance across the battlefield and seize ground from the enemy.
           yIn: 23,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         }
@@ -535,15 +545,15 @@ Advance across the battlefield and seize ground from the enemy.
         },
         O1: {
           label: 'Objective 1',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         O2: {
           label: 'Objective 2',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         O3: {
           label: 'Objective 3',
-          color: '#26dc26'
+          color: '#2b7c2b'
         }
       }
     }
@@ -598,7 +608,7 @@ The battle converges on a single decisive location.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -625,7 +635,7 @@ The battle converges on a single decisive location.
         },
         O1: {
           label: 'Objective',
-          color: '#26dc26'
+          color: '#2b7c2b'
         }
       }
     }
@@ -680,7 +690,7 @@ Valuable intel lies scattered among the ruins.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -691,7 +701,7 @@ Valuable intel lies scattered among the ruins.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -702,7 +712,7 @@ Valuable intel lies scattered among the ruins.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -716,7 +726,9 @@ Valuable intel lies scattered among the ruins.
           color: '#2563eb',
           showLabel: false,
           showInLegend: false
-        }
+        },
+        { type: 'callout', id: 'o2-x', x1In: 6, y1In: 13, x2In: 12, y2In: 13, text: '6"', labelSizeIn: 1 },
+        { type: 'callout', id: 'o3-x', x1In: 12, y1In: 13, x2In: 18, y2In: 13, text: '6"', labelSizeIn: 1 },
       ],
       legend: {
         DA: {
@@ -729,15 +741,15 @@ Valuable intel lies scattered among the ruins.
         },
         O1: {
           label: 'Intel 1',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         O2: {
           label: 'Intel 2',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         O3: {
           label: 'Intel 3',
-          color: '#26dc26'
+          color: '#2b7c2b'
         }
       }
     }
@@ -810,7 +822,9 @@ Defender secretly selects one Unit (excluding the Leader) to be the carrier of t
           color: '#dc2626',
           showLabel: false,
           showInLegend: false
-        }
+        },
+        { type: 'callout', id: 'dn', x1In: 8, y1In: 2, x2In: 24, y2In: 2, text: '16"', labelSizeIn: 1 },
+        { type: 'callout', id: 'ds', x1In: 8, y1In: 22, x2In: 24, y2In: 22, text: '16"', labelSizeIn: 1 },
       ],
       legend: {
         DA: {
@@ -874,7 +888,7 @@ A beacon must be secured and relayed back to command.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -901,7 +915,7 @@ A beacon must be secured and relayed back to command.
         },
         O1: {
           label: 'Beacon',
-          color: '#26dc26'
+          color: '#2b7c2b'
         }
       }
     }
@@ -967,7 +981,7 @@ Once found, the Artifact is carried by the Unit that found it.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -978,7 +992,7 @@ Once found, the Artifact is carried by the Unit that found it.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -989,7 +1003,7 @@ Once found, the Artifact is carried by the Unit that found it.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -1003,7 +1017,9 @@ Once found, the Artifact is carried by the Unit that found it.
           color: '#2563eb',
           showLabel: false,
           showInLegend: false
-        }
+        },
+        { type: 'callout', id: 'o2-x', x1In: 6, y1In: 13, x2In: 12, y2In: 13, text: '6"', labelSizeIn: 1 },
+        { type: 'callout', id: 'o3-x', x1In: 12, y1In: 13, x2In: 18, y2In: 13, text: '6"', labelSizeIn: 1 },
       ],
       legend: {
         DA: {
@@ -1016,15 +1032,15 @@ Once found, the Artifact is carried by the Unit that found it.
         },
         O1: {
           label: 'Search 1',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         O2: {
           label: 'Search 2',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         O3: {
           label: 'Search 3',
-          color: '#26dc26'
+          color: '#2b7c2b'
         }
       }
     }
@@ -1083,7 +1099,7 @@ Energy charges build throughout the fight until a decisive moment of release.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -1094,7 +1110,7 @@ Energy charges build throughout the fight until a decisive moment of release.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -1105,7 +1121,7 @@ Energy charges build throughout the fight until a decisive moment of release.
           yIn: 11.5,
           wIn: 1,
           hIn: 1,
-          color: '#26dc26',
+          color: '#2b7c2b',
           showLabel: false,
           showInLegend: false
         },
@@ -1119,7 +1135,9 @@ Energy charges build throughout the fight until a decisive moment of release.
           color: '#2563eb',
           showLabel: false,
           showInLegend: false
-        }
+        },
+        { type: 'callout', id: 'o2-x', x1In: 6, y1In: 13, x2In: 12, y2In: 13, text: '6"', labelSizeIn: 1 },
+        { type: 'callout', id: 'o3-x', x1In: 12, y1In: 13, x2In: 18, y2In: 13, text: '6"', labelSizeIn: 1 },
       ],
       legend: {
         DA: {
@@ -1132,15 +1150,15 @@ Energy charges build throughout the fight until a decisive moment of release.
         },
         UA: {
           label: 'UA',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         UB: {
           label: 'UB',
-          color: '#26dc26'
+          color: '#2b7c2b'
         },
         TB: {
           label: 'TB',
-          color: '#26dc26'
+          color: '#2b7c2b'
         }
       }
     }
@@ -1574,7 +1592,9 @@ Then Attacker Squad deploys before on any battlefield edge.
           color: '#dc2626',
           showLabel: false,
           showInLegend: false
-        }
+        },
+        { type: 'callout', id: 'boxn', x1In: 8, y1In: 7, x2In: 16, y2In: 7, text: '8"', labelSizeIn: 1 },
+        { type: 'callout', id: 'boxw', x1In: 7, y1In: 8, x2In: 7, y2In: 16, text: '8"', labelSizeIn: 1 },
       ],
       legend: {
         DD: {
