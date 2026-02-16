@@ -284,6 +284,18 @@ hr {
 	column-width: 400px;
 	text-align: justify;
 }
+
+.pve-missions-grid {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+	.pve-missions-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
 .section {
 	page-break-inside: avoid;
 	page-break-before: auto;
@@ -328,8 +340,12 @@ code {
 		display: none !important;
 	}
 
-	.printonly {
+  .printonly {
 		display: revert !important;
+	}
+
+  .pve-missions-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 	}
 
   .unitcard {

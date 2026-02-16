@@ -462,7 +462,7 @@ If a Unit attempts to Uplink a Console out of order, the action has no effect (A
           wIn: 1,
           hIn: 1,
           color: '#2b7c2b',
-          label: 'O1',
+          label: '1',
           showInLegend: false
         },
         {
@@ -473,7 +473,7 @@ If a Unit attempts to Uplink a Console out of order, the action has no effect (A
           wIn: 1,
           hIn: 1,
           color: '#2b7c2b',
-          label: 'O3',
+          label: '3',
           showInLegend: false
         },
         {
@@ -484,7 +484,7 @@ If a Unit attempts to Uplink a Console out of order, the action has no effect (A
           wIn: 1,
           hIn: 1,
           color: '#2b7c2b',
-          label: 'O2',
+          label: '2',
           showInLegend: false
         },
         { type: 'callout', id: 'p5-o1-x', x1In: 6, y1In: 13, x2In: 12, y2In: 13, text: '6"', labelSizeIn: 1 },
