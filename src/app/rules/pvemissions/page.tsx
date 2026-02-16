@@ -416,14 +416,17 @@ export default async function PvEMissions() {
             ))}
           </div>
         </div>
-        <div className='twocols'>
-          {
-            missions_pve.filter((mission) => mission.active).map((mission) => (
-              <div className="section" key={mission.missionId}>
-                <MissionCard mission={mission} showDescription={true} />
-              </div>
-            ))
-          }
+        <div className="section">
+          <h2>PvE Missions List</h2>
+          <div className='twocols'>
+            {
+              missions_pve.filter((mission) => mission.active).map((mission) => (
+                <div className="section" key={mission.missionId}>
+                  <MissionCard mission={mission} showDescription={true} />
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     </>

@@ -22,8 +22,8 @@ const missions_pve = [
 Forward observers race to lock three points at once. Hold them together long enough and the sky answers.
 `),
     setup: 'Place 3 Beacon markers on the NW, N, and NE Anchors.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
-    victory: 'Control all 3 Beacon markers simultaneously at the end of Turn 4.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
+    victory: 'Player Squad wins if it controls all three Beacons at the end of Turn 4.',
     special: 'NPC Units prioritize moving toward and contesting Beacon markers whenever possible.',
     rewards: [],
     diagram: {
@@ -92,13 +92,13 @@ Forward observers race to lock three points at once. Hold them together long eno
         { type: 'callout', id: 'p1-o2-x', x1In: 12, y1In: 7, x2In: 18, y2In: 7, text: '6"', labelSizeIn: 1 },
       ],
       legend: {
-        DN: {
-          label: 'NPC Deployment',
-          color: '#dc2626'
-        },
         DP: {
           label: 'Player Deployment',
           color: '#2563eb'
+        },
+        DN: {
+          label: 'NPC Deployment',
+          color: '#dc2626'
         },
         O1: {
           label: 'Beacon 1',
@@ -126,14 +126,11 @@ Forward observers race to lock three points at once. Hold them together long eno
 
 A fractured array flickers across the center line. Every turn you hold it, more of the message gets out.
 `),
-    setup: 'Place 3 Relay markers equally spaced (6" apart) along the battlefield center line. Set a Track Point (TP) counter to 0.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
-    victory: dedent(`
-At the end of each Turn, gain 1 TP for each Relay you control.
-
-Victory: Reach 6 TP by the end of Turn 4.
-`),
-    special: 'If the Player Squad controls 0 Relays at the end of any Turn, lose 1 TP (minimum 0).',
+    setup: 'Place 3 Relay markers equally spaced (6" apart) along the battlefield center line. Set up a Tracker starting at zero.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
+    victory: 'Player Squad wins if the Tracker is at 6 or more at the end of Turn 4.',
+    special: dedent(`- At the end of each Turn, increase the Tracker by 1 for each Relay the Player Squad controls.  
+- At the end of each Turn, if the Player Squad controls zero Relay markers, decrease the Tracker by 2.`),
     rewards: [],
     diagram: {
       board: {
@@ -201,13 +198,13 @@ Victory: Reach 6 TP by the end of Turn 4.
         { type: 'callout', id: 'p2-o2-x', x1In: 12, y1In: 13, x2In: 18, y2In: 13, text: '6"', labelSizeIn: 1 },
       ],
       legend: {
-        DN: {
-          label: 'NPC Deployment',
-          color: '#dc2626'
-        },
         DP: {
           label: 'Player Deployment',
           color: '#2563eb'
+        },
+        DN: {
+          label: 'NPC Deployment',
+          color: '#dc2626'
         },
         O1: {
           label: 'Relay 1',
@@ -235,12 +232,12 @@ Victory: Reach 6 TP by the end of Turn 4.
 
 The breach flexes like a wound. If you keep a stabilizer online long enough, reality seals itself.
 `),
-    setup: 'Place a Stabilizer marker on the Center Anchor. Track Stabilization Progress (SP) starting at 0.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
+    setup: 'Place a Stabilizer marker on the Center Anchor. Track Stabilization starting at zero.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
     victory: dedent(`
-At the end of each Turn, if the Player Squad controls the Stabilizer, gain 1 SP. Otherwise, SP resets to 0.
+At the end of each Turn, if the Player Squad controls the Stabilizer, increase Stabilization by 1. Otherwise, Stabilization resets to zero.
 
-The Player Squad wins the mission if it reach SP 2 or higher at the end of Turn 4.
+The Player Squad wins if Stabilization is at 2 or higher at the end of Turn 4.
 `),
     special: 'NPC Units prioritize entering the Center Anchor area and contesting the Stabilizer.',
     rewards: [],
@@ -286,13 +283,13 @@ The Player Squad wins the mission if it reach SP 2 or higher at the end of Turn 
         },
       ],
       legend: {
-        DN: {
-          label: 'NPC Deployment',
-          color: '#dc2626'
-        },
         DP: {
           label: 'Player Deployment',
           color: '#2563eb'
+        },
+        DN: {
+          label: 'NPC Deployment',
+          color: '#dc2626'
         },
         O1: {
           label: 'Stabilizer',
@@ -313,12 +310,12 @@ The Player Squad wins the mission if it reach SP 2 or higher at the end of Turn 
 Demolition points are scattered across the zone. Arm them before the perimeter collapses.
 `),
     setup: 'Place 3 Charge Site markers on the NW, Center, and SE Anchors.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
     victory: 'All 3 Charge Site markers have been Activated by the end of Turn 4.',
     special: dedent(`
 **Mission Action: Arm Charge (2 ACT):** A Unit that controls a Charge Site activates it. Remove that marker from the battlefield.
 
-When a Charge Site is activated, immediately spawn 1 NPC Unit Adjacent to the nearest Anchor (if possible).
+When a Charge Site is activated, immediately spawn 1 random NPC Unit (from the Spawn table, ignoring quantities) Adjacent to the nearest Anchor.
 `),
     rewards: [],
     diagram: {
@@ -385,13 +382,13 @@ When a Charge Site is activated, immediately spawn 1 NPC Unit Adjacent to the ne
         },
       ],
       legend: {
-        DN: {
-          label: 'NPC Deployment',
-          color: '#dc2626'
-        },
         DP: {
           label: 'Player Deployment',
           color: '#2563eb'
+        },
+        DN: {
+          label: 'NPC Deployment',
+          color: '#dc2626'
         },
         O1: {
           label: 'Charge Site 1',
@@ -420,7 +417,7 @@ When a Charge Site is activated, immediately spawn 1 NPC Unit Adjacent to the ne
 The network is brittle. Each console must come online in sequence, or the whole chain fails.
 `),
     setup: 'Place 3 Console markers equally spaced (6" apart) along the battlefield center line. Consoles must be Activated in order: 1, then 2, then 3.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
     victory: 'All 3 Consoles have been Activated in order by the end of Turn 4.',
     special: dedent(`
 **Mission Action: Uplink (2 ACT):** A Unit that controls a Console activates it.
@@ -465,7 +462,7 @@ If a Unit attempts to Uplink a Console out of order, the action has no effect (A
           wIn: 1,
           hIn: 1,
           color: '#2b7c2b',
-          showLabel: false,
+          label: 'O1',
           showInLegend: false
         },
         {
@@ -476,7 +473,7 @@ If a Unit attempts to Uplink a Console out of order, the action has no effect (A
           wIn: 1,
           hIn: 1,
           color: '#2b7c2b',
-          showLabel: false,
+          label: 'O3',
           showInLegend: false
         },
         {
@@ -487,20 +484,20 @@ If a Unit attempts to Uplink a Console out of order, the action has no effect (A
           wIn: 1,
           hIn: 1,
           color: '#2b7c2b',
-          showLabel: false,
+          label: 'O2',
           showInLegend: false
         },
         { type: 'callout', id: 'p5-o1-x', x1In: 6, y1In: 13, x2In: 12, y2In: 13, text: '6"', labelSizeIn: 1 },
         { type: 'callout', id: 'p5-o2-x', x1In: 12, y1In: 13, x2In: 18, y2In: 13, text: '6"', labelSizeIn: 1 },
       ],
       legend: {
-        DN: {
-          label: 'NPC Deployment',
-          color: '#dc2626'
-        },
         DP: {
           label: 'Player Deployment',
           color: '#2563eb'
+        },
+        DN: {
+          label: 'NPC Deployment',
+          color: '#dc2626'
         },
         O1: {
           label: 'Console 1',
@@ -529,7 +526,7 @@ If a Unit attempts to Uplink a Console out of order, the action has no effect (A
 The signal is unstable. Activations decay each turn. The only thing that matters is what's live at the end.
 `),
     setup: 'Place 3 Transmitter markers on the W, Center, and E Anchors along the battlefield center line. All Transmitters start Inactive.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
     victory: 'At the end of Turn 4, at least 2 Transmitters are Active and controlled by the Player Squad.',
     special: dedent(`
 At the end of each Turn, all Transmitters become Inactive.
@@ -601,13 +598,13 @@ At the end of each Turn, all Transmitters become Inactive.
         },
       ],
       legend: {
-        DN: {
-          label: 'NPC Deployment',
-          color: '#dc2626'
-        },
         DP: {
           label: 'Player Deployment',
           color: '#2563eb'
+        },
+        DN: {
+          label: 'NPC Deployment',
+          color: '#dc2626'
         },
         O1: {
           label: 'Transmitter 1',
@@ -628,16 +625,16 @@ At the end of each Turn, all Transmitters become Inactive.
     missionId: '7',
     missionType: 'Destroy - 1 Obj',
     seq: 7,
-    title: 'Breach the Gate',
+    title: 'Breach and Infiltrate',
     active: true,
     description: dedent(`
 "The door isn't locked. It's defended."
 
 A hardened seal blocks the route forward. Crack it open before the zone swallows you.
 `),
-    setup: 'Place a Gate marker on the Center Anchor. The Gate is an Item with ARM 3 and HIT 3.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
-    victory: 'The Gate is Taken Out by the end of Turn 4.',
+    setup: 'Place a Gate marker on the Center Anchor. The Gate is an Item with `ARM 4 / HIT 4` and can be targeted in Combat.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
+    victory: 'Player Squad wins if the Gate is Taken Out by the end of Turn 4 and at least one Player Unit controls it.',
     special: 'The Gate can be targeted in combat as if it were a Unit, but never performs actions.',
     rewards: [],
     diagram: {
@@ -682,16 +679,16 @@ A hardened seal blocks the route forward. Crack it open before the zone swallows
         },
       ],
       legend: {
-        DN: {
-          label: 'NPC Deployment',
-          color: '#dc2626'
-        },
         DP: {
           label: 'Player Deployment',
           color: '#2563eb'
         },
+        DN: {
+          label: 'NPC Deployment',
+          color: '#dc2626'
+        },
         O1: {
-          label: 'Gate (ARM 3 / HIT 3)',
+          label: 'Gate (ARM 4 / HIT 4)',
           color: '#2b7c2b'
         }
       }
@@ -708,12 +705,12 @@ A hardened seal blocks the route forward. Crack it open before the zone swallows
 
 Spawn sites pulse across the zone. If you leave one alive, it will fill the field.
 `),
-    setup: 'Place 3 Nest markers on 3 random Anchors. Each Nest is an Item with ARM 2 and HIT 2.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
-    victory: 'All Nest markers are Taken Out by the end of Turn 4.',
+    setup: 'Place 3 Nest markers on 3 random Anchors. Each Nest is an Item with `ARM 3 / HIT 2`.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
+    victory: 'Player Squad wins if all Nest markers are Taken Out by the end of Turn 4.',
     special: dedent(`
-At the start of each Turn, for each Nest still on the battlefield, spawn 1 NPC Unit Adjacent to that Nest (if possible).
-
+At the start of each Turn after the first, for each Nest still on the battlefield, spawn 1 NPC Unit (use the NPC Spawn Table, ignoring quantities) Adjacent to that Nest.  
+If a Nest is targeted in combat but is not Taken Out as a result of that combat, it returns to full HIT.
 NPC Units prioritize staying Adjacent to Nests when not Engaged.
 `),
     rewards: [],
@@ -781,13 +778,13 @@ NPC Units prioritize staying Adjacent to Nests when not Engaged.
         },
       ],
       legend: {
-        DN: {
-          label: 'NPC Deployment',
-          color: '#dc2626'
-        },
         DP: {
           label: 'Player Deployment',
           color: '#2563eb'
+        },
+        DN: {
+          label: 'NPC Deployment',
+          color: '#dc2626'
         },
         O1: {
           label: 'Nest 1',
@@ -815,10 +812,10 @@ NPC Units prioritize staying Adjacent to Nests when not Engaged.
 
 The structure is already failing. You don't need to level it — just hit the right supports.
 `),
-    setup: 'Place 5 Support markers on the NW, NE, W, E, and Center Anchors. Each Support is an Item with ARM 2 and HIT 1.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
-    victory: 'At least 3 Support markers are Taken Out by the end of Turn 4.',
-    special: 'When the third Support is Taken Out, the Player Squad may immediately Extract (mission ends).',
+    setup: 'Place 5 Support markers on the NW, NE, W, E, and Center Anchors. Each Support is an Item with `ARM 3 / HIT 3`.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
+    victory: 'Player Squad wins if at least 3 Support markers are Taken Out by the end of Turn 4.',
+    special: null,
     rewards: [],
     diagram: {
       board: {
@@ -856,8 +853,8 @@ The structure is already failing. You don't need to level it — just hit the ri
         { id: 'mrect_p9_o5', type: 'rect', xIn: 11.5, yIn: 11.5, wIn: 1, hIn: 1, color: '#2b7c2b', showLabel: false, showInLegend: false },
       ],
       legend: {
-        DN: { label: 'NPC Deployment', color: '#dc2626' },
         DP: { label: 'Player Deployment', color: '#2563eb' },
+        DN: { label: 'NPC Deployment', color: '#dc2626' },
         O1: { label: 'Support 1', color: '#2b7c2b' },
         O2: { label: 'Support 2', color: '#2b7c2b' },
         O3: { label: 'Support 3', color: '#2b7c2b' },
@@ -877,10 +874,10 @@ The structure is already failing. You don't need to level it — just hit the ri
 
 A single commander holds the pack together. Find them. End them. Then get out.
 `),
-    setup: 'After generating the NPC Squad, designate the highest-GP NPC Unit as the Leader.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
-    victory: 'The Leader is Taken Out by the end of Turn 4.',
-    special: 'While the Leader is Standing, NPC Reinforcements (if any) add +1 additional NPC Unit.',
+    setup: 'After generating the NPC Squad, designate the highest-FV NPC Unit as the Leader. If there are multiple with the same FV, pick a random one.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
+    victory: 'Player Squad wins if the Leader is Taken Out by the end of Turn 4.',
+    special: 'While the Leader is Standing, NPC Units have `+1 ATT` on their Melee and Ranged weapons.',
     rewards: [],
     diagram: {
       board: {
@@ -890,29 +887,28 @@ A single commander holds the pack together. Find them. End them. Then get out.
       showCenterLines: true,
       elements: [
         { id: 'mrect_p10_npc', type: 'rect', xIn: 0, yIn: 0, wIn: 24, hIn: 1, color: '#dc2626', showLabel: false, showInLegend: false },
-        { id: 'mrect_p10_player', type: 'rect', xIn: 0, yIn: 23, wIn: 24, hIn: 1, color: '#2563eb', showLabel: false, showInLegend: false },
-        { id: 'mrect_p10_hint', type: 'rect', xIn: 11.5, yIn: 5.5, wIn: 1, hIn: 1, color: '#2b7c2b', showLabel: false, showInLegend: false },
+        { id: 'mrect_p10_player', type: 'rect', xIn: 0, yIn: 23, wIn: 24, hIn: 1, color: '#2563eb', showLabel: false, showInLegend: false }
       ],
       legend: {
-        DN: { label: 'NPC Deployment', color: '#dc2626' },
         DP: { label: 'Player Deployment', color: '#2563eb' },
-        O1: { label: 'Leader (designate)', color: '#2b7c2b' }
+        DN: { label: 'NPC Deployment', color: '#dc2626' }
       }
     }
   },
   {
+    // TODO: REVIEW
     missionId: '11',
     missionType: 'Kill - Elite',
     seq: 11,
     title: 'Bring It Down',
-    active: true,
+    active: false,
     description: dedent(`
 "It isn't fast. It isn't subtle. It is coming anyway."
 
 A heavy asset anchors the enemy line. Kill it, and everything else becomes survivable.
 `),
     setup: 'After generating the NPC Squad, designate the highest-GP NPC Unit as the Elite.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
     victory: 'The Elite is Taken Out by the end of Turn 4.',
     special: 'NPC Units prioritize protecting the Elite by moving Adjacent to it when possible.',
     rewards: [],
@@ -925,8 +921,8 @@ A heavy asset anchors the enemy line. Kill it, and everything else becomes survi
         { id: 'mrect_p11_hint', type: 'rect', xIn: 11.5, yIn: 8.5, wIn: 1, hIn: 1, color: '#2b7c2b', showLabel: false, showInLegend: false },
       ],
       legend: {
-        DN: { label: 'NPC Deployment', color: '#dc2626' },
         DP: { label: 'Player Deployment', color: '#2563eb' },
+        DN: { label: 'NPC Deployment', color: '#dc2626' },
         O1: { label: 'Elite (designate)', color: '#2b7c2b' }
       }
     }
@@ -942,9 +938,9 @@ A heavy asset anchors the enemy line. Kill it, and everything else becomes survi
 
 You don't need to wipe the force. You need to hurt it enough that it can't hold the field.
 `),
-    setup: 'After deploying the NPC Squad, count the number of NPC Units on the battlefield (Starting Count).',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
-    victory: 'By the end of Turn 4, at least half of the Starting Count (round up) NPC Units are Taken Out.',
+    setup: 'After deploying the NPC Squad, count the total FV of NPC Units (starting FV).',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
+    victory: 'Player Squad wins the mission if the total FV of Standing NPC Units is less than half the starting FV at the end of Turn 4.',
     special: null,
     rewards: [],
     diagram: {
@@ -955,8 +951,8 @@ You don't need to wipe the force. You need to hurt it enough that it can't hold 
         { id: 'mrect_p12_player', type: 'rect', xIn: 0, yIn: 23, wIn: 24, hIn: 1, color: '#2563eb', showLabel: false, showInLegend: false },
       ],
       legend: {
-        DN: { label: 'NPC Deployment', color: '#dc2626' },
-        DP: { label: 'Player Deployment', color: '#2563eb' }
+        DP: { label: 'Player Deployment', color: '#2563eb' },
+        DN: { label: 'NPC Deployment', color: '#dc2626' }
       }
     }
   },
@@ -964,7 +960,7 @@ You don't need to wipe the force. You need to hurt it enough that it can't hold 
     missionId: '13',
     missionType: 'Find - 3 Obj - Dice Success',
     seq: 13,
-    title: 'Anomaly Scan',
+    title: 'Investigate',
     active: true,
     description: dedent(`
 "Three readings. One truth."
@@ -972,12 +968,12 @@ You don't need to wipe the force. You need to hurt it enough that it can't hold 
 Something in the ruins is broadcasting through meat and stone. Find the source before it finds you.
 `),
     setup: 'Place 3 Scan markers on 3 random Anchors.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
-    victory: 'The Anomaly is Found by the end of Turn 4.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
+    victory: 'Player Squad wins if the Anomaly is Found by the end of Turn 4.',
     special: dedent(`
 **Mission Action: Scan (2 ACT):** A Unit that controls a Scan marker may perform this Action. Roll 1D6:
-- First Scan performed this mission: The anomaly is found on a 1
-- Second Scan performed this mission: The anomaly is found on a 1-2
+- First Scan performed this mission: The anomaly is found on a \`1\`
+- Second Scan performed this mission: The anomaly is found on a \`1-2\`
 - Third Scan performed this mission: The anomaly is found automatically
 
 After scanning a marker, remove it from the battlefield.
@@ -994,8 +990,8 @@ After scanning a marker, remove it from the battlefield.
         { id: 'mrect_p13_o3', type: 'rect', xIn: 17.5, yIn: 17.5, wIn: 1, hIn: 1, color: '#2b7c2b', showLabel: false, showInLegend: false },
       ],
       legend: {
-        DN: { label: 'NPC Deployment', color: '#dc2626' },
         DP: { label: 'Player Deployment', color: '#2563eb' },
+        DN: { label: 'NPC Deployment', color: '#dc2626' },
         O1: { label: 'Scan 1', color: '#2b7c2b' },
         O2: { label: 'Scan 2', color: '#2b7c2b' },
         O3: { label: 'Scan 3', color: '#2b7c2b' }
@@ -1014,8 +1010,8 @@ After scanning a marker, remove it from the battlefield.
 The relic isn't heavy. The attention it draws is.
 `),
     setup: 'Place a Relic marker on the Center Anchor.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
-    victory: 'At the end of Turn 4, a Standing Player Unit is carrying the Relic.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
+    victory: 'Player Squad wins if a Standing Player Unit is carrying the Relic at the end of Turn 4.',
     special: dedent(`
 The Relic is a marker that can be Picked Up.
 
@@ -1033,8 +1029,8 @@ While carrying the Relic, Units have -1 ACT (minimum 1).
         { id: 'mrect_p14_o1', type: 'rect', xIn: 11.5, yIn: 11.5, wIn: 1, hIn: 1, color: '#2b7c2b', showLabel: false, showInLegend: false },
       ],
       legend: {
-        DN: { label: 'NPC Deployment', color: '#dc2626' },
         DP: { label: 'Player Deployment', color: '#2563eb' },
+        DN: { label: 'NPC Deployment', color: '#dc2626' },
         O1: { label: 'Relic', color: '#2b7c2b' }
       }
     }
@@ -1050,15 +1046,15 @@ While carrying the Relic, Units have -1 ACT (minimum 1).
 
 A courier is crossing the zone with a sealed packet. Stop it, take the intel, and survive the exit.
 `),
-    setup: 'After generating the NPC Squad, designate the lowest-GP NPC Unit as the Courier. The Courier begins the mission carrying the Intel.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
-    victory: 'At the end of Turn 4, a Standing Player Unit is carrying the Intel.',
+    setup: 'After generating the NPC Squad, designate a random NPC Unit as the Courier. The Courier begins the mission carrying the Intel.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
+    victory: 'Player Squad wins if a Standing Player Unit is carrying the Intel at the end of Turn 4.',
     special: dedent(`
 The Intel is a marker that can be Picked Up.
 
 If the Courier is Taken Out, place the Intel marker in its space.
 
-**Mission Action: Pick Up Intel (1 ACT):** A Unit that controls the Intel may pick it up.
+**Mission Action: Pick Up Intel (1 ACT):** A Player Unit that controls the Intel may pick it up.
 
 Courier Override: During the Courier's activation, it moves toward the North battlefield edge. If it can Dash, it Dashes.
 `),
@@ -1068,14 +1064,11 @@ Courier Override: During the Courier's activation, it moves toward the North bat
       showCenterLines: true,
       elements: [
         { id: 'mrect_p15_npc', type: 'rect', xIn: 0, yIn: 0, wIn: 24, hIn: 1, color: '#dc2626', showLabel: false, showInLegend: false },
-        { id: 'mrect_p15_player', type: 'rect', xIn: 0, yIn: 23, wIn: 24, hIn: 1, color: '#2563eb', showLabel: false, showInLegend: false },
-        { id: 'mrect_p15_hint', type: 'rect', xIn: 11.5, yIn: 5.5, wIn: 1, hIn: 1, color: '#2b7c2b', showLabel: false, showInLegend: false },
-        { type: 'callout', id: 'p15-exit', x1In: 12, y1In: 2, x2In: 12, y2In: 0.5, text: 'Courier Exit', labelSizeIn: 1 },
+        { id: 'mrect_p15_player', type: 'rect', xIn: 0, yIn: 23, wIn: 24, hIn: 1, color: '#2563eb', showLabel: false, showInLegend: false }
       ],
       legend: {
-        DN: { label: 'NPC Deployment', color: '#dc2626' },
         DP: { label: 'Player Deployment', color: '#2563eb' },
-        O1: { label: 'Courier (designate)', color: '#2b7c2b' }
+        DN: { label: 'NPC Deployment', color: '#dc2626' }
       }
     }
   },
@@ -1090,30 +1083,29 @@ Courier Override: During the Courier's activation, it moves toward the North bat
 
 The evac window is narrow. If the enemy floods the zone, you're done.
 `),
-    setup: 'Mark the Evac Zone as the southern 6" of the battlefield (a 24" x 6" strip).',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge (inside the Evac Zone). Deploy the NPC Squad within 3" of the North battlefield edge.',
-    victory: dedent(`
-At the end of Turn 4, compare the total FV of Standing Player Units in the Evac Zone to the total FV of Standing NPC Units in the Evac Zone.
-
-The Player Squad wins if its total FV is greater than or equal to NPC total FV.
-`),
+    setup: 'Mark the Evac Zone as an 8" square in the center of the battlefield.',
+    deployment: 'Deploy the Player Squad within the Evac Zone. Deploy the NPC Squad on any battlefield edge.',
+    victory: 'Player Squad wins if the total FV of Standing Player Units in the Evac Zone is higher than the total FV of Standing NPC Units in the Evac Zone.',
     special: 'NPC Units prioritize moving into the Evac Zone whenever possible.',
     rewards: [],
     diagram: {
       board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        { id: 'mrect_p16_npc', type: 'rect', xIn: 0, yIn: 0, wIn: 24, hIn: 1, color: '#dc2626', showLabel: false, showInLegend: false },
-        { id: 'mrect_p16_evac', type: 'rect', xIn: 0, yIn: 18, wIn: 24, hIn: 6, color: '#2563eb', showLabel: false, showInLegend: false },
-        { type: 'callout', id: 'p16-evac-depth', x1In: 1, y1In: 24, x2In: 1, y2In: 18, text: '6"', labelSizeIn: 1 },
+        { id: 'mrect_p16_npcn', type: 'rect', xIn: 0, yIn: 0, wIn: 24, hIn: 1, color: '#dc2626', showLabel: false, showInLegend: false },
+        { id: 'mrect_p16_npcw', type: 'rect', xIn: 0, yIn: 1, wIn: 1, hIn: 22, color: '#dc2626', showLabel: false, showInLegend: false },
+        { id: 'mrect_p16_npce', type: 'rect', xIn: 23, yIn: 1, wIn: 1, hIn: 22, color: '#dc2626', showLabel: false, showInLegend: false },
+        { id: 'mrect_p16_npcs', type: 'rect', xIn: 0, yIn: 23, wIn: 24, hIn: 1, color: '#dc2626', showLabel: false, showInLegend: false },
+        { id: 'mrect_p16_evac', type: 'rect', xIn: 8, yIn: 8, wIn: 8, hIn: 8, color: '#2563eb', showLabel: false, showInLegend: false }
       ],
       legend: {
-        DN: { label: 'NPC Deployment', color: '#dc2626' },
-        DP: { label: 'Evac Zone / Player Deployment', color: '#2563eb' }
+        DP: { label: 'Evac Zone', color: '#2563eb' },
+        DN: { label: 'NPC Deployment', color: '#dc2626' }
       }
     }
   },
   {
+    // TODO: REVIEW
     missionId: '17',
     missionType: 'Survive - x Standing',
     seq: 17,
@@ -1124,8 +1116,8 @@ The Player Squad wins if its total FV is greater than or equal to NPC total FV.
 
 Sometimes the only mission is getting out with enough of the Squad left to matter.
 `),
-    setup: 'No additional setup.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
+    setup: null,
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
     victory: 'At the end of Turn 4, at least 3 Player Units are Standing.',
     special: null,
     rewards: [],
@@ -1153,9 +1145,9 @@ Sometimes the only mission is getting out with enough of the Squad left to matte
 
 A single operative holds the key: codes, medicine, a map through the dark. Keep them Standing until extraction.
 `),
-    setup: 'Before deployment, designate one Player Unit as the Specialist.',
-    deployment: 'Deploy the Player Squad within 3" of the South battlefield edge. Deploy the NPC Squad within 3" of the North battlefield edge.',
-    victory: 'At the end of Turn 4, the Specialist is Standing.',
+    setup: 'Before deployment, designate one Player Unit as the Specialist. The Specialist cannot be the Player Squad Leader.',
+    deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',
+    victory: 'Player Squad wins if the Specialist is Standing at the end of Turn 4.',
     special: 'NPC Units treat the Specialist as their Priority Enemy whenever possible.',
     rewards: [],
     diagram: {
@@ -1163,13 +1155,11 @@ A single operative holds the key: codes, medicine, a map through the dark. Keep 
       showCenterLines: true,
       elements: [
         { id: 'mrect_p18_npc', type: 'rect', xIn: 0, yIn: 0, wIn: 24, hIn: 1, color: '#dc2626', showLabel: false, showInLegend: false },
-        { id: 'mrect_p18_player', type: 'rect', xIn: 0, yIn: 23, wIn: 24, hIn: 1, color: '#2563eb', showLabel: false, showInLegend: false },
-        { id: 'mrect_p18_o1', type: 'rect', xIn: 11.5, yIn: 20.5, wIn: 1, hIn: 1, color: '#2b7c2b', showLabel: false, showInLegend: false },
+        { id: 'mrect_p18_player', type: 'rect', xIn: 0, yIn: 23, wIn: 24, hIn: 1, color: '#2563eb', showLabel: false, showInLegend: false }
       ],
       legend: {
         DN: { label: 'NPC Deployment', color: '#dc2626' },
-        DP: { label: 'Player Deployment', color: '#2563eb' },
-        O1: { label: 'Specialist (designate)', color: '#2b7c2b' }
+        DP: { label: 'Player Deployment', color: '#2563eb' }
       }
     }
   },
