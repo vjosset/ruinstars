@@ -3,7 +3,6 @@
 import { SquadTypeLink, UserLink } from '@/components/nav/Links'
 import EditSquadForm from '@/components/squad/EditSquadForm'
 import SquadCardMenu from '@/components/squad/SquadCardMenu'
-import SquadTools from '@/components/squad/SquadTools'
 import { Button, Modal } from '@/components/ui'
 import CarouselModal, { CarouselItem } from '@/components/ui/CarouselModal'
 import PageTitle from '@/components/ui/PageTitle'
@@ -37,7 +36,6 @@ export default function SquadPageClient({
   const formRef = useRef<{ handleSubmit: () => void }>(null)
   const [showResetModal, setShowResetModal] = useState<boolean>(false)
   const [showEditSquadModal, setShowEditSquadModal] = useState<boolean>(false)
-  const [showSquadTools, setShowSquadTools] = useState<boolean>(false)
   const [carouselIsOpen, setCarouselIsOpen] = useState(false)
   const [carouselStartIndex, setCarouselStartIndex] = useState(0)
 
@@ -423,15 +421,6 @@ export default function SquadPageClient({
             </Modal>
           )}
         </div>
-
-        {/* Squad Tools */}
-        {showSquadTools && (
-          <Modal
-            title={squad.squadName}
-            onClose={() => setShowSquadTools(false)}>
-            <SquadTools factionId={squad.squadType?.factionId} factions={factions} />
-          </Modal>
-        )}
 
         {/* Carousel Modal */}
         <CarouselModal

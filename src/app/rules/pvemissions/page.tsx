@@ -2,10 +2,12 @@ import BattlefieldDiagram, { type BattlefieldDiagramConfig } from '@/components/
 import Markdown from '@/components/ui/Markdown'
 import PageBreak from '@/components/ui/PageBreak'
 import { GAME } from '@/lib/config/game_config'
+import missions_pve from '@/src/data/missions_pve'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { GearCategoryService, SpecialService, UserService } from '@/services'
 import UnitCard from '@/components/unit/UnitCard'
+import MissionCard from '@/components/shared/MissionCard'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -413,6 +415,15 @@ export default async function PvEMissions() {
               </div>
             ))}
           </div>
+        </div>
+        <div className='twocols'>
+          {
+            missions_pve.filter((mission) => mission.active).map((mission) => (
+              <div className="section" key={mission.missionId}>
+                <MissionCard mission={mission} showDescription={true} />
+              </div>
+            ))
+          }
         </div>
       </div>
     </>

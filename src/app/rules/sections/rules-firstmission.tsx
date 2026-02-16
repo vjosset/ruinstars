@@ -1,14 +1,12 @@
 import { PDFLink } from '@/components/nav/Links'
 import MissionCard from '@/components/shared/MissionCard'
 import UnitCard from '@/components/unit/UnitCard'
-import rawMissions from '@/data/missions_pve.json'
+import missions from '@/data/missions_pve_old'
 import { SpecialService, SquadService } from '@/services'
-import { MissionPlain } from '@/types'
 
 export default async function RulesFirstMission({ num }: {num?: number | null}) {
   const squadUnits = await SquadService.getSquad('FM')
   const allSpecials = await SpecialService.getAllSpecials()
-  const missions = rawMissions as MissionPlain[]
   const introMission = missions[0]
   return (
     <div className="section">

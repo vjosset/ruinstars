@@ -1,9 +1,8 @@
 
 import MissionCard from '@/components/shared/MissionCard'
-import rawPveMissions from '@/data/missions_pve.json'
-import { MissionPlain } from '@/types'
+import pveMissions from '@/data/missions_pve_old'
 
-const pvemissions = (rawPveMissions as MissionPlain[]).map((m, idx) => ({
+const pvemissions = pveMissions.map((m, idx) => ({
   ...m,
   missionId: m.missionId?.toString() || `${idx + 1}`
 }))
