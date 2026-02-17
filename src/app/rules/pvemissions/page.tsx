@@ -2,6 +2,7 @@ import BattlefieldDiagram, { type BattlefieldDiagramConfig } from '@/components/
 import Markdown from '@/components/ui/Markdown'
 import PageBreak from '@/components/ui/PageBreak'
 import { GAME } from '@/lib/config/game_config'
+import { Fragment } from 'react'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { GearCategoryService, SpecialService, UserService } from '@/services'
@@ -177,6 +178,17 @@ export default async function PvEMissions() {
                 <strong>1: Battlefield Control</strong>
                 <div className="ml-4">
                   <strong>Victory:</strong> At the end of Turn 4, all four corner Anchors (NW, NE, SW, SE) are controlled by Player Units.
+                  <strong>Rewards (pick one):</strong>
+                  <ul>
+                    <li>
+                      <strong>Forward Positioning</strong>
+                      In the next Mission, one Player Unit may perform a free Move Action immediately after deployment.
+                    </li>
+                    <li>
+                      <strong>Stabilized Zone</strong>
+                      In the next Mission, you may re-roll one Turn Event roll.
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div>
@@ -185,12 +197,34 @@ export default async function PvEMissions() {
                   <strong>Setup:</strong> Place a Nexus marker on 3 random Anchors.<br/>
                   <strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
                   <strong>Victory:</strong> All Nexus Markers are Taken Out.
+                  <strong>Rewards (pick one):</strong>
+                  <ul>
+                    <li>
+                      <strong>Stabilized Zone</strong>
+                      In the next Mission, you may re-roll one Turn Event roll.
+                    </li>
+                    <li>
+                      <strong>Fragmented Defense</strong>
+                      In the next Mission, after deploying NPC Units, you may remove one NPC Unit from the battlefield.
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div>
                 <strong>3: No Survivors</strong>
                 <div className="ml-4">
                   <strong>Victory:</strong> All enemy Units Taken Out.
+                  <strong>Rewards (pick one):</strong>
+                  <ul>
+                    <li>
+                      <strong>Attrition</strong>
+                      In the next Mission, you may choose one NPC Spawn die to spawn 1 less Unit.
+                    </li>
+                    <li>
+                      <strong>Persistent Wound</strong>
+                      In the next Mission, choose two NPC Units to start with -1 HIT.
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div>
@@ -199,6 +233,17 @@ export default async function PvEMissions() {
                   <strong>Setup:</strong> Place an Asset marker as close as possible to the Center of the battlefield. Assets are Items with <code>ARM 3 HIT 3</code> and can be targeted in Combat.<br/>
                   <strong>Special:</strong> NPC Units always prioritize targeting the Asset instead of Player Units.<br/>
                   <strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of Turn 4.
+                  <strong>Rewards (pick one):</strong>
+                  <ul>
+                    <li>
+                      <strong>Medic</strong>
+                      Remove one Injury from one Player Unit before the next Mission.
+                    </li>
+                    <li>
+                      <strong>Extraction Support</strong>
+                      In the next Mission, Player Squad may extract even if Adjacent to an enemy Unit
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div>
@@ -207,6 +252,17 @@ export default async function PvEMissions() {
                   <strong>Setup:</strong> Place a Disruptor Pylon on 3 random Anchors.<br/>
                   <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Disruptor Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
                   <strong>Victory:</strong> All 3 Disruptor Pylons have been calibrated.
+                  <strong>Rewards (pick one):</strong>
+                  <ul>
+                    <li>
+                      <strong>Orbital Survey</strong>
+                      In the next Mission, you may choose to ignore one Turn Event
+                    </li>
+                    <li>
+                      <strong>Signal Advantage</strong>
+                      In the next Mission, Player Squad gets +2 TO in the first Turn
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div>
@@ -215,6 +271,17 @@ export default async function PvEMissions() {
                   <strong>Setup:</strong> Place a Search Marker on 3 random Anchors.<br/>
                   <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. Roll <code>1D6</code>: On a 1 or 2, the Artifact is found. This roll cannot be modified or re-rolled using TO.<br/>
                   <strong>Victory:</strong> The Artifact is found.
+                  <strong>Rewards (pick one):</strong>
+                  <ul>
+                    <li>
+                      <strong>Strategic Forecast</strong>
+                      In the next Mission, you may choose to ignore the Mission Modifier
+                    </li>
+                    <li>
+                      <strong>Protection Aura</strong>
+                      In the next Mission, select one Anchor. No NPC Units may come within 3" of that Anchor.
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -461,33 +528,33 @@ export default async function PvEMissions() {
           </div>
           
           <PageBreak />
-          <div className="section">
-            <h2>NPC Units</h2>
-            {!pveSquads.length && (
-              <p className="text-sm text-muted">No NPC squads found for user <strong>pve</strong>.</p>
-            )}
-            {pveSquads.map((squad) => (
-              <div key={squad.squadId} className="section">
-                <h3 className="text-main font-semibold">{squad.squadName}</h3>
-                <h4>Spawn Table</h4>
-                {squad.spawnTable && (
-                  <div className="mb-3">
-                    <Markdown>{squad.spawnTable}</Markdown>
+          <div>
+            {pveSquads.map((squad, idx) => (
+              <Fragment key={squad.squadId}>
+                {idx > 0 && 
+                  <PageBreak />
+                }
+                <div>
+                  <h3 className="text-main font-semibold">{squad.squadName}</h3>
+                  <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                    {squad.spawnTable && (
+                      <div className="bg-card border border-main p-1 rounded relative flex flex-col h-full unitcard">
+                        <h4>Spawn Table - {squad.squadName}</h4>
+                        <Markdown>{squad.spawnTable}</Markdown>
+                      </div>
+                    )}
+                    {squad.units?.map((unit) => (
+                      <UnitCard
+                        key={unit.unitId}
+                        seq={unit.seq}
+                        unit={unit.toPlain()}
+                        isOwner={false}
+                        allSpecials={allSpecials.map((spec) => spec.toPlain())}
+                      />
+                    ))}
                   </div>
-                )}
-                <h4>Units</h4>
-                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-                  {squad.units?.map((unit) => (
-                    <UnitCard
-                      key={unit.unitId}
-                      seq={unit.seq}
-                      unit={unit.toPlain()}
-                      isOwner={false}
-                      allSpecials={allSpecials.map((spec) => spec.toPlain())}
-                    />
-                  ))}
                 </div>
-              </div>
+              </Fragment>
             ))}
           </div>
         </div>
