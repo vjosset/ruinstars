@@ -31,7 +31,7 @@ export default async function PvEMissions() {
   const pveSquads = (pveUser?.squads ?? []).slice().sort((a, b) => (a.seq ?? 0) - (b.seq ?? 0))
   const allSpecials = await SpecialService.getAllSpecials()
   
-  const anchorsDiagram = {
+  const objectiveDiagram = {
     board: { widthIn: 24, heightIn: 24 },
     elements: [
       { type: 'marker', id: 'NW', xIn: 4, yIn: 4, label: 'NW', showInLegend: false },
@@ -107,9 +107,85 @@ export default async function PvEMissions() {
           </div>
 
           <div className="section">
-            <h2>Anchors</h2>
+            <h2>The Game Cycle</h2>
             <div className="twocols">
               <div className="section">
+                <ol className="border border-main rounded-md m-2 mx-4 xl:mx-24">
+                  <li>Roll Objectives</li>
+                  <li>Select Threat Level and NPC Faction</li>
+                  <li>Set up battlefield</li>
+                  <li>Deploy NPC Squad</li>
+                  <li>Deploy Player Squad</li>
+                  <li>Play Mission</li>
+                  <li>Extract and resolve consequences</li>
+                </ol>
+
+                <strong>Roll Objectives</strong>
+                <p className="ml-4">
+                  Roll <code>2D6</code> (re-roll duplicates) and consult the <strong>Objectives</strong> below. 
+                  These two results will be the objectives for the mission.
+                </p>
+
+                <strong>Select Threat Level and NPC Faction</strong>
+                <p className="ml-4">
+                  Select the enemy faction for the NPC Squad, and select a Threat Level (1-3).
+                  If playing a Campaign, the Threat Level should be the same as the Operation number.<br/>
+                  Roll <code>3D6</code> to identify the NPC Units to deploy for this Mission (see <strong>NPC Units</strong> below).
+                </p>
+
+                <strong>Set up Battlefield</strong>
+                <p className="ml-4">
+                  Set up the battlefield according to the rolled objectives and deploy the NPC Squad.
+                </p>
+
+                <strong>Deploy the NPC Squad</strong>
+                <p className="ml-4">
+                  Deploy all NPC Units on the Northern edge of the battlefield.
+                </p>
+
+                <strong>Deploy the Player Squad</strong>
+                <p className="ml-4">
+                  Deploy all Player Units on the Southern edge of the battlefield.
+                </p>
+              </div>
+              <div className="section">
+                <strong>Play the Mission</strong>
+                <div>
+                  Turn Sequence:
+                  <ol>
+                    <li>Roll Tactical Orders (TO)</li>
+                    <li>
+                      Turn Event<br/>
+                      For Turns 1-4 of the Mission, roll on the <strong>Turn Events</strong> table.<br/>
+                      For Turns 5+ of the Mission, the Turn Event is always <strong>Enemy Reinforcements</strong>.
+                    </li>
+                    <li>
+                      Activations
+                      <ul>
+                        <li>Player Squad always has initiative</li>
+                        <li>Activate one Player Unit</li>
+                        <li>
+                          Activate one NPC Unit. Follow that Unit's <strong>Behavior</strong> skill.<br/>
+                        </li>
+                        <li>Repeat until all Units have activated</li>
+                      </ul>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div className="section">
+                <h3>Extraction</h3>
+                The Player Squad may <strong>Extract</strong> at the end of any Turn. To Extract, all Standing Units in the Squad must not be Adjacent to any enemy Units.
+                Once a Squad extracts, the Mission ends.<br/>
+                Upon extraction, the Squad scores <strong>Mission Points</strong> (MP) based on their objectives and the Threat Level:
+                <ul>
+                  <li>1 MP per Threat Level</li>
+                  <li>3 MP per completed Objective</li>
+                </ul>
+                In Campaign play, MP can be spent on Rewards (see <strong>Campaigns</strong> below) for the Squad.
+              </div>
+              <div className="center">
+                <h3>Anchors</h3>
                 Some Objectives and Events include placing markers or tokens on "Anchors". Anchors are nine fixed reference points arranged across the battlefield by compass direction: the four corners (NW, NE, SW, SE), the four edge midpoints (N, S, E, W), and the Center (C), as illustrated below.
                 <br/>
                 To place your Anchors, use the following measurements from the battlefield edges:
@@ -119,194 +195,65 @@ export default async function PvEMissions() {
                   <li>Center (C): The center of the battlefield</li>
                 </ul>
                 When an Objective or Event instructs you to place a marker on a random Anchor, roll 1D10 and consult the diagram below. On a 10, select any Anchor of your choice. If an Anchor is already occupied, re-roll that placement.
-              </div>
-              <div className="section">
-                <BattlefieldDiagram diagram={anchorsDiagram} className="max-w-sm" />
+                <BattlefieldDiagram diagram={objectiveDiagram} className="max-w-md" />
               </div>
             </div>
           </div>
-
-          <PageBreak />
           <div className="section">
-            <h2>Mission Setup</h2>
             <div className="section twocols">
               <div className="section">
-                Each PvE Mission sees your Units facing an enemy NPC Squad driven by NPC Behaviors.
-                Each mission includes two objectives, a mission modifier, and a unique deployment map.
-                This ensures that each mission is unique and can be scaled to the appropriate difficulty.
-                Random Turn Events will keep you on your toes, sometimes benifiting your Squad, sometimes giving the NPC Squad an advantage.
-              </div>
-              <div className="section border border-main rounded-md px-6 py-2 mx-16">
-                <h4>Mission Setup</h4>
-                <ol className="ml-4">
-                  <li>Roll 2 Objectives</li>
-                  <li>Roll Mission Modifier</li>
-                  <li>Roll Deployment</li>
-                  <li>Roll NPC Squad Units</li>
-                  <li>Deploy NPC Squad</li>
-                  <li>Deploy Player Squad</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-
-          <div className="twocols">
-            {/* NPC Squads + TL */}
-            <div className="section">
-              <h3>NPC Squads</h3>
-              Each mission is opposed by a single NPC faction.
-              Select a faction from the NPC Units section at the back of this book, or choose one randomly.
-              For variety, we recommend using the same faction for all three missions within an Operation, then switching factions for the next Operation.
-              <br/>
-              Each NPC Squad has a Spawn Table that determines which Units are deployed for a given mission.
-              Before deploying the NPC Squad, select a Threat Level from 1 to 3.
-              Threat Level represents the intensity of the opposition your Squad faces.
-              Higher Threat Levels produce more dangerous Units and larger groups.
-              If playing a Campaign, the Threat Level should match the current Operation number:
-              TL1 for Operation 1, TL2 for Operation 2, TL3 for Operation 3.
-              <br/>
-              Once you have selected a faction and Threat Level, roll <code>3D6</code> and consult that faction's Spawn Table.
-              Each die is resolved individually - look up each result in the column matching your current Threat Level to identify the Units spawned by that die.
-              Deploy all spawned Units according to the rolled Deployment Variant.
-            </div>
-            {/* Objectives */}
-            <div className="section">
-              <h3>Objectives (D6)</h3>
-              At the start of the Mission, roll <code>2D6</code> to determine two objectives for the mission (re-roll doubles).
-              <div>
-                <strong>1: Battlefield Control</strong>
-                <div className="ml-4">
-                  <strong>Victory:</strong> At the end of Turn 4, all four corner Anchors (NW, NE, SW, SE) are controlled by Player Units.
+                <h2>Objectives (D6)</h2>
+                <div>
+                  <strong>1: Battlefield Control</strong>
+                  <div className="ml-4">
+                    <strong>Victory:</strong> At the end of Turn 4, all four corner Anchors (NW, NE, SW, SE) are controlled by Player Units.
+                  </div>
+                </div>
+                <div>
+                  <strong>2: Destroy Nexus</strong>
+                  <div className="ml-4">
+                    <strong>Setup:</strong> Place a Nexus marker on 3 random Anchors.<br/>
+                    <strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
+                    <strong>Victory:</strong> All Nexus Markers are Taken Out.
+                  </div>
+                </div>
+                <div>
+                  <strong>3: No Survivors</strong>
+                  <div className="ml-4">
+                    <strong>Victory:</strong> All enemy Units Taken Out.
+                  </div>
+                </div>
+                <div>
+                  <strong>4: Protect The Asset</strong>
+                  <div className="ml-4">
+                    <strong>Setup:</strong> Place an Asset marker as close as possible to the Center of the battlefield. Assets are Items with <code>ARM 3 HIT 3</code> and can be targeted in Combat.<br/>
+                    <strong>Special:</strong> NPC Units always prioritize targeting the Asset instead of Player Units.<br/>
+                    <strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of Turn 4.
+                  </div>
+                </div>
+                <div>
+                  <strong>5: Disruption Field</strong>
+                  <div className="ml-4">
+                    <strong>Setup:</strong> Place a Disruptor Pylon on 3 random Anchors.<br/>
+                    <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Disruptor Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
+                    <strong>Victory:</strong> All 3 Disruptor Pylons have been calibrated.
+                  </div>
+                </div>
+                <div>
+                  <strong>6: The Artifact</strong>
+                  <div className="ml-4">
+                    <strong>Setup:</strong> Place a Search Marker on 3 random Anchors.<br/>
+                    <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. Roll <code>1D6</code>: On a 1 or 2, the Artifact is found. This roll cannot be modified or re-rolled using TO.<br/>
+                    <strong>Victory:</strong> The Artifact is found.
+                  </div>
                 </div>
               </div>
-              <div>
-                <strong>2: Destroy Nexus</strong>
-                <div className="ml-4">
-                  <strong>Setup:</strong> Place a Nexus marker on 3 random Anchors.<br/>
-                  <strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
-                  <strong>Victory:</strong> All Nexus Markers are Taken Out.
-                </div>
-              </div>
-              <div>
-                <strong>3: No Survivors</strong>
-                <div className="ml-4">
-                  <strong>Victory:</strong> All enemy Units Taken Out.
-                </div>
-              </div>
-              <div>
-                <strong>4: Protect The Asset</strong>
-                <div className="ml-4">
-                  <strong>Setup:</strong> Place an Asset marker as close as possible to the Center of the battlefield. Assets are Items with <code>ARM 3 HIT 3</code> and can be targeted in Combat.<br/>
-                  <strong>Special:</strong> NPC Units always prioritize targeting the Asset instead of Player Units.<br/>
-                  <strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of Turn 4.
-                </div>
-              </div>
-              <div>
-                <strong>5: Disruption Field</strong>
-                <div className="ml-4">
-                  <strong>Setup:</strong> Place a Disruptor Pylon on 3 random Anchors.<br/>
-                  <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Disruptor Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
-                  <strong>Victory:</strong> All 3 Disruptor Pylons have been calibrated.
-                </div>
-              </div>
-              <div>
-                <strong>6: The Artifact</strong>
-                <div className="ml-4">
-                  <strong>Setup:</strong> Place a Search Marker on 3 random Anchors.<br/>
-                  <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. Roll <code>1D6</code>: On a 1 or 2, the Artifact is found. This roll cannot be modified or re-rolled using TO.<br/>
-                  <strong>Victory:</strong> The Artifact is found.
-                </div>
-              </div>
-            </div>
-            {/* Modifiers */}
-            <div className="section">
-              <h3>Mission Modifiers (D6)</h3>
-              These Mission Modifiers are optional; you can choose to skip them.<br/>
-              For an extra challenge, add the current Threat Level to your roll (maximum 6) for increased difficulty. Recommended for experienced Squads.
-              <div>
-                <strong>1: Standard Conditions</strong>
-                <div className="ml-4">No additional battlefield conditions apply to this mission.</div>
-              </div>
-              <div>
-                <strong>2: Fortified Position</strong>
-                <div className="ml-4">
-                  The enemy dug in before you arrived. All NPC Units are placed in Cover at deployment and remain in Cover until they move for the first time.
-                </div>
-              </div>
-              <div>
-                <strong>3: Fog of War</strong>
-                <div className="ml-4">
-                  Visibility is severely reduced. All Ranged combat is limited to a maximum range of 8". Weapons with a range shorter than 8" are unaffected. Weapons with infinite range are treated as RNG8" this mission.
-                </div>
-              </div>
-              <div>
-                <strong>4: Blackout</strong>
-                <div className="ml-4">
-                  Squad communications are jammed. The Player Squad cannot spend TO to change the result of dice by +/- 1 this mission. TO may still be spent on all other uses (actions, skills, re-rolls).
-                </div>
-              </div>
-              <div>
-                <strong>5: Hostile Environment</strong>
-                <div className="ml-4">
-                  The battlefield itself is killing you. At the end of each Turn, each Player Unit within 6" of the Center anchor takes 2 Damage.
-                </div>
-              </div>
-              <div>
-                <strong>6: Desperate Hour</strong>
-                <div className="ml-4">
-                  Command is screaming for results. The Player Squad must Extract by the end of Turn 3 instead of Turn 4. If no Units have Extracted by end of Turn 3, the mission ends and is considered a failure regardless of objectives completed.
-                </div>
-              </div>
-            </div>
-            {/* Deployments */}
-            <div className="section">
-              <h3>Deployments (D6)</h3>
-              <div>
-                <strong>1: Standard Insertion</strong>
-                <div className="ml-4">Player Squad deploys on the Southern edge. NPC Squad deploys on the Northern edge.</div>
-              </div>
-              <div>
-                <strong>2: Hot Drop</strong>
-                <div className="ml-4">The insertion was faster than expected. Player Squad deploys within 4" of the Center anchor. NPC Squad deploys on the Northern edge.</div>
-              </div>
-              <div>
-                <strong>3: Flanked</strong>
-                <div className="ml-4">Intel was wrong. The enemy is coming from two directions. NPC Squad splits as evenly as possible and deploys on both the Eastern and Western edges. Player Squad deploys on the Southern edge.</div>
-              </div>
-              <div>
-                <strong>4: Deep Strike</strong>
-                <div className="ml-4">Both sides arrived at the same time. Both Player Squad and NPC Squad deploy within 8" of the Center anchor. Roll off to determine who deploys first.</div>
-              </div>
-              <div>
-                <strong>5: Overwatch</strong>
-                <div className="ml-4">The enemy holds the high ground and saw you coming. NPC Squad deploys anywhere on the Northern half of the battlefield, in Cover if possible. Player Squad deploys on the Southern edge.</div>
-              </div>
-              <div>
-                <strong>6: Encircled</strong>
-                <div className="ml-4">Extraction just got complicated. Player Squad deploys within 4" of the Center anchor. NPC Squad splits as evenly as possible across all four edges of the battlefield.</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="section">
-            <h2>Playing the Mission</h2>
-            <div className="section twocols">
-              {/* Turn Sequence */}
               <div className="section">
-                <h3>Turn Sequence</h3>
-                <ol>
-                  <li>Roll TOs</li>
-                  <li>Roll Turn Events</li>
-                  <li>Resolve "Start of Turn" Events and Skills</li>
-                  <li>Activate Units</li>
-                  <li>Choose to Extract</li>
-                </ol>
-              </div>
-              {/* Turn Events */}
-              <div className="section">
-                <h3>Turn Events (D6)</h3>
-                At the start of each Turn, roll <code>1D6</code> to determine a special event for the Turn.
-                If the Mission is in Turn 5 or later, do not roll Turn Events and apply the <strong>Enemy Reinforcements</strong> event instead.
+                <h2>Turn Events (D6)</h2>
+                <p>
+                  At the start of each Turn, roll <code>1D6</code> to determine a special event for the Turn.
+                  If the Mission is in Turn 5 or later, do not roll Turn Events and apply the <strong>Enemy Reinforcements</strong> event instead.
+                </p>
                 <div>
                   <strong>1: Opportunity</strong>
                   <div className="ml-4">One Player Unit may immediately spend up to <code>2 ACT</code> on actions before the start of the Turn. This does not count as that Unit's activation for the Turn.</div>
@@ -329,29 +276,78 @@ export default async function PvEMissions() {
                 </div>
                 <div>
                   <strong>6: Enemy Reinforcements</strong>
-                  <div className="ml-4">Roll <code>1D6</code> and Spawn one NPC Unit Adjacent to a random Anchor according to the current Threat Level (ignoring quantities).</div>
+                  <div className="ml-4">Roll <code>1D6</code> and Spawn NPC Units Adjacent to a random Anchor according to the current Threat Level.</div>
                 </div>
               </div>
-              {/* NPC Activations */}
               <div className="section">
-                <h3>NPC Activations</h3>
-                After each Player Unit activation, the same player activates a Ready NPC Unit.
-                Each NPC Unit has a "Behavior" skill that describes how it spends its ACT.
-                After each NPC Unit activation, the next Player activates a Player Unit and the cycle repeats until all Units have been activated.
+                <h2>Mission Modifiers (D6)</h2>
+                <p>
+                  <em>Optional rule: Add the current Threat Level to your roll (maximum 6) for increased difficulty. Recommended for experienced players.</em>
+                </p>
+                <div>
+                  <strong>1: Standard Conditions</strong>
+                  <div className="ml-4">No additional battlefield conditions apply to this mission.</div>
+                </div>
+                <div>
+                  <strong>2: Fortified Position</strong>
+                  <div className="ml-4">
+                    The enemy dug in before you arrived. All NPC Units are placed in Cover at deployment and remain in Cover until they move for the first time.
+                  </div>
+                </div>
+                <div>
+                  <strong>3: Fog of War</strong>
+                  <div className="ml-4">
+                    Visibility is severely reduced. All Ranged combat is limited to a maximum range of 8". Weapons with a range shorter than 8" are unaffected. Weapons with infinite range are treated as RNG8" this mission.
+                  </div>
+                </div>
+                <div>
+                  <strong>4: Blackout</strong>
+                  <div className="ml-4">
+                    Squad communications are jammed. The Player Squad cannot spend TO to change the result of dice by +/- 1 this mission. TO may still be spent on all other uses (actions, skills, re-rolls).
+                  </div>
+                </div>
+                <div>
+                  <strong>5: Hostile Environment</strong>
+                  <div className="ml-4">
+                    The battlefield itself is killing you. At the end of each Turn, each Player Unit within 6" of the Center anchor takes 2 Damage.
+                  </div>
+                </div>
+                <div>
+                  <strong>6: Desperate Hour</strong>
+                  <div className="ml-4">
+                    Command is screaming for results. The Player Squad must Extract by the end of Turn 3 instead of Turn 4. If no Units have Extracted by end of Turn 3, the mission ends and is considered a failure regardless of objectives completed.
+                  </div>
+                </div>
               </div>
-              {/* Extraction */}
               <div className="section">
-                <h3>Extraction</h3>
-                The Player Squad may <strong>Extract</strong> at the end of any Turn. To Extract, all Standing Units in the Squad must not be Adjacent to any enemy Units.
-                Once a Squad extracts, the Mission ends.<br/>
-                Upon extraction, the Squad scores <strong>Mission Points</strong> (MP) based on their objectives and the Threat Level:
-                <ul>
-                  <li>1 MP per Threat Level</li>
-                  <li>3 MP per completed Objective</li>
-                </ul>
-                In Campaign play, MP can be spent on Rewards (see <strong>Campaigns</strong> below) for the Squad.
+                <h2>Deployment Variants (D6)</h2>
+                <div>
+                  <strong>1: Standard Insertion</strong>
+                  <div className="ml-4">Player Squad deploys on the Southern edge. NPC Squad deploys on the Northern edge.</div>
+                </div>
+                <div>
+                  <strong>2: Hot Drop</strong>
+                  <div className="ml-4">The insertion was faster than expected. Player Squad deploys within 4" of the Center anchor. NPC Squad deploys on the Northern edge.</div>
+                </div>
+                <div>
+                  <strong>3: Flanked</strong>
+                  <div className="ml-4">Intel was wrong. The enemy is coming from two directions. NPC Squad splits as evenly as possible and deploys on both the Eastern and Western edges. Player Squad deploys on the Southern edge.</div>
+                </div>
+                <div>
+                  <strong>4: Deep Strike</strong>
+                  <div className="ml-4">Both sides arrived at the same time. Both Player Squad and NPC Squad deploy within 8" of the Center anchor. Roll off to determine who deploys first.</div>
+                </div>
+                <div>
+                  <strong>5: Overwatch</strong>
+                  <div className="ml-4">The enemy holds the high ground and saw you coming. NPC Squad deploys anywhere on the Northern half of the battlefield, in Cover if possible. Player Squad deploys on the Southern edge.</div>
+                </div>
+                <div>
+                  <strong>6: Encircled</strong>
+                  <div className="ml-4">Extraction just got complicated. Player Squad deploys within 4" of the Center anchor. NPC Squad splits as evenly as possible across all four edges of the battlefield.</div>
+                </div>
               </div>
             </div>
+            
           </div>
 
           <PageBreak />
