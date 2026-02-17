@@ -20,7 +20,7 @@ export default async function RulesStatCards({ num }: {num?: number | null}) {
           <br/>
         </div>
         <div className="section">
-          <div className="p-1">
+          <div className="p-1 print-unitcard-fluid">
             <UnitCard 
               unit={sampleUnit}
               seq={1}

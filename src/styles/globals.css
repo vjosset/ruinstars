@@ -318,7 +318,7 @@ code {
 	display: inline-block;
 }
 
-/* FULL COLOR PRINT STYLES */
+/* PRINT STYLES */
 @media print {
   :root {
     --tw-bg-opacity: 1;
@@ -374,7 +374,9 @@ code {
 			drop-shadow(0 -1px 0 black);
 	}
 
-	.rules .unitcard {
+	/* Special case to NOT print unit cards with fixed size ("Stat Cards" section in core rules) */
+	.print-unitcard-fluid .unitcard
+	{
 		width: unset;
 		height: unset;
 	}
