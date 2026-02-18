@@ -132,10 +132,11 @@ export default async function PvEMissions() {
             <h2>Mission Setup</h2>
             <div className="section twocols">
               <div className="section">
-                Each PvE Mission sees your Units facing an enemy NPC Squad driven by NPC Behaviors.
-                Each mission includes two objectives, a mission modifier, and a unique deployment map.
-                This ensures that each mission is unique and can be scaled to the appropriate difficulty.
-                Random Turn Events will keep you on your toes, sometimes benifiting your Squad, sometimes giving the NPC Squad an advantage.
+                Before the first turn begins, follow the steps below to generate your mission.
+                Each mission is defined by two randomly rolled Objectives that determine victory conditions, a Mission Modifier that alters battlefield conditions, and a Deployment Variant that determines where both squads begin.
+                For your first mission, skip steps 2 and 3; play with Standard Conditions and Standard Insertion to learn the core mechanics.
+                Once you're comfortable, the Mission Modifiers and Deployment Variants add significant variety without increasing complexity.
+                Optional rule: you may add the current Threat Level to your Mission Modifier roll (maximum 6) for increased difficulty.
               </div>
               <div className="section border border-main rounded-md px-6 py-2 mx-16">
                 <h4>Mission Setup</h4>
