@@ -133,7 +133,11 @@ export default async function PvEMissions() {
             <div className="section twocols">
               <div className="section">
                 Before the first turn begins, follow the steps below to generate your mission.
-                Each mission is defined by two randomly rolled Objectives that determine victory conditions, a Mission Modifier that alters battlefield conditions, and a Deployment Variant that determines where both squads begin.
+                Each mission is defined by
+                two random <strong>Objectives</strong> that determine victory conditions,
+                a Mission <strong>Modifier</strong> that alters battlefield conditions,
+                and a <strong>Deployment</strong> variant that determines where both squads begin.
+                <br/>
                 For your first mission, skip steps 2 and 3; play with Standard Conditions and Standard Insertion to learn the core mechanics.
                 Once you're comfortable, the Mission Modifiers and Deployment Variants add significant variety without increasing complexity.
                 Optional rule: you may add the current Threat Level to your Mission Modifier roll (maximum 6) for increased difficulty.
@@ -169,7 +173,6 @@ export default async function PvEMissions() {
               <br/>
               Once you have selected a faction and Threat Level, roll <code>3D6</code> and consult that faction's Spawn Table.
               Each die is resolved individually - look up each result in the column matching your current Threat Level to identify the Units spawned by that die.
-              Deploy all spawned Units according to the rolled Deployment Variant.
             </div>
             {/* Objectives */}
             <div className="section">
@@ -179,6 +182,7 @@ export default async function PvEMissions() {
                 <strong>1: Battlefield Control</strong>
                 <div className="ml-4">
                   <strong>Victory:</strong> At the end of Turn 4, all four corner Anchors (NW, NE, SW, SE) are controlled by Player Units.
+                  {/* 
                   <strong>Rewards (pick one):</strong>
                   <ul>
                     <li>
@@ -190,6 +194,7 @@ export default async function PvEMissions() {
                       In the next Mission, you may re-roll one Turn Event roll.
                     </li>
                   </ul>
+                  */}
                 </div>
               </div>
               <div>
@@ -198,6 +203,7 @@ export default async function PvEMissions() {
                   <strong>Setup:</strong> Place a Nexus marker on 3 random Anchors.<br/>
                   <strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
                   <strong>Victory:</strong> All Nexus Markers are Taken Out.
+                  {/* 
                   <strong>Rewards (pick one):</strong>
                   <ul>
                     <li>
@@ -209,12 +215,14 @@ export default async function PvEMissions() {
                       In the next Mission, after deploying NPC Units, you may remove one NPC Unit from the battlefield.
                     </li>
                   </ul>
+                  */}
                 </div>
               </div>
               <div>
                 <strong>3: No Survivors</strong>
                 <div className="ml-4">
                   <strong>Victory:</strong> All enemy Units Taken Out.
+                  {/* 
                   <strong>Rewards (pick one):</strong>
                   <ul>
                     <li>
@@ -226,6 +234,7 @@ export default async function PvEMissions() {
                       In the next Mission, choose two NPC Units to start with -1 HIT.
                     </li>
                   </ul>
+                  */}
                 </div>
               </div>
               <div>
@@ -234,6 +243,7 @@ export default async function PvEMissions() {
                   <strong>Setup:</strong> Place an Asset marker as close as possible to the Center of the battlefield. Assets are Items with <code>ARM 3 HIT 3</code> and can be targeted in Combat.<br/>
                   <strong>Special:</strong> NPC Units always prioritize targeting the Asset instead of Player Units.<br/>
                   <strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of Turn 4.
+                  {/* 
                   <strong>Rewards (pick one):</strong>
                   <ul>
                     <li>
@@ -245,6 +255,7 @@ export default async function PvEMissions() {
                       In the next Mission, Player Squad may extract even if Adjacent to an enemy Unit
                     </li>
                   </ul>
+                  */}
                 </div>
               </div>
               <div>
@@ -253,6 +264,7 @@ export default async function PvEMissions() {
                   <strong>Setup:</strong> Place a Disruptor Pylon on 3 random Anchors.<br/>
                   <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Disruptor Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
                   <strong>Victory:</strong> All 3 Disruptor Pylons have been calibrated.
+                  {/* 
                   <strong>Rewards (pick one):</strong>
                   <ul>
                     <li>
@@ -264,6 +276,7 @@ export default async function PvEMissions() {
                       In the next Mission, Player Squad gets +2 TO in the first Turn
                     </li>
                   </ul>
+                  */}
                 </div>
               </div>
               <div>
@@ -272,6 +285,7 @@ export default async function PvEMissions() {
                   <strong>Setup:</strong> Place a Search Marker on 3 random Anchors.<br/>
                   <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. Roll <code>1D6</code>: On a 1 or 2, the Artifact is found. This roll cannot be modified or re-rolled using TO.<br/>
                   <strong>Victory:</strong> The Artifact is found.
+                  {/* 
                   <strong>Rewards (pick one):</strong>
                   <ul>
                     <li>
@@ -283,6 +297,7 @@ export default async function PvEMissions() {
                       In the next Mission, select one Anchor. No NPC Units may come within 3" of that Anchor.
                     </li>
                   </ul>
+                  */}
                 </div>
               </div>
             </div>
@@ -397,7 +412,7 @@ export default async function PvEMissions() {
                 </div>
                 <div>
                   <strong>6: Enemy Reinforcements</strong>
-                  <div className="ml-4">Roll <code>1D6</code> and Spawn one NPC Unit Adjacent to a random Anchor according to the current Threat Level (ignoring quantities).</div>
+                  <div className="ml-4">Roll <code>1D6</code> and consult the Spawn Table for the current Threat Level. Spawn one Unit of the indicated type Adjacent to a random Anchor.</div>
                 </div>
               </div>
               {/* NPC Activations */}
