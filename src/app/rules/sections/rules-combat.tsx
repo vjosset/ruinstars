@@ -66,7 +66,7 @@ export default async function RulesCombat({ num }: {num?: number | null}) {
             <tbody>
               <tr>
                 <th className="px-1">Cover</th>
-                <td className="px-1">If the Target is in <a className="underline" href="#cover">cover</a>, the Target gets one automatic Armor Save (without having to roll it)</td>
+                <td className="px-1">If the Target is in <a className="underline" href="#cover">cover</a>, the Target may re-roll one Save die.</td>
               </tr>
               <tr>
                 <th className="px-1">High&nbsp;Ground</th>

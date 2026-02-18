@@ -17,7 +17,7 @@ module.exports = {
           DEFAULT: '#c54c21',    // Main color
         },
         card: {
-          DEFAULT: '#090909',    // Card background
+          DEFAULT: '#110e0c',    // Card background
         },
         border: {
           DEFAULT: '#555555',    // Subtle border

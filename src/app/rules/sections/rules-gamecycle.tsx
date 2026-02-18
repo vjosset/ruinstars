@@ -105,11 +105,14 @@ export default async function RulesGameCycle({ num }: {num?: number | null}) {
             </li>
             <li>
               <strong>Earn MP</strong><br/>
-              Player Squad gains MP according to the mission briefing.
+              Player Squad gains MP according to the mission briefing.<br/>
+              Mission Points are a campaign resource earned at the end of each mission.
+              How MP is scored and spent is defined in your chosen play mode book.
             </li>
             <li>
               <strong>Apply Injuries</strong><br/>
-              Roll <code>1D6</code> for each Unit that was Taken Out during the Mission, and apply the corresponding Injury.
+              Roll <code>1D6</code> for each Unit that was Taken Out during the Mission, and apply the corresponding Injury.<br/>
+              Injury resolution varies by play mode. The full Injury table and rules are defined in your chosen play mode book (PvE Missions, PvP Missions, or Horde Mode).
             </li>
           </ol>
         </div>

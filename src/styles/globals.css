@@ -208,7 +208,7 @@ hr {
 }
 
 .flavor_old {
-	@apply mx-4 text-base sm:text-base leading-relaxed text-muted font-mono tracking-wide italic border-l-4 pl-4 border-orange-800 bg-zinc-950/30 rounded-md p-4 shadow-inner;
+	@apply mx-4 text-base sm:text-base leading-relaxed text-muted font-mono tracking-wide italic border-l-4 pl-4 border-orange-800 rounded-md p-4 shadow-inner;
 	background-color: theme('colors.card.DEFAULT');
 	font-family: Flavor, serif;
 }
