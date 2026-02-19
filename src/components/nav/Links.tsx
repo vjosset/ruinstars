@@ -11,7 +11,7 @@ const badgeClass = 'inline-flex text-foreground items-center gap-1 px-1 py-0.5 f
 export function PDFLink({href, title}: {href: string, title: string}) {
   return (
     <Link href={href} className={badgeClass} target="_blank">
-      <BsFilePdf className="inline-block" /> {title} PDF
+      <BsFilePdf className="icon inline-block" /> {title} PDF
     </Link>
   )
 }

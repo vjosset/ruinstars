@@ -365,13 +365,17 @@ code {
   }
 
 	/* Outline weapon icons so they're always visible, with or without "print backgrounds" */
-	.icon {
+	.wepicon {
 		display: inline-block;
 		filter:
 			drop-shadow(1px  0 0 black)
 			drop-shadow(-1px 0 0 black)
 			drop-shadow(0  1px 0 black)
 			drop-shadow(0 -1px 0 black);
+	}
+
+	.icon {
+		color: #000;
 	}
 
 	/* Special case to NOT print unit cards with fixed size ("Stat Cards" section in core rules) */

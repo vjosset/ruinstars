@@ -95,8 +95,8 @@ export default async function RulesStatCards({ num }: {num?: number | null}) {
           <h4 id="weapon-stats">Weapon Stats</h4>
           <ul>
             <li>
-              <RiSwordFill className="icon" />/<RiCrosshair2Fill className="icon" /> - Weapon Type<br/>
-              <RiSwordFill className="icon" /> indicates a Melee weapon, <RiCrosshair2Fill className="icon" /> indicates a Ranged weapon.
+              <RiSwordFill className="wepicon" />/<RiCrosshair2Fill className="wepicon" /> - Weapon Type<br/>
+              <RiSwordFill className="wepicon" /> indicates a Melee weapon, <RiCrosshair2Fill className="wepicon" /> indicates a Ranged weapon.
             </li>
             <li>
               <h6 className="inline stat text-main">ATT</h6> - Attacks<br/>
