@@ -6,7 +6,7 @@ export default async function RulesMissions({ num }: {num?: number | null}) {
     <>
       <div className="section">
         <h2 className="text-center py-3 font-title"   id="missions">
-          {num && `${num}. `}Missions
+          {num && `${num}. `}PvP Missions
         </h2>
 
         <div className="section">
@@ -40,7 +40,7 @@ export default async function RulesMissions({ num }: {num?: number | null}) {
               <p className="mb-4">
                 Each mission offers unique tactical puzzles and narrative flavor, challenging you to adapt your strategy to shifting objectives and hostile environments.
                 Scripted Operations weave these battles into connected arcs: mini-campaigns that tell stories of ambition, corruption, and sacrifice.
-                Whether you fight for the glory of the Human Hegemony, the zeal of the Sanctified Legion, the hunger of the Swarm, or the whispers of the Silent Choir, every operation offers a chance to carve your name into the scars of the galaxy.
+                Whether you fight for the glory of the Human Hegemony, the hunger of the Swarm, or the whispers of the Silent Choir, every operation offers a chance to carve your name into the scars of the galaxy.
               </p>
             </div>
           </div>

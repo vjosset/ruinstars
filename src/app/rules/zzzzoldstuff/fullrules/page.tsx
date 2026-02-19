@@ -1,34 +1,34 @@
 import ops from '@/data/scriptedOperations.json'
 import { GAME } from '@/lib/config/game_config'
-import RulesActions from '../sections/rules-actions'
-import RulesCampaigns from '../sections/rules-campaigns'
-import RulesCombat from '../sections/rules-combat'
-import RulesCoreMechanics from '../sections/rules-coremechanics'
-import RulesGameCycle from '../sections/rules-gamecycle'
-import RulesGlossary from '../sections/rules-glossary'
-import RulesHeader from '../sections/rules-header'
-import RulesIntro from '../sections/rules-intro'
-import RulesItems from '../sections/rules-items'
-import RulesMissions from '../sections/rules-missions'
-import RulesMovement from '../sections/rules-movement'
-import RulesSquadTypes from '../sections/rules-squadtypes'
-import RulesStatCards from '../sections/rules-statcards'
-import RulesToc from '../sections/rules-toc'
-import RulesYourSquad from '../sections/rules-yoursquad'
+import RulesActions from '@/src/app/rules/sections/rules-actions'
+import RulesCampaigns from '@/src/app/rules/sections/rules-campaigns'
+import RulesCombat from '@/src/app/rules/sections/rules-combat'
+import RulesCoreMechanics from '@/src/app/rules/sections/rules-coremechanics'
+import RulesGameCycle from '@/src/app/rules/sections/rules-gamecycle'
+import RulesGlossary from '@/src/app/rules/sections/rules-glossary'
+import RulesHeader from '@/src/app/rules/sections/rules-header'
+import RulesIntro from '@/src/app/rules/sections/rules-intro'
+import RulesItems from '@/src/app/rules/sections/rules-items'
+import RulesMissions from '@/src/app/rules/sections/rules-missions'
+import RulesMovement from '@/src/app/rules/sections/rules-movement'
+import RulesSquadTypes from '@/src/app/rules/sections/rules-squadtypes'
+import RulesStatCards from '@/src/app/rules/sections/rules-statcards'
+import RulesToc from '@/src/app/rules/sections/rules-toc'
+import RulesYourSquad from '@/src/app/rules/sections/rules-yoursquad'
 
 import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
 import PageBreak from '@/components/ui/PageBreak'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { FactionService } from '@/services'
 import Link from 'next/link'
-import { ScriptedOperation } from '../../scriptedoperations/page'
-import RulesAI from '../sections/rules-ai'
-import RulesHorde from '../sections/rules-horde'
-import RulesIntroMission from '../sections/rules-intromission'
-import RulesOutro from '../sections/rules-outro'
-import RulesPlayingOnAGrid from '../sections/rules-playingonagrid'
-import RulesQuickRef from '../sections/rules-quickref'
-import RulesScriptedOperations from '../sections/rules-scriptedoperations'
+import { ScriptedOperation } from '@/src/app/scriptedoperations/page'
+import RulesAI from '@/src/app/rules/sections/rules-ai'
+import RulesHorde from '@/src/app/rules/sections/rules-horde'
+import RulesIntroMission from '@/src/app/rules/sections/rules-intromission'
+import RulesOutro from '@/src/app/rules/sections/rules-outro'
+import RulesPlayingOnAGrid from '@/src/app/rules/sections/rules-playingonagrid'
+import RulesQuickRef from '@/src/app/rules/sections/rules-quickref'
+import RulesScriptedOperations from '@/src/app/rules/sections/rules-scriptedoperations'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -121,7 +121,7 @@ export default async function Rules({ searchParams }: { searchParams?: Promise<{
       
         <RulesPlayingOnAGrid num={16} />
       
-        <RulesQuickRef num={17} />
+        <RulesQuickRef />
 
         {showPrintSections && (
           <>
