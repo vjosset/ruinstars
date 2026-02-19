@@ -15,12 +15,6 @@ export default async function RulesMovement({ num }: {num?: number | null}) {
           <p>
             If you prefer to play with a grid, see <a className="underline" href="#playingonagrid">Playing on a Grid</a> for details.
           </p>
-          <h4 id="quarters">Quarters</h4>
-          <p>
-            The Battlefield is divided into 4 quarters: NW, NE, SW, SE.<br/>
-            Before the mission, both players should agree which way is North on the Battlefield, then refer to this diagram to find the right Tile.
-            <img src="/img/rules/Quarters.jpg" style={{width: '35%'}} />
-          </p>
 
           <h4 id="movement">Movement</h4>
           <p>

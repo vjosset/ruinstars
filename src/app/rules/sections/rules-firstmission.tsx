@@ -27,7 +27,7 @@ export default async function RulesFirstMission({ num }: {num?: number | null}) 
               Command has designated the central strongpoint as the last viable defensive position in the sector, and your Squad has been ordered to hold it.
               The mission is simple: find the Nests, destroy them before the swarm becomes uncontrollable, and don't let the horde overrun your position.
               <br/>
-              No reinforcements are coming. No extraction window has been scheduled. Command doesn't need you to win — they need you to buy time.
+              No reinforcements are coming. No extraction window has been scheduled. Command doesn't need you to win. They need you to buy time.
             </div>
             
             <div className="section">
