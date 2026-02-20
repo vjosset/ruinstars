@@ -1,4 +1,3 @@
-import BattlefieldDiagram, { type BattlefieldDiagramConfig } from '@/components/shared/BattlefieldDiagram'
 import Markdown from '@/components/ui/Markdown'
 import PageBreak from '@/components/ui/PageBreak'
 import { GAME } from '@/lib/config/game_config'
@@ -7,6 +6,7 @@ import { Fragment } from 'react'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { GearCategoryService, SpecialService, UserService } from '@/services'
 import UnitCard from '@/components/unit/UnitCard'
+import RulesAnchors from '../sections/rules-anchors'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -31,38 +31,6 @@ export default async function PvEMissions() {
   const pveUser = (await UserService.getUserByUsername('pve')) ?? (await UserService.getUser('pve'))
   const pveSquads = (pveUser?.squads ?? []).slice().sort((a, b) => (a.seq ?? 0) - (b.seq ?? 0))
   const allSpecials = await SpecialService.getAllSpecials()
-  
-  const anchorsDiagram = {
-    board: { widthIn: 24, heightIn: 24 },
-    elements: [
-      { type: 'marker', id: 'NW', xIn: 4, yIn: 4, label: 'NW', showInLegend: false },
-      { type: 'marker', id: 'N', xIn: 12, yIn: 6, label: 'N', showInLegend: false },
-      { type: 'marker', id: 'NE', xIn: 20, yIn: 4, label: 'NE', showInLegend: false },
-      { type: 'marker', id: 'W', xIn: 6, yIn: 12, label: 'W', showInLegend: false },
-      { type: 'marker', id: 'C', xIn: 12, yIn: 12, label: 'C', showInLegend: false },
-      { type: 'marker', id: 'E', xIn: 18, yIn: 12, label: 'E', showInLegend: false },
-      { type: 'marker', id: 'SW', xIn: 4, yIn: 20, label: 'SW', showInLegend: false },
-      { type: 'marker', id: 'S', xIn: 12, yIn: 18, label: 'S', showInLegend: false },
-      { type: 'marker', id: 'SE', xIn: 20, yIn: 20, label: 'SE', showInLegend: false },
-
-      { type: 'callout', id: 'h1', x1In: 0, y1In: 4, x2In: 4, y2In: 4, text: '4"' },
-      { type: 'callout', id: 'h2', x1In: 0, y1In: 12, x2In: 6, y2In: 12, text: '6"' },
-      { type: 'callout', id: 'h3', x1In: 0, y1In: 20, x2In: 4, y2In: 20, text: '4"' },
-      { type: 'callout', id: 'v1', x1In: 4, y1In: 0, x2In: 4, y2In: 4, text: '4"' },
-      { type: 'callout', id: 'v2', x1In: 12, y1In: 0, x2In: 12, y2In: 6, text: '6"' },
-      { type: 'callout', id: 'v3', x1In: 4, y1In: 20, x2In: 4, y2In: 24, text: '4"' },
-
-      { type: 'callout', id: 'h4', x1In: 20, y1In: 4, x2In: 24, y2In: 4, text: '4"' },
-      { type: 'callout', id: 'h5', x1In: 18, y1In: 12, x2In: 24, y2In: 12, text: '6"' },
-      { type: 'callout', id: 'h6', x1In: 20, y1In: 20, x2In: 24, y2In: 20, text: '4"' },
-      { type: 'callout', id: 'v4', x1In: 20, y1In: 0, x2In: 20, y2In: 4, text: '4"' },
-      { type: 'callout', id: 'v5', x1In: 12, y1In: 24, x2In: 12, y2In: 18, text: '6"' },
-      { type: 'callout', id: 'v6', x1In: 20, y1In: 20, x2In: 20, y2In: 24, text: '4"' },
-
-      //{ type: 'rect', id: 'PD', xIn: 0, yIn: 0, wIn: 24, hIn: 2, label: 'NPC Squad Deployment', showInLegend: false },
-      //{ type: 'rect', id: 'ND', xIn: 0, yIn: 22, wIn: 24, hIn: 2, label: 'Player Squad Deployment', showInLegend: false }
-    ]
-  } satisfies BattlefieldDiagramConfig
 
   return (
     <>
@@ -108,23 +76,7 @@ export default async function PvEMissions() {
           </div>
 
           <div className="section">
-            <h2>Anchors</h2>
-            <div className="twocols">
-              <div className="section">
-                Some Objectives and Events include placing markers or tokens on "Anchors". Anchors are nine fixed reference points arranged across the battlefield by compass direction: the four corners (NW, NE, SW, SE), the four edge midpoints (N, S, E, W), and the Center (C), as illustrated below.
-                <br/>
-                To place your Anchors, use the following measurements from the battlefield edges:
-                <ul>
-                  <li>Corner Anchors (NW, NE, SW, SE): 4" from each adjacent edge</li>
-                  <li>Cardinal Anchors (N, S, E, W): 6" from their adjacent edge, centered on that edge</li>
-                  <li>Center (C): The center of the battlefield</li>
-                </ul>
-                When an Objective or Event instructs you to place a marker on a random Anchor, roll 1D10 and consult the diagram below. On a 10, select any Anchor of your choice. If an Anchor is already occupied, re-roll that placement.
-              </div>
-              <div className="section">
-                <BattlefieldDiagram diagram={anchorsDiagram} className="max-w-sm" />
-              </div>
-            </div>
+            <RulesAnchors />
           </div>
 
           <PageBreak />

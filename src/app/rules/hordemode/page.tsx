@@ -4,9 +4,11 @@ import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import MissionCard from '@/components/shared/MissionCard'
 import Markdown from '@/components/ui/Markdown'
 import PageBreak from '@/components/ui/PageBreak'
+import PageTitle from '@/components/ui/PageTitle'
 import UnitCard from '@/components/unit/UnitCard'
 import hordemaps from '@/data/hordemaps'
 import { GearCategoryService, SpecialService, SquadService } from '@/services'
+import HordeModeQuickRef from './sections/rules-horde-quickref'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -202,7 +204,7 @@ export default async function Rules() {
                 <p>
                   A Standing Unit may revive a Downed Squadmate it Controls:<br/>
                   <strong>Mission Action - Revive - 2 ACT</strong>: The Downed Unit returns as Standing with <code>1 HIT</code> remaining.<br/>
-                  A Downed Unit may revive itself if it Controls a Squadmate:<br/>
+                  A Downed Unit may revive itself if it Controls a Standing Squadmate:<br/>
                   <strong>Mission Action - Revive - 2 ACT</strong>: The Downed Unit returns as Standing with <code>1 HIT</code> remaining.
                 </p>
                 <p>
@@ -330,7 +332,7 @@ export default async function Rules() {
                     <tr>
                       <td></td>
                       <td style={{textAlign: 'center'}}>6</td>
-                      <td>1x Ashline Gunner</td>
+                      <td>1x Ruin Stalker</td>
                     </tr>
                     <tr>
                       <td></td>
@@ -426,7 +428,7 @@ export default async function Rules() {
                     <tr>
                       <td></td>
                       <td style={{textAlign: 'center'}}>6</td>
-                      <td>1x Graveward Sentinel</td>
+                      <td>1x Razorhowl Reaver</td>
                     </tr>
                     <tr>
                       <td></td>
@@ -554,7 +556,7 @@ export default async function Rules() {
                 </p>
                 <div>
                   <strong>2: Second Wind</strong>
-                  <div className="ml-4">A Downed Unit is Revived and returns as Standing with <code>1 HIT</code> remaining. Apply one random injury to that Unit.</div>
+                  <div className="ml-4">Select a Downed Unit. That Unit is Revived and returns as Standing with half its <code>HIT</code> remaining (round up). Apply one random Injury to that Unit.</div>
                 </div>
                 <div>
                   <strong>3: Field Dressing</strong>
@@ -608,7 +610,7 @@ export default async function Rules() {
               <div>
                 <strong>1: Battlefield Control</strong>
                 <div className="ml-4">
-                  <strong>Victory:</strong> At the end of the Wave, there is at least one Standing Player Unit on the NW, NE, SW, and SE Tiles.
+                  <strong>Victory:</strong> At the end of the Wave, there is at least one Standing Player Unit Adjacent to the NW, NE, SW, and SE Anchors.
                   <br/>
                   <strong>Rewards</strong> (pick one):
                   <ul>
@@ -620,7 +622,7 @@ export default async function Rules() {
               <div>
                 <strong>2: Destroy Nexus</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place 3 Nexus markers as close as possible to the center of the West, Center, and East Tiles.<br/>
+                  <strong>Setup:</strong> Place 3 Nexus markers on the West, Center, and East Anchors.<br/>
                   <strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
                   <strong>Victory:</strong> All Nexus Markers Taken Out by the end of the Wave.<br/>
                   <strong>Rewards</strong> (pick one):
@@ -644,7 +646,7 @@ export default async function Rules() {
               <div>
                 <strong>4: Protect The Asset</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place an Asset marker as close as possible to the Center of a random Tile. Assets are Items with <code>ARM 3 HIT 3</code>.<br/>
+                  <strong>Setup:</strong> Place an Asset marker as close as possible to a random Anchor. Assets are Items with <code>ARM 3 HIT 3</code>.<br/>
                   <strong>Special:</strong> Horde Units will always prioritize targeting the Asset instead of Player Units in combat.<br/>
                   <strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of the Wave.<br/>
                   <strong>Rewards</strong> (pick one):
@@ -657,7 +659,7 @@ export default async function Rules() {
               <div>
                 <strong>5: Disruption Field</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place 3 Disruptor Pylons as close as possible to the center of three random Tiles.<br/>
+                  <strong>Setup:</strong> Place 3 Disruptor Pylons as close as possible to the center of three random Anchors.<br/>
                   <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Disruptor Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
                   <strong>Victory:</strong> All 3 Disruptor Pylons have been calibrated.<br/>
                   <strong>Rewards</strong> (pick one):
@@ -670,7 +672,7 @@ export default async function Rules() {
               <div>
                 <strong>6: The Artifact</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place 3 Search Markers in the center of three random Tiles.<br/>
+                  <strong>Setup:</strong> Place 3 Search Markers in the center of three random Anchors.<br/>
                   <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. Roll <code>1D6</code>: On a 1 or 2, the Artifact is found. This roll cannot be modified or re-rolled using TO.<br/>
                   <strong>Victory:</strong> The Artifact is found.<br/>
                   <strong>Rewards</strong> (pick one):
@@ -778,6 +780,11 @@ export default async function Rules() {
             </div>
           </div>
 
+          <PageBreak />
+          <PageTitle>Quick Reference</PageTitle>
+          <HordeModeQuickRef />
+
+          <PageBreak />
           <div className="section">
             <h3>Horde Units</h3>
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
