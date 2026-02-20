@@ -1,7 +1,8 @@
+import MissionCard from '@/components/shared/MissionCard'
 import Markdown from '@/components/ui/Markdown'
 import PageBreak from '@/components/ui/PageBreak'
 import UnitCard from '@/components/unit/UnitCard'
-import hordemaps from '@/data/hordemaps.json'
+import hordemaps from '@/data/hordemaps'
 import { GearCategoryService, SpecialService, SquadService } from '@/services'
 
 export default async function RulesHorde({ num }: {num?: number | null}) {
@@ -185,13 +186,9 @@ export default async function RulesHorde({ num }: {num?: number | null}) {
         <h3>Battlefields</h3>
 
         <div className="twocols">
-          {hordemaps.map((_map) => {
-            return (
-              <>
-                {/*<MissionCard key={map.missionId} mission={map} showDescription={true} />*/}
-              </>
-            )
-          })}
+          {hordemaps.map((mission) => (
+            <MissionCard key={mission.missionId} mission={mission} showDescription={true} />
+          ))}
         </div>
       </div>
 
@@ -554,7 +551,7 @@ export default async function RulesHorde({ num }: {num?: number | null}) {
             </div>
             <div>
               <strong>9: Encroaching Threat</strong>
-              <div className="ml-4">Each time a Horde Unit performs a Move Action during this Turn, it may move 1 additional Pace.</div>
+              <div className="ml-4">Each time a Horde Unit performs a Move Action during this Turn, it may move an additional 2".</div>
             </div>
             <div>
               <strong>10: Enemy Reinforcements</strong>
