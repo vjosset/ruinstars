@@ -1,6 +1,7 @@
 import MissionCard from '@/components/shared/MissionCard'
 import Markdown from '@/components/ui/Markdown'
 import missions_pvp from '@/data/missions_pvp'
+import missions_pvp_climax from '@/data/missions_pvp_climax'
 import { GAME } from '@/lib/config/game_config'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
@@ -9,7 +10,7 @@ import { GearCategoryService } from '@/services'
 export async function generateMetadata() {
   return generatePageMetadata({
     title: 'PvP Missions',
-    description: `The full list of PvP missions for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
+    description: `The full list of PvP missions and campaign rules for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
     images: [{
       url: '/icons/icon-big.png',
     }],
@@ -18,7 +19,7 @@ export async function generateMetadata() {
   })
 }
 
-export default async function PvPMissions({ searchParams }: { searchParams?: Promise<{ print?: string }> }) {
+export default async function PvPMissions() {
   const injuries = await GearCategoryService.getGearCategory('INJ')
   const spoilsOfWar = await GearCategoryService.getGearCategory('SOW')
   const versionTimestamp = new Intl.DateTimeFormat('en-CA', {
@@ -176,8 +177,13 @@ export default async function PvPMissions({ searchParams }: { searchParams?: Pro
                 After the third Homebase, both Squads play one final Mission drawn from the Climax Mission pool. The winner of the Climax Mission wins the Campaign.
               </p>
               <p className="mb-4">
-                The Squad that won the most Operations selects which Climax Mission is played and receives the following advantages: they choose their Deployment Zone first and gain +1 TO at the start of the mission. If both Squads won the same number of Operations, the Climax Mission is selected randomly and neither advantage applies.
+                The Squad that won the most Operations receives the following advantages:
               </p>
+              <ul>
+                <li>They select which Climax Mission is played</li>
+                <li>They choose their Deployment Zone first</li>
+                <li>They gain +2 TO at the start of the mission</li>
+              </ul>
               <p>
                 No Campaign Rewards are earned from the Climax. No Injuries are rolled after it. The Climax is the end.
               </p>
@@ -232,7 +238,22 @@ export default async function PvPMissions({ searchParams }: { searchParams?: Pro
             <h3 className="text-center">Mission List</h3>
             <div className='twocols'>
               {
-                missions_pvp.filter((mission) => mission.active && (!mission.missionType || mission.missionType === 'Primary')).map((mission) => (
+                missions_pvp.filter((mission) => mission.active).map((mission) => (
+                  <div className="section" key={mission.missionId}>
+                    <MissionCard mission={mission} showDescription={true} />
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+        
+        <div className="section">
+          <div className="section">
+            <h3 className="text-center">Campaign Climax Missions</h3>
+            <div className='twocols'>
+              {
+                missions_pvp_climax.filter((mission) => mission.active).map((mission) => (
                   <div className="section" key={mission.missionId}>
                     <MissionCard mission={mission} showDescription={true} />
                   </div>
