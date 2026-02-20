@@ -30,23 +30,23 @@ export default async function Rules() {
 
           <ol className="text-left">
             <li>
-              <PDFLink href="/assets/Ruinstars_CoreRules.pdf" title="Core Rules" /><br/>
+              <PDFLink href="/assets/Core Rules - Ruinstars.pdf" title="Core Rules" /><br/>
               <strong>Start here</strong> - Everything you need to get started
             </li>
             <li>
-              <PDFLink href="/assets/Ruinstars_Factions.pdf" title="Factions" /><br/>
+              <PDFLink href="/assets/Factions - Ruinstars.pdf" title="Factions" /><br/>
               Choose a faction and build your Squad
             </li>
             <li>
-              <PDFLink href="/assets/Ruinstars_Missions.pdf" title="Missions" /><br/>
-              All core primary missions and objective types
+              <PDFLink href="/assets/PvE Missions - Ruinstars.pdf" title="PvE Missions" /><br/>
+              PvE Missions for solo/coop play, including campaign rules
             </li>
             <li>
-              <PDFLink href="/assets/Ruinstars_CampaignsOperations.pdf" title="Campaigns and Operations" /><br/>
-              Optional narrative campaigns and scripted operations
+              <PDFLink href="/assets/PvP Missions - Ruinstars.pdf" title="PvP Missions" /><br/>
+              PvP Missions for competitive play, including campaign rules
             </li>
             <li>
-              <PDFLink href="/assets/Ruinstars_HordeMode.pdf" title="Horde Mode" /><br/>
+              <PDFLink href="/assets/Horde Mode - Ruinstars.pdf" title="Horde Mode" /><br/>
               A standalone solo or co-op survival mode
             </li>
           </ol>
