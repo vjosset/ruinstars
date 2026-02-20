@@ -138,9 +138,7 @@ export default async function Rules() {
               <ol>
                 <li>
                   <strong>Spawn Horde Units</strong><br/>
-                  Spawn Horde Units according to the Wave table below.<br/>
-                  Starting with Spawn Point #1, place one Unit Adjacent to that Spawn Point, then move to Spawn Point #2, and so on.
-                  If all Spawn Points have been used and Units remain to be placed, return to Spawn Point #1 and repeat until all Units are placed.
+                  Spawn Horde Units according to the Wave table below.
                 </li>
                 <li>
                   <strong>Roll Wave Objective</strong><br/>
@@ -610,7 +608,7 @@ export default async function Rules() {
               <div>
                 <strong>1: Battlefield Control</strong>
                 <div className="ml-4">
-                  <strong>Victory:</strong> At the end of the Wave, there is at least one Standing Player Unit Adjacent to the NW, NE, SW, and SE Anchors.
+                  <strong>Victory:</strong> At the end of the Wave, there is at least one Standing Player Unit Adjacent to the NW, NE, SW, and SE Quarters.
                   <br/>
                   <strong>Rewards</strong> (pick one):
                   <ul>
@@ -622,7 +620,7 @@ export default async function Rules() {
               <div>
                 <strong>2: Destroy Nexus</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place 3 Nexus markers on the West, Center, and East Anchors.<br/>
+                  <strong>Setup:</strong> Place 1 Nexus marker on each Spawn Point.<br/>
                   <strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
                   <strong>Victory:</strong> All Nexus Markers Taken Out by the end of the Wave.<br/>
                   <strong>Rewards</strong> (pick one):
@@ -646,7 +644,7 @@ export default async function Rules() {
               <div>
                 <strong>4: Protect The Asset</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place an Asset marker as close as possible to a random Anchor. Assets are Items with <code>ARM 3 HIT 3</code>.<br/>
+                  <strong>Setup:</strong> Place an Asset marker as close as possible to a random Spawn Point. Assets are Items with <code>ARM 3 HIT 3</code>.<br/>
                   <strong>Special:</strong> Horde Units will always prioritize targeting the Asset instead of Player Units in combat.<br/>
                   <strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of the Wave.<br/>
                   <strong>Rewards</strong> (pick one):
@@ -659,7 +657,7 @@ export default async function Rules() {
               <div>
                 <strong>5: Disruption Field</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place 3 Disruptor Pylons as close as possible to the center of three random Anchors.<br/>
+                  <strong>Setup:</strong> Place 1 Disruptor Pylon on each Spawn Point.<br/>
                   <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Disruptor Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
                   <strong>Victory:</strong> All 3 Disruptor Pylons have been calibrated.<br/>
                   <strong>Rewards</strong> (pick one):
@@ -672,7 +670,7 @@ export default async function Rules() {
               <div>
                 <strong>6: The Artifact</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place 3 Search Markers in the center of three random Anchors.<br/>
+                  <strong>Setup:</strong> Place 1 Search Marker on each Spawn Point.<br/>
                   <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. Roll <code>1D6</code>: On a 1 or 2, the Artifact is found. This roll cannot be modified or re-rolled using TO.<br/>
                   <strong>Victory:</strong> The Artifact is found.<br/>
                   <strong>Rewards</strong> (pick one):

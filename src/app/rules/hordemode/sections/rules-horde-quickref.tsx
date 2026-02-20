@@ -89,66 +89,66 @@ type WaveEntry = { wave: number; mp: number; boss?: boolean; rows: WaveRow[] }
 
 const WAVES: WaveEntry[] = [
   { wave: 1, mp: 4, rows: [
-    { range: '1–4', spawn: '3× Carrion Leech' },
+    { range: '1-4', spawn: '3× Carrion Leech' },
     { range: '5',   spawn: '2× Blight Herald' },
     { range: '6',   spawn: '1× Ruin Stalker' },
   ]},
   { wave: 2, mp: 5, rows: [
-    { range: '1–4', spawn: '3× Toxin Spitter' },
+    { range: '1-4', spawn: '3× Toxin Spitter' },
     { range: '5',   spawn: '2× Blight Herald' },
     { range: '6',   spawn: '1× Ashline Gunner' },
   ]},
   { wave: 3, mp: 6, rows: [
-    { range: '1–2', spawn: '3× Carrion Leech' },
-    { range: '3–4', spawn: '3× Toxin Spitter' },
+    { range: '1-2', spawn: '3× Carrion Leech' },
+    { range: '3-4', spawn: '3× Toxin Spitter' },
     { range: '5',   spawn: '2× Blight Herald' },
     { range: '6',   spawn: '1× Ruin Stalker' },
   ]},
   { wave: 4, mp: 10, boss: true, rows: [
-    { range: '1–2', spawn: '3× Carrion Leech' },
-    { range: '3–4', spawn: '3× Toxin Spitter' },
+    { range: '1-2', spawn: '3× Carrion Leech' },
+    { range: '3-4', spawn: '3× Toxin Spitter' },
     { range: '5',   spawn: '2× Blight Herald' },
     { range: '6',   spawn: '1× Ruin Stalker' },
   ]},
   { wave: 5, mp: 8, rows: [
-    { range: '1–4', spawn: '3× Ruin Stalker' },
+    { range: '1-4', spawn: '3× Ruin Stalker' },
     { range: '5',   spawn: '2× Dustborn Thrall' },
     { range: '6',   spawn: '1× Razorhowl Reaver' },
   ]},
   { wave: 6, mp: 9, rows: [
-    { range: '1–4', spawn: '3× Ashline Gunner' },
+    { range: '1-4', spawn: '3× Ashline Gunner' },
     { range: '5',   spawn: '2× Dustborn Thrall' },
     { range: '6',   spawn: '1× Graveward Sentinel' },
   ]},
   { wave: 7, mp: 10, rows: [
-    { range: '1–2', spawn: '3× Ruin Stalker' },
-    { range: '3–4', spawn: '3× Ashline Gunner' },
+    { range: '1-2', spawn: '3× Ruin Stalker' },
+    { range: '3-4', spawn: '3× Ashline Gunner' },
     { range: '5',   spawn: '2× Dustborn Thrall' },
     { range: '6',   spawn: '1× Razorhowl Reaver' },
   ]},
   { wave: 8, mp: 14, boss: true, rows: [
-    { range: '1–2', spawn: '3× Ruin Stalker' },
-    { range: '3–4', spawn: '3× Ashline Gunner' },
+    { range: '1-2', spawn: '3× Ruin Stalker' },
+    { range: '3-4', spawn: '3× Ashline Gunner' },
     { range: '5',   spawn: '2× Dustborn Thrall' },
     { range: '6',   spawn: '1× Razorhowl Reaver' },
   ]},
   { wave: 9,  mp: 12, rows: [
-    { range: '1–4', spawn: '3× Razorhowl Reaver' },
-    { range: '5–6', spawn: '3× Last-Light Executioner' },
+    { range: '1-4', spawn: '3× Razorhowl Reaver' },
+    { range: '5-6', spawn: '3× Last-Light Executioner' },
   ]},
   { wave: 10, mp: 13, rows: [
-    { range: '1–4', spawn: '3× Graveward Sentinel' },
-    { range: '5–6', spawn: '3× Last-Light Executioner' },
+    { range: '1-4', spawn: '3× Graveward Sentinel' },
+    { range: '5-6', spawn: '3× Last-Light Executioner' },
   ]},
   { wave: 11, mp: 14, rows: [
-    { range: '1–2', spawn: '3× Razorhowl Reaver' },
-    { range: '3–4', spawn: '3× Graveward Sentinel' },
-    { range: '5–6', spawn: '3× Last-Light Executioner' },
+    { range: '1-2', spawn: '3× Razorhowl Reaver' },
+    { range: '3-4', spawn: '3× Graveward Sentinel' },
+    { range: '5-6', spawn: '3× Last-Light Executioner' },
   ]},
   { wave: 12, mp: 18, boss: true, rows: [
-    { range: '1–2', spawn: '3× Razorhowl Reaver' },
-    { range: '3–4', spawn: '3× Graveward Sentinel' },
-    { range: '5–6', spawn: '3× Last-Light Executioner' },
+    { range: '1-2', spawn: '3× Razorhowl Reaver' },
+    { range: '3-4', spawn: '3× Graveward Sentinel' },
+    { range: '5-6', spawn: '3× Last-Light Executioner' },
   ]},
 ]
 
@@ -183,7 +183,7 @@ function ActBlock({ label, waves, bossWave }: {
         <span className="font-heading font-bold text-foreground">Wave {bossWave.wave}</span>
         <span className="text-main font-bold ml-1">★ Boss</span>
         <span className="text-main ml-1">({bossWave.mp} MP)</span>
-        {' — '}Same as Wave {bossWave.wave - 1} + Random Boss
+        {' - '}Same as Wave {bossWave.wave - 1} + Random Boss
       </div>
     </div>
   )
@@ -251,7 +251,7 @@ export default function HordeModeQuickRef() {
             <Br>End of Turn:</Br> If no Standing Horde Units remain, the Wave ends.
           </P>
           <P className="text-xs">
-            <Br>Turn 5+:</Br> Do not roll Turn Events — apply <Hi>Enemy Reinforcements</Hi> automatically.
+            <Br>Turn 5+:</Br> Do not roll Turn Events - apply <Hi>Enemy Reinforcements</Hi> automatically.
           </P>
         </Card>
 
@@ -263,30 +263,30 @@ export default function HordeModeQuickRef() {
             Roll 3D6 at Wave start. Each die resolved independently.
           </p>
 
-          <ActBlock label="Act 1 — Waves 1–4" waves={WAVES.slice(0, 3)} bossWave={WAVES[3]} />
+          <ActBlock label="Act 1 - Waves 1-4" waves={WAVES.slice(0, 3)} bossWave={WAVES[3]} />
           <Divider />
-          <ActBlock label="Act 2 — Waves 5–8" waves={WAVES.slice(4, 7)} bossWave={WAVES[7]} />
+          <ActBlock label="Act 2 - Waves 5-8" waves={WAVES.slice(4, 7)} bossWave={WAVES[7]} />
           <Divider />
-          <ActBlock label="Act 3 — Waves 9–12" waves={WAVES.slice(8, 11)} bossWave={WAVES[11]} />
+          <ActBlock label="Act 3 - Waves 9-12" waves={WAVES.slice(8, 11)} bossWave={WAVES[11]} />
         </Card>
 
         <Card>
           <SH>Wave Objectives (D6)</SH>
           <p className="text-xs text-muted mb-1">
-            Roll at Wave start. Optional — failure does not end the Wave. On Victory, pick one reward.
+            Roll at Wave start. Optional - failure does not end the Wave. On Victory, pick one reward.
           </p>
           <div className="text-xs space-y-1">
             <div>
               <span className="font-heading font-bold">1: Battlefield Control</span>
               <div className="ml-2 text-muted leading-snug">
-                Victory: at Wave end, a Standing Unit is Adjacent to each corner Anchor (NW, NE, SW, SE).<br/>
+                Victory: at Wave end, at least one Standing Unit is on each Quarter (NW, NE, SW, SE).<br/>
                 Reward: +4 MP · or roll 2D6 (not 3D6) for Horde Spawns next Wave.
               </div>
             </div>
             <div>
               <span className="font-heading font-bold">2: Destroy Nexus</span>
               <div className="ml-2 text-muted leading-snug">
-                Setup: 3 Nexus markers (ARM3 HIT2) on W, C, E Anchors.<br/>
+                Setup: 1 Nexus markers (ARM3 HIT2) on each Spawn Point.<br/>
                 Victory: all Nexus Markers Taken Out.<br/>
                 Reward: +4 MP · or all Horde Units take 2 damage.
               </div>
@@ -301,7 +301,7 @@ export default function HordeModeQuickRef() {
             <div>
               <span className="font-heading font-bold">4: Protect The Asset</span>
               <div className="ml-2 text-muted leading-snug">
-                Setup: Asset (ARM3 HIT3) on random Anchor. Horde always prioritizes the Asset.<br/>
+                Setup: Asset (ARM3 HIT3) on Spawn point. Horde always prioritizes the Asset.<br/>
                 Victory: Asset has ≥1 HIT at Wave end.<br/>
                 Reward: +4 MP · or +4 TO at start of next Wave.
               </div>
@@ -309,17 +309,17 @@ export default function HordeModeQuickRef() {
             <div>
               <span className="font-heading font-bold">5: Disruption Field</span>
               <div className="ml-2 text-muted leading-snug">
-                Setup: 3 Disruptor Pylons on random Anchors.<br/>
-                Action — Calibrate Pylon (2 ACT): Unit Controlling a Pylon removes it.<br/>
+                Setup: 1 Disruptor Pylon on each Spawn Point.<br/>
+                Action - Calibrate Pylon (2 ACT): Unit Controlling a Pylon removes it.<br/>
                 Victory: all Pylons calibrated.<br/>
-                Reward: +4 MP · or Horde −1 ATT (min 1) until Wave end.
+                Reward: +4 MP · or Horde -1 ATT (min 1) until Wave end.
               </div>
             </div>
             <div>
               <span className="font-heading font-bold">6: The Artifact</span>
               <div className="ml-2 text-muted leading-snug">
-                Setup: 3 Search Markers on random Anchors.<br/>
-                Action — Search (2 ACT): Unit Controlling a marker rolls 1D6; on 1–2 the Artifact is found (no TO re-rolls).<br/>
+                Setup: 1 Search Marker on each Spawn Point.<br/>
+                Action - Search (2 ACT): Unit Controlling a marker rolls 1D6; on 1-2 the Artifact is found (no TO re-rolls).<br/>
                 Victory: Artifact found.<br/>
                 Reward: +4 MP · or 1 Unit gains 1 Spoil of War.
               </div>
@@ -347,7 +347,7 @@ export default function HordeModeQuickRef() {
               <EventRow roll="5"  event="Supply Drop"         effect='Place 3 crates randomly. If a crate lands on a Unit → Booby Trap; skip that placement.' />
               <EventRow roll="6"  event="Strategic Command"   effect="Squad gains +2 TO." />
               <EventRow roll="7"  event="Relentless Advance"  effect="No special event this Turn." />
-              <EventRow roll="8"  event="Scrambled Comms"     effect="Squad loses −2 TO (minimum 0)." />
+              <EventRow roll="8"  event="Scrambled Comms"     effect="Squad loses -2 TO (minimum 0)." />
               <EventRow roll="9"  event="Encroaching Threat"  effect='Each Horde Move Action moves an additional 2" this Turn.' />
               <EventRow roll="10" event="Enemy Reinforcements" effect="Roll 1D6 → spawn 1 Horde Unit per the Wave table for this Wave (ignore quantity)." />
               <EventRow roll="11" event="Coordinated Assault" effect="Horde Units gain +1 ATT on all weapons this Turn." />
@@ -387,14 +387,14 @@ export default function HordeModeQuickRef() {
             <div><Hi>3</Hi> <Br>Map:</Br> 1 Standing Unit performs a free Move action.</div>
             <div><Hi>4</Hi> <Br>Relay Order:</Br> 1 Standing Unit performs a free 1-ACT Basic or Mission action.</div>
             <div><Hi>5</Hi> <Br>Upgrade:</Br> Apply one free Upgrade of choice.</div>
-            <div><Hi>6</Hi> <Br>Booby Trap:</Br> Explodes immediately — 2 damage to all Adjacent Units.</div>
+            <div><Hi>6</Hi> <Br>Booby Trap:</Br> Explodes immediately - 2 damage to all Adjacent Units.</div>
           </div>
         </Card>
 
         <Card>
           <SH>Downed &amp; Revive</SH>
           <P className="text-xs">
-            When a Player Unit reaches 0 HIT, it is <Hi>Downed</Hi> — lay it on its side, do not remove it.
+            When a Player Unit reaches 0 HIT, it is <Hi>Downed</Hi> - lay it on its side, do not remove it.
             Downed Units are ignored by Horde Units, cannot be targeted in combat, and take no damage.
           </P>
           <P className="text-xs">
