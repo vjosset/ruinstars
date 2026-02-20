@@ -286,8 +286,8 @@ export default function HordeModeQuickRef() {
             <div>
               <span className="font-heading font-bold">2: Destroy Nexus</span>
               <div className="ml-2 text-muted leading-snug">
-                Setup: 1 Nexus markers (ARM3 HIT2) on each Spawn Point.<br/>
-                Victory: all Nexus Markers Taken Out.<br/>
+                Setup: 1 Nexus (ARM3 HIT2) on each Spawn Point.<br/>
+                Victory: all Nexus Taken Out.<br/>
                 Reward: +4 MP · or all Horde Units take 2 damage.
               </div>
             </div>
