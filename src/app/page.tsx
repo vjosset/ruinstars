@@ -6,7 +6,7 @@ import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import news from '@/public/news.json'
 import NewsCard from '@/src/components/home/NewsCard'
 import Link from 'next/link'
-import RulesIntro from './rules/sections/rules-intro'
+import RulesIntro from './rules/corerules/sections/rules-intro'
 
 export async function generateMetadata() {
   return generatePageMetadata({

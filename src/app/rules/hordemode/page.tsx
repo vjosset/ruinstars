@@ -1,6 +1,6 @@
 import { GAME } from '@/lib/config/game_config'
 
-import RulesHorde from '@/app/rules/sections/rules-horde'
+import RulesHorde from '@/app/rules/hordemode/sections/rules-horde'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 
 export async function generateMetadata() {

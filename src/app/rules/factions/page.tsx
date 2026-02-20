@@ -1,7 +1,7 @@
 
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import RulesSquadTypes from '../sections/rules-squadtypes'
+import RulesSquadTypes from './sections/rules-squadtypes'
 
 export async function generateMetadata() {
   return generatePageMetadata({

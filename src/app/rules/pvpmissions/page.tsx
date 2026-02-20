@@ -1,8 +1,10 @@
 import MissionCard from '@/components/shared/MissionCard'
+import Markdown from '@/components/ui/Markdown'
 import missions_pvp from '@/data/missions_pvp'
 import { GAME } from '@/lib/config/game_config'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
+import { GearCategoryService } from '@/services'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -17,6 +19,8 @@ export async function generateMetadata() {
 }
 
 export default async function PvPMissions({ searchParams }: { searchParams?: Promise<{ print?: string }> }) {
+  const injuries = await GearCategoryService.getGearCategory('INJ')
+  const spoilsOfWar = await GearCategoryService.getGearCategory('SOW')
   const versionTimestamp = new Intl.DateTimeFormat('en-CA', {
     year: 'numeric',
     month: '2-digit',
@@ -105,6 +109,120 @@ export default async function PvPMissions({ searchParams }: { searchParams?: Pro
                 <li>Set up your Squads</li>
                 <li>Play!</li>
               </ol>
+            </div>
+          </div>
+        </div>
+
+        <div className="section" id="campaigns">
+          <h2>Campaigns</h2>
+          <div className="twocols">
+            <div className="section">
+              <p className="mb-4">
+                Two squads. Nine missions. One climax. Whatever happened before the final battle is prologue.
+              </p>
+              <p className="mb-4">
+                A PvP Campaign tracks the consequences of every fight across three Operations. Units get stronger. Units get hurt. Units die. What you arrive at the climax with depends on how well you fought to get there — but the climax decides everything.
+              </p>
+
+              <h3>Campaign Structure</h3>
+              <p className="mb-4">
+                A Campaign is composed of three Operations, each composed of three Missions, followed by a Climax that determines the winner. At the end of each Operation, both Squads return to Homebase to heal injuries and spend their earned Spoils of War.
+              </p>
+              <ol>
+                <li>Operation 1 — Missions 1.1, 1.2, 1.3 — Homebase</li>
+                <li>Operation 2 — Missions 2.1, 2.2, 2.3 — Homebase</li>
+                <li>Operation 3 — Missions 3.1, 3.2, 3.3 — Homebase</li>
+                <li>Climax Mission</li>
+              </ol>
+
+              <h3>Operations</h3>
+              <p className="mb-4">
+                An Operation is three sequential Missions. Once an Operation begins, Squads cannot change their Units or Gear between Missions. Missions may be agreed upon or rolled randomly from the PvP Mission pool.
+              </p>
+              <p className="mb-4">
+                The Squad that won more Missions wins the Operation.
+              </p>
+
+              <h3>Campaign Rewards</h3>
+              <p className="mb-4">
+                Each Mission lists two Campaign Rewards. After each Mission, the winning Squad picks one reward first. The losing Squad receives the other. Both rewards apply immediately and last until the end of the next Mission, unless stated otherwise.
+              </p>
+            </div>
+
+            <div className="section">
+              <h3>Spoils of War</h3>
+              <p className="mb-4">
+                At the end of each Operation, both Squads receive Spoils of War based on the Operation result. Each Spoil of War is assigned permanently to one specific Unit.
+              </p>
+              <ul>
+                <li>3-0 sweep: winning Squad receives 3 Spoils of War, losing Squad receives none.</li>
+                <li>2-1 result: winning Squad receives 2 Spoils of War, losing Squad receives 1.</li>
+              </ul>
+
+              <h3>Homebase</h3>
+              <p className="mb-4">
+                At the end of each Operation, after the third Mission, both Squads return to Homebase simultaneously.
+              </p>
+              <ol>
+                <li>Remove all Deceased Units from your Squad.</li>
+                <li>Remove one Injury from each remaining Unit.</li>
+                <li>Recruit new Units into the Squad (maximum 100 GP).</li>
+                <li>Make changes to your Squad's selected Gear.</li>
+                <li>Assign all earned Spoils of War to Units in your Squad.</li>
+              </ol>
+
+              <h3>The Climax</h3>
+              <p className="mb-4">
+                After the third Homebase, both Squads play one final Mission drawn from the Climax Mission pool. The winner of the Climax Mission wins the Campaign.
+              </p>
+              <p className="mb-4">
+                The Squad that won the most Operations selects which Climax Mission is played and receives the following advantages: they choose their Deployment Zone first and gain +1 TO at the start of the mission. If both Squads won the same number of Operations, the Climax Mission is selected randomly and neither advantage applies.
+              </p>
+              <p>
+                No Campaign Rewards are earned from the Climax. No Injuries are rolled after it. The Climax is the end.
+              </p>
+            </div>
+          </div>
+
+          <div className="section twocols">
+            <div className="section">
+              <h3>Injuries</h3>
+              <p>
+                At the end of each Mission, each of your Units that was Taken Out during the mission may have a persistent injury.
+                Note that when playing a campaign, all Injuries (except Deceased) are removed from your Units when they return to Homebase at the end of each Operation.
+              </p>
+              <p>
+                At the end of each Mission, for each Player Unit that was Taken Out, roll <code>1D6</code> to determine the Injury this Unit received.<br/>
+                If the Injury is one that the Unit already had, that Unit is Deceased. Remove the Unit from the Squad. That Unit cannot be replaced until the Squad returns to Homebase at the end of the Operation.
+              </p>
+              <ul>
+                {/* Injuries List */}
+                {
+                  injuries?.gears.map((injury) => (
+                    <li key={`inj_${injury.gearId}`}>
+                      <h6>{injury.gearName}</h6>
+                      <Markdown>{injury.description}</Markdown>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <div className="section">
+              <h3>Spoils Of War</h3>
+              When the Squad returns to Homebase, it can purchase Spoils of War by spending MP earned during the previous Operation.
+              Each Spoil of War costs 6 MP and applies to one specific Player Unit.
+              <ul>
+                {/* Spoils Of War List */}
+                {
+                  spoilsOfWar?.gears.map((sow) => (
+                    <li key={`sow_${sow.gearId}`}>
+                      <h6>{sow.gearName}</h6>
+                      <Markdown>{sow.description}</Markdown>
+                    </li>
+                  ))
+                }
+              </ul>
             </div>
           </div>
         </div>
