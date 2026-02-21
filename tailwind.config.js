@@ -17,10 +17,10 @@ module.exports = {
           DEFAULT: '#c54c21',    // Main color
         },
         card: {
-          DEFAULT: '#110e0c',    // Card background
+          DEFAULT: '#080808',    // Card background
         },
         border: {
-          DEFAULT: '#555555',    // Subtle border
+          DEFAULT: '#444',    // Subtle border
         },
         muted: {
           DEFAULT: '#999999',    // For secondary/inactive text

@@ -776,7 +776,7 @@ Defender secretly selects one Unit (excluding the Leader) to be the carrier of t
     rewards: [
       {
         name: 'Disruption Scan',
-        effect: 'One Unit gains +1 MSK (Melee Skill) or +1 RSK (Ranged Skill) for the next mission.'
+        effect: 'One Unit gains +1 SKL on its Melee or Ranged weapons (pick one) for the next mission.'
       },
       {
         name: 'Targeted Strike',
@@ -1183,7 +1183,7 @@ Your orders are simple: outkill the enemy.
     rewards: [
       {
         name: 'Aggressive Momentum',
-        effect: 'One Unit gains +1 MSK or +1 RSK the first time it performs a Ranged or Melee combat Action in the next mission.'
+        effect: 'One Unit gains +1 SKL on its Weapons the first time it performs a Ranged or Melee combat Action in the next mission.'
       },
       {
         name: 'Reinforced Armor',
