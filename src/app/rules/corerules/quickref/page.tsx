@@ -16,5 +16,8 @@ export async function generateMetadata() {
 
 export default async function QuickRefCoreRules() {
   return (
-    <RulesQuickRef />
+    <>
+      <h3 className="text-main">Ruinstars - Core Rules Quick Ref</h3>
+      <RulesQuickRef />
+    </>
   )}

@@ -16,5 +16,8 @@ export async function generateMetadata() {
 
 export default async function QuickRefHordeMode() {
   return (
-    <HordeModeQuickRef />
+    <>
+      <h3 className="text-main">Ruinstars - Horde Mode Quick Ref</h3>
+      <HordeModeQuickRef />
+    </>
   )}

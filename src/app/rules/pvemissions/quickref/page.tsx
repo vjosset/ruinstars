@@ -16,5 +16,8 @@ export async function generateMetadata() {
 
 export default async function QuickRefPveMissions() {
   return (
-    <PvEMissionsQuickRef />
+    <>
+      <h3 className="text-main">Ruinstars - PvE Missions Quick Ref</h3>
+      <PvEMissionsQuickRef />
+    </>
   )}
