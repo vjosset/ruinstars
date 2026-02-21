@@ -47,6 +47,8 @@ export type DiagramText = DiagramElementBase & {
   anchor?: 'start' | 'middle' | 'end'
 }
 
+export type CalloutEndStyle = 'nub' | 'arrow' | 'none'
+
 export type DiagramCallout = DiagramElementBase & {
   type: 'callout'
   x1In: number
@@ -57,6 +59,8 @@ export type DiagramCallout = DiagramElementBase & {
   textOffsetIn?: number
   tickSizeIn?: number
   textAnchor?: 'start' | 'middle' | 'end'
+  end1Style?: CalloutEndStyle
+  end2Style?: CalloutEndStyle
 }
 
 export type DiagramElement =
@@ -371,10 +375,13 @@ export default function BattlefieldDiagram({
                 const dx = x2 - x1
                 const dy = y2 - y1
                 const length = Math.hypot(dx, dy) || 1
-                const nx = -dy / length
-                const ny = dx / length
+                const ux = dx / length  // unit vector along line
+                const uy = dy / length
+                const nx = -uy   // unit normal (perpendicular)
+                const ny = ux
                 const tickSize =
                   inToPx(element.tickSizeIn ?? DEFAULT_CALLOUT_TICK_IN) / 2
+                const arrowLen = tickSize * 2
                 const textOffset = inToPx(
                   element.textOffsetIn ?? DEFAULT_LABEL_SIZE_IN
                 )
@@ -382,32 +389,63 @@ export default function BattlefieldDiagram({
                 const textY = (y1 + y2) / 2 + ny * textOffset
                 const calloutStroke = element.strokeColor ?? calloutColor
 
+                const end1Style = element.end1Style ?? 'nub'
+                const end2Style = element.end2Style ?? 'nub'
+
+                // Shorten the main line at any arrow ends so it doesn't protrude
+                const lineX1 = end1Style === 'arrow' ? x1 + ux * arrowLen : x1
+                const lineY1 = end1Style === 'arrow' ? y1 + uy * arrowLen : y1
+                const lineX2 = end2Style === 'arrow' ? x2 - ux * arrowLen : x2
+                const lineY2 = end2Style === 'arrow' ? y2 - uy * arrowLen : y2
+
+                // Renders a nub, arrow, or nothing at a given endpoint.
+                // dirX/dirY is the unit vector pointing outward from the line at that end.
+                const renderEnd = (
+                  px: number, py: number,
+                  dirX: number, dirY: number,
+                  style: CalloutEndStyle
+                ) => {
+                  if (style === 'none') return null
+                  if (style === 'nub') {
+                    return (
+                      <line
+                        x1={px - nx * tickSize}
+                        y1={py - ny * tickSize}
+                        x2={px + nx * tickSize}
+                        y2={py + ny * tickSize}
+                        stroke={calloutStroke}
+                        strokeWidth={inToPx(DEFAULT_STROKE_IN)}
+                      />
+                    )
+                  }
+                  // arrow: filled triangle, tip at (px, py)
+                  const baseX = px - dirX * arrowLen
+                  const baseY = py - dirY * arrowLen
+                  return (
+                    <polygon
+                      points={[
+                        `${px},${py}`,
+                        `${baseX + nx * tickSize},${baseY + ny * tickSize}`,
+                        `${baseX - nx * tickSize},${baseY - ny * tickSize}`,
+                      ].join(' ')}
+                      fill={calloutStroke}
+                      stroke="none"
+                    />
+                  )
+                }
+
                 return (
                   <g key={element.id}>
                     <line
-                      x1={x1}
-                      y1={y1}
-                      x2={x2}
-                      y2={y2}
+                      x1={lineX1}
+                      y1={lineY1}
+                      x2={lineX2}
+                      y2={lineY2}
                       stroke={calloutStroke}
                       strokeWidth={inToPx(DEFAULT_STROKE_IN)}
                     />
-                    <line
-                      x1={x1 - nx * tickSize}
-                      y1={y1 - ny * tickSize}
-                      x2={x1 + nx * tickSize}
-                      y2={y1 + ny * tickSize}
-                      stroke={calloutStroke}
-                      strokeWidth={inToPx(DEFAULT_STROKE_IN)}
-                    />
-                    <line
-                      x1={x2 - nx * tickSize}
-                      y1={y2 - ny * tickSize}
-                      x2={x2 + nx * tickSize}
-                      y2={y2 + ny * tickSize}
-                      stroke={calloutStroke}
-                      strokeWidth={inToPx(DEFAULT_STROKE_IN)}
-                    />
+                    {renderEnd(x1, y1, -ux, -uy, end1Style)}
+                    {renderEnd(x2, y2,  ux,  uy, end2Style)}
                     {element.text && (
                       <text
                         x={textX}

@@ -1,3 +1,6 @@
+import BattlefieldDiagram from '@/components/shared/BattlefieldDiagram'
+import { adjacencyDiagram, rangeDiagram, verticalMovementDiagram } from '@/src/data/corerulesdiagrams'
+
 export default async function RulesMovement({ num }: {num?: number | null}) {
   return (
     <div className="section">
@@ -33,6 +36,7 @@ export default async function RulesMovement({ num }: {num?: number | null}) {
             <li>They are on the same elevation, and</li>
             <li>There is no wall between them.</li>
           </ul>
+          <BattlefieldDiagram diagram={adjacencyDiagram} />
         </div>
         
         <div className="section">
@@ -63,10 +67,11 @@ export default async function RulesMovement({ num }: {num?: number | null}) {
             only measure on the Horizontal plane; ignore vertical distance.
           </p>
           <p>
-            The target is considered to be in range of that weapon if the distance is equal to or lower than the weapon's range.<br/>
+            The target is considered to be in range of that weapon if the distance between the two closest points of their bases is equal to or lower than the weapon's range.<br/>
             If a Ranged weapon does not have a specified Range (<code>RNGx</code>), its range is infinite.
           </p>
-          <img src="/img/rules/Range.webp" style={{width: '35%'}} /><br/>
+          <BattlefieldDiagram diagram={rangeDiagram} />
+          <br/>
           <em>The soldier has a Ranged weapon with a range of <code>6"</code> (<code>RNG6</code>).
           The bugs marked in <strong>green</strong> are within range, while the bugs marked in <strong>red</strong> are out of range.</em>
         </div>
@@ -81,8 +86,7 @@ export default async function RulesMovement({ num }: {num?: number | null}) {
             <strong>Climbing Down:</strong><br/>
             Climbing down follows the same rules, but vertical distance costs 2" less (to a minimum of 0"), representing controlled descent.
           </p>
-          <img className="inline px-2" src="/img/rules/ClimbUp.webp" style={{width: '35%'}} />
-          <img className="inline px-2" src="/img/rules/ClimbDown.webp" style={{width: '35%'}} />
+          <BattlefieldDiagram diagram={verticalMovementDiagram} />
         </div>
       </div>
     </div>
