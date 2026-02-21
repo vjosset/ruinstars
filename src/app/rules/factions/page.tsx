@@ -29,7 +29,8 @@ export default async function RuleBookFactions() {
       <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
         <div className="text-white text-center font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
           <h1>Factions</h1>
-          Version {versionTimestamp}
+          <p className="text-md">2nd Edition</p>
+          <p className="text-sm">Version {versionTimestamp}</p>
         </div>
       </div>
 

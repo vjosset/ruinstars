@@ -40,15 +40,16 @@ export default async function Rules() {
       <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
         <div className="text-white text-center font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
           <h1>Horde Mode</h1>
-          Version {versionTimestamp}
+          <p className="text-md">2nd Edition</p>
+          <p className="text-sm">Version {versionTimestamp}</p>
         </div>
       </div>
 
       <div className="rules px-3 max-w-7xl mx-auto">
         <div className="section">
-          <h3 className="text-center py-3 font-title"   id="horde">
+          <h1 className="text-center py-3 font-title"   id="horde">
             Horde Mode
-          </h3>
+          </h1>
 
           <div className="twocols">
             <div className="flavor section">
