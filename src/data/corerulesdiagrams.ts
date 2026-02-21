@@ -212,7 +212,7 @@ export const coverDiagram = {
 //    Two Units with asymmetric LoS
 // ─────────────────────────────────────────────────────────────────────────────
 export const lineOfSightDiagram = {
-  board: { widthIn: 10, heightIn: 6 },
+  board: { widthIn: 5, heightIn: 4 },
   pixelsPerInch: 48,
   showCenterLines: false,
   elements: [
@@ -220,15 +220,15 @@ export const lineOfSightDiagram = {
     {
       id: 'wall',
       type: 'rect',
-      xIn: 2, yIn: 1,
-      wIn: 6, hIn: 3,
+      xIn: 2, yIn: 0,
+      wIn: 3, hIn: 2,
       showLabel: false
     },
     // Attacker unit
     {
       id: 'A',
       type: 'circle',
-      cxIn: 1, cyIn: 3.5,
+      cxIn: 1, cyIn: 1.5,
       rIn: 0.5,
       color: C.unit,
       fillOpacity: 0.9,
@@ -238,7 +238,7 @@ export const lineOfSightDiagram = {
     {
       id: 'T',
       type: 'circle',
-      cxIn: 7, cyIn: 5,
+      cxIn: 4, cyIn: 3,
       rIn: 0.5,
       color: C.enemyGreen,
       fillOpacity: 0.9,
@@ -248,16 +248,16 @@ export const lineOfSightDiagram = {
     {
       id: 'line1',
       type: 'callout',
-      x1In: 1, y1In: 4,
-      x2In: 7, y2In: 5.5,
+      x1In: 1, y1In: 2,
+      x2In: 4, y2In: 3.5,
       end1Style: 'none', end2Style: 'arrow'
     },
     // LoS Line 2
     {
       id: 'line2',
       type: 'callout',
-      x1In: 1, y1In: 4,
-      x2In: 7, y2In: 4.5,
+      x1In: 1, y1In: 2,
+      x2In: 4, y2In: 2.5,
       end1Style: 'none', end2Style: 'arrow'
     }
   ],
@@ -268,7 +268,7 @@ export const lineOfSightDiagram = {
 //    Two Units with asymmetric LoS
 // ─────────────────────────────────────────────────────────────────────────────
 export const lineOfSightSpecialDiagram = {
-  board: { widthIn: 10, heightIn: 6 },
+  board: { widthIn: 5, heightIn: 4 },
   pixelsPerInch: 48,
   showCenterLines: false,
   elements: [
@@ -276,15 +276,15 @@ export const lineOfSightSpecialDiagram = {
     {
       id: 'wall',
       type: 'rect',
-      xIn: 2, yIn: 1,
-      wIn: 6, hIn: 3,
+      xIn: 2, yIn: 0,
+      wIn: 3, hIn: 2,
       showLabel: false
     },
     // Attacker unit
     {
       id: 'T',
       type: 'circle',
-      cxIn: 7, cyIn: 5,
+      cxIn: 4, cyIn: 3,
       rIn: 0.5,
       color: C.unit,
       fillOpacity: 0.9,
@@ -294,7 +294,7 @@ export const lineOfSightSpecialDiagram = {
     {
       id: 'A',
       type: 'circle',
-      cxIn: 1, cyIn: 3.5,
+      cxIn: 1, cyIn: 1.5,
       rIn: 0.5,
       color: C.enemy,
       fillOpacity: 0.9,
@@ -304,19 +304,19 @@ export const lineOfSightSpecialDiagram = {
     {
       id: 'line1',
       type: 'callout',
-      x1In: 6.5, y1In: 5,
-      x2In: 1, y2In: 3,
+      x1In: 3.5, y1In: 3,
+      x2In: 1, y2In: 1,
       color: C.enemy,
-      end1Style: 'none', end2Style: 'arrow',
+      end1Style: 'none', end2Style: 'none',
       strokeColor: C.enemy,
     },
     // LoS Line 2
     {
       id: 'line2',
       type: 'callout',
-      x1In: 6.5, y1In: 5,
-      x2In: 1, y2In: 4,
-      end1Style: 'none', end2Style: 'arrow'
+      x1In: 3.5, y1In: 3,
+      x2In: 1, y2In: 2,
+      end1Style: 'none', end2Style: 'none'
     },
   ],
 } satisfies BattlefieldDiagramConfig

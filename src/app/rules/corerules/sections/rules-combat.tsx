@@ -79,29 +79,31 @@ export default async function RulesCombat({ num }: {num?: number | null}) {
           
           <div className="section">
             <h4 id="line-of-sight">Line of Sight</h4>
-            <p>
-              A Target is said to be in an Attacker's <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one of the point of the Attacker's base to two opposite edges of the Target's base.<br/>
-              A Unit cannot target an enemy Unit for Ranged Combat if there are other Units on that Line of Sight (i.e. a Unit cannot shoot &quot;through&quot; other Units).
-            </p>
-            <BattlefieldDiagram diagram={lineOfSightDiagram} />
-            <h5>Special Cases</h5>
-            <p>
-              These rules mean that in some cases, a Unit may be able to target an enemy Unit even if that Unit cannot target them in return.
-            </p>
-            <BattlefieldDiagram diagram={lineOfSightSpecialDiagram} />
+            A Target is said to be in an Attacker's <strong>Line of Sight</strong> if two uninterrupted lines can be drawn from one of the point of the Attacker's base to two opposite edges of the Target's base.<br/>
+            A Unit cannot target an enemy Unit for Ranged Combat if there are other Units on that Line of Sight (i.e. a Unit cannot shoot &quot;through&quot; other Units).  
+          
+            <h6>Special Cases</h6>
+            These rules mean that in some cases, a Unit may be able to target an enemy Unit even if that Unit cannot target them in return.
+            <div className="columns-2">
+              <BattlefieldDiagram diagram={lineOfSightDiagram} />
+              <BattlefieldDiagram diagram={lineOfSightSpecialDiagram} />
+            </div>
           </div>
           <div className="section">
             <h4 id="cover">Cover</h4>
-            <p>
-              If a Target is only partially visible to the Attacker (for example, there is a short wall between the two Units), that Target is said to be in cover.
-              Cover only applies to Ranged attacks; there is no Cover benefit for Melee attacks.<br/>
-              A Target is in Cover if a piece of terrain blocks the Attacker's full view of the Target and that terrain is within 1" of the Target.
-            </p>
-          
-            <BattlefieldDiagram diagram={coverDiagram} />
+            <div className="columns-2">
+              <p className="section">
+                If a Target is only partially visible to the Attacker (for example, there is a short wall between the two Units), that Target is said to be in cover.
+                Cover only applies to Ranged attacks; there is no Cover benefit for Melee attacks.<br/>
+                A Target is in Cover if a piece of terrain blocks the Attacker's full view of the Target and that terrain is within 1" of the Target.
+              </p>
+              <BattlefieldDiagram diagram={coverDiagram} />
+            </div>
           </div>
         </div>
-        <div className="">
+      </div>
+      <div className="section twocols">
+        <div className="section">
           <h3>Melee Combat</h3>
           <h4>Sequence</h4>
           <ol>
@@ -168,6 +170,8 @@ export default async function RulesCombat({ num }: {num?: number | null}) {
               </tr>
             </tbody>
           </table>
+        </div>
+        <div className="section">
           <h4 id="attack-of-opportunity">Attacks of Opportunity</h4>
           <p>
             When a Unit Moves or Dashes out of Adjacency to an enemy Unit, that enemy may immediately perform a free Melee attack against the moving Unit.
