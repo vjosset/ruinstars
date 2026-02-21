@@ -9,6 +9,7 @@ import UnitCard from '@/components/unit/UnitCard'
 import hordemaps from '@/data/hordemaps'
 import { GearCategoryService, SpecialService, SquadService } from '@/services'
 import HordeModeQuickRef from './sections/rules-horde-quickref'
+import { PDFLink } from '@/components/nav/Links'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -70,6 +71,9 @@ export default async function Rules() {
               Waves only end when all Horde Units are Taken Out, and difficulty steadily rises as the battle grinds on.
               Special Turn Events, supply drops, reinforcements, and Boss encounters ensure that no two runs play the same.
               Victory comes by finding how long your Squad can stand before being overwhelmed.
+            </p>
+            <p>
+              Note you will need the <PDFLink href="/assets/Core Rules - Ruinstars.pdf" title='Core Rules' /> to play this mode.
             </p>
           </div>
 

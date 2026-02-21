@@ -1,3 +1,4 @@
+import { PDFLink } from '@/components/nav/Links'
 import MissionCard from '@/components/shared/MissionCard'
 import Markdown from '@/components/ui/Markdown'
 import missions_pvp from '@/data/missions_pvp'
@@ -79,6 +80,9 @@ export default async function PvPMissions() {
                   Scripted Operations weave these battles into connected arcs: mini-campaigns that tell stories of ambition, corruption, and sacrifice.
                   Whether you fight for the glory of the Human Hegemony, the hunger of the Swarm, or the whispers of the Silent Choir, every operation offers a chance to carve your name into the scars of the galaxy.
                 </p>
+                <p>
+                  Note you will need the <PDFLink href="/assets/Core Rules - Ruinstars.pdf" title='Core Rules' /> to play this mode.
+                </p>
               </div>
             </div>
           </div>
@@ -155,6 +159,7 @@ export default async function PvPMissions() {
               <h3>Spoils of War</h3>
               <p className="mb-4">
                 At the end of each Operation, both Squads receive Spoils of War based on the Operation result. Each Spoil of War is assigned permanently to one specific Unit.
+                Each Mission won in the Operation grants the Squad one Spoil of War to apply to one Unit.
               </p>
               <ul>
                 <li>3-0 sweep: winning Squad receives 3 Spoils of War, losing Squad receives none.</li>
@@ -217,8 +222,8 @@ export default async function PvPMissions() {
 
             <div className="section">
               <h3>Spoils Of War</h3>
-              When the Squad returns to Homebase, it can purchase Spoils of War by spending MP earned during the previous Operation.
-              Each Spoil of War costs 6 MP and applies to one specific Player Unit.
+              When the Squad returns to Homebase, it can purchase Spoils of War according to its win record for the Operation's Missions.
+              Each Mission won in the Operation grants the Squad one Spoil of War to apply to one Unit.
               <ul>
                 {/* Spoils Of War List */}
                 {

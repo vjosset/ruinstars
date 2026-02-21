@@ -7,6 +7,8 @@ import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { GearCategoryService, SpecialService, UserService } from '@/services'
 import UnitCard from '@/components/unit/UnitCard'
 import RulesAnchors from '../sections/rules-anchors'
+import { PDFLink } from '@/components/nav/Links'
+import PvEMissionsQuickRef from './sections/rules-pvemissions-quickref'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -73,6 +75,9 @@ export default async function PvEMissions() {
               Each Mission has two objectives, but completing those objectives is not enough to ensure victory; your Squad must make it off the battlefield alive to reap the rewards.
               <br/><br/>
               PvE play emphasizes tactical restraint over reckless aggression, extraction as a strategic decision, not an afterthought, and long-term squad survival over single-mission dominance.
+              <p>
+                Note you will need the <PDFLink href="/assets/Core Rules - Ruinstars.pdf" title='Core Rules' /> to play this mode.
+              </p>
             </div>
           </div>
 
@@ -480,7 +485,7 @@ export default async function PvEMissions() {
               <div className="section">
                 <h3>Spoils Of War</h3>
                 When the Squad returns to Homebase, it can purchase Spoils of War by spending MP earned during the previous Operation.
-                Each Spoil of War costs 6 MP and applies to one specific Player Unit.
+                Each Spoil of War costs 8 MP and applies to one specific Player Unit.
                 <ul>
                   {/* Spoils Of War List */}
                   {
@@ -496,6 +501,10 @@ export default async function PvEMissions() {
             </div>
           </div>
           
+          <PageBreak />
+          <h2>Quick Reference</h2>
+          <PvEMissionsQuickRef />
+
           <PageBreak />
           <div>
             {pveSquads.map((squad, idx) => (
