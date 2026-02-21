@@ -54,14 +54,10 @@ export default async function Home() {
           
           <div className="text-center max-w-lg mx-auto noprint mt-4">
             <Button>
-              <Link target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">
+              <Link target="_blank" href="/assets/Core Rules - Ruinstars.pdf">
                 <h5>Download The Rules</h5>
               </Link>
             </Button>
-            <br />
-            <Link className="underline" target="_blank" href="/assets/Ruinstars_Rules.pdf">
-              Printer-Friendly Version
-            </Link>
           </div>
           
           <AuthButtons />

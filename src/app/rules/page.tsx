@@ -28,33 +28,46 @@ export default async function Rules() {
             Everything else below is optional and expands how you play.
           </p>
 
-          <ol className="text-left">
-            <li>
-              <PDFLink href="/assets/Core Rules - Ruinstars.pdf" title="Core Rules" /><br/>
-              <strong>Start here</strong> - Everything you need to get started
-            </li>
-            <li>
-              <PDFLink href="/assets/Factions - Ruinstars.pdf" title="Factions" /><br/>
-              Choose a faction and build your Squad
-            </li>
-            <li>
-              <PDFLink href="/assets/PvE Missions - Ruinstars.pdf" title="PvE Missions" /><br/>
-              PvE Missions for solo/coop play, including campaign rules
-            </li>
-            <li>
-              <PDFLink href="/assets/PvP Missions - Ruinstars.pdf" title="PvP Missions" /><br/>
-              PvP Missions for competitive play, including campaign rules
-            </li>
-            <li>
-              <PDFLink href="/assets/Horde Mode - Ruinstars.pdf" title="Horde Mode" /><br/>
-              A standalone solo or co-op survival mode
-            </li>
-          </ol>
-
-          <hr/>
-
-          <div className="text-left">
-            <h4>Quick Reference</h4>
+          <div className="twocols">
+            <div className="section">
+              <h4>Rule Books</h4>
+              <ol className="text-left">
+                <li>
+                  <PDFLink href="/assets/Core Rules - Ruinstars.pdf" title="Core Rules" /><br/>
+                  <strong>Start here</strong> - Everything you need to get started
+                </li>
+                <li>
+                  <PDFLink href="/assets/Factions - Ruinstars.pdf" title="Factions" /><br/>
+                  Choose a faction and build your Squad
+                </li>
+                <li>
+                  <PDFLink href="/assets/PvE Missions - Ruinstars.pdf" title="PvE Missions" /><br/>
+                  PvE Missions for solo/coop play, including campaign rules
+                </li>
+                <li>
+                  <PDFLink href="/assets/PvP Missions - Ruinstars.pdf" title="PvP Missions" /><br/>
+                  PvP Missions for competitive play, including campaign rules
+                </li>
+                <li>
+                  <PDFLink href="/assets/Horde Mode - Ruinstars.pdf" title="Horde Mode" /><br/>
+                  A standalone solo or co-op survival mode
+                </li>
+              </ol>
+            </div>
+            <div className="section">
+              <h4>Quick Reference (1 Page)</h4>
+              <ul>
+                <li>
+                  <PDFLink href="/assets/Quick Ref - Ruinstars.pdf" title="Core Rules QuicK Ref" />
+                </li>
+                <li>
+                  <PDFLink href="/assets/PvE Missions - Quick Ref - Ruinstars.pdf" title="PvE Missions QuicK Ref" />
+                </li>
+                <li>
+                  <PDFLink href="/assets/Horde Mode - Quick Ref - Ruinstars.pdf" title="Horde Mode QuicK Ref" />
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
