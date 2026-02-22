@@ -182,7 +182,7 @@ export default function PvEMissionsQuickRef() {
           </p>
           <table className="w-full border-collapse">
             <tbody>
-              <TableRow roll="1" label="Battlefield Control" effect="All 4 corner Anchors (NW/NE/SW/SE) controlled by Player Units at end of Turn 4." />
+              <TableRow roll="1" label="Battlefield Control" effect="Place 3 COntrol points on random Anchors. All Controlled end of Turn 4." />
               <TableRow roll="2" label="Destroy Nexus"       effect="Place 3 Nexus (ARM3 HIT2) on random Anchors. All Taken Out." />
               <TableRow roll="3" label="No Survivors"        effect="All enemy Units Taken Out." />
               <TableRow roll="4" label="Protect The Asset"   effect="Asset (ARM3 HIT3) at Center. NPC priority target. Asset at ≥1 HIT at end of Turn 4." />

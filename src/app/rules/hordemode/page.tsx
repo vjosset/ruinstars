@@ -613,7 +613,8 @@ export default async function Rules() {
               <div>
                 <strong>1: Battlefield Control</strong>
                 <div className="ml-4">
-                  <strong>Victory:</strong> At the end of the Wave, there is at least one Standing Player Unit Adjacent to the NW, NE, SW, and SE Quarters.
+                  <strong>Setup:</strong> Mark three randomg Anchors as Control points.
+                  <strong>Victory:</strong> At the end of the Wave, the Player Sq uad controls all three Control points.
                   <br/>
                   <strong>Rewards</strong> (pick one):
                   <ul>

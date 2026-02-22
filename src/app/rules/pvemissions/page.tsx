@@ -139,7 +139,8 @@ export default async function PvEMissions() {
               <div>
                 <strong>1: Battlefield Control</strong>
                 <div className="ml-4">
-                  <strong>Victory:</strong> At the end of Turn 4, all four corner Anchors (NW, NE, SW, SE) are controlled by Player Units.
+                  <strong>Setup:</strong> Place a Control Point on three random Anchors.
+                  <strong>Victory:</strong> At the end of Turn 4, Player Squad Controls all three Control Points.
                   {/* 
                   <strong>Rewards (pick one):</strong>
                   <ul>

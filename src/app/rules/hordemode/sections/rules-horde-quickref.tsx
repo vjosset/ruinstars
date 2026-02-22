@@ -279,7 +279,7 @@ export default function HordeModeQuickRef() {
             <div>
               <span className="font-heading font-bold">1: Battlefield Control</span>
               <div className="ml-2 text-muted leading-snug">
-                Victory: at Wave end, at least one Standing Unit is on each Quarter (NW, NE, SW, SE).<br/>
+                Victory: at Wave end, Player Squad Controls all three Spawn Points.<br/>
                 Reward: +4 MP · or roll 2D6 (not 3D6) for Horde Spawns next Wave.
               </div>
             </div>
