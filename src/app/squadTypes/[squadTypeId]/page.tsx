@@ -45,7 +45,7 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
   const tabs = [
     { id: 'units' as const, label: 'Units', enabled: true },
     { id: 'about' as const, label: 'About', enabled: true },
-    { id: 'ops' as const, label: 'Operations', enabled: hasOps },
+    /* { id: 'ops' as const, label: 'Operations', enabled: hasOps }, */
     { id: 'squads' as const, label: 'Squads', enabled: hasSpotlights },
   ].filter(t => t.enabled)
 
@@ -201,11 +201,13 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
           </div>
         )}
 
+        {/*
         {activeTab === 'ops' && hasOps && (
           <div className="p-2">
             <ScriptedOperationsList operations={scriptedOps} factions={factionsPlain} />
           </div>
         )}
+        */}
       </div>
     </div>
   )
