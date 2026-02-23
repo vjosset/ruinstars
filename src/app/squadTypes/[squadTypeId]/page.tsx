@@ -46,7 +46,7 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
     { id: 'units' as const, label: 'Units', enabled: true },
     { id: 'about' as const, label: 'About', enabled: true },
     /* { id: 'ops' as const, label: 'Operations', enabled: hasOps }, */
-    { id: 'squads' as const, label: 'Squads', enabled: hasSpotlights },
+    /* { id: 'squads' as const, label: 'Squads', enabled: hasSpotlights }, */
   ].filter(t => t.enabled)
 
   const requestedTab = tabs.find(t => t.id === tabParam)?.id
@@ -154,6 +154,7 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
           </>
         )}
 
+        {/*
         {activeTab === 'squads' && hasSpotlights && (
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2">
             {squadType.spotlights.map((squad) => (
@@ -167,6 +168,7 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
             ))}
           </div>
         )}
+        */}
 
         {activeTab === 'about' && (
           <div className="grid gap-6 p-2">
