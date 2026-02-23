@@ -57,11 +57,11 @@ export default async function Rules() {
               target="_blank"
               className={`relative flex items-center gap-3 bg-card border rounded px-3 py-3 transition-colors group ${book.highlight ? 'border-main' : 'border-border hover:border-main'}`}
             >
-              <span className="font-stat text-sm text-muted w-6 shrink-0 text-center">{book.num}</span>
-              <BsFilePdf className="text-muted text-xl shrink-0" />
+              <span className="font-stat text-sm w-6 shrink-0 text-center">{book.num}</span>
+              <BsFilePdf className="text-xl shrink-0" />
               <div className="flex-1 min-w-0">
                 <div className="font-heading text-main uppercase">{book.title}</div>
-                <div className="text-muted text-sm font-main normal-case">{book.desc}</div>
+                <div className="text-sm font-main normal-case">{book.desc}</div>
               </div>
               {book.highlight && (
                 <span className="absolute top-0 right-8 bg-main text-black text-xs font-heading uppercase px-2 py-0.5 leading-tight">
@@ -85,7 +85,7 @@ export default async function Rules() {
               target="_blank"
               className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
             >
-              <BsFilePdf className="text-muted shrink-0" />
+              <BsFilePdf className="shrink-0" />
               <span className="flex-1 font-heading uppercase">{item.title}</span>
               <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
             </Link>
@@ -104,7 +104,7 @@ export default async function Rules() {
               target="_blank"
               className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
             >
-              <BsFilePdf className="text-muted shrink-0" />
+              <BsFilePdf className="shrink-0" />
               <span className="flex-1 font-heading uppercase">{item.title}</span>
               <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
             </Link>
