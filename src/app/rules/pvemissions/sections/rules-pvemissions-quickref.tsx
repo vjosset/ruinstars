@@ -110,7 +110,7 @@ export default function PvEMissionsQuickRef() {
             <div>
               <SubLabel>NPC Squads</SubLabel>
               <P className="text-xs">
-                Select an enemy faction and a <Hi>Threat Level (1–3)</Hi>.
+                Select an enemy faction and a <Hi>Threat Level (1-3)</Hi>.
                 Roll <Hi>3D6</Hi> — each die resolved independently. Look up each result in the column for the current TL to identify spawned Units.
               </P>
               <P className="text-xs text-muted">
@@ -182,12 +182,12 @@ export default function PvEMissionsQuickRef() {
           </p>
           <table className="w-full border-collapse">
             <tbody>
-              <TableRow roll="1" label="Battlefield Control" effect="Place 3 COntrol points on random Anchors. All Controlled end of Turn 4." />
-              <TableRow roll="2" label="Destroy Nexus"       effect="Place 3 Nexus (ARM3 HIT2) on random Anchors. All Taken Out." />
-              <TableRow roll="3" label="No Survivors"        effect="All enemy Units Taken Out." />
-              <TableRow roll="4" label="Protect The Asset"   effect="Asset (ARM3 HIT3) at Center. NPC priority target. Asset at ≥1 HIT at end of Turn 4." />
-              <TableRow roll="5" label="Disruption Field"    effect="3 Pylons on random Anchors. Calibrate Pylon (2ACT): remove Pylon. All 3 calibrated." />
-              <TableRow roll="6" label="The Artifact"        effect="3 Search Markers on random Anchors. Search (2ACT): roll 1D6, 1–2 = Artifact found. No TO re-rolls." last />
+              <TableRow roll="1" label="Control"       effect="Place 3 Control points on random Anchors. All Controlled end of Turn 4." />
+              <TableRow roll="2" label="Activate"      effect="3 Objectives on random Anchors. Activate (2ACT): Remove Objective. All 3 activated." />
+              <TableRow roll="3" label="Destroy"       effect="Place 3 Objectives (ARM3 HIT2) on random Anchors. All Taken Out." />
+              <TableRow roll="4" label="Protect"       effect="Asset (ARM3 HIT3) at Center. NPC priority target. Asset at ≥1 HIT at end of Turn 4." />
+              <TableRow roll="5" label="Search"        effect="3 Search Markers on random Anchors. Search (2ACT): roll 1D6, 1-2 = Artifact found. No TO re-rolls." />
+              <TableRow roll="6" label="No Survivors"  effect="All enemy Units Taken Out." last />
             </tbody>
           </table>
         </Card>

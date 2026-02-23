@@ -137,7 +137,7 @@ export default async function PvEMissions() {
               <h3>Objectives (D6)</h3>
               At the start of the Mission, roll <code>2D6</code> to determine two objectives for the mission (re-roll doubles).
               <div>
-                <strong>1: Battlefield Control</strong>
+                <strong>1: Control Objectives</strong>
                 <div className="ml-4">
                   <strong>Setup:</strong> Place a Control Point on three random Anchors.
                   <strong>Victory:</strong> At the end of Turn 4, Player Squad Controls all three Control Points.
@@ -157,11 +157,32 @@ export default async function PvEMissions() {
                 </div>
               </div>
               <div>
-                <strong>2: Destroy Nexus</strong>
+                <strong>2: Activate Objectives</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place a Nexus marker on 3 random Anchors.<br/>
-                  <strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
-                  <strong>Victory:</strong> All Nexus Markers are Taken Out.
+                  <strong>Setup:</strong> Place an Objective on 3 random Anchors.<br/>
+                  <strong>Mission Action - Activate (2ACT):</strong> A Unit that Controls an Objective activates it. Remove that Objective from the battlefield.<br/>
+                  <strong>Victory:</strong> All 3 Objectives have been activated.
+                  {/* 
+                  <strong>Rewards (pick one):</strong>
+                  <ul>
+                    <li>
+                      <strong>Orbital Survey</strong>
+                      In the next Mission, you may choose to ignore one Turn Event
+                    </li>
+                    <li>
+                      <strong>Signal Advantage</strong>
+                      In the next Mission, Player Squad gets +2 TO in the first Turn
+                    </li>
+                  </ul>
+                  */}
+                </div>
+              </div>
+              <div>
+                <strong>3: Destroy Objectives</strong>
+                <div className="ml-4">
+                  <strong>Setup:</strong> Place an Objective on 3 random Anchors.<br/>
+                  <strong>Special:</strong> Objectives are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
+                  <strong>Victory:</strong> All Objectives are Taken Out.
                   {/* 
                   <strong>Rewards (pick one):</strong>
                   <ul>
@@ -172,25 +193,6 @@ export default async function PvEMissions() {
                     <li>
                       <strong>Fragmented Defense</strong>
                       In the next Mission, after deploying NPC Units, you may remove one NPC Unit from the battlefield.
-                    </li>
-                  </ul>
-                  */}
-                </div>
-              </div>
-              <div>
-                <strong>3: No Survivors</strong>
-                <div className="ml-4">
-                  <strong>Victory:</strong> All enemy Units Taken Out.
-                  {/* 
-                  <strong>Rewards (pick one):</strong>
-                  <ul>
-                    <li>
-                      <strong>Attrition</strong>
-                      In the next Mission, you may choose one NPC Spawn die to spawn 1 less Unit.
-                    </li>
-                    <li>
-                      <strong>Persistent Wound</strong>
-                      In the next Mission, choose two NPC Units to start with -1 HIT.
                     </li>
                   </ul>
                   */}
@@ -218,28 +220,7 @@ export default async function PvEMissions() {
                 </div>
               </div>
               <div>
-                <strong>5: Disruption Field</strong>
-                <div className="ml-4">
-                  <strong>Setup:</strong> Place a Disruptor Pylon on 3 random Anchors.<br/>
-                  <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Disruptor Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
-                  <strong>Victory:</strong> All 3 Disruptor Pylons have been calibrated.
-                  {/* 
-                  <strong>Rewards (pick one):</strong>
-                  <ul>
-                    <li>
-                      <strong>Orbital Survey</strong>
-                      In the next Mission, you may choose to ignore one Turn Event
-                    </li>
-                    <li>
-                      <strong>Signal Advantage</strong>
-                      In the next Mission, Player Squad gets +2 TO in the first Turn
-                    </li>
-                  </ul>
-                  */}
-                </div>
-              </div>
-              <div>
-                <strong>6: The Artifact</strong>
+                <strong>5: Search & Recover</strong>
                 <div className="ml-4">
                   <strong>Setup:</strong> Place a Search Marker on 3 random Anchors.<br/>
                   <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. Roll <code>1D6</code>: On a 1 or 2, the Artifact is found. This roll cannot be modified or re-rolled using TO.<br/>
@@ -259,6 +240,30 @@ export default async function PvEMissions() {
                   */}
                 </div>
               </div>
+              <div>
+                <strong>6: No Survivors</strong>
+                <div className="ml-4">
+                  <strong>Victory:</strong> All enemy Units Taken Out.
+                  {/* 
+                  <strong>Rewards (pick one):</strong>
+                  <ul>
+                    <li>
+                      <strong>Attrition</strong>
+                      In the next Mission, you may choose one NPC Spawn die to spawn 1 less Unit.
+                    </li>
+                    <li>
+                      <strong>Persistent Wound</strong>
+                      In the next Mission, choose two NPC Units to start with -1 HIT.
+                    </li>
+                  </ul>
+                  */}
+                </div>
+              </div>
+              These Objectives describe mechanics, not story. The names and markers are placeholders.
+              When building a campaign, replace them with whatever fits the mission.<br/>
+              "Activate Objectives" can mean picking up data cores, toppling ritual altars, or placing demolition charges.
+              "The Asset" becomes a defector, a relic, or a downed pilot.<br/>
+              The mechanics stay the same; the campaign tells the player what each objective means.
             </div>
             {/* Modifiers */}
             <div className="section">
@@ -400,7 +405,7 @@ export default async function PvEMissions() {
           <div>
             <h2>Campaigns</h2>
             <div className="twocols">
-              <div className="section">
+              <div className="">
                 <h3>Campaign Structure</h3>
                 A Campaign is composed of three Operations, and each Operation is composed of three Missions.<br/>
                 At the end of each Operation, your Squad returns to Homebase to heal injuries, resupply, and recruit new Units into the Squad.
@@ -438,13 +443,29 @@ export default async function PvEMissions() {
                     </ul>
                   </li>
                 </ul>
-              </div>
-              <div className="section">
                 <h3>Operations</h3>
                 An Operation represents a critical deployment arc within the larger Campaign structure, and is composed of three sequential Missions.
                 When the Operation begins, your Squad is considered in the field. While deployed in the field, the Squad cannot change its Units or Gear selections, and any Mission Points (MP) earned during these missions cannot be spent on new Units or Gear.<br/>
                 Once the third Mission of an Operation is complete, your Squad returns to Homebase to heal Injuries, make new Gear selections, and recruit new Units by spending their hard-earned MP.
-                
+
+                <h4>Missions and Objectives</h4>
+                Each Mission in the campaign should move the story forward. In many cases, this means using the 6 Objectives from the table above, but re-skinning them to fit the narrative. Here are some examples of reframing the core Objectives to fit <em>your</em> story:
+
+                <div>
+                  <h6>Control Objectives</h6>
+                  The markers could be anything worth holding: a comm relay that must stay live, a breach point that cannot be ceded, a position that commands the only viable extraction route. The story reason matters less than the pressure it creates. If the enemy controls it, you lose.
+                  <h6>Activate Objectives</h6>
+                  Think of these as things that must be done, not held. Purging corrupted data cores. Triggering demolition charges. Sealing breaches in a containment perimeter. The squad moves through, does the work, and leaves. The objective is complete when there is nothing left to do.
+                  <h6>Destroy Objectives</h6>
+                  These are things that cannot be allowed to survive. Spawn nodes. Weapons caches. A relay broadcasting enemy coordinates. Whatever they are, they can take damage and they must be brought down. Unlike Activate Objectives, destroying them is a fight, not a procedure.
+                  <h6>Protect The Asset</h6>
+                  The asset is whatever your squad cannot afford to lose. A wounded officer. A piece of salvage worth more than the mission. A civilian who knows something. The enemy will go for it. Your job is to make sure they fail.
+                  <h6>Search & Recover</h6>
+                  Something is here. You don't know where. It could be intelligence, a weapon, a body, a signal source. You search until you find it. Campaigns can replace the die roll with a guaranteed find on each marker if the mission calls for certainty over tension.
+                  <h6>No Survivors</h6>
+                  No markers. No positions. No extraction until the last one drops. Sometimes the mission is that simple, and that hard.
+                </div>
+               
                 <h4>Enemy Faction and Threat Level</h4>
                 The Threat Level to use when building NPC Squads should be the same as the Operation number (i.e. TL1 for Missions in Operation 1, TL2 for Operation 2, TL3 for Operation 3).
                 For simplicity, we also recommend using the same faction for all Missions in a given Operation but you may choose to change factions for each Mission.
