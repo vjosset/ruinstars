@@ -54,7 +54,7 @@ export default async function Home() {
           
           <div className="text-center max-w-lg mx-auto noprint mt-4">
             <Button>
-              <Link target="_blank" href="/rules">
+              <Link href="/rules">
                 <h5>Download The Rules</h5>
               </Link>
             </Button>
