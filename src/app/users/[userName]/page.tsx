@@ -6,7 +6,9 @@ import { userPath } from '@/lib/utils/utils'
 import { UserService } from '@/services'
 import { getAuthSession } from '@/src/lib/auth'
 import { Squad } from '@/types/squad.model'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { FiActivity, FiSettings } from 'react-icons/fi'
 import UserPageClient from './UserPageClient'
 export const revalidate = 60
 
@@ -59,10 +61,22 @@ export default async function UserPage({ params }: { params: Promise<{ userName:
 
   return (
     <div className="px-1 py-8 max-w-7xl mx-auto">
-      <div className="text-center mb-8">
+      <div className="text-center mb-8 relative">
         <PageTitle>
           {user.userName}
         </PageTitle>
+        {isOwner && (
+          <div className="absolute top-0 right-0 flex items-center gap-3">
+            {session?.user?.userId === 'vince' && (
+              <Link href="/admin" className="text-muted hover:text-main transition-colors" title="Admin">
+                <FiActivity size={20} />
+              </Link>
+            )}
+            <Link href="/settings" className="text-muted hover:text-main transition-colors" title="Settings">
+              <FiSettings size={20} />
+            </Link>
+          </div>
+        )}
       </div>
       
       <UserPageClient 
