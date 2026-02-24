@@ -18,8 +18,8 @@ export async function generateMetadata() {
 const RULE_BOOKS = [
   { num: '01', title: 'Core Rules', desc: 'Everything you need to start playing.', href: '/assets/Core Rules - Ruinstars.pdf', highlight: true },
   { num: '02', title: 'Factions', desc: 'Choose a faction and build your squad.', href: '/assets/Factions - Ruinstars.pdf' },
-  { num: '03', title: 'PvE Missions', desc: 'Solo/co-op missions against NPC factions.', href: '/assets/PvE Missions - Ruinstars.pdf' },
-  { num: '04', title: 'PvP Missions', desc: 'Competitive missions for two squads.', href: '/assets/PvP Missions - Ruinstars.pdf' },
+  { num: '03', title: 'PvE Missions', desc: 'Solo/co-op missions against NPC squads.', href: '/assets/PvE Missions - Ruinstars.pdf' },
+  { num: '04', title: 'PvP Missions', desc: 'Competitive missions for two players.', href: '/assets/PvP Missions - Ruinstars.pdf' },
   { num: '05', title: 'Horde Mode', desc: 'Standalone solo/coop survival mode.', href: '/assets/Horde Mode - Ruinstars.pdf' },
 ]
 
