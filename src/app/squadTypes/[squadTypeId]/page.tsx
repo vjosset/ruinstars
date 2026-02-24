@@ -1,5 +1,3 @@
-import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
-import SquadCard from '@/components/squad/SquadCard'
 import SquadTypeCard from '@/components/squadType/SquadTypeCard'
 import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
@@ -74,9 +72,6 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
         <div className="relative flex flex-col items-center justify-center px-8 pt-36 w-full">
           <div className="flex items-center gap-x-4 mb-4">
             <PageTitle>{squadType.squadTypeName}</PageTitle>
-          </div>
-          <div className="text-white max-w-2xl text-center m-4">
-            <Markdown className="flavor_disabled">{squadType.description}</Markdown>
           </div>
         </div>
       </div>
@@ -174,21 +169,20 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
           <div className="grid gap-6 p-2">
             <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
               <div className="space-y-3">
-                <h4 className="font-heading text-main">
-                  {squadType.squadTypeName}
-                </h4>
-                <Markdown>{squadType.lore}</Markdown>
+                <em>{squadType.tagline}</em>
+                <Markdown className="flavor">{squadType.lore}</Markdown>
+                <Markdown>{squadType.description}</Markdown>
               </div>
               <div className="space-y-3">
                 <Link href={`/factions/${squadType.factionId}`} className="inline-flex items-center gap-2">
                   <h4 className="font-heading text-main">{squadType.faction.factionName}</h4>
                   <FiExternalLink className="w-4 h-4 text-muted" />
-                </Link>
-                <Markdown>{squadType.faction.lore}</Markdown>
+                </Link><br/>
+                <em>{squadType.faction.tagline}</em>
                 
                 {squadType.faction.squadTypes?.filter(st => st.squadTypeId !== squadType.squadTypeId).length > 0 && (
                   <div className="space-y-3">
-                    <h5 className="font-heading text-main">Other {squadType.faction.factionName} Squad Types</h5>
+                    <h5 className="font-heading text-main">Also in {squadType.faction.factionName}</h5>
                     <div className="grid gap-4 grid-cols-1">
                       {squadType.faction.squadTypes
                         .filter(st => st.squadTypeId !== squadType.squadTypeId)
