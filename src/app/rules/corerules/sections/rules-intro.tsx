@@ -17,9 +17,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               The stars are dying, the gods are silent, and the empires that once ruled the galaxy have crumbled into ash and echoes.<br/>
               Across a fractured void of decaying worlds and haunted relics, scattered fireteams carry out the final orders of long-dead masters.<br/>
               There is no hope of victory - only duty and the bitter certainty that each mission may be the last.<br/>
-              In the shadows of ancient horrors and cursed machines, elite squads wage desperate black ops in a war that has lost all meaning... but not all purpose.<br/>
-              <br/>
-              Welcome to {GAME.NAME} - where only ruins remain, and only war endures.
+              In the shadows of ancient horrors and cursed machines, elite squads wage desperate black ops in a war that has lost all meaning...
             </div>
           </div>
           <div className="section">

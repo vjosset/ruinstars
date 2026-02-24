@@ -48,8 +48,8 @@ export default async function Home() {
             <h1 className="glowtext">{GAME.NAME}</h1>
           </div>
           <p className="text-center max-w-lg mx-auto mt-2">
+            <em>Squad operations in a dying galaxy.</em><br/>
             A free, fast-paced, miniatures-agnostic sci-fi skirmish wargame.<br/>
-            <em>Build your squads. Track your battles. Dominate the stars.</em>
           </p>
           
           <div className="text-center max-w-lg mx-auto noprint mt-4">
