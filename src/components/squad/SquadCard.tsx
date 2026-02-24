@@ -53,7 +53,7 @@ export default function SquadCard({
   
   return (
     <>
-      <div className="group grid grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] bg-card border border-border rounded hover:border-main transition h-[120px]" key={squad.squadId}>
+      <div className="group grid grid-cols-[135px_1fr] md:grid-cols-[135px_1fr] bg-card border border-border rounded hover:border-main transition h-[90px]" key={squad.squadId}>
         {/* Image section - left side */}
         <Link href={`/squads/${squad.squadId}`} className="relative overflow-hidden border-r border-border">
           <div 
@@ -68,7 +68,7 @@ export default function SquadCard({
         </Link>
 
         {/* Content section - right side */}
-        <div className="relative p-2 flex flex-col justify-between h-full min-w-0">
+        <div className="relative px-2 py-1 flex flex-col justify-between h-full min-w-0">
           <div className="flex items-center gap-1 min-w-0" style={{width: '100%'}}>
             <Link href={`/squads/${squad.squadId}`} className="flex items-center min-w-0 flex-1"> {/* Added min-w-0 to allow text truncation */}
               <h5 className="font-heading text-main truncate overflow-hidden whitespace-nowrap w-full"> {/* Add  truncate w-0 flex-1 to allow text truncation + ellipsis */}

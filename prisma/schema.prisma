@@ -21,6 +21,7 @@ model Faction {
   factionId   String      @id @db.VarChar(20)
   seq         Int         @default(0)
   factionName String      @db.VarChar(250)
+  tagline     String      @db.VarChar(500) @default("")
   description String      @db.Text
   lore        String      @db.Text
   squadTypes  SquadType[]
@@ -31,6 +32,7 @@ model SquadType {
   seq            Int     @default(0)
   squadTypeId    String  @id @db.VarChar(20)
   squadTypeName  String  @db.VarChar(250)
+  tagline        String  @db.VarChar(500) @default("")
   description    String  @db.Text
   lore           String  @db.Text
   isPublished    Boolean @default(false)

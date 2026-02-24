@@ -20,6 +20,7 @@ export default async function FactionList({
         <div key={faction.factionId}>
           <Link href={`/factions/${faction.factionId}`}>
             <h4 className="font-heading">{faction.factionName}</h4>
+            <em>{faction.tagline}</em>
           </Link>
             
           <div className="grid gap-4 grid-cols-1">

@@ -5,6 +5,7 @@ export type SquadTypePlain = {
   factionId: string
   seq: number
   squadTypeName: string
+  tagline: string
   description: string
   lore: string
   isPublished: boolean
@@ -20,6 +21,7 @@ export class SquadType {
   factionId: string
   seq: number
   squadTypeName: string
+  tagline: string
   description: string
   lore: string
   isPublished: boolean
@@ -34,6 +36,7 @@ export class SquadType {
     factionId: string
     seq: number
     squadTypeName: string
+    tagline: string
     description: string
     lore: string
     isPublished: boolean
@@ -47,6 +50,7 @@ export class SquadType {
     this.factionId = data.factionId
     this.seq = data.seq
     this.squadTypeName = data.squadTypeName
+    this.tagline = data.tagline
     this.description = data.description
     this.lore = data.lore
     this.isPublished = data.isPublished
@@ -63,6 +67,7 @@ export class SquadType {
       factionId: this.factionId,
       seq: this.seq,
       squadTypeName: this.squadTypeName,
+      tagline: this.tagline,
       description: this.description,
       lore: this.lore,
       isPublished: this.isPublished,

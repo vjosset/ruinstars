@@ -12,6 +12,7 @@ export class FactionRepository extends BaseRepository {
         factionId: row.factionId,
         seq: row.seq,
         factionName: row.factionName,
+        tagline: row.tagline,
         description: row.description,
         lore: row.lore,
         squadTypes: []
@@ -41,6 +42,7 @@ export class FactionRepository extends BaseRepository {
       factionId: row.factionId,
       seq: row.seq,
       factionName: row.factionName,
+      tagline: row.tagline,
       description: row.description,
       lore: row.lore,
       squadTypes: row.squadTypes.map(squadType => new SquadType({
@@ -50,6 +52,7 @@ export class FactionRepository extends BaseRepository {
           factionId: row.factionId,
           seq: row.seq,
           factionName: row.factionName,
+          tagline: row.tagline,
           description: row.description,
           lore: row.lore,
           squadTypes: []
@@ -81,6 +84,7 @@ export class FactionRepository extends BaseRepository {
       factionId: row.factionId,
       seq: row.seq,
       factionName: row.factionName,
+      tagline: row.tagline,
       description: row.description,
       lore: row.lore,
       squadTypes: row.squadTypes.map(squadType => new SquadType({
@@ -90,6 +94,7 @@ export class FactionRepository extends BaseRepository {
           factionId: row.factionId,
           seq: row.seq,
           factionName: row.factionName,
+          tagline: row.tagline,
           description: row.description,
           lore: row.lore,
           squadTypes: []

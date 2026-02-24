@@ -322,6 +322,7 @@ export class SquadTypeRepository extends BaseRepository {
         factionId: st.factionId,
         seq: st.seq,
         squadTypeName: st.squadTypeName,
+        tagline: st.tagline,
         description: st.description,
         lore: st.lore,
         isPublished: st.isPublished,
@@ -330,6 +331,7 @@ export class SquadTypeRepository extends BaseRepository {
           factionId: st.faction.factionId,
           seq: st.faction.seq,
           factionName: st.faction.factionName,
+          tagline: st.faction.tagline,
           description: st.faction.description,
           lore: st.faction.lore,
           squadTypes: []
@@ -344,6 +346,7 @@ export class SquadTypeRepository extends BaseRepository {
       factionId: row.faction.factionId,
       seq: row.faction.seq,
       factionName: row.faction.factionName,
+      tagline: row.faction.tagline,
       description: row.faction.description,
       lore: row.faction.lore,
       squadTypes: factionSquadTypes
@@ -354,6 +357,7 @@ export class SquadTypeRepository extends BaseRepository {
       factionId: row.factionId,
       seq: row.seq,
       squadTypeName: row.squadTypeName,
+      tagline: row.tagline,
       description: row.description,
       lore: row.lore,
       isPublished: row.isPublished,

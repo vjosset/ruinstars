@@ -1,6 +1,5 @@
 import { SquadType } from '@/types/squadType.model'
 import Link from 'next/link'
-import Markdown from '../ui/Markdown'
 
 type SquadTypeCardProps = {
   squadType: SquadType
@@ -9,7 +8,7 @@ type SquadTypeCardProps = {
 export default function SquadTypeCard({ squadType }: SquadTypeCardProps) {
   return (
     <Link 
-      className="group grid grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] bg-card border border-border rounded hover:border-main transition h-[120px]"
+      className="group grid grid-cols-[135px_1fr] md:grid-cols-[135px_1fr] bg-card border border-border rounded hover:border-main transition h-[90px]"
       href={`/squadTypes/${squadType.squadTypeId}`}
     >
       {/* Image section - left side */}
@@ -26,7 +25,7 @@ export default function SquadTypeCard({ squadType }: SquadTypeCardProps) {
           <h5 className="font-heading text-main text-xl truncate overflow-hidden whitespace-nowrap w-full">{squadType.squadTypeName}</h5>
         </div>
         <div className="line-clamp-3">
-          <Markdown>{squadType.description}</Markdown>
+          {squadType.tagline}
         </div>
       </div>
     </Link>

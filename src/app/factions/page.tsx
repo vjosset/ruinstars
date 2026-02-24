@@ -13,7 +13,7 @@ export default async function FactionsPage() {
       <div className="text-center mb-8">
         <PageTitle>Factions</PageTitle>
         <p className="text-muted mt-2 max-w-xl mx-auto">
-          {GAME.NAME} is home to rival powers vying for dominance. Each faction and squad type brings unique tactics, units, and strategies.
+          A dying galaxy, and no shortage of factions willing to fight over what's left.
         </p>
       </div>
 
