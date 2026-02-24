@@ -82,12 +82,14 @@ export default async function RulesGameCycle({ num }: {num?: number | null}) {
               <ol>
                 <li>Mark all Units as Ready (not Activated)</li>
                 <li>Resolve all &quot;Start of Turn&quot; skills or events</li>
+                <li>Each player rolls <code>1D6</code>. The Squad with the lowest result wins Initiative and chooses which Squad activates first this Turn. On a tie, re-roll.</li>
               </ol>
             </li>
             <li>
               <strong>Activate Units</strong><br/>
-              The Squad with the Initiative activates their first Unit, then Squads alternate activating their Units until all Units have been activated.<br/>
-              After each Player Unit activation, the same player activates a Ready enemy Unit.
+              The Squad with Initiative activates one unit.
+              Squads then alternate activating units until all units have been activated.
+              How opposing units are controlled depends on your play mode.
               See also <a className="underline" href="#alternating-activations">Alternating Activations</a>.
             </li>
             <li>
@@ -119,15 +121,11 @@ export default async function RulesGameCycle({ num }: {num?: number | null}) {
         <div className="section">
           <h3 id="activations">Alternating Activations</h3>
           <div>
-            During each Turn, Players take turns Activating one PLayer Unit that has not yet been activated, followed by activating one Enemy Unit.<br/>
-            For example, during each Turn:
-            <ul className="section">
-              <li>Player 1 activates the first Player Unit and performs Actions</li>
-              <li>Player 1 activates the first NPC Unit and performs Actions</li>
-              <li>Player 2 activates the next Player Unit and performs Actions</li>
-              <li>Player 2 activates the next NPC Unit and performs Actions</li>
-              <li>etc.</li>
-            </ul>
+            Each turn, squads alternate activating one unit at a time.
+            The squad with Initiative activates first.
+            This continues until all units on the battlefield have been activated.
+            In PvP, each player controls their own squad.
+            In PvE and Horde Mode, opposing units are controlled by NPC rules defined in the relevant play mode book.
           </div>
         </div>
       </div>

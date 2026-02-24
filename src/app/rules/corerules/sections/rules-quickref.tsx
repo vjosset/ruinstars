@@ -191,7 +191,7 @@ export default async function RulesQuickRef() {
               { label: 'End of Turn' },
             ]} />
             <SubLabel>Activations</SubLabel>
-            <P>Players alternate activating one <Hi>Player Unit</Hi> then one <Hi>Enemy Unit</Hi> until all Units are activated.</P>
+            <P>Squads alternate activating one <Hi>Unit</Hi> until all Units are activated.</P>
             <Divider />
             <SubLabel>Mission End</SubLabel>
             <Steps items={[
@@ -199,7 +199,7 @@ export default async function RulesQuickRef() {
               { label: 'Earn MP' },
               { label: 'Apply Injuries', highlight: true },
             ]} />
-            <p className="text-xs text-muted mt-1">MP &amp; Injury rules defined in your play mode book.</p>
+            <p className="text-xs text-muted mt-1">MP &amp; Injury rules defined in your play mode.</p>
           </Card>
 
           {/* Row 2: Actions | Tactical Orders */}
