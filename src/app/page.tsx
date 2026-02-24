@@ -59,8 +59,6 @@ export default async function Home() {
               </Link>
             </Button>
           </div>
-          
-          <AuthButtons />
           <br/><br/>
         </div>
       </div>

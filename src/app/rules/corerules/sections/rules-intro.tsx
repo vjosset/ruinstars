@@ -18,6 +18,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               Across a fractured void of decaying worlds and haunted relics, scattered fireteams carry out the final orders of long-dead masters.<br/>
               There is no hope of victory - only duty and the bitter certainty that each mission may be the last.<br/>
               In the shadows of ancient horrors and cursed machines, elite squads wage desperate black ops in a war that has lost all meaning...
+              but not all purpose
             </div>
           </div>
           <div className="section">
@@ -48,6 +49,10 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               <li><strong>Table Size:</strong> Works on compact tables with dense terrain, typically 2' x 2'</li>
               <li><strong>Play Modes:</strong> PvE solo or co-op campaigns, Horde Mode, and PvP</li>
             </ul>
+          </div>
+          <div className="section">
+            <h3>Build and Track Online</h3>
+            The Ruinstars app lets you build and save squads, track stats at the table, add unit portraits, and share your squads with other players via a link.             <Link className="underline" href="/signup">Sign up free</Link>
           </div>
           <div className="section">
             <h3 className="py-3 font-title" id="introduction">
