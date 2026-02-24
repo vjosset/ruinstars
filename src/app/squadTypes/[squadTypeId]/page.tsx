@@ -73,6 +73,7 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
           <div className="flex items-center gap-x-4 mb-4">
             <PageTitle>{squadType.squadTypeName}</PageTitle>
           </div>
+          <em>{squadType.tagline}</em>
         </div>
       </div>
 
@@ -169,7 +170,6 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
           <div className="grid gap-6 p-2">
             <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
               <div className="space-y-3">
-                <em>{squadType.tagline}</em>
                 <Markdown className="flavor">{squadType.lore}</Markdown>
                 <Markdown>{squadType.description}</Markdown>
               </div>
