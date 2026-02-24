@@ -52,7 +52,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
           </div>
           <div className="section">
             <h3>Build and Track Online</h3>
-            The Ruinstars app lets you build and save squads, track stats at the table, add unit portraits, and share your squads with other players via a link.             <Link className="underline" href="/signup">Sign up free</Link>
+            The Ruinstars app lets you build and save squads, track stats at the table, add unit portraits, and share your squads with other players via a link.             <Link className="underline" href="/auth/signup">Sign up free</Link>
           </div>
           <div className="section">
             <h3 className="py-3 font-title" id="introduction">

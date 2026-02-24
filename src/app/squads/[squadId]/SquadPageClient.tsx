@@ -9,13 +9,14 @@ import PageTitle from '@/components/ui/PageTitle'
 import AddUnitForm from '@/components/unit/AddUnitForm'
 import UnitCard from '@/components/unit/UnitCard'
 import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
+import { shareSquad } from '@/lib/utils/shareSquad'
 import { SpecialRule } from '@/lib/utils/specialRules'
 import { FactionPlain, SquadPlain, UnitPlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { FiDownload, FiEdit2, FiMoreVertical } from 'react-icons/fi'
+import { FiDownload, FiEdit2, FiMoreVertical, FiShare2 } from 'react-icons/fi'
 import { toast } from 'sonner'
 
 export default function SquadPageClient({
@@ -36,6 +37,7 @@ export default function SquadPageClient({
   const formRef = useRef<{ handleSubmit: () => void }>(null)
   const [showResetModal, setShowResetModal] = useState<boolean>(false)
   const [showEditSquadModal, setShowEditSquadModal] = useState<boolean>(false)
+  const [showImportModal, setShowImportModal] = useState<boolean>(false)
   const [carouselIsOpen, setCarouselIsOpen] = useState(false)
   const [carouselStartIndex, setCarouselStartIndex] = useState(0)
 
@@ -142,6 +144,26 @@ export default function SquadPageClient({
     }
   }
   
+  const handleShare = () => shareSquad(squad)
+  const handleImportClick = () => setShowImportModal(true)
+  const handleImportConfirm = async () => {
+    try {
+      const res = await fetch(`/api/squads/${squad.squadId}/clone`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}),
+      })
+      if (!res.ok) throw new Error('Failed to import squad')
+      const newSquadId = (await res.json()).squadId
+      toast.success('Squad imported, redirecting...')
+      setTimeout(() => router.push(`/squads/${newSquadId}`), 500)
+    } catch (err) {
+      console.error(err)
+      toast.error('Failed to import squad')
+    } finally {
+      setShowImportModal(false)
+    }
+  }
   const handleResetClick = () => { setShowResetModal(true)}
   const handleEditSquadClick = () => { setShowEditSquadModal(true)}
 
@@ -246,34 +268,35 @@ export default function SquadPageClient({
               <span className="text-sm">{totalGP}GP</span>
             )}
 
-            {!isOwner && status === 'authenticated' && (
-              <Button
-                className="cursor-pointer items-center p-0"
-                title="Import this Squad to your Squads"
-                aria-label="Import this squad"
-                onClick={async () => {
-                  try {
-                    const res = await fetch(`/api/squads/${squad.squadId}/clone`, {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({
-                        squadName: squad.squadName,
-                        squadTypeId: squad.squadTypeId,
-                      }),
-                    })
+            {!isOwner && (
+              <>
+                <div className="flex items-center gap-2">
+                  <Button
+                    title="Share this squad"
+                    aria-label="Share this squad"
+                    onClick={handleShare}
+                  >
+                    <FiShare2 />
+                  </Button>
 
-                    if (!res.ok) throw new Error('Failed to import squad')
-                    toast.success('Squad imported, redirecting...')
-
-                    const { squadId } = await res.json()
-                    setTimeout(() => router.push(`/squads/${squadId}`), 500)
-                  } catch (err) {
-                    console.error(err)
-                    toast.error('Could not import squad')
-                  }
-                }}>
-                <FiDownload />
-              </Button>
+                  {status === 'authenticated' ? (
+                    <Button
+                      title="Import this Squad to your Squads"
+                      aria-label="Import this squad"
+                      onClick={handleImportClick}>
+                      <FiDownload />
+                    </Button>
+                  ) : status === 'unauthenticated' ? (
+                    <Button
+                      variant="ghost"
+                      title="Sign up free to import and build squads"
+                      onClick={() => router.push('/auth/signup')}
+                    >
+                      <span className="text-xs">Sign up free to import</span>
+                    </Button>
+                  ) : null /* loading state, render nothing */}
+                </div>
+              </>
             )}
           </div>
         </div>
@@ -359,6 +382,28 @@ export default function SquadPageClient({
               allSpecials={allSpecials ?? []}
               onUnitAdded={addUnit}
             />
+          )}
+
+          {showImportModal && (
+            <Modal
+              title={`Import ${squad.squadName}`}
+              onClose={() => setShowImportModal(false)}
+              footer={
+                <div className="flex justify-end gap-2">
+                  <Button variant="ghost" onClick={() => setShowImportModal(false)}>
+                    <h6>Cancel</h6>
+                  </Button>
+                  <Button onClick={handleImportConfirm}>
+                    <h6>Import</h6>
+                  </Button>
+                </div>
+              }
+            >
+              <p>
+                This will add a copy of Void Raptors to your squads.
+                Field them as-is, or make them your own.
+              </p>
+            </Modal>
           )}
 
           {showResetModal && (

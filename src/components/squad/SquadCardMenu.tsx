@@ -1,14 +1,10 @@
-import { GAME } from '@/lib/config/game_config'
-import { showInfoModal } from '@/lib/utils/showInfoModal'
+import { shareSquad } from '@/lib/utils/shareSquad'
 import { SquadPlain } from '@/types'
 import { MenuItem, MenuItems } from '@headlessui/react'
 import clsx from 'clsx'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { QRCodeSVG } from 'qrcode.react'
 import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiCopy, FiEdit, FiPrinter, FiRotateCcw, FiShare2, FiTrash } from 'react-icons/fi'
 import { toast } from 'sonner'
-import { Button } from '../ui'
 
 export default function SquadCardMenu({
   squad,
@@ -36,18 +32,6 @@ export default function SquadCardMenu({
 
   const router = useRouter()
   const showMoveCol = !!(onMoveUp || onMoveFirst || onMoveDown || onMoveLast)
-
-  const handleNativeShare = async () => {
-    try {
-      await navigator.share({
-        title: squad.squadName || squad.squadType?.squadTypeName,
-        text: squad.description || `A ${squad.squadType?.squadTypeName} by ${squad.user?.userName}`,
-        url: `/squads/${squad.squadId}`,
-      })
-    } catch (err) {
-      console.error('Share failed:', err)
-    }
-  }
 
   const onClone = async () => {
     try {
@@ -150,30 +134,7 @@ export default function SquadCardMenu({
               <MenuItem>
                 {({ focus }) => (
                   <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground')}
-                    onClick={() => {
-                      typeof navigator !== 'undefined' && typeof navigator.share === 'function' && handleNativeShare()
-                      showInfoModal({
-                        title: `Share - ${squad.squadName}`,
-                        body:
-                      <div className="flex flex-col items-start gap-2">
-                        {typeof navigator !== 'undefined' && typeof navigator.share === 'function' && (
-                          <Button onClick={handleNativeShare} className="flex">
-                            <FiShare2 /> Share
-                          </Button>
-                        )}
-                        <strong>SquadId:</strong> <pre className="text-2xl">{squad.squadId}</pre>
-                        <br />
-                        <strong>Squad Link:</strong>{' '}
-                        <Link href={`/squads/${squad.squadId}`}>{GAME.ROOT_URL}/squads/{squad.squadId}</Link>
-                        <br /><br />
-                        <div className="mx-auto flex justify-center">
-                          <div className="p-4 bg-white rounded">
-                            <QRCodeSVG value={`${GAME.ROOT_URL}/squads/${squad.squadId}`} size={128} />
-                          </div>
-                        </div>
-                      </div>
-                      })
-                    }}
+                    onClick={() => shareSquad(squad)}
                   >
                     <FiShare2 /> Share
                   </button>

@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Crawl-delay: 5
+#Crawl-delay: 5
 
 Disallow: /squads$
 Disallow: /users$
@@ -46,8 +46,8 @@ User-agent: Amazonbot
 Disallow: /
 User-agent: Bytespider
 Disallow: /
-User-agent: ClaudeBot
-Disallow: /
+#User-agent: ClaudeBot
+#Disallow: /
 # Block Google AdsBot
 User-agent: AdsBot
 Disallow: /
@@ -55,9 +55,9 @@ Disallow: /
 User-agent: PetalBot
 Disallow: /
 # Block Claude (LLM Scraper)
-User-agent: ClaudeBot
-Crawl-delay: 100
-Disallow: /
+#User-agent: ClaudeBot
+#Crawl-delay: 100
+#Disallow: /
 # Block Common Crawl (LLM Scraper)
 User-agent: CCBot
 Crawl-delay: 100
