@@ -231,6 +231,7 @@ export class UserRepository extends BaseRepository {
       factionId: string
       seq: number
       squadTypeName: string
+      tagline: string
       description: string
       lore: string
       isPublished: boolean
@@ -239,6 +240,7 @@ export class UserRepository extends BaseRepository {
         factionId: string
         seq: number
         factionName: string
+        tagline: string
         description: string
         lore: string
       }
