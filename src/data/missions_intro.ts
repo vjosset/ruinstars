@@ -16,7 +16,7 @@ const missions_intro = [
     seq: 1,
     title: 'Survive',
     active: true,
-    description: 'The city is gone, reduced to a maze of ruins and burning streets. At its center, a final strongpoint holds as the horde closes in from every direction. Surrounded by shattered towers and choked avenues, the defenders stand their ground, buying time with blood and fire while the metropolis collapses around them.',
+    description: '',
     setup: '',
     deployment: 'Player Units deploy anywhere within 4" of the center of the battlefield',
     victory: 'At the end of Turn 4, if all Spawn Points have been Taken Out, your Squad wins the mission.',
@@ -32,7 +32,6 @@ Bug Units are activated after each player Unit activation, alternating player co
 |(M) Bite||3|4|
 
 Spawn Points are treated as items and can be targeted in combat. Spawn Points cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Spawn Point.
-If a Spawn Point is targeted in combat and is not Taken Out as a result, spawn one Bug Adjacent to that Spawn Point.
 
 |**Item**|**ACT**|**ARM**|**HIT**|
 |-----|:---:|:---:|:---:|
