@@ -80,7 +80,7 @@ export default async function RulesPlayingOnAGrid({ num }: {num?: number | null}
             <h4>Cover</h4>
             <div className="columns-2">
               <div>
-                A target is in Cover if a wall occupies any edge of the square it occupies.
+                A target is in Cover if a wall occupies any of its square's edges.
               </div>
               <div>
                 <BattlefieldDiagram diagram={coverDiagram} />

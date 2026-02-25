@@ -374,8 +374,9 @@ export const verticalMovementDiagram = {
       type: 'callout',
       x1In: 2.5, y1In: 2,
       x2In: 2.5, y2In: 6,
-      text: '2 Sq',
+      text: '2 Sq/4"',
       labelSizeIn: 0.4,
+      textOffsetIn: 1,
       end1Style: 'arrow', end2Style: 'none'
     },
     // Climbup pt2
