@@ -31,9 +31,9 @@ const QUICK_REFS = [
 const TOOLS = [
   { title: 'Fillable Squad Sheet/Unit Cards', href: '/assets/tools/Ruinstars_SquadSheet.pdf' },
   { title: 'Tokens', href: '/assets/tools/Ruinstars_Tokens.pdf' },
-  { title: '6" Gauge - Letter', href: '/assets/tools/Ruinstars_Gauge_Letter.pdf' },
-  { title: '6" Gauge - A4', href: '/assets/tools/Ruinstars_Gauge_A4.pdf' },
-  { title: '6" Gauge - STL', href: 'TBD' },
+  { title: '6" Gauge (Letter)', href: '/assets/tools/Ruinstars_Gauge_Letter.pdf' },
+  { title: '6" Gauge (A4)', href: '/assets/tools/Ruinstars_Gauge_A4.pdf' },
+  { title: '6" Gauge - STL', href: '/assets/tools/Ruinstars Gauge 6x1.stl' },
 ]
 
 const BATTLEFIELDS = [
