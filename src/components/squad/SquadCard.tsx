@@ -53,7 +53,7 @@ export default function SquadCard({
   
   return (
     <>
-      <div className="group grid grid-cols-[135px_1fr] md:grid-cols-[135px_1fr] bg-card border border-border rounded hover:border-main transition h-[90px] overflow-hidden" key={squad.squadId}>
+      <div className="group grid grid-cols-[135px_1fr] md:grid-cols-[135px_1fr] bg-card border border-border rounded hover:border-main transition h-[90px]" key={squad.squadId}>
         {/* Image section - left side */}
         <Link href={`/squads/${squad.squadId}`} className="relative overflow-hidden border-r border-border">
           <div 
