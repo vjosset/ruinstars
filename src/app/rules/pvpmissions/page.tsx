@@ -103,12 +103,9 @@ export default async function PvPMissions() {
                 These missions offer unique tactical puzzles and narrative flavor, challenging you to adapt your strategy to shifting objectives and hostile environments.
               </p>
               <br/><br/>
-            </div>
-            <div className="section">
               <p>
                 Whether you are playing a quick one-off mission or a long, epic <a className="underline" href="#campaigns">campaign</a>, the rules for playing each Mission are the same:
               </p>
-              
               <ol>
                 <li>Select a Mission</li>
                 {/* <li>(Optional) Select a Secondary Mission</li>*/}
@@ -116,6 +113,18 @@ export default async function PvPMissions() {
                 <li>Set up your Squads</li>
                 <li>Play!</li>
               </ol>
+            </div>
+            
+            <div className="section">
+              <h4>Deployment</h4>
+              When a mission instructs both squads to deploy before Turn 1, players alternate placing one unit at a time.
+              The player without Turn 1 initiative deploys their first unit, then the player with initiative deploys one unit, and so on until all units are deployed.
+              The player with initiative activates first in Turn 1.
+            </div>
+            <div className="section">
+              <h4>Activations</h4>
+              If one squad has at least 2 more Standing units than the other at any point during a turn, the squad with fewer units may choose to delay one of their activations once per turn.
+              In that case, the squad with more units activates two units in a row before alternating resumes normally.
             </div>
           </div>
         </div>
