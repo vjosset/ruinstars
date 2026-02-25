@@ -70,12 +70,12 @@ export default async function CoreRules() {
 
         <RulesCombat num={8} />
 
+        <PageBreak />
         <RulesPlayingOnAGrid num={9} />
 
         <RulesFirstMission num={10} />
 
         <PageBreak />
-
         <PageTitle>Quick Reference</PageTitle>
         <RulesQuickRef />
         
