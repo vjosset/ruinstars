@@ -1,4 +1,3 @@
-import PageTitle from '@/components/ui/PageTitle'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import Link from 'next/link'
@@ -30,10 +29,11 @@ const QUICK_REFS = [
 ]
 
 const TOOLS = [
+  { title: 'Fillable Squad Sheet/Unit Cards', href: '/assets/tools/Ruinstars_SquadSheet.pdf' },
   { title: 'Tokens', href: '/assets/tools/Ruinstars_Tokens.pdf' },
   { title: '6" Gauge - Letter', href: '/assets/tools/Ruinstars_Gauge_Letter.pdf' },
   { title: '6" Gauge - A4', href: '/assets/tools/Ruinstars_Gauge_A4.pdf' },
-  { title: '6" Gauge - STL', href: '[TBD]]' },
+  { title: '6" Gauge - STL', href: 'TBD' },
 ]
 
 const BATTLEFIELDS = [
@@ -51,123 +51,125 @@ const COMMUNITY_LINKS = [
 
 export default async function Rules() {
   return (
-    <div className="px-3 py-8 max-w-xl mx-auto">
+    <div className="rules px-3 max-w-7xl mx-auto">
       <div className="text-center mb-8">
-        <PageTitle>Rules</PageTitle>
+        <h1>Rules</h1>
       </div>
 
-      {/* Rule Books */}
-      <div className="mb-8">
-        <h6 className="text-main">Rule Books</h6>
-        <em className="text-muted">
-          The main rulebooks for the game
-        </em>
-        <div className="space-y-1 ml-2">
-          {RULE_BOOKS.map((book) => (
-            <Link
-              key={book.num}
-              href={book.href}
-              target="_blank"
-              className={`relative flex items-center gap-3 bg-card border rounded px-3 py-3 transition-colors group ${book.highlight ? 'border-main' : 'border-border hover:border-main'}`}
-            >
-              <span className="font-stat text-sm w-6 shrink-0 text-center">{book.num}</span>
-              <BsFilePdf className="text-xl shrink-0" />
-              <div className="flex-1 min-w-0">
-                <div className="font-heading text-main uppercase">{book.title}</div>
-                <div className="text-sm font-main normal-case">{book.desc}</div>
-              </div>
-              {book.highlight && (
-                <span className="absolute top-0 right-8 bg-main text-black text-xs font-heading uppercase px-2 py-0.5 leading-tight">
-                  Start Here
-                </span>
-              )}
-              <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
-            </Link>
-          ))}
+      <div className="twocols">
+        {/* Rule Books */}
+        <div className="mb-8 section">
+          <h5 className="text-main">Rule Books</h5>
+          <em className="text-muted">
+            The main rulebooks for the game
+          </em>
+          <div className="space-y-1 ml-2">
+            {RULE_BOOKS.map((book) => (
+              <Link
+                key={book.num}
+                href={book.href}
+                target="_blank"
+                className={`relative flex items-center gap-3 bg-card border rounded px-3 py-3 transition-colors group ${book.highlight ? 'border-main' : 'border-border hover:border-main'}`}
+              >
+                <span className="font-stat text-sm w-6 shrink-0 text-center">{book.num}</span>
+                <BsFilePdf className="text-xl shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <div className="font-heading text-main uppercase">{book.title}</div>
+                  <div className="text-sm font-main normal-case">{book.desc}</div>
+                </div>
+                {book.highlight && (
+                  <span className="absolute top-0 right-8 bg-main text-black text-xs font-heading uppercase px-2 py-0.5 leading-tight">
+                    Start Here
+                  </span>
+                )}
+                <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Quick Reference */}
-      <div className="mb-8">
-        <h6 className="text-main">Quick Reference (1 Page)</h6>
-        <em className="text-muted">
-          One-page reference documents for the core rules and main play modes
-        </em>
-        <div className="border border-border rounded divide-y divide-border ml-2">
-          {QUICK_REFS.map((item) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              target="_blank"
-              className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
-            >
-              <BsFilePdf className="shrink-0" />
-              <span className="flex-1 font-heading uppercase">{item.title}</span>
-              <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
-            </Link>
-          ))}
+        {/* Quick Reference */}
+        <div className="mb-8 section">
+          <h5 className="text-main">Quick Reference (1 Page)</h5>
+          <em className="text-muted">
+            One-page reference documents for the core rules and main play modes
+          </em>
+          <div className="border border-border rounded divide-y divide-border ml-2">
+            {QUICK_REFS.map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                target="_blank"
+                className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
+              >
+                <BsFilePdf className="shrink-0" />
+                <span className="flex-1 font-heading uppercase">{item.title}</span>
+                <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Tools */}
-      <div className="mb-8">
-        <h6 className="text-main">Tools</h6>
-        <em className="text-muted">
-          Gauges and Tokens
-        </em>
-        <div className="border border-border rounded divide-y divide-border ml-2">
-          {TOOLS.map((item) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              target="_blank"
-              className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
-            >
-              <BsFilePdf className="shrink-0" />
-              <span className="flex-1 font-heading uppercase">{item.title}</span>
-              <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
-            </Link>
-          ))}
+        {/* Tools */}
+        <div className="mb-8 section">
+          <h5 className="text-main">Tools</h5>
+          <em className="text-muted">
+            Gauges and Tokens
+          </em>
+          <div className="border border-border rounded divide-y divide-border ml-2">
+            {TOOLS.map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                target="_blank"
+                className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
+              >
+                <BsFilePdf className="shrink-0" />
+                <span className="flex-1 font-heading uppercase">{item.title}</span>
+                <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Battlefields */}
-      <div className="mb-8">
-        <h6 className="text-main">Battlefields</h6>
-        <em className="text-muted">
-          Print-at-home battlefields with grids
-        </em>
-        <div className="border border-border rounded divide-y divide-border ml-2">
-          {BATTLEFIELDS.map((item) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              target="_blank"
-              className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
-            >
-              <BsFilePdf className="shrink-0" />
-              <span className="flex-1 font-heading uppercase">{item.title}</span>
-              <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
-            </Link>
-          ))}
+        {/* Battlefields */}
+        <div className="mb-8 section">
+          <h5 className="text-main">Battlefields</h5>
+          <em className="text-muted">
+            Print-at-home battlefields with grids
+          </em>
+          <div className="border border-border rounded divide-y divide-border ml-2">
+            {BATTLEFIELDS.map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                target="_blank"
+                className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
+              >
+                <BsFilePdf className="shrink-0" />
+                <span className="flex-1 font-heading uppercase">{item.title}</span>
+                <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Community */}
-      <div className="mb-8">
-        <h6 className="text-main">Community</h6>
-        <div className="border border-border rounded divide-y divide-border ml-2">
-          {COMMUNITY_LINKS.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              className="flex items-center justify-between px-3 py-2.5 hover:text-main transition-colors"
-            >
-              <span className="font-heading uppercase">{link.label}</span>
-              <span className="text-muted text-sm">{link.desc}</span>
-            </Link>
-          ))}
+        {/* Community */}
+        <div className="mb-8 section">
+          <h5 className="text-main">Community</h5>
+          <div className="border border-border rounded divide-y divide-border ml-2">
+            {COMMUNITY_LINKS.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                className="flex items-center justify-between px-3 py-2.5 hover:text-main transition-colors"
+              >
+                <span className="font-heading uppercase">{link.label}</span>
+                <span className="text-muted text-sm">{link.desc}</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>
