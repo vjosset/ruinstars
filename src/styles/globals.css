@@ -64,8 +64,8 @@ Font notes:
 
 @font-face {
   font-family: 'stat';
-  /*src: url('/fonts/Russo_One/RussoOne-Regular.ttf');*/
-	src: url('/fonts/Rajdhani-Bold.ttf');
+  src: url('/fonts/Russo_One/RussoOne-Regular.ttf');
+	/*src: url('/fonts/Rajdhani-Bold.ttf');*/
   font-weight: bold;
   font-style: normal;
 }

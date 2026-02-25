@@ -91,8 +91,8 @@ export default function WeaponTable({
                 }
               </td>
               {/* Using leading-none to remove extra space between table rows */}
-              <td className="text-center stat py-0.5"><h4 className="stat text-main leading-none">{gear.ATT ?? '-'}</h4></td>
-              <td className="text-center stat py-0.5"><h4 className="stat text-main leading-none">{gear.TYP === 'M' ? MSK : RSK}</h4></td>
+              <td className="text-center stat py-0.5"><h5 className="stat text-main leading-none">{gear.ATT ?? '-'}</h5></td>
+              <td className="text-center stat py-0.5"><h5 className="stat text-main leading-none">{gear.TYP === 'M' ? MSK : RSK}</h5></td>
             </tr>
           ))}
         </tbody>

@@ -164,25 +164,25 @@ export default function UnitCard({
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-1 text-center">
-              <div className="text-sm">
+              <div className="text-md">
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiFlashlightFill className="text-xl" />*/}
                   ACT
-                  <h3 className="stat text-main">{unit.ACT}</h3>
+                  <h4 className="stat text-main">{unit.ACT}</h4>
                 </span>
               </div>
-              <div className="text-sm">
+              <div className="text-md">
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiShieldFill className="text-lg" />*/}
                   ARM
-                  <h3 className="stat text-main">{unit.ARM}</h3>
+                  <h4 className="stat text-main">{unit.ARM}</h4>
                 </span>
               </div>
-              <div className={`text-sm ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
+              <div className={`text-md ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
                 <span className="flex items-center justify-center gap-1">
                   {/*<RiHeartFill className="text-xl" />*/}
                   HIT
-                  <h3 className="stat text-main">{unit.isUnitType ? unit.HIT : unit.currHIT}</h3>
+                  <h4 className="stat text-main">{unit.isUnitType ? unit.HIT : unit.currHIT}</h4>
                   {!unit.isUnitType && <h6 className="stat text-muted noprint">/{unit.HIT}</h6>}
                 </span>
               </div>
@@ -247,7 +247,7 @@ export default function UnitCard({
               </div>
               {!unit.isUnitType && (
                 <div className="text-right whitespace-nowrap">
-                  <span className="stat mx-2">
+                  <span className="mx-2">
                     FV:{ ' ' }
                     <span className="stat text-main">{forceValue}</span>
                   </span>
