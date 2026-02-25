@@ -76,6 +76,7 @@ export type BattlefieldDiagramConfig = {
     heightIn?: number
   }
   pixelsPerInch?: number
+  showGrid?: boolean
   showCenterLines?: boolean
   elements: DiagramElement[]
   legend?: DiagramLegend
@@ -188,6 +189,8 @@ export default function BattlefieldDiagram({
     [legendIds, diagram.elements, diagram.legend]
   )
 
+  const showGrid = diagram.showGrid ?? false
+
   const widthPx = widthIn * pixelsPerInch
   const heightPx = heightIn * pixelsPerInch
   const inToPx = (valueIn: number) => valueIn * pixelsPerInch
@@ -220,6 +223,30 @@ export default function BattlefieldDiagram({
                 stroke={gridColor}
                 strokeWidth={inToPx(DEFAULT_STROKE_IN)}
               />
+              {showGrid && (
+                <>
+                  {Array.from({ length: Math.round(widthIn) - 1 }, (_, i) => (
+                    <line
+                      key={`vgrid-${i + 1}`}
+                      x1={inToPx(i + 1)} y1={0}
+                      x2={inToPx(i + 1)} y2={heightPx}
+                      stroke={gridColor}
+                      strokeWidth={inToPx(DEFAULT_STROKE_IN * 0.5)}
+                      strokeOpacity={0.4}
+                    />
+                  ))}
+                  {Array.from({ length: Math.round(heightIn) - 1 }, (_, i) => (
+                    <line
+                      key={`hgrid-${i + 1}`}
+                      x1={0} y1={inToPx(i + 1)}
+                      x2={widthPx} y2={inToPx(i + 1)}
+                      stroke={gridColor}
+                      strokeWidth={inToPx(DEFAULT_STROKE_IN * 0.5)}
+                      strokeOpacity={0.4}
+                    />
+                  ))}
+                </>
+              )}
               {showCenterLines && (
                 <>
                   <line

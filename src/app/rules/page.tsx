@@ -133,7 +133,7 @@ export default async function Rules() {
         </div>
 
         {/* Battlefields */}
-        <div className="mb-8 section">
+        <div className="mb-8 section" id="battlefields">
           <h5 className="text-main">Battlefields</h5>
           <em className="text-muted">
             Print-at-home battlefields with grids
