@@ -16,11 +16,11 @@ export async function GET() {
     '/auth/login',
     '/auth/signup',
     '/tools',
-    '/assets/Core Rules - Ruinstars.pdf',
-    '/assets/Pve Missions - Ruinstars.pdf',
-    '/assets/Factions - Ruinstars.pdf',
-    '/assets/Pvp Missions - Ruinstars.pdf',
-    '/assets/Horde Mode - Ruinstars.pdf',
+    '/assets/books/Core Rules - Ruinstars.pdf',
+    '/assets/books/Pve Missions - Ruinstars.pdf',
+    '/assets/books/Factions - Ruinstars.pdf',
+    '/assets/books/Pvp Missions - Ruinstars.pdf',
+    '/assets/books/Horde Mode - Ruinstars.pdf',
   ]
 
   // Fetch factions

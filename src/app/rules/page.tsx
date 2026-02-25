@@ -16,25 +16,31 @@ export async function generateMetadata() {
 }
 
 const RULE_BOOKS = [
-  { num: '01', title: 'Core Rules', desc: 'Everything you need to start playing.', href: '/assets/Core Rules - Ruinstars.pdf', highlight: true },
-  { num: '02', title: 'Factions', desc: 'Choose a faction and build your squad.', href: '/assets/Factions - Ruinstars.pdf' },
-  { num: '03', title: 'PvE Missions', desc: 'Solo/co-op missions against NPC squads.', href: '/assets/PvE Missions - Ruinstars.pdf' },
-  { num: '04', title: 'PvP Missions', desc: 'Competitive missions for two players.', href: '/assets/PvP Missions - Ruinstars.pdf' },
-  { num: '05', title: 'Horde Mode', desc: 'Standalone solo/coop survival mode.', href: '/assets/Horde Mode - Ruinstars.pdf' },
+  { num: '01', title: 'Core Rules', desc: 'Everything you need to start playing.', href: '/assets/books/Core Rules - Ruinstars.pdf', highlight: true },
+  { num: '02', title: 'Factions', desc: 'Choose a faction and build your squad.', href: '/assets/books/Factions - Ruinstars.pdf' },
+  { num: '03', title: 'PvE Missions', desc: 'Solo/co-op missions against NPC squads.', href: '/assets/books/PvE Missions - Ruinstars.pdf' },
+  { num: '04', title: 'PvP Missions', desc: 'Competitive missions for two players.', href: '/assets/books/PvP Missions - Ruinstars.pdf' },
+  { num: '05', title: 'Horde Mode', desc: 'Standalone solo/coop survival mode.', href: '/assets/books/Horde Mode - Ruinstars.pdf' },
 ]
 
 const QUICK_REFS = [
-  { title: 'Core Rules Quick Ref', href: '/assets/Quick Ref - Ruinstars.pdf' },
-  { title: 'PvE Missions Quick Ref', href: '/assets/PvE Missions - Quick Ref - Ruinstars.pdf' },
-  { title: 'Horde Mode Quick Ref', href: '/assets/Horde Mode - Quick Ref - Ruinstars.pdf' },
+  { title: 'Core Rules Quick Ref', href: '/assets/books/Quick Ref - Ruinstars.pdf' },
+  { title: 'PvE Missions Quick Ref', href: '/assets/books/PvE Missions - Quick Ref - Ruinstars.pdf' },
+  { title: 'Horde Mode Quick Ref', href: '/assets/books/Horde Mode - Quick Ref - Ruinstars.pdf' },
 ]
 
-const RESOURCES = [
-  { title: 'Tokens', href: '/assets/Ruinstars_Tokens.pdf' },
-  { title: 'Battlefield: The Ruined City (A4)', href: '/assets/battlefields/TheRuinedCity_A4.pdf'},
-  { title: 'Battlefield: The Ruined City (Letter)', href: '/assets/battlefields/TheRuinedCity_Letter.pdf'},
-  { title: 'Battlefield: The Facility (A4)', href: '/assets/battlefields/TheFacility_A4.pdf'},
-  { title: 'Battlefield: The Facility (Letter)', href: '/assets/battlefields/TheFacility_Letter.pdf'}
+const TOOLS = [
+  { title: 'Tokens', href: '/assets/tools/Ruinstars_Tokens.pdf' },
+  { title: '6" Gauge - Letter', href: '/assets/tools/Ruinstars_Gauge_Letter.pdf' },
+  { title: '6" Gauge - A4', href: '/assets/tools/Ruinstars_Gauge_A4.pdf' },
+  { title: '6" Gauge - STL', href: '[TBD]]' },
+]
+
+const BATTLEFIELDS = [
+  { title: 'The Ruined City (A4)', href: '/assets/battlefields/TheRuinedCity_A4.pdf'},
+  { title: 'The Ruined City (Letter)', href: '/assets/battlefields/TheRuinedCity_Letter.pdf'},
+  { title: 'The Facility (A4)', href: '/assets/battlefields/TheFacility_A4.pdf'},
+  { title: 'The Facility (Letter)', href: '/assets/battlefields/TheFacility_Letter.pdf'}
 ]
 
 const COMMUNITY_LINKS = [
@@ -53,6 +59,9 @@ export default async function Rules() {
       {/* Rule Books */}
       <div className="mb-8">
         <h6 className="text-main">Rule Books</h6>
+        <em className="text-muted">
+          The main rulebooks for the game
+        </em>
         <div className="space-y-1 ml-2">
           {RULE_BOOKS.map((book) => (
             <Link
@@ -81,6 +90,9 @@ export default async function Rules() {
       {/* Quick Reference */}
       <div className="mb-8">
         <h6 className="text-main">Quick Reference (1 Page)</h6>
+        <em className="text-muted">
+          One-page reference documents for the core rules and main play modes
+        </em>
         <div className="border border-border rounded divide-y divide-border ml-2">
           {QUICK_REFS.map((item) => (
             <Link
@@ -97,11 +109,36 @@ export default async function Rules() {
         </div>
       </div>
 
-      {/* Resources */}
+      {/* Tools */}
       <div className="mb-8">
-        <h6 className="text-main">Resources</h6>
+        <h6 className="text-main">Tools</h6>
+        <em className="text-muted">
+          Gauges and Tokens
+        </em>
         <div className="border border-border rounded divide-y divide-border ml-2">
-          {RESOURCES.map((item) => (
+          {TOOLS.map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              target="_blank"
+              className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
+            >
+              <BsFilePdf className="shrink-0" />
+              <span className="flex-1 font-heading uppercase">{item.title}</span>
+              <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Battlefields */}
+      <div className="mb-8">
+        <h6 className="text-main">Battlefields</h6>
+        <em className="text-muted">
+          Print-at-home battlefields with grids
+        </em>
+        <div className="border border-border rounded divide-y divide-border ml-2">
+          {BATTLEFIELDS.map((item) => (
             <Link
               key={item.title}
               href={item.href}
