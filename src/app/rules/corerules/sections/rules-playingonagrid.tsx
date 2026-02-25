@@ -6,44 +6,41 @@ export default async function RulesPlayingOnAGrid({ num }: {num?: number | null}
           {num && `${num}. `}Playing On a Grid
         </h2>
         <div className="twocols">
+          <p>
+            Ruinstars supports two ways to play: freeform measurement in inches, and squares. Both are fully supported. Neither is a simplified version of the other. If you're new to the game, or just prefer not to reach for a ruler, the grid is a clean on-ramp with no mechanical trade-offs.
+            <br/>
+            The print-at-home Battlefields tile into a 12x12 grid of 2" squares across nine letter- or A4-sized pages. Printed and assembled, the board is 24"x24".
+          </p>
+          <h3>Grid Rules</h3>
           <div className="section">
-            <p>
-              While Ruinstars is designed for freeform placement and movement on the battlefield, you can also play on a grid to simplify movement and measurements.
-            </p>
+            <h4>General Rules</h4>
+            To keep things simple, treat each square as 2". This applies to weapon ranges (so a weapon with <code>RNG6"</code> has a range of 3 squares) and abilities that have a <code>within x"</code> requirement.
+            Similarly, the Move action is 3 Squares (= 6") and the Dash action is 1 Square (= 2").
           </div>
           <div className="section">
-            <h3>Battlefield</h3>
-            <p>
-              The Battlefield is a 15x15 grid of Squares, each one exactly 1 Pace (40mm or 1.5in) to a side.
-              All movement and distance/range measurements are done by counting Squares.<br/>
-              You can bring your own battlefield, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with the Tiles and Squares ready to go.
-            </p>
-            <h4 id="tiles">Tiles</h4>
-            <p>
-              The Battlefield is divided into 9 equal Tiles, each composed of 5x5 Squares/Paces.<br/>
-              Some missions may describe their setup in terms of a Tile's position (e.g. "Western Tile", "Center Tile", "SouthEast Tile").
-              Before the mission, both players should agree which way is North on the Battlefield, then refer to this diagram to find the right Tile.
-              <img src="/img/rules/Tiles.jpg" style={{width: '35%'}} />
-            </p>
-            <h4 id="movement">Movement</h4>
-            <p>When a Unit moves on the Battlefield, the maximum distance it can travel is <code>3</code> Squares. Movement can be done along any cardinal direction (North, South, East, West) or in diagonal (North-East, North-West, South-East, South-West).</p>
+            <h4>Adjacency</h4>
+            Two units are Adjacent if they occupy contiguous squares on the same level with no wall between them. Diagonal squares count as contiguous.<br/>
+            All rules that depend on Adjacency, including Control, apply unchanged.
           </div>
           <div className="section">
-            <h4 id="squares">Squares</h4>
-            <p>
-              All movement and distance measurements are measured in Squares. No need for tape measures, gauges, or rulers!<br/>
-              Using a grid provides simplicity of movement and measurement and avoids imprecision in moving miniatures and checking weapon ranges.
-            </p>
+            <h4>Movement</h4>
+            A Move action allows up to 3 squares of movement. A Dash allows 1 square.
+            
+            <h5>Vertical Movement</h5>
+            <strong>Climbing Up:</strong> Each square of vertical height costs 1 square of movement. Cresting the top or going over an edge onto the lower surface costs 1 additional square horizontally.<br/>
+            <strong>Climbing Down:</strong> Same as climbing up, but the first square of vertical descent is free (minimum 0).
           </div>
           <div className="section">
-            <h4 id="adjacent-squares">Adjacent Squares</h4>
-            <p>
-              All 8 Squares surrounding a given Square are considered to be <strong>Adjacent</strong> to that Square. When selecting a valid target for <a className="underline" href="#combat">Melee combat</a>, the attacker and its target must be in Adjacent Squares.
-              Two Squares that are on different elevations are not considered to be Adjacent.<br/>
-              If a wall that is 1 Square or taller is between two Squares, those two Squares are not considered to be Adjacent.
-            </p>
-            <img src="/img/rules/Adjacent.webp" style={{width: '35%'}} />
-            <em>The Squares marked <strong>A</strong> are Adjacent to the Unit. The Squares marked <strong>NA</strong> are blocked by a wall and are not Adjacent to the Unit.</em>
+            <h4>Range</h4>
+            Count squares between the closest corners of the two units' squares, in a straight or diagonal line. Diagonal counts as 1 square.
+          </div>
+          <div className="section">
+            <h4>Line of Sight</h4>
+            Draw two uninterrupted lines from any corner of the attacker's square to the two nearest corners of the target's square. If both lines reach their destination without crossing a wall, the target is in line of sight.
+          </div>
+          <div className="section">
+            <h4>Cover</h4>
+            A target is in Cover if a wall occupies any edge of the square it occupies.
           </div>
         </div>
       </div>

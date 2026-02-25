@@ -16,6 +16,7 @@ import RulesYourSquad from './sections/rules-yoursquad'
 import RulesQuickRef from './sections/rules-quickref'
 import PageBreak from '@/components/ui/PageBreak'
 import PageTitle from '@/components/ui/PageTitle'
+import RulesPlayingOnAGrid from './sections/rules-playingonagrid'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -69,7 +70,9 @@ export default async function CoreRules() {
 
         <RulesCombat num={8} />
 
-        <RulesFirstMission num={9} />
+        <RulesPlayingOnAGrid num={9} />
+
+        <RulesFirstMission num={10} />
 
         <PageBreak />
 

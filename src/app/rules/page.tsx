@@ -31,6 +31,10 @@ const QUICK_REFS = [
 
 const RESOURCES = [
   { title: 'Tokens', href: '/assets/Ruinstars_Tokens.pdf' },
+  { title: 'Battlefield: The Ruined City (A4)', href: '/assets/battlefields/TheRuinedCity_A4.pdf'},
+  { title: 'Battlefield: The Ruined City (Letter)', href: '/assets/battlefields/TheRuinedCity_Letter.pdf'},
+  { title: 'Battlefield: The Facility (A4)', href: '/assets/battlefields/TheFacility_A4.pdf'},
+  { title: 'Battlefield: The Facility (Letter)', href: '/assets/battlefields/TheFacility_Letter.pdf'}
 ]
 
 const COMMUNITY_LINKS = [
