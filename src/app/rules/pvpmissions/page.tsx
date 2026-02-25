@@ -117,8 +117,8 @@ export default async function PvPMissions() {
             
             <div className="section">
               <h4>Deployment</h4>
-              When a mission instructs both squads to deploy before Turn 1, players alternate placing one unit at a time.
-              The player without Turn 1 initiative deploys their first unit, then the player with initiative deploys one unit, and so on until all units are deployed.
+              When a mission instructs both Squads to deploy at the same time (e.g. "before Turn 1"), players alternate placing one Unit at a time.
+              The player without Turn 1 initiative deploys their first Unit, then the player with initiative deploys one Unit, and so on until all Units are deployed.
               The player with initiative activates first in Turn 1.
             </div>
             <div className="section">
