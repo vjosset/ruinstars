@@ -41,8 +41,9 @@ export default async function PvEMissions() {
       <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
         <div className="text-center text-white font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
           <h1>PvE Missions</h1>
-          <p className="text-md">2nd Edition</p>
-          <p className="text-sm">Version {versionTimestamp}</p>
+          <p className="text-md">
+            2nd Edition <span className="text-sm">v{versionTimestamp}</span>
+          </p>
         </div>
       </div>
 
