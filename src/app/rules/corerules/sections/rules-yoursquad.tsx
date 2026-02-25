@@ -11,26 +11,28 @@ export default async function RulesYourSquad({ num }: {num?: number | null}) {
       <div className="section twocols">
         <div className="section">
           <p>
-            A standard Squad is typically composed of 4-10 Units, built from your chosen Faction's available Units.  
-            Selections should total <strong>100 GP</strong>, including all Unit and gear selections.<br/>
-            Will you select a few elite Units armed to the teeth, or opt for many grunts to overwhelm the battlefield and establish board control?
-          </p>
-          <br/>
-          <p>
-            Full Faction lists are available in the <PDFLink href="/assets/Factions - Ruinstars.pdf" title="Factions" /> or on the <Link className="underline" href="/factions">Factions Page</Link>.
-            <br/>
-            <strong>For your <a className="underline" href="#firstmission">first mission</a></strong>, use the Starter Squad at the end of this book.
-            The Starter Squad is a multi-purpose Squad of Hegemony Interdictors that exposes the core principles of the game.
+            A standard Squad is 4-10 Units built from your chosen Faction's available Units, with a total cost of <strong>100 GP</strong>, including all units and gear. Full Faction lists are available in the <PDFLink href="/assets/Factions - Ruinstars.pdf" title="Factions" /> or on the <Link className="underline" href="/factions">Factions Page</Link>.
           </p>
           <p>
-            For your next Mission, select the <a href="/factions">Faction</a> that best fits the way you want to play and build your Squad using the <a href="/me">Squad Builder</a>.
-            Squads are typically built with a maximum value of <strong>100 total GP</strong> (including all unit and gear costs).<br/>
-            Every Squad must include exactly one Leader. A Squad may not include more than one.<br/>
-            Squads cannot include more than 1 of each Unique Unit (marked with an asterisk <code>*</code>).<br/>
-            When selecting Gear for your Squad (Weapons, Equipment, etc), any item whose name ends with an asterisk (<code>*</code>) is Unique and cannot be added more than once to your squad.
+            <strong>For your <a className="underline" href="#firstmission">first mission</a></strong>, use the Starter Squad provided: a multi-purpose Hegemony Interdictor squad that covers the core rules in play.
           </p>
           <p>
-            You can build your squad in the <Link className="underline" href="/">app/site</Link>, or print and fill your own <PDFLink href="/assets/Ruinstars_SquadSheet.pdf" title="Squad Sheet" />.
+            When building your squad, keep these rules in mind:
+          </p>
+          <ul>
+            <li>
+              Your squad must include exactly one Leader.
+            </li>
+            <li>
+              Units, Skills, and Weapons marked with an asterisk (<code>*</code>) are Unique: your squad may only include one of each.
+            </li>
+            <li>
+              Each unit card lists its available gear, weapons, and skills. Items with a GP cost are optional; add that cost to your total if selected.<br/>
+              Items marked with an asterisk (<code>*</code>) are also optional and Unique: only one Unit in your Squad may have it.
+            </li>
+          </ul>
+          <p>
+            Build your Squad using the <Link className="underline" href="/me">app</Link>, or print and fill your own <PDFLink href="/assets/Ruinstars_SquadSheet.pdf" title="Squad Sheet PDF" />.
           </p>
         </div>
         <div className="section">

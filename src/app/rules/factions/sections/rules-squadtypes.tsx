@@ -50,7 +50,7 @@ export default async function RulesSquadTypes() {
             <h3>Full Squads (100 GP)</h3>
             A Full Squad is the standard way to play Ruinstars.
             <ul>
-              <li>You have 100GP to spend</li>
+              <li>You have 100GP to spend on Units and optional gear, weapons, and skills</li>
               <li>All Units and gear are selected by a single player</li>
               <li>This squad is used as-is for PvE, PvP, or Horde play</li>
             </ul>
@@ -89,19 +89,19 @@ export default async function RulesSquadTypes() {
             <ul>
               <li>
                 <strong>Select Faction</strong><br/>
-                Choose the <a className="underline" href="/factions">Faction</a> that best fits
-                the way you want to play and build your squad using the <a className="underline" href="/me">App</a> or
-                by filling out the cards at the end of this book.
+                Choose the <a className="underline" href="/factions">Faction</a> that fits the way you want to play.
+                Build your squad using the <a className="underline" href="/me">App</a> or by filling out the cards at the end of this book.
               </li>
               <li>
                 <strong>Select Units</strong><br/>
-                Select Units from that faction's Unit list.
-                Your Squad can only include one Leader, and it cannot include more than 1 of each Unique Unit (marked with an asterisk <code>*</code>).
+                Select 4-10 Units from that faction's Unit list. Your squad must include exactly one Leader.
+                Units marked with an asterisk (<code>*</code>) are Unique: include at most one of each.
               </li>
               <li>
                 <strong>Select Gear, Weapons, and Skills</strong><br/>
-                Equip Units with any allowed gear
-                 When selecting Gear for your Squad (Weapons, Equipment, etc), any item whose name ends with an asterisk (<code>*</code>) is Unique and cannot be added more than once to your squad.
+                Each unit card lists its available gear, weapons, and skills. Items with a GP cost are optional: add that cost to your total if selected.
+                Items marked with an asterisk (<code>*</code>) are optional and Unique: only one unit in your squad may have it.
+                All other items can be included at no cost.
               </li>
             </ul>
           </div>
