@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Compresses staged PDFs in public/assets/ using Ghostscript, and replaces
-# any dev.ruinstars.com links with ruinstars.com using qpdf.
+# Compresses staged PDFs under public/assets/ (recursively) using Ghostscript,
+# and replaces any dev.ruinstars.com links with ruinstars.com using qpdf.
 # Called by .git/hooks/pre-commit — do not run directly during a commit.
 #
 # Usage: compress-pdfs.sh [--all]
-#   --all   Process all PDFs in public/assets/ (for manual runs)
-#   (none)  Only process staged PDFs (pre-commit mode)
+#   --all   Process all PDFs under public/assets/ (for manual runs)
+#   (none)  Only process staged PDFs under public/assets/ (pre-commit mode)
 
 set -euo pipefail
 
@@ -97,8 +97,7 @@ compress_pdf() {
 
 if [ "${1:-}" = "--all" ]; then
   # Manual mode: process all PDFs
-  shopt -s nullglob
-  pdfs=("$ASSETS_DIR"/*.pdf)
+  mapfile -d '' pdfs < <(find "$ASSETS_DIR" -name "*.pdf" -print0 | sort -z)
   if [ ${#pdfs[@]} -eq 0 ]; then
     echo "No PDFs found in $ASSETS_DIR."
     exit 0
@@ -111,7 +110,7 @@ else
   # Pre-commit mode: only process staged PDFs
   staged_pdfs=()
   while IFS= read -r f; do
-    if [[ "$f" == "$ASSETS_DIR"/*.pdf ]]; then
+    if [[ "$f" == "$ASSETS_DIR"/* && "$f" == *.pdf ]]; then
       staged_pdfs+=("$f")
     fi
   done < <(git diff --cached --name-only --diff-filter=AM)
