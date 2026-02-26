@@ -55,7 +55,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               Getting Started
             </h3>
             <ol>
-              <li>Download the <Link className="underline" target="_blank" href="/assets/Core Rules - Ruinstars.pdf">Core Rules</Link></li>
+              <li>Download the <Link className="underline" target="_blank" href="/assets/books/Core Rules - Ruinstars.pdf">Core Rules</Link></li>
               <li>Gather some dice (<code>D{GAME.DICE_BASIS}</code>) and your miniatures</li>
               <li>Play the Intro Mission (in the Core Rules, p. 10)</li>
               <li>Select your <Link className="underline" href="/factions">Faction</Link> and build your Squad</li>
