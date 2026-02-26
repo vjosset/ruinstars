@@ -42,13 +42,8 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               <li><strong>Sessions:</strong> ~45-90 minutes</li>
               <li><strong>Dice:</strong> <code>D6</code></li>
               <li><strong>Table Size:</strong> 2' x 2'</li>
-              <li><strong>Free:</strong> Download the <Link href="/rules">complete rules</Link>, no account required.</li>
+              <li><strong>Free:</strong> Download the <Link href="/rules">complete rules</Link></li>
             </ul>
-          </div>
-          <div className="section">
-            <h3>The App</h3>
-            Draft a roster, manage your GP budget, and share it with a link.<br/>
-            <Link className="underline" href="/auth/signup">Create a free account to get started</Link>
           </div>
           <div className="section">
             <h3 className="py-3 font-title" id="introduction">
@@ -61,6 +56,11 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
               <li>Select your <Link className="underline" href="/factions">Faction</Link> and build your Squad</li>
               <li>Play your first PvP Mission, start your PvE Campaign, or test your mettle in Horde Mode</li>
             </ol>
+          </div>
+          <div className="section">
+            <h3>The App</h3>
+            Draft a roster, manage your GP budget, and share it with a link.<br/>
+            <Link className="underline" href="/auth/signup">Create a free account to get started</Link>
           </div>
         </div>
       </div>
