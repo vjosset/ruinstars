@@ -6,7 +6,7 @@ import { BsFilePdf } from 'react-icons/bs'
 import { FaScroll } from 'react-icons/fa6'
 import { FiBook, FiList, FiUser, FiUsers } from 'react-icons/fi'
 
-const badgeClass = 'inline-flex text-foreground items-center gap-1 px-1 py-0.5 font-medium rounded border border-main bg-background hover:bg-card'
+const badgeClass = 'inline-flex text-foreground items-center gap-1 px-1 py-0.5 font-medium rounded border border-main bg-background hover:bg-card max-w-full overflow-hidden'
 
 export function PDFLink({href, title}: {href: string, title: string}) {
   return (
@@ -19,8 +19,8 @@ export function PDFLink({href, title}: {href: string, title: string}) {
 export function FactionLink({ factionId, factionName }: { factionId: string, factionName: string }) {
   return (
     <Link href={`/factions/${factionId}`} className={badgeClass}>
-      <FiBook className="icon" />
-      {factionName}
+      <FiBook className="icon flex-shrink-0" />
+      <span className="truncate">{factionName}</span>
     </Link>
   )
 }
@@ -28,8 +28,8 @@ export function FactionLink({ factionId, factionName }: { factionId: string, fac
 export function SquadTypeLink({ squadTypeId, squadTypeName }: { squadTypeId: string, squadTypeName: string }) {
   return (
     <Link href={`/squadTypes/${squadTypeId}`} className={badgeClass}>
-      <FiList className="icon" />
-      {squadTypeName}
+      <FiList className="icon flex-shrink-0" />
+      <span className="truncate">{squadTypeName}</span>
     </Link>
   )
 }
@@ -37,8 +37,8 @@ export function SquadTypeLink({ squadTypeId, squadTypeName }: { squadTypeId: str
 export function UserLink({ userName, newTab }: {userName: string, newTab?: boolean}) {
   return (
     <Link href={userPath(userName)} className={badgeClass} target={newTab ? '_blank' : ''}>
-      <FiUser className="icon" />
-      {userName}
+      <FiUser className="icon flex-shrink-0" />
+      <span className="truncate">{userName}</span>
     </Link>
   )
 }
@@ -46,8 +46,8 @@ export function UserLink({ userName, newTab }: {userName: string, newTab?: boole
 export function SquadLink({ squadId, squadName }: { squadId: string, squadName: string }) {
   return (
     <Link href={`/squads/${squadId}`} className={badgeClass}>
-      <FiUsers className="icon" />
-      {squadName}
+      <FiUsers className="icon flex-shrink-0" />
+      <span className="truncate">{squadName}</span>
     </Link>
   )
 }

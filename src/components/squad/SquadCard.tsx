@@ -103,12 +103,12 @@ export default function SquadCard({
           )*/}
           <span className="font-medium whitespace-nowrap">{(squad.totalUnitGP ?? 0)} GP - {squad.unitCount ?? 0} Units</span>
           
-          <p className="text-sm flex flex-wrap items-baseline gap-x-2">
+          <p className="text-sm flex flex-nowrap items-center gap-x-2 overflow-hidden min-w-0">
             {showSquadTypeLink && squad.squadType?.squadTypeName && (
               <SquadTypeLink squadTypeId={squad.squadTypeId} squadTypeName={squad.squadType?.squadTypeName || 'Missing'} />
             )}
             {showUserLink && squad.user && (
-              <span>By <UserLink userName={squad.user.userName || 'Missing'} /></span>
+              <span className="inline-flex items-center gap-1 min-w-0 flex-shrink">By <UserLink userName={squad.user.userName || 'Missing'} /></span>
             )}
           </p>
         </div>
