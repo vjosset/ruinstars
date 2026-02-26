@@ -15,7 +15,7 @@ export class User {
 
   constructor(data: {
     userId: string
-    email: string | null
+    email?: string | null
     userName: string
     squads?: Squad[] | null
   }) {

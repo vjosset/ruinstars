@@ -111,8 +111,47 @@ export class SquadRepository extends BaseRepository {
     return new Squad(this.toSquadCtorInput(row))
   }
 
+  async getSquadsByUserId(userId: string): Promise<Squad[]> {
+    const rows = await this.prisma.squad.findMany({
+      where: { userId },
+      include: {
+        squadType: {
+          include: {
+            faction: true
+          }
+        },
+        units: {
+          include: {
+            unitType: true
+          },
+          orderBy: { seq: 'asc' }
+        }
+      },
+      orderBy: { seq: 'asc' }
+    })
+
+    return rows.map(row => new Squad(this.toSquadCtorInput(row)))
+  }
+
   async deleteSquad(squadId: string): Promise<void> {
     await this.prisma.squad.delete({ where: { squadId } })
+  }
+
+  async fixSquadSeqs(userId: string): Promise<void> {
+    if (!userId) throw new Error('Missing required input userId')
+    const squads = await this.prisma.squad.findMany({
+      where: { userId },
+      orderBy: [{ seq: 'asc' }, { createdAt: 'asc' }]
+    })
+
+    await Promise.all(
+      squads.map((squad, index) =>
+        this.prisma.squad.update({
+          where: { squadId: squad.squadId },
+          data: { seq: index + 1 }
+        })
+      )
+    )
   }
 
   async resetSquadActivation(squadId: string): Promise<void> {

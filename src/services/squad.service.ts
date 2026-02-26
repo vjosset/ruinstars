@@ -5,7 +5,6 @@ import { generateId } from '@/lib/id'
 import path from 'path'
 import { GearService } from './gear.service'
 import { UnitService } from './unit.service'
-import { UserService } from './user.service'
 
 export class SquadService {
   private static repository = new SquadRepository()
@@ -54,7 +53,7 @@ export class SquadService {
     if (!raw) throw new Error('Failed to create squad')
   
     // Reorder/re-seq the user's squads
-    await UserService.fixSquadSeqs(data.userId)
+    await this.repository.fixSquadSeqs(data.userId)
 
     // Done -  Return latest version of the new squad
     return await this.getSquad(data.squadId)
@@ -92,7 +91,7 @@ export class SquadService {
       : null
 
     await this.repository.deleteSquad(squadId)
-    await UserService.fixSquadSeqs(squad.userId)
+    await this.repository.fixSquadSeqs(squad.userId)
 
     if (squadPortraitDir) {
       try {
