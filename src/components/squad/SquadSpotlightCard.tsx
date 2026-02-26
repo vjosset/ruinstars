@@ -3,7 +3,7 @@
 import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { SquadPlain } from '@/types'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SquadTypeLink, UserLink } from '../nav/Links'
 
 type SquadCardProps = {
@@ -28,6 +28,10 @@ export default function SquadSpotlightCard({
     : `/img/squadTypes/${squad.squadTypeId}_thumb.webp`
 
   const [activeUnitId, setActiveUnitId] = useState<string | null>(null)
+
+  useEffect(() => {
+    setActiveUnitId(null)
+  }, [squad.squadId])
 
   const displayUrl = activeUnitId
     ? `${getUnitPortraitUrl(activeUnitId)}?v=${toEpochMs(squad.units?.find(u => u.unitId === activeUnitId)?.portraitUpdatedAt)}`
