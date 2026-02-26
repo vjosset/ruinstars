@@ -71,7 +71,7 @@ export default function SquadSpotlightCard({
                 <UserLink userName={squad.user.userName} />
               )}
               <span className="ml-auto font-heading text-[0.75rem] font-semibold tracking-wider text-muted">
-                {squad.totalUnitGP ?? 0} GP · {squad.unitCount ?? 0}U
+                {squad.totalUnitGP ?? 0} GP · {squad.unitCount ?? 0} Units
               </span>
             </div>
           </div>
