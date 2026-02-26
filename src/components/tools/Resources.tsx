@@ -8,7 +8,7 @@ export default function Resources() {
       <div className="section">
         <SectionTitle>Resources</SectionTitle>
         <ul>
-          <li><PDFLink href="/assets/Ruinstars_Tokens.pdf" title="Tokens" /></li>
+          <li><PDFLink href="/assets/tools/Ruinstars_Tokens.pdf" title="Tokens" /></li>
         </ul>
       </div>
       <div className="section">

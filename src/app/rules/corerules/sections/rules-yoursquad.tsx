@@ -11,7 +11,7 @@ export default async function RulesYourSquad({ num }: {num?: number | null}) {
       <div className="section twocols">
         <div className="section">
           <p>
-            A standard Squad is 4-10 Units built from your chosen Faction's available Units, with a total cost of <strong>100 GP</strong>, including all units and gear. Full Faction lists are available in the <PDFLink href="/assets/Factions - Ruinstars.pdf" title="Factions" /> or on the <Link className="underline" href="/factions">Factions Page</Link>.
+            A standard Squad is 4-10 Units built from your chosen Faction's available Units, with a total cost of <strong>100 GP</strong>, including all units and gear. Full Faction lists are available in the <PDFLink href="/assets/books/Factions - Ruinstars.pdf" title="Factions" /> or on the <Link className="underline" href="/factions">Factions Page</Link>.
           </p>
           <p>
             <strong>For your <a className="underline" href="#firstmission">first mission</a></strong>, use the Starter Squad provided: a multi-purpose Hegemony Interdictor squad that covers the core rules in play.
@@ -32,7 +32,7 @@ export default async function RulesYourSquad({ num }: {num?: number | null}) {
             </li>
           </ul>
           <p>
-            Build your Squad using the <Link className="underline" href="/me">app</Link>, or print and fill your own <PDFLink href="/assets/Ruinstars_SquadSheet.pdf" title="Squad Sheet PDF" />.
+            Build your Squad using the <Link className="underline" href="/me">app</Link>, or print and fill your own <PDFLink href="/assets/tools/Ruinstars_SquadSheet.pdf" title="Squad Sheet PDF" />.
           </p>
         </div>
         <div className="section">

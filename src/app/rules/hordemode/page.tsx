@@ -74,7 +74,7 @@ export default async function Rules() {
               Victory comes by finding how long your Squad can stand before being overwhelmed.
             </p>
             <p>
-              Note you will need the <PDFLink href="/assets/Core Rules - Ruinstars.pdf" title='Core Rules' /> to play this mode.
+              Note you will need the <PDFLink href="/assets/books/Core Rules - Ruinstars.pdf" title='Core Rules' /> to play this mode.
             </p>
           </div>
 

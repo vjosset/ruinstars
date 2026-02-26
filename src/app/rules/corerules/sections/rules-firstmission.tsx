@@ -36,16 +36,16 @@ export default async function RulesFirstMission({ num }: {num?: number | null}) 
               Ruinstars is designed around three distinct ways to play, each with its own book that builds on these Core Rules:
               <ul>
                 <li>
-                  <PDFLink href="/assets/PvE Missions - Ruinstars.pdf" title="PvE Missions" /> is the recommended next step for most players.
+                  <PDFLink href="/assets/books/PvE Missions - Ruinstars.pdf" title="PvE Missions" /> is the recommended next step for most players.
                   It adds procedurally generated missions, cooperative or solo squad play, campaign structure with persistent injuries and rewards, and a roster of NPC factions to fight against.
                   Pick this up if you want solo or co-op play with narrative progression.
                 </li>
                 <li>
-                  <PDFLink href="/assets/PvP Missions - Ruinstars.pdf" title="PvP Missions" /> pits two players head-to-head with their own custom squads across a set of competitive missions with their own campaign structure.
+                  <PDFLink href="/assets/books/PvP Missions - Ruinstars.pdf" title="PvP Missions" /> pits two players head-to-head with their own custom squads across a set of competitive missions with their own campaign structure.
                   Pick this up if you want to test your squad-building and tactics against another player.
                 </li>
                 <li>
-                  <PDFLink href="/assets/Horde Mode - Ruinstars.pdf" title="Horde Mode" /> is a standalone survival experience where your squad faces escalating waves of enemies with no extraction — just how long can you last?
+                  <PDFLink href="/assets/books/Horde Mode - Ruinstars.pdf" title="Horde Mode" /> is a standalone survival experience where your squad faces escalating waves of enemies with no extraction — just how long can you last?
                   Pick this up if you want a brutal, replayable challenge with no campaign overhead.
                 </li>
               </ul>
