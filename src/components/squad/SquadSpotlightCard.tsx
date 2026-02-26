@@ -108,6 +108,7 @@ export default function SquadSpotlightCard({
                 <img
                   src={`${getUnitPortraitUrl(unit.unitId)}?v=${toEpochMs(unit.portraitUpdatedAt)}`}
                   alt={unit.unitName}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </button>
