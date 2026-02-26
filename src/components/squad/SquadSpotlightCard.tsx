@@ -52,7 +52,7 @@ export default function SquadSpotlightCard({
             />
             <div
               className="absolute inset-0"
-              style={{ background: 'linear-gradient(to bottom, transparent 30%, rgba(10,10,10,0.6) 65%, rgba(10,10,10,0.97) 100%)' }}
+              style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,.7) 75%, rgba(0,0,0,1) 100%)' }}
             />
           </Link>
           {/* Text overlay — sibling of the link, so nested <a> tags are avoided */}
