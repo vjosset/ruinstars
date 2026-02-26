@@ -24,8 +24,14 @@ export default function NewsPopup() {
 
   useEffect(() => {
     const lastSeen = localStorage.getItem(NEWS_STORAGE_KEY)
+    const ninetyDaysAgo = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000)
+    if (!lastSeen || new Date(lastSeen) < ninetyDaysAgo) {
+      // First-time visitor or lapsed visitor: mark all current news as seen, show nothing
+      localStorage.setItem(NEWS_STORAGE_KEY, new Date().toISOString())
+      return
+    }
     const unseen = allnews
-      .filter(item => !lastSeen || new Date(item.date) > new Date(lastSeen))
+      .filter(item => new Date(item.date) > new Date(lastSeen))
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
       .slice(0, 3)
     setUnseenNews(unseen)

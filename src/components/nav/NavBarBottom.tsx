@@ -20,6 +20,20 @@ export default function NavBarBottom() {
       match: (path: string) => path === '/',
     },
     {
+      href: '/factions',
+      icon: <FiList />,
+      label: 'Factions',
+      show: true,
+      match: (path: string) => path.includes('/factions') || path.includes('/squadTypes'),
+    },
+    {
+      href: '/rules',
+      icon: <LuBookText />,
+      label: 'Rules',
+      show: true,
+      match: (path: string) => path === '/rules',
+    },
+    {
       href: '/me',
       icon: <FiUsers />,
       label: 'Squads',
@@ -40,20 +54,6 @@ export default function NavBarBottom() {
       label: 'Sign Up',
       show: false,
       match: (path: string) => path === '/auth/signup',
-    },
-    {
-      href: '/factions',
-      icon: <FiList />,
-      label: 'Factions',
-      show: true,
-      match: (path: string) => path.includes('/factions') || path.includes('/squadTypes'),
-    },
-    {
-      href: '/rules',
-      icon: <LuBookText />,
-      label: 'Rules',
-      show: true,
-      match: (path: string) => path === '/rules',
     },
   ]
 

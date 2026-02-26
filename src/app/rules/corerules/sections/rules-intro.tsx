@@ -47,8 +47,8 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
           </div>
           <div className="section">
             <h3>The App</h3>
-            Build squads, track missions, and share your roster with a link.<br/>
-            <Link className="underline" href="/auth/signup">Sign up free</Link>
+            Draft a roster, manage your GP budget, and share it with a link.<br/>
+            <Link className="underline" href="/auth/signup">Create a free account to get started</Link>
           </div>
           <div className="section">
             <h3 className="py-3 font-title" id="introduction">
@@ -57,7 +57,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
             <ol>
               <li>Download the <Link className="underline" target="_blank" href="/assets/Core Rules - Ruinstars.pdf">Core Rules</Link></li>
               <li>Gather some dice (<code>D{GAME.DICE_BASIS}</code>) and your miniatures</li>
-              <li>Play the Intro Mission</li>
+              <li>Play the Intro Mission (in the Core Rules, p. 10)</li>
               <li>Select your <Link className="underline" href="/factions">Faction</Link> and build your Squad</li>
               <li>Play your first PvP Mission, start your PvE Campaign, or test your mettle in Horde Mode</li>
             </ol>

@@ -23,20 +23,6 @@ export default function NavBarTop() {
         path.includes('/me') || path.includes('/users') || path.includes('/squads'),
     },
     {
-      href: '/auth/login',
-      icon: <FiLogIn />,
-      label: 'Log In',
-      show: !userName,
-      match: (path: string) => path === '/auth/login',
-    },
-    {
-      href: '/auth/signup',
-      icon: <FiUserPlus />,
-      label: 'Sign Up',
-      show: false,
-      match: (path: string) => path === '/auth/signup',
-    },
-    {
       href: '/factions',
       icon: <FiList />,
       label: 'Factions',
@@ -49,6 +35,20 @@ export default function NavBarTop() {
       label: 'Rules',
       show: true,
       match: (path: string) => path === '/rules',
+    },
+    {
+      href: '/auth/login',
+      icon: <FiLogIn />,
+      label: 'Log In',
+      show: !userName,
+      match: (path: string) => path === '/auth/login',
+    },
+    {
+      href: '/auth/signup',
+      icon: <FiUserPlus />,
+      label: 'Sign Up',
+      show: false,
+      match: (path: string) => path === '/auth/signup',
     },
   ]
 
