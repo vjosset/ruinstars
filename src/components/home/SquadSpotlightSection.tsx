@@ -12,7 +12,7 @@ export default function SquadSpotlightSection({ initialSquad }: { initialSquad: 
   async function refresh() {
     setLoading(true)
     try {
-      const res = await fetch('/api/squads/spotlight')
+      const res = await fetch(`/api/squads/spotlight?excludeSquadId=${squad.squadId}`)
       if (res.ok) {
         const data = await res.json()
         setSquad(data)
@@ -25,7 +25,9 @@ export default function SquadSpotlightSection({ initialSquad }: { initialSquad: 
   return (
     <div className="px-2 py-8 max-w-lg mx-auto">
       <div className="flex items-center justify-center gap-2 mb-1">
-        <h2 className="text-main font-title" onClick={refresh}>Squad Spotlight</h2>
+        <h4 className="text-main font-title" onClick={refresh}>
+          Squad Spotlight
+        </h4>
         <button
           onClick={refresh}
           disabled={loading}

@@ -82,7 +82,7 @@ export class SquadRepository extends BaseRepository {
     return new Squad(this.toSquadCtorInput(row))
   }
 
-  async getRandomSpotlightSquad(): Promise<Squad | null> {
+  async getRandomSpotlightSquad(excludeSquadId?: string): Promise<Squad | null> {
     const rows = await this.prisma.squad.findMany({
       where: { isSpotlight: true },
       include: {
@@ -107,7 +107,9 @@ export class SquadRepository extends BaseRepository {
     })
 
     if (!rows.length) return null
-    const row = rows[Math.floor(Math.random() * rows.length)]
+    const eligible = excludeSquadId ? rows.filter(r => r.squadId !== excludeSquadId) : rows
+    const pool = eligible.length > 0 ? eligible : rows
+    const row = pool[Math.floor(Math.random() * pool.length)]
     return new Squad(this.toSquadCtorInput(row))
   }
 

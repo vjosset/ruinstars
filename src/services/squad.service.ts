@@ -28,8 +28,8 @@ export class SquadService {
     return squad
   }
 
-  static async getRandomSpotlightSquad(): Promise<Squad | null> {
-    const raw = await this.repository.getRandomSpotlightSquad()
+  static async getRandomSpotlightSquad(excludeSquadId?: string): Promise<Squad | null> {
+    const raw = await this.repository.getRandomSpotlightSquad(excludeSquadId)
     if (!raw) return null
     const squad = new Squad(raw)
 
