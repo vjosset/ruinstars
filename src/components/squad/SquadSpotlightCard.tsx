@@ -66,6 +66,7 @@ export default function SquadSpotlightCard({
               {showSquadTypeLink && squad.squadType?.squadTypeName && (
                 <SquadTypeLink squadTypeId={squad.squadTypeId} squadTypeName={squad.squadType.squadTypeName} />
               )}
+              by
               {showUserLink && squad.user?.userName && (
                 <UserLink userName={squad.user.userName} />
               )}
