@@ -7,7 +7,7 @@ import NewsCard from '@/src/components/home/NewsCard'
 import Link from 'next/link'
 import RulesIntro from './rules/corerules/sections/rules-intro'
 import { SquadService } from '@/services/squad.service'
-import SquadSpotlightCard from '@/components/squad/SquadSpotlightCard'
+import SquadSpotlightSection from '@/components/home/SquadSpotlightSection'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -73,11 +73,7 @@ export default async function Home() {
 
       {/* Random Spotlight */}
       {spotlight && (
-        <div className="px-2 py-8 max-w-lg mx-auto">
-          <h2 className="text-center text-main font-title mb-1">Squad Spotlight</h2>
-          <p className="font-heading text-sm italic text-muted text-center mb-4 tracking-wide">Squads built by the Ruinstars community</p>
-          <SquadSpotlightCard squad={spotlight.toPlain()} isOwner={false} />
-        </div>
+        <SquadSpotlightSection initialSquad={spotlight.toPlain()} />
       )}
 
       {/* SquadTypes List */}
