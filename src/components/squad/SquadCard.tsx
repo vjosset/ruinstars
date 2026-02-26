@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react'
 import { FiMoreVertical } from 'react-icons/fi'
 import { SquadTypeLink, UserLink } from '../nav/Links'
 import { Button, Modal } from '../ui'
-import Markdown from '../ui/Markdown'
 import SquadCardMenu from './SquadCardMenu'
 
 type SquadCardProps = {
@@ -97,22 +96,20 @@ export default function SquadCard({
             )}
           </div>
 
-          {squad.description && (
+          {/*squad.description && (
             <div className="text-sm text-muted line-clamp-2">
               <Markdown>{squad.description}</Markdown>
             </div>
-          )}
+          )*/}
+          <span className="font-medium whitespace-nowrap">{(squad.totalUnitGP ?? 0)} GP - {squad.unitCount ?? 0} Units</span>
           
-          <p className="text-sm flex items-baseline justify-between gap-2">
-            <span className="flex items-center gap-2 min-w-0">
-              {showSquadTypeLink && squad.squadType?.squadTypeName && (
-                <SquadTypeLink squadTypeId={squad.squadTypeId} squadTypeName={squad.squadType?.squadTypeName || 'Missing'} />
-              )}
-              {showUserLink && squad.user && (
-                <>By <UserLink userName={squad.user.userName || 'Missing'} /></>
-              )}
-            </span>
-            <span className="font-medium whitespace-nowrap">{(squad.totalUnitGP ?? 0)}GP/{squad.unitCount ?? 0}U</span>
+          <p className="text-sm flex flex-wrap items-baseline gap-x-2">
+            {showSquadTypeLink && squad.squadType?.squadTypeName && (
+              <SquadTypeLink squadTypeId={squad.squadTypeId} squadTypeName={squad.squadType?.squadTypeName || 'Missing'} />
+            )}
+            {showUserLink && squad.user && (
+              <span>By <UserLink userName={squad.user.userName || 'Missing'} /></span>
+            )}
           </p>
         </div>
       </div>

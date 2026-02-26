@@ -1,5 +1,5 @@
 import type { Prisma } from '@prisma/client'
-import { Squad } from '@/types'
+import { Squad, User } from '@/types'
 import { BaseRepository } from './base.repository'
 
 type PrismaSquadWithRelations = Prisma.SquadGetPayload<{
@@ -9,7 +9,12 @@ type PrismaSquadWithRelations = Prisma.SquadGetPayload<{
         faction: true
       }
     }
-    user: true
+    user: {
+      select: {
+        userId: true
+        userName: true
+      }
+    }
     units: {
       include: {
         unitType: true
@@ -41,7 +46,12 @@ export class SquadRepository extends BaseRepository {
             faction: true
           }
         },
-        user: true,
+        user: {
+          select: {
+            userId: true,
+            userName: true
+          }
+        },
         units: {
           include: {
             unitType: true
@@ -69,6 +79,35 @@ export class SquadRepository extends BaseRepository {
       data: this.toUpdateInput(data)
     })
 
+    return new Squad(this.toSquadCtorInput(row))
+  }
+
+  async getRandomSpotlightSquad(): Promise<Squad | null> {
+    const rows = await this.prisma.squad.findMany({
+      where: { isSpotlight: true },
+      include: {
+        squadType: {
+          include: {
+            faction: true
+          }
+        },
+        user: {
+          select: {
+            userId: true,
+            userName: true
+          }
+        },
+        units: {
+          include: {
+            unitType: true
+          },
+          orderBy: { seq: 'asc' }
+        }
+      }
+    })
+
+    if (!rows.length) return null
+    const row = rows[Math.floor(Math.random() * rows.length)]
     return new Squad(this.toSquadCtorInput(row))
   }
 
@@ -107,7 +146,7 @@ export class SquadRepository extends BaseRepository {
       campaign: row.campaign ?? undefined,
       // Keep nested records as-is; Squad constructor will recursively wrap them.
       units: row.units ?? null,
-      user: row.user ?? null,
+      user: row.user ? new User({ userId: row.user.userId, userName: row.user.userName, email: null }) : null,
       squadType: row.squadType
         ? {
           ...row.squadType,

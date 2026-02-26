@@ -6,6 +6,8 @@ import news from '@/public/news.json'
 import NewsCard from '@/src/components/home/NewsCard'
 import Link from 'next/link'
 import RulesIntro from './rules/corerules/sections/rules-intro'
+import { SquadService } from '@/services/squad.service'
+import SquadCard from '@/components/squad/SquadCard'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -20,6 +22,8 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
+  const spotlight = await SquadService.getRandomSpotlightSquad()
+
   return (
     <>
       <div
@@ -67,10 +71,22 @@ export default async function Home() {
         <RulesIntro showTitle={false} />
       </div>
 
+      {/* Random Spotlight */}
+      {spotlight && (
+        <div className="px-2 py-8 max-w-7xl mx-auto">
+          <h2 className="text-center text-main font-title mb-4">Squad Spotlight</h2>
+          <em className="text-muted">Squads built by the Ruinstars community</em>
+          
+          <div className="gap-1 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <SquadCard squad={spotlight.toPlain()} isOwner={false} />    
+          </div>
+        </div>
+      )}
+
       {/* SquadTypes List */}
       <div className="px-2 py-8 max-w-7xl mx-auto">
         <h2 className="text-center text-main font-title mb-4">Factions</h2>
-
+        <em className="text-muted">What's left is worth fighting over. Pick your side.</em>
         <FactionList />
       </div>
 

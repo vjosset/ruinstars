@@ -34,7 +34,12 @@ type PrismaSquadTypeWithRelations = Prisma.SquadTypeGetPayload<{
     squads: {
       where: { isSpotlight: true }
       include: {
-        user: true
+        user: {
+          select: {
+            userId: true
+            userName: true
+          }
+        }
         units: {
           include: { unitType: true }
           orderBy: { seq: 'asc' }
@@ -84,7 +89,12 @@ export class SquadTypeRepository extends BaseRepository {
         squads: {
           where: { isSpotlight: true },
           include: {
-            user: true,
+            user: {
+              select: {
+                userId: true,
+                userName: true
+              }
+            },
             units: {
               include: { unitType: true },
               orderBy: { seq: 'asc' }
@@ -167,12 +177,11 @@ export class SquadTypeRepository extends BaseRepository {
 
   private toUser(row: {
     userId: string
-    email: string | null
     userName: string
   }): User {
     const input: UserCtorInput = {
       userId: row.userId,
-      email: row.email,
+      email: null,
       userName: row.userName,
       squads: []
     }
@@ -252,7 +261,7 @@ export class SquadTypeRepository extends BaseRepository {
     maxGP: number
     eloRating: number
     campaign: string | null
-    user?: { userId: string; email: string | null; userName: string }
+    user?: { userId: string; userName: string }
     units?: Array<{
       unitId: string
       squadId: string

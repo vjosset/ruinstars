@@ -2,9 +2,8 @@ import SquadTypeCard from '@/components/squadType/SquadTypeCard'
 import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
 import UnitCard from '@/components/unit/UnitCard'
-import ops from '@/data/scriptedOperations.json'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import { FactionService, SpecialService, SquadTypeService } from '@/src/services'
+import { SpecialService, SquadTypeService } from '@/src/services'
 import { UnitType } from '@/src/types'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -31,20 +30,12 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
   const { squadTypeId } = await params
   const { tab: tabParam } = searchParams ? await searchParams : { tab: undefined }
   const squadType = await SquadTypeService.getSquadType(squadTypeId)
-  const factions = await FactionService.getAllFactions()
-  const factionsPlain = factions.map(f => f.toPlain ? f.toPlain() : f)
 
   if (!squadType) notFound()
-
-  const hasSpotlights = (squadType.spotlights?.length ?? 0) > 0
-  const scriptedOps = ops.filter(op => op.factions?.factionA === squadType.factionId || op.factions?.factionB === squadType.factionId)
-  const hasOps = scriptedOps.length > 0
 
   const tabs = [
     { id: 'units' as const, label: 'Units', enabled: true },
     { id: 'about' as const, label: 'About', enabled: true },
-    /* { id: 'ops' as const, label: 'Operations', enabled: hasOps }, */
-    /* { id: 'squads' as const, label: 'Squads', enabled: hasSpotlights }, */
   ].filter(t => t.enabled)
 
   const requestedTab = tabs.find(t => t.id === tabParam)?.id

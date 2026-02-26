@@ -29,6 +29,20 @@ export class SquadService {
     return squad
   }
 
+  static async getRandomSpotlightSquad(): Promise<Squad | null> {
+    const raw = await this.repository.getRandomSpotlightSquad()
+    if (!raw) return null
+    const squad = new Squad(raw)
+
+    if (squad.units && squad.units.length > 0) {
+      await Promise.all(squad.units.map(async unit => {
+        await GearService.loadUnitGear(unit)
+        await UnitService.applyGearMods(unit)
+      }))
+    }
+    return squad
+  }
+
   static async createSquad(data: Partial<Squad>): Promise<Squad | null> {
     if (!data || !data.userId) throw new Error('No data provided')
 
