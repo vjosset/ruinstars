@@ -303,7 +303,7 @@ export default async function PvEMissions() {
               <div>
                 <strong>5: Hostile Environment</strong>
                 <div className="ml-4">
-                  The battlefield itself is killing you. At the end of each Turn, each Player Unit within 6" of the Center anchor takes 2 Damage.
+                  The battlefield itself is killing you. At the end of each Turn, all Units (Player or NPC) within 6" of the Center anchor takes 2 Damage.
                 </div>
               </div>
               <div>

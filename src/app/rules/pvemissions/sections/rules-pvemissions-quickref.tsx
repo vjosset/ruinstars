@@ -203,7 +203,7 @@ export default function PvEMissionsQuickRef() {
               <TableRow roll="2" label="Fortified Position"  effect="All NPC Units start in Cover and are considered in Cover (regardless of position) until they move for the first time." />
               <TableRow roll="3" label="Fog of War"          effect='Max Ranged range 8". Weapons with infinite range treated as RNG8".' />
               <TableRow roll="4" label="Blackout"            effect="Cannot spend TO to modify dice ±1. All other TO uses (actions, skills, re-rolls) unaffected." />
-              <TableRow roll="5" label="Hostile Environment" effect='End of each Turn: each Player Unit within 6" of Center takes 2 damage.' />
+              <TableRow roll="5" label="Hostile Environment" effect='End of each Turn: each Unit within 6" of Center takes 2 damage.' />
               <TableRow roll="6" label="Blacksite"            effect="No outside support. Do not roll Turn Events this mission — they do not apply for any reason, including Reinforcements in turns 5+." last />
             </tbody>
           </table>
