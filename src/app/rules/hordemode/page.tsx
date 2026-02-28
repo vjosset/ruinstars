@@ -206,14 +206,10 @@ export default async function Rules() {
               <div className="section">
                 <h5>Reviving Downed Units</h5>
                 <p>
-                  A Standing Unit may revive a Downed Squadmate it Controls:<br/>
-                  <strong>Mission Action - Revive - 2 ACT</strong>: The Downed Unit returns as Standing with <code>1 HIT</code> remaining.<br/>
-                  A Downed Unit may revive itself if it Controls a Standing Squadmate:<br/>
+                  A Standing Unit may revive a Downed Squadmate it Controls, and a Downed Unit may revive itself if it Controls a Standing Squadmate.
+                  
+                  Whenever a Downed Unit is revived, it gains one random Injury (see Injuries below).<br/>
                   <strong>Mission Action - Revive - 2 ACT</strong>: The Downed Unit returns as Standing with <code>1 HIT</code> remaining.
-                </p>
-                <p>
-                  Whenever a Downed Unit is revived, it gains one random Injury (see Injuries below).
-                  If that Injury is one that the Unit already has, the Unit is Deceased and permanently removed from the battlefield.
                 </p>
               </div>
             </div>
@@ -579,7 +575,7 @@ export default async function Rules() {
                   <div className="ml-4">Player Squad gains <code>+2 TO</code>.</div>
                 </div>
                 <div>
-                  <strong>7: Relentless Advance</strong>
+                  <strong>7: Nominal</strong>
                   <div className="ml-4">The Horde presses on (no special event this Turn).</div>
                 </div>
                 <div>
@@ -753,8 +749,8 @@ export default async function Rules() {
             <div className="section">
               <h3>Injuries</h3>
               <p>
-                Each time a Downed Unit is revived, roll <code>1D6</code> to determine the Injury this Unit received.<br/>
-                If the Injury is one that the Unit already had, that Unit is Deceased. Remove the Unit from the Battlefield.
+                Each time a Downed Unit is revived, roll <code>1D6</code> to determine the Injury this Unit received.
+                If the rolled Injury is one that the Unit already had, that Unit is Deceased and removed from the Battlefield.
               </p>
               <ul>
                 {/* Injuries List */}

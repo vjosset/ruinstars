@@ -341,17 +341,17 @@ export default function HordeModeQuickRef() {
               </tr>
             </thead>
             <tbody>
-              <EventRow roll="2"  event="Second Wind"         effect="Select a Downed Unit. It revives with half HIT (round up) + 1 random Injury." />
-              <EventRow roll="3"  event="Field Dressing"      effect="One Standing Unit regains 1 lost HIT." />
-              <EventRow roll="4"  event="Opportunity"         effect="One Unit spends up to 2 ACT before the Turn starts. Not its activation." />
-              <EventRow roll="5"  event="Supply Drop"         effect='Place 3 crates randomly. If a crate lands on a Unit → Booby Trap; skip that placement.' />
-              <EventRow roll="6"  event="Strategic Command"   effect="Squad gains +2 TO." />
-              <EventRow roll="7"  event="Relentless Advance"  effect="No special event this Turn." />
-              <EventRow roll="8"  event="Scrambled Comms"     effect="Squad loses -2 TO (minimum 0)." />
-              <EventRow roll="9"  event="Encroaching Threat"  effect='Each Horde Move Action moves an additional 2" this Turn.' />
+              <EventRow roll="2"  event="Second Wind"          effect="Select a Downed Unit. It revives with half HIT (round up) + 1 random Injury." />
+              <EventRow roll="3"  event="Field Dressing"       effect="One Standing Unit regains 1 lost HIT." />
+              <EventRow roll="4"  event="Opportunity"          effect="One Unit spends up to 2 ACT before the Turn starts. Not its activation." />
+              <EventRow roll="5"  event="Supply Drop"          effect='Place 3 crates randomly. If a crate lands on a Unit → Booby Trap; skip that placement.' />
+              <EventRow roll="6"  event="Strategic Command"    effect="Squad gains +2 TO." />
+              <EventRow roll="7"  event="Nominal"              effect="No special event this Turn." />
+              <EventRow roll="8"  event="Scrambled Comms"      effect="Squad loses -2 TO (minimum 0)." />
+              <EventRow roll="9"  event="Encroaching Threat"   effect='Each Horde Move Action moves an additional 2" this Turn.' />
               <EventRow roll="10" event="Enemy Reinforcements" effect="Roll 1D6 → spawn 1 Horde Unit per the Wave table for this Wave (ignore quantity)." />
-              <EventRow roll="11" event="Coordinated Assault" effect="Horde Units gain +1 ATT on all weapons this Turn." />
-              <EventRow roll="12" event="Overrun"             effect="All Horde Units immediately perform 1 free Action per their Behavior." last />
+              <EventRow roll="11" event="Coordinated Assault"  effect="Horde Units gain +1 ATT on all weapons this Turn." />
+              <EventRow roll="12" event="Overrun"              effect="All Horde Units immediately perform 1 free Action per their Behavior." last />
             </tbody>
           </table>
         </Card>
