@@ -102,7 +102,7 @@ export default function UnitCard({
       <div className="bg-card border border-main rounded relative flex flex-col h-full unitcard mx-1">
         <div className={'grid grid-cols-12 gap-1 text-center'}>
           {!unit.isUnitType && unit.hasCustomPortrait && (
-            <div className="cursor-pointer col-span-3 overflow-hidden rounded-tl border-border border" onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>
+            <div className="cursor-pointer col-span-3 overflow-hidden rounded-tl border-border border-r border-b" onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>
               <img
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: (!unit.isUnitType && (unit.currHIT === 0)) ? 'grayscale(1)' : 'none' }}
                 src={`${getUnitPortraitUrl(unit.unitId)}?v=${toEpochMs(unit.portraitUpdatedAt)}`}
@@ -165,21 +165,21 @@ export default function UnitCard({
             {/* Stats */}
             <div className="grid grid-cols-3 gap-x-4 text-center">
               <div className="text-md border-border border">
-                <span className="flex items-center justify-center gap-1 bg-black">
+                <span className="font-heading flex items-center justify-center gap-1 bg-black">
                   {/*<RiFlashlightFill className="text-xl" />*/}
                   ACT
                   <h4 className="stat text-main">{unit.ACT}</h4>
                 </span>
               </div>
               <div className="text-md border-border border">
-                <span className="flex items-center justify-center gap-1 bg-black">
+                <span className="font-heading flex items-center justify-center gap-1 bg-black">
                   {/*<RiShieldFill className="text-lg" />*/}
                   ARM
                   <h4 className="stat text-main">{unit.ARM}</h4>
                 </span>
               </div>
               <div className={`text-md border-border border ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
-                <span className="flex items-center justify-center gap-1 bg-black">
+                <span className="font-heading flex items-center justify-center gap-1 bg-black">
                   {/*<RiHeartFill className="text-xl" />*/}
                   HIT
                   <h4 className="stat text-main">{unit.isUnitType ? unit.HIT : unit.currHIT}</h4>

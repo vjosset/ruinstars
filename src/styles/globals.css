@@ -73,7 +73,7 @@ Font notes:
 @font-face {
   font-family: 'main';
   /*src: url('/fonts/Oswald.ttf');*/
-	src: url('/fonts/Rajdhani-SemiBold.ttf');
+	src: url('/fonts/Rajdhani-Regular.ttf');
   font-weight: normal;
   font-style: normal;
 }
@@ -130,8 +130,12 @@ h1 {
 }
 
 h2, h3, h4, h5, h6 {
-  @apply font-main uppercase grunge;
+  @apply font-heading uppercase grunge;
   font-weight: 700;
+}
+
+strong {
+	@apply font-heading;
 }
 
 h2 { @apply text-4xl; }
@@ -192,6 +196,22 @@ hr {
 										url('/img/ui/grunge-texture03-dark.webp');
 										/*url('/img/ui/mech02.webp');*/
 	background-size: cover;
+}
+
+.imagegrunge {
+	mask-image: 
+		linear-gradient(to right, black 70%, transparent 100%),
+		linear-gradient(to bottom, black 70%, transparent 100%);
+	mask-composite: intersect;
+}
+
+.imagegrunge_SVG {
+	-webkit-mask-image: url('/img/ui/portraitmask.svg');
+	mask-image: url('/img/ui/portraitmask.svg');
+	-webkit-mask-size: cover;
+	mask-size: cover;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
 }
 
 .flavor_Off::before {
