@@ -95,7 +95,7 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
 
         {activeTab === 'units' && (
           <>
-            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2">
+            <div className="grid gap-x-0 gap-y-1 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {squadType.unitTypes.map((unitType: UnitType) => (
                 <UnitCard
                   key={unitType.unitTypeId}

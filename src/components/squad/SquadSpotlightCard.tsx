@@ -51,6 +51,8 @@ export default function SquadSpotlightCard({
           <Link href={`/squads/${squad.squadId}`} className="absolute inset-0 z-0">
             <img
               src={displayUrl}
+              loading="lazy"
+              decoding="async"
               alt={`${squad.squadName} squad portrait`}
               className="w-full h-full object-cover brightness-[0.85] group-hover:brightness-95 group-hover:scale-[1.02] transition-all duration-400"
             />

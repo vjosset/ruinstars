@@ -32,7 +32,7 @@ export default async function RulesYourSquad({ num }: {num?: number | null}) {
             </li>
           </ul>
           <p>
-            Build your Squad using the <Link className="underline" href="/me">app</Link>, or print and fill your own <PDFLink href="/assets/tools/Ruinstars_SquadSheet.pdf" title="Squad Sheet PDF" />.
+            Build your Squad using the <Link className="underline" href="/me">app</Link>, or print and fill your own <PDFLink href="/assets/tools/Ruinstars_SquadSheet.pdf" title="Squad Sheet" />.
           </p>
         </div>
         <div className="section">

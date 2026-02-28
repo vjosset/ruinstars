@@ -99,34 +99,34 @@ export default function UnitCard({
 
   return (
     <>
-      <div className="bg-card border border-main p-1 rounded relative flex flex-col h-full unitcard">
-        <div className={'grid grid-cols-4 gap-1 text-center'}>
+      <div className="bg-card border border-main rounded relative flex flex-col h-full unitcard mx-1">
+        <div className={'grid grid-cols-12 gap-1 text-center'}>
           {!unit.isUnitType && unit.hasCustomPortrait && (
-            <div className="cursor-pointer col-span-1 border border-muted/50 rounded-md" style={{maxHeight: '100%', maxWidth: '100%', overflow: 'hidden'}} onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>
+            <div className="cursor-pointer col-span-3 overflow-hidden rounded-tl border-border border" onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>
               <img
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: (!unit.isUnitType && (unit.currHIT === 0)) ? 'grayscale(1)' : 'none' }}
                 src={`${getUnitPortraitUrl(unit.unitId)}?v=${toEpochMs(unit.portraitUpdatedAt)}`}
               />
             </div>
           )}
-          <div className={(!unit.isUnitType && unit.hasCustomPortrait) ? 'col-span-3' : 'col-span-4'}>
+          <div className={`${(!unit.isUnitType && unit.hasCustomPortrait) ? 'col-span-9' : 'col-span-12'} p-1`}>
             {/* Name and Type */}
             <div className="flex justify-between">
-              <div className="flex justify-between gap-x-2">
+              <div className="flex justify-between gap-x-2 min-w-0">
                 {!unit.isUnitType && isOwner && unit.currHIT !== 0 && (
                   <Checkbox
                     checked={!!unit.isActivated}
                     onChange={toggleActivated}
-                    className="accent-primary mb-1.5 noprint"
+                    className="accent-primary mb-1.5 noprint flex-shrink-0"
                   />
                 )}
-                <h5 className={`font-heading ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
-                  <div className="flex items-center gap-1">
-                    <span onClick={toggleActivated}>
+                <h5 className={`font-heading truncate ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
+                  <span className="flex items-center gap-1 min-w-0 overflow-hidden">
+                    <span className="flex-shrink-0" onClick={toggleActivated}>
                       {unit.isUnitType ? '' : `${seq}. `}
                     </span>
-                    <span className="flex items-center gap-1" onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
-                      {unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ''}
+                    <span className="flex items-center gap-1 min-w-0" onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
+                      <span className="truncate">{unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ''}</span>
                       {/* Icon reminders for Spoils Of War and Injuries */}
                       {!unit.isUnitType && unit.gears?.some(gear => gear.gearId === 'INJ-DC') &&
                         <GiDeathSkull className="text-base text-muted" /> 
@@ -138,7 +138,7 @@ export default function UnitCard({
                         <FaHeartPulse className="text-base text-muted" /> 
                       }
                     </span>
-                  </div>
+                  </span>
                 </h5>
               </div>
               <div className="text-muted mb-1">
@@ -163,23 +163,23 @@ export default function UnitCard({
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-1 text-center">
-              <div className="text-md">
-                <span className="flex items-center justify-center gap-1">
+            <div className="grid grid-cols-3 gap-x-4 text-center">
+              <div className="text-md border-border border">
+                <span className="flex items-center justify-center gap-1 bg-black">
                   {/*<RiFlashlightFill className="text-xl" />*/}
                   ACT
                   <h4 className="stat text-main">{unit.ACT}</h4>
                 </span>
               </div>
-              <div className="text-md">
-                <span className="flex items-center justify-center gap-1">
+              <div className="text-md border-border border">
+                <span className="flex items-center justify-center gap-1 bg-black">
                   {/*<RiShieldFill className="text-lg" />*/}
                   ARM
                   <h4 className="stat text-main">{unit.ARM}</h4>
                 </span>
               </div>
-              <div className={`text-md ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
-                <span className="flex items-center justify-center gap-1">
+              <div className={`text-md border-border border ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
+                <span className="flex items-center justify-center gap-1 bg-black">
                   {/*<RiHeartFill className="text-xl" />*/}
                   HIT
                   <h4 className="stat text-main">{unit.isUnitType ? unit.HIT : unit.currHIT}</h4>
@@ -190,43 +190,45 @@ export default function UnitCard({
           </div>
         </div>
 
-        {/* Weapons */}
-        {(unit.weapons?.length ?? 0) > 0 && unit.currHIT !== 0 && (
-          <WeaponTable weapons={unit.weapons ?? []} MSK={unit.MSK ?? 0} RSK={unit.RSK ?? 0} allSpecials={allSpecials} />
-        )}
-
-        {/* Skills */}
-        {(unit.skills?.length ?? 0) > 0 && unit.currHIT !== 0 && (
-          <GearGroupList gearList={unit.skills ?? []} showNarrative={!unit.isUnitType} />
-        )}
-
-        {/* Print only - Additional info */}
-        <div className="printonly border-t border-border overflow-y-hidden">
-          {!unit.isUnitType && (unit.skills && unit.skills.length > 0) && (
-            <>
-              <div className="mt-2 text-sm">
-                {unit.skills.map((skill) => (
-                  <Markdown key={`printskill_${skill.gearId}`}>
-                    {`**${skill.gearName.replace('*', '')}${skill.ACT != null ? ` (${skill.ACT}ACT)` : ''}${skill.TO != null ? ` (${skill.TO}TO)` : ''}**: ${skill.description}`}
-                  </Markdown>
-                ))}
-              </div>
-            </>
+        <div className="p-1">
+          {/* Weapons */}
+          {(unit.weapons?.length ?? 0) > 0 && unit.currHIT !== 0 && (
+            <WeaponTable weapons={unit.weapons ?? []} MSK={unit.MSK ?? 0} RSK={unit.RSK ?? 0} allSpecials={allSpecials} />
           )}
-        </div>
 
-        {(unit.isUnitType && unit?.description) && (
-          <div className="flavor">
-            <Markdown>
-              {unit?.description}
-            </Markdown>
+          {/* Skills */}
+          {(unit.skills?.length ?? 0) > 0 && unit.currHIT !== 0 && (
+            <GearGroupList gearList={unit.skills ?? []} showNarrative={!unit.isUnitType} />
+          )}
+
+          {/* Print only - Additional info */}
+          <div className="printonly border-t border-border overflow-y-hidden">
+            {!unit.isUnitType && (unit.skills && unit.skills.length > 0) && (
+              <>
+                <div className="mt-2 text-sm">
+                  {unit.skills.map((skill) => (
+                    <Markdown key={`printskill_${skill.gearId}`}>
+                      {`**${skill.gearName.replace('*', '')}${skill.ACT != null ? ` (${skill.ACT}ACT)` : ''}${skill.TO != null ? ` (${skill.TO}TO)` : ''}**: ${skill.description}`}
+                    </Markdown>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {(unit.isUnitType && unit?.description) && (
+              <div className="flavor">
+                <Markdown>
+                  {unit?.description}
+                </Markdown>
+              </div>
+            )}
           </div>
-        )}
+        </div>
 
         {/* Footer */}
         {/* Note we hide this for UnitType cards since we moved all Unit specials to Abilities for clarity */}
         {!unit.isUnitType && (
-          <div className="border-t border-border mt-auto">
+          <div className="border-t border-border mt-auto p-1">
             <div className="flex justify-between items-center">
               <div className="text-sm">
                 {!unit.isUnitType && (

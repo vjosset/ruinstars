@@ -72,7 +72,7 @@ export default function GearGroupList({
         return (
           <div key={categoryId} className="border-t border-border">
             <div className="grid grid-cols-2">
-              <h6 className="text-muted flex items-center col-span-2">
+              <h6 className={`text-muted flex items-center ${isEvenCount ? 'col-span-2' : ''}`}>
                 {sortedGears[0].gearCategory?.gearCategoryName}
               </h6>
               {!isEvenCount && firstGear && renderGear(firstGear)}
