@@ -120,11 +120,11 @@ export default function PvEMissionsQuickRef() {
               <Divider />
               <SubLabel>Extraction &amp; Mission Points</SubLabel>
               <P className="text-xs">
-                At end of any Turn, the Squad may <Hi>Extract</Hi>: all Standing Units must not be Adjacent to any enemy Units.
-                Once extracted, the Mission ends immediately.
+                At start of Turn 4, roll a random Anchor as the <Hi>Extraction Point</Hi>.
+                At end of Turn 4+, Standing Units within 4" of it and not Adjacent to enemies <Hi>Extract</Hi>. Units that fail both conditions count as Taken Out.
               </P>
               <div className="text-xs text-muted ml-2">
-                <Br>+1 MP</Br> per Threat Level &nbsp;·&nbsp; <Br>+3 MP</Br> per completed Objective
+                <Br>+1 MP</Br> per Threat Level (always) &nbsp;·&nbsp; <Br>+3 MP</Br> per completed Objective (only if any Units extracted)
               </div>
             </div>
           </div>
@@ -182,11 +182,11 @@ export default function PvEMissionsQuickRef() {
           </p>
           <table className="w-full border-collapse">
             <tbody>
-              <TableRow roll="1" label="Control"       effect="Place 3 Control points on random Anchors. All Controlled end of Turn 4." />
+              <TableRow roll="1" label="Control"       effect="Place 3 Objectives on random Anchors. All Controlled at end of Turn 4." />
               <TableRow roll="2" label="Activate"      effect="3 Objectives on random Anchors. Activate (2ACT): Remove Objective. All 3 activated." />
               <TableRow roll="3" label="Destroy"       effect="Place 3 Objectives (ARM3 HIT2) on random Anchors. All Taken Out." />
-              <TableRow roll="4" label="Protect"       effect="Asset (ARM3 HIT3) at Center. NPC priority target. Asset at ≥1 HIT at end of Turn 4." />
-              <TableRow roll="5" label="Search"        effect="3 Search Markers on random Anchors. Search (2ACT): roll 1D6, 1-2 = Artifact found. No TO re-rolls." />
+              <TableRow roll="4" label="Protect"       effect="Asset (ARM3 HIT3) on a random Anchor. NPC priority target. Asset at ≥1 HIT at end of Turn 4." />
+              <TableRow roll="5" label="Search"        effect="3 Search Objectives on random Anchors. Search (2ACT): 1st = found on 1; 2nd = found on 1-2; 3rd = found automatically. No TO re-rolls." />
               <TableRow roll="6" label="No Survivors"  effect="All enemy Units Taken Out." last />
             </tbody>
           </table>
@@ -200,11 +200,11 @@ export default function PvEMissionsQuickRef() {
           <table className="w-full border-collapse">
             <tbody>
               <TableRow roll="1" label="Standard Conditions" effect="No special conditions." />
-              <TableRow roll="2" label="Fortified Position"  effect="All NPC Units start in Cover; remain in Cover until they move for the first time." />
+              <TableRow roll="2" label="Fortified Position"  effect="All NPC Units start in Cover and are considered in Cover (regardless of position) until they move for the first time." />
               <TableRow roll="3" label="Fog of War"          effect='Max Ranged range 8". Weapons with infinite range treated as RNG8".' />
               <TableRow roll="4" label="Blackout"            effect="Cannot spend TO to modify dice ±1. All other TO uses (actions, skills, re-rolls) unaffected." />
               <TableRow roll="5" label="Hostile Environment" effect='End of each Turn: each Player Unit within 6" of Center takes 2 damage.' />
-              <TableRow roll="6" label="Desperate Hour"      effect="Must Extract by end of Turn 3. If no Units have Extracted by then, mission is a failure." last />
+              <TableRow roll="6" label="Blacksite"            effect="No outside support. Do not roll Turn Events this mission — they do not apply for any reason, including Reinforcements in turns 5+." last />
             </tbody>
           </table>
         </Card>
@@ -219,16 +219,16 @@ export default function PvEMissionsQuickRef() {
           <div className="grid grid-cols-2 gap-x-4">
             <table className="w-full border-collapse">
               <tbody>
-                <TableRow roll="1" label="Standard Insertion" effect="Player: South edge. NPC: North edge." />
-                <TableRow roll="2" label="Hot Drop"           effect='Player: within 4" of Center. NPC: North edge.' />
-                <TableRow roll="3" label="Flanked"            effect="Player: South edge. NPC splits evenly across East + West edges." last />
+                <TableRow roll="1" label="Standard Insertion" effect="Player: South edge. NPC: North edge, in Cover if possible." />
+                <TableRow roll="2" label="Hot Drop"           effect='Player: within 4" of Center. NPC: North edge, in Cover if possible.' />
+                <TableRow roll="3" label="Flanked"            effect="Player: South edge. NPC splits evenly across East + West edges, in Cover if possible." last />
               </tbody>
             </table>
             <table className="w-full border-collapse">
               <tbody>
-                <TableRow roll="4" label="Deep Strike" effect='Both squads deploy within 8" of Center. Roll off to determine deployment order.' />
+                <TableRow roll="4" label="Deep Strike" effect='Player: within 4" of SE anchor. NPC: within 4" of NW anchor, in Cover if possible.' />
                 <TableRow roll="5" label="Overwatch"   effect="Player: South edge. NPC: anywhere on North half of battlefield, in Cover if possible." />
-                <TableRow roll="6" label="Encircled"   effect='Player: within 4" of Center. NPC splits evenly across all 4 edges.' last />
+                <TableRow roll="6" label="Encircled"   effect='Player: within 4" of Center. NPC splits evenly across all 4 edges, in Cover if possible.' last />
               </tbody>
             </table>
           </div>
@@ -257,7 +257,7 @@ export default function PvEMissionsQuickRef() {
           </P>
           <SubLabel>Spoils of War</SubLabel>
           <P className="text-xs">
-            Purchased at Homebase. <Hi>6 MP</Hi> each, applies to one specific Unit.
+            Purchased at Homebase. <Hi>8 MP</Hi> each, applies to one specific Unit.
           </P>
         </Card>
 

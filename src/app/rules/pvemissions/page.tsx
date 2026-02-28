@@ -140,8 +140,8 @@ export default async function PvEMissions() {
               <div>
                 <strong>1: Control Objectives</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place a Control Point on three random Anchors.
-                  <strong>Victory:</strong> At the end of Turn 4, Player Squad Controls all three Control Points.
+                  <strong>Setup:</strong> Place a Objective on three random Anchors.<br/>
+                  <strong>Victory:</strong> At the end of Turn 4, Player Squad Controls all three Objectives.
                   {/* 
                   <strong>Rewards (pick one):</strong>
                   <ul>
@@ -202,9 +202,9 @@ export default async function PvEMissions() {
               <div>
                 <strong>4: Protect The Asset</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place an Asset marker as close as possible to the Center of the battlefield. Assets are Items with <code>ARM 3 HIT 3</code> and can be targeted in Combat.<br/>
+                  <strong>Setup:</strong> Place an Asset marker on a random Anchor. Assets are Items with <code>ARM 3 HIT 3</code> and can be targeted in Combat.<br/>
                   <strong>Special:</strong> NPC Units always prioritize targeting the Asset instead of Player Units.<br/>
-                  <strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of Turn 4.
+                  <strong>Victory:</strong> At the end of Turn 4, the Asset still has at least 1 <code>HIT</code>.
                   {/* 
                   <strong>Rewards (pick one):</strong>
                   <ul>
@@ -223,8 +223,14 @@ export default async function PvEMissions() {
               <div>
                 <strong>5: Search & Recover</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place a Search Marker on 3 random Anchors.<br/>
-                  <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. Roll <code>1D6</code>: On a 1 or 2, the Artifact is found. This roll cannot be modified or re-rolled using TO.<br/>
+                  <strong>Setup:</strong> Place a Search Objective on 3 random Anchors.<br/>
+                  <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Objective searches it. Roll <code>1D6</code>:
+                  <ul>
+                    <li>First Search: Artifact is found on a roll of <code>1</code></li>
+                    <li>Second Search: Artifact is found on a roll of <code>1-2</code></li>
+                    <li>Third Search: Artifact is found automatically</li>
+                  </ul>
+                  This roll cannot be modified or re-rolled using TO.<br/>
                   <strong>Victory:</strong> The Artifact is found.
                   {/* 
                   <strong>Rewards (pick one):</strong>
@@ -260,6 +266,7 @@ export default async function PvEMissions() {
                   */}
                 </div>
               </div>
+              <br/>
               These Objectives describe mechanics, not story. The names and markers are placeholders.
               When building a campaign, replace them with whatever fits the mission.<br/>
               "Activate Objectives" can mean picking up data cores, toppling ritual altars, or placing demolition charges.
@@ -278,7 +285,7 @@ export default async function PvEMissions() {
               <div>
                 <strong>2: Fortified Position</strong>
                 <div className="ml-4">
-                  The enemy dug in before you arrived. All NPC Units are placed in Cover at deployment and remain in Cover until they move for the first time.
+                  The enemy dug in before you arrived. All NPC Units are placed in Cover at deployment and considered in Cover (regardless of actual position) until they move for the first time.
                 </div>
               </div>
               <div>
@@ -300,9 +307,9 @@ export default async function PvEMissions() {
                 </div>
               </div>
               <div>
-                <strong>6: Desperate Hour</strong>
+                <strong>6: Blacksite</strong>
                 <div className="ml-4">
-                  Command is screaming for results. The Player Squad must Extract by the end of Turn 3 instead of Turn 4. If no Units have Extracted by end of Turn 3, the mission ends and is considered a failure regardless of objectives completed.
+                  No outside support reaches the squad. Do not roll Turn Events this mission. Turn Events do not apply for any reason, including Reinforcements in turns 5+.
                 </div>
               </div>
             </div>
@@ -311,19 +318,19 @@ export default async function PvEMissions() {
               <h3>Deployments (D6)</h3>
               <div>
                 <strong>1: Standard Insertion</strong>
-                <div className="ml-4">Player Squad deploys on the Southern edge. NPC Squad deploys on the Northern edge.</div>
+                <div className="ml-4">Player Squad deploys on the Southern edge. NPC Squad deploys on the Northern edge, in Cover if possible.</div>
               </div>
               <div>
                 <strong>2: Hot Drop</strong>
-                <div className="ml-4">The insertion was faster than expected. Player Squad deploys within 4" of the Center anchor. NPC Squad deploys on the Northern edge.</div>
+                <div className="ml-4">The insertion was faster than expected. Player Squad deploys within 4" of the Center anchor. NPC Squad deploys on the Northern edge, in Cover if possible.</div>
               </div>
               <div>
                 <strong>3: Flanked</strong>
-                <div className="ml-4">Intel was wrong. The enemy is coming from two directions. NPC Squad splits as evenly as possible and deploys on both the Eastern and Western edges. Player Squad deploys on the Southern edge.</div>
+                <div className="ml-4">Intel was wrong. The enemy is coming from two directions. NPC Squad splits as evenly as possible and deploys on both the Eastern and Western edges, in Cover if possible. Player Squad deploys on the Southern edge.</div>
               </div>
               <div>
                 <strong>4: Deep Strike</strong>
-                <div className="ml-4">Both sides arrived at the same time. Both Player Squad and NPC Squad deploy within 8" of the Center anchor. Roll off to determine who deploys first.</div>
+                <div className="ml-4">Both sides arrived at the same time. Player Squad deploys within 4" of the SE anchor. NPC Squad deploys within 4" of the NW anchor, in Cover if possible.</div>
               </div>
               <div>
                 <strong>5: Overwatch</strong>
@@ -331,7 +338,7 @@ export default async function PvEMissions() {
               </div>
               <div>
                 <strong>6: Encircled</strong>
-                <div className="ml-4">Extraction just got complicated. Player Squad deploys within 4" of the Center anchor. NPC Squad splits as evenly as possible across all four edges of the battlefield.</div>
+                <div className="ml-4">Extraction just got complicated. Player Squad deploys within 4" of the Center anchor. NPC Squad splits as evenly as possible across all four edges of the battlefield, in Cover if possible.</div>
               </div>
             </div>
           </div>
@@ -390,13 +397,15 @@ export default async function PvEMissions() {
               {/* Extraction */}
               <div className="section">
                 <h3>Extraction</h3>
-                The Player Squad may <strong>Extract</strong> at the end of any Turn. To Extract, all Standing Units in the Squad must not be Adjacent to any enemy Units.
-                Once a Squad extracts, the Mission ends.<br/>
-                Upon extraction, the Squad scores <strong>Mission Points</strong> (MP) based on their objectives and the Threat Level:
-                <ul>
-                  <li>1 MP per Threat Level</li>
-                  <li>3 MP per completed Objective</li>
-                </ul>
+                At the start of Turn 4, roll a random Anchor to determine the Extraction Point. If that Anchor is occupied by an objective marker, re-roll until an unoccupied Anchor is selected.
+                <br/>
+                At the end of Turn 4 or later, the Player Squad may extract. Each Standing Unit within 4" of the Extraction Point that is not Adjacent to any enemy Unit extracts successfully.<br/>
+                Units that fail to meet both conditions are left behind: treat each as if it was Taken Out during the mission (apply Injuries in Campaign play).<br/>
+                <h4>Mission End</h4>
+                The mission ends when the Player Squad extracts or when all Player Units have been Taken Out.<br/>
+                Upon extraction, any Objectives whose victory conditions were met are considered completed and score 3 MP each.
+                If no Player Units extract, no Objectives are considered completed regardless of their state.<br/>
+                Player Squad also scores 1MP per Threat Level, regardless of completed objectives or extraction.<br/>
                 In Campaign play, MP can be spent on Rewards (see <strong>Campaigns</strong> below) for the Squad.
               </div>
             </div>
