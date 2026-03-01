@@ -121,7 +121,7 @@ export default function PvEMissionsQuickRef() {
               <SubLabel>Extraction &amp; Mission Points</SubLabel>
               <P className="text-xs">
                 At start of Turn 4, roll a random Anchor as the <Hi>Extraction Point</Hi>.
-                At end of Turn 4+, Standing Units within 4" of it and not Adjacent to enemies <Hi>Extract</Hi>. Units that fail both conditions count as Taken Out.
+                At end of Turn 4+, Standing Units within 3" of it and not Adjacent to enemies may <Hi>Extract</Hi>. Units that fail both conditions count as Taken Out.
               </P>
               <div className="text-xs text-muted ml-2">
                 <Br>+1 MP</Br> per Threat Level (always) &nbsp;·&nbsp; <Br>+3 MP</Br> per completed Objective

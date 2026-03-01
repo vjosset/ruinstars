@@ -399,7 +399,7 @@ export default async function PvEMissions() {
                 <h3>Extraction</h3>
                 At the start of Turn 4, roll a random Anchor to determine the Extraction Point. If that Anchor is occupied by an objective marker, re-roll until an unoccupied Anchor is selected.
                 <br/>
-                At the end of Turn 4 or later, the Player Squad may extract. Each Standing Unit within 4" of the Extraction Point that is not Adjacent to any enemy Unit extracts successfully.<br/>
+                At the end of Turn 4 or later, the Player Squad may extract. Each Standing Unit within 3" of the Extraction Point that is not Adjacent to any enemy Unit extracts successfully.<br/>
                 Units that fail to meet both conditions are left behind: treat each as if it was Taken Out during the mission (apply Injuries in Campaign play).<br/>
                 <h4>Mission End</h4>
                 The mission ends when the Player Squad extracts or when all Player Units have been Taken Out.<br/>
