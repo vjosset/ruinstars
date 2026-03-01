@@ -15,14 +15,6 @@ export default function NavBarTop() {
 
   const links = [
     {
-      href: '/me',
-      icon: <FiUsers />,
-      label: 'Squads',
-      show: !!userName,
-      match: (path: string) =>
-        path.includes('/me') || path.includes('/users') || path.includes('/squads'),
-    },
-    {
       href: '/factions',
       icon: <FiList />,
       label: 'Factions',
@@ -35,6 +27,14 @@ export default function NavBarTop() {
       label: 'Rules',
       show: true,
       match: (path: string) => path === '/rules',
+    },
+    {
+      href: '/me',
+      icon: <FiUsers />,
+      label: 'Squads',
+      show: !!userName,
+      match: (path: string) =>
+        path.includes('/me') || path.includes('/users') || path.includes('/squads'),
     },
     {
       href: '/auth/login',
