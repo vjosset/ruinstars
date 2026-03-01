@@ -10,6 +10,7 @@ import hordemaps from '@/data/hordemaps'
 import { GearCategoryService, SpecialService, SquadService } from '@/services'
 import HordeModeQuickRef from './sections/rules-horde-quickref'
 import { PDFLink } from '@/components/nav/Links'
+import RulesAnchors from '../sections/rules-anchors'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -226,6 +227,7 @@ export default async function Rules() {
           </div>
 
           <PageBreak />
+          <RulesAnchors />
           <div className="section">
             <h3>Spawning Horde Units</h3>
             At the start of each wave, roll <code>3D6</code>. Each die result maps to a Horde Unit and its quantity to Spawn.
@@ -606,13 +608,13 @@ export default async function Rules() {
               <p>Wave Objectives are optional bonuses; failure does not end the Wave.</p>
               <p>At the start of each Wave, roll <code>1D6</code> to determine the Wave's Objective. If a Wave Objective is not completed by the end of the Wave, that Wave Objective is failed.</p>
               <p>Once a Wave Objective is completed according to its Victory condition, select one of the rewards to apply to the Player Squad immediately.</p>
+              <p>When placing Objectives, if an Anchor is already occupied, or is a Spawn Point, re-roll that placement.</p>
               <h4>Objectives</h4>
               <div>
                 <strong>1: Battlefield Control</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Mark three randomg Anchors as Control points.
-                  <strong>Victory:</strong> At the end of the Wave, the Player Sq uad controls all three Control points.
-                  <br/>
+                  <strong>Setup:</strong> Mark three random Anchors as Control points.<br/>
+                  <strong>Victory:</strong> At the end of the Wave, the Player Sq uad controls all three Control points.<br/>
                   <strong>Rewards</strong> (pick one):
                   <ul>
                     <li>+4 MP</li>
@@ -623,7 +625,7 @@ export default async function Rules() {
               <div>
                 <strong>2: Destroy Nexus</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place 1 Nexus marker on each Spawn Point.<br/>
+                  <strong>Setup:</strong> Place a Nexus marker on 3 random Anchors.<br/>
                   <strong>Special:</strong> Nexus Markers are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
                   <strong>Victory:</strong> All Nexus Markers Taken Out by the end of the Wave.<br/>
                   <strong>Rewards</strong> (pick one):
@@ -647,7 +649,7 @@ export default async function Rules() {
               <div>
                 <strong>4: Protect The Asset</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place an Asset marker as close as possible to a random Spawn Point. Assets are Items with <code>ARM 3 HIT 3</code>.<br/>
+                  <strong>Setup:</strong> Place an Asset marker on a random Anchor. Assets are Items with <code>ARM 3 HIT 3</code>.<br/>
                   <strong>Special:</strong> Horde Units will always prioritize targeting the Asset instead of Player Units in combat.<br/>
                   <strong>Victory:</strong> The Asset still has at least 1 <code>HIT</code> at the end of the Wave.<br/>
                   <strong>Rewards</strong> (pick one):
@@ -660,7 +662,7 @@ export default async function Rules() {
               <div>
                 <strong>5: Disruption Field</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place 1 Disruptor Pylon on each Spawn Point.<br/>
+                  <strong>Setup:</strong> Place a Disruptor Pylon on 3 random Anchors.<br/>
                   <strong>Mission Action - Calibrate Pylon (2ACT):</strong> A Unit that Controls a Disruptor Pylon calibrates it. Remove that Pylon from the battlefield.<br/>
                   <strong>Victory:</strong> All 3 Disruptor Pylons have been calibrated.<br/>
                   <strong>Rewards</strong> (pick one):
@@ -673,7 +675,7 @@ export default async function Rules() {
               <div>
                 <strong>6: The Artifact</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place 1 Search Marker on each Spawn Point.<br/>
+                  <strong>Setup:</strong> Place a Search Marker on 3 random Anchors.<br/>
                   <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Marker searches it. Roll <code>1D6</code>: On a 1 or 2, the Artifact is found. This roll cannot be modified or re-rolled using TO.<br/>
                   <strong>Victory:</strong> The Artifact is found.<br/>
                   <strong>Rewards</strong> (pick one):

@@ -279,14 +279,15 @@ export default function HordeModeQuickRef() {
             <div>
               <span className="font-heading font-bold">1: Battlefield Control</span>
               <div className="ml-2 text-muted leading-snug">
-                Victory: at Wave end, Player Squad Controls all three Spawn Points.<br/>
+                Setup: 3 random Anchors as Control points.<br/>
+                Victory: at Wave end, Player Squad Controls all three Control points.<br/>
                 Reward: +4 MP · or roll 2D6 (not 3D6) for Horde Spawns next Wave.
               </div>
             </div>
             <div>
               <span className="font-heading font-bold">2: Destroy Nexus</span>
               <div className="ml-2 text-muted leading-snug">
-                Setup: 1 Nexus (ARM3 HIT2) on each Spawn Point.<br/>
+                Setup: 1 Nexus (ARM3 HIT2) on 3 random Anchors.<br/>
                 Victory: all Nexus Taken Out.<br/>
                 Reward: +4 MP · or all Horde Units take 2 damage.
               </div>
@@ -301,7 +302,7 @@ export default function HordeModeQuickRef() {
             <div>
               <span className="font-heading font-bold">4: Protect The Asset</span>
               <div className="ml-2 text-muted leading-snug">
-                Setup: Asset (ARM3 HIT3) on Spawn point. Horde always prioritizes the Asset.<br/>
+                Setup: Asset (ARM3 HIT3) near a random Anchor. Horde always prioritizes the Asset.<br/>
                 Victory: Asset has ≥1 HIT at Wave end.<br/>
                 Reward: +4 MP · or +4 TO at start of next Wave.
               </div>
@@ -309,7 +310,7 @@ export default function HordeModeQuickRef() {
             <div>
               <span className="font-heading font-bold">5: Disruption Field</span>
               <div className="ml-2 text-muted leading-snug">
-                Setup: 1 Disruptor Pylon on each Spawn Point.<br/>
+                Setup: 1 Disruptor Pylon on 3 random Anchors.<br/>
                 Action - Calibrate Pylon (2 ACT): Unit Controlling a Pylon removes it.<br/>
                 Victory: all Pylons calibrated.<br/>
                 Reward: +4 MP · or Horde -1 ATT (min 1) until Wave end.
@@ -318,7 +319,7 @@ export default function HordeModeQuickRef() {
             <div>
               <span className="font-heading font-bold">6: The Artifact</span>
               <div className="ml-2 text-muted leading-snug">
-                Setup: 1 Search Marker on each Spawn Point.<br/>
+                Setup: 1 Search Marker on 3 random Anchors.<br/>
                 Action - Search (2 ACT): Unit Controlling a marker rolls 1D6; on 1-2 the Artifact is found (no TO re-rolls).<br/>
                 Victory: Artifact found.<br/>
                 Reward: +4 MP · or 1 Unit gains 1 Spoil of War.
