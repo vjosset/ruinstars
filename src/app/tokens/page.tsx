@@ -1,6 +1,18 @@
 import { GameToken } from '@/components/shared/GameToken'
 import styles from './tokens.module.css'
 import PageBreak from '@/components/ui/PageBreak'
+import { generatePageMetadata } from '@/lib/utils/generateMetadata'
+import { GAME } from '@/lib/config/game_config'
+
+export async function generateMetadata() {
+  return generatePageMetadata({
+    title: 'Tokens',
+    description: `Print-at-home tokens and markers for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
+    images: [],
+    keywords: ['free', 'rules', 'pdf', 'tokens'],
+    pagePath: '/tools/Tokens - Ruinstars.pdf'
+  })
+}
 
 const TOKENS = [
   'A1', 'A2', 'A3',
@@ -31,7 +43,12 @@ export default function TokensPage() {
         </div>
         */}
       </div>
-      <h4>Objectives (2")</h4>
+      <h4>Objectives</h4>
+      <p>
+        Use these markers for Horde Spawns, PvE objectives, Horde Crates, etc.
+        A Unit whose base overlaps this marker is within 1" of the objective. All other rules for Controlling an objective still apply.
+        <br/><br/>
+      </p>
       <div className={styles.grid}>
         {TOKENS.map(label => (
           <div key={label} className={styles.token}>
@@ -42,7 +59,12 @@ export default function TokensPage() {
 
       <PageBreak />
       <div>
-        <h4>Extraction (6")</h4>
+        <h4>Extraction</h4>
+        <p>
+          Use this marker for PvE Extraction.
+          A Unit whose base overlaps this marker is within 3" of the Extraction Point. All other rules for Extraction still apply.
+          <br/><br/>
+        </p>
         <div key="E" className={styles.extract}>
           <GameToken label="E" size={450} />
         </div>
