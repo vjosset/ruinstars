@@ -138,9 +138,9 @@ export default async function PvEMissions() {
               <h3>Objectives (D6)</h3>
               At the start of the Mission, roll <code>2D6</code> to determine two objectives for the mission (re-roll doubles).
               <div>
-                <strong>1: Control Objectives</strong>
+                <strong>1: Control</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place a Objective on three random Anchors.<br/>
+                  <strong>Setup:</strong> Place an Objective on three random Anchors.<br/>
                   <strong>Victory:</strong> At the end of Turn 4, Player Squad Controls all three Objectives.
                   {/* 
                   <strong>Rewards (pick one):</strong>
@@ -158,7 +158,7 @@ export default async function PvEMissions() {
                 </div>
               </div>
               <div>
-                <strong>2: Activate Objectives</strong>
+                <strong>2: Activate</strong>
                 <div className="ml-4">
                   <strong>Setup:</strong> Place an Objective on 3 random Anchors.<br/>
                   <strong>Mission Action - Activate (2ACT):</strong> A Unit that Controls an Objective activates it. Remove that Objective from the battlefield.<br/>
@@ -179,7 +179,7 @@ export default async function PvEMissions() {
                 </div>
               </div>
               <div>
-                <strong>3: Destroy Objectives</strong>
+                <strong>3: Destroy</strong>
                 <div className="ml-4">
                   <strong>Setup:</strong> Place an Objective on 3 random Anchors.<br/>
                   <strong>Special:</strong> Objectives are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
@@ -200,7 +200,7 @@ export default async function PvEMissions() {
                 </div>
               </div>
               <div>
-                <strong>4: Protect The Asset</strong>
+                <strong>4: Protect</strong>
                 <div className="ml-4">
                   <strong>Setup:</strong> Place an Asset marker on a random Anchor. Assets are Items with <code>ARM 3 HIT 3</code> and can be targeted in Combat.<br/>
                   <strong>Special:</strong> NPC Units always prioritize targeting the Asset instead of Player Units.<br/>
@@ -221,7 +221,7 @@ export default async function PvEMissions() {
                 </div>
               </div>
               <div>
-                <strong>5: Search & Recover</strong>
+                <strong>5: Search</strong>
                 <div className="ml-4">
                   <strong>Setup:</strong> Place a Search Objective on 3 random Anchors.<br/>
                   <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Objective searches it. Roll <code>1D6</code>:
@@ -462,15 +462,15 @@ export default async function PvEMissions() {
                 Each Mission in the campaign should move the story forward. In many cases, this means using the 6 Objectives from the table above, but re-skinning them to fit the narrative. Here are some examples of reframing the core Objectives to fit <em>your</em> story:
 
                 <div>
-                  <h6>Control Objectives</h6>
+                  <h6>Control</h6>
                   The markers could be anything worth holding: a comm relay that must stay live, a breach point that cannot be ceded, a position that commands the only viable extraction route. The story reason matters less than the pressure it creates. If the enemy controls it, you lose.
-                  <h6>Activate Objectives</h6>
+                  <h6>Activate</h6>
                   Think of these as things that must be done, not held. Purging corrupted data cores. Triggering demolition charges. Sealing breaches in a containment perimeter. The squad moves through, does the work, and leaves. The objective is complete when there is nothing left to do.
-                  <h6>Destroy Objectives</h6>
+                  <h6>Destroy</h6>
                   These are things that cannot be allowed to survive. Spawn nodes. Weapons caches. A relay broadcasting enemy coordinates. Whatever they are, they can take damage and they must be brought down. Unlike Activate Objectives, destroying them is a fight, not a procedure.
-                  <h6>Protect The Asset</h6>
+                  <h6>Protect</h6>
                   The asset is whatever your squad cannot afford to lose. A wounded officer. A piece of salvage worth more than the mission. A civilian who knows something. The enemy will go for it. Your job is to make sure they fail.
-                  <h6>Search & Recover</h6>
+                  <h6>Search</h6>
                   Something is here. You don't know where. It could be intelligence, a weapon, a body, a signal source. You search until you find it. Campaigns can replace the die roll with a guaranteed find on each marker if the mission calls for certainty over tension.
                   <h6>No Survivors</h6>
                   No markers. No positions. No extraction until the last one drops. Sometimes the mission is that simple, and that hard.
