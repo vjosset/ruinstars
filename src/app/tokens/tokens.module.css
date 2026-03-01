@@ -1,0 +1,77 @@
+/* Screen: full-viewport overlay so nav is visually hidden */
+.page {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #ffffff;
+  color: #000000;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-content: flex-start;
+}
+
+.token {
+  flex-shrink: 0;
+  line-height: 0; /* prevent inline gap below SVG */
+}
+
+/* ──────────────────────────────────────────────
+   Print styles
+   Nav bars already carry .noprint so they vanish.
+   We just need to:
+     1. Reset the global body print rules (zoom, bg)
+     2. Fix the page layout
+     3. Size each token to exactly 50.8 mm
+   ────────────────────────────────────────────── */
+
+@media print {
+  /* Reset globals.css body print overrides only when on this page */
+  :global(body):has(.page) {
+    zoom: 1 !important;
+    background: #ffffff !important;
+    background-image: none !important;
+  }
+
+  .page {
+    position: static;
+    inset: auto;
+    overflow: visible;
+    padding: 0;
+    background: transparent;
+  }
+
+  .grid {
+    gap: 5mm;
+  }
+
+  .token {
+    width: 50.8mm;
+    height: 50.8mm;
+    padding-left: 5mm;
+  }
+
+  /* Override the pixel width/height attrs on the SVG element */
+  .token svg {
+    width: 50.8mm !important;
+    height: 50.8mm !important;
+    display: block;
+  }
+
+  .extract {
+    width: 152.4mm;
+    height: 152.4mm;
+  }
+
+  /* Override the pixel width/height attrs on the SVG element */
+  .extract svg {
+    width: 152.4mm !important;
+    height: 152.4mm !important;
+    display: block;
+  }
+}
