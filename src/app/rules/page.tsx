@@ -1,8 +1,10 @@
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import Link from 'next/link'
-import { BsFilePdf } from 'react-icons/bs'
+import { IconType } from 'react-icons'
+import { BsBox, BsHexagon, BsFilePdf, BsMap, BsPersonVcard, BsRulers } from 'react-icons/bs'
 import { FiDownload } from 'react-icons/fi'
+import { SiDiscord, SiGithub, SiItchdotio } from 'react-icons/si'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -15,38 +17,38 @@ export async function generateMetadata() {
 }
 
 const RULE_BOOKS = [
-  { num: '01', title: 'Core Rules', desc: 'Everything you need to start playing.', href: '/assets/books/Core Rules - Ruinstars.pdf', highlight: true },
-  { num: '02', title: 'Factions', desc: 'Choose a faction and build your squad.', href: '/assets/books/Factions - Ruinstars.pdf' },
-  { num: '03', title: 'PvE Missions', desc: 'Solo/co-op missions against NPC squads.', href: '/assets/books/PvE Missions - Ruinstars.pdf' },
-  { num: '04', title: 'PvP Missions', desc: 'Competitive missions for two players.', href: '/assets/books/PvP Missions - Ruinstars.pdf' },
-  { num: '05', title: 'Horde Mode', desc: 'Standalone solo/coop survival mode.', href: '/assets/books/Horde Mode - Ruinstars.pdf' },
+  { num: '01', title: 'Core Rules', desc: 'Everything you need to start playing.', href: '/assets/books/Core Rules - Ruinstars.pdf', icon: BsFilePdf, highlight: true },
+  { num: '02', title: 'Factions', desc: 'Choose a faction and build your squad.', href: '/assets/books/Factions - Ruinstars.pdf', icon: BsFilePdf },
+  { num: '03', title: 'PvE Missions', desc: 'Solo/co-op missions against NPC squads.', href: '/assets/books/PvE Missions - Ruinstars.pdf', icon: BsFilePdf },
+  { num: '04', title: 'PvP Missions', desc: 'Competitive missions for two players.', href: '/assets/books/PvP Missions - Ruinstars.pdf', icon: BsFilePdf },
+  { num: '05', title: 'Horde Mode', desc: 'Standalone solo/coop survival mode.', href: '/assets/books/Horde Mode - Ruinstars.pdf', icon: BsFilePdf },
 ]
 
-const QUICK_REFS = [
-  { title: 'Core Rules Quick Ref', href: '/assets/books/Quick Ref - Ruinstars.pdf' },
-  { title: 'PvE Missions Quick Ref', href: '/assets/books/PvE Missions - Quick Ref - Ruinstars.pdf' },
-  { title: 'Horde Mode Quick Ref', href: '/assets/books/Horde Mode - Quick Ref - Ruinstars.pdf' },
+const QUICK_REFS: { title: string; href: string; icon: IconType }[] = [
+  { title: 'Core Rules Quick Ref', href: '/assets/books/Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
+  { title: 'PvE Missions Quick Ref', href: '/assets/books/PvE Missions - Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
+  { title: 'Horde Mode Quick Ref', href: '/assets/books/Horde Mode - Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
 ]
 
-const TOOLS = [
-  { title: 'Fillable Squad Sheet/Unit Cards', href: '/assets/tools/Ruinstars_SquadSheet.pdf' },
-  { title: 'Tokens', href: '/assets/tools/Tokens - Ruinstars.pdf' },
-  { title: '6" Gauge (Letter)', href: '/assets/tools/Ruinstars_Gauge_Letter.pdf' },
-  { title: '6" Gauge (A4)', href: '/assets/tools/Ruinstars_Gauge_A4.pdf' },
-  { title: '6" Gauge - STL', href: '/assets/tools/Ruinstars Gauge 6x1.stl' },
+const TOOLS: { title: string; href: string; icon: IconType }[] = [
+  { title: 'Fillable Squad Sheet/Unit Cards', href: '/assets/tools/Ruinstars_SquadSheet.pdf', icon: BsPersonVcard },
+  { title: 'Tokens and Markers', href: '/assets/tools/Tokens - Ruinstars.pdf', icon: BsHexagon },
+  { title: '6" Gauge (Letter)', href: '/assets/tools/Ruinstars_Gauge_Letter.pdf', icon: BsRulers },
+  { title: '6" Gauge (A4)', href: '/assets/tools/Ruinstars_Gauge_A4.pdf', icon: BsRulers },
+  { title: '6" Gauge - STL', href: '/assets/tools/Ruinstars Gauge 6x1.stl', icon: BsBox },
 ]
 
-const BATTLEFIELDS = [
-  { title: 'The Ruined City (Letter)', href: '/assets/battlefields/TheRuinedCity_Letter.pdf'},
-  { title: 'The Ruined City (A4)', href: '/assets/battlefields/TheRuinedCity_A4.pdf'},
-  { title: 'The Facility (Letter)', href: '/assets/battlefields/TheFacility_Letter.pdf'},
-  { title: 'The Facility (A4)', href: '/assets/battlefields/TheFacility_A4.pdf'}
+const BATTLEFIELDS: { title: string; href: string; icon: IconType }[] = [
+  { title: 'The Ruined City (Letter)', href: '/assets/battlefields/TheRuinedCity_Letter.pdf', icon: BsMap },
+  { title: 'The Ruined City (A4)', href: '/assets/battlefields/TheRuinedCity_A4.pdf', icon: BsMap },
+  { title: 'The Facility (Letter)', href: '/assets/battlefields/TheFacility_Letter.pdf', icon: BsMap },
+  { title: 'The Facility (A4)', href: '/assets/battlefields/TheFacility_A4.pdf', icon: BsMap },
 ]
 
-const COMMUNITY_LINKS = [
-  { label: 'Discord', desc: 'Come say hi!', href: 'https://discord.gg/Rh8vJzkCrT' },
-  { label: 'itch.io', desc: 'Dev logs and discussions', href: 'https://ruinstars.itch.io/ruinstars' },
-  { label: 'GitHub', desc: 'Open source', href: 'https://github.com/vjosset/ruinstars' },
+const COMMUNITY_LINKS: { label: string; desc: string; href: string; icon: IconType }[] = [
+  { label: 'Discord', desc: 'Come say hi!', href: 'https://discord.gg/Rh8vJzkCrT', icon: SiDiscord },
+  { label: 'itch.io', desc: 'Dev logs and discussions', href: 'https://ruinstars.itch.io/ruinstars', icon: SiItchdotio },
+  { label: 'GitHub', desc: 'Open source', href: 'https://github.com/vjosset/ruinstars', icon: SiGithub },
 ]
 
 export default async function Rules() {
@@ -55,7 +57,7 @@ export default async function Rules() {
       <div className="text-center mb-8">
         <h1>Rules</h1>
       </div>
-      
+
       <div className="twocols">
         {/* Rule Books */}
         <div className="mb-8 section">
@@ -72,7 +74,7 @@ export default async function Rules() {
                 className={`relative flex items-center gap-3 bg-card border rounded px-3 py-3 transition-colors group ${book.highlight ? 'border-main' : 'border-border hover:border-main'}`}
               >
                 <span className="font-stat text-sm w-6 shrink-0 text-center">{book.num}</span>
-                <BsFilePdf className="text-xl shrink-0" />
+                <book.icon className="text-xl shrink-0" />
                 <div className="flex-1 min-w-0">
                   <div className="font-heading text-main uppercase">{book.title}</div>
                   <div className="text-sm font-main normal-case">{book.desc}</div>
@@ -102,7 +104,7 @@ export default async function Rules() {
                 target="_blank"
                 className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
               >
-                <BsFilePdf className="shrink-0" />
+                <item.icon className="shrink-0" />
                 <span className="flex-1 font-heading uppercase">{item.title}</span>
                 <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
               </Link>
@@ -124,7 +126,7 @@ export default async function Rules() {
                 target="_blank"
                 className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
               >
-                <BsFilePdf className="shrink-0" />
+                <item.icon className="shrink-0" />
                 <span className="flex-1 font-heading uppercase">{item.title}</span>
                 <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
               </Link>
@@ -146,7 +148,7 @@ export default async function Rules() {
                 target="_blank"
                 className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
               >
-                <BsFilePdf className="shrink-0" />
+                <item.icon className="shrink-0" />
                 <span className="flex-1 font-heading uppercase">{item.title}</span>
                 <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
               </Link>
@@ -163,9 +165,10 @@ export default async function Rules() {
                 key={link.label}
                 href={link.href}
                 target="_blank"
-                className="flex items-center justify-between px-3 py-2.5 hover:text-main transition-colors"
+                className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors"
               >
-                <span className="font-heading uppercase">{link.label}</span>
+                <link.icon className="shrink-0" />
+                <span className="flex-1 font-heading uppercase">{link.label}</span>
                 <span className="text-muted text-sm">{link.desc}</span>
               </Link>
             ))}
