@@ -400,7 +400,7 @@ export default function SquadPageClient({
               }
             >
               <p>
-                This will add a copy of Void Raptors to your squads.
+                This will add a copy of {squad.squadName} to your squads.
                 Field them as-is, or make them your own.
               </p>
             </Modal>
