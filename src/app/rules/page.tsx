@@ -37,10 +37,10 @@ const TOOLS = [
 ]
 
 const BATTLEFIELDS = [
-  { title: 'The Ruined City (A4)', href: '/assets/battlefields/TheRuinedCity_A4.pdf'},
   { title: 'The Ruined City (Letter)', href: '/assets/battlefields/TheRuinedCity_Letter.pdf'},
-  { title: 'The Facility (A4)', href: '/assets/battlefields/TheFacility_A4.pdf'},
-  { title: 'The Facility (Letter)', href: '/assets/battlefields/TheFacility_Letter.pdf'}
+  { title: 'The Ruined City (A4)', href: '/assets/battlefields/TheRuinedCity_A4.pdf'},
+  { title: 'The Facility (Letter)', href: '/assets/battlefields/TheFacility_Letter.pdf'},
+  { title: 'The Facility (A4)', href: '/assets/battlefields/TheFacility_A4.pdf'}
 ]
 
 const COMMUNITY_LINKS = [
@@ -55,7 +55,7 @@ export default async function Rules() {
       <div className="text-center mb-8">
         <h1>Rules</h1>
       </div>
-
+      
       <div className="twocols">
         {/* Rule Books */}
         <div className="mb-8 section">
