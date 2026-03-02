@@ -322,27 +322,49 @@ export default async function PvEMissions() {
               <h3>Deployments (D6)</h3>
               <div>
                 <strong>1: Standard Insertion</strong>
-                <div className="ml-4">Player Squad deploys within 4" of the SW, S, or SE Anchors. NPC Squad deploys within 4" of the NW, N, or NE Anchors (split evenly), in Cover or out of sight where possible.</div>
+                <div className="ml-4">
+                  Player Squad deploys within 4" of the SW, S, or SE Anchors.
+                  NPC Squad deploys within 4" of the NW, N, or NE Anchors (split evenly), in Cover or out of sight where possible.
+                </div>
               </div>
               <div>
                 <strong>2: Hot Drop</strong>
-                <div className="ml-4">The insertion was faster than expected. Player Squad deploys Adjacent to the N, S, E, or W Anchors. NPC Squad deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), Adjacent to the NW or NE Anchors (split evenly), in Cover or out of sight where possible.</div>
+                <div className="ml-4">
+                  The insertion was faster than expected. Player Squad deploys Adjacent to the N, S, E, or W Anchors.
+                  NPC Squad deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover or out of sight where possible.
+                </div>
               </div>
               <div>
                 <strong>3: Flanked</strong>
-                <div className="ml-4">Intel was wrong. The enemy is coming from two directions. NPC Squad deploys Adjacent to the NW or NE Anchors (split evenly), in Cover or out of sight where possible. Player Squad deploys within 4" of the S Anchor.</div>
+                <div className="ml-4">
+                  Intel was wrong. The enemy is coming from two directions.
+                  NPC Squad deploys Adjacent to the NW or NE Anchors (split evenly), in Cover or out of sight where possible.
+                  Player Squad deploys within 4" of the S Anchor.
+                </div>
               </div>
               <div>
                 <strong>4: Deep Strike</strong>
-                <div className="ml-4">Both sides arrived at the same time. Player Squad deploys within 4" of the SE anchor. NPC Squad deploys within 4" of the NW anchor, in Cover if possible.</div>
+                <div className="ml-4">
+                  Both sides arrived at the same time.
+                  Player Squad deploys within 4" of the SE anchor.
+                  NPC Squad deploys within 4" of the NW anchor, in Cover if possible.
+                </div>
               </div>
               <div>
                 <strong>5: Overwatch</strong>
-                <div className="ml-4">The enemy holds the high ground and saw you coming. NPC Squad deploys Adjacent to the W, N, or E Anchors (split evenly), in Cover or out of sight where possible. Player Squad deploys Adjacent to the SW, S, or SE Anchors.</div>
+                <div className="ml-4">
+                  The enemy holds the high ground and saw you coming.
+                  NPC Squad deploys Adjacent to the W, N, or E Anchors (split evenly), in Cover or out of sight where possible.
+                  Player Squad deploys Adjacent to the SW, S, or SE Anchors.
+                </div>
               </div>
               <div>
                 <strong>6: Encircled</strong>
-                <div className="ml-4">Extraction just got complicated. Player Squad deploys within 4" of the Center anchor. NPC Squad deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover or out of sight where possible.</div>
+                <div className="ml-4">
+                  Extraction just got complicated.
+                  Player Squad deploys within 4" of the Center anchor.
+                  NPC Squad deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover or out of sight where possible.
+                </div>
               </div>
             </div>
           </div>
