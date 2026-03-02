@@ -180,7 +180,7 @@ export default async function PvEMissions() {
                 <strong>3: Destroy</strong>
                 <div className="ml-4">
                   <strong>Setup:</strong> Place an Objective on 3 random Anchors.<br/>
-                  <strong>Special:</strong> Objectives are items with <code>ARM 3</code> and <code>HIT 2</code> and can be targeted in combat.<br/>
+                  <strong>Special:</strong> Objectives are items with <code>ARM 4</code> and <code>HIT 3</code> and can be targeted in combat.<br/>
                   <strong>Victory:</strong> All Objectives are Taken Out.
                   {/* 
                   <strong>Rewards (pick one):</strong>
@@ -200,7 +200,7 @@ export default async function PvEMissions() {
               <div>
                 <strong>4: Protect</strong>
                 <div className="ml-4">
-                  <strong>Setup:</strong> Place an Asset marker on a random Anchor. Assets are Items with <code>ARM 3 HIT 3</code> and can be targeted in Combat.<br/>
+                  <strong>Setup:</strong> Place an Asset marker on a random Anchor. Assets are Items with <code>ARM 4 HIT 3</code> and can be targeted in Combat.<br/>
                   <strong>Special:</strong> NPC Units always prioritize targeting the Asset instead of Player Units.<br/>
                   <strong>Victory:</strong> At the end of Turn 4, the Asset still has at least 1 <code>HIT</code>.
                   {/* 
