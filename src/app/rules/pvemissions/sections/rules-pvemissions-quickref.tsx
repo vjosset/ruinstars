@@ -151,24 +151,7 @@ export default function PvEMissionsQuickRef() {
           </P>
         </Card>
 
-        {/* ── Row 2: Turn Events | Objectives | Modifiers ──────────────────── */}
-
-        <Card>
-          <SH>Turn Events (D6)</SH>
-          <p className="text-xs text-muted mb-1">
-            Roll at the start of each Turn. Turn 5+: always <strong>Enemy Reinforcements</strong>.
-          </p>
-          <table className="w-full border-collapse">
-            <tbody>
-              <TableRow roll="1" label="Opportunity"           effect="1 Unit spends up to 2 ACT on actions before Turn starts. Not its activation." />
-              <TableRow roll="2" label="Field Dressing"        effect="1 Standing Player Unit regains 1 HIT." />
-              <TableRow roll="3" label="Strategic Command"     effect="Player Squad gains +2 TO." />
-              <TableRow roll="4" label="Scrambled Comms"       effect="Player Squad loses -2 TO (minimum 0)." />
-              <TableRow roll="5" label="Overrun"               effect="All NPC Units immediately perform 1 Action per their Behavior." />
-              <TableRow roll="6" label="Enemy Reinforcements"  effect="Roll 1D6 → spawn 1 NPC Unit per the TL spawn table, Adjacent to a random Anchor." last />
-            </tbody>
-          </table>
-        </Card>
+        {/* ── Row 2: Objectives | Modifiers | Turn Events ──────────────────── */}
 
         <Card>
           <SH>Objectives (2D6)</SH>
@@ -200,6 +183,23 @@ export default function PvEMissionsQuickRef() {
               <TableRow roll="4" label="The Alien Hive — Noxious Gas"       effect='Start of each Turn after the first: select a random Anchor. All Units within 4" take 1 Damage.' />
               <TableRow roll="5" label="The Cursed Temple — Haunting Spirits" effect="Start of each Turn after the first: select a random Unit from each Squad. That Unit immediately attacks the closest Unit in Combat — SquadMate or enemy." />
               <TableRow roll="6" label="Blacksite"                          effect='No outside support. Do not roll Turn Events this mission, except Reinforcements in Turns 5+.' last />
+            </tbody>
+          </table>
+        </Card>
+
+        <Card>
+          <SH>Turn Events (D6)</SH>
+          <p className="text-xs text-muted mb-1">
+            Roll at the start of each Turn. Turn 5+: always <strong>Enemy Reinforcements</strong>.
+          </p>
+          <table className="w-full border-collapse">
+            <tbody>
+              <TableRow roll="1" label="Opportunity"           effect="1 Unit spends up to 2 ACT on actions before Turn starts. Not its activation." />
+              <TableRow roll="2" label="Field Dressing"        effect="1 Standing Player Unit regains 1 HIT." />
+              <TableRow roll="3" label="Strategic Command"     effect="Player Squad gains +2 TO." />
+              <TableRow roll="4" label="Scrambled Comms"       effect="Player Squad loses -2 TO (minimum 0)." />
+              <TableRow roll="5" label="Overrun"               effect="All NPC Units immediately perform 1 Action per their Behavior." />
+              <TableRow roll="6" label="Enemy Reinforcements"  effect="Roll 1D6 → spawn 1 NPC Unit per the TL spawn table, Adjacent to a random Anchor." last />
             </tbody>
           </table>
         </Card>
