@@ -194,12 +194,12 @@ export default function PvEMissionsQuickRef() {
           </p>
           <table className="w-full border-collapse">
             <tbody>
-              <TableRow roll="1" label="The Ruined City — Collapse"      effect='Start of each Turn after the first: roll a random Anchor. All terrain within 4" of it is removed; all Units within 4" take 2 Damage.' />
-              <TableRow roll="2" label="The Facility — Darkness"         effect='Start of each Turn after the first: select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.' />
-              <TableRow roll="3" label="The Jungle — Stinging Cloud"     effect="Start of each Turn after the first: select a random Standing Unit from each Squad. That Unit moves 1 Pace three times in random directions. If blocked by a wall or obstacle, it takes 1 Melee Damage." />
-              <TableRow roll="4" label="The Alien Hive — Noxious Gas"    effect='Start of each Turn after the first: select a random Anchor. All Units within 4" take 1 Damage.' />
+              <TableRow roll="1" label="The Ruined City — Collapse"         effect='Start of each Turn after the first: roll a random Anchor. All terrain within 4" of it is removed; all Units within 4" take 2 Damage.' />
+              <TableRow roll="2" label="The Facility — Darkness"            effect='Start of each Turn after the first: select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.' />
+              <TableRow roll="3" label="The Jungle — Miasmic Mist"          effect='Start of each Turn after the first: select a random Standing Unit from each Squad. That Unit moves 2" three times in random directions. If blocked by a wall or obstacle, it takes 1 Melee Damage.' />
+              <TableRow roll="4" label="The Alien Hive — Noxious Gas"       effect='Start of each Turn after the first: select a random Anchor. All Units within 4" take 1 Damage.' />
               <TableRow roll="5" label="The Cursed Temple — Cursed Spirits" effect="Start of each Turn after the first: select a random Unit from each Squad. That Unit immediately attacks the closest Unit in Combat — SquadMate or enemy." />
-              <TableRow roll="6" label="Blacksite"                       effect="No outside support. Do not roll Turn Events this mission, except Reinforcements in Turns 5+." last />
+              <TableRow roll="6" label="Blacksite"                          effect='No outside support. Do not roll Turn Events this mission, except Reinforcements in Turns 5+.' last />
             </tbody>
           </table>
         </Card>
@@ -214,16 +214,16 @@ export default function PvEMissionsQuickRef() {
           <div className="grid grid-cols-2 gap-x-4">
             <table className="w-full border-collapse">
               <tbody>
-                <TableRow roll="1" label="Standard Insertion" effect="Player: South edge. NPC: North edge, in Cover if possible." />
-                <TableRow roll="2" label="Hot Drop"           effect='Player: within 4" of Center. NPC: North edge, in Cover if possible.' />
-                <TableRow roll="3" label="Flanked"            effect="Player: South edge. NPC splits evenly across East + West edges, in Cover if possible." last />
+                <TableRow roll="1" label="Standard Insertion" effect='Player: within 4" of SW, S, or SE Anchors. NPC: within 4" of NW, N, or NE Anchors (split evenly), in Cover if possible.' />
+                <TableRow roll="2" label="Hot Drop"           effect='Player: Adjacent to N, S, E, or W Anchors. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover if possible.' />
+                <TableRow roll="3" label="Flanked"            effect='Player: within 4" of S Anchor. NPC: Adjacent to NW or NE Anchors (split evenly), in Cover if possible.' last />
               </tbody>
             </table>
             <table className="w-full border-collapse">
               <tbody>
-                <TableRow roll="4" label="Deep Strike" effect='Player: within 4" of SE anchor. NPC: within 4" of NW anchor, in Cover if possible.' />
-                <TableRow roll="5" label="Overwatch"   effect="Player: South edge. NPC: anywhere on North half of battlefield, in Cover if possible." />
-                <TableRow roll="6" label="Encircled"   effect='Player: within 4" of Center. NPC splits evenly across all 4 edges, in Cover if possible.' last />
+                <TableRow roll="4" label="Deep Strike" effect='Player: within 4" of SE Anchor. NPC: within 4" of NW Anchor, in Cover if possible.' />
+                <TableRow roll="5" label="Overwatch"   effect='Player: Adjacent to SW, S, or SE Anchors. NPC: Adjacent to W, N, or E Anchors (split evenly), in Cover if possible.' />
+                <TableRow roll="6" label="Encircled"   effect='Player: within 4" of Center Anchor. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover if possible.' last />
               </tbody>
             </table>
           </div>

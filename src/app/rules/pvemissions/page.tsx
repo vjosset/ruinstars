@@ -275,6 +275,7 @@ export default async function PvEMissions() {
             <div className="section">
               <h3>Battlefields (D6)</h3>
               These Battlefields are optional; you can choose to skip them.
+              Any listed effects should be rolled before Turn Events.
               <div>
                 <strong>1: The Ruined City - Collapse</strong>
                 <div className="ml-4">
@@ -290,9 +291,9 @@ export default async function PvEMissions() {
                 </div>
               </div>
               <div>
-                <strong>3: The Jungle - Stinging Cloud</strong>
+                <strong>3: The Jungle - Miasmic Mist</strong>
                 <div className="ml-4">
-                  At the start of each Turn after the first, select one random Standing Unit from each Squad. That Unit moves 1 Pace three times in random directions (roll three times).
+                  At the start of each Turn after the first, select one random Standing Unit from each Squad. That Unit moves 2" three times in random directions (roll three times).
                   If that Unit cannot make a valid move because of wall or other obstacle, it takes 1 Melee Damage.
                 </div>
               </div>
