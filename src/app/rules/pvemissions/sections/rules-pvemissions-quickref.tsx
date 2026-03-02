@@ -198,7 +198,7 @@ export default function PvEMissionsQuickRef() {
               <TableRow roll="2" label="The Facility — Darkness"            effect='Start of each Turn after the first: select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.' />
               <TableRow roll="3" label="The Jungle — Miasmic Mist"          effect='Start of each Turn after the first: select a random Standing Unit from each Squad. That Unit moves 2" three times in random directions. If blocked by a wall or obstacle, it takes 1 Melee Damage.' />
               <TableRow roll="4" label="The Alien Hive — Noxious Gas"       effect='Start of each Turn after the first: select a random Anchor. All Units within 4" take 1 Damage.' />
-              <TableRow roll="5" label="The Cursed Temple — Cursed Spirits" effect="Start of each Turn after the first: select a random Unit from each Squad. That Unit immediately attacks the closest Unit in Combat — SquadMate or enemy." />
+              <TableRow roll="5" label="The Cursed Temple — Haunting Spirits" effect="Start of each Turn after the first: select a random Unit from each Squad. That Unit immediately attacks the closest Unit in Combat — SquadMate or enemy." />
               <TableRow roll="6" label="Blacksite"                          effect='No outside support. Do not roll Turn Events this mission, except Reinforcements in Turns 5+.' last />
             </tbody>
           </table>
