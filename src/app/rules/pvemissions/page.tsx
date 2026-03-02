@@ -338,7 +338,7 @@ export default async function PvEMissions() {
               </div>
               <div>
                 <strong>5: Overwatch</strong>
-                <div className="ml-4">The enemy holds the high ground and saw you coming. NPC Squad deploys Adjacent to the W, N, or E Anchors (split evenly), Adjacent to the NW or NE Anchors (split evenly), in Cover or out of sight where possible. Player Squad deploys Adjacent to the SW, S, or SE Anchors.</div>
+                <div className="ml-4">The enemy holds the high ground and saw you coming. NPC Squad deploys Adjacent to the W, N, or E Anchors (split evenly), in Cover or out of sight where possible. Player Squad deploys Adjacent to the SW, S, or SE Anchors.</div>
               </div>
               <div>
                 <strong>6: Encircled</strong>
