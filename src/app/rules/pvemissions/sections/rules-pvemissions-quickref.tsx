@@ -215,16 +215,16 @@ export default function PvEMissionsQuickRef() {
           <div className="grid grid-cols-2 gap-x-4">
             <table className="w-full border-collapse">
               <tbody>
-                <TableRow roll="1" label="Standard Insertion" effect='Player: within 4" of SW, S, or SE Anchors. NPC: within 4" of NW, N, or NE Anchors (split evenly), in Cover if possible.' />
-                <TableRow roll="2" label="Hot Drop"           effect='Player: Adjacent to N, S, E, or W Anchors. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover if possible.' />
-                <TableRow roll="3" label="Flanked"            effect='Player: within 4" of S Anchor. NPC: Adjacent to NW or NE Anchors (split evenly), in Cover if possible.' last />
+                <TableRow roll="1" label="Standard Insertion" effect='Player: within 4" of SW, S, or SE Anchors. NPC: within 4" of NW, N, or NE Anchors (split evenly), in Cover/out of sight.' />
+                <TableRow roll="2" label="Hot Drop"           effect='Player: Adjacent to N, S, E, or W Anchors. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' />
+                <TableRow roll="3" label="Flanked"            effect='Player: within 4" of S Anchor. NPC: Adjacent to NW or NE Anchors (split evenly), in Cover/out of sight.' last />
               </tbody>
             </table>
             <table className="w-full border-collapse">
               <tbody>
-                <TableRow roll="4" label="Deep Strike" effect='Player: within 4" of SE Anchor. NPC: within 4" of NW Anchor, in Cover if possible.' />
-                <TableRow roll="5" label="Overwatch"   effect='Player: Adjacent to SW, S, or SE Anchors. NPC: Adjacent to W, N, or E Anchors (split evenly), in Cover if possible.' />
-                <TableRow roll="6" label="Encircled"   effect='Player: within 4" of Center Anchor. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover if possible.' last />
+                <TableRow roll="4" label="Deep Strike" effect='Player: within 4" of SE Anchor. NPC: within 4" of NW Anchor, in Cover/out of sight.' />
+                <TableRow roll="5" label="Overwatch"   effect='Player: Adjacent to SW, S, or SE Anchors. NPC: Adjacent to W, N, or E Anchors (split evenly), in Cover/out of sight.' />
+                <TableRow roll="6" label="Encircled"   effect='Player: within 4" of Center Anchor. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' last />
               </tbody>
             </table>
           </div>

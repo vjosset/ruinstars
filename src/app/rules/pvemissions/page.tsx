@@ -322,7 +322,7 @@ export default async function PvEMissions() {
               <h3>Deployments (D6)</h3>
               <div>
                 <strong>1: Standard Insertion</strong>
-                <div className="ml-4">Player Squad deploys within 4" of the SW, S, or SE Anchhors. NPC Squad deploys within 4" of the NW, N, or NE Anchors (split evenly), in Cover or out of sight where possible.</div>
+                <div className="ml-4">Player Squad deploys within 4" of the SW, S, or SE Anchors. NPC Squad deploys within 4" of the NW, N, or NE Anchors (split evenly), in Cover or out of sight where possible.</div>
               </div>
               <div>
                 <strong>2: Hot Drop</strong>
