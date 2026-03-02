@@ -93,7 +93,7 @@ export default function PvEMissionsQuickRef() {
               <SubLabel>Mission Setup</SubLabel>
               <Steps items={[
                 { label: 'Roll 2 Objectives' },
-                { label: 'Roll Modifier' },
+                { label: 'Roll Battlefield' },
                 { label: 'Roll Deployment' },
                 { label: 'Roll NPC Units', highlight: true },
                 { label: 'Deploy NPC' },
@@ -149,11 +149,6 @@ export default function PvEMissionsQuickRef() {
           <P className="text-xs">
             <Br>Turn 5+:</Br> Do not roll Turn Events — apply <Hi>Enemy Reinforcements</Hi> automatically.
           </P>
-          <Divider />
-          <SubLabel>First Mission</SubLabel>
-          <P className="text-xs text-muted">
-            Skip Mission Modifier and Deployment rolls. Play with Standard Conditions and Standard Insertion to learn the core mechanics.
-          </P>
         </Card>
 
         {/* ── Row 2: Turn Events | Objectives | Modifiers ──────────────────── */}
@@ -182,7 +177,7 @@ export default function PvEMissionsQuickRef() {
           </p>
           <table className="w-full border-collapse">
             <tbody>
-              <TableRow roll="1" label="Control"       effect="Place 3 Objectives on random Anchors. All Controlled at end of Turn 4." />
+              <TableRow roll="1" label="Control"       effect="Place 3 Objectives on random Anchors. All Controlled at end of 2 consecutive Turns." />
               <TableRow roll="2" label="Activate"      effect="3 Objectives on random Anchors. Activate (2ACT): Remove Objective. All 3 activated." />
               <TableRow roll="3" label="Destroy"       effect="Place 3 Objectives (ARM3 HIT2) on random Anchors. All Taken Out." />
               <TableRow roll="4" label="Protect"       effect="Asset (ARM3 HIT3) on a random Anchor. NPC priority target. Asset at ≥1 HIT at end of Turn 4." />
@@ -193,18 +188,18 @@ export default function PvEMissionsQuickRef() {
         </Card>
 
         <Card>
-          <SH>Mission Modifiers (D6)</SH>
+          <SH>Battlefields (D6)</SH>
           <p className="text-xs text-muted mb-1">
-            Optional. Roll at Mission start. Add current TL to roll (max 6) for increased difficulty.
+            Optional. Roll at Mission start. Skip for your first mission.
           </p>
           <table className="w-full border-collapse">
             <tbody>
-              <TableRow roll="1" label="Standard Conditions" effect="No special conditions." />
-              <TableRow roll="2" label="Fortified Position"  effect="All NPC Units start in Cover and are considered in Cover (regardless of position) until they move for the first time." />
-              <TableRow roll="3" label="Fog of War"          effect='Max Ranged range 8". Weapons with infinite range treated as RNG8".' />
-              <TableRow roll="4" label="Blackout"            effect="Cannot spend TO to modify dice ±1. All other TO uses (actions, skills, re-rolls) unaffected." />
-              <TableRow roll="5" label="Hostile Environment" effect='End of each Turn: each Unit within 6" of Center takes 2 damage.' />
-              <TableRow roll="6" label="Blacksite"            effect="No outside support. Do not roll Turn Events this mission — they do not apply for any reason, including Reinforcements in turns 5+." last />
+              <TableRow roll="1" label="The Ruined City — Collapse"      effect='Start of each Turn after the first: roll a random Anchor. All terrain within 4" of it is removed; all Units within 4" take 2 Damage.' />
+              <TableRow roll="2" label="The Facility — Darkness"         effect='Start of each Turn after the first: select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.' />
+              <TableRow roll="3" label="The Jungle — Stinging Cloud"     effect="Start of each Turn after the first: select a random Standing Unit from each Squad. That Unit moves 1 Pace three times in random directions. If blocked by a wall or obstacle, it takes 1 Melee Damage." />
+              <TableRow roll="4" label="The Alien Hive — Noxious Gas"    effect='Start of each Turn after the first: select a random Anchor. All Units within 4" take 1 Damage.' />
+              <TableRow roll="5" label="The Cursed Temple — Cursed Spirits" effect="Start of each Turn after the first: select a random Unit from each Squad. That Unit immediately attacks the closest Unit in Combat — SquadMate or enemy." />
+              <TableRow roll="6" label="Blacksite"                       effect="No outside support. Do not roll Turn Events this mission, except Reinforcements in Turns 5+." last />
             </tbody>
           </table>
         </Card>

@@ -1,7 +1,6 @@
 import Markdown from '@/components/ui/Markdown'
 import PageBreak from '@/components/ui/PageBreak'
 import { GAME } from '@/lib/config/game_config'
-import { Fragment } from 'react'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { GearCategoryService, SpecialService, UserService } from '@/services'
@@ -94,18 +93,17 @@ export default async function PvEMissions() {
                 Before the first turn begins, follow the steps below to generate your mission.
                 Each mission is defined by
                 two random <strong>Objectives</strong> that determine victory conditions,
-                a Mission <strong>Modifier</strong> that alters battlefield conditions,
+                a <strong>Battlefield</strong> that alters mission conditions,
                 and a <strong>Deployment</strong> variant that determines where both squads begin.
                 <br/>
                 For your first mission, skip steps 2 and 3; play with Standard Conditions and Standard Insertion to learn the core mechanics.
-                Once you're comfortable, the Mission Modifiers and Deployment Variants add significant variety without increasing complexity.
-                Optional rule: you may add the current Threat Level to your Mission Modifier roll (maximum 6) for increased difficulty.
+                Once you're comfortable, the Battlefield and Deployment Variants add significant variety without increasing complexity.
               </div>
               <div className="section border border-main rounded-md px-6 py-2 mx-16">
                 <h4>Mission Setup</h4>
                 <ol className="ml-4">
                   <li>Roll 2 Objectives</li>
-                  <li>Roll Mission Modifier</li>
+                  <li>Roll Battlefield</li>
                   <li>Roll Deployment</li>
                   <li>Roll NPC Squad Units</li>
                   <li>Deploy NPC Squad</li>
@@ -141,7 +139,7 @@ export default async function PvEMissions() {
                 <strong>1: Control</strong>
                 <div className="ml-4">
                   <strong>Setup:</strong> Place an Objective on three random Anchors.<br/>
-                  <strong>Victory:</strong> At the end of Turn 4, Player Squad Controls all three Objectives.
+                  <strong>Victory:</strong> At the end of any two consecutive Turns, Player Squad Controls all three Objectives.
                   {/* 
                   <strong>Rewards (pick one):</strong>
                   <ul>
@@ -273,43 +271,48 @@ export default async function PvEMissions() {
               "The Asset" becomes a defector, a relic, or a downed pilot.<br/>
               The mechanics stay the same; the campaign tells the player what each objective means.
             </div>
-            {/* Modifiers */}
+            {/* Battlefields */}
             <div className="section">
-              <h3>Mission Modifiers (D6)</h3>
-              These Mission Modifiers are optional; you can choose to skip them.<br/>
-              For an extra challenge, add the current Threat Level to your roll (maximum 6) for increased difficulty. Recommended for experienced Squads.
+              <h3>Battlefields (D6)</h3>
+              These Battlefields are optional; you can choose to skip them.
               <div>
-                <strong>1: Standard Conditions</strong>
-                <div className="ml-4">No additional battlefield conditions apply to this mission.</div>
-              </div>
-              <div>
-                <strong>2: Fortified Position</strong>
+                <strong>1: The Ruined City - Collapse</strong>
                 <div className="ml-4">
-                  The enemy dug in before you arrived. All NPC Units are placed in Cover at deployment and considered in Cover (regardless of actual position) until they move for the first time.
+                  The battlefield itself is killing you. At the start of each Turn after the first, roll for a random Anchor.
+                  All terrain within 4" of that Anchor is removed from the battlefield, and all Units with 4" of that Anchor take 2 Damage.
                 </div>
               </div>
               <div>
-                <strong>3: Fog of War</strong>
+                <strong>2: The Facility - Darkness</strong>
                 <div className="ml-4">
-                  Visibility is severely reduced. All Ranged combat is limited to a maximum range of 8". Weapons with a range shorter than 8" are unaffected. Weapons with infinite range are treated as RNG8" this mission.
+                  At the start of each Turn after the first, select one random Anchor.
+                  Until the end of the Turn, Units within 4" of that Anchor cannot be targeted in Ranged Combat.
                 </div>
               </div>
               <div>
-                <strong>4: Blackout</strong>
+                <strong>3: The Jungle - Stinging Cloud</strong>
                 <div className="ml-4">
-                  Squad communications are jammed. The Player Squad cannot spend TO to change the result of dice by +/- 1 this mission. TO may still be spent on all other uses (actions, skills, re-rolls).
+                  At the start of each Turn after the first, select one random Standing Unit from each Squad. That Unit moves 1 Pace three times in random directions (roll three times).
+                  If that Unit cannot make a valid move because of wall or other obstacle, it takes 1 Melee Damage.
                 </div>
               </div>
               <div>
-                <strong>5: Hostile Environment</strong>
+                <strong>4: The Alien Hive - Noxious Gas</strong>
                 <div className="ml-4">
-                  The battlefield itself is killing you. At the end of each Turn, all Units (Player or NPC) within 6" of the Center anchor takes 2 Damage.
+                  At the start of each Turn after the first, select one random Anchor. All Units within 4" of that Anchor take 1 Damage.
+                </div>
+              </div>
+              <div>
+                <strong>5: The Cursed Temple - Haunting Spirits</strong>
+                <div className="ml-4">
+                  At the start of each Turn after the first, select one random Unit from each Squad.
+                  That Unit is overtaken by the temple's restless spirits and immediately attacks the closest Unit in Combat, SquadMate or enemy.
                 </div>
               </div>
               <div>
                 <strong>6: Blacksite</strong>
                 <div className="ml-4">
-                  No outside support reaches the squad. Do not roll Turn Events this mission. Turn Events do not apply for any reason, including Reinforcements in turns 5+.
+                  No outside support reaches the squad. Do not roll Turn Events this mission, except Reinforcements in Turns 5+.
                 </div>
               </div>
             </div>
@@ -318,15 +321,15 @@ export default async function PvEMissions() {
               <h3>Deployments (D6)</h3>
               <div>
                 <strong>1: Standard Insertion</strong>
-                <div className="ml-4">Player Squad deploys on the Southern edge. NPC Squad deploys on the Northern edge, in Cover if possible.</div>
+                <div className="ml-4">Player Squad deploys within 4" of the SW, S, or SE Anchhors. NPC Squad deploys within 4" of the NW, N, or NE Anchors (split evenly), in Cover or out of sight where possible.</div>
               </div>
               <div>
                 <strong>2: Hot Drop</strong>
-                <div className="ml-4">The insertion was faster than expected. Player Squad deploys within 4" of the Center anchor. NPC Squad deploys on the Northern edge, in Cover if possible.</div>
+                <div className="ml-4">The insertion was faster than expected. Player Squad deploys Adjacent to the N, S, E, or W Anchors. NPC Squad deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), Adjacent to the NW or NE Anchors (split evenly), in Cover or out of sight where possible.</div>
               </div>
               <div>
                 <strong>3: Flanked</strong>
-                <div className="ml-4">Intel was wrong. The enemy is coming from two directions. NPC Squad splits as evenly as possible and deploys on both the Eastern and Western edges, in Cover if possible. Player Squad deploys on the Southern edge.</div>
+                <div className="ml-4">Intel was wrong. The enemy is coming from two directions. NPC Squad deploys Adjacent to the NW or NE Anchors (split evenly), in Cover or out of sight where possible. Player Squad deploys within 4" of the S Anchor.</div>
               </div>
               <div>
                 <strong>4: Deep Strike</strong>
@@ -334,11 +337,11 @@ export default async function PvEMissions() {
               </div>
               <div>
                 <strong>5: Overwatch</strong>
-                <div className="ml-4">The enemy holds the high ground and saw you coming. NPC Squad deploys anywhere on the Northern half of the battlefield, in Cover if possible. Player Squad deploys on the Southern edge.</div>
+                <div className="ml-4">The enemy holds the high ground and saw you coming. NPC Squad deploys Adjacent to the W, N, or E Anchors (split evenly), Adjacent to the NW or NE Anchors (split evenly), in Cover or out of sight where possible. Player Squad deploys Adjacent to the SW, S, or SE Anchors.</div>
               </div>
               <div>
                 <strong>6: Encircled</strong>
-                <div className="ml-4">Extraction just got complicated. Player Squad deploys within 4" of the Center anchor. NPC Squad splits as evenly as possible across all four edges of the battlefield, in Cover if possible.</div>
+                <div className="ml-4">Extraction just got complicated. Player Squad deploys within 4" of the Center anchor. NPC Squad deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover or out of sight where possible.</div>
               </div>
             </div>
           </div>
@@ -384,7 +387,7 @@ export default async function PvEMissions() {
                 </div>
                 <div>
                   <strong>6: Enemy Reinforcements</strong>
-                  <div className="ml-4">Roll <code>1D6</code> and consult the Spawn Table for the current Threat Level. Spawn one Unit of the indicated type Adjacent to a random Anchor.</div>
+                  <div className="ml-4">Roll <code>1D6</code> and consult the Spawn Table for the current Threat Level. Spawn indicated Units Adjacent to a random Anchor (one per Anchor).</div>
                 </div>
               </div>
               {/* NPC Activations */}
@@ -537,34 +540,29 @@ export default async function PvEMissions() {
           <h2>Quick Reference</h2>
           <PvEMissionsQuickRef />
 
-          <PageBreak />
           <div>
-            {pveSquads.map((squad, idx) => (
-              <Fragment key={squad.squadId}>
-                {idx > 0 && 
-                  <PageBreak />
-                }
-                <div>
-                  <h3 className="text-main font-semibold">{squad.squadName}</h3>
-                  <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-                    {squad.spawnTable && (
-                      <div className="bg-card border border-main p-1 rounded relative flex flex-col h-full unitcard">
-                        <h4>Spawn Table - {squad.squadName}</h4>
-                        <Markdown>{squad.spawnTable}</Markdown>
-                      </div>
-                    )}
-                    {squad.units?.map((unit) => (
-                      <UnitCard
-                        key={unit.unitId}
-                        seq={unit.seq}
-                        unit={unit.toPlain()}
-                        isOwner={false}
-                        allSpecials={allSpecials.map((spec) => spec.toPlain())}
-                      />
-                    ))}
-                  </div>
+            {pveSquads.map((squad) => (
+              <div key={squad.squadId}>
+                <PageBreak />
+                <h3 className="text-main font-semibold">{squad.squadName}</h3>
+                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                  {squad.spawnTable && (
+                    <div className="bg-card border border-main p-1 rounded relative flex flex-col h-full unitcard">
+                      <h4>Spawn Table - {squad.squadName}</h4>
+                      <Markdown>{squad.spawnTable}</Markdown>
+                    </div>
+                  )}
+                  {squad.units?.map((unit) => (
+                    <UnitCard
+                      key={unit.unitId}
+                      seq={unit.seq}
+                      unit={unit.toPlain()}
+                      isOwner={false}
+                      allSpecials={allSpecials.map((spec) => spec.toPlain())}
+                    />
+                  ))}
                 </div>
-              </Fragment>
+              </div>
             ))}
           </div>
         </div>
