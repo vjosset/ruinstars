@@ -15,8 +15,12 @@ export async function generateMetadata() {
 }
 
 const TOKENS = [
-  'A1', 'A2', 'A3',
-  'B1', 'B2', 'B3'
+  { label: 'A1', size: 150, colorMode: 'main' },
+  { label: 'A2', size: 150, colorMode: 'main' },
+  { label: 'A3', size: 150, colorMode: 'main' },
+  { label: 'B1', size: 150, colorMode: 'alt' },
+  { label: 'B2', size: 150, colorMode: 'alt' },
+  { label: 'B3', size: 150, colorMode: 'alt' },
 ]
 
 export default function TokensPage() {
@@ -50,9 +54,9 @@ export default function TokensPage() {
         <br/><br/>
       </p>
       <div className={styles.grid}>
-        {TOKENS.map(label => (
-          <div key={label} className={styles.token}>
-            <GameToken label={label} size={150} />
+        {TOKENS.map((t) => (
+          <div key={t.label} className={styles.token}>
+            <GameToken label={t.label} size={t.size} colorMode={t.colorMode} />
           </div>
         ))}
       </div>
@@ -66,7 +70,7 @@ export default function TokensPage() {
           <br/><br/>
         </p>
         <div key="E" className={styles.extract}>
-          <GameToken label="E" size={450} />
+          <GameToken label="E" size={450} colorMode="main" />
         </div>
       </div>
     </div>
