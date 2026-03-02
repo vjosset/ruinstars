@@ -190,7 +190,8 @@ export default function PvEMissionsQuickRef() {
         <Card>
           <SH>Turn Events (D6)</SH>
           <p className="text-xs text-muted mb-1">
-            Roll at the start of each Turn. Turn 5+: always <strong>Enemy Reinforcements</strong>.
+            Roll at the start of each Turn.<br/>
+            Turn 5+: always <strong>Enemy Reinforcements</strong>.
           </p>
           <table className="w-full border-collapse">
             <tbody>
@@ -199,7 +200,7 @@ export default function PvEMissionsQuickRef() {
               <TableRow roll="3" label="Strategic Command"     effect="Player Squad gains +2 TO." />
               <TableRow roll="4" label="Scrambled Comms"       effect="Player Squad loses -2 TO (minimum 0)." />
               <TableRow roll="5" label="Overrun"               effect="All NPC Units immediately perform 1 Action per their Behavior." />
-              <TableRow roll="6" label="Enemy Reinforcements"  effect="Roll 1D6 → spawn 1 NPC Unit per the TL spawn table, Adjacent to a random Anchor." last />
+              <TableRow roll="6" label="Enemy Reinforcements"  effect="Roll 1D6 → spawn NPC Units per the TL spawn table, Adjacent to a random Anchor." last />
             </tbody>
           </table>
         </Card>
