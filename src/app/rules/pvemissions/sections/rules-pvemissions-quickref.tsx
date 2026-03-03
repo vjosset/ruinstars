@@ -102,7 +102,7 @@ export default function PvEMissionsQuickRef() {
               <SubLabel>Each Turn</SubLabel>
               <Steps items={[
                 { label: 'Roll TOs' },
-                { label: 'Turn Event' },
+                { label: 'Battlefield' },
                 { label: 'Activate Units', highlight: true },
                 { label: 'Extract?' },
               ]} />
@@ -151,7 +151,7 @@ export default function PvEMissionsQuickRef() {
           </P>
         </Card>
 
-        {/* ── Row 2: Objectives | Modifiers | Turn Events ──────────────────── */}
+        {/* ── Row 2: Objectives | Modifiers | Battlefields ──────────────────── */}
 
         <Card>
           <SH>Objectives (2D6)</SH>
@@ -196,38 +196,17 @@ export default function PvEMissionsQuickRef() {
           </p>
           <table className="w-full border-collapse">
             <tbody>
-              <TableRow roll="1" label="The Ruined City - Collapse"         effect='Start of each Turn after the first: roll a random Anchor. All terrain within 4" of it is removed; all Units within 4" take 2 Damage.' />
-              <TableRow roll="2" label="The Facility - Darkness"            effect='Start of each Turn after the first: select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.' />
-              <TableRow roll="3" label="The Jungle - Miasmic Mist"          effect='Start of each Turn after the first: select a random Standing Unit from each Squad. That Unit moves 2" three times in random directions. If blocked by a wall or obstacle, it takes 1 Melee Damage.' />
-              <TableRow roll="4" label="The Alien Hive - Noxious Gas"       effect='Start of each Turn after the first: select a random Anchor. All Units within 4" take 1 Damage.' />
+              <TableRow roll="1" label="The Ruined City - Collapse"           effect='Start of each Turn after the first: roll a random Anchor. All terrain within 4" of it is removed; all Units within 4" take 2 Damage.' />
+              <TableRow roll="2" label="The Facility - Darkness"              effect='Start of each Turn after the first: select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.' />
+              <TableRow roll="3" label="The Jungle - Miasmic Mist"            effect='Start of each Turn after the first: select a random Standing Unit from each Squad. That Unit moves 2" three times in random directions. If blocked by a wall or obstacle, it takes 1 Melee Damage.' />
+              <TableRow roll="4" label="The Alien Hive - Noxious Gas"         effect='Start of each Turn after the first: select a random Anchor. All Units within 4" take 1 Damage.' />
               <TableRow roll="5" label="The Cursed Temple - Haunting Spirits" effect="Start of each Turn after the first: select a random Unit from each Squad. That Unit immediately attacks the closest Unit in Combat, SquadMate or enemy." />
-              <TableRow roll="6" label="Blacksite"                          effect='No outside support. Do not roll Turn Events this mission, except Reinforcements in Turns 5+.' last />
+              <TableRow roll="6" label="The Rift - Shifting Realities"        effect='Start of each Turn after the first: select one Unit from each Squad. Swap their positions.' last />
             </tbody>
           </table>
         </Card>
 
-        {/*
-        <Card>
-          <SH>Turn Events (D6)</SH>
-          <p className="text-xs text-muted mb-1">
-            Roll at the start of each Turn.<br/>
-            Turn 5+: always <strong>Enemy Reinforcements</strong>.
-          </p>
-          <table className="w-full border-collapse">
-            <tbody>
-              <TableRow roll="1" label="Opportunity"           effect="1 Unit spends up to 2 ACT on actions before Turn starts. Not its activation." />
-              <TableRow roll="2" label="Field Dressing"        effect="1 Standing Player Unit regains 1 HIT." />
-              <TableRow roll="3" label="Strategic Command"     effect="Player Squad gains +2 TO." />
-              <TableRow roll="4" label="Scrambled Comms"       effect="Player Squad loses -2 TO (minimum 0)." />
-              <TableRow roll="5" label="Overrun"               effect="All NPC Units immediately perform 1 Action per their Behavior." />
-              <TableRow roll="6" label="Enemy Reinforcements"  effect="Roll 1D6 → spawn NPC Units per the TL spawn table, Adjacent to a random Anchor." last />
-            </tbody>
-          </table>
-        </Card>
-        */}
-
-        {/* ── Row 3: Deployments (col 1+2) | Campaign Structure (col 3) ────── */}
-
+        {/* ── Row 3: Campaign Structure | Mission Scoring & End | NPC Squads & Reinforcements ── */}
 
         <Card>
           <SH>Campaign Structure</SH>
@@ -253,6 +232,50 @@ export default function PvEMissionsQuickRef() {
           <SubLabel>Spoils of War</SubLabel>
           <P className="text-xs">
             Purchased at Homebase. <Hi>8 MP</Hi> each, applies to one specific Unit.
+          </P>
+        </Card>
+
+        <Card>
+          <SH>Mission Scoring &amp; End</SH>
+          <SubLabel>Extraction</SubLabel>
+          <P className="text-xs">
+            At the start of Turn 4, roll a random Anchor as the <Hi>Extraction Point</Hi>. If it is occupied by an Objective marker, re-roll until an unoccupied Anchor is selected.
+          </P>
+          <P className="text-xs">
+            At the end of Turn 4 or later, each <Hi>Standing Unit</Hi> within 3" of the Extraction Point and <Hi>not Adjacent to an enemy</Hi> extracts successfully.
+          </P>
+          <P className="text-xs text-muted">
+            Units that fail both conditions are left behind — treat as Taken Out for injury purposes.
+          </P>
+          <Divider />
+          <SubLabel>Mission End</SubLabel>
+          <P className="text-xs">
+            The mission ends when the Player Squad extracts or all Player Units are Taken Out.
+          </P>
+          <P className="text-xs text-muted">
+            If no Player Units extract, no Objectives are considered completed regardless of their state.
+          </P>
+          <Divider />
+          <SubLabel>Mission Points</SubLabel>
+          <div className="text-xs space-y-0.5">
+            <div><Br>+1 MP</Br> <span className="text-muted">per Threat Level — always scored</span></div>
+            <div><Br>+3 MP</Br> <span className="text-muted">per completed Objective — only if Squad extracts</span></div>
+          </div>
+        </Card>
+
+        <Card>
+          <SH>NPC Squads &amp; Reinforcements</SH>
+          <SubLabel>NPC Squad Setup</SubLabel>
+          <P className="text-xs">
+            Select an enemy faction and <Hi>Threat Level (1–3)</Hi>. Roll <Hi>3D6</Hi> — each die resolved independently. Look up each result in the column for the current TL to identify spawned Units.
+          </P>
+          <P className="text-xs text-muted">
+            In Campaign play, TL matches the Operation number: TL1 for Op 1, TL2 for Op 2, TL3 for Op 3. We recommend using the same faction for all Missions in an Operation.
+          </P>
+          <Divider />
+          <SubLabel>Reinforcements (Turn 5+)</SubLabel>
+          <P className="text-xs">
+            At the start of each Turn from Turn 5 onward, before Battlefield effects, roll <Hi>1D6</Hi> and consult the Spawn Table for the current TL. Spawn the indicated Units Adjacent to a random Anchor, one Unit per Anchor.
           </P>
         </Card>
 

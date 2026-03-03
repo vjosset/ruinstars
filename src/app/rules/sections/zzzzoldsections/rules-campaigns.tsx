@@ -36,7 +36,7 @@ export default async function RulesCampaigns({ num }: {num?: number | null}) {
         </div>
         <div className="section">
           <h3>Sample Campaign</h3>
-          <ul>
+          <ul className="columns-3">
             <li>
               Operation 1 - The Facility
               <ul>

@@ -454,7 +454,7 @@ export default async function PvEMissions() {
                 At the end of each Operation, your Squad returns to Homebase to heal injuries, resupply, and recruit new Units into the Squad.
 
                 <h4>Sample Campaign</h4>
-                <ul>
+                <ul className="columns-3">
                   <li>
                     Operation 1<br/>
                     <em>Threat Level 1</em>
@@ -494,17 +494,27 @@ export default async function PvEMissions() {
                 <h4>Missions and Objectives</h4>
                 Each Mission in the campaign should move the story forward. In many cases, this means using the 6 Objectives from the table above, but re-skinning them to fit the narrative. Here are some examples of reframing the core Objectives to fit <em>your</em> story:
 
-                <div>
+                <div className="section">
                   <h6>Control</h6>
                   The markers could be anything worth holding: a comm relay that must stay live, a breach point that cannot be ceded, a position that commands the only viable extraction route. The story reason matters less than the pressure it creates. If the enemy controls it, you lose.
+                </div>
+                <div className="section">
                   <h6>Activate</h6>
                   Think of these as things that must be done, not held. Purging corrupted data cores. Triggering demolition charges. Sealing breaches in a containment perimeter. The squad moves through, does the work, and leaves. The objective is complete when there is nothing left to do.
+                </div>
+                <div className="section">
                   <h6>Destroy</h6>
                   These are things that cannot be allowed to survive. Spawn nodes. Weapons caches. A relay broadcasting enemy coordinates. Whatever they are, they can take damage and they must be brought down. Unlike Activate Objectives, destroying them is a fight, not a procedure.
+                </div>
+                <div className="section">
                   <h6>Protect</h6>
                   The asset is whatever your squad cannot afford to lose. A wounded officer. A piece of salvage worth more than the mission. A civilian who knows something. The enemy will go for it. Your job is to make sure they fail.
+                </div>
+                <div className="section">
                   <h6>Search</h6>
                   Something is here. You don't know where. It could be intelligence, a weapon, a body, a signal source. You search until you find it. Campaigns can replace the die roll with a guaranteed find on each marker if the mission calls for certainty over tension.
+                </div>
+                <div className="section">
                   <h6>No Survivors</h6>
                   No markers. No positions. No extraction until the last one drops. Sometimes the mission is that simple, and that hard.
                 </div>
