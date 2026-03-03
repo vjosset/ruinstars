@@ -164,7 +164,7 @@ export default function PvEMissionsQuickRef() {
               <TableRow roll="2" label="Activate"      effect="3 Objectives on random Anchors. Activate (2ACT): Remove Objective. All 3 activated." />
               <TableRow roll="3" label="Destroy"       effect="Place 3 Objectives (ARM4 HIT3) on random Anchors. All Taken Out." />
               <TableRow roll="4" label="Protect"       effect="Asset (ARM4 HIT3) on a random Anchor. NPC priority target. Asset at ≥1 HIT at end of Turn 4." />
-              <TableRow roll="5" label="Search"        effect="3 Search Objectives on random Anchors. Search (2ACT): 1st = found on 1; 2nd = found on 1-2; 3rd = found automatically. No TO re-rolls." />
+              <TableRow roll="5" label="Search"        effect="3 Search Objectives on random Anchors. Search (2ACT): 1st = found on 1; 2nd = found on 1-2; 3rd = found automatically. No TO re-rolls or modification." />
               <TableRow roll="6" label="No Survivors"  effect="All enemy Units Taken Out." last />
             </tbody>
           </table>

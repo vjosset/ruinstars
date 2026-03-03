@@ -10,8 +10,6 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { FiActivity, FiSettings } from 'react-icons/fi'
 import UserPageClient from './UserPageClient'
-export const revalidate = 60
-
 export async function generateMetadata({ params }: { params: Promise<{ userName: string }> }) {
   const { userName } = await params
   let lookupName = userName

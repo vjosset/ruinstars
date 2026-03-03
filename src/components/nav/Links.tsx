@@ -6,7 +6,7 @@ import { BsFilePdf } from 'react-icons/bs'
 import { FaScroll } from 'react-icons/fa6'
 import { FiBook, FiList, FiUser, FiUsers } from 'react-icons/fi'
 
-const badgeClass = 'inline-flex text-foreground items-center gap-1 px-1 py-0.5 font-medium rounded border border-main bg-background hover:bg-card max-w-full overflow-hidden'
+const badgeClass = 'text-sm inline-flex text-foreground items-center gap-1 px-1 py-0.5 font-medium rounded border border-main bg-background hover:bg-card max-w-full overflow-hidden'
 
 export function PDFLink({href, title}: {href: string, title: string}) {
   return (

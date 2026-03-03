@@ -1,3 +1,4 @@
+import SquadSpotlightCard from '@/components/squad/SquadSpotlightCard'
 import SquadTypeCard from '@/components/squadType/SquadTypeCard'
 import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
@@ -31,11 +32,14 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
   const { tab: tabParam } = searchParams ? await searchParams : { tab: undefined }
   const squadType = await SquadTypeService.getSquadType(squadTypeId)
 
+  const hasSpotlights = squadType?.spotlights && squadType.spotlights.length > 0
+
   if (!squadType) notFound()
 
   const tabs = [
     { id: 'units' as const, label: 'Units', enabled: true },
     { id: 'about' as const, label: 'About', enabled: true },
+    { id: 'squads' as const, label: 'Showcase', enabled: true },
   ].filter(t => t.enabled)
 
   const requestedTab = tabs.find(t => t.id === tabParam)?.id
@@ -141,11 +145,10 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
           </>
         )}
 
-        {/*
         {activeTab === 'squads' && hasSpotlights && (
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2">
             {squadType.spotlights.map((squad) => (
-              <SquadCard
+              <SquadSpotlightCard
                 key={squad.squadId}
                 squad={squad.toPlain()}
                 isOwner={false}
@@ -155,7 +158,6 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
             ))}
           </div>
         )}
-        */}
 
         {activeTab === 'about' && (
           <div className="grid gap-6 p-2">

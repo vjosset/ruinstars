@@ -320,7 +320,7 @@ export default function HordeModeQuickRef() {
               <span className="font-heading font-bold">6: The Artifact</span>
               <div className="ml-2 text-muted leading-snug">
                 Setup: 1 Search Marker on 3 random Anchors.<br/>
-                Action - Search (2 ACT): Unit Controlling a marker rolls 1D6; on 1-2 the Artifact is found (no TO re-rolls).<br/>
+                Action - Search (2 ACT): Unit Controlling a marker rolls 1D6; on 1-2 the Artifact is found (no TO re-rolls or modification).<br/>
                 Victory: Artifact found.<br/>
                 Reward: +4 MP · or 1 Unit gains 1 Spoil of War.
               </div>

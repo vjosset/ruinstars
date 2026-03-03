@@ -25,7 +25,7 @@ export default function SquadSpotlightCard({
 }: SquadCardProps) {
   const heroUrl = squad.hasCustomPortrait
     ? `${getSquadPortraitUrl(squad.squadId)}?v=${toEpochMs(squad.portraitUpdatedAt)}`
-    : `/img/squadTypes/${squad.squadTypeId}_thumb.webp`
+    : `/img/squadTypes/${squad.squadTypeId}.webp`
 
   const [activeUnitId, setActiveUnitId] = useState<string | null>(null)
 
