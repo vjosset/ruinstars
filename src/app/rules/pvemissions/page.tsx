@@ -36,7 +36,7 @@ export default async function PvEMissions() {
   return (
     <>
       {/* Cover */}
-      <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} />
+      <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} loading="eager" decoding="async" />
       <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
         <div className="text-center text-white font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
           <h1>PvE Missions</h1>
@@ -275,7 +275,6 @@ export default async function PvEMissions() {
             <div className="section">
               <h3>Battlefields (D6)</h3>
               These Battlefields are optional; you can choose to skip them.
-              Any listed effects should be rolled before Turn Events.
               <div>
                 <strong>1: The Ruined City - Collapse</strong>
                 <div className="ml-4">
@@ -311,9 +310,10 @@ export default async function PvEMissions() {
                 </div>
               </div>
               <div>
-                <strong>6: Blacksite</strong>
+                <strong>6: The Rift - Shifting Realities</strong>
                 <div className="ml-4">
-                  No outside support reaches the squad. Do not roll Turn Events this mission, except Reinforcements in Turns 5+.
+                  At the start of each Turn after the first, select one random Standing Unit from each Squad. 
+                  Swap their positions.
                 </div>
               </div>
             </div>
@@ -377,13 +377,13 @@ export default async function PvEMissions() {
                 <h3>Turn Sequence</h3>
                 <ol>
                   <li>Roll TOs</li>
-                  <li>Roll Turn Events</li>
+                  <li>Roll Battlefield Effect (if any)</li>
                   <li>Resolve "Start of Turn" Events and Skills</li>
                   <li>Activate Units</li>
                   <li>Choose to Extract</li>
                 </ol>
               </div>
-              {/* Turn Events */}
+              {/* Turn Events 
               <div className="section">
                 <h3>Turn Events (D6)</h3>
                 At the start of each Turn, roll <code>1D6</code> to determine a special event for the Turn.
@@ -412,6 +412,13 @@ export default async function PvEMissions() {
                   <strong>6: Enemy Reinforcements</strong>
                   <div className="ml-4">Roll <code>1D6</code> and consult the Spawn Table for the current Threat Level. Spawn indicated Units Adjacent to a random Anchor (one per Anchor).</div>
                 </div>
+              </div>
+              */}
+              {/* Reinforcements */}
+              <div className="section">
+                <h3>Reinforcements</h3>
+                From Turn 5 onward, at the start of each Turn, roll 1D6 and consult the Spawn Table for the current Threat Level.
+                Spawn the indicated Units Adjacent to a random Anchor (one per Anchor).
               </div>
               {/* NPC Activations */}
               <div className="section">

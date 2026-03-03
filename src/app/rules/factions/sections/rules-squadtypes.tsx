@@ -29,7 +29,7 @@ export default async function RulesSquadTypes() {
             The galaxy is dying.
             <br/><br/>
             Empires rot from within, ancient horrors stir in the void, and the last habitable worlds are fought over like scraps of meat.
-            There are no clean wars anymore—only raids, interdictions, containment failures, and desperate last stands.
+            There are no clean wars anymore. Only raids, interdictions, containment failures, and desperate last stands.
           </div>
         </div>
         <div className="section">

@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// RUINSTARS — DIAGRAM SPECS
+// RUINSTARS - DIAGRAM SPECS
 // All coordinates in inches. pixelsPerInch bumped up for small maps.
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -7,14 +7,14 @@ import type { BattlefieldDiagramConfig } from '@/components/shared/BattlefieldDi
 
 // ─── SHARED COLORS ───────────────────────────────────────────────────────────
 const C = {
-  unit:       '#2563eb', // blue — the player unit
-  enemy:      '#dc2626', // red — enemy, out of range, not adjacent
-  enemyGreen: '#16a34a', // green — enemy, in range, adjacent
-  range:      '#2563eb', // blue tint — range radius circle
-  wall:       '#44403c', // warm dark gray — walls / terrain
-  callout:    '#f97316', // orange — dimension lines
-  zone:       '#f97316', // orange — zones / areas
-  text:       '#1c1917', // near-black — labels
+  unit:       '#2563eb', // blue - the player unit
+  enemy:      '#dc2626', // red - enemy, out of range, not adjacent
+  enemyGreen: '#16a34a', // green - enemy, in range, adjacent
+  range:      '#2563eb', // blue tint - range radius circle
+  wall:       '#44403c', // warm dark gray - walls / terrain
+  callout:    '#f97316', // orange - dimension lines
+  zone:       '#f97316', // orange - zones / areas
+  text:       '#1c1917', // near-black - labels
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -554,7 +554,7 @@ export const aooDiagram = {
       showInLegend: false,
       showLabel: false
     },
-    // Unit — original position
+    // Unit - original position
     {
       id: 'U-start',
       type: 'circle',
@@ -565,7 +565,7 @@ export const aooDiagram = {
       showLabel: false,
       showInLegend: false
     },
-    // Unit — destination (ghost)
+    // Unit - destination (ghost)
     {
       id: 'U',
       type: 'circle',

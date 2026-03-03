@@ -1509,7 +1509,7 @@ Dominate enemy territory with strength of arms.
     description: dedent(`
 "Rendezvous or die trying."
 
-The dropship waits only moments—reach it before the storm consumes the battlefield.
+The dropship waits only moments. Reach it before the storm consumes the battlefield.
 `),
     setup: dedent(`
 Set up the Evac Zone as an 8" square at the center of the battlefield.

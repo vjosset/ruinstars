@@ -47,7 +47,7 @@ export default function SquadSpotlightCard({
 
         {/* Hero portrait */}
         <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3 / 2' }}>
-          {/* Image + gradient — full-area link */}
+          {/* Image + gradient - full-area link */}
           <Link href={`/squads/${squad.squadId}`} className="absolute inset-0 z-0">
             <img
               src={displayUrl}
@@ -61,7 +61,7 @@ export default function SquadSpotlightCard({
               style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,.7) 75%, rgba(0,0,0,1) 100%)' }}
             />
           </Link>
-          {/* Text overlay — sibling of the link, so nested <a> tags are avoided */}
+          {/* Text overlay - sibling of the link, so nested <a> tags are avoided */}
           <div className="absolute bottom-0 left-0 right-0 px-4 pb-3 pt-2 z-10">
             <Link href={`/squads/${squad.squadId}`}>
               <h3 className="font-title text-white text-2xl uppercase tracking-wide leading-none mb-2 hover:text-main transition-colors" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
@@ -83,7 +83,7 @@ export default function SquadSpotlightCard({
         {/* Unit strip */}
         {squad.units && squad.units.filter((unit) => unit.hasCustomPortrait).length > 0 && (
           <div className="bg-card border-t border-border px-3 py-2 flex gap-1.5 items-center overflow-x-auto">
-            {/* Squad portrait thumbnail — resets hero to squad view */}
+            {/* Squad portrait thumbnail - resets hero to squad view */}
             <button
               type="button"
               title={squad.squadName}
@@ -94,7 +94,7 @@ export default function SquadSpotlightCard({
                   : 'border-border brightness-[0.8] hover:brightness-100 hover:border-main'
               }`}
             >
-              <img src={heroUrl} alt={squad.squadName} className="w-full h-full object-cover" />
+              <img src={heroUrl} alt={squad.squadName} className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </button>
             {squad.units.filter((unit) => unit.hasCustomPortrait).map(unit => (
               <button

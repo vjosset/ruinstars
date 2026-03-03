@@ -107,7 +107,7 @@ const missions_pvp_climax = [
     deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
     special: `The Flag is an Item that can be picked up.
 
-**Mission Action — Pick Up Flag (2 ACT):** A Unit that Controls the Flag picks it up. That Unit is now the Flag carrier.
+**Mission Action - Pick Up Flag (2 ACT):** A Unit that Controls the Flag picks it up. That Unit is now the Flag carrier.
 
 While carrying the Flag, a Unit moves 2" less per Move action.
 

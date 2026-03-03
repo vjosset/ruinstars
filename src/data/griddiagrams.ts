@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// RUINSTARS — DIAGRAM SPECS
+// RUINSTARS - DIAGRAM SPECS
 // All coordinates in inches. pixelsPerInch bumped up for small maps.
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -7,22 +7,22 @@ import type { BattlefieldDiagramConfig } from '@/components/shared/BattlefieldDi
 
 // ─── SHARED COLORS ───────────────────────────────────────────────────────────
 const C = {
-  unit:       '#2563eb', // blue — the player unit
-  enemy:      '#dc2626', // red — enemy, out of range, not adjacent
-  enemyGreen: '#16a34a', // green — enemy, in range, adjacent
-  range:      '#2563eb', // blue tint — range radius circle
-  wall:       '#44403c', // warm dark gray — walls / terrain
-  callout:    '#f97316', // orange — dimension lines
-  zone:       '#f97316', // orange — zones / areas
-  text:       '#1c1917', // near-black — labels
+  unit:       '#2563eb', // blue - the player unit
+  enemy:      '#dc2626', // red - enemy, out of range, not adjacent
+  enemyGreen: '#16a34a', // green - enemy, in range, adjacent
+  range:      '#2563eb', // blue tint - range radius circle
+  wall:       '#44403c', // warm dark gray - walls / terrain
+  callout:    '#f97316', // orange - dimension lines
+  zone:       '#f97316', // orange - zones / areas
+  text:       '#1c1917', // near-black - labels
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // MOVEMENT
 //    7×5 grid. Unit at col 1, row 3.
 //    Two paths, both labeled "3 Sq":
-//      — Straight: 3 right  → ghost at col 4, row 3.
-//      — Diagonal: 3 up-right → ghost at col 4, row 0.
+//      - Straight: 3 right  → ghost at col 4, row 3.
+//      - Diagonal: 3 up-right → ghost at col 4, row 0.
 //    Shows diagonal movement costs the same as orthogonal.
 // ─────────────────────────────────────────────────────────────────────────────
 export const movementDiagram = {
@@ -39,7 +39,7 @@ export const movementDiagram = {
       color: C.unit, fillOpacity: 0.9,
       showLabel: false, showInLegend: false,
     },
-    // Ghost — straight destination (col 4, row 3)
+    // Ghost - straight destination (col 4, row 3)
     {
       id: 'G1',
       type: 'marker',
@@ -47,7 +47,7 @@ export const movementDiagram = {
       color: C.unit, fillOpacity: 0.2,
       showLabel: false, showInLegend: false,
     },
-    // Ghost — diagonal destination (col 4, row 0)
+    // Ghost - diagonal destination (col 4, row 0)
     {
       id: 'G2',
       type: 'marker',
@@ -86,8 +86,8 @@ export const movementDiagram = {
 // ─────────────────────────────────────────────────────────────────────────────
 // RANGE
 //    8×5 grid. Attacker at col 1, row 2.
-//    Target 1: col 3, row 1 — 2 right, 1 up — IN RANGE (green).
-//    Target 2: col 5, row 2 — 4 right — OUT OF RANGE (red).
+//    Target 1: col 3, row 1 - 2 right, 1 up - IN RANGE (green).
+//    Target 2: col 5, row 2 - 4 right - OUT OF RANGE (red).
 // ─────────────────────────────────────────────────────────────────────────────
 export const rangeDiagram = {
   board: { widthIn: 9, heightIn: 9 },
@@ -116,7 +116,7 @@ export const rangeDiagram = {
       showLabel: false,
       showInLegend: false
     },
-    // Target 1 — in range (green, col 3 row 1: 2 right, 1 up)
+    // Target 1 - in range (green, col 3 row 1: 2 right, 1 up)
     {
       id: 'T1',
       type: 'marker',
@@ -135,7 +135,7 @@ export const rangeDiagram = {
       color: C.enemyGreen,
       labelSizeIn: 0.38,
     },
-    // Target 2 — out of range (red, col 5 row 2: 4 right)
+    // Target 2 - out of range (red, col 5 row 2: 4 right)
     {
       id: 'T2',
       type: 'marker',
@@ -170,8 +170,8 @@ export const rangeDiagram = {
 // ─────────────────────────────────────────────────────────────────────────────
 // COVER
 //    5×4 grid. Wall between col 2 and col 3, rows 0-1.
-//    C (green): col 3 row 0 — wall on left edge → In Cover.
-//    NC (red): col 3 row 2 — no wall on any edge → Not in Cover.
+//    C (green): col 3 row 0 - wall on left edge → In Cover.
+//    NC (red): col 3 row 2 - no wall on any edge → Not in Cover.
 // ─────────────────────────────────────────────────────────────────────────────
 export const coverDiagram = {
   board: { widthIn: 5, heightIn: 4 },
@@ -179,7 +179,7 @@ export const coverDiagram = {
   showGrid: true,
   showCenterLines: false,
   elements: [
-    // Attacker (blue) — col 0, row 2
+    // Attacker (blue) - col 0, row 2
     {
       id: 'U',
       type: 'marker',
@@ -195,7 +195,7 @@ export const coverDiagram = {
       color: C.wall, strokeColor: C.wall, fillOpacity: 1,
       showLabel: false, showInLegend: false,
     },
-    // C (green) — col 3, row 0: wall on left edge → In Cover
+    // C (green) - col 3, row 0: wall on left edge → In Cover
     {
       id: 'C',
       type: 'marker',
@@ -203,7 +203,7 @@ export const coverDiagram = {
       color: C.enemyGreen, fillOpacity: 0.85,
       labelSizeIn: 0.35,
     },
-    // NC (red) — col 3, row 2: no wall on any edge → Not in Cover
+    // NC (red) - col 3, row 2: no wall on any edge → Not in Cover
     {
       id: 'NC',
       type: 'marker',
@@ -219,7 +219,7 @@ export const coverDiagram = {
 // LINE OF SIGHT
 //    5×5 grid. Wall: cols 2-4 rows 0-1 (upper-right block).
 //    Blue attacker: col 0 row 1. Green target: col 4 row 3.
-//    Two green LoS lines from attacker corner (1,2) to target corners — both clear.
+//    Two green LoS lines from attacker corner (1,2) to target corners - both clear.
 // ─────────────────────────────────────────────────────────────────────────────
 export const lineOfSightDiagram = {
   board: { widthIn: 5, heightIn: 4 },
@@ -235,7 +235,7 @@ export const lineOfSightDiagram = {
       color: C.wall, strokeColor: C.wall, fillOpacity: 1,
       showLabel: false, showInLegend: false,
     },
-    // Attacker (blue) — col 0 row 1
+    // Attacker (blue) - col 0 row 1
     {
       id: 'A',
       type: 'marker',
@@ -243,7 +243,7 @@ export const lineOfSightDiagram = {
       color: C.unit, fillOpacity: 0.9,
       showLabel: false, showInLegend: false,
     },
-    // Target (green) — col 4 row 3
+    // Target (green) - col 4 row 3
     {
       id: 'T',
       type: 'marker',
@@ -251,7 +251,7 @@ export const lineOfSightDiagram = {
       color: C.enemyGreen, fillOpacity: 0.9,
       showLabel: false, showInLegend: false,
     },
-    // LoS Line 1: attacker corner (1,2) → target corner (4,3) — clear
+    // LoS Line 1: attacker corner (1,2) → target corner (4,3) - clear
     {
       id: 'line1',
       type: 'callout',
@@ -260,7 +260,7 @@ export const lineOfSightDiagram = {
       strokeColor: C.enemyGreen,
       end1Style: 'none', end2Style: 'arrow',
     },
-    // LoS Line 2: attacker corner (1,2) → target corner (4,4) — clear
+    // LoS Line 2: attacker corner (1,2) → target corner (4,4) - clear
     {
       id: 'line2',
       type: 'callout',
@@ -276,8 +276,8 @@ export const lineOfSightDiagram = {
 // LINE OF SIGHT - SPECIAL
 //    5×5 grid. Same wall. Blue unit: col 4 row 3. Red unit: col 0 row 1.
 //    From blue's perspective looking toward red:
-//      Line 1: (4,3)→(1,1) — blocked by wall (red, no arrow)
-//      Line 2: (4,3)→(1,2) — clear (green, arrow)
+//      Line 1: (4,3)→(1,1) - blocked by wall (red, no arrow)
+//      Line 2: (4,3)→(1,2) - clear (green, arrow)
 //    Shows A can see T, but T cannot see A.
 // ─────────────────────────────────────────────────────────────────────────────
 export const lineOfSightSpecialDiagram = {
@@ -294,7 +294,7 @@ export const lineOfSightSpecialDiagram = {
       color: C.wall, strokeColor: C.wall, fillOpacity: 1,
       showLabel: false, showInLegend: false,
     },
-    // Blue unit — col 4 row 3 (drawing LoS toward red)
+    // Blue unit - col 4 row 3 (drawing LoS toward red)
     {
       id: 'A',
       type: 'marker',
@@ -302,7 +302,7 @@ export const lineOfSightSpecialDiagram = {
       color: C.unit, fillOpacity: 0.9,
       showLabel: false, showInLegend: false,
     },
-    // Red unit — col 0 row 1
+    // Red unit - col 0 row 1
     {
       id: 'T',
       type: 'marker',
@@ -310,7 +310,7 @@ export const lineOfSightSpecialDiagram = {
       color: C.enemy, fillOpacity: 0.9,
       showLabel: false, showInLegend: false,
     },
-    // LoS Line 1: (4,3)→(1,1) — blocked by wall (red, no arrow)
+    // LoS Line 1: (4,3)→(1,1) - blocked by wall (red, no arrow)
     {
       id: 'line1',
       type: 'callout',
@@ -319,7 +319,7 @@ export const lineOfSightSpecialDiagram = {
       strokeColor: C.enemy,
       end1Style: 'none', end2Style: 'none',
     },
-    // LoS Line 2: (4,3)→(1,2) — clear (green, arrow)
+    // LoS Line 2: (4,3)→(1,2) - clear (green, arrow)
     {
       id: 'line2',
       type: 'callout',
@@ -460,7 +460,7 @@ export const verticalMovementDiagram = {
 // ADJACENCY
 //    7×5 grid. Blue unit at col 3, row 2. Full-height wall between col 2 and col 3.
 //    5 adjacent squares (green): above, below, right, diag-NE, diag-SE.
-//    3 not adjacent (red): left, diag-NW, diag-SW — all blocked by wall.
+//    3 not adjacent (red): left, diag-NW, diag-SW - all blocked by wall.
 // ─────────────────────────────────────────────────────────────────────────────
 export const adjacencyDiagram = {
   board: { widthIn: 5, heightIn: 5 },
@@ -483,10 +483,10 @@ export const adjacencyDiagram = {
     { id: 'adj-e',  type: 'marker', xIn: 3.5, yIn: 2.5, sizeIn: 1, color: C.enemyGreen, fillOpacity: 0.35, showLabel: false, showInLegend: false },
     { id: 'adj-se', type: 'marker', xIn: 3.5, yIn: 3.5, sizeIn: 1, color: C.enemyGreen, fillOpacity: 0.35, showLabel: false, showInLegend: false },
     { id: 'adj-sw', type: 'marker', xIn: 1.5, yIn: 3.5, sizeIn: 1, color: C.enemyGreen, fillOpacity: 0.35, showLabel: false, showInLegend: false },
-    // Not adjacent (red): upper-left, left — blocked by wall
+    // Not adjacent (red): upper-left, left - blocked by wall
     { id: 'nadj-nw', type: 'marker', xIn: 1.5, yIn: 1.5, sizeIn: 1, color: C.enemy, fillOpacity: 0.35, showLabel: false, showInLegend: false },
     { id: 'nadj-w',  type: 'marker', xIn: 1.5, yIn: 2.5, sizeIn: 1, color: C.enemy, fillOpacity: 0.35, showLabel: false, showInLegend: false },
-    // Wall — full height, between col 2 and col 3
+    // Wall - full height, between col 2 and col 3
     {
       id: 'wall',
       type: 'rect',
@@ -519,7 +519,7 @@ export const aooDiagram = {
       showInLegend: false,
       showLabel: false
     },
-    // Unit — original position
+    // Unit - original position
     {
       id: 'U-start',
       type: 'circle',
@@ -530,7 +530,7 @@ export const aooDiagram = {
       showLabel: false,
       showInLegend: false
     },
-    // Unit — destination (ghost)
+    // Unit - destination (ghost)
     {
       id: 'U',
       type: 'circle',

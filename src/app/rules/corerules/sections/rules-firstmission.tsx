@@ -45,7 +45,7 @@ export default async function RulesFirstMission({ num }: {num?: number | null}) 
                   Pick this up if you want to test your squad-building and tactics against another player.
                 </li>
                 <li>
-                  <PDFLink href="/assets/books/Horde Mode - Ruinstars.pdf" title="Horde Mode" /> is a standalone survival experience where your squad faces escalating waves of enemies with no extraction — just how long can you last?
+                  <PDFLink href="/assets/books/Horde Mode - Ruinstars.pdf" title="Horde Mode" /> is a standalone survival experience where your squad faces escalating waves of enemies with no extraction, just how long can you last?
                   Pick this up if you want a brutal, replayable challenge with no campaign overhead.
                 </li>
               </ul>

@@ -32,7 +32,7 @@ export default async function PvPMissions() {
   return (
     <>
       {/* Cover */}
-      <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} />
+      <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} loading="eager" decoding="async" />
       <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
         <div className="text-center text-white font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
           <h1>PvP Missions</h1>
@@ -137,7 +137,7 @@ export default async function PvPMissions() {
                 Two squads. Nine missions. One climax. Whatever happened before the final battle is prologue.
               </p>
               <p className="mb-4">
-                A PvP Campaign tracks the consequences of every fight across three Operations. Units get stronger. Units get hurt. Units die. What you arrive at the climax with depends on how well you fought to get there — but the climax decides everything.
+                A PvP Campaign tracks the consequences of every fight across three Operations. Units get stronger. Units get hurt. Units die. What you arrive at the climax with depends on how well you fought to get there - but the climax decides everything.
               </p>
 
               <h3>Campaign Structure</h3>
@@ -145,9 +145,9 @@ export default async function PvPMissions() {
                 A Campaign is composed of three Operations, each composed of three Missions, followed by a Climax that determines the winner. At the end of each Operation, both Squads return to Homebase to heal injuries and spend their earned Spoils of War.
               </p>
               <ol>
-                <li>Operation 1 — Missions 1.1, 1.2, 1.3 — Homebase</li>
-                <li>Operation 2 — Missions 2.1, 2.2, 2.3 — Homebase</li>
-                <li>Operation 3 — Missions 3.1, 3.2, 3.3 — Homebase</li>
+                <li>Operation 1 - Missions 1.1, 1.2, 1.3 - Homebase</li>
+                <li>Operation 2 - Missions 2.1, 2.2, 2.3 - Homebase</li>
+                <li>Operation 3 - Missions 3.1, 3.2, 3.3 - Homebase</li>
                 <li>Climax Mission</li>
               </ol>
 

@@ -23,7 +23,7 @@ export function GameToken({ label = 'A1', size = 200, colorMode = 'main' }: Game
     >
       {/* Black disk */}
       <circle cx={r} cy={r} r={r} fill={bgColor} />
-      {/* Orange edge ring — 2mm wide, flush with the disk perimeter */}
+      {/* Orange edge ring - 2mm wide, flush with the disk perimeter */}
       <circle
         cx={r}
         cy={r}
@@ -32,7 +32,7 @@ export function GameToken({ label = 'A1', size = 200, colorMode = 'main' }: Game
         stroke={fgColor}
         strokeWidth={ringWidth}
       />
-      {/* Label text — title font (RussoOne), white, centered */}
+      {/* Label text - title font (RussoOne), white, centered */}
       <text
         x={r}
         y={r}

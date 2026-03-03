@@ -810,7 +810,7 @@ NPC Units prioritize staying Adjacent to Nests when not Engaged.
     description: dedent(`
 "Drop three pillars and the whole ruin comes down."
 
-The structure is already failing. You don't need to level it — just hit the right supports.
+The structure is already failing. You don't need to level it - just hit the right supports.
 `),
     setup: 'Place 5 Support markers on the NW, NE, W, E, and Center Anchors. Each Support is an Item with `ARM 3 / HIT 3`.',
     deployment: 'Deploy the Player Squad on the Southern battlefield edge. Deploy the NPC Squad on the Northern battlefield edge.',

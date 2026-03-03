@@ -287,8 +287,8 @@ export default async function RulesQuickRef() {
                 <tr><TH>Roll Result</TH><TH>Effect</TH></tr>
               </thead>
               <tbody>
-                <LabelRow label="ATT roll 1" text="Critical Strike — 2 Damage" />
-                <LabelRow label="ARM roll 1" text="Critical Save — blocks 1 dmg + returns 1 dmg to attacker (chainable)" last />
+                <LabelRow label="ATT roll 1" text="Critical Strike - 2 Damage" />
+                <LabelRow label="ARM roll 1" text="Critical Save - blocks 1 dmg + returns 1 dmg to attacker (chainable)" last />
               </tbody>
             </table>
             <Divider />
@@ -316,7 +316,7 @@ export default async function RulesQuickRef() {
                 <LabelRow label="Control"    text="Adjacent to item, not adjacent to any enemy" />
                 <LabelRow label="Climb Up"   text='1" per inch of height + 1" to crest top' />
                 <LabelRow label="Climb Down" text='Same but vertical costs 2" less (min 0")' />
-                <LabelRow label="Range"      text="Horizontal only — ignore vertical distance" last />
+                <LabelRow label="Range"      text="Horizontal only - ignore vertical distance" last />
               </tbody>
             </table>
             <Divider />
@@ -340,7 +340,7 @@ export default async function RulesQuickRef() {
 
         </div>
 
-        {/* ── Right 1/3: Weapon Specials — full-height single table ── */}
+        {/* ── Right 1/3: Weapon Specials - full-height single table ── */}
         <Card className="self-stretch">
           <SH>Weapon Specials</SH>
           <table className="w-full border-collapse">

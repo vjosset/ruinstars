@@ -15,11 +15,13 @@ export default function ImageModal({ src, alt, className }: ImageModalProps) {
 
   return (
     <>
-      <img 
-        src={src} 
+      <img
+        src={src}
         alt={alt}
         className={`cursor-pointer hover:opacity-90 ${className || ''}`}
         onClick={() => setIsOpen(true)}
+        loading="lazy"
+        decoding="async"
       />
 
       <Dialog 
@@ -37,10 +39,12 @@ export default function ImageModal({ src, alt, className }: ImageModalProps) {
             >
               <FiX className="h-6 w-6" />
             </button>
-            <img 
-              src={src} 
+            <img
+              src={src}
               alt={alt}
               className="max-h-[90vh] w-auto"
+              loading="eager"
+              decoding="async"
             />
           </Dialog.Panel>
         </div>

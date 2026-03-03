@@ -111,7 +111,7 @@ export default function PvEMissionsQuickRef() {
               <SubLabel>NPC Squads</SubLabel>
               <P className="text-xs">
                 Select an enemy faction and a <Hi>Threat Level (1-3)</Hi>.
-                Roll <Hi>3D6</Hi> — each die resolved independently. Look up each result in the column for the current TL to identify spawned Units.
+                Roll <Hi>3D6</Hi> - each die resolved independently. Look up each result in the column for the current TL to identify spawned Units.
               </P>
               <P className="text-xs text-muted">
                 In Campaign play, TL matches the Operation number: TL1 for Op 1, TL2 for Op 2, TL3 for Op 3.
@@ -134,7 +134,7 @@ export default function PvEMissionsQuickRef() {
           <SH>Turn Sequence</SH>
           <Steps items={[
             { label: 'Roll TOs' },
-            { label: 'Turn Event' },
+            { label: 'Battlefield' },
             { label: 'Activations', highlight: true },
             { label: 'Extract?' },
           ]} />
@@ -147,7 +147,7 @@ export default function PvEMissionsQuickRef() {
           </P>
           <Divider />
           <P className="text-xs">
-            <Br>Turn 5+:</Br> Do not roll Turn Events — apply <Hi>Enemy Reinforcements</Hi> automatically.
+            <Br>Turn 5+:</Br> At the start of the Turn, before Battlefield effects, roll <code>1D6</code> and spawn Units on random anchors
           </P>
         </Card>
 
@@ -171,22 +171,42 @@ export default function PvEMissionsQuickRef() {
         </Card>
 
         <Card>
+          <SH>Deployments (D6)</SH>
+          <p className="text-xs text-muted mb-1">
+            Roll at Mission start to determine where both squads deploy.
+          </p>
+          <div>
+            <table className="w-full border-collapse">
+              <tbody>
+                <TableRow roll="1" label="Standard Insertion" effect='Player: within 4" of SW, S, or SE Anchors. NPC: within 4" of NW, N, or NE Anchors (split evenly), in Cover/out of sight.' />
+                <TableRow roll="2" label="Hot Drop"           effect='Player: Adjacent to N, S, E, or W Anchors. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' />
+                <TableRow roll="3" label="Flanked"            effect='Player: within 4" of S Anchor. NPC: Adjacent to NW or NE Anchors (split evenly), in Cover/out of sight.' />
+                <TableRow roll="4" label="Deep Strike" effect='Player: within 4" of SE Anchor. NPC: within 4" of NW Anchor, in Cover/out of sight.' />
+                <TableRow roll="5" label="Overwatch"   effect='Player: Adjacent to SW, S, or SE Anchors. NPC: Adjacent to W, N, or E Anchors (split evenly), in Cover/out of sight.' />
+                <TableRow roll="6" label="Encircled"   effect='Player: within 4" of Center Anchor. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' last />
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        <Card>
           <SH>Battlefields (D6)</SH>
           <p className="text-xs text-muted mb-1">
             Optional. Roll at Mission start. Skip for your first mission.
           </p>
           <table className="w-full border-collapse">
             <tbody>
-              <TableRow roll="1" label="The Ruined City — Collapse"         effect='Start of each Turn after the first: roll a random Anchor. All terrain within 4" of it is removed; all Units within 4" take 2 Damage.' />
-              <TableRow roll="2" label="The Facility — Darkness"            effect='Start of each Turn after the first: select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.' />
-              <TableRow roll="3" label="The Jungle — Miasmic Mist"          effect='Start of each Turn after the first: select a random Standing Unit from each Squad. That Unit moves 2" three times in random directions. If blocked by a wall or obstacle, it takes 1 Melee Damage.' />
-              <TableRow roll="4" label="The Alien Hive — Noxious Gas"       effect='Start of each Turn after the first: select a random Anchor. All Units within 4" take 1 Damage.' />
-              <TableRow roll="5" label="The Cursed Temple — Haunting Spirits" effect="Start of each Turn after the first: select a random Unit from each Squad. That Unit immediately attacks the closest Unit in Combat — SquadMate or enemy." />
+              <TableRow roll="1" label="The Ruined City - Collapse"         effect='Start of each Turn after the first: roll a random Anchor. All terrain within 4" of it is removed; all Units within 4" take 2 Damage.' />
+              <TableRow roll="2" label="The Facility - Darkness"            effect='Start of each Turn after the first: select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.' />
+              <TableRow roll="3" label="The Jungle - Miasmic Mist"          effect='Start of each Turn after the first: select a random Standing Unit from each Squad. That Unit moves 2" three times in random directions. If blocked by a wall or obstacle, it takes 1 Melee Damage.' />
+              <TableRow roll="4" label="The Alien Hive - Noxious Gas"       effect='Start of each Turn after the first: select a random Anchor. All Units within 4" take 1 Damage.' />
+              <TableRow roll="5" label="The Cursed Temple - Haunting Spirits" effect="Start of each Turn after the first: select a random Unit from each Squad. That Unit immediately attacks the closest Unit in Combat, SquadMate or enemy." />
               <TableRow roll="6" label="Blacksite"                          effect='No outside support. Do not roll Turn Events this mission, except Reinforcements in Turns 5+.' last />
             </tbody>
           </table>
         </Card>
 
+        {/*
         <Card>
           <SH>Turn Events (D6)</SH>
           <p className="text-xs text-muted mb-1">
@@ -204,39 +224,18 @@ export default function PvEMissionsQuickRef() {
             </tbody>
           </table>
         </Card>
+        */}
 
         {/* ── Row 3: Deployments (col 1+2) | Campaign Structure (col 3) ────── */}
 
-        <Card className="col-span-2">
-          <SH>Deployments (D6)</SH>
-          <p className="text-xs text-muted mb-1">
-            Roll at Mission start to determine where both squads deploy.
-          </p>
-          <div className="grid grid-cols-2 gap-x-4">
-            <table className="w-full border-collapse">
-              <tbody>
-                <TableRow roll="1" label="Standard Insertion" effect='Player: within 4" of SW, S, or SE Anchors. NPC: within 4" of NW, N, or NE Anchors (split evenly), in Cover/out of sight.' />
-                <TableRow roll="2" label="Hot Drop"           effect='Player: Adjacent to N, S, E, or W Anchors. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' />
-                <TableRow roll="3" label="Flanked"            effect='Player: within 4" of S Anchor. NPC: Adjacent to NW or NE Anchors (split evenly), in Cover/out of sight.' last />
-              </tbody>
-            </table>
-            <table className="w-full border-collapse">
-              <tbody>
-                <TableRow roll="4" label="Deep Strike" effect='Player: within 4" of SE Anchor. NPC: within 4" of NW Anchor, in Cover/out of sight.' />
-                <TableRow roll="5" label="Overwatch"   effect='Player: Adjacent to SW, S, or SE Anchors. NPC: Adjacent to W, N, or E Anchors (split evenly), in Cover/out of sight.' />
-                <TableRow roll="6" label="Encircled"   effect='Player: within 4" of Center Anchor. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' last />
-              </tbody>
-            </table>
-          </div>
-        </Card>
 
         <Card>
           <SH>Campaign Structure</SH>
           <P className="text-xs">3 Operations × 3 Missions. Return to Homebase after each Operation.</P>
           <div className="text-xs space-y-0.5 mb-1.5">
-            <div><Br>Op 1</Br> <span className="text-muted">— TL1 · Missions 1.1 → 1.2 → 1.3 → Homebase</span></div>
-            <div><Br>Op 2</Br> <span className="text-muted">— TL2 · Missions 2.1 → 2.2 → 2.3 → Homebase</span></div>
-            <div><Br>Op 3</Br> <span className="text-muted">— TL3 · Missions 3.1 → 3.2 → 3.3 → Homebase</span></div>
+            <div><Br>Op 1</Br> <span className="text-muted">- TL1 · Missions 1.1 → 1.2 → 1.3 → Homebase</span></div>
+            <div><Br>Op 2</Br> <span className="text-muted">- TL2 · Missions 2.1 → 2.2 → 2.3 → Homebase</span></div>
+            <div><Br>Op 3</Br> <span className="text-muted">- TL3 · Missions 3.1 → 3.2 → 3.3 → Homebase</span></div>
           </div>
           <Divider />
           <SubLabel>Homebase (End of Each Operation)</SubLabel>

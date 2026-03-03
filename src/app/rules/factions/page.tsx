@@ -25,7 +25,7 @@ export default async function RuleBookFactions() {
   return (
     <>
       {/* Cover */}
-      <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} />
+      <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} loading="eager" decoding="async" />
       <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
         <div className="text-white text-center font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
           <h1>Factions</h1>

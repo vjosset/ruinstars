@@ -60,7 +60,7 @@ const CarouselModal: React.FC<CarouselModalProps> = ({
               <div className={styles.emblaSlide} key={index}>
                 <div className="text-center bg-black font-title text-main">
                   <h3>{item.title}</h3>
-                  <img src={item.imageUrl} alt={item.title} className={styles.image} />
+                  <img src={item.imageUrl} alt={item.title} className={styles.image} loading="lazy" decoding="async" />
                 </div>
               </div>
             ))}

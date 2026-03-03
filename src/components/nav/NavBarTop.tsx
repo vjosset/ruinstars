@@ -55,7 +55,7 @@ export default function NavBarTop() {
   return (
     <nav className="noprint hidden lg:flex sticky top-0 z-50 justify-between items-center px-6 py-3 bg-black text-foreground border-b border-border">
       <Link href="/" className="flex items-center space-x-2">
-        <img src="/icons/icon-big.png" className="h-8" />
+        <img src="/icons/icon-big.png" className="h-8" loading="lazy" decoding="async" />
         <h1 className="title text-3xl glowtext">
           {GAME.NAME}
         </h1>
