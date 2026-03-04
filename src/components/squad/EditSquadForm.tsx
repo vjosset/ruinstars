@@ -167,6 +167,9 @@ const EditSquadForm = forwardRef(function EditSquadForm(
             <p className="text-muted mb-2">
               Upload a portrait image for this squad.
               Images will be resized to 900x600 pixels.
+              To be considered for the Squad Showcase, each Unit portrait must be a photo of its painted mini,
+              and the Squad portrait must be a photo of all painted minis together.
+              Qualifying squads appear in the "Showcase" tab for their Faction and are randomly shown on the homepage.
             </p>
             <input
               type="file"

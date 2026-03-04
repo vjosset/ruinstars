@@ -614,7 +614,7 @@ export default async function Rules() {
                 <strong>1: Battlefield Control</strong>
                 <div className="ml-4">
                   <strong>Setup:</strong> Mark three random Anchors as Control points.<br/>
-                  <strong>Victory:</strong> At the end of the Wave, the Player Sq uad controls all three Control points.<br/>
+                  <strong>Victory:</strong> At the end of the Wave, the Player Squad controls all three Control points.<br/>
                   <strong>Rewards</strong> (pick one):
                   <ul>
                     <li>+4 MP</li>

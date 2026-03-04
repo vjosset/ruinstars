@@ -15,7 +15,7 @@ export default async function RulesCoreMechanics({ num }: {num?: number | null})
             For example, to indicate a roll of 3 dice: <code>3D{GAME.DICE_BASIS}</code>. To indicate a roll of 1 die: <code>1D{GAME.DICE_BASIS}</code>.
           </p>
           <p>
-            Some rules and abilities will include rolling a `D3`. To rall a `D3`, simply roll a normal `D6` and divide the result by 2, rounding up.
+            Some rules and abilities will include rolling a `D3`. To roll a `D3`, simply roll a normal `D6` and divide the result by 2, rounding up.
           </p>
           <table>
             <thead>
