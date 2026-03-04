@@ -217,7 +217,7 @@ export default async function Rules() {
           </div>
 
           <div className="section">
-            <h3>Battlefields</h3>
+            <h3>Deployments</h3>
 
             <div className="twocols">
               {hordemaps.map((mission) => (
