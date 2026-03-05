@@ -92,7 +92,6 @@ export default async function PvPMissions() {
           <div className="section twocols">
             <div className="section">
               <p>
-                Your Squad is deployed for desperate struggles fought by the few who dare to step onto the battlefield when hope has long since burned away.
                 These missions are designed to be played as quick, one-off skirmishes perfect for pick-up or competitive play.
                 <br/>
                 Each Mission is a single battle pitting your Squad against its enemies, generally lasting 4 Turns. Victory in these engagements is typically decided by calculating the total Mission Points (MP) scored by each Squad at the end of Turn 4.

@@ -654,7 +654,7 @@ Valuable intel lies scattered among the ruins.
     setup: 'Place 3 Data Core markers along the center line of the battlefield.',
     deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
     victory: 'At the end of Turn 4, score 2 MP per Data Core carried by your Units.',
-    special: '**Mission Action: Collect Intel (1 ACT):** A Unit that controls a Data Core may perform this action. That Unit now carries the Data Core. Units may only carry one Data Core each. If a carrier is Taken Out, the Data Core drops on that Units position.',
+    special: '**Mission Action: Collect Intel (1 ACT):** A Unit that controls a Data Core may perform this action. That Unit now carries the Data Core. Units may only carry one Data Core each. If a carrier is Taken Out, the Data Core drops on that Unit\'s position.',
     rewards: [
       {
         name: 'Intelligence Priority',

@@ -128,7 +128,7 @@
     "title": "The Cursed Temple",
     "description": "The cursed temple rises from the earth like a jagged scar, its crumbling stone walls etched with the maddening sigils of ancient, terrible gods. A perpetual gloom surrounds the structure, as if sunlight dares not touch its malevolent facade. Its towering spires are wrapped in withered vines, and its gateways yawn like the gaping mouths of forgotten horrors. Inside, the air is suffocating and thick with the scent of damp stone and decayed offerings. Faint whispers echo through the dark corridors, carrying fragmented words in a language long lost to time.",
     "setup": "Dense terrain, ruined buildings and corners.",
-    "effects": "**Cursed Spirits:** At the start of each Turn after the first, select one random Unit from each Squad. That Unit is overtaken by the temple's restless spirits and immediately attacks the closest Unit in Combat, SquadMate or enemy.",
+    "effects": "**Cursed Spirits:** At the start of each Turn after the first, select one random Unit from each Squad. That Unit is overtaken by the temple's restless spirits and immediately attacks the closest Unit in Combat, Squadmate or enemy.",
     "battlefieldNames": [
       "The Ebon Basilica",
       "Vault of Ash",

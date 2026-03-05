@@ -306,7 +306,7 @@ export default async function PvEMissions() {
                 <strong>5: The Cursed Temple - Haunting Spirits</strong>
                 <div className="ml-4">
                   At the start of each Turn after the first, select one random Unit from each Squad.
-                  That Unit is overtaken by the temple's restless spirits and immediately attacks the closest Unit in Combat, SquadMate or enemy.
+                  That Unit is overtaken by the temple's restless spirits and immediately attacks the closest Unit in Combat, Squadmate or enemy.
                 </div>
               </div>
               <div>
