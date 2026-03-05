@@ -94,7 +94,7 @@ export default async function PvPMissions() {
               <p>
                 These missions are designed to be played as quick, one-off skirmishes perfect for pick-up or competitive play.
                 <br/>
-                Each Mission is a single battle pitting your Squad against its enemies, generally lasting 4 Turns. Victory in these engagements is typically decided by calculating the total Mission Points (MP) scored by each Squad at the end of Turn 4.
+                Each Mission is a single battle between two Squads, typically lasting 4 Turns. Victory in these engagements is decided by calculating the total Mission Points (MP) scored by each Squad at the end of Turn 4.
                 <br/>
                 Alternatively, you can use these missions to build your own <a className="underline" href="#campaigns">Campaign</a>.
                 A full Campaign is structured into three distinct Operations, and each Operation is composed of three Missions, totaling nine confrontations.

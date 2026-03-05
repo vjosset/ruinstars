@@ -23,7 +23,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
             <h3>What Is This Game?</h3>
             <p>
               {GAME.NAME} is a narrative sci-fi skirmish wargame about elite squads on dark-ops missions, and the brutal choices that decide who gets to walk away.
-              Fast, lethal, objective-driven. Built for solo, co-op, and competitive play.
+              Fast, lethal, and objective-driven. Built for solo, co-op, and competitive play.
             </p>
             <ul>
               <li><strong>Squad-Scale Tactics:</strong> Command 4-10 Units in tight, terrain-heavy fights where positioning and timing matter more than raw stats.</li>

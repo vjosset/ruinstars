@@ -15,7 +15,7 @@ export default async function RulesCoreMechanics({ num }: {num?: number | null})
             For example, to indicate a roll of 3 dice: <code>3D{GAME.DICE_BASIS}</code>. To indicate a roll of 1 die: <code>1D{GAME.DICE_BASIS}</code>.
           </p>
           <p>
-            Some rules and abilities will include rolling a `D3`. To roll a `D3`, simply roll a normal `D6` and divide the result by 2, rounding up.
+            Some rules and abilities will include rolling a <code>D3</code>. To roll a <code>D3</code>, simply roll a normal <code>D6</code>, divide the result by 2, and round up.
           </p>
           <table>
             <thead>
@@ -45,7 +45,7 @@ export default async function RulesCoreMechanics({ num }: {num?: number | null})
           <p>
             When rolling against a Unit or weapon stat, a die roll is a success if its value is equal to or lower than that stat.<br/>
             Irrespective of any modifiers or Stats, a die roll of <code>{GAME.DICE_BASIS}</code> is always a failure.<br/>
-            Die rolls of <code>1</code> are always Critical successes and may have special effects depending on the roll in question (see Combat).
+            A roll of <code>1</code> is always a Critical success and trigger special effects depending on the roll (see Combat).
           </p>
           <h4 id="re-rolls">Re-Rolls</h4>
           <p>

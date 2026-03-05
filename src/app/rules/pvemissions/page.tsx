@@ -72,7 +72,7 @@ export default async function PvEMissions() {
               PvE missions are designed to be playable solo or cooperatively, fast to set up, narrative-driven without requiring a dedicated game master, and meaningful across multiple missions and campaigns.
               <br/><br/>
               Each Mission is one engagement that sees your Squad face enemy forces and make difficult decisions on risks vs rewards.
-              Each Mission has two objectives, but completing those objectives is not enough to ensure victory; your Squad must make it off the battlefield alive to reap the rewards.
+              Each Mission has two objectives, but completing them is not enough to guarantee victory; your Squad must make it off the battlefield alive to reap the rewards.
               <br/><br/>
               PvE play emphasizes tactical restraint over reckless aggression, extraction as a strategic decision, not an afterthought, and long-term squad survival over single-mission dominance.
               <p>

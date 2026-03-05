@@ -255,7 +255,7 @@ export default async function RulesQuickRef() {
               { label: 'Roll ARM Saves', highlight: true },
             ]} />
             <P className="mb-1"><Br>Valid target must:</Br></P>
-            <P>· Not be Adjacent to attacker or squadmates</P>
+            <P>· Not be Adjacent to Attacker or Squadmates</P>
             <P>· Be within weapon range (RNGx)</P>
             <P>· Be in Line of Sight</P>
             <P className="mt-1">Cannot attack if Adjacent to any enemy.</P>
