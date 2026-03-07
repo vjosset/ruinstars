@@ -4,6 +4,7 @@ import { SquadTypeLink, UserLink } from '@/components/nav/Links'
 import EditSquadForm from '@/components/squad/EditSquadForm'
 import SquadCardMenu from '@/components/squad/SquadCardMenu'
 import { Button, Modal } from '@/components/ui'
+import Checkbox from '@/components/ui/Checkbox'
 import CarouselModal, { CarouselItem } from '@/components/ui/CarouselModal'
 import PageTitle from '@/components/ui/PageTitle'
 import BattlesTab from '@/components/squad/BattlesTab'
@@ -38,6 +39,9 @@ export default function SquadPageClient({
   const formRef = useRef<{ handleSubmit: () => void }>(null)
   const [activeTab, setActiveTab] = useState<'units' | 'battles'>('units')
   const [showResetModal, setShowResetModal] = useState<boolean>(false)
+  const [resetOptMP, setResetOptMP] = useState(false)
+  const [resetOptInjuries, setResetOptInjuries] = useState(false)
+  const [resetOptSpoils, setResetOptSpoils] = useState(false)
   const [showEditSquadModal, setShowEditSquadModal] = useState<boolean>(false)
   const [showImportModal, setShowImportModal] = useState<boolean>(false)
   const [carouselIsOpen, setCarouselIsOpen] = useState(false)
@@ -166,24 +170,29 @@ export default function SquadPageClient({
       setShowImportModal(false)
     }
   }
-  const handleResetClick = () => { setShowResetModal(true)}
+  const handleResetClick = () => {
+    setResetOptMP(false)
+    setResetOptInjuries(false)
+    setResetOptSpoils(false)
+    setShowResetModal(true)
+  }
   const handleEditSquadClick = () => { setShowEditSquadModal(true)}
 
   const handleSquadPrint = () => {
     window.print()
   }
 
-  // Add resetSquad function after other state updates
   const resetSquad = async () => {
     const res = await fetch(`/api/squads/${squad.squadId}/reset`, {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ resetMP: resetOptMP, removeInjuries: resetOptInjuries, removeSpoils: resetOptSpoils }),
     })
 
     if (res.ok) {
       const updated = await res.json()
       setSquad(updated)
-      // Reset all units' activation state
-      setUnits(prev => prev.map(unit => ({ ...unit, isActivated: false })))
+      setUnits(updated.units ?? [])
       toast.success('Squad reset')
     } else {
       toast.error('Failed to reset game')
@@ -462,9 +471,22 @@ export default function SquadPageClient({
               >
                 <div className="space-y-4">
                   <p>
-                  Are you sure you want to reset the squad?<br/>
-                  This will set Turn to 1, set MP and TO to zero, and reset all units' HIT and activation (unless they are Deceased).
+                    Reset the squad? This will set Turn to 1, set TO to zero, and restore all units&apos; HIT and activation.
                   </p>
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <Checkbox checked={resetOptMP} onChange={e => setResetOptMP(e.target.checked)} />
+                      Reset MP to zero
+                    </label>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <Checkbox checked={resetOptInjuries} onChange={e => setResetOptInjuries(e.target.checked)} />
+                      Remove Injuries (including Deceased)
+                    </label>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <Checkbox checked={resetOptSpoils} onChange={e => setResetOptSpoils(e.target.checked)} />
+                      Remove Spoils of War
+                    </label>
+                  </div>
                 </div>
               </Modal>
             )}
