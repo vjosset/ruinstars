@@ -137,7 +137,7 @@ const EditSquadForm = forwardRef(function EditSquadForm(
       {activeTab === 'details' && (
         <div className="space-y-1">
           <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4">
-            <Label htmlFor="squadName">Squad Name</Label>
+            <Label htmlFor="squadName" className="whitespace-nowrap">Squad Name</Label>
             <Input
               id="squadName"
               value={name}
