@@ -59,7 +59,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
           </div>
           <div className="section">
             <h3>The App</h3>
-            Draft a roster, manage your GP budget, and share it with a link.<br/>
+            Draft a Squad, manage your GP budget, and share it with a link.<br/>
             <Link className="section underline" href="/auth/signup">Create a free account</Link> to get started.
           </div>
         </div>
