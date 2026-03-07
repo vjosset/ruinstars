@@ -120,7 +120,7 @@ export default function UnitCard({
                     className="accent-primary mb-1.5 noprint flex-shrink-0"
                   />
                 )}
-                <h5 className={`font-heading truncate ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
+                <h4 className={`font-heading truncate ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
                   <span className="flex items-center gap-1 min-w-0 overflow-hidden">
                     <span className="flex-shrink-0" onClick={toggleActivated}>
                       {unit.isUnitType ? '' : `${seq}. `}
@@ -139,7 +139,7 @@ export default function UnitCard({
                       }
                     </span>
                   </span>
-                </h5>
+                </h4>
               </div>
               <div className="text-muted mb-1">
                 {unit.isUnitType && <>{unit.GP}GP</>}
