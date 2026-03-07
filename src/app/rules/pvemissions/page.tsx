@@ -96,7 +96,7 @@ export default async function PvEMissions() {
                 a <strong>Battlefield</strong> that alters mission conditions,
                 and a <strong>Deployment</strong> variant that determines where both squads begin.
                 <br/>
-                For your first mission, skip steps 2 and 3; play with Standard Conditions and Standard Insertion to learn the core mechanics.
+                For your first mission, skip steps 2 and 3; play without Battlefield effects and with Standard Insertion to learn the core mechanics.
                 Once you're comfortable, the Battlefield and Deployment Variants add significant variety without increasing complexity.
               </div>
               <div className="section border border-main rounded-md px-6 py-2 mx-16">
@@ -274,7 +274,6 @@ export default async function PvEMissions() {
             {/* Battlefields */}
             <div className="section">
               <h3>Battlefields (D6)</h3>
-              These Battlefields are optional; you can choose to skip them.
               <div>
                 <strong>1: The Ruined City - Collapse</strong>
                 <div className="ml-4">

@@ -192,7 +192,7 @@ export default function PvEMissionsQuickRef() {
         <Card>
           <SH>Battlefields (D6)</SH>
           <p className="text-xs text-muted mb-1">
-            Optional. Roll at Mission start. Skip for your first mission.
+            Roll at Mission start. Skip for your first mission.
           </p>
           <table className="w-full border-collapse">
             <tbody>
