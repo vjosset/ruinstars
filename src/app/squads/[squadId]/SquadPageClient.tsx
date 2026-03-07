@@ -195,7 +195,7 @@ export default function SquadPageClient({
       setUnits(updated.units ?? [])
       toast.success('Squad reset')
     } else {
-      toast.error('Failed to reset game')
+      toast.error('Failed to reset Squad')
     }
   }
 
@@ -451,7 +451,7 @@ export default function SquadPageClient({
 
             {showResetModal && (
               <Modal
-                title="Reset Game"
+                title="Reset Squad"
                 onClose={() => setShowResetModal(false)}
                 footer={
                   <div className="flex justify-end gap-2">
