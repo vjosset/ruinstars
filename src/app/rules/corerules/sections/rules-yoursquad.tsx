@@ -51,10 +51,11 @@ export default async function RulesYourSquad({ num }: {num?: number | null}) {
                 <li>3 Players → 34 GP each</li>
                 <li>4 Players → 25 GP each</li>
               </ul>
-              Notes:
+              <strong>Notes:</strong>
               <ul>
-                <li>Only one Unit across mini squads may be the Leader</li>
                 <li>Units that are in different mini-Squads are considered to be Squadmates.</li>
+                <li>Each Mini Squad may include a Leader. However, only one Leader counts for rolling TO dice. Before the mission begins, players agree on which Leader this is. That Leader is the <strong>Squad Leader</strong>.</li>
+                <li>While the <strong>Squad Leader</strong> is Standing, roll 5 TO dice as normal. If the Squad Leader is Taken Out, roll 3 TO dice, regardless of whether other Leaders are still Standing.</li>
               </ul>
             </li>
           </ul>

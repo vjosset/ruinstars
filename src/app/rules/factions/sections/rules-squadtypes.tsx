@@ -80,8 +80,9 @@ export default async function RulesSquadTypes() {
             </ul>
             Notes:
             <ul>
-              <li>Each mini-squad may have a Leader, but their Leader effect is ignored for rolling TOs (i.e. only one player rolls for TOs).</li>
               <li>Units that are in different mini-Squads are considered to be Squadmates.</li>
+              <li>Each Mini Squad may include a Leader. However, only one Leader counts for rolling TO dice. Before the mission begins, players agree on which Leader this is. That Leader is the <strong>Squad Leader</strong>.</li>
+              <li>While the Squad Leader is Standing, roll 5 TO dice as normal. If the Squad Leader is Taken Out, roll 3 TO dice, regardless of whether other Leaders are still Standing.</li>
             </ul>
           </div>
           <div className="section">
