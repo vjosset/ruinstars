@@ -19,6 +19,7 @@
 .token {
   flex-shrink: 0;
   line-height: 0; /* prevent inline gap below SVG */
+  padding: 5px;
 }
 
 /* ──────────────────────────────────────────────
@@ -47,13 +48,13 @@
   }
 
   .grid {
-    gap: 5mm;
+    gap: 2mm;
   }
 
   .token {
     width: 50.8mm;
     height: 50.8mm;
-    padding-left: 5mm;
+    padding: 1mm;
   }
 
   /* Override the pixel width/height attrs on the SVG element */
@@ -61,6 +62,7 @@
     width: 50.8mm !important;
     height: 50.8mm !important;
     display: block;
+    padding: 1mm;
   }
 
   .extract {

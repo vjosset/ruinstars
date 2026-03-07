@@ -1,10 +1,11 @@
 interface GameTokenProps {
   label?: string;
+  subtitle?: string; // optional small text below label, use '\n' for line breaks
   size?: number; // px size for screen rendering
   colorMode?: string; // 'main' or 'alt'
 }
 
-export function GameToken({ label = 'A1', size = 200, colorMode = 'main' }: GameTokenProps) {
+export function GameToken({ label = 'A1', subtitle, size = 200, colorMode = 'main' }: GameTokenProps) {
   // Physical dimensions in mm (used as SVG user units via viewBox)
   const diameter = 50.8
   const r = diameter / 2 // 25.4
@@ -13,6 +14,9 @@ export function GameToken({ label = 'A1', size = 200, colorMode = 'main' }: Game
 
   const bgColor = colorMode === 'main' ? '#000' : '#c54c21'
   const fgColor = colorMode === 'main' ? '#c54c21' : '#000'
+
+  const subtitleLines = subtitle ? subtitle.split('\n') : []
+  const labelY = subtitleLines.length > 0 ? r - 5 : r
 
   return (
     <svg
@@ -35,15 +39,30 @@ export function GameToken({ label = 'A1', size = 200, colorMode = 'main' }: Game
       {/* Label text - title font (RussoOne), white, centered */}
       <text
         x={r}
-        y={r}
+        y={labelY}
         textAnchor="middle"
         dominantBaseline="central"
         fontFamily="title, ui-serif, system-ui"
-        fontSize="30"
+        fontSize="25"
         fill={fgColor}
       >
         {label}
       </text>
+      {/* Optional subtitle lines */}
+      {subtitleLines.map((line, i) => (
+        <text
+          key={i}
+          x={r}
+          y={r + 10 + i * 6}
+          textAnchor="middle"
+          dominantBaseline="central"
+          fontFamily="title, ui-serif, system-ui"
+          fontSize="7"
+          fill={fgColor}
+        >
+          {line}
+        </text>
+      ))}
     </svg>
   )
 }

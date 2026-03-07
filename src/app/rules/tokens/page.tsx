@@ -14,13 +14,47 @@ export async function generateMetadata() {
   })
 }
 
-const TOKENS = [
-  { label: 'A1', size: 150, colorMode: 'main' },
-  { label: 'A2', size: 150, colorMode: 'main' },
-  { label: 'A3', size: 150, colorMode: 'main' },
-  { label: 'B1', size: 150, colorMode: 'alt' },
-  { label: 'B2', size: 150, colorMode: 'alt' },
-  { label: 'B3', size: 150, colorMode: 'alt' },
+type TokenDef = { label: string; size: number; colorMode: string; subtitle?: string }
+
+const OBJECTIVES: { objectiveType: string; tokens: TokenDef[] }[] = [
+  {
+    objectiveType: 'Activate',
+    tokens: [
+      { label: 'A1', size: 150, colorMode: 'main' },
+      { label: 'A2', size: 150, colorMode: 'main' },
+      { label: 'A3', size: 150, colorMode: 'main' },
+    ],
+  },
+  {
+    objectiveType: 'Control',
+    tokens: [
+      { label: 'C1', size: 150, colorMode: 'alt' },
+      { label: 'C2', size: 150, colorMode: 'alt' },
+      { label: 'C3', size: 150, colorMode: 'alt' },
+    ],
+  },
+  {
+    objectiveType: 'Destroy',
+    tokens: [
+      { label: 'D1', size: 150, colorMode: 'main', subtitle: 'ARM 4\nHIT 3' },
+      { label: 'D2', size: 150, colorMode: 'main', subtitle: 'ARM 4\nHIT 3' },
+      { label: 'D3', size: 150, colorMode: 'main', subtitle: 'ARM 4\nHIT 3' },
+    ],
+  },
+  {
+    objectiveType: 'Search',
+    tokens: [
+      { label: 'S1', size: 150, colorMode: 'alt' },
+      { label: 'S2', size: 150, colorMode: 'alt' },
+      { label: 'S3', size: 150, colorMode: 'alt' },
+    ],
+  },
+  {
+    objectiveType: 'Protect',
+    tokens: [
+      { label: 'P', size: 150, colorMode: 'main', subtitle: 'ARM 4\nHIT 3' },
+    ],
+  }
 ]
 
 export default function TokensPage() {
@@ -49,16 +83,21 @@ export default function TokensPage() {
       </div>
       <h4>Objectives</h4>
       <p>
-        Use these markers for Horde Spawns, PvE objectives, Horde Crates, etc.
         A Unit whose base overlaps this marker is within 1" of the objective. All other rules for Controlling an objective still apply.
         <br/><br/>
       </p>
       <div className={styles.grid}>
-        {TOKENS.map((t) => (
-          <div key={t.label} className={styles.token}>
-            <GameToken label={t.label} size={t.size} colorMode={t.colorMode} />
+        {OBJECTIVES.map((o) => (
+          <div key={o.objectiveType} className="section text-center">
+            <h4>{o.objectiveType}</h4>
+            {o.tokens.map((t) => (
+              <div key={t.label} className={styles.token}>
+                <GameToken label={t.label} size={t.size} colorMode={t.colorMode} subtitle={t.subtitle} />
+              </div>
+            ))}
           </div>
-        ))}
+        ))
+        }
       </div>
 
       <PageBreak />
