@@ -292,6 +292,7 @@ export default async function PvEMissions() {
                 <strong>3: The Jungle - Miasmic Mist</strong>
                 <div className="ml-4">
                   At the start of each Turn after the first, select one random Standing Unit from each Squad. That Unit moves 2" three times in random directions (roll three times).
+                  Note this does not trigger Attacks of Opportunity.
                   If that Unit cannot make a valid move because of wall or other obstacle, it takes 1 Melee Damage.
                 </div>
               </div>
