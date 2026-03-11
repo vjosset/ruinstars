@@ -124,7 +124,7 @@ export default function PvEMissionsQuickRef() {
                 At end of Turn 4+, Standing Units within 3" of it and not Adjacent to enemies may <Hi>Extract</Hi>. Units that fail both conditions count as Taken Out.
               </P>
               <div className="text-xs text-muted ml-2">
-                <Br>+1 MP</Br> per Threat Level (always) &nbsp;·&nbsp; <Br>+3 MP</Br> per completed Objective
+                <Br>+2 MP</Br> per Threat Level (always) &nbsp;·&nbsp; <Br>+3 MP</Br> per completed Objective
               </div>
             </div>
           </div>

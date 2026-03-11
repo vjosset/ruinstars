@@ -438,7 +438,7 @@ export default async function PvEMissions() {
                 The mission ends when the Player Squad extracts or when all Player Units have been Taken Out.<br/>
                 Upon extraction, any Objectives whose victory conditions were met are considered completed and score 3 MP each.
                 If no Player Units extract, no Objectives are considered completed regardless of their state.<br/>
-                Player Squad also scores 1MP per Threat Level, regardless of completed objectives or extraction.<br/>
+                Player Squad also scores 2MP per Threat Level, regardless of completed objectives or extraction.<br/>
                 In Campaign play, MP can be spent on Rewards (see <strong>Campaigns</strong> below) for the Squad.
               </div>
             </div>

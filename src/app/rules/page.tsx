@@ -21,7 +21,7 @@ const RULE_BOOKS = [
   { num: '02', title: 'Factions', desc: 'Choose a faction and build your squad.', href: '/assets/books/Factions - Ruinstars.pdf', icon: BsFilePdf },
   { num: '03', title: 'PvE Missions', desc: 'Solo/co-op missions against NPC squads.', href: '/assets/books/PvE Missions - Ruinstars.pdf', icon: BsFilePdf },
   { num: '04', title: 'PvP Missions', desc: 'Competitive missions for two players.', href: '/assets/books/PvP Missions - Ruinstars.pdf', icon: BsFilePdf },
-  { num: '05', title: 'Horde Mode', desc: 'Standalone solo/coop survival mode.', href: '/assets/books/Horde Mode - Ruinstars.pdf', icon: BsFilePdf },
+  { num: '05', title: 'Horde Mode', desc: 'Solo/coop survival mode.', href: '/assets/books/Horde Mode - Ruinstars.pdf', icon: BsFilePdf },
 ]
 
 const QUICK_REFS: { title: string; href: string; icon: IconType }[] = [
@@ -31,17 +31,19 @@ const QUICK_REFS: { title: string; href: string; icon: IconType }[] = [
 ]
 
 const TOOLS: { title: string; href: string; icon: IconType }[] = [
-  { title: 'Fillable Squad Sheet/Unit Cards', href: '/assets/tools/Ruinstars_SquadSheet.pdf', icon: BsPersonVcard },
-  { title: 'Tokens and Markers', href: '/assets/tools/Tokens - Ruinstars.pdf', icon: BsHexagon },
-  { title: '6" Gauge (Letter)', href: '/assets/tools/Ruinstars_Gauge_Letter.pdf', icon: BsRulers },
-  { title: '6" Gauge (A4)', href: '/assets/tools/Ruinstars_Gauge_A4.pdf', icon: BsRulers },
-  { title: '6" Gauge - STL', href: '/assets/tools/Ruinstars Gauge 6x1.stl', icon: BsBox },
+  { title: 'Fillable Squad Sheet (US Letter PDF)', href: '/assets/tools/Ruinstars_SquadSheet.pdf', icon: BsPersonVcard },
+  { title: 'Tokens (US Letter PDF)', href: '/assets/tools/Tokens - Ruinstars.pdf', icon: BsHexagon },
+  { title: 'Tokens (A4 PDF)', href: '/assets/tools/Tokens - Ruinstars - A4.pdf', icon: BsHexagon },
+  //{ title: 'Tokens (STL)', href: '/assets/tools/Tokens - Ruinstars.stl', icon: BsBox },
+  { title: '6" Gauge (US Letter PDF)', href: '/assets/tools/Ruinstars_Gauge_Letter.pdf', icon: BsRulers },
+  { title: '6" Gauge (A4 PDF)', href: '/assets/tools/Ruinstars_Gauge_A4.pdf', icon: BsRulers },
+  { title: '6" Gauge (STL)', href: '/assets/tools/Ruinstars Gauge 6x1.stl', icon: BsBox },
 ]
 
 const BATTLEFIELDS: { title: string; href: string; icon: IconType }[] = [
-  { title: 'The Ruined City (Letter)', href: '/assets/battlefields/TheRuinedCity_Letter.pdf', icon: BsMap },
+  { title: 'The Ruined City (US Letter)', href: '/assets/battlefields/TheRuinedCity_Letter.pdf', icon: BsMap },
   { title: 'The Ruined City (A4)', href: '/assets/battlefields/TheRuinedCity_A4.pdf', icon: BsMap },
-  { title: 'The Facility (Letter)', href: '/assets/battlefields/TheFacility_Letter.pdf', icon: BsMap },
+  { title: 'The Facility (US Letter)', href: '/assets/battlefields/TheFacility_Letter.pdf', icon: BsMap },
   { title: 'The Facility (A4)', href: '/assets/battlefields/TheFacility_A4.pdf', icon: BsMap },
 ]
 
