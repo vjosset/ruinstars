@@ -67,7 +67,8 @@
       "description": "Claimant Warband is a flexible, numbers-driven squad for players who want to build around escalating aggression. Your units are cheap and customizable across melee and ranged roles. The Vengeful specialty rewards you for taking losses — rerolling attack dice for every squadmate taken out, up to three. The longer the fight goes, the harder you hit. Take 'Em Down and Call of the Ancestors give you burst moments that can swing a turn. Play scrappy, absorb punishment, and make them pay for every casualty.",
       "lore": "Claimant squads are ragged, improvised, and brutally effective. They fight dirty: ambushing from asteroid cover, hijacking orbital infrastructure, using semi-sapient machines as living shields. What they lack in polish they make up for in unpredictability and rage.\n\nEach warband is different — a mix of ancient relics, mutated biology, and stolen gear, bound by necessity, oath, or vengeance. Their cohesion is fluid. But when they move, they move as one.",
       "isPublished": true,
-      "defaultSquadId": "CWB"
+      "defaultSquadId": "CWB",
+      "eloRating": 1000
     },
     {
       "factionId": "SWARM",
@@ -78,7 +79,8 @@
       "description": "Drone Pod is a horde squad for players who want to overwhelm through numbers and pressure. Your units are cheap and disposable, but the Brood Mother's Infest ability spawns free Swarmlings mid-mission, and Neural Command lets her direct multiple squadmates in a single activation. The more enemies you pin down, the harder you are to stop. Attrition is your weapon.",
       "lore": "The Swarm doesn't strike all at once. It infiltrates first.\n\nDrone Pods are the first wave: fast-growing, semi-autonomous creatures directed by hive-echoes from distant queens or nodes. They are not smart. They don't need to be.\nSome tear through armor. Others spread viral mold or excrete corrosive spores. All are expendable. They are not born to win battles. They are born to open the way.",
       "isPublished": true,
-      "defaultSquadId": "DRN"
+      "defaultSquadId": "DRN",
+      "eloRating": 1000
     },
     {
       "factionId": "HEG",
@@ -89,7 +91,8 @@
       "description": "Interdictors are a flexible, loadout-driven squad built for players who want options. Customize your fireteam for the mission: mix ranged and melee specialists, layer in support skills, and build around the Duty Before Death specialty that lets your soldiers land one last hit on the way out. High adaptability, strong individual units, room to experiment.",
       "lore": "Interdictors are the Hegemony's forward blade: commando units deployed where diplomacy was never considered and failure is not reported. They assassinate, sabotage, extract, and vanish. Rebel leaders, artifact vaults, xeno-tech caches: if it threatens Hegemony order, Interdictors handle it before anyone knows there was a problem.\n\nThey are drawn from the most loyal and lethal operatives the Hegemony produces. Self-sufficient, heavily armed, and trained to adapt to any environment. \n\nThey don't wait for orders to make sense. They execute them.",
       "isPublished": true,
-      "defaultSquadId": "INT"
+      "defaultSquadId": "INT",
+      "eloRating": 1000
     },
     {
       "factionId": "GRUTAK",
@@ -100,7 +103,8 @@
       "description": "Krumpfists are a melee brawler squad for players who want to hit hard, hit fast, and not think too hard about it. Get 'em! gives your whole squad a burst of ACT and melee SKL for one turn — use it to crack a defended position open. The Weirdo is your secret weapon: cheap, fast, and Yellbox lets every squadmate reroll melee attack dice within 6\". Call Dat a Krump? counters any enemy that trades into you in melee, and with Tough1 it can be truly punishing. Bring the Boomlugga for ranged pressure and watch things explode. The squad rewards aggression and punishes hesitation.",
       "lore": "Krumpfists are the blunt instruments of a species that doesn't believe in finesse. Formed from the loudest survivors of the loudest battles, they are fielded when the warboss wants something wrecked quickly. They arrive faster and louder than the main horde, using explosives, brute strength, and improvised tactics to rip open enemy lines.\n\nTheir loyalty lies with whoever shouts hardest and carries the biggest scrap-blade. Coordination is rare. But when one charges, the rest follow — because no one wants to miss the fun.\n\nThey break things. They don't ask why.",
       "isPublished": true,
-      "defaultSquadId": "KF"
+      "defaultSquadId": "KF",
+      "eloRating": 1000
     },
     {
       "factionId": "SPEC",
@@ -111,7 +115,8 @@
       "description": "NPC Mode lets you take on the battlefield even when no opponent is available.  \r Fight solo or cooperatively with a friend against a fully automated enemy Squad using streamlined AI behavior and mission rules.\r For each player Squad in the mission, deploy one NPC Squad of equal Gear Point (GP) value, ensuring balanced and engaging encounters.",
       "lore": "NPC Mode lets you take on the battlefield even when no opponent is available.  ",
       "isPublished": false,
-      "defaultSquadId": "NPC"
+      "defaultSquadId": "NPC",
+      "eloRating": 1000
     },
     {
       "factionId": "EIR",
@@ -122,7 +127,8 @@
       "description": "Relict Wardens are a resilient, self-sustaining squad for players who want to grind down opponents over time. Arise! gives every unit a chance to recover HIT at the start of each turn passively — the longer the mission runs, the harder they are to remove. Technician on nearly every unit makes objective play efficient, and the Aether Scribe provides consistent action economy support through Catalyse and Restore. Defensive Weave punishes enemies who try to move through your lines. Play methodical, hold position, and let attrition work in your favor.",
       "lore": "The Relict Wardens are the Revenants' shock-troops: ghostlike warriors clad in psionically-activated exo-armor. They do not speak. They do not run. They march in geometric formations older than language, carrying weapons shaped by will and memory.\n\nTheir presence distorts light. Their movements follow celestial alignments. Some say they are projections — echoes of ancient battles still playing out across timefolded memory-cores. Others say they are simply deathless, and have always been here.\n\nThey appear where the Revenants reassert control: lost temples, vault-worlds, alien monoliths, derelict thrones.",
       "isPublished": true,
-      "defaultSquadId": "REL"
+      "defaultSquadId": "REL",
+      "eloRating": 1000
     },
     {
       "factionId": "CRS",
@@ -133,7 +139,8 @@
       "description": "Silent Choir is a disruption and control squad for players who want to manipulate the battlefield rather than fight through it. Your units hit hard in melee, but the real threat is psychic pressure: Misdirection swaps unit positions mid-activation, Compel turns an enemy into your weapon for one attack, and Pulseshriek forces repositioning without triggering opportunity attacks. Fragile if caught in a straight fight, devastating when you control the terms of engagement.",
       "lore": "The Silent Choir is the Shroud's militant arm: psychic agents and ritual assassins deployed to neutralize resistance and purge those who cannot be turned. They are surgical, terrifying, and eerily calm. Their movements follow sacred geometries. Their words alter memories. Their weapons hum with resonances older than the factions they hunt.\n\nWhere they strike, confusion follows. Friendly fire. Hallucinations. Minds collapsing under pressure no armor can stop. Their role is not just to kill — it is to unmake belief, destroy identity, and prepare the ground for the Shroud's next advance.",
       "isPublished": true,
-      "defaultSquadId": "SCH"
+      "defaultSquadId": "SCH",
+      "eloRating": 1000
     },
     {
       "factionId": "OCL",
@@ -144,7 +151,8 @@
       "description": "Despoilers are a melee-dominant aggression squad for players who want to get in close and stay there. Pain Is Strength is the engine: reroll attack dice equal to your lost HIT, and regain HIT each time you take out an enemy in melee. The squad rewards commitment: the more damage you absorb, the more dangerous you become. Charge closes distance fast, Execute finishes wounded targets cleanly, and the Gorebeast provides cheap, fast melee pressure. Hit hard, hit first, and don't stop.",
       "lore": "Despoilers are ritual desecrators. They don't fight for land or legacy, they fight to shatter, to spite, to leave marks so deep they outlast the battle by generations.\n\nEach squad is a riot of brutal craftsmanship: rusted cleavers strung with trophies, void-hardened muscle, armor painted in blood rites and hallucinogenic dyes. They scream prayers as they charge. They mock as they maim. Some wear the bones of those who tried to pacify their kind centuries ago.\n\nTo be marked by the Despoilers is not just to lose. It is to be ruined.",
       "isPublished": true,
-      "defaultSquadId": "DES"
+      "defaultSquadId": "DES",
+      "eloRating": 1000
     },
     {
       "factionId": "SWARM",
@@ -155,7 +163,8 @@
       "description": "Hunter Killers are a precision flanking squad for players who want control over a more aggressive, mobile playstyle. Small unit count, high individual threat. Acid Blood punishes enemies who trade into you, Venomous Bonespurs slow targets for follow-up attacks, and Pulseshriek repositions enemies on demand. Play the angles, isolate targets, and let the Hive's design do the work.",
       "lore": "Hunter Killers are apex spawn: larger, faster, and more deliberate than the masses that came before. They are the survivors of failed invasions, evolved in the ash of exterminated hives. Where Drone Pods flood and overwhelm, Hunter Killers target, isolate, and finish.\r \r Each one is bred for a specific kind of brutality. Some burrow and ambush. Some stalk from range with acid and spine.\r All of them feed. They are few by Swarm standards, but they carry the full weight of the hive's intent distilled into something that doesn't stop until the target is gone.",
       "isPublished": true,
-      "defaultSquadId": "HK"
+      "defaultSquadId": "HK",
+      "eloRating": 1000
     },
     {
       "factionId": "SPEC",
@@ -166,7 +175,8 @@
       "description": "Units for playing Horde mode solo or coop.",
       "lore": "",
       "isPublished": false,
-      "defaultSquadId": "HRD"
+      "defaultSquadId": "HRD",
+      "eloRating": 1000
     },
     {
       "factionId": "HEG",
@@ -177,7 +187,8 @@
       "description": "Praxium Corps is a small elite squad for players who want a high-skill ceiling and tight unit synergy. You field at most four operatives, each unique, each a specialist. There's no customization: you pick your doctrine combination and commit. The payoff is four of the strongest individual units in the game, built to counter almost anything if you position them right.",
       "lore": "The Praxium Corps were not built from necessity. They were built from ambition. Each operative embodies one of six combat doctrines — Aegis, Vector, Vorax, Wraith, Pillar, Raptor — and is deployed as part of a small, self-contained kill team where every role is covered and nothing is wasted.\n\nThey don't overwhelm. They dismantle. Watching a Praxium squad work is watching the Hegemony's belief made physical: that war is a problem with a correct solution, and they are it.",
       "isPublished": true,
-      "defaultSquadId": "PRX"
+      "defaultSquadId": "PRX",
+      "eloRating": 1000
     },
     {
       "factionId": "SPEC",
@@ -188,7 +199,8 @@
       "description": "A special squad for first-time players to get familiar with the core concepts of Ruinstars.",
       "lore": "",
       "isPublished": false,
-      "defaultSquadId": null
+      "defaultSquadId": null,
+      "eloRating": 1000
     }
   ],
   "gearCategories": [
@@ -1259,7 +1271,7 @@
       "ACT": null,
       "TO": null,
       "effects": "",
-      "special": "RNG6\" BLS",
+      "special": "RNG8\" BLS",
       "isDefault": true
     },
     {
@@ -1471,11 +1483,11 @@
       "GP": 0,
       "TYP": "R",
       "ROA": 1,
-      "ATT": 2,
+      "ATT": 3,
       "ACT": null,
       "TO": null,
       "effects": "",
-      "special": "RNG4\"",
+      "special": "RNG8\"",
       "isDefault": true
     },
     {
@@ -4351,7 +4363,7 @@
       "GP": 0,
       "TYP": "R",
       "ROA": 1,
-      "ATT": 3,
+      "ATT": 4,
       "ACT": null,
       "TO": null,
       "effects": "",
@@ -4535,13 +4547,13 @@
       "ACT": null,
       "TO": null,
       "effects": "",
-      "special": "2RC",
+      "special": "2RC RLT",
       "isDefault": true
     },
     {
       "gearId": "PRX-SNP-CLK",
       "gearName": "Cloak",
-      "description": "Until this Unit's next Activation, it cannot be the primary target in Ranged combat. In addition, each time it is the target of a Melee attack, it may re-roll up to 2 Save dice. This can only be done once per Mission.",
+      "description": "Until this Unit's next Activation, it cannot be the primary target in Ranged combat. In addition, each time it is the target of a Melee attack, it may re-roll up to 2 Save dice. This can only be done once per Mission. This Unit may not perform this Action while Adjacent to an enemy.",
       "flavor": null,
       "gearType": "S",
       "gearCategoryId": "SKL",
@@ -4577,7 +4589,7 @@
     {
       "gearId": "PRX-VEC-SCN",
       "gearName": "Scan",
-      "description": "Once per Turn, this Unit places a Scan marker within 8\". Until this Unit's next activation, all enemy Units within 6\" of that Scan marker have -1 ARM.",
+      "description": "Place a Scan marker within 8\" of this Unit. Until this Unit's next activation, all enemy Units within 6\" of that Scan marker have -1 ARM. This can only be done once per Turn. This Unit may not perform this Action while Adjacent to an enemy",
       "flavor": null,
       "gearType": "S",
       "gearCategoryId": "SKL",
@@ -4631,7 +4643,7 @@
     {
       "gearId": "PVE-MEL-BEH",
       "gearName": "Behavior - Melee",
-      "description": "\n_For PvE behaviors, ignore increased ACT cost for repeated actions._\n- If there is a valid Melee target, attack that target in Melee combat\n- Move toward closest Priority Enemy, to cover if possible\n\n**Priority Enemy:**\n- Unit carrying an objective\n- Unit closest to an objective\n- Unit with lowest remaining HIT",
+      "description": "\n_For PvE behaviors, ignore increased ACT cost for repeated actions._\n- If there is a valid Melee target, attack that target in Melee combat (up to twice per Activation)\n- Move or Dash toward closest Priority Enemy, to cover if possible (up to twice per Activation)\n\n**Priority Enemy:**\n- Unit carrying an objective\n- Unit closest to an objective\n- Unit with lowest remaining HIT",
       "flavor": null,
       "gearType": "S",
       "gearCategoryId": "SKL",
@@ -4649,7 +4661,7 @@
     {
       "gearId": "PVE-MIX-BEH",
       "gearName": "Behavior - Mixed",
-      "description": "\n_For PvE behaviors, ignore increased ACT cost for repeated actions._\n- If there is a valid Melee target, attack that target in Melee combat\n- If there is a valid Ranged target, attack Priority Enemy in Ranged combat\n- Move to cover with Line of Sight on Priority Enemy\n\n**Priority Enemy:**\n- Unit carrying an objective\n- Unit closest to an objective\n- Unit with lowest remaining HIT",
+      "description": "\n_For PvE behaviors, ignore increased ACT cost for repeated actions._\n- If there is a valid Melee target, attack that target in Melee combat (up to once per Activation)\n- If there is a valid Ranged target, attack Priority Enemy in Ranged combat (up to twice per Activation)\n- Move to cover with Line of Sight on Priority Enemy (up to twice per Activation)\n\n**Priority Enemy:**\n- Unit carrying an objective\n- Unit closest to an objective\n- Unit with lowest remaining HIT",
       "flavor": null,
       "gearType": "S",
       "gearCategoryId": "SKL",
@@ -4667,7 +4679,7 @@
     {
       "gearId": "PVE-RNG-BEH",
       "gearName": "Behavior - Ranged",
-      "description": "\n_For PvE behaviors, ignore increased ACT cost for repeated actions._\n- If this Unit is Adjacent to an enemy Unit, Move away from all enemy Units\n- If there is a valid Ranged target, attack Priority Enemy in Ranged combat\n- Move to cover with Line of Sight on Priority Enemy\n\n**Priority Enemy:**\n- Unit carrying an objective\n- Unit closest to an objective\n- Unit with lowest remaining HIT",
+      "description": "\n_For PvE behaviors, ignore increased ACT cost for repeated actions._\n- If this Unit is Adjacent to an enemy Unit, Move away from all enemy Units\n- If there is a valid Ranged target, attack Priority Enemy in Ranged combat (up to twice per Activation)\n- Move to cover with Line of Sight on Priority Enemy (up to twice per Activation)\n\n**Priority Enemy:**\n- Unit carrying an objective\n- Unit closest to an objective\n- Unit with lowest remaining HIT",
       "flavor": null,
       "gearType": "S",
       "gearCategoryId": "SKL",
@@ -7375,7 +7387,8 @@
       "email": null,
       "userName": "Ruinstars",
       "password": "$2a$10$32PZWzVjHlS1tztjVS5IieI/63wDIvS7NPQ/SLT0aSLA58OrMM3rO",
-      "createdAt": "2025-07-27T15:44:36.357Z"
+      "createdAt": "2025-07-27T15:44:36.357Z",
+      "eloRating": 1000
     }
   ],
   "squads": [
