@@ -1,32 +1,19 @@
-// @ts-nocheck
-import { Gear, Unit, UnitType, GearCategory } from '@/types'
+import { Gear, Unit, UnitType } from '@/types'
 import { GearRepository } from '@/src/repositories/gear.repository'
 
 export class GearService {
   private static repository = new GearRepository()
 
   static async getGearRow(gearId: string): Promise<Gear | null> {
-    const gear = await this.repository.getGearRow(gearId)
-    return gear ? new Gear(gear) : null
+    return this.repository.getGearRow(gearId)
   }
 
   static async getGear(gearId: string): Promise<Gear | null> {
-    const gear = await this.repository.getGear(gearId)
-    return gear ? new Gear(gear) : null
+    return this.repository.getGear(gearId)
   }
 
   static async getAllGears(): Promise<Gear[]> {
-    const gears = await this.repository.getAllGears()
-
-    // Convert the raw Prisma objects to Gear instances
-    return gears.map(gear => {
-      // Ensure gearCategory is properly instantiated
-      const gearWithCategory = {
-        ...gear,
-        gearCategory: gear.gearCategory ? new GearCategory(gear.gearCategory) : undefined
-      }
-      return new Gear(gearWithCategory)
-    })
+    return this.repository.getAllGears()
   }
 
   static async loadUnitGear(unit: Unit): Promise<Gear[]> {
@@ -61,8 +48,8 @@ export class GearService {
       .map(gearId => allGears.find(gear => gear.gearId === gearId))
       .filter((gear): gear is Gear => gear !== undefined)
     
-    unit.weapons = unit.gears.filter(gear => gear.gearType == 'W')
-    unit.skills = unit.gears.filter(gear => gear.gearType != 'W')
+    unitType.weapons = unitType.gears.filter(gear => gear.gearType === 'W')
+    unitType.skills = unitType.gears.filter(gear => gear.gearType !== 'W')
     
     return unitType.gears
   }

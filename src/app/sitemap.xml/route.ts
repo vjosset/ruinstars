@@ -1,4 +1,3 @@
-// @ts-ignore
 import { prisma } from '@/lib/prisma'
 import { NextResponse } from 'next/server'
 
@@ -17,12 +16,11 @@ export async function GET() {
     '/auth/login',
     '/auth/signup',
     '/tools',
-    '/assets/Ruinstars_Rules.pdf',
-    '/assets/Ruinstars_Rules_FullColor.pdf',
-    '/assets/Ruinstars_Tokens.pdf',
-    '/assets/Ruinstars_Gauge_Letter.pdf',
-    '/assets/Ruinstars_Gauge_A4.pdf',
-    '/scripedoperations'
+    '/assets/books/Core Rules - Ruinstars.pdf',
+    '/assets/books/PvE Missions - Ruinstars.pdf',
+    '/assets/books/Factions - Ruinstars.pdf',
+    '/assets/books/PvP Missions - Ruinstars.pdf',
+    '/assets/books/Horde Mode - Ruinstars.pdf',
   ]
 
   // Fetch factions

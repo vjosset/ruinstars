@@ -66,7 +66,7 @@ export default function QuickRef() {
           <li>Remove all Deceased Units from your Squad</li>
           <li>Add 2 GP to your Squad's Max GP</li>
           <li>Add 2 GP for each Victory in the previous Operation</li>
-          <li>Remove all Injuries from all Units</li>
+          <li>Remove one Injury from remaining Units</li>
           <li>Make changes to your Squad's selected Gear</li>
           <li>Add Spoils Of War to eligible Units</li>
           <li>Recruit new Units into the Squad</li>

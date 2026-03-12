@@ -3,7 +3,8 @@
 import AddSquadForm from '@/src/components/squad/AddSquadForm'
 import SquadCard from '@/src/components/squad/SquadCard'
 import { SquadPlain } from '@/types'
-import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 interface UserPageClientProps {
   squads: SquadPlain[]
@@ -12,7 +13,14 @@ interface UserPageClientProps {
 }
 
 export default function UserPageClient({ squads: initialSquads, isOwner }: UserPageClientProps) {
+  const router = useRouter()
   const [squads, setSquads] = useState(initialSquads)
+
+  // On mount (including back-navigation from router cache), fetch fresh server data
+  useEffect(() => { router.refresh() }, [router])
+
+  // Sync local state when server data updates after refresh
+  useEffect(() => { setSquads(initialSquads) }, [initialSquads])
 
   const handleDelete = (squadId: string) => {
     setSquads(squads => squads.filter(squad => squad.squadId !== squadId))

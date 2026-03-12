@@ -4,7 +4,7 @@ import { GAME } from '@/lib/config/game_config'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FiList, FiLogIn, FiTool, FiUserPlus, FiUsers } from 'react-icons/fi'
+import { FiList, FiLogIn, FiUserPlus, FiUsers } from 'react-icons/fi'
 import { LuBookText } from 'react-icons/lu'
 
 export default function NavBarTop() {
@@ -20,6 +20,13 @@ export default function NavBarTop() {
       label: 'Factions',
       show: true,
       match: (path: string) => path.includes('/factions') || path.includes('/squadTypes'),
+    },
+    {
+      href: '/rules',
+      icon: <LuBookText />,
+      label: 'Rules',
+      show: true,
+      match: (path: string) => path === '/rules',
     },
     {
       href: '/me',
@@ -43,26 +50,12 @@ export default function NavBarTop() {
       show: false,
       match: (path: string) => path === '/auth/signup',
     },
-    {
-      href: '/rules',
-      icon: <LuBookText />,
-      label: 'Rules',
-      show: true,
-      match: (path: string) => path === '/rules',
-    },
-    {
-      href: '/tools',
-      icon: <FiTool />,
-      label: 'Tools',
-      show: true,
-      match: (path: string) => path === '/tools',
-    },
   ]
 
   return (
     <nav className="noprint hidden lg:flex sticky top-0 z-50 justify-between items-center px-6 py-3 bg-black text-foreground border-b border-border">
       <Link href="/" className="flex items-center space-x-2">
-        <img src="/icons/icon-big.png" className="h-8" />
+        <img src="/icons/icon-big.png" className="h-8" loading="lazy" decoding="async" />
         <h1 className="title text-3xl glowtext">
           {GAME.NAME}
         </h1>

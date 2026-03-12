@@ -5,7 +5,7 @@ import { SpecialRule } from '@/lib/utils/specialRules'
 import { calcGP } from '@/lib/utils/utils'
 import GearGroupList from '@/src/components/shared/GearGroupList'
 import WeaponTable from '@/src/components/shared/WeaponTable'
-import { Medal, UnitPlain, UnitTypePlain } from '@/types'
+import { UnitPlain, UnitTypePlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import { useEffect, useState } from 'react'
 import { FaHeartPulse, FaMedal } from 'react-icons/fa6'
@@ -16,14 +16,12 @@ import { Button, Checkbox, Modal } from '../ui'
 import Markdown from '../ui/Markdown'
 import UnitCardMenu from './UnitCardMenu'
 import UnitEditorModal from './UnitEditorModal'
-import UnitMedalModal from './UnitMedalModal'
 
 type UnitCardProps = {
   unit: UnitPlain | UnitTypePlain
-  seq: Number
+  seq: number
   isOwner: boolean
   allSpecials: SpecialRule[]
-  allMedals: Medal[]
   onUnitUpdated?: (u: UnitPlain) => void
   onMoveUp?: () => void
   onMoveFirst?: () => void
@@ -39,7 +37,6 @@ export default function UnitCard({
   seq,
   isOwner,
   allSpecials,
-  allMedals,
   onUnitUpdated,
   onMoveUp,
   onMoveFirst,
@@ -51,16 +48,18 @@ export default function UnitCard({
   // Modal visibility states
   const [showHITModal, setShowHITModal] = useState(false)
   const [showUnitEditorModal, setShowUnitEditorModal] = useState(false)
-  const [showUnitMedalModal, setShowUnitMedalModal] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
 
-  //const forceValue = {Math.floor((unit?.totalGearGP + (unit?.unitType?.GP || 0)) / 8)}
+  const spoilCount = unit.isUnitType
+    ? 0
+    : (unit.gears?.filter((gear) => gear.gearCategoryId === 'SOW').length ?? 0)
+
   const forceValue = unit.isUnitType ? null :
     Math.round(
       ((unit?.totalGearGP + (unit?.unitType?.GP || 0.0)) / 100.0)
       * 10.0
     )
-    + Math.floor(unit.totalMedalXP / 5)
+    + spoilCount
 
   // Unit state tracking
   const [newHIT, setNewHIT] = useState(unit.currHIT ?? 0)
@@ -100,34 +99,34 @@ export default function UnitCard({
 
   return (
     <>
-      <div className="bg-card border border-main p-1 rounded relative flex flex-col h-full unitcard">
-        <div className={'grid grid-cols-4 gap-1 text-center'}>
+      <div className="bg-card border border-main rounded relative flex flex-col h-full unitcard mx-1">
+        <div className={'grid grid-cols-12 gap-1 text-center'}>
           {!unit.isUnitType && unit.hasCustomPortrait && (
-            <div className="cursor-pointer col-span-1 border border-muted/50 rounded-md" style={{maxHeight: '100%', maxWidth: '100%', overflow: 'hidden'}} onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>
+            <div className="cursor-pointer col-span-3 overflow-hidden rounded-tl border-border border-r border-b" onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>
               <img
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: (!unit.isUnitType && (unit.currHIT == 0)) ? 'grayscale(1)' : 'none' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: (!unit.isUnitType && (unit.currHIT === 0)) ? 'grayscale(1)' : 'none' }}
                 src={`${getUnitPortraitUrl(unit.unitId)}?v=${toEpochMs(unit.portraitUpdatedAt)}`}
               />
             </div>
           )}
-          <div className={(!unit.isUnitType && unit.hasCustomPortrait) ? 'col-span-3' : 'col-span-4'}>
+          <div className={`${(!unit.isUnitType && unit.hasCustomPortrait) ? 'col-span-9' : 'col-span-12'} p-1`}>
             {/* Name and Type */}
             <div className="flex justify-between">
-              <div className="flex justify-between gap-x-2">
+              <div className="flex justify-between gap-x-2 min-w-0">
                 {!unit.isUnitType && isOwner && unit.currHIT !== 0 && (
                   <Checkbox
                     checked={!!unit.isActivated}
                     onChange={toggleActivated}
-                    className="accent-primary mb-1.5 noprint"
+                    className="accent-primary mb-1.5 noprint flex-shrink-0"
                   />
                 )}
-                <h5 className={`font-heading ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
-                  <div className="flex items-center gap-1">
-                    <span onClick={toggleActivated}>
+                <h4 className={`font-heading truncate ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} ${isOwner ? 'cursor-pointer' : ''}`}>
+                  <span className="flex items-center gap-1 min-w-0 overflow-hidden">
+                    <span className="flex-shrink-0" onClick={toggleActivated}>
                       {unit.isUnitType ? '' : `${seq}. `}
                     </span>
-                    <span className="flex items-center gap-1" onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
-                      {unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ''}
+                    <span className="flex items-center gap-1 min-w-0" onClick={isOwner ? () => setShowUnitEditorModal(true) : () => {}}>
+                      <span className="truncate">{unit.unitName || unit.unitTypeName || unit.unitType?.unitTypeName || ''}</span>
                       {/* Icon reminders for Spoils Of War and Injuries */}
                       {!unit.isUnitType && unit.gears?.some(gear => gear.gearId === 'INJ-DC') &&
                         <GiDeathSkull className="text-base text-muted" /> 
@@ -139,8 +138,8 @@ export default function UnitCard({
                         <FaHeartPulse className="text-base text-muted" /> 
                       }
                     </span>
-                  </div>
-                </h5>
+                  </span>
+                </h4>
               </div>
               <div className="text-muted mb-1">
                 {unit.isUnitType && <>{unit.GP}GP</>}
@@ -164,42 +163,26 @@ export default function UnitCard({
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-1 text-center">
-              <div className="text-sm">
-                <span className="flex items-center justify-center gap-1">
+            <div className="grid grid-cols-3 gap-x-4 text-center">
+              <div className="text-md border-border border">
+                <span className="font-heading flex items-center justify-center gap-1 bg-black">
                   {/*<RiFlashlightFill className="text-xl" />*/}
                   ACT
-                  <h3 className="stat text-main">{unit.ACT}</h3>
+                  <h4 className="stat text-main">{unit.ACT}</h4>
                 </span>
               </div>
-              {/*}
-              <div className="text-xs">
-                MSK<br/>
-                <span className="flex items-center justify-center gap-1">
-                  <RiSwordFill className="text-xl" />
-                  <h5 className="stat text-main">{unit.MSK}</h5>
-                </span>
-              </div>
-              <div className="text-xs">
-                RSK<br/>
-                <span className="flex items-center justify-center gap-1">
-                  <RiCrosshair2Fill className="text-xl" />
-                  <h5 className="stat text-main">{unit.RSK}</h5>
-                </span>
-              </div>
-              */}
-              <div className="text-sm">
-                <span className="flex items-center justify-center gap-1">
+              <div className="text-md border-border border">
+                <span className="font-heading flex items-center justify-center gap-1 bg-black">
                   {/*<RiShieldFill className="text-lg" />*/}
                   ARM
-                  <h3 className="stat text-main">{unit.ARM}</h3>
+                  <h4 className="stat text-main">{unit.ARM}</h4>
                 </span>
               </div>
-              <div className={`text-sm ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
-                <span className="flex items-center justify-center gap-1">
+              <div className={`text-md border-border border ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
+                <span className="font-heading flex items-center justify-center gap-1 bg-black">
                   {/*<RiHeartFill className="text-xl" />*/}
                   HIT
-                  <h3 className="stat text-main">{unit.isUnitType ? unit.HIT : unit.currHIT}</h3>
+                  <h4 className="stat text-main">{unit.isUnitType ? unit.HIT : unit.currHIT}</h4>
                   {!unit.isUnitType && <h6 className="stat text-muted noprint">/{unit.HIT}</h6>}
                 </span>
               </div>
@@ -207,70 +190,47 @@ export default function UnitCard({
           </div>
         </div>
 
-        {/* Weapons */}
-        {(unit.weapons?.length ?? 0) > 0 && unit.currHIT !== 0 && (
-          <WeaponTable weapons={unit.weapons ?? []} MSK={unit.MSK ?? 0} RSK={unit.RSK ?? 0} allSpecials={allSpecials} />
-        )}
-
-        {/* Skills */}
-        {(unit.skills?.length ?? 0) > 0 && unit.currHIT !== 0 && (
-          <GearGroupList gearList={unit.skills ?? []} showNarrative={!unit.isUnitType} />
-        )}
-
-        {/* Print only - Additional info */}
-        <div className="printonly border-t border-border overflow-y-hidden">
-          {!unit.isUnitType && (unit.skills && unit.skills.length > 0) && (
-            <>
-              <div className="mt-2 text-sm">
-                {unit.skills.map((skill) => (
-                  <Markdown key={`printskill_${skill.gearId}`}>
-                    {`**${skill.gearName.replace('*', '')}${skill.ACT != null ? ` (${skill.ACT}ACT)` : ''}${skill.TO != null ? ` (${skill.TO}TO)` : ''}**: ${skill.description}`}
-                  </Markdown>
-                ))}
-              </div>
-            </>
+        <div className="p-1">
+          {/* Weapons */}
+          {(unit.weapons?.length ?? 0) > 0 && unit.currHIT !== 0 && (
+            <WeaponTable weapons={unit.weapons ?? []} MSK={unit.MSK ?? 0} RSK={unit.RSK ?? 0} allSpecials={allSpecials} />
           )}
-        </div>
 
-        {(unit.isUnitType && unit?.description) && (
-          <div className="flavor">
-            <Markdown>
-              {unit?.description}
-            </Markdown>
+          {/* Skills */}
+          {(unit.skills?.length ?? 0) > 0 && unit.currHIT !== 0 && (
+            <GearGroupList gearList={unit.skills ?? []} showNarrative={!unit.isUnitType} />
+          )}
+
+          {/* Print only - Additional info */}
+          <div className="printonly border-t border-border overflow-y-hidden">
+            {!unit.isUnitType && (unit.skills && unit.skills.length > 0) && (
+              <>
+                <div className="mt-2 text-sm">
+                  {unit.skills.map((skill) => (
+                    <Markdown key={`printskill_${skill.gearId}`}>
+                      {`**${skill.gearName.replace('*', '')}${skill.ACT != null ? ` (${skill.ACT}ACT)` : ''}${skill.TO != null ? ` (${skill.TO}TO)` : ''}**: ${skill.description}`}
+                    </Markdown>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {(unit.isUnitType && unit?.description) && (
+              <div className="flavor">
+                <Markdown>
+                  {unit?.description}
+                </Markdown>
+              </div>
+            )}
           </div>
-        )}
+        </div>
 
         {/* Footer */}
         {/* Note we hide this for UnitType cards since we moved all Unit specials to Abilities for clarity */}
         {!unit.isUnitType && (
-          <div className="border-t border-border mt-auto">
+          <div className="border-t border-border mt-auto p-1">
             <div className="flex justify-between items-center">
               <div className="text-sm">
-                {/* // OLD UNIT SPECIALS - NOT IN USE
-                {unit.special !== '' && (
-                  <span
-                    className="italic cursor-pointer hover:text-main text-muted hastip"
-                    onClick={() => {
-                      const parsed = parseSpecialRules(allSpecials, 'U', unit.special ?? '')
-                      showInfoModal({
-                        title: unit.unitName ?? unit.unitTypeName + ' - Special',
-                        body: (
-                          <div className="space-y-4">
-                            {parsed.map((rule, idx) => (
-                              <div key={idx}>
-                                <span className="font-semibold text-muted">({rule.code}) {rule.specialName}:</span>
-                                <p className="text-sm text-muted">{rule.description}</p>
-                              </div>
-                            ))}
-                          </div>
-                        ),
-                      })
-                    }}
-                  > { ' ' }
-                    ({unit.special}){ ' ' }
-                  </span>
-                )}
-                */}
                 {!unit.isUnitType && (
                   <div className="text-muted">
                     {unit?.unitType?.unitTypeName}
@@ -289,15 +249,9 @@ export default function UnitCard({
               </div>
               {!unit.isUnitType && (
                 <div className="text-right whitespace-nowrap">
-                  <span className="stat mx-2">
-                    {/*<FaGaugeHigh className="inline-block h-3 w-3" />{ ' ' }*/}
+                  <span className="mx-2">
                     FV:{ ' ' }
                     <span className="stat text-main">{forceValue}</span>
-                  </span>
-                  <span className="stat mx-2 cursor-pointer hover:text-main" onClick={() => (isOwner || unit.totalMedalXP > 0) && setShowUnitMedalModal(true)}>
-                    {/*<FaMedal className="inline-block h-3 w-3" />{ ' ' }*/}
-                    XP:{ ' ' }
-                    <span className="stat text-main">{unit.totalMedalXP}</span>
                   </span>
                 </div>
               )}
@@ -356,28 +310,10 @@ export default function UnitCard({
         />
       )}
 
-      {/* Medal Modal */}
-      {showUnitMedalModal && !unit.isUnitType && (
-        <UnitMedalModal
-          key="editor-modal"
-          isOpen={true}
-          squadId={unit.squadId || ''}
-          squadTypeId={unit.unitType?.squadTypeId ?? ''}
-          unit={unit}
-          onClose={() => setShowUnitMedalModal(false)}
-          allMedals={allMedals}
-          isOwner={isOwner}
-          onSave={(updated) => {
-            onUnitUpdated?.(updated) // 💡 call back to parent
-            setShowUnitMedalModal(false)
-          }}
-        />
-      )}
-
       {/* Unit Deletion Modal*/}
       {showDeleteConfirm && 
         <Modal
-          title={`Delete ${unit.unitName == '' ? unit.unitTypeName : unit.unitName}`}
+          title={`Delete ${unit.unitName === '' ? unit.unitTypeName : unit.unitName}`}
           onClose={() => setShowDeleteConfirm(false)}
           footer={
             <div className="flex justify-end gap-2">
@@ -415,7 +351,7 @@ export default function UnitCard({
           }
         >
           <p className="text-sm text-foreground">
-            Are you sure you want to delete <strong>{unit.unitName == '' ? unit.unitTypeName : unit.unitName}</strong>?<br/>
+            Are you sure you want to delete <strong>{unit.unitName === '' ? unit.unitTypeName : unit.unitName}</strong>?<br/>
             This cannot be undone.
           </p>
 

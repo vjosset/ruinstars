@@ -3,7 +3,7 @@
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FiHome, FiList, FiLogIn, FiTool, FiUserPlus, FiUsers } from 'react-icons/fi'
+import { FiHome, FiList, FiLogIn, FiUserPlus, FiUsers } from 'react-icons/fi'
 import { LuBookText } from 'react-icons/lu'
 
 export default function NavBarBottom() {
@@ -27,6 +27,13 @@ export default function NavBarBottom() {
       match: (path: string) => path.includes('/factions') || path.includes('/squadTypes'),
     },
     {
+      href: '/rules',
+      icon: <LuBookText />,
+      label: 'Rules',
+      show: true,
+      match: (path: string) => path === '/rules',
+    },
+    {
       href: '/me',
       icon: <FiUsers />,
       label: 'Squads',
@@ -47,20 +54,6 @@ export default function NavBarBottom() {
       label: 'Sign Up',
       show: false,
       match: (path: string) => path === '/auth/signup',
-    },
-    {
-      href: '/rules',
-      icon: <LuBookText />,
-      label: 'Rules',
-      show: true,
-      match: (path: string) => path === '/rules',
-    },
-    {
-      href: '/tools',
-      icon: <FiTool />,
-      label: 'Tools',
-      show: true,
-      match: (path: string) => path === '/tools',
     },
   ]
 

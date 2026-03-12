@@ -18,7 +18,7 @@ export async function POST(
   const squadRow = await SquadService.getSquadRow(squadId)
   if (!squadRow) return new NextResponse('Squad not found', { status: 404 })
 
-  const newSquadName = data.squadName ? data.squadName : (squadRow.userId == session.user.userId ? `${squadRow.squadName} - Copy` : `${squadRow.squadName}`)
+  const newSquadName = data.squadName ? data.squadName : (squadRow.userId === session.user.userId ? `${squadRow.squadName} - Copy` : `${squadRow.squadName}`)
   
   // Now create the squad and its units
   const newSquad = await SquadService.cloneSquad(squadId, session.user.userId, newSquadName)

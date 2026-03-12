@@ -8,7 +8,7 @@
     "build": "next build",
     "build-turbo": "next build --turbo",
     "start": "PORT=4000 next start",
-    "lint": "npx eslint \"src/**/*.ts\" --fix",
+    "lint": "npx eslint \"src/**/*.{ts,tsx}\" --fix",
     "genseed": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/generateSeedData.ts"
   },
   "dependencies": {
@@ -41,6 +41,7 @@
     "@typescript-eslint/eslint-plugin": "^8.33.1",
     "@typescript-eslint/parser": "^8.33.1",
     "autoprefixer": "^10.4.21",
+    "baseline-browser-mapping": "^2.9.19",
     "eslint": "^9.28.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",

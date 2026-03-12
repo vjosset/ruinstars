@@ -53,24 +53,30 @@ export default function GearGroupList({
           return a.gearName.localeCompare(b.gearName)
         })
 
+        const isEvenCount = sortedGears.length % 2 === 0
+        const [firstGear, ...restGears] = sortedGears
+
+        const renderGear = (gear: GearPlain) => (
+          <div key={gear.gearId} className="flex items-center gap-1">
+            {onToggleGear && (
+              <Checkbox
+                type="checkbox"
+                checked={selectedGearIds.includes(gear.gearId)}
+                onChange={() => onToggleGear(gear.gearId)}
+              />
+            )}
+            <GearItem gear={gear} />
+          </div>
+        )
+
         return (
-          <div key={categoryId} className=" border-t border-border">
-            <h6 className="text-muted flex items-center">
-              {sortedGears[0].gearCategory?.gearCategoryName}
-            </h6>
+          <div key={categoryId} className="border-t border-border">
             <div className="grid grid-cols-2">
-              {sortedGears.map((gear) => (
-                <div key={gear.gearId} className="flex items-center gap-1">
-                  {onToggleGear && (
-                    <Checkbox
-                      type="checkbox"
-                      checked={selectedGearIds.includes(gear.gearId)}
-                      onChange={() => onToggleGear(gear.gearId)}
-                    />
-                  )}
-                  <GearItem gear={gear} />
-                </div>
-              ))}
+              <h6 className={`text-muted flex items-center ${isEvenCount ? 'col-span-2' : ''}`}>
+                {sortedGears[0].gearCategory?.gearCategoryName}
+              </h6>
+              {!isEvenCount && firstGear && renderGear(firstGear)}
+              {(isEvenCount ? sortedGears : restGears).map(renderGear)}
             </div>
           </div>
         )

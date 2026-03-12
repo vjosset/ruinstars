@@ -1,83 +1,27 @@
-import type { User } from '@prisma/client'
+import { User } from '@/types'
 import { BaseRepository } from './base.repository'
 
 export class UserRepository extends BaseRepository {
-  async getUserRow(userId: string): Promise<User | null> {
-    return this.prisma.user.findUnique({
+  async getUser(userId: string): Promise<User | null> {
+    const row = await this.prisma.user.findUnique({
+      select: { userId: true, userName: true },
       where: { userId }
     })
+
+    return row
+      ? new User({ userId: row.userId, userName: row.userName, squads: [] })
+      : null
   }
 
-  async getUser(userId: string) {
-    return this.prisma.user.findFirst({
-      where: { userId },
-      include: {
-        squads: {
-          include: {
-            squadType: {
-              include: {
-                faction: true
-              }
-            },
-            units: {
-              include: {
-                unitType: true
-              },
-              orderBy: { seq: 'asc' }
-            }
-          },
-          orderBy: { seq: 'asc' }
-        }
-      }
-    })
-  }
-
-  async getUserByUsername(userName: string) {
+  async getUserByUsername(userName: string): Promise<User | null> {
     const normalized = userName.trim()
-    return this.prisma.user.findFirst({
-      where: { userName: { equals: normalized } },
-      include: {
-        squads: {
-          include: {
-            squadType: {
-              include: {
-                faction: true
-              }
-            },
-            units: {
-              include: {
-                unitType: true
-              },
-              orderBy: { seq: 'asc' }
-            }
-          },
-          orderBy: { seq: 'asc' }
-        }
-      }
-    })
-  }
-
-  async getAllUsers() {
-    return this.prisma.user.findMany()
-  }
-
-  async fixSquadSeqs(userId: string) {
-    // Reorder/re-seq the user's squads
-    if (!userId) {
-      throw 'Missing required input userId'
-    }
-    const squads = await this.prisma.squad.findMany({
-      where: { userId: userId },
-      orderBy: [{ seq: 'asc' }, { createdAt: 'asc' }]
+    const row = await this.prisma.user.findFirst({
+      select: { userId: true, userName: true },
+      where: { userName: { equals: normalized } }
     })
 
-    await Promise.all(
-      squads.map((squad, index) =>
-        this.prisma.squad.update({
-          where: { squadId: squad.squadId },
-          data: { seq: index + 1 }
-        })
-      )
-    )
+    return row
+      ? new User({ userId: row.userId, userName: row.userName, squads: [] })
+      : null
   }
 }

@@ -6,7 +6,9 @@ import { NextResponse } from 'next/server'
 // Get the stats
 export async function GET() {
   const session = await getAuthSession()
-  if (!session?.user || session.user.userId != 'vince') return new NextResponse('Unauthorized', { status: 401 })
+  if (!session?.user || session.user.userId !== 'vince'){
+    return new NextResponse('Unauthorized', { status: 401 })
+  }
 
   const days = getLastNDates(9)
   const startDate = new Date(days[days.length - 1])
@@ -64,7 +66,7 @@ export async function GET() {
   stats.totals = { users, squads, units }
 
   const cutoff30m = new Date(Date.now() - 30 * 60 * 1000)
-  const excludedIps = ['127.0.0.1', '::1', '76.98.82.81', '73.188.188.13', '73.165.66.83', '68.80.166.102']
+  const excludedIps = ['127.0.0.1', '::1', '76.98.82.81', '73.188.188.13', '73.165.66.83', '68.80.166.102', '192.168.1.103']
   const excludedUserIds = ['vince']
 
   const [pageViews, recentActiveUsers, events30m] = await Promise.all([

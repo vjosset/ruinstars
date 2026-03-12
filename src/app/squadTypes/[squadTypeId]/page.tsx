@@ -1,12 +1,10 @@
-import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
-import SquadCard from '@/components/squad/SquadCard'
+import SquadSpotlightCard from '@/components/squad/SquadSpotlightCard'
 import SquadTypeCard from '@/components/squadType/SquadTypeCard'
 import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
 import UnitCard from '@/components/unit/UnitCard'
-import ops from '@/data/scriptedOperations.json'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import { FactionService, SpecialService, SquadTypeService } from '@/src/services'
+import { SpecialService, SquadTypeService } from '@/src/services'
 import { UnitType } from '@/src/types'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -33,20 +31,15 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
   const { squadTypeId } = await params
   const { tab: tabParam } = searchParams ? await searchParams : { tab: undefined }
   const squadType = await SquadTypeService.getSquadType(squadTypeId)
-  const factions = await FactionService.getAllFactions()
-  const factionsPlain = factions.map(f => f.toPlain ? f.toPlain() : f)
+
+  const hasSpotlights = squadType?.spotlights && squadType.spotlights.length > 0
 
   if (!squadType) notFound()
-
-  const hasSpotlights = (squadType.spotlights?.length ?? 0) > 0
-  const scriptedOps = ops.filter(op => op.factions?.factionA === squadType.factionId || op.factions?.factionB === squadType.factionId)
-  const hasOps = scriptedOps.length > 0
 
   const tabs = [
     { id: 'units' as const, label: 'Units', enabled: true },
     { id: 'about' as const, label: 'About', enabled: true },
-    { id: 'ops' as const, label: 'Operations', enabled: hasOps },
-    { id: 'squads' as const, label: 'Squads', enabled: hasSpotlights },
+    { id: 'squads' as const, label: 'Showcase', enabled: true },
   ].filter(t => t.enabled)
 
   const requestedTab = tabs.find(t => t.id === tabParam)?.id
@@ -75,9 +68,7 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
           <div className="flex items-center gap-x-4 mb-4">
             <PageTitle>{squadType.squadTypeName}</PageTitle>
           </div>
-          <div className="text-white max-w-2xl text-center m-4">
-            <Markdown className="flavor_disabled">{squadType.description}</Markdown>
-          </div>
+          <em>{squadType.tagline}</em>
         </div>
       </div>
 
@@ -108,7 +99,7 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
 
         {activeTab === 'units' && (
           <>
-            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2">
+            <div className="grid gap-x-0 gap-y-1 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {squadType.unitTypes.map((unitType: UnitType) => (
                 <UnitCard
                   key={unitType.unitTypeId}
@@ -116,7 +107,6 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
                   unit={unitType.toPlain()}
                   isOwner={false}
                   allSpecials={allSpecials.map((spec) => spec.toPlain())}
-                  allMedals={[]}
                 />
               ))}
             </div>
@@ -158,7 +148,7 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
         {activeTab === 'squads' && hasSpotlights && (
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2">
             {squadType.spotlights.map((squad) => (
-              <SquadCard
+              <SquadSpotlightCard
                 key={squad.squadId}
                 squad={squad.toPlain()}
                 isOwner={false}
@@ -173,22 +163,20 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
           <div className="grid gap-6 p-2">
             <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
               <div className="space-y-3">
-                <h4 className="font-heading text-main">
-                  {squadType.squadTypeName}
-                </h4>
-                <Markdown>{squadType.lore}</Markdown>
+                <Markdown className="flavor">{squadType.lore}</Markdown>
+                <Markdown>{squadType.description}</Markdown>
               </div>
               <div className="space-y-3">
                 <Link href={`/factions/${squadType.factionId}`} className="inline-flex items-center gap-2">
                   <h4 className="font-heading text-main">{squadType.faction.factionName}</h4>
                   <FiExternalLink className="w-4 h-4 text-muted" />
-                </Link>
-                <Markdown>{squadType.faction.lore}</Markdown>
+                </Link><br/>
+                <em>{squadType.faction.tagline}</em>
                 
                 {squadType.faction.squadTypes?.filter(st => st.squadTypeId !== squadType.squadTypeId).length > 0 && (
                   <div className="space-y-3">
-                    <h5 className="font-heading text-main">Other {squadType.faction.factionName} Squad Types</h5>
-                    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                    <h5 className="font-heading text-main">Also in {squadType.faction.factionName}</h5>
+                    <div className="grid gap-4 grid-cols-1">
                       {squadType.faction.squadTypes
                         .filter(st => st.squadTypeId !== squadType.squadTypeId)
                         .map(st => (
@@ -202,11 +190,13 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
           </div>
         )}
 
+        {/*
         {activeTab === 'ops' && hasOps && (
           <div className="p-2">
             <ScriptedOperationsList operations={scriptedOps} factions={factionsPlain} />
           </div>
         )}
+        */}
       </div>
     </div>
   )

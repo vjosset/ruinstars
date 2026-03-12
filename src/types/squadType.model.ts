@@ -5,10 +5,12 @@ export type SquadTypePlain = {
   factionId: string
   seq: number
   squadTypeName: string
+  tagline: string
   description: string
   lore: string
   isPublished: boolean
   defaultSquadId?: string | null
+  eloRating?: number
   faction: FactionPlain
   unitTypes: UnitTypePlain[]
   defaultSquad?: SquadPlain | null
@@ -20,10 +22,12 @@ export class SquadType {
   factionId: string
   seq: number
   squadTypeName: string
+  tagline: string
   description: string
   lore: string
   isPublished: boolean
   defaultSquadId?: string | null
+  eloRating?: number
   faction: Faction
   unitTypes: UnitType[]
   defaultSquad?: Squad | null
@@ -34,10 +38,12 @@ export class SquadType {
     factionId: string
     seq: number
     squadTypeName: string
+    tagline: string
     description: string
     lore: string
     isPublished: boolean
     defaultSquadId?: string | null
+    eloRating?: number
     faction: Faction
     unitTypes: UnitType[]
     defaultSquad?: Squad | null
@@ -47,10 +53,12 @@ export class SquadType {
     this.factionId = data.factionId
     this.seq = data.seq
     this.squadTypeName = data.squadTypeName
+    this.tagline = data.tagline
     this.description = data.description
     this.lore = data.lore
     this.isPublished = data.isPublished
     this.defaultSquadId = data.defaultSquadId
+    this.eloRating = data.eloRating
     this.faction = data.faction instanceof Faction? data.faction : new Faction(data.faction)
     this.unitTypes = data.unitTypes?.map(unitType => unitType instanceof UnitType ? unitType : new UnitType(unitType))
     this.defaultSquad = data.defaultSquad ? (data.defaultSquad instanceof Squad? data.defaultSquad : new Squad(data.defaultSquad)) : null
@@ -63,10 +71,12 @@ export class SquadType {
       factionId: this.factionId,
       seq: this.seq,
       squadTypeName: this.squadTypeName,
+      tagline: this.tagline,
       description: this.description,
       lore: this.lore,
       isPublished: this.isPublished,
       defaultSquadId: this.defaultSquadId,
+      eloRating: this.eloRating,
       faction: this.faction.toPlain(),
       unitTypes: this.unitTypes?.map((unitType) => unitType.toPlain()),
       defaultSquad: this.defaultSquad?.toPlain() ?? null,

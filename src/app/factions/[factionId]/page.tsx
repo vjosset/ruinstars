@@ -36,8 +36,9 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
         <div className="flex items-center gap-x-3 mb-4 pt-12">
           <h1 className="text-main">{faction.factionName}</h1>
         </div>
+        <em>{faction.tagline}</em>
         <div className="text-foreground">
-          <Markdown className="flavor_disabled">{faction.lore}</Markdown>
+          <Markdown className="flavor">{faction.lore}</Markdown>
 
           {faction.squadTypes.map((squadType, index) => {
             const isEven = index % 2 === 1
@@ -50,6 +51,7 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
                 <h2 id={squadType.squadTypeId} className="font-heading text-main">
                   <Link href={`/squadTypes/${squadType.squadTypeId}`}>{squadType.squadTypeName}</Link>
                 </h2>
+                <em>{squadType.tagline}</em>
                 <div className={`flex flex-col md:flex-row ${isEven ? 'md:flex-row-reverse' : ''} items-start gap-4`}>
                   <Link href={`/squadTypes/${squadType.squadTypeId}`}
                     className="w-full md:w-1/2">
@@ -57,12 +59,14 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
                       src={`/img/squadTypes/${squadType.squadTypeId}.webp`}
                       alt={`${squadType.squadTypeName} Portrait`}
                       className="rounded-xl border border-main"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </Link>
                   <div className="w-full md:w-1/2">
                     <SquadTypeLink squadTypeId={squadType.squadTypeId} squadTypeName={squadType.squadTypeName} />
-                    <Markdown>{squadType.description}</Markdown>
                     <Markdown className="flavor">{squadType.lore}</Markdown>
+                    <Markdown>{squadType.description}</Markdown>
                   </div>
                 </div>
               </div>

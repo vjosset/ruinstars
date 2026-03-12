@@ -11,6 +11,7 @@ export type GearPlain = {
   GP: number
   TYP?: string
   ROA?: number
+  SKL?: number
   ATT?: number
   ACT?: number
   TO?: number
@@ -31,6 +32,7 @@ export class Gear {
   GP: number
   TYP?: string
   ROA?: number
+  SKL?: number
   ATT?: number
   ACT?: number
   TO?: number
@@ -50,6 +52,7 @@ export class Gear {
     GP: number,
     TYP?: string,
     ROA?: number,
+    SKL?: number,
     ATT?: number,
     ACT?: number,
     TO?: number,
@@ -68,6 +71,7 @@ export class Gear {
     this.GP = data.GP
     this.TYP = data.TYP
     this.ROA = data.ROA
+    this.SKL = data.SKL
     this.ATT = data.ATT
     this.ACT = data.ACT
     this.TO = data.TO
@@ -89,6 +93,7 @@ export class Gear {
       GP: this.GP,
       TYP: this.TYP,
       ROA: this.ROA,
+      SKL: this.SKL,
       ATT: this.ATT,
       ACT: this.ACT,
       TO: this.TO,

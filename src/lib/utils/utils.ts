@@ -101,8 +101,8 @@ export function calcGP(unit: UnitPlain | UnitTypePlain): string {
 
   unit.weapons?.forEach(wep => {
     wepGP +=
-      (wep.ATT ?? 0) + (wep.TYP == 'M' ? -1 : 0) +
-      (wep.special == '' ? 0 : 
+      (wep.ATT ?? 0) + (wep.TYP === 'M' ? -1 : 0) +
+      (wep.special === '' ? 0 : 
         ((wep.special ?? '').split(' ').length)
       )
   })

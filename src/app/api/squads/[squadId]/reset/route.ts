@@ -18,7 +18,17 @@ export async function POST(
     return new NextResponse('Forbidden', { status: 403 })
   }
   
-  const newSquad = await SquadService.resetSquad(squadId)
+  let resetMP = false, removeInjuries = false, removeSpoils = false
+  try {
+    const body = await req.json()
+    resetMP = !!body.resetMP
+    removeInjuries = !!body.removeInjuries
+    removeSpoils = !!body.removeSpoils
+  } catch {
+    // no body or invalid JSON — use defaults
+  }
+
+  const newSquad = await SquadService.resetSquad(squadId, { resetMP, removeInjuries, removeSpoils })
   if (!newSquad) {
     return new NextResponse('Failed to reset squad', { status: 500 })
   }

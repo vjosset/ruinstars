@@ -145,22 +145,6 @@ async function runSeed(seed: any) {
     }
   }
   
-  // Missions
-  if (seed.missions) {
-    console.log('  Seeding Missions...')
-    for (const mission of seed.missions) {
-      // Seed mission
-      const mis = JSON.parse(JSON.stringify(mission))
-      await prisma.mission.upsert({
-        where: { missionId: mis.missionId },
-        update: {},
-        create: {
-          ...mis
-        }
-      })
-    }
-  }
-
   // Finally, update special users' passwords so they can't log in
   prisma.user.updateMany(
     {

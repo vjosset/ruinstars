@@ -13,6 +13,7 @@ model User {
   userName  String   @unique @db.VarChar(250)
   password  String   @db.VarChar(250)
   createdAt DateTime @default(now())
+  eloRating Float    @default(1000)
 
   squads Squad[]
 }
@@ -21,6 +22,7 @@ model Faction {
   factionId   String      @id @db.VarChar(20)
   seq         Int         @default(0)
   factionName String      @db.VarChar(250)
+  tagline     String      @db.VarChar(500) @default("")
   description String      @db.Text
   lore        String      @db.Text
   squadTypes  SquadType[]
@@ -31,10 +33,12 @@ model SquadType {
   seq            Int     @default(0)
   squadTypeId    String  @id @db.VarChar(20)
   squadTypeName  String  @db.VarChar(250)
+  tagline        String  @db.VarChar(500) @default("")
   description    String  @db.Text
   lore           String  @db.Text
   isPublished    Boolean @default(false)
   defaultSquadId String? @unique @db.VarChar(20)
+  eloRating      Float   @default(1000)
 
   faction      Faction    @relation(fields: [factionId], references: [factionId])
   squads       Squad[]
@@ -101,6 +105,7 @@ model Squad {
   seq               Int       @default(0)
   squadName         String    @db.VarChar(250)
   description       String?   @db.Text
+  spawnTable        String?   @db.Text
   isSpotlight       Boolean   @default(false)
   hasCustomPortrait Boolean   @default(false)
   portraitUpdatedAt DateTime  @default(now())
@@ -156,6 +161,8 @@ model Special {
 }
 
 model Mission {
+  @@ignore
+
   missionId   Int    @id
   missionType String @db.VarChar(25)
   seq         Int
@@ -165,8 +172,6 @@ model Mission {
   deployment  String @db.Text
   special     String @db.Text
   victory     String @db.Text
-
-  missionResults MissionResult[]
 }
 
 model Medal {
@@ -202,21 +207,17 @@ model MissionResult {
   missionResultId Int      @id @default(autoincrement())
   squadAId        String   @db.VarChar(20)
   squadBId        String   @db.VarChar(20)
-  squadAScore     Int
-  squadBScore     Int
+  result          String   @db.VarChar(1) // "A" = Squad A won, "B" = Squad B won, "D" = Draw
   squadAConfirmed Boolean  @default(true)
   squadBConfirmed Boolean  @default(false)
   matchDate       DateTime @default(now())
-  eloBeforeA      Int
-  eloBeforeB      Int
-  eloAfterA       Int
-  eloAfterB       Int
-  missionId       Int
+  eloBeforeA      Float?
+  eloBeforeB      Float?
+  eloAfterA       Float?
+  eloAfterB       Float?
   squadA          Squad    @relation("SquadA", fields: [squadAId], references: [squadId], onDelete: Cascade)
   squadB          Squad    @relation("SquadB", fields: [squadBId], references: [squadId], onDelete: Cascade)
-  mission         Mission  @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
 
   @@index([squadAId], map: "MissionResult_squadAId_fkey")
   @@index([squadBId], map: "MissionResult_squadBId_fkey")
-  @@index([missionId], map: "MissionResult_missionId_fkey")
 }

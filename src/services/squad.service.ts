@@ -1,13 +1,11 @@
-//@ts-nocheck
 import { SquadRepository } from '@/src/repositories/squad.repository'
 import { Squad } from '@/types'
 import fs from 'fs/promises'
 import { generateId } from '@/lib/id'
 import path from 'path'
 import { GearService } from './gear.service'
-import { MedalService } from './medal.service'
+import { GearCategoryService } from './gearCategory.service'
 import { UnitService } from './unit.service'
-import { UserService } from './user.service'
 
 export class SquadService {
   private static repository = new SquadRepository()
@@ -25,7 +23,20 @@ export class SquadService {
     if (squad?.units && squad.units.length > 0) {
       await Promise.all(squad.units.map(async unit => {
         await GearService.loadUnitGear(unit)
-        await MedalService.loadUnitMedals(unit)
+        await UnitService.applyGearMods(unit)
+      }))
+    }
+    return squad
+  }
+
+  static async getRandomSpotlightSquad(excludeSquadId?: string): Promise<Squad | null> {
+    const raw = await this.repository.getRandomSpotlightSquad(excludeSquadId)
+    if (!raw) return null
+    const squad = new Squad(raw)
+
+    if (squad.units && squad.units.length > 0) {
+      await Promise.all(squad.units.map(async unit => {
+        await GearService.loadUnitGear(unit)
         await UnitService.applyGearMods(unit)
       }))
     }
@@ -43,7 +54,7 @@ export class SquadService {
     if (!raw) throw new Error('Failed to create squad')
   
     // Reorder/re-seq the user's squads
-    await UserService.fixSquadSeqs(data.userId)
+    await this.repository.fixSquadSeqs(data.userId)
 
     // Done -  Return latest version of the new squad
     return await this.getSquad(data.squadId)
@@ -81,7 +92,7 @@ export class SquadService {
       : null
 
     await this.repository.deleteSquad(squadId)
-    await UserService.fixSquadSeqs(squad.userId)
+    await this.repository.fixSquadSeqs(squad.userId)
 
     if (squadPortraitDir) {
       try {
@@ -110,27 +121,55 @@ export class SquadService {
     return await this.getSquad(squadId)
   }
 
-  static async resetSquad(squadId: string): Promise<Squad | null> {
+  static async resetSquad(
+    squadId: string,
+    options: { resetMP?: boolean; removeInjuries?: boolean; removeSpoils?: boolean } = {}
+  ): Promise<Squad | null> {
+    const { resetMP = false, removeInjuries = false, removeSpoils = false } = options
+
     const squad = await this.getSquad(squadId)
     if (!squad) throw new Error('Squad not found')
 
     // Reset squad trackers
     await this.repository.updateSquad(squadId, {
       turn: 1,
-      MP: 0,
-      TO: 0
+      TO: 0,
+      ...(resetMP ? { MP: 0 } : {}),
     })
 
     if (!squad.units || squad.units.length === 0) return squad
-    
-    // Reset all units' activation and currHIT
+
+    // Build sets of gearIds to remove based on gearCategoryId
+    const [injGearIds, sowGearIds] = await Promise.all([
+      removeInjuries
+        ? GearCategoryService.getGearCategory('INJ').then(cat => new Set(cat?.gears.map(g => g.gearId) ?? []))
+        : Promise.resolve(new Set<string>()),
+      removeSpoils
+        ? GearCategoryService.getGearCategory('SOW').then(cat => new Set(cat?.gears.map(g => g.gearId) ?? []))
+        : Promise.resolve(new Set<string>()),
+    ])
+
+    // Reset all units
     await Promise.all(squad.units.map(async unit => {
-      // If the Unit is Deceased (has GearID INJ-DC), don't reset its HIT
-      const newHIT = unit.gearIds?.includes('INJ-DC') ? 0 : unit.HIT
-      await UnitService.updateUnit(unit.unitId, { currHIT: newHIT, isActivated: false})
+      const updates: { currHIT?: number; isActivated?: boolean; gearIds?: string | null } = { isActivated: false }
+
+      // Filter out gear belonging to removed categories
+      let gearIds = unit.gearIds ?? null
+      if (removeInjuries || removeSpoils) {
+        const ids = gearIds ? gearIds.split(',').map(id => id.trim()).filter(Boolean) : []
+        const filtered = ids.filter(id => !injGearIds.has(id) && !sowGearIds.has(id))
+        gearIds = filtered.length > 0 ? filtered.join(',') : null
+        updates.gearIds = gearIds
+      }
+
+      // After gear removal, check if unit is still Deceased (INJ-DC present)
+      const isDeceased = gearIds ? gearIds.split(',').some(id => id.trim() === 'INJ-DC') : false
+      updates.currHIT = isDeceased ? 0 : (unit.HIT ?? unit.currHIT)
+
+      await UnitService.updateUnit(unit.unitId, updates)
     }))
 
-    // Return the update squad
+    // Return the updated squad
     return await this.getSquad(squadId)
   }
 

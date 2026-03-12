@@ -1,0 +1,11 @@
+import { GAME } from '@/lib/config/game_config'
+
+export default async function RulesHeader({ title }: {title?: string | null}) {
+  return (
+    <div className="relative pt-4 section">
+      <div className="mx-auto h-40 w-40 mb-4 center rounded-2xl glowbox">
+        <img className="mx-auto h-40 w-40 center" src="/icons/icon-big.png" loading="lazy" decoding="async" />
+      </div>
+      <h1 className="text-center">{title || GAME.NAME}</h1>
+    </div>
+  )}

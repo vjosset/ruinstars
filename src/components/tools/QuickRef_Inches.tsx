@@ -85,7 +85,7 @@ export default function QuickRef() {
           <tbody>
             <tr>
               <th className="px-1">Cover</th>
-              <td className="px-1">If the Target is in <a className="underline" href="#cover">cover</a>, the Target gets one automatic Armor Save (without having to roll it)</td>
+              <td className="px-1">If the Target is in <a className="underline" href="#cover">cover</a>, the Target may re-roll one Save die</td>
             </tr>
             <tr>
               <th className="px-1">High&nbsp;Ground</th>
@@ -193,7 +193,7 @@ export default function QuickRef() {
           <li>Remove all Deceased Units from your Squad</li>
           <li>Add 2 GP to your Squad's Max GP</li>
           <li>Add 2 GP for each Victory in the previous Operation</li>
-          <li>Remove all Injuries from all Units</li>
+          <li>Remove one Injury from remaining Units</li>
           <li>Make changes to your Squad's selected Gear</li>
           <li>Add Spoils Of War to eligible Units</li>
           <li>Recruit new Units into the Squad</li>

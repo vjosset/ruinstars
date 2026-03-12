@@ -1,195 +1,194 @@
-import ops from '@/data/scriptedOperations.json'
 import { GAME } from '@/lib/config/game_config'
-import RulesActions from './rules-actions'
-import RulesCampaigns from './rules-campaigns'
-import RulesCombat from './rules-combat'
-import RulesCoreMechanics from './rules-coremechanics'
-import RulesGameCycle from './rules-gamecycle'
-import RulesGlossary from './rules-glossary'
-import RulesHeader from './rules-header'
-import RulesIntro from './rules-intro'
-import RulesItems from './rules-items'
-import RulesMissions from './rules-missions'
-import RulesMovement from './rules-movement'
-import RulesSquadTypes from './rules-squadtypes'
-import RulesStatCards from './rules-statcards'
-import RulesToc from './rules-toc'
-import RulesYourSquad from './rules-yoursquad'
-
-import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
-import PageBreak from '@/components/ui/PageBreak'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import { FactionService } from '@/services'
 import Link from 'next/link'
-import { ScriptedOperation } from '../scriptedoperations/page'
-import RulesAI from './rules-ai'
-import RulesHorde from './rules-horde'
-import RulesIntroMission from './rules-intromission'
-import RulesOutro from './rules-outro'
-import RulesPlayingOnAGrid from './rules-playingonagrid'
-import RulesQuickRef from './rules-quickref'
-import RulesScriptedOperations from './rules-scriptedoperations'
+import { IconType } from 'react-icons'
+import { BsBox, BsHexagon, BsFilePdf, BsMap, BsPersonVcard, BsRulers } from 'react-icons/bs'
+import { FiDownload } from 'react-icons/fi'
+import { SiDiscord, SiGithub, SiItchdotio } from 'react-icons/si'
 
 export async function generateMetadata() {
   return generatePageMetadata({
     title: 'Rules',
-    description: `The complete rules for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
-    images: [{
-      url: '/icons/icon-big.png',
-    }],
+    description: `Get the complete rules for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
+    images: [{ url: '/icons/icon-big.png' }],
     keywords: ['free', 'rules', 'pdf'],
     pagePath: '/rules'
   })
 }
 
-export default async function Rules({ searchParams }: { searchParams?: Promise<{ print?: string }> }) {
-  const resolvedSearchParams = searchParams ? await searchParams : undefined
-  const operations = ops
-  const factions = await FactionService.getAllFactions()
-  const versionTimestamp = new Intl.DateTimeFormat('en-CA', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit'
-  }).format(new Date()).replaceAll('-', '')
-  const showPrintSections = resolvedSearchParams?.print === '1'
-  
+const RULE_BOOKS = [
+  { num: '01', title: 'Core Rules', desc: 'Everything you need to start playing.', href: '/assets/books/Core Rules - Ruinstars.pdf', icon: BsFilePdf, highlight: true },
+  { num: '02', title: 'Factions', desc: 'Choose a faction and build your squad.', href: '/assets/books/Factions - Ruinstars.pdf', icon: BsFilePdf },
+  { num: '03', title: 'PvE Missions', desc: 'Solo/co-op missions against NPC squads.', href: '/assets/books/PvE Missions - Ruinstars.pdf', icon: BsFilePdf },
+  { num: '04', title: 'PvP Missions', desc: 'Competitive missions for two players.', href: '/assets/books/PvP Missions - Ruinstars.pdf', icon: BsFilePdf },
+  { num: '05', title: 'Horde Mode', desc: 'Solo/coop survival mode.', href: '/assets/books/Horde Mode - Ruinstars.pdf', icon: BsFilePdf },
+]
+
+const QUICK_REFS: { title: string; href: string; icon: IconType }[] = [
+  { title: 'Core Rules Quick Ref', href: '/assets/books/Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
+  { title: 'PvE Missions Quick Ref', href: '/assets/books/PvE Missions - Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
+  { title: 'Horde Mode Quick Ref', href: '/assets/books/Horde Mode - Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
+]
+
+const TOOLS: { title: string; href: string; icon: IconType }[] = [
+  { title: 'Fillable Squad Sheet (US Letter PDF)', href: '/assets/tools/Ruinstars_SquadSheet.pdf', icon: BsPersonVcard },
+  { title: 'Tokens (US Letter PDF)', href: '/assets/tools/Tokens - Ruinstars.pdf', icon: BsHexagon },
+  { title: 'Tokens (A4 PDF)', href: '/assets/tools/Tokens - Ruinstars - A4.pdf', icon: BsHexagon },
+  //{ title: 'Tokens (STL)', href: '/assets/tools/Tokens - Ruinstars.stl', icon: BsBox },
+  { title: '6" Gauge (US Letter PDF)', href: '/assets/tools/Ruinstars_Gauge_Letter.pdf', icon: BsRulers },
+  { title: '6" Gauge (A4 PDF)', href: '/assets/tools/Ruinstars_Gauge_A4.pdf', icon: BsRulers },
+  { title: '6" Gauge (STL)', href: '/assets/tools/Ruinstars Gauge 6x1.stl', icon: BsBox },
+]
+
+const BATTLEFIELDS: { title: string; href: string; icon: IconType }[] = [
+  { title: 'The Ruined City (US Letter)', href: '/assets/battlefields/TheRuinedCity_Letter.pdf', icon: BsMap },
+  { title: 'The Ruined City (A4)', href: '/assets/battlefields/TheRuinedCity_A4.pdf', icon: BsMap },
+  { title: 'The Facility (US Letter)', href: '/assets/battlefields/TheFacility_Letter.pdf', icon: BsMap },
+  { title: 'The Facility (A4)', href: '/assets/battlefields/TheFacility_A4.pdf', icon: BsMap },
+]
+
+const COMMUNITY_LINKS: { label: string; desc: string; href: string; icon: IconType }[] = [
+  { label: 'Discord', desc: 'Come say hi!', href: 'https://discord.gg/Rh8vJzkCrT', icon: SiDiscord },
+  { label: 'itch.io', desc: 'Dev logs and discussions', href: 'https://ruinstars.itch.io/ruinstars', icon: SiItchdotio },
+  { label: 'GitHub', desc: 'Open source', href: 'https://github.com/vjosset/ruinstars', icon: SiGithub },
+]
+
+export default async function Rules() {
   return (
-    <>
-      {showPrintSections && (
-        <>
-          {/* Cover */}
-          <img src="/img/rules/BookCover_Framed.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} />
-          <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
-            <div className="text-white font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
-              Version {versionTimestamp}
+    <div className="max-w-full rules">
+      <div className="relative min-h-[200px] flex items-center justify-center mb-4"
+        style={{ backgroundImage: 'url(/img/rules/PrintableStuff.jpg)', backgroundPosition: 'top', backgroundSize: 'cover' }}>
+        <div 
+          className="absolute inset-0 bg-cover bg-top"
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
+        </div>
+        <div className="relative flex flex-col items-center justify-center px-8 pt-36 w-full">
+          <div className="flex items-center gap-x-4 mb-4">
+            <h2>Rules & Resources</h2>
+          </div>
+        </div>
+      </div>
+
+      <div className="px-3 max-w-7xl mx-auto">
+        <div className="twocols">
+          {/* Rule Books */}
+          <div className="mb-8 section">
+            <h5 className="text-main">Rule Books</h5>
+            <em className="text-muted">
+              The main rulebooks for the game
+            </em>
+            <div className="space-y-1 ml-2">
+              {RULE_BOOKS.map((book) => (
+                <Link
+                  key={book.num}
+                  href={book.href}
+                  target="_blank"
+                  className={`relative flex items-center gap-3 bg-card border rounded px-3 py-3 transition-colors group ${book.highlight ? 'border-main' : 'border-border hover:border-main'}`}
+                >
+                  <span className="font-stat text-sm w-6 shrink-0 text-center">{book.num}</span>
+                  <book.icon className="text-xl shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <div className="font-heading text-main uppercase">{book.title}</div>
+                    <div className="text-sm font-main normal-case">{book.desc}</div>
+                  </div>
+                  {book.highlight && (
+                    <span className="absolute top-0 right-8 bg-main text-black text-xs font-heading uppercase px-2 py-0.5 leading-tight">
+                      Start Here
+                    </span>
+                  )}
+                  <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
+                </Link>
+              ))}
             </div>
           </div>
-        </>
-      )}
 
-      <div className="rules px-3 max-w-7xl mx-auto">
-        <RulesHeader />
-
-        <div className="text-left text-muted mx-auto noprint mt-4">
-          Download the PDFs:
-          <ul className="columns-2 md:columns-4">
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Rules.pdf">Complete Rulebook</Link> (77 pages - Easy Print)</li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Rules_FullColor.pdf">Complete Rulebook</Link> (77 pages - Full Color)</li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_CoreRules.pdf">Core Rules</Link> (15 pages)</li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_FirstMission.pdf">First Mission</Link> (1 page)</li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_SquadSheet.pdf">Fillable Squad Sheet</Link> (2 pages)</li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Factions.pdf">Factions</Link> (21 pages)</li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_Missions.pdf">Missions</Link> (12 pages)</li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_ScriptedOperations.pdf">Scripted Operations</Link> (20 pages)</li>
-            <li><Link className="underline" target="_blank" href="/assets/Ruinstars_HordeMode.pdf">Horde Mode</Link> (8 pages)</li>
-          </ul>
-        </div>
-
-        <RulesToc />
-
-        <RulesIntro showTitle={true} num={1} showIntroIgnore={true} />
-
-        <RulesAI />
-
-        <RulesCoreMechanics num={2} />
-
-        <RulesGameCycle num={3} />
-
-        <RulesIntroMission num={4} />
-
-        <RulesStatCards num={5} />
-
-        <RulesActions num={6} />
-
-        <RulesMovement num={7} />
-
-        <RulesCombat num={8} />
-      
-        <RulesItems num={9} />
-
-        <RulesYourSquad num={10} />
-
-        <RulesMissions num={11} />
-
-        <RulesCampaigns num={12} />
-
-        <RulesScriptedOperations num={13} />
-
-        <RulesHorde num={14} />
-      
-        <RulesGlossary num={15} />
-      
-        <RulesPlayingOnAGrid num={16} />
-      
-        <RulesQuickRef num={17} />
-
-        {showPrintSections && (
-          <>
-            <div className="printonly">
-              <hr />
-
-              {/* Full SquadTypes for printed book */}
-              <RulesSquadTypes />
-              <hr />
-
-              {/* Full ScriptedOps for printed book */}
-              <h1 className="text-center pt-48 mb-10 font-title"   id="allscriptedoperations" style={{position: 'relative', top: '50%' }}>
-                Scripted Operations
-              </h1>
-              <div className="twocols">
-                <div className="mb-8 text-muted">
-                  <p className="mb-4">
-                    War rages across the stars. Squads clash in ruined cities, cursed temples, alien jungles, and forgotten fortresses.
-                    Yet not every battle is random. Some are part of carefully planned operations, chains of missions where each outcome shapes the next, where victory builds momentum, and defeat forces desperate gambits.
-                  </p>
-                  <p className="mb-4">
-                    This section collects a series of tailor-made mini-campaigns for Ruinstars, each designed around specific factions and their rivalries.<br/>
-                  </p>
-                  <p className="hidden">
-                    These operations offer:
-                  </p>
-                  <ul className="hidden">
-                    <li>Narrative arcs that tell a story through connected missions.</li>
-                    <li>Branching paths where success or failure leads to different challenges.</li>
-                    <li>Unique mechanics that go beyond simple control points: moving convoys, tug-of-war captives, collapsing strongpoints, dark rituals, and leader duels.</li>
-                    <li>Faction flavor that highlights the tactics, goals, and themes of each force.</li>
-                  </ul>
-                  <p className="mb-4">
-                    Whether you're playing a quick three-mission arc or stringing multiple operations into a larger campaign, these scenarios bring new life and variety to your battles.<br/>
-                    Use them as written, adapt them to your campaign, or draw inspiration to create your own.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-title text-main">From the Archives of the Warfront</h4>
-                  <div className="flavor mb-4">
-                    “Records tell us that history turns not on grand crusades, but on knife fights in forgotten ruins. A convoy lost. A leader enthralled. A shrine defiled.
-                    These are the sparks that ignite empires, the stains that never wash clean. Each squad is a thread in the weave of destiny, each skirmish a test of survival.
-                    Do not mistake these operations for small affairs; they are the crucibles where factions rise or die.”
-                    <br/><br/>
-                    - Fragment of intercepted broadcast, author unknown
-                  </div>
-                </div>
-              </div>
-              <ScriptedOperationsList operations={operations} factions={factions} />
-
-              <PageBreak />
-              <div className="printonly p-6">
-                {operations.sort((a, b) => a.title.localeCompare(b.title)).map((op, idx) => {
-                  const isLast = idx === operations.length - 1
-                  return (
-                    <div className="m-6 p-6" key={op.slug} style={{ pageBreakAfter: isLast ? 'auto' : 'always' }}>
-                      <ScriptedOperation op={op} factions={factions} />
-                    </div>
-                  )
-                })}
-              </div>
+          {/* Quick Reference */}
+          <div className="mb-8 section">
+            <h5 className="text-main">Quick Reference (1 Page)</h5>
+            <em className="text-muted">
+              One-page reference documents for the core rules and main play modes
+            </em>
+            <div className="border border-border rounded divide-y divide-border ml-2">
+              {QUICK_REFS.map((item) => (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
+                >
+                  <item.icon className="shrink-0" />
+                  <span className="flex-1 font-heading uppercase">{item.title}</span>
+                  <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
+                </Link>
+              ))}
             </div>
-          </>
-        )}
-        
-        <RulesOutro />
-      
+          </div>
+
+          {/* Tools */}
+          <div className="mb-8 section">
+            <h5 className="text-main">Tools</h5>
+            <em className="text-muted">
+              Gauges and Tokens
+            </em>
+            <div className="border border-border rounded divide-y divide-border ml-2">
+              {TOOLS.map((item) => (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
+                >
+                  <item.icon className="shrink-0" />
+                  <span className="flex-1 font-heading uppercase">{item.title}</span>
+                  <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Battlefields */}
+          <div className="mb-8 section" id="battlefields">
+            <h5 className="text-main">Battlefields</h5>
+            <em className="text-muted">
+              Print-at-home battlefields with grids
+            </em>
+            <div className="border border-border rounded divide-y divide-border ml-2">
+              {BATTLEFIELDS.map((item) => (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
+                >
+                  <item.icon className="shrink-0" />
+                  <span className="flex-1 font-heading uppercase">{item.title}</span>
+                  <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Community */}
+          <div className="mb-8 section">
+            <h5 className="text-main">Community</h5>
+            <div className="border border-border rounded divide-y divide-border ml-2">
+              {COMMUNITY_LINKS.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors"
+                >
+                  <link.icon className="shrink-0" />
+                  <span className="flex-1 font-heading uppercase">{link.label}</span>
+                  <span className="text-muted text-sm">{link.desc}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }

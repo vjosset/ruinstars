@@ -7,6 +7,7 @@ export type SquadPlain = {
   seq: number
   squadName: string
   description?: string
+  spawnTable?: string
   isSpotlight: boolean
   hasCustomPortrait: boolean
   portraitUpdatedAt?: Date
@@ -34,6 +35,7 @@ export class Squad {
   seq: number
   squadName: string
   description?: string
+  spawnTable?: string
   isSpotlight: boolean
   hasCustomPortrait: boolean
   portraitUpdatedAt?: Date
@@ -58,6 +60,7 @@ export class Squad {
     seq: number
     squadName: string
     description?: string
+    spawnTable?: string
     isSpotlight: boolean
     hasCustomPortrait: boolean
     portraitUpdatedAt?: Date
@@ -81,6 +84,7 @@ export class Squad {
     this.seq = data.seq
     this.squadName = data.squadName
     this.description = data.description
+    this.spawnTable = data.spawnTable
     this.isSpotlight = data.isSpotlight
     this.hasCustomPortrait = data.hasCustomPortrait
     this.portraitUpdatedAt = data.portraitUpdatedAt
@@ -121,6 +125,7 @@ export class Squad {
       seq: this.seq,
       squadName: this.squadName,
       description: this.description,
+      spawnTable: this.spawnTable,
       isSpotlight: this.isSpotlight,
       hasCustomPortrait: this.hasCustomPortrait,
       portraitUpdatedAt: this.portraitUpdatedAt,

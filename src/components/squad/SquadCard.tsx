@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react'
 import { FiMoreVertical } from 'react-icons/fi'
 import { SquadTypeLink, UserLink } from '../nav/Links'
 import { Button, Modal } from '../ui'
-import Markdown from '../ui/Markdown'
 import SquadCardMenu from './SquadCardMenu'
 
 type SquadCardProps = {
@@ -53,7 +52,7 @@ export default function SquadCard({
   
   return (
     <>
-      <div className="group grid grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] bg-card border border-border rounded hover:border-main transition h-[120px]" key={squad.squadId}>
+      <div className="group grid grid-cols-[130px_1fr] md:grid-cols-[130px_1fr] bg-card border border-border rounded hover:border-main transition h-[95px]" key={squad.squadId}>
         {/* Image section - left side */}
         <Link href={`/squads/${squad.squadId}`} className="relative overflow-hidden border-r border-border">
           <div 
@@ -68,7 +67,7 @@ export default function SquadCard({
         </Link>
 
         {/* Content section - right side */}
-        <div className="relative p-2 flex flex-col justify-between h-full min-w-0">
+        <div className="relative px-2 py-1 flex flex-col justify-between h-full min-w-0">
           <div className="flex items-center gap-1 min-w-0" style={{width: '100%'}}>
             <Link href={`/squads/${squad.squadId}`} className="flex items-center min-w-0 flex-1"> {/* Added min-w-0 to allow text truncation */}
               <h5 className="font-heading text-main truncate overflow-hidden whitespace-nowrap w-full"> {/* Add  truncate w-0 flex-1 to allow text truncation + ellipsis */}
@@ -97,22 +96,20 @@ export default function SquadCard({
             )}
           </div>
 
-          {squad.description && (
+          {/*squad.description && (
             <div className="text-sm text-muted line-clamp-2">
               <Markdown>{squad.description}</Markdown>
             </div>
-          )}
+          )*/}
+          <span className="font-medium whitespace-nowrap">{(squad.totalUnitGP ?? 0)} GP - {squad.unitCount ?? 0} Units</span>
           
-          <p className="text-sm flex items-baseline justify-between gap-2">
-            <span className="flex items-center gap-2 min-w-0">
-              {showSquadTypeLink && squad.squadType?.squadTypeName && (
-                <SquadTypeLink squadTypeId={squad.squadTypeId} squadTypeName={squad.squadType?.squadTypeName || 'Missing'} />
-              )}
-              {showUserLink && squad.user && (
-                <>By <UserLink userName={squad.user.userName || 'Missing'} /></>
-              )}
-            </span>
-            <span className="font-medium whitespace-nowrap">{(squad.totalUnitGP ?? 0)}GP/{squad.unitCount ?? 0}U</span>
+          <p className="text-sm flex flex-nowrap items-center gap-x-2 overflow-hidden min-w-0">
+            {showSquadTypeLink && squad.squadType?.squadTypeName && (
+              <SquadTypeLink squadTypeId={squad.squadTypeId} squadTypeName={squad.squadType?.squadTypeName || 'Missing'} />
+            )}
+            {showUserLink && squad.user && (
+              <span className="inline-flex items-center gap-1 min-w-0 flex-shrink">By <UserLink userName={squad.user.userName || 'Missing'} /></span>
+            )}
           </p>
         </div>
       </div>

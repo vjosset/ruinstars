@@ -41,6 +41,7 @@ export default [
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
       'indent': ['warn', 2],
+      'eqeqeq': ['error', 'always', { null: 'ignore' }],
       'prefer-const': 'warn',
       'no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'warn',

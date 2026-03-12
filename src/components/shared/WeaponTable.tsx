@@ -62,10 +62,10 @@ export default function WeaponTable({
                 )}
                 { ' ' }
                 {/*<img className="inline highlightblack" src={`/icons/white/weptype${gear.TYP}.png`} width="13" />*/}
-                { gear.TYP == 'M' ? (<RiSwordFill className="icon" />) : (<RiCrosshair2Fill className="icon" />) }
+                { gear.TYP === 'M' ? (<RiSwordFill className="icon" />) : (<RiCrosshair2Fill className="icon" />) }
                 { ' ' }
                 {gear.gearName}
-                {gear.special != '' &&
+                {gear.special !== '' &&
                   <span className="cursor-pointer text-xs hover:text-main text-muted hastip" onClick={() => {
                     const parsed = parseSpecialRules(allSpecials, 'W', gear.special ?? '')
                     showInfoModal({
@@ -74,8 +74,8 @@ export default function WeaponTable({
                         <div className="space-y-4">
                           {parsed.map((special, idx) => (
                             <div key={idx}>
-                              <span className="font-semibold text-muted">({special.code}) {special.specialName}:</span>
-                              <Markdown>{special.description}</Markdown>
+                              <strong className="text-muted">({special.code}) {special.specialName}:</strong>
+                              <Markdown className="ml-4">{special.description}</Markdown>
                             </div>
                           ))}
                         </div>
@@ -91,8 +91,8 @@ export default function WeaponTable({
                 }
               </td>
               {/* Using leading-none to remove extra space between table rows */}
-              <td className="text-center stat py-0.5"><h4 className="stat text-main leading-none">{gear.ATT ?? '-'}</h4></td>
-              <td className="text-center stat py-0.5"><h4 className="stat text-main leading-none">{gear.TYP === 'M' ? MSK : RSK}</h4></td>
+              <td className="text-center stat py-0.5"><h5 className="stat text-main leading-none">{gear.ATT ?? '-'}</h5></td>
+              <td className="text-center stat py-0.5"><h5 className="stat text-main leading-none">{gear.TYP === 'M' ? MSK : RSK}</h5></td>
             </tr>
           ))}
         </tbody>

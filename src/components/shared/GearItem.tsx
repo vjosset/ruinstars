@@ -25,22 +25,20 @@ export default function GearItem({ gear }: { gear: GearPlain }) {
   }
 
   return (
-    <>
-      <span
-        className="cursor-pointer text-foreground hover:text-main hastip px-2"
-        onClick={handleClick}
-      >
-        {gear.gearName}
-        {(gear.ACT ?? 0) > 0 && (
-          <span className="text-muted"> ({gear.ACT} ACT)</span>
-        )}
-        {(gear.TO ?? 0) > 0 && (
-          <span className="text-muted"> ({gear.TO} TO)</span>
-        )}
-        {gear.GP !== 0 && (
-          <sup className="text-xs text-muted">{gear.GP}GP</sup>
-        )}
-      </span>
-    </>
+    <span
+      className="cursor-pointer text-foreground hover:text-main hastip ml-2"
+      onClick={handleClick}
+    >
+      {gear.gearName}
+      {(gear.ACT ?? 0) > 0 && (
+        <span className="text-muted"> ({gear.ACT} ACT)</span>
+      )}
+      {(gear.TO ?? 0) > 0 && (
+        <span className="text-muted"> ({gear.TO} TO)</span>
+      )}
+      {gear.GP !== 0 && (
+        <sup className="text-xs text-muted">{gear.GP}GP</sup>
+      )}
+    </span>
   )
 }
