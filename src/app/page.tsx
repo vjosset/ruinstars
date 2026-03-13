@@ -12,7 +12,7 @@ import SquadSpotlightSection from '@/components/home/SquadSpotlightSection'
 export async function generateMetadata() {
   return generatePageMetadata({
     title: 'Home',
-    description: `${GAME.NAME} is a free sci-fi skirmish wargame. Build your squads, download the rules, and play campaigns in a grimdark galaxy of ruins and horrors.`,
+    description: `${GAME.NAME} is a free sci-fi skirmish wargame. Build your squads, download the rules, and play campaigns in a galaxy of ruins and horrors.`,
     images: [{
       url: '/img/hero01_wideB.webp',
     }],
