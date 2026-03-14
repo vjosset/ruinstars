@@ -165,7 +165,7 @@ export default function PvEMissionsQuickRef() {
               <TableRow roll="3" label="Destroy"       effect="Place 3 Objectives (ARM4 HIT3) on random Anchors. All Taken Out." />
               <TableRow roll="4" label="Protect"       effect="Asset (ARM4 HIT3) on a random Anchor. NPC priority target. Asset at ≥1 HIT at end of Turn 4." />
               <TableRow roll="5" label="Search"        effect="3 Search Objectives on random Anchors. Search (2ACT): 1st = found on 1; 2nd = found on 1-2; 3rd = found automatically. No TO re-rolls or modification." />
-              <TableRow roll="6" label="Recover"       effect="Retrieval Objective on a random Anchor. Carrier extracts successfull." last />
+              <TableRow roll="6" label="Recover"       effect="Retrieve Objective on a random Anchor. Pick Up (2ACT) to carry. Can be passed/dropped/picked up for 1ACT after. Carrier extracts successfully." last />
             </tbody>
           </table>
         </Card>

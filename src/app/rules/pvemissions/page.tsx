@@ -249,7 +249,7 @@ export default async function PvEMissions() {
                 <strong>Recover</strong>
                 <div className="ml-4">
                   <strong>Setup:</strong> Place a Retrieval Objective on a random Anchor.<br/>
-                  <strong>Mission Action - Pick Up (2ACT):</strong> A Unit that Controls the Retrieval Objective picks it up it.<br/>
+                  <strong>Mission Action - Pick Up (2ACT):</strong> A Unit that Controls the Retrieval Objective picks it up it. A Unit carrying the Objective may drop/pass it for 1ACT.<br/>
                   <strong>Victory:</strong> A Unit carrying the Retrieval Objective extracts successfully
                   {/* 
                   <strong>Rewards (pick one):</strong>
