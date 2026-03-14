@@ -246,9 +246,11 @@ export default async function PvEMissions() {
                 </div>
               </div>
               <div>
-                <strong>6: No Survivors</strong>
+                <strong>Recover</strong>
                 <div className="ml-4">
-                  <strong>Victory:</strong> All enemy Units Taken Out.
+                  <strong>Setup:</strong> Place a Retrieval Objective on a random Anchor.<br/>
+                  <strong>Mission Action - Pick Up (2ACT):</strong> A Unit that Controls the Retrieval Objective picks it up it.<br/>
+                  <strong>Victory:</strong> A Unit carrying the Retrieval Objective extracts successfully
                   {/* 
                   <strong>Rewards (pick one):</strong>
                   <ul>
@@ -436,9 +438,12 @@ export default async function PvEMissions() {
                 Units that fail to meet both conditions are left behind: treat each as if it was Taken Out during the mission (apply Injuries in Campaign play).<br/>
                 <h4>Mission End</h4>
                 The mission ends when the Player Squad extracts or when all Player Units have been Taken Out.<br/>
-                Upon extraction, any Objectives whose victory conditions were met are considered completed and score 3 MP each.
-                If no Player Units extract, no Objectives are considered completed regardless of their state.<br/>
-                Player Squad also scores 2MP per Threat Level, regardless of completed objectives or extraction.<br/>
+                Mission Scoring:
+                <ul>
+                  <li><strong>2 MP</strong> per TL</li>
+                  <li><strong>2 MP</strong> per TL if all enemy Units Taken Out</li>
+                  <li><strong>2 MP</strong> per completed objective if the Squad extracted</li>
+                </ul>
                 In Campaign play, MP can be spent on Rewards (see <strong>Campaigns</strong> below) for the Squad.
               </div>
             </div>
@@ -508,15 +513,15 @@ export default async function PvEMissions() {
                 </div>
                 <div className="section">
                   <h6>Protect</h6>
-                  The asset is whatever your squad cannot afford to lose. A wounded officer. A piece of salvage worth more than the mission. A civilian who knows something. The enemy will go for it. Your job is to make sure they fail.
+                  The asset is whatever your squad cannot afford to lose. A critical systems console. A civilian who knows something. The enemy will go for it. Your job is to make sure they fail.
                 </div>
                 <div className="section">
                   <h6>Search</h6>
                   Something is here. You don't know where. It could be intelligence, a weapon, a body, a signal source. You search until you find it. Campaigns can replace the die roll with a guaranteed find on each marker if the mission calls for certainty over tension.
                 </div>
                 <div className="section">
-                  <h6>No Survivors</h6>
-                  No markers. No positions. No extraction until the last one drops. Sometimes the mission is that simple, and that hard.
+                  <h6>Recover</h6>
+                  
                 </div>
                
                 <h4>Enemy Faction and Threat Level</h4>

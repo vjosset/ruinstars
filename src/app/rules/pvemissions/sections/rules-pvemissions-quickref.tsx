@@ -165,7 +165,7 @@ export default function PvEMissionsQuickRef() {
               <TableRow roll="3" label="Destroy"       effect="Place 3 Objectives (ARM4 HIT3) on random Anchors. All Taken Out." />
               <TableRow roll="4" label="Protect"       effect="Asset (ARM4 HIT3) on a random Anchor. NPC priority target. Asset at ≥1 HIT at end of Turn 4." />
               <TableRow roll="5" label="Search"        effect="3 Search Objectives on random Anchors. Search (2ACT): 1st = found on 1; 2nd = found on 1-2; 3rd = found automatically. No TO re-rolls or modification." />
-              <TableRow roll="6" label="No Survivors"  effect="All enemy Units Taken Out." last />
+              <TableRow roll="6" label="Recover"       effect="Retrieval Objective on a random Anchor. Carrier extracts successfull." last />
             </tbody>
           </table>
         </Card>
@@ -258,8 +258,9 @@ export default function PvEMissionsQuickRef() {
           <Divider />
           <SubLabel>Mission Points</SubLabel>
           <div className="text-xs space-y-0.5">
-            <div><Br>+1 MP</Br> <span className="text-muted">per Threat Level — always scored</span></div>
-            <div><Br>+3 MP</Br> <span className="text-muted">per completed Objective — only if Squad extracts</span></div>
+            <div><Br>+2 MP</Br> <span className="text-muted">per Threat Level</span></div>
+            <div><Br>+2 MP</Br> <span className="text-muted">per Threat Level if all NPC Units Taken Out</span></div>
+            <div><Br>+2 MP</Br> <span className="text-muted">per completed Objective if Squad extracts</span></div>
           </div>
         </Card>
 
