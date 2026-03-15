@@ -440,9 +440,9 @@ export default async function PvEMissions() {
                 The mission ends when the Player Squad extracts or when all Player Units have been Taken Out.<br/>
                 Mission Scoring:
                 <ul>
-                  <li><strong>2 MP</strong> per TL</li>
-                  <li><strong>2 MP</strong> per TL if all enemy Units Taken Out</li>
-                  <li><strong>2 MP</strong> per completed objective if the Squad extracted</li>
+                  <li><strong>1 MP</strong> per TL</li>
+                  <li><strong>1 MP</strong> per TL if all enemy Units Taken Out</li>
+                  <li><strong>1 MP</strong> per TL for each completed objective if the Squad extracted</li>
                 </ul>
                 In Campaign play, MP can be spent on Rewards (see <strong>Campaigns</strong> below) for the Squad.
               </div>
@@ -565,7 +565,7 @@ export default async function PvEMissions() {
               <div className="section">
                 <h3>Spoils Of War</h3>
                 When the Squad returns to Homebase, it can purchase Spoils of War by spending MP earned during the previous Operation.
-                Each Spoil of War costs 8 MP and applies to one specific Player Unit.
+                Each Spoil of War costs 4 MP and applies to one specific Player Unit.
                 <ul>
                   {/* Spoils Of War List */}
                   {

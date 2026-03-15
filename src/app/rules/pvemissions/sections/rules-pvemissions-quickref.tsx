@@ -181,9 +181,9 @@ export default function PvEMissionsQuickRef() {
                 <TableRow roll="1" label="Standard Insertion" effect='Player: within 4" of SW, S, or SE Anchors. NPC: within 4" of NW, N, or NE Anchors (split evenly), in Cover/out of sight.' />
                 <TableRow roll="2" label="Hot Drop"           effect='Player: Adjacent to N, S, E, or W Anchors. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' />
                 <TableRow roll="3" label="Flanked"            effect='Player: within 4" of S Anchor. NPC: Adjacent to NW or NE Anchors (split evenly), in Cover/out of sight.' />
-                <TableRow roll="4" label="Deep Strike" effect='Player: within 4" of SE Anchor. NPC: within 4" of NW Anchor, in Cover/out of sight.' />
-                <TableRow roll="5" label="Overwatch"   effect='Player: Adjacent to SW, S, or SE Anchors. NPC: Adjacent to W, N, or E Anchors (split evenly), in Cover/out of sight.' />
-                <TableRow roll="6" label="Encircled"   effect='Player: within 4" of Center Anchor. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' last />
+                <TableRow roll="4" label="Deep Strike"        effect='Player: within 4" of SE Anchor. NPC: within 4" of NW Anchor, in Cover/out of sight.' />
+                <TableRow roll="5" label="Overwatch"          effect='Player: Adjacent to SW, S, or SE Anchors. NPC: Adjacent to W, N, or E Anchors (split evenly), in Cover/out of sight.' />
+                <TableRow roll="6" label="Encircled"          effect='Player: within 4" of Center Anchor. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' last />
               </tbody>
             </table>
           </div>
@@ -231,7 +231,7 @@ export default function PvEMissionsQuickRef() {
           </P>
           <SubLabel>Spoils of War</SubLabel>
           <P className="text-xs">
-            Purchased at Homebase. <Hi>8 MP</Hi> each, applies to one specific Unit.
+            Purchased at Homebase. <Hi>4 MP</Hi> each, applies to one specific Unit.
           </P>
         </Card>
 
@@ -258,9 +258,9 @@ export default function PvEMissionsQuickRef() {
           <Divider />
           <SubLabel>Mission Points</SubLabel>
           <div className="text-xs space-y-0.5">
-            <div><Br>+2 MP</Br> <span className="text-muted">per Threat Level</span></div>
-            <div><Br>+2 MP</Br> <span className="text-muted">per Threat Level if all NPC Units Taken Out</span></div>
-            <div><Br>+2 MP</Br> <span className="text-muted">per completed Objective if Squad extracts</span></div>
+            <div><Br>+1 MP</Br> <span className="text-muted">per TL</span></div>
+            <div><Br>+1 MP</Br> <span className="text-muted">per TL if all NPC Units Taken Out</span></div>
+            <div><Br>+1 MP</Br> <span className="text-muted">per TL for each completed Objective if Squad extracts</span></div>
           </div>
         </Card>
 
@@ -268,7 +268,7 @@ export default function PvEMissionsQuickRef() {
           <SH>NPC Squads &amp; Reinforcements</SH>
           <SubLabel>NPC Squad Setup</SubLabel>
           <P className="text-xs">
-            Select an enemy faction and <Hi>Threat Level (1–3)</Hi>. Roll <Hi>3D6</Hi> — each die resolved independently. Look up each result in the column for the current TL to identify spawned Units.
+            Select an enemy faction and <Hi>Threat Level (1-3)</Hi>. Roll <Hi>3D6</Hi> — each die resolved independently. Look up each result in the column for the current TL to identify spawned Units.
           </P>
           <P className="text-xs text-muted">
             In Campaign play, TL matches the Operation number: TL1 for Op 1, TL2 for Op 2, TL3 for Op 3. We recommend using the same faction for all Missions in an Operation.
