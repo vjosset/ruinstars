@@ -10,7 +10,7 @@ export function GameToken({ label = 'A1', subtitle, size = 200, colorMode = 'mai
   const diameter = 50.8
   const r = diameter / 2 // 25.4
   const ringWidth = 2
-  const ringR = r - ringWidth / 2 // ring centered 1mm from the edge → stroke spans 23.4–25.4mm
+  const ringR = r - ringWidth / 2 // ring centered 1mm from the edge → stroke spans 23.4-25.4mm
 
   const bgColor = colorMode === 'main' ? '#000' : '#c54c21'
   const fgColor = colorMode === 'main' ? '#c54c21' : '#000'

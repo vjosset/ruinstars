@@ -165,7 +165,7 @@ export default async function RulesQuickRef() {
             <SH>Dice &amp; Rolls</SH>
             <div className="flex gap-1 mb-2">
               <DiceBox value="1"   label="Critical"   valueClass="text-green-600" />
-              <DiceBox value="2–5" label="Normal"      valueClass="text-main" />
+              <DiceBox value="2-5" label="Normal"      valueClass="text-main" />
               <DiceBox value="6"   label="Always Fail" valueClass="text-red-600" />
             </div>
             <P><Br>Success:</Br> Roll equal to or lower than the target stat.</P>
@@ -173,7 +173,7 @@ export default async function RulesQuickRef() {
             <P><Br>Critical:</Br> A roll of <Hi>1</Hi> is a critical success with bonus effects.</P>
             <P><Br>Re-rolls:</Br> Each die may only be re-rolled once. Result is final.</P>
             <Divider />
-            <P><Br>D3:</Br> Roll D6 ÷ 2 rounding up. (1–2 = 1, 3–4 = 2, 5–6 = 3)</P>
+            <P><Br>D3:</Br> Roll D6 ÷ 2 rounding up. (1-2 = 1, 3-4 = 2, 5-6 = 3)</P>
           </Card>
 
           <Card>
@@ -220,14 +220,14 @@ export default async function RulesQuickRef() {
                 <ActionRow action="Pick Up / Drop"  act="1" effect="Adjacent marker/token" />
                 <ActionRow action="Give"            act="1" effect="Pass token to Adjacent squadmate" />
                 <ActionRow action="Open/Close Door" act="1" effect="Adjacent door" />
-                <ActionRow action="Mission Action"  act="–" effect="As defined in Mission Briefing" last />
+                <ActionRow action="Mission Action"  act="-" effect="As defined in Mission Briefing" last />
               </tbody>
             </table>
           </Card>
 
           <Card>
             <SH>Tactical Orders (TO)</SH>
-            <P className="mb-2">Roll TO dice each turn. Each <Hi>1–3</Hi> = 1 TO. Unused TO are lost end of turn.</P>
+            <P className="mb-2">Roll TO dice each turn. Each <Hi>1-3</Hi> = 1 TO. Unused TO are lost end of turn.</P>
             <table className="w-full border-collapse">
               <thead>
                 <tr><TH>Condition</TH><TH>Dice</TH></tr>
@@ -329,7 +329,7 @@ export default async function RulesQuickRef() {
           <Card>
             <SH>Squad Building</SH>
             <P><Br>Budget:</Br> 100 GP total (units + gear).</P>
-            <P><Br>Size:</Br> 4–10 Units.</P>
+            <P><Br>Size:</Br> 4-10 Units.</P>
             <P><Br>Leader:</Br> Exactly one per Squad.</P>
             <P><Br>Unique (*)</Br> Units and gear: max one per squad.</P>
             <Divider />
