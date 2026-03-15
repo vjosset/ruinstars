@@ -11,9 +11,20 @@
 
 .grid {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+}
+
+.tokenRow {
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 6px;
-  align-content: flex-start;
 }
 
 .token {
@@ -48,6 +59,10 @@
   }
 
   .grid {
+    gap: 4mm;
+  }
+
+  .tokenRow {
     gap: 2mm;
   }
 

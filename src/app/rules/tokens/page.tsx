@@ -88,13 +88,15 @@ export default function TokensPage() {
       </p>
       <div className={styles.grid}>
         {OBJECTIVES.map((o) => (
-          <div key={o.objectiveType} className="section text-center">
+          <div key={o.objectiveType} className={`section ${styles.category}`}>
             <h4>{o.objectiveType}</h4>
-            {o.tokens.map((t) => (
-              <div key={t.label} className={styles.token}>
-                <GameToken label={t.label} size={t.size} colorMode={t.colorMode} subtitle={t.subtitle} />
-              </div>
-            ))}
+            <div className={styles.tokenRow}>
+              {o.tokens.map((t) => (
+                <div key={t.label} className={styles.token}>
+                  <GameToken label={t.label} size={t.size} colorMode={t.colorMode} subtitle={t.subtitle} />
+                </div>
+              ))}
+            </div>
           </div>
         ))
         }
