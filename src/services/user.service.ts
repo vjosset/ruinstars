@@ -2,6 +2,7 @@ import { Squad, User } from '@/types'
 import { UserRepository } from '@/src/repositories/user.repository'
 import { SquadRepository } from '@/src/repositories/squad.repository'
 import { GearService } from './gear.service'
+import { UnitService } from './unit.service'
 
 export class UserService {
   private static repository = new UserRepository()
@@ -31,7 +32,13 @@ export class UserService {
     await Promise.all(
       squads.map(async squad => {
         if (!squad.units?.length) return
-        await Promise.all(squad.units.map(unit => GearService.loadUnitGear(unit)))
+        await Promise.all(squad.units.map(async unit => {
+          await GearService.loadUnitGear(unit)
+          const gears = unit.gears ?? []
+          unit.weapons = gears.filter(gear => gear.gearType === 'W')
+          unit.skills = gears.filter(gear => gear.gearType !== 'W')
+          UnitService.applyGearMods(unit)
+        }))
       })
     )
     return squads

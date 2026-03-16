@@ -33,6 +33,18 @@ export default async function PvEMissions() {
   const pveSquads = (pveUser?.squads ?? []).slice().sort((a, b) => (a.seq ?? 0) - (b.seq ?? 0))
   const allSpecials = await SpecialService.getAllSpecials()
 
+  // Remove SoWs, "Leader*", and "Brutal" skills from PvE units for clarity
+  pveSquads.forEach((squad) => {
+    squad.units?.forEach((unit) => {
+      unit.skills = unit.skills?.filter(
+        skill => skill.gearName !== 'Leader*' && skill.gearName !== 'Brutal' && skill.gearName !== 'Relentless (Melee)'
+      ) ?? null
+
+      unit.skills?.forEach((sk) => sk.GP = 0)
+      unit.weapons?.forEach((wep) => wep.GP = 0)
+    })
+  })
+
   return (
     <>
       {/* Cover */}

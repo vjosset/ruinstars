@@ -164,22 +164,22 @@ export default function UnitCard({
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-x-4 text-center">
-              <div className="text-md border-border border">
-                <span className="font-heading flex items-center justify-center gap-1 bg-black">
+              <div className="text-md">
+                <span className="font-heading flex items-center justify-center gap-1">
                   {/*<RiFlashlightFill className="text-xl" />*/}
                   ACT
                   <h4 className="stat text-main">{unit.ACT}</h4>
                 </span>
               </div>
-              <div className="text-md border-border border">
-                <span className="font-heading flex items-center justify-center gap-1 bg-black">
+              <div className="text-md">
+                <span className="font-heading flex items-center justify-center gap-1">
                   {/*<RiShieldFill className="text-lg" />*/}
                   ARM
                   <h4 className="stat text-main">{unit.ARM}</h4>
                 </span>
               </div>
-              <div className={`text-md border-border border ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
-                <span className="font-heading flex items-center justify-center gap-1 bg-black">
+              <div className={`text-md ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
+                <span className="font-heading flex items-center justify-center gap-1">
                   {/*<RiHeartFill className="text-xl" />*/}
                   HIT
                   <h4 className="stat text-main">{unit.isUnitType ? unit.HIT : unit.currHIT}</h4>
@@ -190,7 +190,7 @@ export default function UnitCard({
           </div>
         </div>
 
-        <div className="p-1">
+        <div className="p-1 border-t border-border">
           {/* Weapons */}
           {(unit.weapons?.length ?? 0) > 0 && unit.currHIT !== 0 && (
             <WeaponTable weapons={unit.weapons ?? []} MSK={unit.MSK ?? 0} RSK={unit.RSK ?? 0} allSpecials={allSpecials} />
