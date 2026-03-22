@@ -71,6 +71,7 @@ export class UnitRepository extends BaseRepository {
         ? new Squad({
           ...row.squad,
           description: row.squad.description ?? undefined,
+          notes: row.squad.notes ?? undefined,
           spawnTable: row.squad.spawnTable ?? undefined,
           portraitUpdatedAt: row.squad.portraitUpdatedAt ?? undefined,
           eloRating: row.squad.eloRating ?? undefined,
