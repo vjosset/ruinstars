@@ -14,6 +14,7 @@ const EditSquadForm = forwardRef(function EditSquadForm(
     squad,
     initialName,
     initialMaxGP,
+    initialNotes,
     squadId,
     hasCustomPortrait,
     onSave: onSubmit,
@@ -22,15 +23,17 @@ const EditSquadForm = forwardRef(function EditSquadForm(
     squad: SquadPlain,
     initialName: string
     initialMaxGP: number
+    initialNotes: string | undefined
     squadId: string
     hasCustomPortrait: boolean
-    onSave: (name: string, maxGP: number) => void
+    onSave: (name: string, maxGP: number, notes: string) => void
     onCancel: () => void
   },
   ref
 ) {
   const [name, setName] = useState(initialName)
   const [maxGP, setMaxGP] = useState(initialMaxGP.toString())
+  const [notes, setNotes] = useState(initialNotes ?? '')
 
   const [activeTab, setActiveTab] = useState<'details' | 'portrait'>('details')
 
@@ -43,7 +46,7 @@ const EditSquadForm = forwardRef(function EditSquadForm(
   useImperativeHandle(ref, () => ({
     handleSubmit: async () => {
       if (activeTab === 'details') {
-        onSubmit(name, parseInt(maxGP))
+        onSubmit(name, parseInt(maxGP), notes)
       } else if (activeTab === 'portrait') {
         await handlePortraitSave()
       }
@@ -144,6 +147,17 @@ const EditSquadForm = forwardRef(function EditSquadForm(
               autoCapitalize="words"
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter squad name"
+            />
+          </div>
+          <div className="grid grid-cols-[5rem_1fr] items-start gap-x-4 mt-2">
+            <Label htmlFor="squadNotes" className="whitespace-nowrap pt-2">Notes</Label>
+            <textarea
+              id="squadNotes"
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              placeholder="Mission notes, campaign log, strategies..."
+              rows={10}
+              className="w-full bg-card border border-border rounded px-1 py-2 text-sm text-white placeholder:text-muted focus:outline-none focus:border-main"
             />
           </div>
           <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4 hidden">

@@ -130,13 +130,14 @@ export default function SquadPageClient({
     }
   }
   
-  const updateSquadInfo = async (name: string, maxGP: number) => {
+  const updateSquadInfo = async (name: string, maxGP: number, notes: string) => {
     const res = await fetch(`/api/squads/${squad.squadId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         squadName: name,
-        maxGP: maxGP 
+        maxGP: maxGP,
+        notes: notes || null,
       }),
     })
 
@@ -510,12 +511,13 @@ export default function SquadPageClient({
                   ref={formRef} // Pass formRef to EditSquadForm
                   initialName={squad.squadName}
                   initialMaxGP={squad.maxGP}
+                  initialNotes={squad.notes}
                   hasCustomPortrait={squad.hasCustomPortrait}
                   onCancel={() => setShowEditSquadModal(false)}
                   squad={squad}
                   squadId={squad.squadId}
-                  onSave={(name, maxGP) => {
-                    updateSquadInfo(name, maxGP)
+                  onSave={(name, maxGP, notes) => {
+                    updateSquadInfo(name, maxGP, notes)
                     setShowEditSquadModal(false)
                   }}
                 />

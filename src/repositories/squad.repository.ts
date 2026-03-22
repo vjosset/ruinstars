@@ -171,6 +171,7 @@ export class SquadRepository extends BaseRepository {
       seq: row.seq ?? 0,
       squadName: row.squadName,
       description: row.description ?? undefined,
+      notes: row.notes ?? undefined,
       spawnTable: row.spawnTable ?? undefined,
       isSpotlight: row.isSpotlight ?? false,
       hasCustomPortrait: row.hasCustomPortrait ?? false,
@@ -240,6 +241,7 @@ export class SquadRepository extends BaseRepository {
     if (data.seq !== undefined) input.seq = data.seq
     if (data.squadName !== undefined) input.squadName = data.squadName
     if (data.description !== undefined) input.description = data.description ?? null
+    if (data.notes !== undefined) input.notes = data.notes ?? null
     if (data.spawnTable !== undefined) input.spawnTable = data.spawnTable ?? null
     if (data.isSpotlight !== undefined) input.isSpotlight = data.isSpotlight
     if (data.hasCustomPortrait !== undefined) input.hasCustomPortrait = data.hasCustomPortrait
