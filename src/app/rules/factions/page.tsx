@@ -7,9 +7,7 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title: 'Factions',
     description: `The complete factions list for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
-    images: [{
-      url: '/icons/icon-big.png',
-    }],
+    images: [{ url: '/icons/icon-big.png', width: 512, height: 512 }],
     keywords: ['free', 'rules', 'pdf'],
     pagePath: '/rules/books/factions'
   })

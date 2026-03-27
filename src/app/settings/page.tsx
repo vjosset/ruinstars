@@ -7,7 +7,7 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title: 'Settings',
     description: `Manage your ${GAME.NAME} account settings.`,
-    images: [{ url: '/icons/icon-big.png' }],
+    images: [{ url: '/icons/icon-big.png', width: 512, height: 512 }],
     keywords: ['settings', 'account'],
     pagePath: '/settings'
   })
