@@ -14,7 +14,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en">
       <head>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#b3441b" />
         <link rel="icon" href="/icons/icon-32.png" sizes="32x32" />
         <link rel="icon" href="/icons/icon-16.png" sizes="16x16" />

@@ -32,10 +32,10 @@ export async function generatePageMetadata({
   const canonicalUrl = baseUrl + pagePath
 
   // Default values
-  const pageTitle = title ? `${title} - ${GAME.NAME}` : GAME.NAME
+  const pageTitle = title ? `${title} - ${GAME.NAME}` : `${GAME.NAME} - | Free Sci-Fi Skirmish Wargame`
   
   // Remove markdown formatting from descriptions (e.g. squadType descriptions)
-  const pageDescription = removeMd(description ?? `${GAME.NAME} is a free fast-paced miniatures-agnostic sci-fi skirmish wargame set in a galaxy filled with dangers.`)
+  const pageDescription = removeMd(description ?? 'Free sci-fi skirmish wargame with solo and co-op PvE campaigns, PvP missions, and Horde Mode. Miniatures-agnostic, D6 only, 45-90 minutes. Download the rules and start playing today.')
 
   const normalizedImages = images.map((img) => ({
     url: img.url.startsWith('http') ? img.url : `${baseUrl}${img.url}`,

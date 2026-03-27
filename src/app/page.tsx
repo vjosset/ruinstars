@@ -11,8 +11,8 @@ import SquadSpotlightSection from '@/components/home/SquadSpotlightSection'
 
 export async function generateMetadata() {
   return generatePageMetadata({
-    title: 'Home',
-    description: `${GAME.NAME} is a free sci-fi skirmish wargame. Build your squads, download the rules, and play campaigns in a galaxy of ruins and horrors.`,
+    title: '',
+    description: 'Free sci-fi skirmish wargame with solo and co-op PvE campaigns, PvP missions and campaigns, and Horde Mode. Miniatures-agnostic, D6 only, 45-90 minutes. Download the rules and start playing today.',
     images: [{ url: '/img/hero01_wideB.webp', width: 1080, height: 506 }],
     keywords: ['home', 'squad builder', 'battle tracker'],
     pagePath: '/'
