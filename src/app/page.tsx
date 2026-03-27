@@ -1,5 +1,4 @@
 import FactionList from '@/components/faction/FactionList'
-import { Button } from '@/components/ui'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import news from '@/public/news.json'
@@ -54,11 +53,9 @@ export default async function Home() {
           </p>
           
           <div className="text-center max-w-lg mx-auto noprint mt-4">
-            <Button>
-              <Link href="/rules">
-                <h5>Download The Rules</h5>
-              </Link>
-            </Button>
+            <Link href="/rules" className="py-1 px-2 rounded text-md transition focus:outline-none inline-flex gap-2 items-center bg-main text-white hover:bg-main/90">
+              <h5>Download The Rules</h5>
+            </Link>
           </div>
           <br/><br/>
         </div>
