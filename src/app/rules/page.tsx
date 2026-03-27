@@ -59,7 +59,7 @@ export default async function Rules() {
   return (
     <div className="max-w-full rules">
       <div className="relative min-h-[200px] flex items-center justify-center mb-4"
-        style={{ backgroundImage: 'url(/img/rules/PrintableStuff.jpg)', backgroundPosition: 'top', backgroundSize: 'cover' }}>
+        style={{ backgroundImage: 'url(/img/rules/PrintableStuff.webp)', backgroundPosition: 'top', backgroundSize: 'cover' }}>
         <div 
           className="absolute inset-0 bg-cover bg-top"
         >
