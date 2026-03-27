@@ -10,7 +10,7 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title: 'Rules',
     description: `Get the complete rules for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
-    images: [{ url: '/icons/icon-big.png', width: 512, height: 512 }],
+    images: [{ url: '/img/hero01_wideB.webp', width: 1080, height: 506 }],
     keywords: ['free', 'rules', 'pdf'],
     pagePath: '/rules'
   })

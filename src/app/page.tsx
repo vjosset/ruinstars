@@ -13,9 +13,7 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title: 'Home',
     description: `${GAME.NAME} is a free sci-fi skirmish wargame. Build your squads, download the rules, and play campaigns in a galaxy of ruins and horrors.`,
-    images: [{
-      url: '/img/hero01_wideB.webp',
-    }],
+    images: [{ url: '/img/hero01_wideB.webp', width: 1080, height: 506 }],
     keywords: ['home', 'squad builder', 'battle tracker'],
     pagePath: '/'
   })
