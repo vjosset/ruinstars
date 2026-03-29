@@ -528,7 +528,7 @@ export default function SquadPageClient({
         </div>
       )}
 
-      {/* Carousel Modal — outside tab conditionals so it works from Gallery tab too */}
+      {/* Carousel Modal - outside tab conditionals so it works from Gallery tab too */}
       <CarouselModal
         items={carouselItems}
         initialIndex={carouselStartIndex}

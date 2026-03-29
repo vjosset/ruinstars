@@ -99,7 +99,7 @@ export default function BattlesTab({
     // Newly reported match goes into pending (awaiting opponent confirmation)
     // No UI change needed here since it's not confirmed yet
     setShowRecordModal(false)
-    toast.success(`Battle recorded — awaiting confirmation from ${match.squadB?.userName}`)
+    toast.success(`Battle recorded - awaiting confirmation from ${match.squadB?.userName}`)
   }
 
   const { W, L, D } = computeRecord(history, squadId)

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "seed": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/seed.ts prod",
-    "dev": "PORT=5000 next dev",
+    "dev": "PORT=5000 next dev --webpack",
     "build": "next build",
     "build-turbo": "next build --turbo",
     "start": "PORT=4000 next start",
@@ -20,6 +20,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
+    "gray-matter": "^4.0.3",
     "nanoid": "^5.1.5",
     "next": "latest",
     "next-auth": "^4.24.11",
@@ -28,7 +29,9 @@
     "react-dom": "latest",
     "react-icons": "^5.5.0",
     "react-markdown": "^10.1.0",
+    "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
+    "remark-html": "^16.0.1",
     "remove-markdown": "^0.6.2",
     "sonner": "^2.0.5"
   },

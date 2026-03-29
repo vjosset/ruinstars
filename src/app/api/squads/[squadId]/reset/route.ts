@@ -25,7 +25,7 @@ export async function POST(
     removeInjuries = !!body.removeInjuries
     removeSpoils = !!body.removeSpoils
   } catch {
-    // no body or invalid JSON — use defaults
+    // no body or invalid JSON - use defaults
   }
 
   const newSquad = await SquadService.resetSquad(squadId, { resetMP, removeInjuries, removeSpoils })

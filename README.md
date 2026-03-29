@@ -24,7 +24,7 @@ It is installable from your web browser as a [PWA - Progressive Web App](https:/
 
 ## Contributing
 
-Contributions are welcome — especially bug fixes, UI suggestions, and typo corrections.  
+Contributions are welcome - especially bug fixes, UI suggestions, and typo corrections.  
 All contributions become the property of the project owner and may be modified or incorporated at their discretion.
 
 To contribute:

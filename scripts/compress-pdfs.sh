@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Compresses staged PDFs under public/assets/ (recursively) using Ghostscript,
 # and replaces any dev.ruinstars.com links with ruinstars.com using qpdf.
-# Called by .git/hooks/pre-commit — do not run directly during a commit.
+# Called by .git/hooks/pre-commit - do not run directly during a commit.
 #
 # Usage: compress-pdfs.sh [--all]
 #   --all   Process all PDFs under public/assets/ (for manual runs)

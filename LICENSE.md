@@ -4,8 +4,8 @@
 
 This repository contains two distinct kinds of material:
 
-1. **Creative Content** — the game rules, lore, missions, artwork, text, and other non-code assets.
-2. **Software Code** — the Ruinstars companion site and application source code (including scripts, components, styles, and build configuration).
+1. **Creative Content** - the game rules, lore, missions, artwork, text, and other non-code assets.
+2. **Software Code** - the Ruinstars companion site and application source code (including scripts, components, styles, and build configuration).
 
 Each category is licensed separately, as described below.
 

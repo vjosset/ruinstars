@@ -1,3 +1,4 @@
+import { getAllSlugs } from '@/lib/posts'
 import { prisma } from '@/lib/prisma'
 import { NextResponse } from 'next/server'
 
@@ -17,8 +18,8 @@ export async function GET() {
     '/auth/signup',
     '/tools',
     '/assets/books/Core Rules - Ruinstars.pdf',
-    '/assets/books/PvE Missions - Ruinstars.pdf',
     '/assets/books/Factions - Ruinstars.pdf',
+    '/assets/books/PvE Missions - Ruinstars.pdf',
     '/assets/books/PvP Missions - Ruinstars.pdf',
     '/assets/books/Horde Mode - Ruinstars.pdf',
   ]
@@ -43,16 +44,23 @@ export async function GET() {
     select: { userName: true },
   })
 
+  // Fetch blog posts
+  const blogSlugs = getAllSlugs()
+
+  // Combine everything
   const dynamicUrls = [
     ...factions.map((faction: { factionId: string }) => `/factions/${faction.factionId}`),
     ...squadTypes.map((squadType: { squadTypeId: string }) => `/squadTypes/${squadType.squadTypeId}`),
+    ...blogSlugs.map(slug => `/blog/${slug}`),
     ...users.map((user: { userName: string }) => `/users/${user.userName}`),
     ...squads.map((squad: { squadId: string }) => `/squads/${squad.squadId}`),
+    '/blog',
   ]
 
   // Build full list of URLs
   const urls = [...staticUrls, ...dynamicUrls]
 
+  // Build the final output
   const body = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${urls

@@ -67,9 +67,9 @@ export class MatchResultRepository extends BaseRepository {
     const rows = await this.prisma.missionResult.findMany({
       where: {
         OR: [
-          // Matches submitted by this squad — show regardless of confirmation status
+          // Matches submitted by this squad - show regardless of confirmation status
           { squadAId: squadId },
-          // Matches where this squad is the opponent — only show once confirmed
+          // Matches where this squad is the opponent - only show once confirmed
           { squadBId: squadId, squadBConfirmed: true },
         ],
       },

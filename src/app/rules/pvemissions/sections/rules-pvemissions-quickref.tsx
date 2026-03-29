@@ -245,7 +245,7 @@ export default function PvEMissionsQuickRef() {
             At the end of Turn 4 or later, each <Hi>Standing Unit</Hi> within 3" of the Extraction Point and <Hi>not Adjacent to an enemy</Hi> extracts successfully.
           </P>
           <P className="text-xs text-muted">
-            Units that fail both conditions are left behind — treat as Taken Out for injury purposes.
+            Units that fail both conditions are left behind - treat as Taken Out for injury purposes.
           </P>
           <Divider />
           <SubLabel>Mission End</SubLabel>
@@ -268,7 +268,7 @@ export default function PvEMissionsQuickRef() {
           <SH>NPC Squads &amp; Reinforcements</SH>
           <SubLabel>NPC Squad Setup</SubLabel>
           <P className="text-xs">
-            Select an enemy faction and <Hi>Threat Level (1-3)</Hi>. Roll <Hi>3D6</Hi> — each die resolved independently. Look up each result in the column for the current TL to identify spawned Units.
+            Select an enemy faction and <Hi>Threat Level (1-3)</Hi>. Roll <Hi>3D6</Hi> - each die resolved independently. Look up each result in the column for the current TL to identify spawned Units.
           </P>
           <P className="text-xs text-muted">
             In Campaign play, TL matches the Operation number: TL1 for Op 1, TL2 for Op 2, TL3 for Op 3. We recommend using the same faction for all Missions in an Operation.
