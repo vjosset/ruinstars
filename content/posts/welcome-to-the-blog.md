@@ -1,6 +1,6 @@
 ---
 title: "Welcome to the Ruinstars Blog"
-date: "2026-03-29 12:00"
+date: "2026-03-26 12:00"
 description: "Updates, design notes, and dispatches from a dying galaxy."
 tags: ["news", "meta"]
 coverImage: "/img/hero01_wideB.webp"

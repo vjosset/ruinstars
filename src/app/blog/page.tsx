@@ -16,11 +16,11 @@ export default function BlogIndexPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="font-title text-main text-4xl mb-2">Blog</h1>
+      <h3 className="font-title text-main mb-2">Ruinstars Blog</h3>
       <p className="text-muted mb-10">Updates, design notes, and dispatches from a dying galaxy.</p>
 
       {posts.map(post => (
-        <div key={post.slug} className="border-b border-border pb-4">
+        <div key={post.slug} className="mb-4">
           <Link href={`/blog/${post.slug}`} className="group block">
             {post.coverImage && (
               <img
@@ -51,6 +51,8 @@ export default function BlogIndexPage() {
               ))}
             </div>
           )}
+
+          <hr/>
         </div>
       ))}
     </div>

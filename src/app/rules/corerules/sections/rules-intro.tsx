@@ -14,7 +14,8 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
           <div className="section">
             <h3>The galaxy is in ruins</h3>
             <div className="flavor">
-              The stars are going out. The great empires are gone or gutted, their borders redrawn in ash. But the galaxy isn't empty. Factions still fight over what's left - and what's left is worth fighting over.
+              The stars are going out. The great empires are gone or gutted, their borders redrawn in ash.
+              The ruins are the prize now, and there is no shortage of takers.
               <br/><br/>
               The galaxy is dying. War lives on.
             </div>
