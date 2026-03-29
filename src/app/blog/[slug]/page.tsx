@@ -49,7 +49,7 @@ export default async function BlogPostPage({ params }: Props) {
       <h1 className="font-title text-main text-4xl">{post.title}</h1>
 
       <p className="text-sm text-muted">
-        {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+        {new Date(post.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
       </p>
 
       {post.tags.length > 0 && (

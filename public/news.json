@@ -1,6 +1,11 @@
 [
   {
-    "date": "2026-03-12",
+    "date": "2026-03-26 12:00",
+    "title": "Blog",
+    "description": "I added a [blog](/blog) to the site. This will be used to share game design notes, work in progress, crafting instructions, and battle reports."
+  },
+  {
+    "date": "2026-03-12 12:00",
     "title": "2nd Edition is LIVE!",
     "description": "The biggest update since launch is here! Measurements are now standard inches, PvE has its own dedicated book with procedurally generated missions and campaigns, and a lot of the table friction is gone.\n\n[Grab the new rules](/rules) and pick up where you left off."
   }

@@ -35,7 +35,7 @@ export default function BlogIndexPage() {
           </Link>
 
           <p className="text-sm text-muted mt-1 mb-2">
-            {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+            {new Date(post.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
           </p>
 
           {post.description && (
