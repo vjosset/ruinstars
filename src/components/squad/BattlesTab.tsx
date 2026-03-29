@@ -2,6 +2,7 @@
 
 import { SquadLink, UserLink } from '@/components/nav/Links'
 import { Button, Modal } from '@/components/ui'
+import { dateToDisplay } from '@/lib/utils/utils'
 import { MatchResultPlain } from '@/types'
 import { useEffect, useRef, useState } from 'react'
 import { FiRefreshCw } from 'react-icons/fi'
@@ -159,7 +160,7 @@ export default function BattlesTab({
             return (
               <div key={match.missionResultId} className="border border-border rounded p-3 space-y-2">
                 <p className="text-sm">{resultText}</p>
-                <p className="text-xs text-muted">{new Date(match.matchDate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</p>
+                <p className="text-xs text-muted">{dateToDisplay(match.matchDate)}</p>
                 <div className="flex gap-2">
                   <Button onClick={() => handleConfirm(match.missionResultId)}>
                     <h6>Confirm</h6>
@@ -196,7 +197,7 @@ export default function BattlesTab({
                       {!match.squadBConfirmed && <span className="text-zinc-500 italic">· Pending</span>}
                     </span>
                     <span className="text-xs text-muted text-right">
-                      <span className="block">{new Date(match.matchDate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
+                      <span className="block">{dateToDisplay(match.matchDate)}</span>
                       <span className="block">{new Date(match.matchDate).toLocaleTimeString()}</span>
                     </span>
                   </div>

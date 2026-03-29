@@ -1,9 +1,9 @@
 import FactionList from '@/components/faction/FactionList'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import news from '@/public/news.json'
-import NewsCard from '@/src/components/home/NewsCard'
+import { getAllPosts } from '@/lib/posts'
 import Link from 'next/link'
+import BlogCard from '@/components/nav/BlogCard'
 import RulesIntro from './rules/corerules/sections/rules-intro'
 import { SquadService } from '@/services/squad.service'
 import SquadSpotlightSection from '@/components/home/SquadSpotlightSection'
@@ -20,6 +20,7 @@ export async function generateMetadata() {
 
 export default async function Home() {
   const spotlight = await SquadService.getRandomSpotlightSquad()
+  const recentPosts = getAllPosts().slice(0, 3)
 
   return (
     <>
@@ -79,10 +80,10 @@ export default async function Home() {
       </div>
 
       {/* News */}
-      <div className="max-w-3xl mx-auto p-4 news">
+      <div className="max-w-3xl mx-auto p-4">
         <h3 className="text-main font-title mb-4">What's New</h3>
-        {news.slice(0, 3).map((item, idx) => (
-          <NewsCard key={idx} item={item} />
+        {recentPosts.map((post) => (
+          <BlogCard key={post.title} post={post} />
         ))}
       </div>
     </>

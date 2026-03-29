@@ -1,5 +1,5 @@
 ---
-title: "Custom Dice"
+title: "Crafting Custom Dice"
 date: "2026-03-29 12:00"
 description: "Trying different ways of making custom dice."
 tags: ["crafting", "dice"]
@@ -18,6 +18,8 @@ When designing dice, remember that opposite faces should add up to 7:
 - 2 - 5
 - 3 - 4
 
+---
+
 #### 3D Printing
 
 ![FDM Dice](/blog/images/diceFDM.jpg)
@@ -30,10 +32,11 @@ What I'm seeing is that the die face that is on the bottom seems to always be a 
 
 I did try orienting the die so that it was "pointing down" with supports, but I could not get a good print. I'll keep trying but I'm running out of ideas.
 
-![FDM Die with supports](/blog/images/diceFDMDiagPrep.jpg)
-![FDM Die with supports](/blog/images/diceFDMDiagSlice.jpg)
+![FDM Die with supports](/blog/images/diceFDMDiag.jpg)
 
 I think a resin printer with proper orientation and supports would likely give far better results than FDM, but that still doesn't solve the balance/fairness issue.
+
+---
 
 #### Stenciling
 
@@ -51,6 +54,8 @@ This worked _pretty_ well, although the tolerances on my prints and the variatio
 - Use spray primer to paint the numbers on the die faces
   - If you have an airbrush, that might work better and also be less wasteful
 - Wait for it to dry, then rotate the die blanks for the next face
+
+---
 
 #### Conclusion
 

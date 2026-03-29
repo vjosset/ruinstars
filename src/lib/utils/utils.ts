@@ -1,5 +1,9 @@
 import { GearPlain, SquadPlain, UnitPlain, UnitTypePlain } from '@/types'
 
+export function dateToDisplay(date: string | Date): string {
+  return new Date(date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+}
+
 export function toLocalIsoDate(date: Date): string {
   const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
   return local.toISOString().split('T')[0] // YYYY-MM-DD

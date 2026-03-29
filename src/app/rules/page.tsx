@@ -2,7 +2,7 @@ import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import Link from 'next/link'
 import { IconType } from 'react-icons'
-import { BsBox, BsHexagon, BsFilePdf, BsMap, BsPersonVcard, BsRulers } from 'react-icons/bs'
+import { BsBox, BsHexagon, BsFilePdf, BsMap, BsPersonVcard, BsRulers, BsPencil } from 'react-icons/bs'
 import { FiDownload, FiExternalLink } from 'react-icons/fi'
 import { SiDiscord, SiGithub, SiItchdotio } from 'react-icons/si'
 
@@ -48,6 +48,7 @@ const BATTLEFIELDS: { title: string; href: string; icon: IconType }[] = [
 ]
 
 const COMMUNITY_LINKS: { label: string; desc: string; href: string; icon: IconType }[] = [
+  { label: 'Blog', desc: 'Dev logs and updates', href: '/blog', icon: BsPencil },
   { label: 'Discord', desc: 'Come say hi!', href: 'https://discord.gg/Rh8vJzkCrT', icon: SiDiscord },
   { label: 'itch.io', desc: 'Dev logs and discussions', href: 'https://ruinstars.itch.io/ruinstars', icon: SiItchdotio },
   { label: 'BGG', desc: 'BoardgameGeek listing', href: 'https://boardgamegeek.com/boardgame/454226/ruinstars', icon: FiExternalLink },
