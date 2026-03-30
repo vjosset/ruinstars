@@ -271,6 +271,30 @@ hr {
 		drop-shadow(0px -1px 0 theme('colors.main.DEFAULT'));
 }
 
+/********/
+/* BLOG */
+/********/
+
+.blog-content p {
+	@apply py-2;
+}
+
+.blog-content a {
+	text-decoration: underline;
+}
+
+.blog-content blockquote {
+	/* Scratched screen background */
+	@apply relative text-sm text-muted leading-relaxed rounded-md p-3 my-2 overflow-hidden border border-border border-l-4 border-l-main;
+	font-family: monospace;
+
+	background-image: /*radial-gradient(ellipse at top left, rgba(255,255,255,0.02), transparent),
+										radial-gradient(ellipse at bottom right, rgba(255,255,255,0.01), transparent),*/
+										url('/img/ui/grunge-texture03-dark.webp');
+										/*url('/img/ui/mech02.webp');*/
+	background-size: cover;
+}
+
 /*********/
 /* RULES */
 /*********/

@@ -6,7 +6,7 @@ tags: ["game design", "solo play", "coop play"]
 coverImage: "/img/hero01_wideB.webp"
 ---
 
-I've been working on the design of the [PvE objectives](https://ruinstars.com/assets/books/PvE%20Missions%20-%20Ruinstars.pdf) in the missions for [Ruinstars](https://ruinstars.com).
+I've been working on the objectives in the [PvE missions](https://ruinstars.com/assets/books/PvE%20Missions%20-%20Ruinstars.pdf) for [Ruinstars](https://ruinstars.com).
 
 The mechanics are solid, but in a full PvE campaign of 9 missions (3 operations with 3 missions each), we run into repetitive objective sets. These are my notes on the research I'm doing to increase replayability, engagement, and fun for solo and coop play.
 
@@ -129,7 +129,7 @@ Objective archetypes and variations are our best bet. I will be working on updat
 
 #### Custom Campaigns
 
-I've been working on the first custom narrative campaign, intended for Hegemony Squads. Here's a little teaser:
+I've been working on the first custom narrative campaign, intended for [Hegemony](https://ruinstars.com/factions/HEG) Squads. Here's a little teaser:
 
 > ### The Last Signal
 >
