@@ -17,6 +17,7 @@ export async function GET() {
     '/auth/login',
     '/auth/signup',
     '/tools',
+    '/blog',
     '/assets/books/Core Rules - Ruinstars.pdf',
     '/assets/books/Factions - Ruinstars.pdf',
     '/assets/books/PvE Missions - Ruinstars.pdf',
@@ -54,7 +55,6 @@ export async function GET() {
     ...blogSlugs.map(slug => `/blog/${slug}`),
     ...users.map((user: { userName: string }) => `/users/${user.userName}`),
     ...squads.map((squad: { squadId: string }) => `/squads/${squad.squadId}`),
-    '/blog',
   ]
 
   // Build full list of URLs
