@@ -123,9 +123,6 @@ export default function PvEMissionsQuickRef() {
                 At start of Turn 4, roll a random Anchor as the <Hi>Extraction Point</Hi>.
                 At end of Turn 4+, Standing Units within 3" of it and not Adjacent to enemies may <Hi>Extract</Hi>. Units that fail both conditions count as Taken Out.
               </P>
-              <div className="text-xs text-muted ml-2">
-                <Br>+2 MP</Br> per Threat Level (always) &nbsp;·&nbsp; <Br>+3 MP</Br> per completed Objective
-              </div>
             </div>
           </div>
         </Card>
@@ -151,23 +148,52 @@ export default function PvEMissionsQuickRef() {
           </P>
         </Card>
 
-        {/* ── Row 2: Objectives | Modifiers | Battlefields ──────────────────── */}
+        {/* ── Row 2: Objectives (full width, 3 cols) ────────────────────────── */}
 
-        <Card>
-          <SH>Objectives (2D6)</SH>
+        <Card className="col-span-3">
+          <SH>Objectives</SH>
           <p className="text-xs text-muted mb-1">
-            Roll 2D6 at Mission start; re-roll doubles. Complete both for full MP.
+            For each objective: roll 1D6 for <Hi>Archetype</Hi>, then 1D6 for <Hi>Variation</Hi>. Both objectives must have different Archetypes — re-roll if they match.
           </p>
-          <table className="w-full border-collapse">
-            <tbody>
-              <TableRow roll="1" label="Control"       effect="Place 3 Objectives on random Anchors. All Controlled at end of 2 consecutive Turns." />
-              <TableRow roll="2" label="Activate"      effect="3 Objectives on random Anchors. Activate (2ACT): Remove Objective. All 3 activated." />
-              <TableRow roll="3" label="Destroy"       effect="Place 3 Objectives (ARM4 HIT3) on random Anchors. All Taken Out." />
-              <TableRow roll="4" label="Protect"       effect="Asset (ARM4 HIT3) on a random Anchor. NPC priority target. Asset at ≥1 HIT at end of Turn 4." />
-              <TableRow roll="5" label="Search"        effect="3 Search Objectives on random Anchors. Search (2ACT): 1st = found on 1; 2nd = found on 1-2; 3rd = found automatically. No TO re-rolls or modification." />
-              <TableRow roll="6" label="Recover"       effect="Retrieve Objective on a random Anchor. Pick Up (2ACT) to carry. Can be passed/dropped/picked up for 1ACT after. Carrier extracts successfully." last />
-            </tbody>
-          </table>
+          <p className="text-xs mb-1.5">
+            <Br>Archetype (D6):</Br> <span className="text-muted">1-2 Control · 3-4 Activate · 5-6 Destroy</span>
+          </p>
+          <Divider />
+          <div className="grid grid-cols-3 gap-4 mt-1.5">
+            <div>
+              <SubLabel>Control — Variation (D6)</SubLabel>
+              <P className="text-xs text-muted">Setup: 3 Objectives on random Anchors.</P>
+              <table className="w-full border-collapse">
+                <tbody>
+                  <TableRow roll="1-2" label="All Three, Any Turn"  effect="Control all three Objectives at the end of any one Turn." />
+                  <TableRow roll="3-4" label="Two Objectives, Two Turns"        effect="Control two or more Objectives at the end of two consecutive Turns." />
+                  <TableRow roll="5-6" label="One Objective, Three Turns"      effect="Control one or more Objective at the end of three consecutive Turns. Remove controlled Objectives at end of each Turn." last />
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <SubLabel>Activate — Variation (D6)</SubLabel>
+              <P className="text-xs text-muted">Activate (2ACT): Unit Controls an Objective to activate it. Remove from battlefield.</P>
+              <table className="w-full border-collapse">
+                <tbody>
+                  <TableRow roll="1-2" label="Any Order"  effect="Place all 3 at mission start. Activate all three in any order." />
+                  <TableRow roll="3-4" label="In Order"   effect="Place only the first Objective at mission start. Each activation places the next." />
+                  <TableRow roll="5-6" label="Search"     effect="Place 3 Search Objectives. On Activation roll 1D6: 1st = found on 1; 2nd = found on 1-2; 3rd = auto. No TO re-rolls. Finder carries item; can drop/pass for 1ACT. Carrier must extract to complete." last />
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <SubLabel>Destroy — Variation (D6)</SubLabel>
+              <P className="text-xs text-muted">Objectives on random Anchors. Can be targeted in combat.</P>
+              <table className="w-full border-collapse">
+                <tbody>
+                  <TableRow roll="1-2" label="All Three"    effect="Place 3 Objectives. ARM 4 HIT 3. Destroy all three." />
+                  <TableRow roll="3-4" label="One"          effect="Place 1 Objective. ARM 4 HIT 6. Destroy it." />
+                  <TableRow roll="5-6" label="Two of Three" effect="Place 3 Objectives. ARM 4 HIT 3. At end of each Turn, remaining Objectives regain 1 lost HIT. Destroy two of three. On each destroy, spawn one random NPC Unit (ignore quantities)." last />
+                </tbody>
+              </table>
+            </div>
+          </div>
         </Card>
 
         <Card>
@@ -201,39 +227,12 @@ export default function PvEMissionsQuickRef() {
               <TableRow roll="3" label="The Jungle - Miasmic Mist"            effect='Start of each Turn after the first: select a random Standing Unit from each Squad. That Unit moves 2" three times in random directions (no AoO). If blocked by a wall or obstacle, it takes 1 Melee Damage.' />
               <TableRow roll="4" label="The Alien Hive - Noxious Gas"         effect='Start of each Turn after the first: select a random Anchor. All Units within 4" take 1 Damage.' />
               <TableRow roll="5" label="The Cursed Temple - Haunting Spirits" effect="Start of each Turn after the first: select a random Unit from each Squad. That Unit immediately attacks the closest Unit in Combat, Squadmate or enemy." />
-              <TableRow roll="6" label="The Rift - Shifting Realities"        effect='Start of each Turn after the first: select one random Unit from each Squad. Swap their positions.' last />
+              <TableRow roll="6" label="The Rift - Shifting Realities"        effect='Start of each Turn after the first: select one random Anchor, then roll 1D6. 1-3: All units within 4" move 2" directly toward it (no AoO). 4-6: All units within 4" move 2" directly away from it (no AoO).' last />
             </tbody>
           </table>
         </Card>
 
-        {/* ── Row 3: Campaign Structure | Mission Scoring & End | NPC Squads & Reinforcements ── */}
-
-        <Card>
-          <SH>Campaign Structure</SH>
-          <P className="text-xs">3 Operations × 3 Missions. Return to Homebase after each Operation.</P>
-          <div className="text-xs space-y-0.5 mb-1.5">
-            <div><Br>Op 1</Br> <span className="text-muted">- TL1 · Missions 1.1 → 1.2 → 1.3 → Homebase</span></div>
-            <div><Br>Op 2</Br> <span className="text-muted">- TL2 · Missions 2.1 → 2.2 → 2.3 → Homebase</span></div>
-            <div><Br>Op 3</Br> <span className="text-muted">- TL3 · Missions 3.1 → 3.2 → 3.3 → Homebase</span></div>
-          </div>
-          <Divider />
-          <SubLabel>Homebase (End of Each Operation)</SubLabel>
-          <div className="text-xs space-y-0.5 mb-1.5">
-            <div>1. Remove all Deceased Units</div>
-            <div>2. Remove one Injury from remaining Units</div>
-            <div>3. Recruit new Units (max 100 GP total)</div>
-            <div>4. Update Gear &amp; Spoils of War selections</div>
-          </div>
-          <Divider />
-          <SubLabel>Injuries (Post-Mission, Per Taken Out Unit)</SubLabel>
-          <P className="text-xs">
-            Roll <Hi>1D6</Hi> per Taken Out Unit. If the rolled Injury is one the Unit already has → <Hi>Deceased</Hi>. Remove from Squad; cannot be replaced until Homebase.
-          </P>
-          <SubLabel>Spoils of War</SubLabel>
-          <P className="text-xs">
-            Purchased at Homebase. <Hi>4 MP</Hi> each, applies to one specific Unit.
-          </P>
-        </Card>
+        {/* ── Row 3: Mission Scoring & End | NPC Squads & Reinforcements ── */}
 
         <Card>
           <SH>Mission Scoring &amp; End</SH>
@@ -262,22 +261,6 @@ export default function PvEMissionsQuickRef() {
             <div><Br>+1 MP</Br> <span className="text-muted">per TL if all NPC Units Taken Out</span></div>
             <div><Br>+1 MP</Br> <span className="text-muted">per TL for each completed Objective if Squad extracts</span></div>
           </div>
-        </Card>
-
-        <Card>
-          <SH>NPC Squads &amp; Reinforcements</SH>
-          <SubLabel>NPC Squad Setup</SubLabel>
-          <P className="text-xs">
-            Select an enemy faction and <Hi>Threat Level (1-3)</Hi>. Roll <Hi>3D6</Hi> - each die resolved independently. Look up each result in the column for the current TL to identify spawned Units.
-          </P>
-          <P className="text-xs text-muted">
-            In Campaign play, TL matches the Operation number: TL1 for Op 1, TL2 for Op 2, TL3 for Op 3. We recommend using the same faction for all Missions in an Operation.
-          </P>
-          <Divider />
-          <SubLabel>Reinforcements (Turn 5+)</SubLabel>
-          <P className="text-xs">
-            At the start of each Turn from Turn 5 onward, before Battlefield effects, roll <Hi>1D6</Hi> and consult the Spawn Table for the current TL. Spawn the indicated Units Adjacent to a random Anchor, one Unit per Anchor.
-          </P>
         </Card>
 
       </div>

@@ -101,8 +101,7 @@ export default async function PvEMissions() {
             <div className="section twocols">
               <div className="section">
                 Before the first turn begins, follow the steps below to generate your mission.
-                Each mission is defined by
-                two random <strong>Objectives</strong> that determine victory conditions,
+                Each mission is defined by two random <strong>Objectives</strong> that determine victory conditions,
                 a <strong>Battlefield</strong> that alters mission conditions,
                 and a <strong>Deployment</strong> variant that determines where both squads begin.
                 <br/>
@@ -143,144 +142,129 @@ export default async function PvEMissions() {
             </div>
             {/* Objectives */}
             <div className="section">
-              <h3>Objectives (D6)</h3>
-              At the start of the Mission, roll <code>2D6</code> to determine two objectives for the mission (re-roll doubles).
-              <div>
-                <strong>1: Control</strong>
-                <div className="ml-4">
-                  <strong>Setup:</strong> Place an Objective on three random Anchors.<br/>
-                  <strong>Victory:</strong> At the end of any two consecutive Turns, Player Squad Controls all three Objectives.
-                  {/* 
-                  <strong>Rewards (pick one):</strong>
-                  <ul>
-                    <li>
-                      <strong>Forward Positioning</strong>
-                      In the next Mission, one Player Unit may perform a free Move Action immediately after deployment.
-                    </li>
-                    <li>
-                      <strong>Stabilized Zone</strong>
-                      In the next Mission, you may re-roll one Turn Event roll.
-                    </li>
-                  </ul>
-                  */}
-                </div>
-              </div>
-              <div>
-                <strong>2: Activate</strong>
-                <div className="ml-4">
-                  <strong>Setup:</strong> Place an Objective on 3 random Anchors.<br/>
-                  <strong>Mission Action - Activate (2ACT):</strong> A Unit that Controls an Objective activates it. Remove that Objective from the battlefield.<br/>
-                  <strong>Victory:</strong> All 3 Objectives have been activated.
-                  {/* 
-                  <strong>Rewards (pick one):</strong>
-                  <ul>
-                    <li>
-                      <strong>Orbital Survey</strong>
-                      In the next Mission, you may choose to ignore one Turn Event
-                    </li>
-                    <li>
-                      <strong>Signal Advantage</strong>
-                      In the next Mission, Player Squad gets +2 TO in the first Turn
-                    </li>
-                  </ul>
-                  */}
-                </div>
-              </div>
-              <div>
-                <strong>3: Destroy</strong>
-                <div className="ml-4">
-                  <strong>Setup:</strong> Place an Objective on 3 random Anchors.<br/>
-                  <strong>Special:</strong> Objectives are items with <code>ARM 4</code> and <code>HIT 3</code> and can be targeted in combat.<br/>
-                  <strong>Victory:</strong> All Objectives are Taken Out.
-                  {/* 
-                  <strong>Rewards (pick one):</strong>
-                  <ul>
-                    <li>
-                      <strong>Stabilized Zone</strong>
-                      In the next Mission, you may re-roll one Turn Event roll.
-                    </li>
-                    <li>
-                      <strong>Fragmented Defense</strong>
-                      In the next Mission, after deploying NPC Units, you may remove one NPC Unit from the battlefield.
-                    </li>
-                  </ul>
-                  */}
-                </div>
-              </div>
-              <div>
-                <strong>4: Protect</strong>
-                <div className="ml-4">
-                  <strong>Setup:</strong> Place an Asset marker on a random Anchor. Assets are Items with <code>ARM 4 HIT 3</code> and can be targeted in Combat.<br/>
-                  <strong>Special:</strong> NPC Units always prioritize targeting the Asset instead of Player Units.<br/>
-                  <strong>Victory:</strong> At the end of Turn 4, the Asset still has at least 1 <code>HIT</code>.
-                  {/* 
-                  <strong>Rewards (pick one):</strong>
-                  <ul>
-                    <li>
-                      <strong>Medic</strong>
-                      Remove one Injury from one Player Unit before the next Mission.
-                    </li>
-                    <li>
-                      <strong>Extraction Support</strong>
-                      In the next Mission, Player Squad may extract even if Adjacent to an enemy Unit
-                    </li>
-                  </ul>
-                  */}
-                </div>
-              </div>
-              <div>
-                <strong>5: Search</strong>
-                <div className="ml-4">
-                  <strong>Setup:</strong> Place a Search Objective on 3 random Anchors.<br/>
-                  <strong>Mission Action - Search (2ACT):</strong> A Unit that Controls a Search Objective searches it. Roll <code>1D6</code>:
-                  <ul>
-                    <li>First Search: Artifact is found on a roll of <code>1</code></li>
-                    <li>Second Search: Artifact is found on a roll of <code>1-2</code></li>
-                    <li>Third Search: Artifact is found automatically</li>
-                  </ul>
-                  This roll cannot be modified or re-rolled using TO.<br/>
-                  <strong>Victory:</strong> The Artifact is found.
-                  {/* 
-                  <strong>Rewards (pick one):</strong>
-                  <ul>
-                    <li>
-                      <strong>Strategic Forecast</strong>
-                      In the next Mission, you may choose to ignore the Mission Modifier
-                    </li>
-                    <li>
-                      <strong>Protection Aura</strong>
-                      In the next Mission, select one Anchor. No NPC Units may come within 3" of that Anchor.
-                    </li>
-                  </ul>
-                  */}
-                </div>
-              </div>
-              <div>
-                <strong>6: Recover</strong>
-                <div className="ml-4">
-                  <strong>Setup:</strong> Place a Retrieval Objective on a random Anchor.<br/>
-                  <strong>Mission Action - Pick Up (2ACT):</strong> A Unit that Controls the Retrieval Objective picks it up it. A Unit carrying the Objective may drop/pass it for 1ACT.<br/>
-                  <strong>Victory:</strong> A Unit carrying the Retrieval Objective extracts successfully
-                  {/* 
-                  <strong>Rewards (pick one):</strong>
-                  <ul>
-                    <li>
-                      <strong>Attrition</strong>
-                      In the next Mission, you may choose one NPC Spawn die to spawn 1 less Unit.
-                    </li>
-                    <li>
-                      <strong>Persistent Wound</strong>
-                      In the next Mission, choose two NPC Units to start with -1 HIT.
-                    </li>
-                  </ul>
-                  */}
-                </div>
-              </div>
-              <br/>
+              <h3>Objectives</h3>
+              For each of the two Mission Objectives, roll <code>1D6</code> to determine its <strong>Archetype</strong>, then roll <code>1D6</code> for its <strong>Variation</strong>.
+              The two Objectives must have different Archetypes: if the second Archetype matches the first, re-roll until it differs.
+              <br/><br/>
+              <table>
+                <thead>
+                  <tr>
+                    <th>1D6</th>
+                    <th>Archetype</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>1-2</code></td>
+                    <td>Control</td>
+                  </tr>
+                  <tr>
+                    <td><code>3-4</code></td>
+                    <td>Activate</td>
+                  </tr>
+                  <tr>
+                    <td><code>5-6</code></td>
+                    <td>Destroy</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h4>Variations</h4>
+
+              <h5>Control</h5>
+              <strong>Setup:</strong> Place three Objective markers on three random anchors
+              <table>
+                <thead>
+                  <tr>
+                    <th>1D6</th>
+                    <th>Variation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>1-2</code></td>
+                    <td><strong>Victory</strong> Control all three Objectives at the end of any one Turn.</td>
+                  </tr>
+                  <tr>
+                    <td><code>3-4</code></td>
+                    <td><strong>Victory</strong> Control two or more Objectives at the end of two consecutive Turns.</td>
+                  </tr>
+                  <tr>
+                    <td><code>5-6</code></td>
+                    <td><strong>Victory</strong> At the end of each Turn, remove one Objective you control. All three Objectives removed.</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <h5>Activate</h5>
+              <strong>Setup:</strong> Place three Objective markers on three random anchors<br/>
+              <strong>Special:</strong> Activate - Mission Action (2 ACT): Activate an Objective you control
+              <table>
+                <thead>
+                  <tr>
+                    <th>1D6</th>
+                    <th>Variation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>1-2</code></td>
+                    <td><strong>Victory</strong> Activate all three Objectives in any order. Place all three at mission start.</td>
+                  </tr>
+                  <tr>
+                    <td><code>3-4</code></td>
+                    <td><strong>Victory</strong> Activate all three Objectives in order. Only place the first Objective at mission start. Each time an Objective is activated, place the next one on a random Anchor.</td>
+                  </tr>
+                  <tr>
+                    <td><code>5-6</code></td>
+                    <td>
+                      <strong>Victory</strong> On Activation, roll <code>1D6</code>: First activation: The item is found on <code>1</code>. Second activation: The item is found on <code>1-2</code>. Third activation: The item is found automatically.
+                      This roll cannot be modified or re-rolled using TO. The Unit that finds the item now carries it (can be dropped or passed to a Squadmate for <code>1 ACT</code>).
+                      The carrying Unit must extract successfully to complete the Objective.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <h5>Destroy</h5>
+              <strong>Setup:</strong> Place three Objective markers on three random anchors
+              <table>
+                <thead>
+                  <tr>
+                    <th>1D6</th>
+                    <th>Variation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>1-2</code></td>
+                    <td>
+                      <strong>Setup</strong> Place three Objectives on three random Anchors. Objectives are items with <code>ARM 4 HIT 3</code>.<br/>
+                      <strong>Victory</strong> Destroy all three Objectives.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>3-4</code></td>
+                    <td>
+                      <strong>Setup</strong> Place one Objective on a random Anchor. Objective is an item with <code>ARM 4 HIT 6</code>.<br/>
+                      <strong>Victory</strong> Destroy the Objective.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>5-6</code></td>
+                    <td>
+                      <strong>Setup</strong> Place three Objectives on three random Anchors. Objectives are items with <code>ARM 4 HIT 3</code>.<br/>
+                      <strong>Special</strong> At the end of each Turn, remaining Objectives regain 1 lost <code>HIT</code>.<br/>
+                      <strong>Victory</strong> Destroy two of three Objectives. 
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
               These Objectives describe mechanics, not story. The names and markers are placeholders.
               When building a campaign, replace them with whatever fits the mission.<br/>
               "Activate Objectives" can mean picking up data cores, toppling ritual altars, or placing demolition charges.
-              "The Asset" becomes a defector, a relic, or a downed pilot.<br/>
+              A Search Objective might conceal a defector, a relic, or a downed pilot.<br/>
               The mechanics stay the same; the campaign tells the player what each objective means.
             </div>
             {/* Battlefields */}
@@ -324,8 +308,9 @@ export default async function PvEMissions() {
               <div>
                 <strong>6: The Rift - Shifting Realities</strong>
                 <div className="ml-4">
-                  At the start of each Turn after the first, select one random Standing Unit from each Squad. 
-                  Swap their positions.
+                  At the start of each Turn after the first, select one random Anchor, then roll <code>1D6</code>:<br/>
+                  - **1-3:** All Units within 4" of that Anchor immediately move 2" directly toward it. This does not trigger Attacks of Opportunity.
+                  - **4-6:** All Units within 4" of that Anchor immediately move 2" directly away from it. This does not trigger Attacks of Opportunity.
                 </div>
               </div>
             </div>
@@ -459,7 +444,6 @@ export default async function PvEMissions() {
             </div>
           </div>
 
-          <PageBreak />
           <div>
             <h2>Campaigns</h2>
             <div className="twocols">
@@ -507,7 +491,7 @@ export default async function PvEMissions() {
                 Once the third Mission of an Operation is complete, your Squad returns to Homebase to heal Injuries, make new Gear selections, and recruit new Units by spending their hard-earned MP.
 
                 <h4>Missions and Objectives</h4>
-                Each Mission in the campaign should move the story forward. In many cases, this means using the 6 Objectives from the table above, but re-skinning them to fit the narrative. Here are some examples of reframing the core Objectives to fit <em>your</em> story:
+                Each Mission in the campaign should move the story forward. In most cases, this means using the three Objective Archetypes and re-skinning them to fit the narrative. Here are some examples of reframing the core Objectives to fit <em>your</em> story:
 
                 <div className="section">
                   <h6>Control</h6>
@@ -515,23 +499,11 @@ export default async function PvEMissions() {
                 </div>
                 <div className="section">
                   <h6>Activate</h6>
-                  Think of these as things that must be done, not held. Purging corrupted data cores. Triggering demolition charges. Sealing breaches in a containment perimeter. The squad moves through, does the work, and leaves. The objective is complete when there is nothing left to do.
+                  Think of these as things that must be done, not held. Purging corrupted data cores. Triggering demolition charges. Sealing breaches in a containment perimeter. The squad moves through, does the work, and leaves. The Search variation works for anything that might be here, or might not: intelligence, a weapon, a body, a signal source. The squad finds it or doesn't.
                 </div>
                 <div className="section">
                   <h6>Destroy</h6>
-                  These are things that cannot be allowed to survive. Spawn nodes. Weapons caches. A relay broadcasting enemy coordinates. Whatever they are, they can take damage and they must be brought down. Unlike Activate Objectives, destroying them is a fight, not a procedure.
-                </div>
-                <div className="section">
-                  <h6>Protect</h6>
-                  The asset is whatever your squad cannot afford to lose. A critical systems console. A civilian who knows something. The enemy will go for it. Your job is to make sure they fail.
-                </div>
-                <div className="section">
-                  <h6>Search</h6>
-                  Something is here. You don't know where. It could be intelligence, a weapon, a body, a signal source. You search until you find it. Campaigns can replace the die roll with a guaranteed find on each marker if the mission calls for certainty over tension.
-                </div>
-                <div className="section">
-                  <h6>Recover</h6>
-                  
+                  These are things that cannot be allowed to survive. Spawn nodes. Weapons caches. A relay broadcasting enemy coordinates. Whatever they are, they can take damage and they must be brought down. The variation determines how many and how hard — and whether taking them out wakes something up.
                 </div>
                
                 <h4>Enemy Faction and Threat Level</h4>
