@@ -189,7 +189,7 @@ export default function PvEMissionsQuickRef() {
                 <tbody>
                   <TableRow roll="1-2" label="All Three"    effect="Place 3 Objectives. ARM 4 HIT 3. Destroy all three." />
                   <TableRow roll="3-4" label="One"          effect="Place 1 Objective. ARM 4 HIT 6. Destroy it." />
-                  <TableRow roll="5-6" label="Two of Three" effect="Place 3 Objectives. ARM 4 HIT 3. At end of each Turn, remaining Objectives regain 1 lost HIT. Destroy two of three. On each destroy, spawn one random NPC Unit (ignore quantities)." last />
+                  <TableRow roll="5-6" label="Two of Three" effect="Place 3 Objectives. ARM 4 HIT 3. At end of each Turn, remaining Objectives regain 1 lost HIT. Destroy two of three." last />
                 </tbody>
               </table>
             </div>
