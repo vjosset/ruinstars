@@ -7,6 +7,7 @@ export async function generateMetadata() {
     title: 'Blog',
     description: 'Updates, design notes, and dispatches from a dying galaxy.',
     keywords: ['blog', 'news', 'updates', 'design notes'],
+    images: [{ url: '/img/hero01_wideB.webp', width: 1080, height: 506 }],
     pagePath: '/blog',
   })
 }
