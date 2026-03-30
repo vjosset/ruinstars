@@ -6,7 +6,9 @@ tags: ["crafting", "dice"]
 coverImage: "/blog/images/customDice.jpg"
 ---
 
-I've been trying to make custom dice for the game. Ideally, colors that match the theme and big numbers in the game's stat font.
+I've been trying to make custom dice for [Ruinstars](https://ruinstars.com).
+The main idea is that dice pips are not as readable at-a-glance as big numbers, especially when rolling 4 or more dice.
+Ideally, colors that match the theme and big numbers in the game's stat font.
 
 I tried two different methods: STLs for the actual dice, and using stencils to paint dice blanks.
 
