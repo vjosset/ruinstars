@@ -77,7 +77,7 @@ Some games solve it with deep procedural generation (e.g. the excellent _Five Pa
 
 Other games (e.g. _Rangers of Shadow Deep_, also excellent) go the other direction: bespoke campaigns written by the designer, with fixed objectives and narrative context built in. The payoff is high, but so is the production cost, and it only works once per playthrough.
 
-Ruinstars needs something in between: more variety than a flat list of six objectives, less overhead than a five-table generation sequence.
+Ruinstars needs something in between: more variety than a flat list of six objectives, less overhead than a ten-step generation sequence.
 
 ---
 
