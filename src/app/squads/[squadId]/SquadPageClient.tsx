@@ -252,13 +252,13 @@ export default function SquadPageClient({
 
         {/* Foreground content */}
         <div className="relative z-10 flex flex-col items-center justify-end text-center h-full pt-28 md:pt-20 pb-6 px-4 print:pt-1 print:pb-1">
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-2 cursor-pointer">
             <PageTitle onClick={(isOwner && handleEditSquadClick) || null}>
               {squad.squadName}
             </PageTitle>
             {isOwner && (
               <sup 
-                className="text-sm flex items-center w-6 h-6 jutify-top cursor-pointer"
+                className="text-sm flex items-center w-6 h-6 jutify-top"
                 onClick={handleEditSquadClick}
                 aria-label="Edit squad info"
               >
