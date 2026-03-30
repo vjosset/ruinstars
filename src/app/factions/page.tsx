@@ -1,10 +1,16 @@
 import FactionList from '@/components/faction/FactionList'
 import PageTitle from '@/components/ui/PageTitle'
-import { GAME } from '@/lib/config/game_config'
+import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 
-export const metadata = {
-  title: `Factions - ${GAME.NAME}`,
-  description: `Browse all Factions and Squad Types in ${GAME.NAME} and choose your squad's allegiance.`,
+
+export async function generateMetadata() {
+  return generatePageMetadata({
+    title: 'Factions',
+    description: 'Browse all Factions and Squad Types in Ruinstars and choose your squad\'s allegiance.',
+    images: [],
+    keywords: ['factions', 'codex', 'units'],
+    pagePath: '/factions'
+  })
 }
 
 export default async function FactionsPage() {

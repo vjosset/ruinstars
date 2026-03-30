@@ -1,6 +1,5 @@
 import { GAME } from '@/lib/config/game_config'
 import { Metadata } from 'next'
-import { headers } from 'next/headers'
 import removeMd from 'remove-markdown'
 
 interface MetadataImage {
@@ -25,11 +24,9 @@ export async function generatePageMetadata({
   keywords = [],
   pagePath = '/'
 }: MetadataParams): Promise<Metadata> {
-  const headersList = headers()
-  const host = (await headersList).get('host')
-  const baseUrl = `https://${host}`
+  const baseUrl = `${GAME.ROOT_URL}`
 
-  const canonicalUrl = baseUrl + pagePath
+  const canonicalUrl = `${GAME.ROOT_URL}${pagePath}`
 
   // Default values
   const pageTitle = title ? `${title} - ${GAME.NAME}` : `${GAME.NAME} - Free Sci-Fi Skirmish Wargame`
@@ -51,6 +48,9 @@ export async function generatePageMetadata({
       'ruinstars',
       'killteam alternative', 
       'killteam free',
+      'campaign',
+      'pve',
+      'npc',
       ...keywords,  // Page-specific keywords,
       'skirmish game',
       'wargame',
@@ -73,7 +73,7 @@ export async function generatePageMetadata({
     openGraph: {
       title: pageTitle,
       description: pageDescription,
-      url: baseUrl,
+      url: canonicalUrl,
       siteName: GAME.NAME,
       images: normalizedImages,
       type: 'website',
