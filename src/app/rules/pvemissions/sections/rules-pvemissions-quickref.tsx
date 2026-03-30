@@ -161,7 +161,7 @@ export default function PvEMissionsQuickRef() {
           <Divider />
           <div className="grid grid-cols-3 gap-4 mt-1.5">
             <div>
-              <SubLabel>Control — Variation (D6)</SubLabel>
+              <SH>Control — Variations (D6)</SH>
               <P className="text-xs text-muted">Setup: 3 Objectives on random Anchors.</P>
               <table className="w-full border-collapse">
                 <tbody>
@@ -172,7 +172,7 @@ export default function PvEMissionsQuickRef() {
               </table>
             </div>
             <div>
-              <SubLabel>Activate — Variation (D6)</SubLabel>
+              <SH>Activate — Variations (D6)</SH>
               <P className="text-xs text-muted">Activate (2ACT): Unit Controls an Objective to activate it. Remove from battlefield.</P>
               <table className="w-full border-collapse">
                 <tbody>
@@ -183,7 +183,7 @@ export default function PvEMissionsQuickRef() {
               </table>
             </div>
             <div>
-              <SubLabel>Destroy — Variation (D6)</SubLabel>
+              <SH>Destroy — Variations (D6)</SH>
               <P className="text-xs text-muted">Objectives on random Anchors. Can be targeted in combat.</P>
               <table className="w-full border-collapse">
                 <tbody>
