@@ -115,7 +115,7 @@ I always wanted the PvE objective types to be mechanical, allowing players to in
 
 We can leave this up to the players who have a knack for it, or I could write custom campaigns per player faction.
 
-Custom campaigns have been on my to-do list since the inception of 2nd edition, but it's a lot of work. The advantage of a custom campaign is that the narrative is prebuilt and immersive, and the narrative context gives us the opportunity to reuse standard objectives with per-campaign variations, or even custom objectives.
+Custom campaigns have been on my to-do list since the inception of 2nd edition, but it's a lot of work. The advantage of a custom campaign is that the story is prebuilt and immersive, and the narrative context gives us the opportunity to reuse standard objectives with per-campaign variations, or even custom objectives.
 
 ---
 

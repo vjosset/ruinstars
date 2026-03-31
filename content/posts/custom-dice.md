@@ -61,7 +61,7 @@ This worked _pretty_ well, although the tolerances on my prints and the variatio
 
 #### Conclusion
 
-All in all, I like the stenciled blanks best. It's not too difficult, likely blanaced, the stencil and rig are reusable (and fast to re-print if needed), and dice blanks are cheap.
+All in all, I like the stenciled blanks best. It's not too difficult, likely balanced, the stencil and rig are reusable (and fast to re-print if needed), and dice blanks are cheap.
 
 #### Files and Links
 
