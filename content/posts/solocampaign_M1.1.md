@@ -8,9 +8,15 @@ coverImage: "/blog/images/solocampaign_M1.1.jpg"
 
 This is a solo campaign using my trusty Interdictors - The [Void Raptors](https://ruinstars.com/squads/cxsoxlFd).
 
-# Operation 1
+Full Campaign:
 
-## Mission 1.1
+- Operation 1
+  - [Mission 1.1](/blog/solocampaign_M1.1)
+  - [Mission 1.2](/blog/solocampaign_M1.2)
+
+---
+
+### Operation 1 - Mission 1.1
 
 _2026-03-30_
 
@@ -22,7 +28,7 @@ _2026-03-30_
 > - **Objective A:** Control var 3 (control 1 each turn)
 > - **Objective B:** Activate var 3 (search and carry)
 
-### Summary
+#### Summary
 
 - Search item was found T1 on second search attempt by Castius, who continued carrying it until extraction
 - Casualties:
@@ -31,7 +37,7 @@ _2026-03-30_
   - NPC Squad: Eliminated in T2
 - All objectives completed + No survivors &rarr; **4 MP**
 
-### Notes
+#### Notes
 
 - This was the first playtest with the [new archetype-based PvE Objectives](/blog/pve-objectives-missions), and I think it worked well, even with 6 markers on the battlefield.
 - Sentinels are OK offensive wise especially with `AUT 1`, but pretty weak on defense. NPC TPK on T2 feels too easy, but maybe that's fine on TL1
