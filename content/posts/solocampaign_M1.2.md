@@ -30,7 +30,8 @@ _2026-04-01_
 
 #### Summary
 
-- Search item was found T1 on second search attempt by Castius, who continued carrying it until extraction
+- Destroy objective completed T1
+- Control objective completed T3
 - Casualties:
   - Castius: Taken Out T1, received Crushed Leg injury
   - Decaeta: Taken Out T2, received Damaged Armor injury
