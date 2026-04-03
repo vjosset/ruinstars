@@ -5,7 +5,9 @@ description: "Research notes on PvE Mission and Objective design."
 tags: ["game design", "solo play", "coop play"]
 coverImage: "/img/hero01_wideB.webp"
 ---
+
 _Update 03 Apr 2026: The [PvE rules](/rules) have been updated. More info [here](/blog/pve-objectives-missions_2)_
+
 ---
 
 I've been working on the objectives in the [PvE missions](https://ruinstars.com/assets/books/PvE%20Missions%20-%20Ruinstars.pdf) for [Ruinstars](https://ruinstars.com).
