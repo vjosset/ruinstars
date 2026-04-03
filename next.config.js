@@ -17,6 +17,26 @@ const nextConfig = {
         destination: '/rules',
         permanent: true,
       },
+      {
+        source: '/squadTypes',
+        destination: '/factions',
+        permanent: true,
+      },
+      {
+        source: '/squadTypes/OCL',
+        destination: '/squadTypes/CWB',
+        permanent: true,
+      },
+      {
+        source: '/squadTypes/EIR',
+        destination: '/squadTypes/REL',
+        permanent: true,
+      },
+      {
+        source: '/squadTypes/CRS',
+        destination: '/squadTypes/SCH',
+        permanent: true,
+      },
     ]
   },
 }
