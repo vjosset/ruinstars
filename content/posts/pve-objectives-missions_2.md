@@ -46,4 +46,4 @@ Future versions may include new variations or even new archetypes, but for now t
 
 ### Grab the Rules
 
-All of this has been updated in our [PvE rules](/rules) and quick reference, check it out!
+All of this has been updated in the [PvE rules](/rules) and quick reference, check it out!
