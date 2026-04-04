@@ -172,94 +172,104 @@ export default async function PvEMissions() {
               <h4>Variations</h4>
 
               <h5>Control</h5>
-              <strong>Setup:</strong> Place three Objective markers on three random anchors
-              <table>
-                <thead>
-                  <tr>
-                    <th>1D6</th>
-                    <th>Variation</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><code>1-2</code></td>
-                    <td><strong>Victory</strong> Control all three Objectives at the end of any one Turn.</td>
-                  </tr>
-                  <tr>
-                    <td><code>3-4</code></td>
-                    <td><strong>Victory</strong> Control two or more Objectives at the end of two consecutive Turns.</td>
-                  </tr>
-                  <tr>
-                    <td><code>5-6</code></td>
-                    <td><strong>Victory</strong> At the end of each Turn, remove one Objective you control. All three Objectives removed.</td>
-                  </tr>
-                </tbody>
-              </table>
-              
+              <div className="pl-2">
+                <strong>Setup:</strong> Place three Objective markers on three random anchors
+                <table>
+                  <thead>
+                    <tr>
+                      <th>1D6</th>
+                      <th>Variation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>1-2</code></td>
+                      <td><strong>Hold the Line</strong><br/><strong>Victory</strong> Control all three Objectives at the end of any one Turn.</td>
+                    </tr>
+                    <tr>
+                      <td><code>3-4</code></td>
+                      <td><strong>Sustained Hold</strong><br/><strong>Victory</strong> Control two or more Objectives at the end of two consecutive Turns.</td>
+                    </tr>
+                    <tr>
+                      <td><code>5-6</code></td>
+                      <td><strong>Clear and Move</strong><br/><strong>Victory</strong> At the end of each Turn, remove one Objective you control. All three Objectives removed.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
               <h5>Activate</h5>
-              <strong>Setup:</strong> Place three Objective markers on three random anchors<br/>
-              <strong>Special:</strong> Activate - Mission Action (2 ACT): Activate an Objective you control
-              <table>
-                <thead>
-                  <tr>
-                    <th>1D6</th>
-                    <th>Variation</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><code>1-2</code></td>
-                    <td><strong>Victory</strong> Activate all three Objectives in any order. Place all three at mission start.</td>
-                  </tr>
-                  <tr>
-                    <td><code>3-4</code></td>
-                    <td><strong>Victory</strong> Activate all three Objectives in order. Only place the first Objective at mission start. Each time an Objective is activated, place the next one on a random Anchor.</td>
-                  </tr>
-                  <tr>
-                    <td><code>5-6</code></td>
-                    <td>
-                      <strong>Victory</strong> On Activation, roll <code>1D6</code>: First activation: The item is found on <code>1</code>. Second activation: The item is found on <code>1-2</code>. Third activation: The item is found automatically.
-                      This roll cannot be modified or re-rolled using TO. The Unit that finds the item now carries it (can be dropped or passed to a Squadmate for <code>1 ACT</code>).
-                      The carrying Unit must extract successfully to complete the Objective.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              
+              <div className="pl-2">
+                <strong>Setup:</strong> Place three Objective markers on three random anchors<br/>
+                <strong>Special:</strong> Activate - Mission Action (2 ACT): Activate an Objective you control
+                <table>
+                  <thead>
+                    <tr>
+                      <th>1D6</th>
+                      <th>Variation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>1-2</code></td>
+                      <td><strong>Full Access</strong><br/><strong>Victory</strong> Activate all three Objectives in any order. Place all three at mission start.</td>
+                    </tr>
+                    <tr>
+                      <td><code>3-4</code></td>
+                      <td><strong>Sequence</strong><br/><strong>Victory</strong> Activate all three Objectives in order. Only place the first Objective at mission start. Each time an Objective is activated, place the next one on a random Anchor.</td>
+                    </tr>
+                    <tr>
+                      <td><code>5-6</code></td>
+                      <td>
+                        <strong>Search and Recover</strong><br/>
+                        <strong>Special</strong> On Activation, roll <code>1D6</code>: First activation: The item is found on <code>1</code>. Second activation: The item is found on <code>1-2</code>. Third activation: The item is found automatically.
+                        This roll cannot be modified or re-rolled using TO. The Unit that finds the item now carries it (can be dropped or passed to a Squadmate for <code>1 ACT</code>).<br/>
+                        <strong>Victory</strong> The carrying Unit must extract successfully to complete the Objective.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
               <h5>Destroy</h5>
-              <strong>Setup:</strong> Place three Objective markers on three random anchors
-              <table>
-                <thead>
-                  <tr>
-                    <th>1D6</th>
-                    <th>Variation</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><code>1-2</code></td>
-                    <td>
-                      <strong>Setup</strong> Place three Objectives on three random Anchors. Objectives are items with <code>ARM 4 HIT 3</code>.<br/>
-                      <strong>Victory</strong> Destroy all three Objectives.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><code>3-4</code></td>
-                    <td>
-                      <strong>Setup</strong> Place one Objective on a random Anchor. Objective is an item with <code>ARM 4 HIT 6</code>.<br/>
-                      <strong>Victory</strong> Destroy the Objective.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><code>5-6</code></td>
-                    <td>
-                      <strong>Setup</strong> Place three Objectives on three random Anchors. Objectives are items with <code>ARM 4 HIT 3</code>.<br/>
-                      <strong>Special</strong> At the end of each Turn, remaining Objectives regain 1 lost <code>HIT</code>.<br/>
-                      <strong>Victory</strong> Destroy two of three Objectives. 
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <div className="pl-2">
+                <strong>Setup:</strong> Place three Objective markers on three random anchors
+                <table>
+                  <thead>
+                    <tr>
+                      <th>1D6</th>
+                      <th>Variation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>1-2</code></td>
+                      <td>
+                        <strong>Full Denial</strong><br/>
+                        <strong>Setup</strong> Place three Objectives on three random Anchors. Objectives are items with <code>ARM 4 HIT 3</code>.<br/>
+                        <strong>Victory</strong> Destroy all three Objectives.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>3-4</code></td>
+                      <td>
+                        <strong>High-Value Target</strong><br/>
+                        <strong>Setup</strong> Place one Objective on a random Anchor. Objective is an item with <code>ARM 4 HIT 6</code>.<br/>
+                        <strong>Victory</strong> Destroy the Objective.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>5-6</code></td>
+                      <td>
+                        <strong>Attrition</strong><br/>
+                        <strong>Setup</strong> Place three Objectives on three random Anchors. Objectives are items with <code>ARM 4 HIT 3</code>.<br/>
+                        <strong>Special</strong> At the end of each Turn, remaining Objectives regain 1 lost <code>HIT</code>.<br/>
+                        <strong>Victory</strong> Destroy two of three Objectives.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
               These Objectives describe mechanics, not story. The names and markers are placeholders.
               When building a campaign, replace them with whatever fits the mission.<br/>

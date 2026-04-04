@@ -165,9 +165,9 @@ export default function PvEMissionsQuickRef() {
               <P className="text-xs text-muted">Setup: 3 Objectives on random Anchors.</P>
               <table className="w-full border-collapse">
                 <tbody>
-                  <TableRow roll="1-2" label="All Three, Any Turn"  effect="Control all three Objectives at the end of any one Turn." />
-                  <TableRow roll="3-4" label="Two Objectives, Two Turns"        effect="Control two or more Objectives at the end of two consecutive Turns." />
-                  <TableRow roll="5-6" label="One Objective, Three Turns"      effect="Control one or more Objective at the end of three consecutive Turns. Remove controlled Objectives at end of each Turn." last />
+                  <TableRow roll="1-2" label="Hold the Line"    effect="Control all three Objectives at the end of any one Turn." />
+                  <TableRow roll="3-4" label="Sustained Hold"   effect="Control two or more Objectives at the end of two consecutive Turns." />
+                  <TableRow roll="5-6" label="Clear and Move"   effect="Control one or more Objective at the end of three consecutive Turns. Remove controlled Objectives at end of each Turn." last />
                 </tbody>
               </table>
             </div>
@@ -176,9 +176,9 @@ export default function PvEMissionsQuickRef() {
               <P className="text-xs text-muted">Activate (2ACT): Unit Controls an Objective to activate it. Remove from battlefield.</P>
               <table className="w-full border-collapse">
                 <tbody>
-                  <TableRow roll="1-2" label="Any Order"  effect="Place all 3 at mission start. Activate all three in any order." />
-                  <TableRow roll="3-4" label="In Order"   effect="Place only the first Objective at mission start. Each activation places the next." />
-                  <TableRow roll="5-6" label="Search"     effect="Place 3 Search Objectives. On Activation roll 1D6: 1st = found on 1; 2nd = found on 1-2; 3rd = auto. No TO re-rolls. Finder carries item; can drop/pass for 1ACT. Carrier must extract to complete." last />
+                  <TableRow roll="1-2" label="Full Access"        effect="Place all 3 at mission start. Activate all three in any order." />
+                  <TableRow roll="3-4" label="Sequence"           effect="Place only the first Objective at mission start. Each activation places the next." />
+                  <TableRow roll="5-6" label="Search and Recover" effect="Place 3 Search Objectives. On Activation roll 1D6: 1st = found on 1; 2nd = found on 1-2; 3rd = auto. No TO re-rolls. Finder carries item; can drop/pass for 1ACT. Carrier must extract to complete." last />
                 </tbody>
               </table>
             </div>
@@ -187,9 +187,9 @@ export default function PvEMissionsQuickRef() {
               <P className="text-xs text-muted">Objectives on random Anchors. Can be targeted in combat.</P>
               <table className="w-full border-collapse">
                 <tbody>
-                  <TableRow roll="1-2" label="All Three"    effect="Place 3 Objectives. ARM 4 HIT 3. Destroy all three." />
-                  <TableRow roll="3-4" label="One"          effect="Place 1 Objective. ARM 4 HIT 6. Destroy it." />
-                  <TableRow roll="5-6" label="Two of Three" effect="Place 3 Objectives. ARM 4 HIT 3. At end of each Turn, remaining Objectives regain 1 lost HIT. Destroy two of three." last />
+                  <TableRow roll="1-2" label="Full Denial"       effect="Place 3 Objectives. ARM 4 HIT 3. Destroy all three." />
+                  <TableRow roll="3-4" label="High-Value Target" effect="Place 1 Objective. ARM 4 HIT 6. Destroy it." />
+                  <TableRow roll="5-6" label="Attrition"         effect="Place 3 Objectives. ARM 4 HIT 3. At end of each Turn, remaining Objectives regain 1 lost HIT. Destroy two of three." last />
                 </tbody>
               </table>
             </div>
