@@ -1,3 +1,7 @@
+// Named anchor positions on the battlefield — 4" from edges, center of each edge, and board center.
+// Used in diagram elements as an alternative to raw inch coordinates.
+export type AnchorName = 'N' | 'NE' | 'E' | 'SE' | 'S' | 'SW' | 'W' | 'NW' | 'C'
+
 export type MissionDiagramLegendEntry = string | {
   label: string;
   color?: string;
@@ -18,8 +22,9 @@ export type MissionDiagramElementBase = {
 
 export type MissionDiagramCircle = MissionDiagramElementBase & {
   type: 'circle'
-  cxIn: number
-  cyIn: number
+  anchor?: AnchorName  // sets circle center; omit cxIn/cyIn when using anchor
+  cxIn?: number
+  cyIn?: number
   rIn: number
 }
 
@@ -34,8 +39,9 @@ export type MissionDiagramRect = MissionDiagramElementBase & {
 
 export type MissionDiagramMarker = MissionDiagramElementBase & {
   type: 'marker'
-  xIn: number
-  yIn: number
+  anchor?: AnchorName  // sets marker position; omit xIn/yIn when using anchor
+  xIn?: number
+  yIn?: number
   sizeIn?: number
 }
 
