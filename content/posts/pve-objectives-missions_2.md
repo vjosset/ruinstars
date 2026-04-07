@@ -6,7 +6,9 @@ tags: ["game design", "solo play", "coop play", "pve"]
 coverImage: "/img/hero01_wideB.webp"
 ---
 
-_Read [Part 1](/blog/pve-objectives-missions) here_
+_Read [Part 1 here](/blog/pve-objectives-missions)_
+
+_Read about our first [bespoke campaign here](/blog/bespoke-campaigns)_
 
 ---
 

@@ -6,7 +6,10 @@ tags: ["game design", "solo play", "coop play", "pve"]
 coverImage: "/img/hero01_wideB.webp"
 ---
 
-_Update 03 Apr 2026: The [PvE rules](/rules) have been updated. More info [here](/blog/pve-objectives-missions_2)_
+
+_Read [Part 2 here](/blog/pve-objectives-missions_2)_
+
+_Read about our first [bespoke campaign here](/blog/bespoke-campaigns.md)_
 
 ---
 
@@ -129,11 +132,15 @@ _Two approaches, let's do both!_
 
 #### Objective Types Rebuild
 
+_03 Apr 2026: Read more about this change in [Part 2](/blog/pve-objectives-missions_2)_
+
 Objective archetypes and variations are our best bet. I will be working on updating the pool of objectives with solid variations in the coming days. I will remove the tenuous objectives (Search, Protect, Recover) or fold them into one of the three remaining archetypes.
 
 #### Custom Campaigns
 
-I've been working on the first custom narrative campaign, intended for [Hegemony](https://ruinstars.com/factions/HEG) Squads. Here's a little teaser:
+_07 Apr 2026: Read more about our first [custom campaign](/blog/bespoke-campaigns)_
+
+I've been working on the first custom narrative campaign, intended for [Hegemony](/factions/HEG) Squads. Here's a little teaser:
 
 > ### The Last Signal
 >
