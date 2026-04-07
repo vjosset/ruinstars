@@ -9,7 +9,7 @@ coverImage: "/img/hero01_wideB.webp"
 
 _Read [Part 2 here](/blog/pve-objectives-missions_2)_
 
-_Read about our first [bespoke campaign here](/blog/bespoke-campaigns.md)_
+_Read about our first [bespoke campaign here](/blog/bespoke-campaigns)_
 
 ---
 
