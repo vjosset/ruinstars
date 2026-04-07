@@ -1,6 +1,21 @@
 'use client'
 
 import { useMemo } from 'react'
+import type { AnchorName } from '@/types'
+
+function getAnchorCoords(anchor: AnchorName, widthIn: number, heightIn: number): { x: number; y: number } {
+  switch (anchor) {
+  case 'N':  return { x: widthIn / 2,      y: 4 }
+  case 'NE': return { x: widthIn - 4,       y: 4 }
+  case 'E':  return { x: widthIn - 4,       y: heightIn / 2 }
+  case 'SE': return { x: widthIn - 4,       y: heightIn - 4 }
+  case 'S':  return { x: widthIn / 2,       y: heightIn - 4 }
+  case 'SW': return { x: 4,                 y: heightIn - 4 }
+  case 'W':  return { x: 4,                 y: heightIn / 2 }
+  case 'NW': return { x: 4,                 y: 4 }
+  case 'C':  return { x: widthIn / 2,       y: heightIn / 2 }
+  }
+}
 
 export type DiagramLegendEntry = string | { label: string; color?: string }
 export type DiagramLegend = Partial<Record<string, DiagramLegendEntry>>
@@ -18,8 +33,9 @@ type DiagramElementBase = {
 
 export type DiagramCircle = DiagramElementBase & {
   type: 'circle'
-  cxIn: number
-  cyIn: number
+  anchor?: AnchorName  // sets circle center; omit cxIn/cyIn when using anchor
+  cxIn?: number
+  cyIn?: number
   rIn: number
 }
 
@@ -34,8 +50,9 @@ export type DiagramRect = DiagramElementBase & {
 
 export type DiagramMarker = DiagramElementBase & {
   type: 'marker'
-  xIn: number
-  yIn: number
+  anchor?: AnchorName  // sets marker position; omit xIn/yIn when using anchor
+  xIn?: number
+  yIn?: number
   sizeIn?: number
 }
 
@@ -85,6 +102,7 @@ export type BattlefieldDiagramConfig = {
 export type BattlefieldDiagramProps = {
   diagram: BattlefieldDiagramConfig
   className?: string
+  legendPosition?: 'right' | 'bottom'
 }
 
 const DEFAULT_BOARD = { widthIn: 24, heightIn: 24 }
@@ -162,7 +180,8 @@ function resolveElementLabel(element: DiagramElement) {
 
 export default function BattlefieldDiagram({
   diagram,
-  className
+  className,
+  legendPosition = 'right'
 }: BattlefieldDiagramProps) {
   const board = diagram.board ?? DEFAULT_BOARD
   const widthIn = board.widthIn ?? DEFAULT_BOARD.widthIn
@@ -198,7 +217,7 @@ export default function BattlefieldDiagram({
   return (
     <div className={className}>
       <div className="bg-card p-3">
-        <div className={`grid gap-6 ${legendIds.length > 0 ? 'grid-cols-2 items-start' : ''}`}>
+        <div className={`grid gap-6 ${legendIds.length > 0 && legendPosition === 'right' ? 'grid-cols-2 items-start' : ''}`}>
           <div
             className="relative w-full"
             style={{ paddingTop: `${(heightIn / widthIn) * 100}%` }}
@@ -277,11 +296,14 @@ export default function BattlefieldDiagram({
                 const showLabel = element.showLabel ?? element.type !== 'callout'
 
                 if (element.type === 'circle') {
+                  const center = element.anchor
+                    ? getAnchorCoords(element.anchor, widthIn, heightIn)
+                    : { x: element.cxIn!, y: element.cyIn! }
                   return (
                     <g key={element.id}>
                       <circle
-                        cx={inToPx(element.cxIn)}
-                        cy={inToPx(element.cyIn)}
+                        cx={inToPx(center.x)}
+                        cy={inToPx(center.y)}
                         r={inToPx(element.rIn)}
                         fill={baseColor}
                         fillOpacity={fillOpacity}
@@ -290,8 +312,8 @@ export default function BattlefieldDiagram({
                       />
                       {showLabel && (
                         <text
-                          x={inToPx(element.cxIn)}
-                          y={inToPx(element.cyIn)}
+                          x={inToPx(center.x)}
+                          y={inToPx(center.y)}
                           fontFamily={FONT_FAMILY}
                           fontSize={inToPx(labelSizeIn)}
                           fontWeight={700}
@@ -343,10 +365,13 @@ export default function BattlefieldDiagram({
                 }
 
                 if (element.type === 'marker') {
+                  const pos = element.anchor
+                    ? getAnchorCoords(element.anchor, widthIn, heightIn)
+                    : { x: element.xIn!, y: element.yIn! }
                   const sizeIn = element.sizeIn ?? DEFAULT_MARKER_SIZE_IN
                   const sizePx = inToPx(sizeIn)
-                  const x = inToPx(element.xIn) - sizePx / 2
-                  const y = inToPx(element.yIn) - sizePx / 2
+                  const x = inToPx(pos.x) - sizePx / 2
+                  const y = inToPx(pos.y) - sizePx / 2
                   return (
                     <g key={element.id}>
                       <rect
@@ -496,7 +521,7 @@ export default function BattlefieldDiagram({
           </div>
 
           {legendIds.length > 0 && (
-            <div className="min-w-0 content-start grid gap-2 text-sm">
+            <div className={`min-w-0 content-start grid gap-2 text-sm ${legendPosition === 'bottom' ? 'grid-cols-2' : ''}`}>
               {legendIds.map((id) => {
                 const resolvedColor = colorMap.get(id) ?? gridColor
                 return (
