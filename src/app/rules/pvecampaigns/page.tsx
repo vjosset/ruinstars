@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import Markdown from '@/components/ui/Markdown'
+import CampaignCard from '@/components/campaign/CampaignCard'
 import campaigns from '@/data/pvecampaigns'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { GAME } from '@/lib/config/game_config'
@@ -25,7 +24,7 @@ export default function PvECampaigns() {
           <div className="twocols">
             <div className="section">
               <p className="mb-4">
-                Bespoke Campaigns are fixed, authored PvE experiences — each one a complete narrative arc
+                Bespoke Campaigns are fixed, authored PvE experiences, each one a complete narrative arc
                 tied to a specific faction, enemy, and set of escalating operations. Unlike standard PvE
                 missions, the objectives, deployments, and stakes in a Bespoke Campaign are handcrafted
                 to tell a specific story from start to finish.
@@ -55,28 +54,10 @@ export default function PvECampaigns() {
         </div>
 
         <div className="section mt-8">
-          <h3>Available Campaigns</h3>
-          <div className="mt-4 flex flex-col gap-4">
-            {campaigns.map((campaign) => {
-              const loreSummary = campaign.lore?.split('\n\n')[0] ?? ''
-              return (
-                <Link
-                  key={campaign.campaignId}
-                  href={`/rules/pvecampaigns/${campaign.campaignId}`}
-                  className="block bg-card border border-main rounded p-4 hover:border-orange-400 transition-colors"
-                >
-                  <h4 className="text-main mb-1">{campaign.title}</h4>
-                  {campaign.subtitle && (
-                    <p className="text-muted text-sm uppercase tracking-widest mb-3">{campaign.subtitle}</p>
-                  )}
-                  {loreSummary && (
-                    <div className="flavor text-sm">
-                      <Markdown>{loreSummary}</Markdown>
-                    </div>
-                  )}
-                </Link>
-              )
-            })}
+          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {campaigns.map((campaign) => (
+              <CampaignCard key={campaign.campaignId} campaign={campaign} />
+            ))}
           </div>
         </div>
       </div>

@@ -1,11 +1,13 @@
 import SquadSpotlightCard from '@/components/squad/SquadSpotlightCard'
 import SquadTypeCard from '@/components/squadType/SquadTypeCard'
+import CampaignCard from '@/components/campaign/CampaignCard'
 import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
 import UnitCard from '@/components/unit/UnitCard'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { SpecialService, SquadTypeService } from '@/src/services'
 import { UnitType } from '@/src/types'
+import campaigns from '@/data/pvecampaigns'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { FiExternalLink } from 'react-icons/fi'
@@ -34,10 +36,13 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
 
   if (!squadType) notFound()
 
+  const factionCampaigns = campaigns.filter((c) => c.factionId === squadType.factionId)
+
   const tabs = [
     { id: 'units' as const, label: 'Units', enabled: true },
     { id: 'about' as const, label: 'About', enabled: true },
     { id: 'squads' as const, label: 'Showcase', enabled: true },
+    { id: 'campaigns' as const, label: 'PvE Campaigns', enabled: factionCampaigns.length > 0 },
   ].filter(t => t.enabled)
 
   const requestedTab = tabs.find(t => t.id === tabParam)?.id
@@ -185,6 +190,14 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
                 )}
               </div>
             </div>
+          </div>
+        )}
+
+        {activeTab === 'campaigns' && (
+          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {factionCampaigns.map((campaign) => (
+              <CampaignCard key={campaign.campaignId} campaign={campaign} />
+            ))}
           </div>
         )}
 

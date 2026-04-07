@@ -17,8 +17,8 @@ const LEGEND: MissionDiagramLegend = {
 const lastSignal: Campaign = {
   campaignId: 'last-signal',
   title: 'Last Signal',
-  subtitle: 'A bespoke Hegemony PvE campaign',
-  factionId: 'hegemony',
+  subtitle: 'An investigative campaign for Hegemony squads',
+  factionId: 'HEG',
   lore: `Forty-seven days ago, a relay station on the edge of the Shatter Belt transmitted a single burst on a Hegemony emergency frequency. Command recorded it and ran it through three decryption cycles. What came back was three words:
 
 **Confirm and Execute.**
