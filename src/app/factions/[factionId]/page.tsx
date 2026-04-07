@@ -1,9 +1,7 @@
 import { SquadTypeLink } from '@/components/nav/Links'
 import Markdown from '@/components/ui/Markdown'
-import CampaignCard from '@/components/campaign/CampaignCard'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { FactionService } from '@/src/services'
-import campaigns from '@/data/pvecampaigns'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -27,8 +25,6 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
   const faction = await FactionService.getFaction(factionId)
 
   if (!faction) notFound()
-
-  const factionCampaigns = campaigns.filter((c) => c.factionId === factionId)
 
   return (
     <div
@@ -73,16 +69,6 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
                 </div>
               </div>
             )})}
-          {factionCampaigns.length > 0 && (
-            <div className="mt-8">
-              <h2 className="font-heading text-main">PvE Campaigns</h2>
-              <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-                {factionCampaigns.map((campaign) => (
-                  <CampaignCard key={campaign.campaignId} campaign={campaign} />
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>

@@ -47,6 +47,10 @@ const BATTLEFIELDS: { title: string; href: string; icon: IconType }[] = [
   { title: 'The Facility (A4)', href: '/assets/battlefields/TheFacility_A4.pdf', icon: BsMap },
 ]
 
+const PVE_CAMPAIGNS: { title: string; desc: string; href: string; icon: IconType }[] = [
+  { title: 'Last Signal', desc: 'An investigative campaign for Hegemony squads', href: '/assets/pvecampaigns/Last Signal - Ruinstars.pdf', icon: BsFilePdf },
+]
+
 const COMMUNITY_LINKS: { label: string; desc: string; href: string; icon: IconType }[] = [
   { label: 'Blog', desc: 'Dev logs and updates', href: '/blog', icon: BsPencil },
   { label: 'Discord', desc: 'Come say hi!', href: 'https://discord.gg/Rh8vJzkCrT', icon: SiDiscord },
@@ -114,6 +118,28 @@ export default async function Rules() {
             </em>
             <div className="border border-border rounded divide-y divide-border ml-2">
               {QUICK_REFS.map((item) => (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
+                >
+                  <item.icon className="shrink-0" />
+                  <span className="flex-1 font-heading uppercase">{item.title}</span>
+                  <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* PvE Campaigns */}
+          <div className="mb-8 section">
+            <h5 className="text-main">PvE Campaigns</h5>
+            <em className="text-muted">
+              Bespoke campaigns for solo or coop play.
+            </em>
+            <div className="border border-border rounded divide-y divide-border ml-2">
+              {PVE_CAMPAIGNS.map((item) => (
                 <Link
                   key={item.title}
                   href={item.href}

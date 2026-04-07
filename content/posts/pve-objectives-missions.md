@@ -2,7 +2,7 @@
 title: "PvE Missions and Objectives"
 date: "2026-03-30 12:00"
 description: "Research notes on PvE Mission and Objective design."
-tags: ["game design", "solo play", "coop play"]
+tags: ["game design", "solo play", "coop play", "pve"]
 coverImage: "/img/hero01_wideB.webp"
 ---
 

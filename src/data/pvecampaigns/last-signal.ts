@@ -21,7 +21,7 @@ const lastSignal: Campaign = {
   factionId: 'HEG',
   lore: `Forty-seven days ago, a relay station on the edge of the Shatter Belt transmitted a single burst on a Hegemony emergency frequency. Command recorded it and ran it through three decryption cycles. What came back was three words:
 
-**Confirm and Execute.**
+_**Confirm and Execute.**_
 
 The station has been dark for eighty years. No one should have been able to send anything from it.
 
