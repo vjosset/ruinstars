@@ -1,5 +1,5 @@
 import ScriptedOperationsList from '@/components/shared/ScriptedOperationsList'
-import ops from '@/data/scriptedOperations.json'
+import ops from '@/data/old/scriptedOperations.json'
 import { FactionService } from '@/services'
 
 export default async function RulesScriptedOperations({ num }: {num?: number | null}) {

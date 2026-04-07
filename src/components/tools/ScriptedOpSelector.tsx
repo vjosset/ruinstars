@@ -1,6 +1,6 @@
 'use client'
 
-import ops from '@/data/scriptedOperations.json'
+import ops from '@/data/old/scriptedOperations.json'
 import { FactionPlain, MissionPlain } from '@/types'
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'

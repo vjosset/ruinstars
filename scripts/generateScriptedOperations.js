@@ -24,7 +24,7 @@ const path = require('path')
 
 const ROOT = process.cwd()
 const NOTES_DIR = path.join(ROOT, '==Notes', 'ScriptedOperations')
-const OUT_PATH = path.join(ROOT, 'src', 'data', 'scriptedOperations.json')
+const OUT_PATH = path.join(ROOT, 'src', 'data', 'old', 'scriptedOperations.json')
 
 function readFiles(dir) {
   const names = fs.readdirSync(dir, 'utf8')
