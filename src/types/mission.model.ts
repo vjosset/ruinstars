@@ -77,17 +77,25 @@ export type MissionDiagram = {
   legend?: MissionDiagramLegend
 }
 
+export type MissionObjective = {
+  type: string;        // e.g. "Control - Sustained Hold", "Destroy - Full Denial"
+  description: string;
+};
+
 export type MissionPlain = {
   missionId: string;
   missionType?: string | null;
   seq?: number | null;
   title: string;
   active?: boolean;
+  lore?: string | null;        // blockquote narrative intro (used in bespoke campaigns)
   description: string;
   battlefieldId?: string | null;
   setup?: string | null;
   deployment: string;
-  victory: string;
+  victory?: string | null;     // standard missions; omit when using objectiveA/B
+  objectiveA?: MissionObjective;
+  objectiveB?: MissionObjective;
   special?: string | null;
   rewards?: MissionReward[];
   diagram?: MissionDiagram;
@@ -96,4 +104,25 @@ export type MissionPlain = {
 export type MissionReward = {
   name?: string | null,
   effect?: string | null
+};
+
+export type CampaignOperation = {
+  operationId: string;
+  title: string;
+  lore?: string;
+  enemyFaction: string;
+  threatLevel: 1 | 2 | 3;
+  battlefield: string;
+  missions: MissionPlain[];
+  homebase?: string;   // narrative bridge shown after the operation's last mission
+};
+
+export type Campaign = {
+  campaignId: string;
+  title: string;
+  subtitle?: string;   // e.g. "A bespoke Hegemony PvE campaign"
+  lore?: string;       // campaign-level intro narrative
+  factionId?: string;  // restricts to a specific player faction
+  operations: CampaignOperation[];
+  conclusion?: string; // epilogue shown after the final operation
 };
