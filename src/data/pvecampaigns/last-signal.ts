@@ -82,7 +82,7 @@ Somewhere in the transmission logs is a record of every signal this station ever
 
 The station's internal network is partially live. Someone has been using it. If you can reach one of the active terminals and hold it long enough to run a search, you can find where the transmission logs are stored before you fight your way to them blind.`,
           description: 'Search the station\'s internal network while holding the ground you\'ve taken.',
-          deployment: 'Standard Insertion. Player within 4" of SW, S, or SE Anchors. NPCs split between NW, N, NE Anchors.',
+          deployment: 'Standard Insertion. Player Adjacent to SW, S, or SE Anchors. NPCs Adjacent to NW, N, NE Anchors.',
           objectiveA: {
             type: 'Activate - Sequence',
             description: 'One marker placed at Center to start; subsequent markers placed randomly as each is activated. Activate all in sequence.',
@@ -97,13 +97,13 @@ The station's internal network is partially live. Someone has been using it. If 
             legend: LEGEND,
             elements: [
               // Player: within 4" of SW, S, or SE
-              { id: 'PS-1', type: 'circle', anchor: 'SW', rIn: 4, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'PS-2', type: 'circle', anchor: 'S',  rIn: 4, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'PS-3', type: 'circle', anchor: 'SE', rIn: 4, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'PS-1', type: 'circle', anchor: 'SW', rIn: 2, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'PS-2', type: 'circle', anchor: 'S',  rIn: 2, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'PS-3', type: 'circle', anchor: 'SE', rIn: 2, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // NPC: NW, N, NE
-              { id: 'NPC-1', type: 'circle', anchor: 'NW', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-2', type: 'circle', anchor: 'N',  rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-3', type: 'circle', anchor: 'NE', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-1', type: 'circle', anchor: 'NW', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-2', type: 'circle', anchor: 'N',  rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-3', type: 'circle', anchor: 'NE', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // Objective A: C (sequence start)
               { id: 'A-1', type: 'marker', anchor: 'C', label: 'A', color: A, showInLegend: false },
               // Objective B: W, E, S
@@ -188,12 +188,12 @@ The signal passed through here. Somewhere in the ruins of the colony's communica
             legend: LEGEND,
             elements: [
               // Player: adjacent to S or SW
-              { id: 'PS-1',  type: 'circle', anchor: 'S',  rIn: 4, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'PS-2',  type: 'circle', anchor: 'SW', rIn: 4, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'PS-1',  type: 'circle', anchor: 'S',  rIn: 2, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'PS-2',  type: 'circle', anchor: 'SW', rIn: 2, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // NPC: NW, NE, SE
-              { id: 'NPC-1', type: 'circle', anchor: 'NW', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-2', type: 'circle', anchor: 'NE', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-3', type: 'circle', anchor: 'SE', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-1', type: 'circle', anchor: 'NW', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-2', type: 'circle', anchor: 'NE', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-3', type: 'circle', anchor: 'SE', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // Objective A: N, E, W
               { id: 'A-1', type: 'marker', anchor: 'N', label: 'A', color: A, showInLegend: false },
               { id: 'A-2', type: 'marker', anchor: 'E', label: 'A', color: A, showInLegend: false },
@@ -229,10 +229,10 @@ The Hunter Killers have been watching since you made planetfall. They have decid
               // Player: within 4" of C
               { id: 'PS-1',  type: 'circle', anchor: 'C',  rIn: 4, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // NPC: NW, NE, SW, SE
-              { id: 'NPC-1', type: 'circle', anchor: 'NW', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-2', type: 'circle', anchor: 'NE', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-3', type: 'circle', anchor: 'SW', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-4', type: 'circle', anchor: 'SE', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-1', type: 'circle', anchor: 'NW', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-2', type: 'circle', anchor: 'NE', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-3', type: 'circle', anchor: 'SW', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-4', type: 'circle', anchor: 'SE', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // Objective A: NE, N, W
               { id: 'A-1', type: 'marker', anchor: 'NE', label: 'A', color: A, showInLegend: false },
               { id: 'A-2', type: 'marker', anchor: 'N',  label: 'A', color: A, showInLegend: false },
@@ -264,13 +264,13 @@ Pull the data and get out.`,
             legend: LEGEND,
             elements: [
               // Player: adjacent to SW, S, or SE
-              { id: 'PS-1',  type: 'circle', anchor: 'SW', rIn: 4, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'PS-2',  type: 'circle', anchor: 'S',  rIn: 4, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'PS-3',  type: 'circle', anchor: 'SE', rIn: 4, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'PS-1',  type: 'circle', anchor: 'SW', rIn: 2, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'PS-2',  type: 'circle', anchor: 'S',  rIn: 2, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'PS-3',  type: 'circle', anchor: 'SE', rIn: 2, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // NPC: W, N, E
-              { id: 'NPC-1', type: 'circle', anchor: 'W',  rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-2', type: 'circle', anchor: 'N',  rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-3', type: 'circle', anchor: 'E',  rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-1', type: 'circle', anchor: 'W',  rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-2', type: 'circle', anchor: 'N',  rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-3', type: 'circle', anchor: 'E',  rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // Objective A: NW, N, NE
               { id: 'A-1', type: 'marker', anchor: 'NW', label: 'A', color: A, showInLegend: false },
               { id: 'A-2', type: 'marker', anchor: 'N',  label: 'A', color: A, showInLegend: false },
@@ -312,7 +312,7 @@ You have coordinates and a signal to trace.`,
 
 Whatever is inside, they do not want you reaching it.`,
           description: 'Break through the Warden perimeter line and advance to the structure\'s entrance.',
-          deployment: 'Flanked. Player within 4" of S Anchor. NPCs adjacent to NW and NE Anchors.',
+          deployment: 'Flanked. Player within 4" of S Anchor. NPCs within 4" of NW and NE Anchors.',
           objectiveA: {
             type: 'Destroy - Full Denial',
             description: 'Three markers at N, NW, NE Anchors, `ARM 4 HIT 3` each. Ancient Warden barrier constructs blocking entry. Destroy all three.',
@@ -349,7 +349,7 @@ Whatever is inside, they do not want you reaching it.`,
 
 The Wardens are falling back rather than holding position but do not stop fighting.`,
           description: 'Follow the signal deeper into the structure while suppressing the Warden rearguard.',
-          deployment: 'Standard Insertion. Player within 4" of SW, S, or SE Anchors. NPCs split between NW, N, NE Anchors.',
+          deployment: 'Standard Insertion. Player Adjacent to SW, S, or SE Anchors. NPCs Adjacent to NW, N, NE Anchors.',
           objectiveA: {
             type: 'Activate - Sequence',
             description: 'One marker placed at Center to start; subsequent markers placed randomly as each is activated. Follow the signal node by node.',
@@ -364,13 +364,13 @@ The Wardens are falling back rather than holding position but do not stop fighti
             legend: LEGEND,
             elements: [
               // Player: within 4" of SW, S, or SE
-              { id: 'PS-1',  type: 'circle', anchor: 'SW', rIn: 4, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'PS-2',  type: 'circle', anchor: 'S',  rIn: 4, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'PS-3',  type: 'circle', anchor: 'SE', rIn: 4, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'PS-1',  type: 'circle', anchor: 'SW', rIn: 2, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'PS-2',  type: 'circle', anchor: 'S',  rIn: 2, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'PS-3',  type: 'circle', anchor: 'SE', rIn: 2, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // NPC: NW, N, NE
-              { id: 'NPC-1', type: 'circle', anchor: 'NW', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-2', type: 'circle', anchor: 'N',  rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-3', type: 'circle', anchor: 'NE', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-1', type: 'circle', anchor: 'NW', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-2', type: 'circle', anchor: 'N',  rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-3', type: 'circle', anchor: 'NE', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // Objective A: C (sequence start)
               { id: 'A-1', type: 'marker', anchor: 'C',  label: 'A', color: A, showInLegend: false },
               // Objective B: NW, N, NE
@@ -404,10 +404,10 @@ The Wardens are here in greater numbers than anything you encountered in the out
               // Player: within 4" of C
               { id: 'PS-1',  type: 'circle', anchor: 'C',  rIn: 4, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // NPC: NW, NE, SW, SE
-              { id: 'NPC-1', type: 'circle', anchor: 'NW', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-2', type: 'circle', anchor: 'NE', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-3', type: 'circle', anchor: 'SW', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-4', type: 'circle', anchor: 'SE', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-1', type: 'circle', anchor: 'NW', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-2', type: 'circle', anchor: 'NE', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-3', type: 'circle', anchor: 'SW', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-4', type: 'circle', anchor: 'SE', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // Objective A: N (HVT)
               { id: 'A-1', type: 'marker', anchor: 'N', label: 'A', color: A, showInLegend: false },
               // Objective B: W, C, E
@@ -446,14 +446,14 @@ The last order was always this. You just did not know it until now.`,
           missionId: 'ls-climax',
           title: 'Last Signal',
           description: 'Eliminate the corrupted Praxium Corps squad and protect their leader long enough to carry out the last order.',
-          deployment: 'Standard Insertion. Player within 4" of S Anchor. Corrupted Praxium squad deployed at NW, N, NE Anchors.',
+          deployment: 'Standard Insertion. Player within 4" of S Anchor. Corrupted Praxium Corps Adjacent to NW and NE Anchors.',
           objectiveA: {
             type: 'Special - Eliminate',
             description: 'Eliminate the entire Praxium Corps squad.',
           },
           objectiveB: {
             type: 'Special - Protect',
-            description: 'The Praxium leader is placed at the N Anchor. `ARM 5 HIT 1`. The leader does not activate. Praxium Corps units treat the leader as their first priority target. Victory: the leader is alive and Standing at the end of Turn 4.',
+            description: 'The Praxium leader is placed at the N Anchor. `ARM 5 HIT 1`. The leader does not activate. NPC Units treat the leader as their first priority target. Victory: the leader is Standing at the end of Turn 4.',
           },
           diagram: {
             board: { widthIn: 24, heightIn: 24 },
@@ -467,8 +467,8 @@ The last order was always this. You just did not know it until now.`,
               // Player: within 4" of S
               { id: 'PS-1',    type: 'circle', anchor: 'S',  rIn: 4, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // Corrupted squad: NW, N, NE
-              { id: 'NPC-1',   type: 'circle', anchor: 'NW', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              { id: 'NPC-2',   type: 'circle', anchor: 'NE', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-1',   type: 'circle', anchor: 'NW', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+              { id: 'NPC-2',   type: 'circle', anchor: 'NE', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
               // Leader at N (Obj B target — protect)
               { id: 'Leader',  type: 'marker', anchor: 'N',  label: 'Leader', color: B,   showInLegend: false },
             ],
