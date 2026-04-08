@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FiList, FiLogIn, FiUserPlus, FiUsers } from 'react-icons/fi'
-import { LuBookText } from 'react-icons/lu'
+import { LuBookText, LuScrollText } from 'react-icons/lu'
 
 export default function NavBarTop() {
   const pathname = usePathname()
@@ -14,6 +14,13 @@ export default function NavBarTop() {
 
 
   const links = [
+    {
+      href: '/blog',
+      icon: <LuScrollText />,
+      label: 'Blog',
+      show: true,
+      match: (path: string) => path.includes('/blog'),
+    },
     {
       href: '/factions',
       icon: <FiList />,

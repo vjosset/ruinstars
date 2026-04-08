@@ -2,9 +2,10 @@ import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import Link from 'next/link'
 import { IconType } from 'react-icons'
-import { BsBox, BsHexagon, BsFilePdf, BsMap, BsPersonVcard, BsRulers, BsPencil } from 'react-icons/bs'
+import { BsBox, BsHexagon, BsFilePdf, BsMap, BsPersonVcard, BsRulers } from 'react-icons/bs'
 import { FiDownload, FiExternalLink } from 'react-icons/fi'
 import { SiDiscord, SiGithub, SiItchdotio } from 'react-icons/si'
+import { LuScrollText } from 'react-icons/lu'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -51,13 +52,13 @@ const PVE_CAMPAIGNS: { title: string; desc: string; href: string; icon: IconType
   { title: 'Last Signal', desc: 'An investigative campaign for Hegemony squads', href: '/assets/pvecampaigns/Last Signal - Ruinstars.pdf', icon: BsFilePdf },
 ]
 
-const COMMUNITY_LINKS: { label: string; desc: string; href: string; icon: IconType }[] = [
-  { label: 'Blog', desc: 'Dev logs and updates', href: '/blog', icon: BsPencil },
-  { label: 'Discord', desc: 'Come say hi!', href: 'https://discord.gg/Rh8vJzkCrT', icon: SiDiscord },
-  { label: 'itch.io', desc: 'Dev logs and discussions', href: 'https://ruinstars.itch.io/ruinstars', icon: SiItchdotio },
-  { label: 'BGG', desc: 'BoardgameGeek listing', href: 'https://boardgamegeek.com/boardgame/454226/ruinstars', icon: FiExternalLink },
-  { label: 'WargameVault', desc: 'Download on WargameVault', href: 'https://www.wargamevault.com/en/product/528452/ruinstars', icon: FiExternalLink },
-  { label: 'GitHub', desc: 'Open source', href: 'https://github.com/vjosset/ruinstars', icon: SiGithub },
+const COMMUNITY_LINKS: { label: string; desc: string; href: string; target: string; icon: IconType }[] = [
+  { label: 'Blog', desc: 'Dev logs and updates', href: '/blog', target: '', icon: LuScrollText },
+  { label: 'Discord', desc: 'Come say hi!', href: 'https://discord.gg/Rh8vJzkCrT', target: '_blank', icon: SiDiscord },
+  { label: 'itch.io', desc: 'Dev logs and discussions', href: 'https://ruinstars.itch.io/ruinstars', target: '_blank', icon: SiItchdotio },
+  { label: 'BGG', desc: 'BoardgameGeek listing', href: 'https://boardgamegeek.com/boardgame/454226/ruinstars', target: '_blank', icon: FiExternalLink },
+  { label: 'WargameVault', desc: 'Download on WargameVault', href: 'https://www.wargamevault.com/en/product/528452/ruinstars', target: '_blank', icon: FiExternalLink },
+  { label: 'GitHub', desc: 'Open source', href: 'https://github.com/vjosset/ruinstars', target: '_blank', icon: SiGithub },
 ]
 
 export default async function Rules() {
@@ -206,7 +207,7 @@ export default async function Rules() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  target="_blank"
+                  target={link.target}
                   className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors"
                 >
                   <link.icon className="shrink-0" />
