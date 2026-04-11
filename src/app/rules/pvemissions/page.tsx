@@ -8,6 +8,10 @@ import UnitCard from '@/components/unit/UnitCard'
 import RulesAnchors from '../sections/rules-anchors'
 import { PDFLink } from '@/components/nav/Links'
 import PvEMissionsQuickRef from './sections/rules-pvemissions-quickref'
+import { PveDeployments } from '@/data/pve_deployments'
+import { PveObjectives } from '@/data/pve_objectives'
+import { PveBattlefields } from '@/data/pve_battlefields'
+
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -142,237 +146,51 @@ export default async function PvEMissions() {
             </div>
             {/* Objectives */}
             <div className="section">
-              <h3>Objectives</h3>
-              For each of the two Mission Objectives, roll <code>1D6</code> to determine its <strong>Archetype</strong>, then roll <code>1D6</code> for its <strong>Variation</strong>.
-              The two Objectives must have different Archetypes: if the second Archetype matches the first, re-roll until it differs.
-              <br/><br/>
-              <table>
-                <thead>
-                  <tr>
-                    <th>1D6</th>
-                    <th>Archetype</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><code>1-2</code></td>
-                    <td>Control</td>
-                  </tr>
-                  <tr>
-                    <td><code>3-4</code></td>
-                    <td>Activate</td>
-                  </tr>
-                  <tr>
-                    <td><code>5-6</code></td>
-                    <td>Destroy</td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <h4>Variations</h4>
-
-              <h5>Control</h5>
-              <div className="pl-2">
-                <strong>Setup:</strong> Place three Objective markers on three random anchors
-                <table>
-                  <thead>
-                    <tr>
-                      <th>1D6</th>
-                      <th>Variation</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><code>1-2</code></td>
-                      <td><strong>Hold the Line</strong><br/><strong>Victory</strong> Control all three Objectives at the end of any one Turn.</td>
-                    </tr>
-                    <tr>
-                      <td><code>3-4</code></td>
-                      <td><strong>Sustained Hold</strong><br/><strong>Victory</strong> Control two or more Objectives at the end of two consecutive Turns.</td>
-                    </tr>
-                    <tr>
-                      <td><code>5-6</code></td>
-                      <td><strong>Clear and Move</strong><br/><strong>Victory</strong> At the end of each Turn, remove one Objective you control. All three Objectives removed.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <h5>Activate</h5>
-              <div className="pl-2">
-                <strong>Setup:</strong> Place three Objective markers on three random anchors<br/>
-                <strong>Special:</strong> Activate - Mission Action (2 ACT): Activate an Objective you control
-                <table>
-                  <thead>
-                    <tr>
-                      <th>1D6</th>
-                      <th>Variation</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><code>1-2</code></td>
-                      <td><strong>Full Access</strong><br/><strong>Victory</strong> Activate all three Objectives in any order. Place all three at mission start.</td>
-                    </tr>
-                    <tr>
-                      <td><code>3-4</code></td>
-                      <td><strong>Sequence</strong><br/><strong>Victory</strong> Activate all three Objectives in order. Only place the first Objective at mission start. Each time an Objective is activated, place the next one on a random Anchor.</td>
-                    </tr>
-                    <tr>
-                      <td><code>5-6</code></td>
-                      <td>
-                        <strong>Search and Recover</strong><br/>
-                        <strong>Special</strong> On Activation, roll <code>1D6</code>: First activation: The item is found on <code>1</code>. Second activation: The item is found on <code>1-2</code>. Third activation: The item is found automatically.
-                        This roll cannot be modified or re-rolled using TO. The Unit that finds the item now carries it (can be dropped or passed to a Squadmate for <code>1 ACT</code>).<br/>
-                        <strong>Victory</strong> The carrying Unit must extract successfully to complete the Objective.
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <h5>Destroy</h5>
-              <div className="pl-2">
-                <strong>Setup:</strong> Place three Objective markers on three random anchors
-                <table>
-                  <thead>
-                    <tr>
-                      <th>1D6</th>
-                      <th>Variation</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><code>1-2</code></td>
-                      <td>
-                        <strong>Full Denial</strong><br/>
-                        <strong>Setup</strong> Place three Objectives on three random Anchors. Objectives are items with <code>ARM 4 HIT 3</code>.<br/>
-                        <strong>Victory</strong> Destroy all three Objectives.
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>3-4</code></td>
-                      <td>
-                        <strong>High-Value Target</strong><br/>
-                        <strong>Setup</strong> Place one Objective on a random Anchor. Objective is an item with <code>ARM 4 HIT 6</code>.<br/>
-                        <strong>Victory</strong> Destroy the Objective.
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>5-6</code></td>
-                      <td>
-                        <strong>Attrition</strong><br/>
-                        <strong>Setup</strong> Place three Objectives on three random Anchors. Objectives are items with <code>ARM 4 HIT 3</code>.<br/>
-                        <strong>Special</strong> At the end of each Turn, remaining Objectives regain 1 lost <code>HIT</code>.<br/>
-                        <strong>Victory</strong> Destroy two of three Objectives.
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              These Objectives describe mechanics, not story. The names and markers are placeholders.
-              When building a campaign, replace them with whatever fits the mission.<br/>
-              "Activate Objectives" can mean picking up data cores, toppling ritual altars, or placing demolition charges.
-              A Search Objective might conceal a defector, a relic, or a downed pilot.<br/>
-              The mechanics stay the same; the campaign tells the player what each objective means.
+              <h3>Objectives (2D6)</h3>
+              Roll <code>1D6</code> for the <strong>Archetype</strong>, then <code>1D6</code> for the <strong>Variation</strong>. Repeat for a second Objective — re-roll if the Archetype matches the first.
+              {PveObjectives.map((archetype) => (
+                <div key={archetype.objectiveArchetypeId} className="border-t border-border">
+                  <h4>{archetype.objectiveArchetypeId}: {archetype.title}</h4>
+                  <div className="ml-4">
+                    {archetype.variations.map((v) => {
+                      const rollRange = v.objectiveId.split(' ').slice(1).join(' ')
+                      return (
+                        <div key={v.objectiveId}>
+                          <strong>{rollRange}: {v.title}</strong>
+                          <div className="ml-4">
+                            {v.setup && <Markdown>{`**Setup:** ${v.setup}`}</Markdown>}
+                            {v.special && <Markdown>{`**Special:** ${v.special}`}</Markdown>}
+                            {v.victory && <Markdown>{`**Victory:** ${v.victory}`}</Markdown>}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              ))}
             </div>
             {/* Battlefields */}
             <div className="section">
               <h3>Battlefields (D6)</h3>
-              <div>
-                <strong>1: The Ruined City - Collapse</strong>
-                <div className="ml-4">
-                  The battlefield itself is killing you. At the start of each Turn after the first, roll for a random Anchor.
-                  All terrain within 4" of that Anchor is removed from the battlefield, and all Units with 4" of that Anchor take 2 Damage.
+              {PveBattlefields.map((b) => (
+                <div key={b.battlefieldId}>
+                  <strong>{b.battlefieldId}: {b.title}</strong>
+                  <div className="ml-4">
+                    <strong>{b.effectName}</strong>
+                    <Markdown>{b.effect}</Markdown>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <strong>2: The Facility - Darkness</strong>
-                <div className="ml-4">
-                  At the start of each Turn after the first, select one random Anchor.
-                  Until the end of the Turn, Units within 4" of that Anchor cannot be targeted in Ranged Combat.
-                </div>
-              </div>
-              <div>
-                <strong>3: The Jungle - Miasmic Mist</strong>
-                <div className="ml-4">
-                  At the start of each Turn after the first, select one random Standing Unit from each Squad. That Unit moves 2" three times in random directions (roll three times).
-                  Note this does not trigger Attacks of Opportunity.
-                  If that Unit cannot make a valid move because of wall or other obstacle, it takes 1 Melee Damage.
-                </div>
-              </div>
-              <div>
-                <strong>4: The Alien Hive - Noxious Gas</strong>
-                <div className="ml-4">
-                  At the start of each Turn after the first, select one random Anchor. All Units within 4" of that Anchor take 1 Damage.
-                </div>
-              </div>
-              <div>
-                <strong>5: The Cursed Temple - Haunting Spirits</strong>
-                <div className="ml-4">
-                  At the start of each Turn after the first, select one random Unit from each Squad.
-                  That Unit is overtaken by the temple's restless spirits and immediately attacks the closest Unit in Combat, Squadmate or enemy.
-                </div>
-              </div>
-              <div>
-                <strong>6: The Rift - Shifting Realities</strong>
-                <div className="ml-4">
-                  At the start of each Turn after the first, select one random Anchor, then roll <code>1D6</code>:<br/>
-                  - **1-3:** All Units within 4" of that Anchor immediately move 2" directly toward it. This does not trigger Attacks of Opportunity.
-                  - **4-6:** All Units within 4" of that Anchor immediately move 2" directly away from it. This does not trigger Attacks of Opportunity.
-                </div>
-              </div>
+              ))}
             </div>
             {/* Deployments */}
             <div className="section">
               <h3>Deployments (D6)</h3>
-              <div>
-                <strong>1: Standard Insertion</strong>
-                <div className="ml-4">
-                  Player Squad deploys within 4" of the SW, S, or SE Anchors.
-                  NPC Squad deploys within 4" of the NW, N, or NE Anchors (split evenly), in Cover or out of sight where possible.
+              {PveDeployments.map((d) => (
+                <div key={d.deploymentId}>
+                  <strong>{d.deploymentId}: {d.title}</strong>
+                  <div className="ml-4">{d.description}</div>
                 </div>
-              </div>
-              <div>
-                <strong>2: Hot Drop</strong>
-                <div className="ml-4">
-                  The insertion was faster than expected. Player Squad deploys Adjacent to the N, S, E, or W Anchors.
-                  NPC Squad deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover or out of sight where possible.
-                </div>
-              </div>
-              <div>
-                <strong>3: Flanked</strong>
-                <div className="ml-4">
-                  Intel was wrong. The enemy is coming from two directions.
-                  NPC Squad deploys Adjacent to the NW or NE Anchors (split evenly), in Cover or out of sight where possible.
-                  Player Squad deploys within 4" of the S Anchor.
-                </div>
-              </div>
-              <div>
-                <strong>4: Deep Strike</strong>
-                <div className="ml-4">
-                  Both sides arrived at the same time.
-                  Player Squad deploys within 4" of the SE anchor.
-                  NPC Squad deploys within 4" of the NW anchor, in Cover if possible.
-                </div>
-              </div>
-              <div>
-                <strong>5: Overwatch</strong>
-                <div className="ml-4">
-                  The enemy holds the high ground and saw you coming.
-                  NPC Squad deploys Adjacent to the W, N, or E Anchors (split evenly), in Cover or out of sight where possible.
-                  Player Squad deploys Adjacent to the SW, S, or SE Anchors.
-                </div>
-              </div>
-              <div>
-                <strong>6: Encircled</strong>
-                <div className="ml-4">
-                  Extraction just got complicated.
-                  Player Squad deploys within 4" of the Center anchor.
-                  NPC Squad deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover or out of sight where possible.
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
