@@ -173,7 +173,7 @@ The signal passed through here. Somewhere in the ruins of the colony's communica
           title: 'Mission 2.1: Planetfall',
           lore: 'The excavation basin is larger than the survey maps suggest. The city was built into it over decades, layer by layer, and what the Swarm left behind doesn\'t match any record you were given. Streets are gone. Structures have been partially consumed and left standing, hollowed out from the inside. The communication infrastructure that serviced this colony ran through a central hub somewhere in the lower basin. Finding it means moving through open ground with no reliable cover and no clear sight lines.',
           description: 'Move through the open basin under Hunter Killer pressure and locate the communication hub.',
-          deployment: 'Hot Drop. Player adjacent to S or SW Anchors. NPCs adjacent to NW, NE, SE Anchors.',
+          deployment: 'Player adjacent to S or SW Anchors. NPCs adjacent to NW, NE, SE Anchors.',
           objectiveA: {
             type: 'Activate - Full Access',
             description: 'Three markers at N, E, W Anchors. Activate all three to locate the hub.',
