@@ -124,6 +124,17 @@ body {
   font-weight: normal;
 }
 
+.statbox {
+  /*@apply flex flex-col items-center border border-border rounded px-2 py-1 flex-1;*/
+	@apply flex flex-col items-center bg-black rounded px-2 py-1 flex-1;
+}
+.statbox-label {
+  @apply text-xs font-heading text-muted uppercase leading-none;
+}
+.statbox-value {
+  @apply stat text-main leading-none;
+}
+
 h1 {
   @apply uppercase text-5xl font-title text-main grunge;
   color: theme('colors.foreground.DEFAULT');
@@ -196,6 +207,11 @@ hr {
 										url('/img/ui/grunge-texture03-dark.webp');
 										/*url('/img/ui/mech02.webp');*/
 	background-size: cover;
+}
+
+.fade-right {
+  mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
 }
 
 .imagegrunge {
@@ -320,6 +336,10 @@ hr {
 	@apply pt-0
 }
 
+.unitcard .statbox-value {
+  @apply text-2xl;
+}
+
 .rules hr {
 	@apply my-12 mx-12 border-border;
 }
@@ -431,6 +451,12 @@ code {
     break-inside: avoid;
   }
 
+	.dungeoncard {
+		/* 40mm 66% dimensions */
+		width: 40mm;
+		height: 40mm;
+	}
+
 	/* Outline weapon icons so they're always visible, with or without "print backgrounds" */
 	.icon {
 		display: inline-block !important;
@@ -453,13 +479,17 @@ code {
   .flavor::before {
     display: none !important;
   }
-	
+
 	.hastip::after {
     display: none !important;
 	}
 
   h1, h2, h3, h4, h5, h6 {
     text-shadow: none !important;
+  }
+
+  .statbox {
+    @apply border border-border;
   }
 
   .markdown {

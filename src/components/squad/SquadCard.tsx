@@ -52,11 +52,11 @@ export default function SquadCard({
   
   return (
     <>
-      <div className="group grid grid-cols-[130px_1fr] md:grid-cols-[130px_1fr] bg-card border border-border rounded hover:border-main transition h-[95px]" key={squad.squadId}>
+      <div className="group grid grid-cols-[130px_1fr] md:grid-cols-[130px_1fr] bg-card border border-border border-l-2 border-l-main rounded hover:border-main transition h-[95px]" key={squad.squadId}>
         {/* Image section - left side */}
-        <Link href={`/squads/${squad.squadId}`} className="relative overflow-hidden border-r border-border">
-          <div 
-            className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500 overflow-hidden"
+        <Link href={`/squads/${squad.squadId}`} className="relative overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500 overflow-hidden fade-right"
             style={{
               backgroundImage: 
               squad.hasCustomPortrait

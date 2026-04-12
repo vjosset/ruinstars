@@ -8,13 +8,13 @@ type SquadTypeCardProps = {
 export default function SquadTypeCard({ squadType }: SquadTypeCardProps) {
   return (
     <Link 
-      className="group grid grid-cols-[135px_1fr] md:grid-cols-[135px_1fr] bg-card border border-border rounded hover:border-main transition h-[90px] overflow-hidden"
+      className="group grid grid-cols-[135px_1fr] md:grid-cols-[135px_1fr] bg-card border border-border border-l-2 border-l-main rounded hover:border-main transition h-[90px] overflow-hidden"
       href={`/squadTypes/${squadType.squadTypeId}`}
     >
       {/* Image section - left side */}
-      <div className="relative overflow-hidden border-r border-border">
-        <div 
-          className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500 overflow-hidden printbg"
+      <div className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500 overflow-hidden fade-right printbg"
           style={{ backgroundImage: `url(/img/squadTypes/${squadType.squadTypeId}_thumb.webp)` }}
         />
       </div>

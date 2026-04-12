@@ -22,7 +22,7 @@ export default async function FactionList({
             <h4 className="font-heading">{faction.factionName}</h4>
             <em>{faction.tagline}</em>
           </Link>
-            
+
           <div className="grid gap-4 grid-cols-1">
             {faction.squadTypes.map((squadType) => {
               return <SquadTypeCard key={squadType.squadTypeId} squadType={squadType} />

@@ -102,7 +102,7 @@ export default function UnitCard({
       <div className="bg-card border border-main rounded relative flex flex-col h-full unitcard mx-1">
         <div className={'grid grid-cols-12 gap-1 text-center'}>
           {!unit.isUnitType && unit.hasCustomPortrait && (
-            <div className="cursor-pointer col-span-3 overflow-hidden rounded-tl border-border border-r border-b" onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>
+            <div className="cursor-pointer col-span-3 overflow-hidden rounded-tl" onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>
               <img
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: (!unit.isUnitType && (unit.currHIT === 0)) ? 'grayscale(1)' : 'none' }}
                 src={`${getUnitPortraitUrl(unit.unitId)}?v=${toEpochMs(unit.portraitUpdatedAt)}`}
@@ -163,34 +163,27 @@ export default function UnitCard({
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-x-4 text-center">
-              <div className="text-md">
-                <span className="font-heading flex items-center justify-center gap-1">
-                  {/*<RiFlashlightFill className="text-xl" />*/}
-                  ACT
-                  <h4 className="stat text-main">{unit.ACT}</h4>
-                </span>
+            <div className="flex gap-2 justify-center">
+              <div className="statbox">
+                <span className="statbox-label">ACT</span>
+                <h4 className="statbox-value">{unit.ACT}</h4>
               </div>
-              <div className="text-md">
-                <span className="font-heading flex items-center justify-center gap-1">
-                  {/*<RiShieldFill className="text-lg" />*/}
-                  ARM
-                  <h4 className="stat text-main">{unit.ARM}</h4>
-                </span>
+              <div className="statbox">
+                <span className="statbox-label">ARM</span>
+                <h4 className="statbox-value">{unit.ARM}</h4>
               </div>
-              <div className={`text-md ${isOwner ? 'cursor-pointer' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
-                <span className="font-heading flex items-center justify-center gap-1">
-                  {/*<RiHeartFill className="text-xl" />*/}
-                  HIT
-                  <h4 className="stat text-main">{unit.isUnitType ? unit.HIT : unit.currHIT}</h4>
-                  {!unit.isUnitType && <h6 className="stat text-muted noprint">/{unit.HIT}</h6>}
-                </span>
+              <div className={`statbox ${isOwner ? 'cursor-pointer hover:border-main transition' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
+                <span className="statbox-label">HIT</span>
+                <h4 className="statbox-value flex items-baseline gap-0.5">
+                  {unit.isUnitType ? unit.HIT : unit.currHIT}
+                  {!unit.isUnitType && <span className="stat text-muted text-xs leading-none noprint">/{unit.HIT}</span>}
+                </h4>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="p-1 border-t border-border">
+        <div className="p-1">
           {/* Weapons */}
           {(unit.weapons?.length ?? 0) > 0 && unit.currHIT !== 0 && (
             <WeaponTable weapons={unit.weapons ?? []} MSK={unit.MSK ?? 0} RSK={unit.RSK ?? 0} allSpecials={allSpecials} />
