@@ -14,16 +14,16 @@ export const PveDeployments: PveDeployment[] = [
   {
     deploymentId: '1',
     title: 'Standard Insertion',
-    description: 'Player Squad deploys within 4" of the SW, S, or SE Anchors. NPC Squad deploys within 4" of the NW, N, or NE Anchors (split evenly), in Cover or out of sight where possible.',
+    description: 'Player Squad Adjacent to the SW, S, or SE Anchors. NPC Squad Adjacent to the NW, N, or NE Anchors (split evenly), in Cover or out of sight where possible.',
     diagram: {
       showCenterLines: true,
       elements: [
-        { id: 'PS-SW', type: 'circle', anchor: 'SW', rIn: 4, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'PS-S',  type: 'circle', anchor: 'S',  rIn: 4, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'PS-SE', type: 'circle', anchor: 'SE', rIn: 4, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-NW', type: 'circle', anchor: 'NW', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-N',  type: 'circle', anchor: 'N',  rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-NE', type: 'circle', anchor: 'NE', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-SW', type: 'circle', anchor: 'SW', rIn: 2, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-S',  type: 'circle', anchor: 'S',  rIn: 2, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-SE', type: 'circle', anchor: 'SE', rIn: 2, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-NW', type: 'circle', anchor: 'NW', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-N',  type: 'circle', anchor: 'N',  rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-NE', type: 'circle', anchor: 'NE', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
       ],
     },
   },

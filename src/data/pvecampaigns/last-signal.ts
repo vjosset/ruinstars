@@ -446,7 +446,7 @@ The last order was always this. You just did not know it until now.`,
           missionId: 'ls-climax',
           title: 'Last Signal',
           description: 'Eliminate the corrupted Praxium Corps squad and protect their leader long enough to carry out the last order.',
-          deployment: 'Standard Insertion. Player within 4" of S Anchor. Corrupted Praxium Corps Adjacent to NW and NE Anchors.',
+          deployment: 'Flanked. Player within 4" of S Anchor. Corrupted Praxium Corps Adjacent to NW and NE Anchors.',
           objectiveA: {
             type: 'Special - Eliminate',
             description: 'Eliminate the entire Praxium Corps squad.',
