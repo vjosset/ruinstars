@@ -104,6 +104,7 @@ export default function UnitCard({
           {!unit.isUnitType && unit.hasCustomPortrait && (
             <div className="cursor-pointer col-span-3 overflow-hidden rounded-tl" onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>
               <img
+                className="fade-right-bottom"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: (!unit.isUnitType && (unit.currHIT === 0)) ? 'grayscale(1)' : 'none' }}
                 src={`${getUnitPortraitUrl(unit.unitId)}?v=${toEpochMs(unit.portraitUpdatedAt)}`}
               />

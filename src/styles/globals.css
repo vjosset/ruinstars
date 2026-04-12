@@ -126,13 +126,13 @@ body {
 
 .statbox {
   /*@apply flex flex-col items-center border border-border rounded px-2 py-1 flex-1;*/
-	@apply flex flex-col items-center bg-black rounded px-2 py-1 flex-1;
+	@apply flex flex-col items-center bg-black rounded px-2 pt-1 pb-0 flex-1;
 }
 .statbox-label {
   @apply text-xs font-heading text-muted uppercase leading-none;
 }
 .statbox-value {
-  @apply stat text-main leading-none;
+  @apply stat text-main leading-none mb-0;
 }
 
 h1 {
@@ -212,6 +212,20 @@ hr {
 .fade-right {
   mask-image: linear-gradient(to right, black 60%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+}
+
+.fade-bottom {
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+.fade-right-bottom {
+  mask-image: linear-gradient(to right, black 60%, transparent 100%),
+              linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%),
+                      linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-composite: source-in;
 }
 
 .imagegrunge {
