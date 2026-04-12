@@ -18,13 +18,13 @@ export async function generateMetadata() {
 
 function CardBack({ deck }: { deck: 'Deployment' | 'Objective' | 'Battlefield' }) {
   return (
-    <div className="printbg unitcard bg-background border-2 border-main p-1.5 flex">
+    <div className="refcard bg-background border-2 border-main p-1.5 flex">
       <div className="flex-1 flex flex-col items-center justify-center gap-4 p-4">
         <img src="/icons/icon-big.png" className="w-48 h-48 object-contain" alt="Ruinstars" />
         <div className="w-full" />
-        <h1 className="font-title text-center leading-none">
+        <h2 className="font-title text-center leading-none">
           {deck}
-        </h1>
+        </h2>
       </div>
     </div>
   )
@@ -32,66 +32,68 @@ function CardBack({ deck }: { deck: 'Deployment' | 'Objective' | 'Battlefield' }
 
 export default function CardsPage() {
   return (
-    <div className="rules p-3 max-w-7xl mx-auto">
-      <div className="section">
-        <div className="flex flex-wrap gap-4">
+    <>
+      <style>{'@media print { @page { size: 11in 8.5in; margin: 0.5in; } }'}</style>
+      <div className="rules print-landscape max-w-7xl mx-auto">
+        <div className="section">
+          <div className="flex flex-wrap gap-0">
 
-          {PveDeployments.map((d) => (
-            <div key={d.deploymentId} className="flex">
-              <CardBack deck="Deployment" />
-              <div className="unitcard border border-main p-2 flex flex-col overflow-hidden">
-                <h2 className="flex-shrink-0">{d.title}</h2>
-                <em className="flex-shrink-0">Deployment {d.deploymentId}</em>
-                <Markdown>{d.description}</Markdown>
-                <BattlefieldDiagram diagram={{ ...d.diagram, legend: {} }} className="mt-auto" />
-              </div>
-            </div>
-          ))}
-
-          {PveObjectives.map((archetype) =>
-            archetype.variations.map((v) => (
-              <div key={v.objectiveId} className="flex">
-                <CardBack deck="Objective" />
-                <div className="unitcard border border-main p-2 flex flex-col overflow-hidden">
-                  <h2 className="flex-shrink-0">{v.title}</h2>
-                  <em className="flex-shrink-0">PvE Objective - {v.objectiveId}</em>
-                  {v.setup && (
-                    <div>
-                      <h6>Setup</h6>
-                      <Markdown>{v.setup}</Markdown>
-                    </div>
-                  )}
-                  {v.special && (
-                    <div>
-                      <h6>Special</h6>
-                      <Markdown>{v.special}</Markdown>
-                    </div>
-                  )}
-                  {v.victory && (
-                    <div>
-                      <h6>Victory</h6>
-                      <Markdown>{v.victory}</Markdown>
-                    </div>
-                  )}
+            {PveBattlefields.map((b) => (
+              <div key={b.battlefieldId} className="flex">
+                <CardBack deck="Battlefield" />
+                <div className="refcard border border-main p-2 flex flex-col overflow-hidden">
+                  <h2 className="flex-shrink-0">{b.title}</h2>
+                  <em className="flex-shrink-0">Battlefield {b.battlefieldId}</em>
+                  <h4>{b.effectName}</h4>
+                  <Markdown>{b.effect}</Markdown>
                 </div>
               </div>
-            ))
-          )}
+            ))}
 
-          {PveBattlefields.map((b) => (
-            <div key={b.battlefieldId} className="flex">
-              <CardBack deck="Battlefield" />
-              <div className="unitcard border border-main p-2 flex flex-col overflow-hidden">
-                <h2 className="flex-shrink-0">{b.title}</h2>
-                <em className="flex-shrink-0">Battlefield {b.battlefieldId}</em>
-                <h4>{b.effectName}</h4>
-                <Markdown>{b.effect}</Markdown>
+            {PveDeployments.map((d) => (
+              <div key={d.deploymentId} className="flex">
+                <CardBack deck="Deployment" />
+                <div className="refcard border border-main p-2 flex flex-col overflow-hidden">
+                  <h2 className="flex-shrink-0">{d.title}</h2>
+                  <Markdown>{d.description}</Markdown>
+                  <BattlefieldDiagram diagram={{ ...d.diagram, legend: {} }} className="mt-auto" />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
 
+            {PveObjectives.map((archetype) =>
+              archetype.variations.map((v) => (
+                <div key={v.objectiveId} className="flex">
+                  <CardBack deck="Objective" />
+                  <div className="refcard border border-main p-2 flex flex-col overflow-hidden">
+                    <h2 className="flex-shrink-0">{v.title}</h2>
+                    <em className="flex-shrink-0">PvE Objective - {v.objectiveId}</em>
+                    {v.setup && (
+                      <div>
+                        <h6>Setup</h6>
+                        <Markdown>{v.setup}</Markdown>
+                      </div>
+                    )}
+                    {v.special && (
+                      <div>
+                        <h6>Special</h6>
+                        <Markdown>{v.special}</Markdown>
+                      </div>
+                    )}
+                    {v.victory && (
+                      <div>
+                        <h6>Victory</h6>
+                        <Markdown>{v.victory}</Markdown>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))
+            )}
+
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

@@ -371,9 +371,14 @@ code {
   }
 
 	@page {
-    size: 8.5in 11in !important;
-		margin: 0.5in !important;
+    size: 8.5in 11in;
+		margin: 0.5in;
   }
+
+	@page landscape {
+		size: 11in 8.5in;
+		margin: 0.5in;
+	}
 
 	body {
 		zoom: 66%;
@@ -383,6 +388,11 @@ code {
 	
 	.noprint {
 		display: none !important;
+	}
+
+	.print-landscape {
+		page: landscape;
+		max-width: none !important;
 	}
 
   .printonly {
@@ -405,6 +415,18 @@ code {
     /* Tarot vertical 66% dimensions */
     width: 4.2in;
     height: 7.2in;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .refcard {
+    /* Poker vertical 100% dimensions
+    width: 2.5in;
+    height: 3.5in;
+    */
+    /* Poker vertical 66% dimensions */
+    width: 3.5in;
+    height: 5in;
     page-break-inside: avoid;
     break-inside: avoid;
   }
