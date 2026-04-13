@@ -94,7 +94,7 @@ export type MissionPlain = {
   seq?: number | null;
   title: string;
   active?: boolean;
-  battlefield: string;
+  battlefield?: string;
   lore?: string | null;        // blockquote narrative intro (used in bespoke campaigns)
   description: string;
   battlefieldId?: string | null;
