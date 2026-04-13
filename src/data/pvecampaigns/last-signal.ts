@@ -159,9 +159,11 @@ No source. No date. You file it and move on. Verath III is a long way from here.
     {
       operationId: 'op-2-verath-iii',
       title: 'Operation 2: Verath III Mining Colony',
-      lore: `Verath III was a productive world once. Three generations of miners built a city inside its largest excavation basin, deep enough that the walls blocked the wind and the geothermal grid kept it warm. When the Swarm made planetfall, the colony held for eleven days before Command wrote it off. No evacuation. No relief force. The official record lists the population as unrecoverable and closes the file in the same sentence.
+      lore: `Verath III was a productive world once. Three generations of miners built a city inside its largest excavation basin, deep enough that the walls blocked the wind and the geothermal grid kept it warm. They dug because that was the work, and they were good at it. They dug until they found a dormant Swarm pod that had been laying in wait for a long time.
 
-The Swarm remains, drawn to the ruins the way they are drawn to anything that offers cover and prey. They have been here long enough to know every collapsed tunnel and every sight line in the excavation. They knew you were coming before you broke atmosphere.
+The official record lists the colony as lost to an uncontrolled biological outbreak. It does not describe what was in the rock. It does not explain why no recovery operation was ever mounted, or why the file was closed the same week the last transmission arrived. Three generations of miners reduced to a single sentence and a closed case number.
+
+The Swarm has been here ever since. Spreading, consuming, settling. They have been here long enough to know every collapsed tunnel and every sight line in the excavation. They knew you were coming before you broke atmosphere.
 
 The signal passed through here. Somewhere in the ruins of the colony's communication infrastructure is the next coordinate.`,
       enemyFaction: 'Hunter Killers',
@@ -171,8 +173,8 @@ The signal passed through here. Somewhere in the ruins of the colony's communica
         {
           missionId: 'ls-2-1',
           title: 'Mission 2.1: Planetfall',
-          lore: 'The excavation basin is larger than the survey maps suggest. The city was built into it over decades, layer by layer, and what the Swarm left behind doesn\'t match any record you were given. Streets are gone. Structures have been partially consumed and left standing, hollowed out from the inside. The communication infrastructure that serviced this colony ran through a central hub somewhere in the lower basin. Finding it means moving through open ground with no reliable cover and no clear sight lines.',
-          description: 'Move through the open basin under Hunter Killer pressure and locate the communication hub.',
+          lore: 'The excavation basin is larger than the survey maps suggest. The city was built into it over decades, layer by layer, and what the Swarm left behind doesn\'t match any record you were given. Streets are gone. Structures have been partially consumed and left standing, hollowed out from the inside. The communication infrastructure that serviced this colony ran through a central hub somewhere in the lower basin. Finding it means moving through dangerous ground at constant risk of collapse.',
+          description: 'Move through the basin under Hunter Killer pressure and locate the communication hub.',
           deployment: 'Player adjacent to S or SW Anchors. NPCs adjacent to NW, NE, SE Anchors.',
           objectiveA: {
             type: 'Activate - Full Access',
