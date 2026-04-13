@@ -1,15 +1,15 @@
 import { Campaign, MissionDiagramLegend } from '@/types'
 
 // Shared diagram colors
-const PS  = '#2563eb' // player deployment
-const NPC = '#dc2626' // NPC deployment
+const PS  = '#2563eb' // player squad
+const NPC = '#dc2626' // NPC squad
 const A   = '#16a34a' // Objective A
 const B   = '#f97316' // Objective B
 
 // Shared legend used on every mission diagram
 const LEGEND: MissionDiagramLegend = {
-  PS:  { label: 'Player Deployment', color: PS  },
-  NPC: { label: 'NPC Deployment',    color: NPC },
+  PS:  { label: 'Player Squad', color: PS  },
+  NPC: { label: 'NPC Squad',    color: NPC },
   A:   { label: 'Objective A',       color: A   },
   B:   { label: 'Objective B',       color: B   },
 }
@@ -38,11 +38,11 @@ Outer Claim raiders have been using the station as a forward base for months, st
 Somewhere in the transmission logs is a record of every signal this station ever relayed. What you need is in there. Getting to it means going through them.`,
       enemyFaction: 'Despoilers',
       threatLevel: 1,
-      battlefield: 'The Facility',
       missions: [
         {
           missionId: 'ls-1-1',
           title: 'Mission 1.1: Dead Frequency',
+          battlefield: 'The Facility',
           lore: 'Kethara Station\'s docking ring is the first thing you can reach. The Despoilers have fortified it, which means they have been here long enough to care about being pushed out. The station\'s interior access runs through this section. There is no other way in.',
           description: 'Push through the fortified docking ring and hold the interior access points.',
           deployment: 'Flanked. Player within 4" of S Anchor. NPCs split between NW and NE Anchors.',
@@ -78,6 +78,7 @@ Somewhere in the transmission logs is a record of every signal this station ever
         {
           missionId: 'ls-1-2',
           title: 'Mission 1.2: Static Hold',
+          battlefield: 'The Facility',
           lore: `The docking ring is yours. The station's core systems are deeper in, past the hab blocks and maintenance corridors the Despoilers have made their own. They know the layout better than you do. They are already moving to cut you off.
 
 The station's internal network is partially live. Someone has been using it. If you can reach one of the active terminals and hold it long enough to run a search, you can find where the transmission logs are stored before you fight your way to them blind.`,
@@ -116,6 +117,7 @@ The station's internal network is partially live. Someone has been using it. If 
         {
           missionId: 'ls-1-3',
           title: 'Mission 1.3: Last Transmission',
+          battlefield: 'The Facility',
           lore: `The logs are in the station's communication core. You know where it is now. So do the Despoilers.
 
 The core is intact, which is the only piece of luck this station has offered. Whatever the Despoilers were using it for, they had the sense not to strip it. The transmission record goes back decades. Somewhere in it is the signal, and before the signal, the address of wherever it came from before it hit Kethara. You need time the Despoilers are not going to give you.`,
@@ -168,11 +170,11 @@ The Swarm has been here ever since. Spreading, consuming, settling. They have be
 The signal passed through here. Somewhere in the ruins of the colony's communication infrastructure is the next coordinate.`,
       enemyFaction: 'Hunter Killers',
       threatLevel: 2,
-      battlefield: 'The Ruined City',
       missions: [
         {
           missionId: 'ls-2-1',
           title: 'Mission 2.1: Planetfall',
+          battlefield: 'The Ruined City',
           lore: 'The excavation basin is larger than the survey maps suggest. The city was built into it over decades, layer by layer, and what the Swarm left behind doesn\'t match any record you were given. Streets are gone. Structures have been partially consumed and left standing, hollowed out from the inside. The communication infrastructure that serviced this colony ran through a central hub somewhere in the lower basin. Finding it means moving through dangerous ground at constant risk of collapse.',
           description: 'Move through the basin under Hunter Killer pressure and locate the communication hub.',
           deployment: 'Player adjacent to S or SW Anchors. NPCs adjacent to NW, NE, SE Anchors.',
@@ -210,6 +212,7 @@ The signal passed through here. Somewhere in the ruins of the colony's communica
         {
           missionId: 'ls-2-2',
           title: 'Mission 2.2: The Consumed City',
+          battlefield: 'The Ruined City',
           lore: `You found the hub. It is intact, which means the Swarm had no reason to destroy it. The systems inside are dead but recoverable. Getting them live long enough to pull the transmission record will take time you do not have in abundance.
 
 The Hunter Killers have been watching since you made planetfall. They have decided you have gone far enough.`,
@@ -247,7 +250,10 @@ The Hunter Killers have been watching since you made planetfall. They have decid
         {
           missionId: 'ls-2-3',
           title: 'Mission 2.3: Ghost Signal',
-          lore: `The transmission record is in there. Fragmented, partially consumed, but readable enough. You brought the systems back online and now the Hunter Killers know exactly where you are. Every one of them that has been pacing this basin since you made planetfall is moving toward this position.
+          battlefield: 'The Alien Hive',
+          lore: `The deepest sections of the colony are unrecognizable. Whatever the miners built here has been consumed and rebuilt into something else entirely, walls thickened with organic matter, corridors narrowed to something that moves the way the Hunter Killers move. The communication core is in there somewhere beneath what the Swarm made of it.
+
+The data is still readable. You brought the systems back online and now every Hunter Killer in the basin knows exactly where you are.
 
 Pull the data and get out.`,
           description: 'Recover the fragmented transmission data and extract before the Hunter Killers converge.',
@@ -305,11 +311,11 @@ The Relict Wardens are here in force. They engage before you finish your approac
 You have coordinates and a signal to trace.`,
       enemyFaction: 'Relict Wardens',
       threatLevel: 3,
-      battlefield: 'The Cursed Temple',
       missions: [
         {
           missionId: 'ls-3-1',
           title: 'Mission 3.1: Perimeter',
+          battlefield: 'The Cursed Temple',
           lore: `The outer surface of the structure is vast and featureless except for the Wardens holding it. They do not use cover. They do not fall back. They stand between you and the entrance to the interior and they do not move until you make them.
 
 Whatever is inside, they do not want you reaching it.`,
@@ -347,6 +353,7 @@ Whatever is inside, they do not want you reaching it.`,
         {
           missionId: 'ls-3-2',
           title: 'Mission 3.2: The Interior',
+          battlefield: 'The Cursed Temple',
           lore: `The entrance leads down. The interior of the structure is not what the outside suggested. The geometric formations on the surface give way to something that feels engineered rather than built, corridors that are too precise, dimensions that are slightly wrong in ways that are difficult to identify and impossible to ignore.
 
 The Wardens are falling back rather than holding position but do not stop fighting.`,
@@ -385,6 +392,7 @@ The Wardens are falling back rather than holding position but do not stop fighti
         {
           missionId: 'ls-3-3',
           title: 'Mission 3.3: The Threshold',
+          battlefield: 'The Cursed Temple',
           lore: `The corridor ends in a chamber large enough that the far wall is not immediately visible. At the center is a door that has no mechanism, no seam, no visible means of opening. The signal came from beyond it.
 
 The Wardens are here in greater numbers than anything you encountered in the outer structure. Whatever is behind that door, this is where they have chosen to make their final stand.`,
@@ -442,11 +450,11 @@ One of them does not engage. Older than the rest, standing apart, watching you f
 The last order was always this. You just did not know it until now.`,
       enemyFaction: 'Praxium Corps',
       threatLevel: 3,
-      battlefield: 'The Cursed Temple',
       missions: [
         {
           missionId: 'ls-climax',
           title: 'Last Signal',
+          battlefield: 'The Cursed Temple',
           description: 'Eliminate the corrupted Praxium Corps squad and protect their leader long enough to carry out the last order.',
           deployment: 'Flanked. Player within 4" of S Anchor. Corrupted Praxium Corps Adjacent to NW and NE Anchors.',
           objectiveA: {

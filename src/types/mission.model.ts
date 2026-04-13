@@ -94,6 +94,7 @@ export type MissionPlain = {
   seq?: number | null;
   title: string;
   active?: boolean;
+  battlefield: string;
   lore?: string | null;        // blockquote narrative intro (used in bespoke campaigns)
   description: string;
   battlefieldId?: string | null;
@@ -118,7 +119,6 @@ export type CampaignOperation = {
   lore?: string;
   enemyFaction: string;
   threatLevel: 1 | 2 | 3;
-  battlefield: string;
   missions: MissionPlain[];
   homebase?: string;   // narrative bridge shown after the operation's last mission
 };

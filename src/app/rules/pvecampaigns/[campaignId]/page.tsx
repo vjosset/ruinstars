@@ -52,7 +52,6 @@ export default async function CampaignPage({ params }: { params: Promise<{ campa
           <div className="flex flex-wrap gap-x-6 gap-y-1 my-2 border-l-4 border-l-main pl-3">
             <span><strong>Enemy:</strong> {operation.enemyFaction}</span>
             <span><strong>Threat Level:</strong> {THREAT_LABEL[operation.threatLevel]}</span>
-            <span><strong>Battlefield:</strong> {operation.battlefield}</span>
           </div>
 
           {operation.lore && (

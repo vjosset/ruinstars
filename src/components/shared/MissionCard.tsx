@@ -18,6 +18,12 @@ function MissionDetails({ mission }: { mission: MissionPlain }) {
           <div className="ml-2"><Markdown>{mission.setup}</Markdown></div>
         </>
       )}
+      {mission.battlefield && (
+        <>
+          <h6 className="text-main">Battlefield</h6>
+          <div className="ml-2">{mission.battlefield}</div>
+        </>
+      )}
       {mission.deployment && (
         <>
           <h6 className="text-main">Deployment</h6>
@@ -66,9 +72,11 @@ function MissionDetails({ mission }: { mission: MissionPlain }) {
 
 export default function MissionCard({ mission, showDescription = true, showId = true, layout = 'vertical' }: MissionCardProps) {
   const title = (
-    <h3 className="text-main font-semibold mb-1">
-      {showId ? `${mission.missionId} - ` : ''}{mission.title}
-    </h3>
+    <>
+      <h3 className="text-main font-semibold mb-1">
+        {showId ? `${mission.missionId} - ` : ''}{mission.title}
+      </h3>
+    </>
   )
 
   const loreBlock = mission.lore && (
