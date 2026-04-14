@@ -18,7 +18,7 @@ export default function UnitCardMenu({
   onMoveLast?: () => void
 }) {
   return (
-    <MenuItems className="absolute right-2 m-1 z-50 w-28 origin-top-right rounded-md bg-card border border-main focus:outline-none divide-y divide-border">
+    <MenuItems anchor="bottom end" className="m-1 z-50 w-28 origin-top-right rounded-md bg-card border border-main focus:outline-none divide-y divide-border">
       <div className="flex flex-col p-1">
         <MenuItem>
           {({ focus }) => (
