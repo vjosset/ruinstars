@@ -46,6 +46,8 @@ const BATTLEFIELDS: { title: string; href: string; icon: IconType }[] = [
   { title: 'The Ruined City (A4)', href: '/assets/battlefields/TheRuinedCity_A4.pdf', icon: BsMap },
   { title: 'The Facility (US Letter)', href: '/assets/battlefields/TheFacility_Letter.pdf', icon: BsMap },
   { title: 'The Facility (A4)', href: '/assets/battlefields/TheFacility_A4.pdf', icon: BsMap },
+  //{ title: 'Alien Hive (US Letter)', href: '/assets/battlefields/AlienHive_Letter.pdf', icon: BsMap },
+  //{ title: 'Alien Hive (A4)', href: '/assets/battlefields/AlienHive_A4.pdf', icon: BsMap },
 ]
 
 const PVE_CAMPAIGNS: { title: string; desc: string; href: string; icon: IconType }[] = [
