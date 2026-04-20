@@ -99,7 +99,7 @@ export default function UnitCard({
 
   return (
     <>
-      <div className="bg-card border border-main rounded relative flex flex-col h-full unitcard mx-1">
+      <div className="bg-card border border-border border-l-2 border-l-main rounded relative flex flex-col h-full unitcard mx-1">
         <div className={'grid grid-cols-12 gap-0 text-center'}>
           {!unit.isUnitType && unit.hasCustomPortrait && (
             <div className="cursor-pointer col-span-3 overflow-hidden rounded-tl" onClick={() => onPortraitClick && onPortraitClick(unit.unitId)}>

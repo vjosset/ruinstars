@@ -399,7 +399,7 @@ export default function SquadPageClient({
       {/* UnitCards */}
       {activeTab === 'units' && (
         <div className="max-w-7xl mx-auto print:max-w-none">
-          <div className="grid gap-x-0 gap-y-1 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-x-0 gap-y-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {units.map((unit, idx) => {
               return (
                 <UnitCard
