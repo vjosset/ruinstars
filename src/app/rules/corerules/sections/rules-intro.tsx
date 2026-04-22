@@ -41,7 +41,7 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
             <ul>
               <li><strong>Players:</strong> 1-4 (PvE), or 2 (PvP)</li>
               <li><strong>Sessions:</strong> 45-90 minutes</li>
-              <li><strong>Dice:</strong> <code>D6</code></li>
+              <li><strong>Dice:</strong> <code>D{GAME.DICE_BASIS}</code></li>
               <li><strong>Table Size:</strong> 2' x 2'</li>
               <li><strong>Free:</strong> Download the <Link href="/rules">complete rules</Link></li>
             </ul>
