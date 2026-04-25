@@ -61,13 +61,13 @@ export default async function CoreRules() {
 
         <RulesStatCards num={4} />
 
-        <RulesYourSquad num={5} />
+        <RulesActions num={5} />
 
-        <RulesActions num={6} />
+        <RulesMovement num={6} />
 
-        <RulesMovement num={7} />
+        <RulesCombat num={7} />
 
-        <RulesCombat num={8} />
+        <RulesYourSquad num={8} />
 
         <PageBreak />
         <RulesPlayingOnAGrid num={9} />

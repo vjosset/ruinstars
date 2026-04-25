@@ -18,7 +18,7 @@ export default async function RulesFirstMission({ num }: {num?: number | null}) 
         <div className="twocols">
           <div className="section">
             This first mission is designed to introduce the core mechanics of Ruinstars in a contained, high-pressure scenario.
-            Your Squad deploys at the center of the battlefield and must push outward to locate and destroy three Bug Spawn Points before the end of Turn 4, while managing an ever-growing swarm that gets larger every turn.
+            Your Squad deploys at the center of the battlefield and must push outward to locate and destroy three Bug Nests before the end of Turn 4, while managing an ever-growing swarm that gets larger every turn.
             You'll practice moving under pressure, choosing between offensive and defensive priorities, and coordinating activations across your Squad.
             There are no objectives to carry, no doors to open, and no special actions to remember, just movement, combat, and the hard choices that come when you can't do everything at once.
             <div className="flavor">

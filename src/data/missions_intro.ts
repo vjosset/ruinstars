@@ -19,9 +19,9 @@ const missions_intro = [
     description: '',
     setup: '',
     deployment: 'Player Units deploy anywhere within 4" of the center of the battlefield',
-    victory: 'At the end of Turn 4, if all Spawn Points have been Taken Out, your Squad wins the mission.',
+    victory: 'At the end of Turn 4, if all Nests have been Taken Out, your Squad wins the mission.',
     special: dedent(`
-At the start of each Turn, spawn \`x\` Bugs (max 4) Adjacent to each Spawn Point, where \`x\` is the Turn number (i.e. one bug in Turn 1, two bugs in Turn 2, etc.).
+At the start of each Turn, spawn \`x\` Bugs (max 4) Adjacent to each Nest, where \`x\` is the Turn number (i.e. one bug in Turn 1, two bugs in Turn 2, etc.).
 
 Bug Units are activated after each player Unit activation, alternating player control.
 
@@ -31,11 +31,11 @@ Bug Units are activated after each player Unit activation, alternating player co
 |**Weapon**||**ATT**|**SKL**|
 |(M) Bite||3|4|
 
-Spawn Points are treated as items and can be targeted in combat. Spawn Points cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Spawn Point.
+Nests are treated as items and can be targeted in combat. Nests cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Nest.
 
 |**Item**|**ACT**|**ARM**|**HIT**|
 |-----|:---:|:---:|:---:|
-|Spawn Point|-|4|1|
+|Nest|-|4|1|
 `),
     rewards: [],
     diagram: {
@@ -152,11 +152,11 @@ Spawn Points are treated as items and can be targeted in combat. Spawn Points ca
 
 Something is stirring beneath the battlefield - something ancient, hungry, and unstoppable. A horde of alien creatures has erupted from below, their chitinous bodies swarming over the land, attacking anything that moves. Both squads find themselves trapped in a desperate fight for survival. The mission? Kill as many of these creatures as possible before they are overrun. The battlefield is a feeding ground, and every shot fired is a battle against extinction.
 `),
-    setup: 'Deploy a Spawn Point in the center of 3 random Tiles.',
+    setup: 'Deploy a Nest in the center of 3 random Tiles.',
     deployment: 'Player Units deploy from the Southern battlefield edge before Turn 1.',
-    victory: 'At the end of Turn 4, if all Spawn Points have been Taken Out, your Squad wins the mission.',
+    victory: 'At the end of Turn 4, if all Nests have been Taken Out, your Squad wins the mission.',
     special: dedent(`
-- At the start of each Turn, spawn \`x\` Bugs Adjacent to each Spawn Point, where \`x\` is the Turn number (i.e. one bug in Turn 1, two bugs in Turn 2, etc.).
+- At the start of each Turn, spawn \`x\` Bugs Adjacent to each Nest, where \`x\` is the Turn number (i.e. one bug in Turn 1, two bugs in Turn 2, etc.).
 
 |**Unit**|**ACT**|**ARM**|**HIT**|
 |-----|:---:|:---:|:---:|
@@ -168,10 +168,10 @@ Bug Units are activated after each player Unit activation, alternating player co
 
 |**Item**|**ACT**|**ARM**|**HIT**|
 |-----|:---:|:---:|:---:|
-|Spawn Point|-|4|1|
+|Nest|-|4|1|
 
-Spawn Points are treated as items and can be targeted in combat. Spawn Points cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Spawn Point.
-If a Spawn Point is targeted in combat and is not Taken Out as a result, spawn one Bug Adjacent to that Spawn Point.
+Nests are treated as items and can be targeted in combat. Nests cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Nest.
+If a Nest is targeted in combat and is not Taken Out as a result, spawn one Bug Adjacent to that Nest.
 `),
     rewards: []
   },
@@ -188,14 +188,14 @@ If a Spawn Point is targeted in combat and is not Taken Out as a result, spawn o
   - **Gate:** ("G" on the map) Middle of the Northern edge of the Northern Tile in Zone 1.
   - **Console:** ("C" on the map) Middle of the Eastern edge of the Eastern Tile in Zone 2.
   - **Extraction Zone:** ("Extract" on the map) Within 2 Paces of the Eastern edge of Zone 3.
-- Place Spawn Points 1, 2, and 3 ("S" on the map) 
+- Place Nests 1, 2, and 3 ("S" on the map) 
 `),
     deployment: 'Before Turn 1, deploy your Units within 2 Paces of the Western edge of Zone 1.',
     victory: 'Your Squad wins the Mission if the Gate has been breached, the Console has been activated, and all your Standing Units are within the Extraction zone before the self-destruct sequence completes.',
     special: dedent(`
 - Instead of deploying an NPC Squad, play the Bugs as the NPCs
 - Unlike most other Missions, this Mission is not limited to 4 Turns.
-- At the start of each Turn, spawn Bugs Adjacent to each Spawn Point: one bug in Turn 1, two bugs in Turn 2, three bugs in Turn 3, and four bugs on Turns 4 and later.
+- At the start of each Turn, spawn Bugs Adjacent to each Nest: one bug in Turn 1, two bugs in Turn 2, three bugs in Turn 3, and four bugs on Turns 4 and later.
 - **Gate:** At the start of the Mission, the Gate is closed, preventing your Units from entering Zone 2. The Gate is an Item with \`ARM\` **4** and \`HIT\` **4** and can be targeted in Combat. Once the Gate is Taken Out, it is Breached and the path clears for your Units to move into Zone 2.
 - **Mission Action: Activate Console (2 ACT):** A Unit Adjacent to the Console may Activate it for 2 ACT. Once the Console is Activated, your Squad has 2 Turns to get to the extraction zone or risk being caught in the explosion. For example, if the Console is Activated in Turn 3, your Units must extract by the end of Turn 5.  
 A Unit may not perform this Action if it is Adjacent to any enemy Units.
@@ -210,11 +210,11 @@ Bug Units are activated after each player Unit activation, alternating player co
 
 |**Item**|**ACT**|**ARM**|**HIT**|
 |-----|:---:|:---:|:---:|
-|Spawn Point|-|4|2|
+|Nest|-|4|2|
 
-Spawn Points are treated as items. Spawn Points cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Spawn Point.
-If a Spawn Point is targeted in combat and is not Taken Out as a result, it regains all of its \`HIT\`.
-Each time a Spawn Point is targeted in combat and is not Taken out as a result, for each saved successful strike, spawn one Bug Adjacent to that Spawn Point.
+Nests are treated as items. Nests cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Nest.
+If a Nest is targeted in combat and is not Taken Out as a result, it regains all of its \`HIT\`.
+Each time a Nest is targeted in combat and is not Taken out as a result, for each saved successful strike, spawn one Bug Adjacent to that Nest.
 Bugs cannot traverse from one Zone to another. So if a Bug spawned inside Zone 2, it cannot "see" your Units in Zones 1 or 3; when selecting targets for NPC behavior, ignore player Units that are not in the same Zone as the Bug.
 `),
     rewards: []
@@ -231,16 +231,16 @@ Bugs cannot traverse from one Zone to another. So if a Bug spawned inside Zone 2
   - **Station Alpha:** Center of the Western Tile.
   - **Station Beta:** Center of the Northern Tile.
   - **Station Gamma:** Center of the Eastern Tile.
-- Place Spawn Points:
-  - **Spawn 1:** Middle of the Western edge of the Western Tile.
-  - **Spawn 2:** Middle of the Northern edge of the Northern Tile.
-  - **Spawn 3:** Middle of the Eastern edge of the Eastern Tile.
+- Place Nests:
+  - **Nest 1:** Middle of the Western edge of the Western Tile.
+  - **Nest 2:** Middle of the Northern edge of the Northern Tile.
+  - **Nest 3:** Middle of the Eastern edge of the Eastern Tile.
 `),
     deployment: 'Before Turn 1, deploy your Units on the Southern edge of the battlefield.',
     victory: 'Your Squad wins the Mission if all Stations are Standing by the end of Turn 6.',
     special: dedent(`
 - Instead of deploying an NPC Squad, play the Bugs as the NPCs
-- At the start of each Turn, spawn \`x\` Bugs Adjacent to each Spawn Point, where \`x\` is the Turn number (i.e. one bug in Turn 1, two bugs in Turn 2, etc.).
+- At the start of each Turn, spawn \`x\` Bugs Adjacent to each Nest, where \`x\` is the Turn number (i.e. one bug in Turn 1, two bugs in Turn 2, etc.).
 - At the start of each Turn after the first, roll \`1D3\` to determine which Station is Active. The previously-Active Station (if any) is no longer Active.
 - **Stations:** Stations are Items with \`ARM\` **4** and \`HIT\` **4** and can be targeted in Combat. If any Station is Taken Out, your Squad loses the Mission.
 
@@ -256,11 +256,11 @@ Bug Units are activated after each player Unit activation, alternating player co
 
 |**Item**|**ACT**|**ARM**|**HIT**|
 |-----|:---:|:---:|:---:|
-|Spawn Point|-|4|2|
+|Nest|-|4|2|
 
-Spawn Points are treated as items. Spawn Points cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Spawn Point.
-If a Spawn Point is targeted in combat and is not Taken Out as a result, it regains all of its \`HIT\`.
-Each time a Spawn Point is targeted in combat and is not Taken out as a result, for each saved successful strike, spawn one Bug Adjacent to that Spawn Point.
+Nests are treated as items. Nests cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Nest.
+If a Nest is targeted in combat and is not Taken Out as a result, it regains all of its \`HIT\`.
+Each time a Nest is targeted in combat and is not Taken out as a result, for each saved successful strike, spawn one Bug Adjacent to that Nest.
 
 **Behavior:** To determine Bug targets:
 - Turn 1: Bugs target the closest player Unit as normal
