@@ -22,8 +22,7 @@ _A good one from [Regös Környei](https://unsplash.com/photos/brown-and-white-a
 Once I download the full-sized image, I can use my [battlefield tool](https://github.com/vjosset/tabletop-print-tools/tree/main/battlefield-splitter) to split it up. I'll be building a 60cm x 60cm (or 24" x 24") battlefield, printed on US Letter paper, and I want the 2" grid, so I place the downloaded image in the same folder as the python script and run it with these options, making sure to override the default grid color to make it more visible on the output:
 
 ```bash
-python BattlefieldPDFGen.py AlienHive.jpg
-  --tiles 3x3 --paper letter --grid-color "#20A616"
+python BattlefieldPDFGen.py AlienHive.jpg --tiles 3x3 --paper letter --grid-color "#20A616"
 ```
 
 The result is a PDF with 9 pages: one page for each of the tiles.

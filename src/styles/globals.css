@@ -313,6 +313,12 @@ hr {
 	text-decoration: underline;
 }
 
+.blog-content pre {
+	overflow-x: auto;
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
 .blog-content blockquote {
 	/* Scratched screen background */
 	@apply relative text-sm text-muted leading-relaxed rounded-md p-3 my-2 overflow-hidden border border-border border-l-4 border-l-main;
