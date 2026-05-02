@@ -149,7 +149,7 @@ const EditSquadForm = forwardRef(function EditSquadForm(
               placeholder="Enter squad name"
             />
           </div>
-          <div className="grid grid-cols-[5rem_1fr] items-start gap-x-4 mt-2">
+          <div className="items-start mt-2">
             <Label htmlFor="squadNotes" className="whitespace-nowrap pt-2">Notes</Label>
             <textarea
               id="squadNotes"
@@ -158,17 +158,6 @@ const EditSquadForm = forwardRef(function EditSquadForm(
               placeholder="Mission notes, campaign log, strategies..."
               rows={10}
               className="w-full bg-card border border-border rounded px-1 py-2 text-sm text-white placeholder:text-muted focus:outline-none focus:border-main"
-            />
-          </div>
-          <div className="grid grid-cols-[5rem_1fr] items-center gap-x-4 hidden">
-            <Label htmlFor="maxGP">Max GP</Label>
-            <Input
-              id="maxGP"
-              type="number"
-              min="0"
-              value={maxGP}
-              onChange={(e) => setMaxGP(e.target.value)}
-              placeholder="Enter max GP"
             />
           </div>
         </div>
