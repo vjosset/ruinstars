@@ -334,18 +334,21 @@ export default async function PvEMissions() {
                 </div>
                 <div className="section">
                   <h6>Destroy</h6>
-                  These are things that cannot be allowed to survive. Spawn nodes. Weapons caches. A relay broadcasting enemy coordinates. Whatever they are, they can take damage and they must be brought down. The variation determines how many and how hard — and whether taking them out wakes something up.
+                  These are things that cannot be allowed to survive. Spawn nodes. Weapons caches. A relay broadcasting enemy coordinates. Whatever they are, they can take damage and they must be brought down. The variation determines how many and how hard, and whether taking them out wakes something up.
                 </div>
                
                 <h4>Enemy Faction and Threat Level</h4>
                 The Threat Level to use when building NPC Squads should be the same as the Operation number (i.e. TL1 for Missions in Operation 1, TL2 for Operation 2, TL3 for Operation 3).
                 For simplicity, we also recommend using the same faction for all Missions in a given Operation but you may choose to change factions for each Mission.
 
+                <h4>Between Missions</h4>
+                After completing a Mission but before beginning the next one in the same Operation, the Squad may remove <strong>one Injury</strong> from any one Unit (not one per Unit — one total across the Squad). Deceased is not an Injury and cannot be removed this way; a Deceased Unit remains out of action until the Squad returns to Homebase.
+
                 <h4>Homebase</h4>
                 At the end of each Operation, after the third Mission, your Squad returns to Homebase to heal injuries, resupply, and utilize accrued resources.
                 <ol>
                   <li>Remove all Deceased Units from your Squad.</li>
-                  <li>Remove one Injury from remaining Units.</li>
+                  <li>Remove one Injury from each remaining Unit (Deceased Units are already removed in step 1).</li>
                   <li>Recruit new Units into the Squad (to maximum 100 GP).</li>
                   <li>Make changes to your Squad's selected Gear and Spoils Of War.</li>
                 </ol>
@@ -356,7 +359,9 @@ export default async function PvEMissions() {
                 <h3>Injuries</h3>
                 <p>
                   At the end of each Mission, each of your Units that was Taken Out during the mission may have a persistent injury.
-                  Note that when playing a campaign, one Injury may be removed from each Unit (except Deceased) when they return to Homebase at the end of each Operation.
+                  Between Missions within an Operation, the Squad may remove one Injury from a single Unit of their choice (not one per Unit — one total).
+                  At Homebase at the end of each Operation, one Injury may be removed from each Unit.
+                  Note that Deceased is not an Injury, it is permanent, and cannot be removed by either recovery step.
                 </p>
                 <p>
                   At the end of each Mission, for each Player Unit that was Taken Out, roll <code>1D6</code> to determine the Injury this Unit received.<br/>
@@ -378,7 +383,7 @@ export default async function PvEMissions() {
               <div className="section">
                 <h3>Spoils Of War</h3>
                 When the Squad returns to Homebase, it can purchase Spoils of War by spending MP earned during the previous Operation.
-                Each Spoil of War costs 4 MP and applies to one specific Player Unit.
+                Each Spoil of War costs <code>3 MP</code> and applies to one specific Player Unit.
                 <ul>
                   {/* Spoils Of War List */}
                   {
