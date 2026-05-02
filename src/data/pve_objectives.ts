@@ -35,7 +35,8 @@ export const PveObjectives : PveObjectiveArchetype[] = [
         objectiveId: 'Control 5-6',
         title: 'Clear And Move',
         setup: 'Place 3 Objectives on random anchors',
-        victory: 'At the end of each Turn, remove one Objective you control. All three Objectives removed.'
+        special: 'At the end of each Turn, remove one Objective you control.',
+        victory: 'All three Objectives removed.'
       },
     ]
   },
@@ -55,7 +56,7 @@ export const PveObjectives : PveObjectiveArchetype[] = [
         objectiveId: 'Activate 3-4',
         title: 'Sequence',
         setup: 'Place one Objective marker on a random anchor',
-        special: '**Activate - Mission Action (2 ACT):** A Unit Activates an Objective it controls. Each time an Objective is activated, place the next one on a random Anchor.',
+        special: '**Activate - Mission Action (2 ACT):** A Unit Activates an Objective it controls. Each time an Objective is activated, place the next one on a different random unoccupied Anchor.',
         victory: 'Activate three Objectives in order.'
       },
       {

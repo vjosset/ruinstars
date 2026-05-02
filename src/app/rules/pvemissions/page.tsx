@@ -148,6 +148,9 @@ export default async function PvEMissions() {
             <div className="section">
               <h3>Objectives (2D6)</h3>
               Roll <code>1D6</code> for the <strong>Archetype</strong>, then <code>1D6</code> for the <strong>Variation</strong>. Repeat for a second Objective — re-roll if the Archetype matches the first.
+              <br/>
+              Objectives score as described in their "Victory" condition based on their completion state, unless the Objective explicitly states that extraction is required.
+              In bespoke campaigns, individual mission objectives may specify additional extraction requirements.
               {PveObjectives.map((archetype) => (
                 <div key={archetype.objectiveArchetypeId} className="border-t border-border">
                   <h4>{archetype.objectiveArchetypeId}: {archetype.title}</h4>
@@ -255,7 +258,7 @@ export default async function PvEMissions() {
               {/* Extraction */}
               <div className="section">
                 <h3>Extraction</h3>
-                At the start of Turn 4, roll a random Anchor to determine the Extraction Point. If that Anchor is occupied by an objective marker, re-roll until an unoccupied Anchor is selected.
+                At the start of Turn 4, place the Extraction Point on a random unoccupied Anchor.
                 <br/>
                 At the end of Turn 4 or later, the Player Squad may extract. Each Standing Unit within 3" of the Extraction Point that is not Adjacent to any enemy Unit extracts successfully.<br/>
                 Units that fail to meet both conditions are left behind: treat each as if it was Taken Out during the mission (apply Injuries in Campaign play).<br/>
@@ -263,9 +266,9 @@ export default async function PvEMissions() {
                 The mission ends when the Player Squad extracts or when all Player Units have been Taken Out.<br/>
                 Mission Scoring:
                 <ul>
-                  <li><strong>1 MP</strong> per TL</li>
-                  <li><strong>1 MP</strong> per TL if all enemy Units Taken Out</li>
-                  <li><strong>1 MP</strong> per TL for each completed objective if the Squad extracted</li>
+                  <li><strong>1 MP</strong> per TL for completing the mission (regardless of outcome)</li>
+                  <li><strong>1 MP</strong> per TL per completed objective</li>
+                  <li><strong>1 MP</strong> per TL if all NPC Units were Taken Out AND at least one Player Unit extracted</li>
                 </ul>
                 In Campaign play, MP can be spent on Rewards (see <strong>Campaigns</strong> below) for the Squad.
               </div>

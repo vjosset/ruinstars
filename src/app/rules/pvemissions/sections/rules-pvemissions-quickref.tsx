@@ -241,7 +241,7 @@ export default function PvEMissionsQuickRef() {
             At the start of Turn 4, roll a random Anchor as the <Hi>Extraction Point</Hi>. If it is occupied by an Objective marker, re-roll until an unoccupied Anchor is selected.
           </P>
           <P className="text-xs">
-            At the end of Turn 4 or later, each <Hi>Standing Unit</Hi> within 3" of the Extraction Point and <Hi>not Adjacent to an enemy</Hi> extracts successfully.
+            At the end of Turn 4 or later, each <Hi>Standing Unit</Hi> within 4" of the Extraction Point and <Hi>not Adjacent to an enemy</Hi> extracts successfully.
           </P>
           <P className="text-xs text-muted">
             Units that fail both conditions are left behind - treat as Taken Out for injury purposes.
@@ -251,15 +251,12 @@ export default function PvEMissionsQuickRef() {
           <P className="text-xs">
             The mission ends when the Player Squad extracts or all Player Units are Taken Out.
           </P>
-          <P className="text-xs text-muted">
-            If no Player Units extract, no Objectives are considered completed regardless of their state.
-          </P>
           <Divider />
           <SubLabel>Mission Points</SubLabel>
           <div className="text-xs space-y-0.5">
-            <div><Br>+1 MP</Br> <span className="text-muted">per TL</span></div>
-            <div><Br>+1 MP</Br> <span className="text-muted">per TL if all NPC Units Taken Out</span></div>
-            <div><Br>+1 MP</Br> <span className="text-muted">per TL for each completed Objective if Squad extracts</span></div>
+            <div><Br>+1 MP</Br> <span className="text-muted">per TL for completing the mission (regardless of outcome)</span></div>
+            <div><Br>+1 MP</Br> <span className="text-muted">per TL per completed Objective</span></div>
+            <div><Br>+1 MP</Br> <span className="text-muted">per TL if all NPC Units Taken Out AND at least one Player Unit extracted</span></div>
           </div>
         </Card>
 
