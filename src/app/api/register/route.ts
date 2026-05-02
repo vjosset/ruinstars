@@ -40,6 +40,7 @@ export async function POST(req: Request) {
   await SquadService.cloneSquad('DRN', user.userId, 'Swarm Drone Pod')
   await SquadService.cloneSquad('KF', user.userId, 'Krumpfists')
   await SquadService.cloneSquad('INT', user.userId, 'Interdictors')
+  await SquadService.cloneSquad('FM', user.userId, 'First Mission')
 
   return NextResponse.json({ success: true, userid: user.userId })
 }
