@@ -28,7 +28,7 @@ There's also a dice problem. Ruinstars runs on D6. On a six-point scale, a singl
 
 ### What We've Already Changed
 
-Two changes are already in the rules.
+Three changes are already in the rules.
 
 #### MP scoring no longer requires extraction
 
