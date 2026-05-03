@@ -342,7 +342,8 @@ export default async function PvEMissions() {
                 For simplicity, we also recommend using the same faction for all Missions in a given Operation but you may choose to change factions for each Mission.
 
                 <h4>Between Missions</h4>
-                After completing a Mission but before beginning the next one in the same Operation, the Squad may remove <strong>one Injury</strong> from any one Unit (not one per Unit — one total across the Squad). Deceased is not an Injury and cannot be removed this way; a Deceased Unit remains out of action until the Squad returns to Homebase.
+                After completing a Mission but before beginning the next one in the same Operation, the Squad may remove <strong>one Injury</strong> from any one Unit (not one per Unit, one total across the Squad).
+                Deceased is not an Injury and cannot be removed this way; a Deceased Unit remains out of action and cannot be replaced until the Squad returns to Homebase.
 
                 <h4>Homebase</h4>
                 At the end of each Operation, after the third Mission, your Squad returns to Homebase to heal injuries, resupply, and utilize accrued resources.
