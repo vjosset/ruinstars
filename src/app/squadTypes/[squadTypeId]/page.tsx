@@ -54,7 +54,7 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
   }
 
   return (
-    <div className="max-w-full">
+    <div className="max-w-full mb-8">
       <div className="relative min-h-[200px] flex items-center justify-center mb-4"
         style={{ backgroundImage: `url(/img/squadTypes/${squadType.squadTypeId}.webp)`, backgroundAttachment: '', backgroundPosition: 'top', backgroundSize: 'cover' }}>
         <div 

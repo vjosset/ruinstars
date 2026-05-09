@@ -43,7 +43,7 @@ export default function SquadSpotlightCard({
 
   return (
     <>
-      <div className="group relative border border-border rounded overflow-hidden hover:border-main transition-colors duration-200">
+      <div className="group relative border border-border border-l-2 border-l-main rounded overflow-hidden hover:border-main transition-colors duration-200">
 
         {/* Hero portrait */}
         <div className="relative w-full overflow-hidden" style={{ aspectRatio: '3 / 2' }}>
