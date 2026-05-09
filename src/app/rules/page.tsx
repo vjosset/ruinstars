@@ -202,7 +202,7 @@ export default async function Rules() {
           </div>
 
           {/* Community */}
-          <div className="mb-8 section">
+          <div className="mb-8 section" id="community">
             <h5 className="text-main">Community</h5>
             <div className="border border-border rounded divide-y divide-border ml-2">
               {COMMUNITY_LINKS.map((link) => (
