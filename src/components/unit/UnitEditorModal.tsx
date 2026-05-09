@@ -307,7 +307,7 @@ export default function UnitEditorModal({
                   autoCapitalize="words"
                   onChange={(e) => setUnitName(e.target.value)}
                   placeholder="Unit Name"
-                  className="flex-1 my-2 px-2 bg-card border border-border rounded-l-md appearance-none"
+                  className="flex-1 my-2 px-2 bg-card border border-border rounded-l-md rounded-r-none appearance-none"
                 />
                 <button
                   type="button"
