@@ -221,7 +221,7 @@ export class SquadService {
         seq: unit.seq,
         gearIds: unit.gearIds,
         medalIds: '', // Don't clone medals
-        currHIT: unit.currHIT,
+        currHIT: unit.HIT ?? 0, // Don't clone current HIT, assume full strength
         isActivated: unit.isActivated
       }
 
