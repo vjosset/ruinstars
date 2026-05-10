@@ -8,7 +8,7 @@ import WeaponTable from '@/src/components/shared/WeaponTable'
 import { UnitPlain, UnitTypePlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import { useEffect, useState } from 'react'
-import { FaHeartPulse, FaMedal } from 'react-icons/fa6'
+import { FaHeartPulse, FaMedal, FaSkull } from 'react-icons/fa6'
 import { FiMoreVertical } from 'react-icons/fi'
 import { GiDeathSkull } from 'react-icons/gi'
 import { toast } from 'sonner'
@@ -173,15 +173,50 @@ export default function UnitCard({
                 <span className="statbox-label">ARM</span>
                 <h4 className={`statbox-value ${unit.currHIT === 0 ? 'text-muted' : 'text-main'}`}>{unit.ARM}</h4>
               </div>
-              <div className={`statbox ${isOwner ? 'cursor-pointer hover:border-main transition' : ''}`} onClick={() => isOwner && setShowHITModal(true)}>
+              <div className="statbox">
                 <span className="statbox-label">HIT</span>
-                <h4 className={`statbox-value ${unit.currHIT === 0 ? 'text-muted' : 'text-main'} flex items-baseline gap-0.5`}>
-                  {unit.isUnitType ? unit.HIT : unit.currHIT}
-                  {!unit.isUnitType && <span className="stat text-muted text-xs leading-none noprint">/{unit.HIT}</span>}
-                </h4>
+                <h4 className={`statbox-value ${unit.currHIT === 0 ? 'text-muted' : 'text-main'}`}>{unit.HIT}</h4>
               </div>
             </div>
           </div>
+          {/* HIT Track */}
+          {!unit.isUnitType && (
+            <div className="px-1 py-1">
+              <div className="flex gap-1">
+                <span className="statlabel">HIT</span>
+                {Array.from({ length: (unit.HIT ?? 0) + 1 }, (_, i) => {
+                  const isCurrent = newHIT >= i
+                  return (
+                    <Button
+                      key={i}
+                      variant={isCurrent ? 'highlighted' : 'ghost'}
+                      className="flex-1 rounded text-xs flex items-center justify-center stat"
+                      onClick={async () => {
+                        if (!isOwner) return
+                        const res = await fetch(`/api/units/${unit.unitId}`, {
+                          method: 'PATCH',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({ currHIT: i }),
+                        })
+                        if (res.ok) {
+                          const updated = await res.json()
+                          setNewHIT(updated.currHIT)
+                          unit.currHIT = updated.currHIT
+                          onUnitUpdated?.(updated)
+                        }
+                      }}
+                    >
+                      { i === 0 ?
+                        <FaSkull />
+                        :
+                        i
+                      }
+                    </Button>
+                  )
+                })}
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="p-1">

@@ -132,7 +132,7 @@ body {
   @apply text-xs font-heading text-muted uppercase leading-none;
 }
 .statbox-value {
-  @apply stat text-main leading-none mb-0;
+  @apply stat leading-none mb-0;
 }
 
 h1 {
