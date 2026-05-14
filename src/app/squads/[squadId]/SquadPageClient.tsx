@@ -37,6 +37,7 @@ export default function SquadPageClient({
   const [squad, setSquad] = useState(initialSquad)
   const [allSpecials, setSpecials] = useState<SpecialRule[] | null>(null)
   const formRef = useRef<{ handleSubmit: () => void }>(null)
+  const [editSquadSaveDisabled, setEditSquadSaveDisabled] = useState(false)
   const [activeTab, setActiveTab] = useState<'units' | 'battles'>('units')
   const [showResetModal, setShowResetModal] = useState<boolean>(false)
   const [resetOptMP, setResetOptMP] = useState(false)
@@ -501,7 +502,7 @@ export default function SquadPageClient({
                     <Button variant="ghost" onClick={() => setShowEditSquadModal(false)}>
                       <h6>Cancel</h6>
                     </Button>
-                    <Button onClick={() => formRef.current?.handleSubmit()}>
+                    <Button onClick={() => formRef.current?.handleSubmit()} disabled={editSquadSaveDisabled}>
                       <h6>Save</h6>
                     </Button>
                   </div>
@@ -516,6 +517,7 @@ export default function SquadPageClient({
                   onCancel={() => setShowEditSquadModal(false)}
                   squad={squad}
                   squadId={squad.squadId}
+                  onSaveDisabledChange={setEditSquadSaveDisabled}
                   onSave={(name, maxGP, notes) => {
                     updateSquadInfo(name, maxGP, notes)
                     setShowEditSquadModal(false)

@@ -2,13 +2,16 @@
 
 import { showInfoModal } from '@/lib/utils/showInfoModal'
 import { SpecialRule, parseSpecialRules } from '@/lib/utils/specialRules'
+import { getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { UnitPlain, UnitTypePlain } from '@/types'
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
 import { useEffect, useState } from 'react'
+import type { Area } from 'react-easy-crop'
 import { FiChevronDown } from 'react-icons/fi'
 import { GiRollingDices } from 'react-icons/gi'
 import { toast } from 'sonner'
 import GearGroupList from '../shared/GearGroupList'
+import PortraitCropper, { getCroppedBlob } from '../shared/PortraitCropper'
 import WeaponTable from '../shared/WeaponTable'
 import { Button, Input, Label } from '../ui'
 import Modal from '../ui/Modal'
@@ -39,39 +42,41 @@ export default function UnitEditorModal({
   const [unitTypeId, setUnitTypeId] = useState(unit?.unitTypeId || '')
   const [unitName, setUnitName] = useState(unit?.unitName || '')
   const [gearIds, setGearIds] = useState<string[]>(
-    Array.isArray(unit?.gearIds) 
-      ? unit.gearIds 
+    Array.isArray(unit?.gearIds)
+      ? unit.gearIds
       : unit?.gearIds?.split(',').filter(Boolean) || []
   )
-  const [portraitFile, setPortraitFile] = useState<File | null>(null)
-  const [portraitPreview, setPortraitPreview] = useState<string | null>(null)
+  const [rawImageSrc, setRawImageSrc] = useState<string | null>(null)
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area | null>(null)
   const [uploadError, setUploadError] = useState<string | null>(null)
+  const [isSaving, setIsSaving] = useState(false)
   const [showDeletePortraitConfirmation, setShowDeletePortraitConfirmation] = useState(false)
 
   const handlePortraitChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
-    setPortraitFile(file || null)
     setUploadError(null)
-    if (file) {
-      setPortraitPreview(URL.createObjectURL(file))
-    } else {
-      setPortraitPreview(null)
+    if (!file) return
+    if (file.size > 10 * 1024 * 1024) {
+      setUploadError('Image must be under 10 MB.')
+      return
     }
+    setRawImageSrc(URL.createObjectURL(file))
+    setCroppedAreaPixels(null)
   }
 
   const selectedUnitType = unitTypes.find((ut) => ut.unitTypeId === unitTypeId)
 
   const [totalGPString, setTotalGPString] = useState('')
-  
+
   const getEditUnitTotalGPString = () => {
     if (!selectedUnitType) return ''
-    
+
     const unitTypeGP = selectedUnitType.GP || 0
     const gearGP = [...(selectedUnitType.weapons ?? []), ...(selectedUnitType.skills ?? [])]
       .filter(gear => gearIds.includes(gear.gearId))
       .reduce((sum, gear) => sum + (gear.GP || 0), 0)
-      
-    
+
+
     return unitTypeGP + (gearGP > 0 ? `+${gearGP}` : '')
   }
 
@@ -103,6 +108,8 @@ export default function UnitEditorModal({
       setUnitName('')
       setUnitTypeId('')
       setGearIds([])
+      setRawImageSrc(null)
+      setCroppedAreaPixels(null)
     }
   }, [isOpen])
 
@@ -132,16 +139,17 @@ export default function UnitEditorModal({
   const handleSubmit = async () => {
     try {
       if (activeTab === 'portrait') {
-        // Handle portrait upload
-        if (!portraitFile || !unit?.unitId) {
+        if (!rawImageSrc || !croppedAreaPixels || !unit?.unitId) {
           throw new Error('No portrait selected')
         }
 
+        setIsSaving(true)
+        const blob = await getCroppedBlob(rawImageSrc, croppedAreaPixels)
         const formData = new FormData()
         formData.append('type', 'op')
         formData.append('squadId', squadId)
         formData.append('unitId', unit.unitId)
-        formData.append('image', portraitFile)
+        formData.append('image', blob, 'portrait.jpg')
 
         const res = await fetch(`/api/units/${unit.unitId}/portrait`, {
           method: 'POST',
@@ -153,9 +161,11 @@ export default function UnitEditorModal({
           throw new Error(err.error || 'Upload failed')
         }
 
+        toast.success('Portrait uploaded!')
+        setRawImageSrc(null)
+        setCroppedAreaPixels(null)
         unit.hasCustomPortrait = true
         unit.portraitUpdatedAt = new Date()
-
         onClose()
       } else {
         const payload = {
@@ -177,8 +187,7 @@ export default function UnitEditorModal({
 
         if (res.ok) {
           const result = await res.json()
-          const updated = result // If PATCH, use the returned unit, else fallback
-          onSave(updated)
+          onSave(result)
           onClose()
         } else {
           toast.error('Failed to save Unit')
@@ -186,8 +195,14 @@ export default function UnitEditorModal({
       }
     } catch (err: any) {
       setUploadError(err.message)
+    } finally {
+      setIsSaving(false)
     }
   }
+
+  const saveDisabled = activeTab === 'portrait'
+    ? !rawImageSrc || !croppedAreaPixels || isSaving
+    : false
 
   if (!isOpen) return null
 
@@ -236,7 +251,7 @@ export default function UnitEditorModal({
               <Button onClick={onClose} variant="ghost">
                 <h6>Cancel</h6>
               </Button>
-              <Button onClick={handleSubmit}>
+              <Button onClick={handleSubmit} disabled={saveDisabled}>
                 <h6>{isEditMode ? 'Save' : 'Add Unit'}</h6>
               </Button>
             </div>
@@ -387,59 +402,74 @@ export default function UnitEditorModal({
 
         {/* Tab Content - Portrait */}
         {activeTab === 'portrait' && (
-          <div className="flex flex-col">
-            <h5>New Portrait</h5>
-            <p className="text-muted mb-2">
+          <div className="flex flex-col space-y-4">
+
+            {/* Existing portrait */}
+            {unit?.hasCustomPortrait && !rawImageSrc && (
+              <div className="flex flex-col space-y-2">
+                <img
+                  src={`${getUnitPortraitUrl(unit.unitId)}?v=${toEpochMs(unit.portraitUpdatedAt)}`}
+                  alt="Current portrait"
+                  className="rounded border border-border max-w-xs max-h-48 object-cover"
+                />
+                <Button
+                  variant="ghost"
+                  className="self-start text-red-500 border-red-500"
+                  onClick={() => setShowDeletePortraitConfirmation(true)}
+                >
+                  <h6>Delete Portrait</h6>
+                </Button>
+              </div>
+            )}
+
+            {/* Upload / cropper section */}
+            <div>
+              <h5>{unit?.hasCustomPortrait ? 'Replace Portrait' : 'Upload Portrait'}</h5>
+              <p className="text-muted mb-2">
                 Upload a portrait image for this unit.
-                Images will be resized to 900x600 pixels.
                 To be considered for the Squad Showcase, each Unit portrait must be a photo of its painted mini,
                 and the Squad portrait must be a photo of all painted minis together.
                 Qualifying squads appear in the "Showcase" tab for their Faction and are randomly shown on the homepage.
-            </p>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handlePortraitChange}
-              className="mb-2"
-            />
-            {portraitPreview && (
-              <img
-                src={portraitPreview}
-                alt="Portrait Preview"
-                className="rounded border border-border max-w-xs max-h-48 object-cover"
-              />
-            )}
-            {uploadError && <p className="text-red-500">{uploadError}</p>}
-              
-            {unit?.hasCustomPortrait && 
-              <>
-                <hr className="my-4" />
-                <div className="flex justify-between items-center">
-                  <h5>Delete Portrait</h5>
-                  <Button
-                    onClick={() => { setShowDeletePortraitConfirmation(true) }}>
-                    <h6>Delete</h6>
-                  </Button>
-                </div>
-              </>}
-            {uploadError && <p className="text-red-500">{uploadError}</p>}
+              </p>
+
+              {rawImageSrc ? (
+                <>
+                  <PortraitCropper imageSrc={rawImageSrc} onCropComplete={setCroppedAreaPixels} />
+                  <button
+                    className="mt-2 text-sm text-muted underline hover:text-white"
+                    onClick={() => { setRawImageSrc(null); setCroppedAreaPixels(null) }}
+                  >
+                    Choose different image
+                  </button>
+                </>
+              ) : (
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handlePortraitChange}
+                  className="mb-2"
+                />
+              )}
+            </div>
+
+            {uploadError && <p className="text-red-500 text-sm">{uploadError}</p>}
           </div>
         )}
       </Modal>
-      
+
       {showDeletePortraitConfirmation && (
         <Modal
           key="deletePortraitConfirmation"
           title="Delete Portrait"
-          onClose={() => {}}
+          onClose={() => setShowDeletePortraitConfirmation(false)}
           footer={
             <div className="flex justify-end gap-2">
               <Button variant="ghost" onClick={() => setShowDeletePortraitConfirmation(false)}>
                 <h6>Cancel</h6>
               </Button>
-              <Button 
+              <Button
                 onClick={async () => {
-                  setShowDeletePortraitConfirmation(false) // Close confirmation dialog
+                  setShowDeletePortraitConfirmation(false)
                   if (!unit?.unitId) return
                   try {
                     const res = await fetch(`/api/units/${unit.unitId}/portrait`, {
@@ -449,9 +479,8 @@ export default function UnitEditorModal({
                       const err = await res.json()
                       throw new Error(err.error || 'Failed to delete portrait')
                     }
-                    setPortraitPreview(null)
-                    setPortraitFile(null)
-                    setShowDeletePortraitConfirmation(false)
+                    setRawImageSrc(null)
+                    setCroppedAreaPixels(null)
                     unit.hasCustomPortrait = false
                     unit.portraitUpdatedAt = new Date()
                     onSave({ ...unit, hasCustomPortrait: false })
