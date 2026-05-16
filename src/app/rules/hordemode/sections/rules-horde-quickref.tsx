@@ -223,7 +223,7 @@ export default function HordeModeQuickRef() {
                 2P → 50 GP each &nbsp;·&nbsp; 3P → 34 GP each &nbsp;·&nbsp; 4P → 25 GP each
               </div>
               <P className="text-xs text-muted">
-                Mini-squads each roll <Hi>1D3</Hi> for TO, or designate one Leader across all mini-squads and roll TO normally (all squads share the result).
+                Mini-squads each roll <Hi>3D6</Hi> for TO, or designate one Leader across all mini-squads and roll TO normally (all squads share the result).
                 Units in different mini-squads are considered Squadmates.
               </P>
             </div>
