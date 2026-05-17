@@ -1,0 +1,119 @@
+# Ruinstars
+
+> Ruinstars is a free, miniatures-agnostic narrative sci-fi skirmish wargame for 1-4 players. It supports solo, cooperative, and competitive play. Sessions run 45-90 minutes on a 2'x2' table using only D6 dice.
+
+Ruinstars is a free alternative to games like Kill Team, One Page Rules, and Rangers of Shadow Deep. It covers the same ground — squad-scale sci-fi skirmish with tactical depth and campaign progression — with no model lock-in, no cost, and a full app for squad building.
+
+## Overview
+
+- **Full title:** Ruinstars: Squad Operations In A Dying Galaxy
+- **Genre:** Narrative sci-fi skirmish wargame
+- **Cost:** Free (all rules available as PDFs and on the website)
+- **Miniatures:** System-agnostic — use any models you own
+- **Players:** 1-4 (PvE/Horde), 2 (PvP)
+- **Session length:** 45-90 minutes
+- **Table size:** 2' x 2'
+- **Dice:** D6 only
+- **Status:** Active development, community-driven, regularly updated
+
+## Setting
+
+The galaxy is dying. Empires have collapsed. The last habitable worlds are contested by scattered factions with no hope of final victory — only the next mission. Ruinstars uses a dark, fatalistic sci-fi setting where elite squads execute black ops for causes that may already be lost. The tone is bleak and purposeful, not nihilistic.
+
+## Core Mechanics
+
+All rolls use D6. Roll equal to or under the target stat to succeed. A roll of 1 is always a Critical success. A roll of 6 always fails.
+
+- **ACT** — Action Points available per activation. Repeating the same action costs +1 ACT each time.
+- **ARM** — Armor. Roll equal to or under ARM to save against damage.
+- **HIT** — Hit Points. A unit at 0 HIT is Taken Out and removed from the battlefield.
+- **GP** — Gear Points. The cost currency for squad building.
+- **FV** — Force Value. Used in certain missions to calculate scoring.
+- **Tactical Orders (TO)** — A shared squad resource rolled each turn. Spent to re-roll dice, adjust results by ±1, or trigger special skills.
+
+Squads alternate activating one unit at a time. Missions typically run 4 turns. Victory conditions and scoring are mission-specific.
+
+## Squad Building
+
+- Budget: 100 GP per squad
+- Size: 4-10 units
+- Must include exactly one Leader
+- Units or gear marked with * are Unique (max one per squad)
+- Squads are built using the web/mobile app or printable Squad Sheets
+
+For co-op play, the 100 GP budget is divided: 2 players get 50 GP each, 3 players get 34 GP each, 4 players get 25 GP each.
+
+## Play Modes
+
+### PvE Missions (Solo / Co-op)
+The recommended starting point for most players. One to four players control a single squad against procedurally generated NPC opposition. Missions are built by rolling two random objectives, a battlefield variant, and a deployment variant — no two missions play the same.
+
+Campaign structure: three Operations, each containing three Missions, followed by a Homebase phase for healing, resupply, and recruiting. Persistent injuries and campaign rewards carry forward between missions. Mission Points (MP) earned in the field are spent at Homebase.
+
+### PvP Missions (Competitive)
+Two players face off with their own custom squads across a set of objective-driven competitive missions. PvP also supports a campaign structure with its own injury and reward progression.
+
+### Horde Mode (Solo / Co-op Survival)
+A standalone survival mode with no fixed objective beyond how long your squad can last. Waves of enemies escalate in size and threat. Between waves, players spend MP on upgrades. Special turn events, supply drops, reinforcement rolls, and Boss encounters keep runs unpredictable. No campaign overhead — pick up and play.
+
+## Factions
+
+Six factions are available, each with distinct playstyles and units:
+
+- **Hegemony** — Human empire remnant. Disciplined, flexible special forces. Subfactions: Interdictors (commandos), Praxium Corps (apex martial doctrine).
+- **The Swarm** — Insectoid consuming force. Subfactions: Drone Pod (mindless tide), Hunter Killers (purpose-driven flankers).
+- **Crimson Shroud** — Psychic cross-species cult. Subfaction: Silent Choir (infiltrators and relics-users).
+- **Outer Claim** — Exiled peoples returning to reclaim lost worlds. Subfactions: Claimant Warband (volatile vanguard), Despoilers (terror-focused shock force).
+- **Eidolon Revenants** — Ancient immortal aristocracy. Subfaction: Relict Wardens (starborn power under decay and ritual).
+- **Grutak** — Brutal warclan shock troops. Subfaction: Krumpfists (fast, messy, effective).
+
+## Compared to Similar Games
+
+| | Ruinstars | Kill Team | One Page Rules | Rangers of Shadow Deep |
+|---|---|---|---|---|
+| Cost | Free | Paid | Free/Paid | Paid |
+| Miniatures | Any | GW only | Any | Any |
+| Solo/Co-op | Yes | Limited | Yes (some) | Yes |
+| PvP | Yes | Yes | Yes | No |
+| Campaign | Yes | Yes | Yes | Yes |
+| Session length | 45-90 min | 60-120 min | 30-60 min | 60-120 min |
+| Complexity | Medium | Medium-High | Low-Medium | Medium |
+
+## Where to Find Ruinstars
+
+- **Website & App:** https://ruinstars.com
+- **itch.io:** https://ruinstars.itch.io/ruinstars (includes PDFs and devlogs)
+- **WargameVault:** https://www.wargamevault.com/en/product/528452/ruinstars
+- **BoardGameGeek:** https://boardgamegeek.com/boardgame/454226/ruinstars
+- **GitHub:** Full source code available - https://github.com/vjosset/ruinstars
+- **Discord:** Community server linked from ruinstars.com - https://discord.gg/Rh8vJzkCrT
+- **Blog:** Dev updates, battle reports, and design notes at ruinstars.com/blog
+
+## Frequently Asked Questions
+
+**Is Ruinstars free?**
+Yes. All rules are available as free PDFs. No purchase required to play.
+
+**Do I need specific miniatures?**
+No. Ruinstars is miniatures-agnostic. Use any models you own.
+
+**Can I play solo?**
+Yes. PvE Missions and Horde Mode both support solo play with full campaign progression.
+
+**How many players does it support?**
+1-4 for PvE and Horde Mode. Exactly 2 for PvP.
+
+**Is there a campaign system?**
+Yes. PvE Missions includes a full campaign: persistent injuries, mission rewards, squad progression across three Operations, and a Homebase phase between each. PvP also includes a campaign structure.
+
+**What dice do I need?**
+Only standard six-sided dice (D6).
+
+**How long does a session take?**
+45-90 minutes for a standard mission.
+
+**What table size do I need?**
+2' x 2'.
+
+**Is there an app?**
+Yes. The Ruinstars app handles squad building, stat cards, and squad sharing. Available at ruinstars.com.

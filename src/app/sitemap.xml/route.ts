@@ -11,12 +11,13 @@ export async function GET() {
   // Static URLs
   const staticUrls = [
     '/',
+    '/llms.txt',
+    '/robots.txt',
     '/rules',
     '/factions',
     '/squadTypes',
     '/auth/login',
     '/auth/signup',
-    '/tools',
     '/blog',
     '/assets/books/Core Rules - Ruinstars.pdf',
     '/assets/books/Factions - Ruinstars.pdf',
