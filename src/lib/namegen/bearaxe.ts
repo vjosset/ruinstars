@@ -1,5 +1,9 @@
 import { getRandom, ucwords } from '../utils/utils'
 
+/*
+  For Claimant Warband
+*/
+
 export function name_bearaxe() {
   const fn1 = ['','','','br','d','dr','g','gr','kh','kr','m','n','r','s','sr','str','th','tr','thr','v','z', 'b','bh','c','d','dr','g','gh','h','m','n','s','sk','sc','t','th','v','z','zh']
   const fn2 = ['a','e','i','o','u','a','e','i','o','u','a','e','i','o','u','a','e','i','o','u','au','ai','oa','ao', 'e','i','u','e','i','u','e','i','u','e','i','u','a','a','o','o']

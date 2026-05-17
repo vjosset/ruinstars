@@ -1,5 +1,9 @@
 import { getRandom, getRandomInt, ucwords } from '../utils/utils'
 
+/*
+  For Crimson Shroud
+*/
+
 export function name_fyhucho() {
   //Set the list of consonant phonemes
   const con = ['', '', '', '', '\'', 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z', 'th', 'ph', 'ch', 'qu']

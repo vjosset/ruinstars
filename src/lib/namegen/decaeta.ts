@@ -1,5 +1,9 @@
 import { getRandom } from '../utils/utils'
 
+/*
+  For Hegemony
+*/
+
 export function name_decaeta() {
   // Coven of War names (gender 1)
   const cowFN1 = ['Agn','Al','Alic','Am','An','Ar','Arab','Asp','Bell','Bren','Brig','Bris','Cel','Celest','Chr','Chris','Chrism','Dec','Diss','Dor','Dyl','Ell','Ephr','Ess','Est','Gal','Gell','Gin','Gwyn','Hann','Hel','Hen','Hild','Imm','Immac','Ion','Ish','Jen','Jess','Josm','Jul','Kat','Kath','Kess','Kyl','Let','Leth','Luc','Lyn','Mesh','Min','Mir','Mor','Og','Ol','Oliv','Osh','Pal','Palm','Phan','Prax','Res','Rhian','Rhiann','Rienn','Sab','Sabr','Sar','Sel','Seph','Silv','Syl','Venn','Ver','Viss','Vyl']

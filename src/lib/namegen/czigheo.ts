@@ -1,5 +1,9 @@
 import { getRandom, getRandomInt, ucwords } from '../utils/utils'
 
+/*
+  For Swarm, Eidolon Revenants
+*/
+
 export function name_czigheo() {const an1 = ['br','c','cr','dr','g','gh','gr','k','kh','kr','n','q','qh','sc','scr','str','st','t','tr','thr','v','vr','x','z','','','','','']
   const an2 = ['ae','aa','ai','au','uu','a','e','i','o','u','a','e','i','o','u','a','e','i','o','u','a','e','i','o','u','a','e','i','o','u','a','e','i','o','u']
   const an3 = ['c','k','n','q','t','v','x','z','c','cc','cr','cz','dr','gr','gn','gm','gv','gz','k','kk','kn','kr','kt','kv','kz','lg','lk','lq','lx','lz','nc','ndr','nkr','ngr','nk','nq','nqr','nz','q','qr','qn','rc','rg','rk','rkr','rq','rqr','sc','sq','str','t','v','vr','x','z','q\'','k\'','rr','r\'','t\'','tt','vv','v\'','x\'','z\'','','','','','','','','','','','','','','','','','']
