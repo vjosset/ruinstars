@@ -31,7 +31,7 @@ GP = max(
 ### Melee
 
 ```javascript
-GP = (ATT - 1) + SUM(special.GP)
+GP = ATT + SUM(special.GP)
 ```
 
 - Melee weapons cost -1 GP baseline compared to equivalent ranged weapons
@@ -41,7 +41,7 @@ GP = (ATT - 1) + SUM(special.GP)
 ### Ranged
 
 ```javascript
-GP = ATT + SUM(special.GP)
+GP = (ATT + 1 + SUM(special.GP)
 ```
 
 - Some specials cost more than others, and some may actually reduce GP Cost (like `RNG` and `HVY`).

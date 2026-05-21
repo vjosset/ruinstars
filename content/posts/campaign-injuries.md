@@ -3,7 +3,7 @@ title: "Campaigns, Injuries, and Spoils of War"
 date: "2026-05-03 12:00"
 description: "Balancing the impact of injuries on campaign play"
 tags: ["game design", "solo play", "coop play", "pve", "campaigns"]
-coverImage: "/img/factions/SWARM.webp"
+coverImage: "/img/factions/SWM.webp"
 ---
 
 Ruinstars is built around the idea that every decision carries weight. Campaign play is where that weight accumulates: across three missions, across an operation, across a squad that's been through high-risk, high-reward missions. Injuries are supposed to be part of that story.

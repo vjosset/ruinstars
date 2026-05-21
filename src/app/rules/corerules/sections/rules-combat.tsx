@@ -44,7 +44,7 @@ export default async function RulesCombat({ num }: {num?: number | null}) {
             <li>
               <strong>Roll Armor Saves</strong>
               <ol>
-                <li>The Target rolls one die per point of Damage inflicted.</li>
+                <li>The Target rolls one die per sucessful attack die. Note that a Critical Strike counts as <b>one</b> successful attack die.</li>
                 <li>
                   Each result equal to or less than the Target's <code>ARM</code> (Armor) is a successful Save.
                   <ul>
@@ -130,16 +130,15 @@ export default async function RulesCombat({ num }: {num?: number | null}) {
             <li>
               <strong>Roll Armor Saves</strong>
               <ol>
-                <li>The Target rolls one die per point of Damage inflicted.</li>
+                <li>The Target rolls one die per sucessful attack die. Note that a Critical Strike counts as <b>one</b> successful attack die.</li>
                 <li>
                   Each result equal to or less than the Target's <code>ARM</code> (Armor) is a successful Save.
                   <ul>
                     <li>
-                      A roll of <code>1</code> is a <strong>Critical Save</strong>:
+                      A roll of <code>1</code> is a <strong>Critical Save</strong>. The target immediately chooses one of the following:
                       <ul>
-                        <li>It blocks 1 point of Damage, and</li>
-                        <li>Inflicts 1 point of Melee Damage on the Attacker. The Attacker then rolls their own Armor Saves for that returned Damage.</li>
-                        <li>This effect can chain: if the Attacker then rolls a Critical Save, they return damage to the Target, and so on.</li>
+                        <li>Block 2 points of Damage, or</li>
+                        <li>Block 1 point of Damage and inflict 1 point of Damage on the Attacker (see <a className="underline" href="#retaliation">Retaliation</a>)</li>
                       </ul>
                     </li>
                     <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
@@ -170,7 +169,21 @@ export default async function RulesCombat({ num }: {num?: number | null}) {
               </tr>
             </tbody>
           </table>
+
+          <div className="section">
+            <h4 id="retaliation">Retaliation</h4>
+            <p>
+              When a defender chooses to block 1 point of Damage and inflict 1 point of Damage on the Attacker, the Attacker immediately rolls one Armor Save for that returned Damage.
+            </p>
+            <ul>
+              <li>A successful Save blocks the Damage. The exchange ends.</li>
+              <li>A failed Save causes the Attacker to lose 1 <code>HIT</code>. The exchange ends.</li>
+              <li>A Critical Save reflects 1 point of Damage back to the original defender, who then rolls one Armor Save. This continues until one combatant rolls a normal Save or a failure.</li>
+            </ul>
+            <p>During Retaliation, Critical Saves only reflect Damage. The block decision does not apply.</p>
+          </div>
         </div>
+
         <div className="section">
           <h4 id="attack-of-opportunity">Attacks of Opportunity</h4>
           <p>
