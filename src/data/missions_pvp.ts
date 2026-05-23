@@ -1178,7 +1178,7 @@ Your orders are simple: outkill the enemy.
 `),
     setup: null,
     deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
-    victory: 'Each time a Unit is Taken Out, the enemy Squad scores MPs equal to that Unit\'s Force Value (FV).',
+    victory: 'Each time a Unit is Taken Out, the enemy Squad scores MPs equal to that Unit\'s starting HIT.',
     special: null,
     rewards: [
       {
@@ -1245,7 +1245,7 @@ The battle grinds to dust. Only the unbroken remain.
 `),
     setup: null,
     deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
-    victory: 'At the end of each Turn, the squad with the highest total FV of Standing Units scores 2 MP.',
+    victory: 'At the end of each Turn, the squad with the highest total remaining HIT of Standing Units scores 2 MP.',
     special: null,
     rewards: [
       {
@@ -1446,7 +1446,7 @@ Dominate enemy territory with strength of arms.
 `),
     setup: null,
     deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
-    victory: 'At the end of each Turn, the Squad with the highest total FV of Standing Units that are not Adjacent to any enemies and that are closer to the enemy deployment edge than their own deployment edge scores 2 MP.',
+    victory: 'At the end of each Turn, the Squad with the highest total remaining HIT of Standing Units that are not Adjacent to any enemies and that are closer to the enemy deployment edge than their own deployment edge scores 2 MP.',
     special: null,
     rewards: [
       {
@@ -1521,7 +1521,7 @@ Squads deploy before Turn 1. First, Defender Squad deploys all Units anywhere in
 
 Then Attacker Squad deploys all Units on any battlefield edge.
 `),
-    victory: 'At the end of Turn 4, if the total FV of Standing Defender Units that are on the Evac Zone is equal to or higher than the total FV of Standing Attacker Units on the Evac Zone, Defender Squad wins the mission. Attacker Squad wins in all other cases.',
+    victory: 'At the end of Turn 4, if the total remaining HIT of Standing Defender Units that are on the Evac Zone is equal to or higher than the total remaining HIT of Standing Attacker Units on the Evac Zone, Defender Squad wins the mission. Attacker Squad wins in all other cases.',
     special: null,
     rewards: [
       {

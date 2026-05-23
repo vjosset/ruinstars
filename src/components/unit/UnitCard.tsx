@@ -241,14 +241,6 @@ export default function UnitCard({
                   </div>
                 )}
               </div>
-              {!unit.isUnitType && (
-                <div className="text-right whitespace-nowrap">
-                  <span className="mx-2">
-                    FV:{ ' ' }
-                    <span className="stat text-main">{forceValue}</span>
-                  </span>
-                </div>
-              )}
             </div>
           </div>
         )}
