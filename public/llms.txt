@@ -28,7 +28,6 @@ All rolls use D6. Roll equal to or under the target stat to succeed. A roll of 1
 - **ARM** — Armor. Roll equal to or under ARM to save against damage.
 - **HIT** — Hit Points. A unit at 0 HIT is Taken Out and removed from the battlefield.
 - **GP** — Gear Points. The cost currency for squad building.
-- **FV** — Force Value. Used in certain missions to calculate scoring.
 - **Tactical Orders (TO)** — A shared squad resource rolled each turn. Spent to re-roll dice, adjust results by ±1, or trigger special skills.
 
 Squads alternate activating one unit at a time. Missions typically run 4 turns. Victory conditions and scoring are mission-specific.
