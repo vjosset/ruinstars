@@ -1,0 +1,130 @@
+{
+  "war_development": {
+    "label": "War Development",
+    "instruction": "Roll 1D6 at the start of each Operation.",
+    "entries": [
+      {
+        "roll": 1,
+        "text": "A sector your side controlled has fallen. The front has moved. Command's maps are wrong."
+      },
+      {
+        "roll": 2,
+        "text": "A key figure — a commander, a conduit, an elder — was killed before the mission could begin. Someone else gave the orders you're running on."
+      },
+      {
+        "roll": 3,
+        "text": "A temporary alliance is holding, barely. One of the factions you've fought before is fighting beside you now. Nobody trusts this."
+      },
+      {
+        "roll": 4,
+        "text": "A world your side needed is gone — not taken, destroyed. Scorched, consumed, or silenced. The objective hasn't changed. The reason for it has."
+      },
+      {
+        "roll": 5,
+        "text": "Your side won something. A position, a cache, a system. It cost more than anyone will say. The squad who did it isn't coming back."
+      },
+      {
+        "roll": 6,
+        "text": "Nothing has changed. The front is exactly where it was. All those dead, and the line didn't move."
+      }
+    ]
+  },
+  "dossier": {
+    "origin": {
+      "label": "Origin",
+      "instruction": "Roll 1D6 at campaign start. Select your faction's table.",
+      "factions": {
+        "hegemony": {
+          "label": "Hegemony",
+          "entries": [
+            { "roll": 1, "text": "Survivors of a regiment that was officially classified as destroyed six months ago. They kept fighting anyway." },
+            { "roll": 2, "text": "Selected from active service with no explanation given, no request made. They were simply told to report." },
+            { "roll": 3, "text": "A squad that completed a mission Command has since disavowed. They know what they did. So does Command." },
+            { "roll": 4, "text": "A training cohort whose graduation was interrupted by a breach. They've been operational since." },
+            { "roll": 5, "text": "Former rivals from competing Praxium doctrines, forced into a single unit after their respective formations were consolidated." },
+            { "roll": 6, "text": "A squad reconstituted from injury rosters. Everyone here was supposed to be recovering." }
+          ]
+        },
+        "swarm": {
+          "label": "The Swarm",
+          "entries": [
+            { "roll": 1, "text": "A pod split from the main mass during a failed planetary assault. The hive knows they exist. It has not recalled them." },
+            { "roll": 2, "text": "Survivors of a brood-node that was destroyed. The instinct that held them together is older than the node was." },
+            { "roll": 3, "text": "A hunting pattern that developed outside the main consumption wave, moving ahead of the swarm like a shadow it hasn't noticed yet." },
+            { "roll": 4, "text": "A cluster that failed to devour a target and was not reabsorbed. They have been running the same directive ever since." },
+            { "roll": 5, "text": "A pack bred for a specific kill that was never confirmed. The prey may already be dead. They continue regardless." },
+            { "roll": 6, "text": "The remnant of a mass assault that consumed everything it was sent for and then kept going. There were no further orders." }
+          ]
+        },
+        "crimson_shroud": {
+          "label": "Crimson Shroud",
+          "entries": [
+            { "roll": 1, "text": "A choir cell that went silent to its own hierarchy six months ago. They operate on doctrine, not instruction." },
+            { "roll": 2, "text": "Missionaries who arrived on a world that was already turning. What they found there changed their doctrine." },
+            { "roll": 3, "text": "A cell built around a relic that has since stopped resonating. They carry it anyway." },
+            { "roll": 4, "text": "Converts from another faction — recent enough that some of them still remember who they were." },
+            { "roll": 5, "text": "The survivors of a ritual that succeeded beyond what anyone intended. The hierarchy doesn't know what to do with them." },
+            { "roll": 6, "text": "A cell that was sent to observe and report. At some point they stopped reporting." }
+          ]
+        },
+        "outer_claim": {
+          "label": "Outer Claim",
+          "entries": [
+            { "roll": 1, "text": "Scouts from the advance wave who returned to find the fleet had not followed. They kept moving." },
+            { "roll": 2, "text": "Exiles from an exile colony — people who were already cast out once and were cast out again." },
+            { "roll": 3, "text": "A warband assembled from two clans who were blood enemies before a common loss made cooperation necessary." },
+            { "roll": 4, "text": "The remnant of a reclamation team that arrived to find the world already gone. They never went home." },
+            { "roll": 5, "text": "Volunteers who left the fleet without authorization. The fleet didn't come after them." },
+            { "roll": 6, "text": "A squad built around a single veteran who remembers the world they're trying to reclaim. Everyone else is going on her word." }
+          ]
+        },
+        "eidolon_revenants": {
+          "label": "Eidolon Revenants",
+          "entries": [
+            { "roll": 1, "text": "Wardens who predate the empire that sent them. The orders they follow are older than the faction that wrote them." },
+            { "roll": 2, "text": "A court in miniature — ancient rivals bound together by a compact that none of them agreed to willingly." },
+            { "roll": 3, "text": "The last functional unit from a domain that no longer exists. They do not yet know this." },
+            { "roll": 4, "text": "Revenants who were dormant for an era and woke to find the world they were guarding had become something else entirely." },
+            { "roll": 5, "text": "A unit whose Prime was destroyed before they could be given purpose. They have been selecting their own objectives ever since." },
+            { "roll": 6, "text": "Wardens bound to a bloodline. The last heir is twelve years old and currently on the front line." }
+          ]
+        },
+        "grutak": {
+          "label": "Grutak",
+          "entries": [
+            { "roll": 1, "text": "A krump crew who survived a battle so loud it made them famous. They've been sent to prove it wasn't luck." },
+            { "roll": 2, "text": "Veterans of three campaigns who are still alive for no reason anyone has satisfactorily explained, including them." },
+            { "roll": 3, "text": "A squad assembled from the survivors of other squads, all of which were destroyed in the same engagement." },
+            { "roll": 4, "text": "A crew built around a champion who has twice refused honorable death. Command is running out of ways to express its dissatisfaction." },
+            { "roll": 5, "text": "Krumpfists sent ahead of a larger force as bait. They were told they were the vanguard." },
+            { "roll": 6, "text": "A crew who won a battle they were not supposed to survive, then were immediately given another one." }
+          ]
+        }
+      }
+    },
+    "mandate": {
+      "label": "Mandate",
+      "instruction": "Roll 1D6 at campaign start. Universal across all factions.",
+      "entries": [
+        { "roll": 1, "text": "The orders they were given no longer reflect the situation on the ground. They haven't received new ones." },
+        { "roll": 2, "text": "They were told to hold something until relief arrived. Relief is not coming." },
+        { "roll": 3, "text": "They are searching for someone. The search has continued long enough that some of them have forgotten why it started." },
+        { "roll": 4, "text": "There is an object, a location, a signal. They cannot confirm it still exists. They cannot stop looking." },
+        { "roll": 5, "text": "They were sent to stop something. They have not confirmed whether they succeeded." },
+        { "roll": 6, "text": "No one alive gave them this mission. They inherited it from someone who didn't make it back." }
+      ]
+    },
+    "burden": {
+      "label": "Burden",
+      "instruction": "Roll 1D6 at campaign start. Universal across all factions.",
+      "entries": [
+        { "roll": 1, "text": "A name. Someone who didn't make it. No one has said why they're still using the callsign." },
+        { "roll": 2, "text": "A piece of intelligence they haven't been able to deliver. The window for it may have already closed." },
+        { "roll": 3, "text": "A promise made to someone outside the squad. The kind that seemed smaller when they made it." },
+        { "roll": 4, "text": "An action from a previous operation that was necessary and has not been discussed since." },
+        { "roll": 5, "text": "A member who should have been rotated out and wasn't. They aren't performing poorly. That's the problem." },
+        { "roll": 6, "text": "The knowledge of where they are on someone else's list. They know they are being used as a disposable asset. They keep going anyway." }
+      ]
+    }
+  }
+}

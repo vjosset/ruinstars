@@ -1,0 +1,164 @@
+[
+  {
+    "id": "LOC_HEG_01",
+    "name": "Kethara Station",
+    "controlling_faction": "HEG",
+    "rival_factions": ["OCL", "GRU"],
+    "battlefield": "facility",
+    "control_type": "native",
+    "situation": "Kethara Station was built during the Hegemony's last great expansion push, a relay and resupply node intended to anchor the frontier. The frontier collapsed before the ink on the construction orders dried, and the station has been running on skeleton crews and deferred maintenance ever since. Field Marshal Jenana still counts it as operational. The crews still follow protocol. The supply manifests are still filed on schedule, though some of what arrives no longer matches what was ordered. Outer Claim raiders have been probing the docking ring for some time, testing the response time. So far, the response time has been adequate. The latest probe felt different."
+  },
+  {
+    "id": "LOC_HEG_02",
+    "name": "The Ardent Processional",
+    "controlling_faction": "HEG",
+    "rival_factions": ["CRS"],
+    "battlefield": "ruined_city",
+    "control_type": "shadow",
+    "situation": "The Processional is one of the oldest surviving ceremonial districts in Hegemony-controlled space: a long boulevard of administrative towers, memorial arches, and public monuments to campaigns that most citizens can no longer name. Governance here is stable. The population is compliant. Station Commander Artemos runs a security apparatus that is well-funded and visible. Recently, a mid-level procurement officer in the sixth administrative tower began attending a discussion group that meets weekly in a basement two blocks from the central monument. The discussion group has twelve members. Four of them have government clearances. None of this has been reported."
+  },
+  {
+    "id": "LOC_HEG_03",
+    "name": "Vault Obsidian",
+    "controlling_faction": "HEG",
+    "rival_factions": ["EIR", "OCL"],
+    "battlefield": "facility",
+    "control_type": "warfront",
+    "situation": "Vault Obsidian was a classified research installation before the collapse of the outer command structure left it without oversight or resupply. Sector Prefect Gadreel held it through years of isolation by following the last orders received, word for word. Those orders did not cover the Relict Wardens who began appearing at the perimeter some time ago, standing at fixed distances and not advancing, not retreating, not responding to any communication. The garrison has been filing incident reports. No one has responded to those either. Recently the Wardens took three steps closer."
+  },
+  {
+    "id": "LOC_SWM_01",
+    "name": "The Maw of Tessavar",
+    "controlling_faction": "SWM",
+    "rival_factions": ["HEG", "OCL"],
+    "battlefield": "alien_hive",
+    "control_type": "native",
+    "situation": "Tessavar was a colony world. The records still exist in Hegemony archives, though the colony's name has been reclassified and the population figures are listed as unresolved. The Swarm arrived long ago and the process was thorough. What remains is not a ruin so much as a conversion: the colony's infrastructure absorbed, reshaped, and incorporated into something that serves purposes no human xenobiologist has been able to fully articulate. The Hegemony sends probe drones periodically. The drones stop transmitting at a consistent boundary, exactly 4.2 kilometers from the former colony center. Whatever is inside that boundary, it is not waiting."
+  },
+  {
+    "id": "LOC_SWM_02",
+    "name": "Spillway Seventeen",
+    "controlling_faction": "SWM",
+    "rival_factions": ["GRU", "HEG"],
+    "battlefield": "facility",
+    "control_type": "warfront",
+    "situation": "Spillway Seventeen is a water reclamation complex built to service a population center that no longer exists. The Grutak held it for years, using the network of pipes and overflow channels as a fortified labyrinth that suited their style of fighting. The Swarm arrived recently, not in force but incrementally: one unit, then three, then a dozen, emerging from the drainage outlets at irregular intervals. Krumpboss Druskurk and the Grutak are still inside. They have stopped trying to push the Swarm out and started trying to figure out where it is coming from. They have not found the source yet."
+  },
+  {
+    "id": "LOC_SWM_03",
+    "name": "The Cradle Strand",
+    "controlling_faction": "SWM",
+    "rival_factions": ["CRS", "OCL"],
+    "battlefield": "jungle",
+    "control_type": "native",
+    "situation": "The Cradle Strand is a chain of terraformed islands in the mid-latitude belt of a world whose original name appears in no surviving record. The terraforming held long after the colonists were gone: the vegetation grew in their absence, dense and fast and wrong in ways that take time to notice. The Swarm did not consume this place. It cultivated it. The biological systems here are not purely alien, not purely engineered, but something between, and they are producing something the Swarm keeps returning to collect. The Crimson Shroud has sent observation teams. The first team's last transmission described the collection process as resembling a ritual. The second team has not transmitted."
+  },
+  {
+    "id": "LOC_OCL_01",
+    "name": "Reclamation Anchorage Dusk",
+    "controlling_faction": "OCL",
+    "rival_factions": ["HEG", "GRU"],
+    "battlefield": "ruined_city",
+    "control_type": "native",
+    "situation": "Anchorage Dusk was built by the Outer Claim's Vethrani clade well into their return inward, raised on the bones of a Hegemony resupply depot they took in the early years of the Reclamation. The original Hegemony structures are still visible beneath the Claimant construction, incorporated rather than demolished, which the Vethrani consider a statement about the nature of inheritance. The settlement is permanent, populated, and governed by a council of bloodline elders led by Thigu. The Hegemony considers it an illegal occupation. The Grutak consider it a target of opportunity. The Vethrani have been considering both positions for generations and have developed a response to each."
+  },
+  {
+    "id": "LOC_OCL_02",
+    "name": "The Holdfast of Mourne",
+    "controlling_faction": "OCL",
+    "rival_factions": ["SWM", "HEG"],
+    "battlefield": "jungle",
+    "control_type": "warfront",
+    "situation": "The Holdfast of Mourne sits at the edge of what was once a contested buffer zone between Hegemony space and the outer dark. Warlord Bazeraz and the Despoilers who took it did not expect to hold it, and the fortifications reflect that: improvised, layered, and built for defenders who assumed they would eventually run. They have not run. The Hegemony probes the perimeter on a regular rotation. The Swarm arrived recently, not from the direction anyone was watching, and the Holdfast's southern approaches now have a problem that was not in the defensive plan. The Despoilers are adapting. They are good at adapting."
+  },
+  {
+    "id": "LOC_OCL_03",
+    "name": "Ashgate Crossing",
+    "controlling_faction": "OCL",
+    "rival_factions": ["EIR", "CRS"],
+    "battlefield": "ruined_city",
+    "control_type": "shadow",
+    "situation": "Ashgate Crossing is a transit hub the Claimant Warband took generations ago and has administered with rough competence ever since. Warchief Ghingro's council settles disputes with a consistency that passes for law. The markets run. The docking fees are collected. Beneath the market district, in the sub-levels that the original architects over-engineered and the Claimants never fully mapped, something has been using the space. Small signs: a vendor found goods rearranged. A child reported a figure in the lower corridor that the council dismissed as a story. A junction node in the power grid has been drawing more than its allocation for some time, but nothing downstream is consuming the difference."
+  },
+  {
+    "id": "LOC_CRS_01",
+    "name": "The Resonance at Vel Thaar",
+    "controlling_faction": "CRS",
+    "rival_factions": ["HEG", "EIR"],
+    "battlefield": "cursed_temple",
+    "control_type": "native",
+    "situation": "Vel Thaar is a deep-space installation built around a spatial anomaly the Shroud's scholars classified as a resonance node: a point where the boundary between signal and silence is thin enough to hear through. Convergence Priest Coradityno has led the Silent Choir's occupation for as long as anyone outside the Shroud can verify, conducting rites that observers have described in terms ranging from meditation to surgery. Access is not refused. Visitors simply find themselves unwilling to stay, and often unable to clearly recall what they saw while they were there. The Hegemony has twice sent investigators. Both investigations were officially concluded with no findings. The Relict Wardens have been observed approaching the installation on several occasions, stopping at a fixed distance, and withdrawing without explanation."
+  },
+  {
+    "id": "LOC_CRS_02",
+    "name": "Choir House Serenthal",
+    "controlling_faction": "CRS",
+    "rival_factions": ["OCL", "GRU"],
+    "battlefield": "facility",
+    "control_type": "warfront",
+    "situation": "Serenthal was an academic facility before the Shroud repurposed it, its long corridors and sealed archive rooms well-suited to the Choir's requirements. The conversion was gradual enough that local authorities did not notice until the original faculty had been entirely replaced. The Outer Claim warchief who controls the surrounding territory has been receiving reports from traders who stopped being willing to make the Serenthal delivery run. The Grutak mercenary band she hired to investigate came back with fewer members and a recommendation to not ask what happened to them. The warchief is considering her options. First Listener Feuyafud is not considering anything. The Choir is listening."
+  },
+  {
+    "id": "LOC_CRS_03",
+    "name": "The Slow Conversion of Harrath",
+    "controlling_faction": "CRS",
+    "rival_factions": ["HEG", "SWM"],
+    "battlefield": "ruined_city",
+    "control_type": "shadow",
+    "situation": "Harrath is a mid-tier Hegemony population center: compliant, productive, unremarkable. The governance apparatus functions. The security patrols run on schedule. The population works, consumes, and files the appropriate documentation. The Hegemony's central behavior analytics system recently flagged an anomaly in Harrath's social cohesion indices: not a drop, but a rise, a statistically improbable increase in community solidarity across districts that historically show low cooperation. The analyst who flagged it was reassigned before she could complete her report. The solidarity indices have continued to rise. On the western edge of the city, in a district that used to have many competing religious organizations, there is now one. Its membership grows steadily. Those who know the name of its leader, Jethutovi, do not use it in public."
+  },
+  {
+    "id": "LOC_GRU_01",
+    "name": "The Bonestack at Vreth",
+    "controlling_faction": "GRU",
+    "rival_factions": ["OCL", "HEG"],
+    "battlefield": "ruined_city",
+    "control_type": "native",
+    "situation": "The Bonestack is what the Krumpfists call their command installation at Vreth, a name that accurately describes both its construction method and its aesthetic philosophy. It was built on the remains of three previous structures that the Grutak took, demolished, and rebuilt from the rubble in a configuration that makes tactical sense only to those who have fought inside it, which is to say, only to Grutak. Warlord Tonzard has twice received Outer Claim envoys seeking passage rights through the Bonestack's territory. The first negotiation ended when Tonzard threw the negotiator's chair through a window. The second was more productive in that both parties agreed on what the continued disagreement would cost them, and the Grutak found the number acceptable."
+  },
+  {
+    "id": "LOC_GRU_02",
+    "name": "Wreckfield Kanosh",
+    "controlling_faction": "GRU",
+    "rival_factions": ["SWM", "OCL"],
+    "battlefield": "facility",
+    "control_type": "warfront",
+    "situation": "Kanosh is a debris field in low orbit around an uninhabitable world, anchored by a decommissioned hauler that Krumpboss Druskurk took intact and turned into a command post by the simple method of killing everyone aboard and moving in. The surrounding debris has accumulated over decades of territorial conflict: ships that tried to run the blockade, ships that tried to enforce it, and ships that got caught in between. The Grutak have been mining the debris for parts and weapons with the cheerful efficiency of a people who consider someone else's wreckage a natural resource. The Swarm arrived in the lower debris layers recently, not to fight the Grutak but to consume the organic material still present in the older wrecks. The Grutak are deciding whether this is a problem."
+  },
+  {
+    "id": "LOC_GRU_03",
+    "name": "The Circuit of Broken Names",
+    "controlling_faction": "GRU",
+    "rival_factions": ["HEG", "EIR"],
+    "battlefield": "ruined_city",
+    "control_type": "native",
+    "situation": "The Circuit is a fighting ground the Grutak have maintained for generations: a specific district of ruins on a world the Hegemony abandoned, preserved in its damaged state because the Grutak consider pristine environments an aesthetic failure. Promotions in the Krumpfist hierarchy are settled here under Smashlord Rignod, as are disputes, territorial disagreements, and questions of succession. The Hegemony has classified the world as a low-priority monitoring zone. The last observation drone returned with only minutes of footage before its transmission cut out. The footage shows the Circuit operating at larger scale than previous observations indicated. The Relict Wardens have been observed watching from fixed positions at the perimeter. They have not intervened. Whatever they are watching for, they appear to be finding it."
+  },
+  {
+    "id": "LOC_EIR_01",
+    "name": "The Pale Interior",
+    "controlling_faction": "EIR",
+    "rival_factions": ["CRS", "HEG"],
+    "battlefield": "cursed_temple",
+    "control_type": "native",
+    "situation": "No survey team has returned an accurate map of the Pale Interior. The structure predates every known civilization in the sector by thousands of years. Vetul First Among The Returned has been present since before the collapse, perhaps longer. The Relict Wardens are not occupying the Interior. They are continuing something they began before any other faction arrived. The Crimson Shroud believes what is inside the Interior is a god, or the memory of one. The Hegemony believes it is a weapon. The Wardens have given no indication that either interpretation concerns them."
+  },
+  {
+    "id": "LOC_EIR_02",
+    "name": "Sovereign Platform Undying",
+    "controlling_faction": "EIR",
+    "rival_factions": ["HEG", "OCL"],
+    "battlefield": "facility",
+    "control_type": "native",
+    "situation": "The Platform is an artificial structure of Eidolon construction, too large to have been built by any currently active civilization and too intact to have survived this long without active maintenance. The Relict Wardens maintain it in the way they maintain everything: with a precision that suggests the original construction specifications are still in active use. The Hegemony attempted to board and survey the Platform some years ago. The survey team found no resistance and no Wardens. They also found no exit for many days, after which they emerged from a docking port they had not entered through, with no memory of the intervening time and no recordings from their equipment. Revenant Sovereign Qhuxls has never acknowledged the incident. The Outer Claim has been circling the Platform's perimeter, trying to determine if its contents justify the attempt."
+  },
+  {
+    "id": "LOC_EIR_03",
+    "name": "The Wound That Sings",
+    "controlling_faction": "EIR",
+    "rival_factions": ["CRS", "SWM"],
+    "battlefield": "rift",
+    "control_type": "warfront",
+    "situation": "The Wound is a spatial anomaly that the Eidolon have been studying since before any other faction had the technology to reach it. Throkzaks The Undying maintains a ring of observation posts around its perimeter, each staffed and running on a rotation that has not changed in recorded history. The anomaly has been expanding at a rate that the Wardens appear to have anticipated: their outermost posts are still outside the boundary by exactly the margin the earliest records suggest was intentional. The Crimson Shroud has been attempting to establish its own observation presence, believing the anomaly to be connected to the resonance they call the Song. The Swarm has entered the anomaly's inner boundary several times. Each time, it withdrew without apparent purpose. The Wardens recorded each incursion and did not respond."
+  }
+]

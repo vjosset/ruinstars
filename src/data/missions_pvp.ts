@@ -941,13 +941,9 @@ You don't know where it is, but the longer you search, the better your odds.
 A Unit that Controls a Search Marker may spend 2ACT to search it.
 Roll 1D6. This roll cannot be modified or re-rolled by using TOs.
 
-- On the first searched marker, the Artifact is found on a roll of 1
-- On the second searched marker, the Artifact is found on a roll of 1 or 2
-- On the third searched marker, the Artifact is found automatically
+If the roll is less than or equal to the current Turn number, the Artifact is found. Remove all other search markers, and the Artifact is carried by the Unit that found it.
 
-After searching a marker, remove it from the Battlefield.
-Once found, the Artifact is carried by the Unit that found it.
-`),
+After searching a marker, remove it from the Battlefield.`),
     rewards: [
       {
         name: 'Ancient Artifact',
