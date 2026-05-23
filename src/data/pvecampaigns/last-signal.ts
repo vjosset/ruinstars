@@ -463,7 +463,7 @@ The last order was always this. You just did not know it until now.`,
           },
           objectiveB: {
             type: 'Special - Protect',
-            description: 'The Praxium leader is placed at the N Anchor. `ARM 5 HIT 1`. The leader does not activate. NPC Units treat the leader as their first priority target. Victory: the leader is Standing at the end of Turn 4.',
+            description: 'The Praxium leader is placed on the Center Anchor. `ARM 5 HIT 3`. The leader does not activate. NPC Units treat the leader as their first priority target. Victory: the leader is Standing at the end of Turn 4.',
           },
           diagram: {
             board: { widthIn: 24, heightIn: 24 },
