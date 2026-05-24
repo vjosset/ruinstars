@@ -71,6 +71,7 @@ model UnitType {
 model GearCategory {
   gearCategoryId   String  @id @db.VarChar(20)
   gearCategoryName String  @db.VarChar(250)
+  description      String? @db.Text
   seq              Int     @default(0)
   isNarrative      Boolean @default(false)
   gears            Gear[]
