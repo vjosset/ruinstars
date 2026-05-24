@@ -70,13 +70,12 @@ export default async function PvPMissions() {
                   These are not grand crusades of empire, but desperate struggles fought by the few who dare to step onto the battlefield when hope has long since burned away.
                 </p>
                 <p className="mb-4">
-                  This section collects the missions, battlefields, and scripted operations that define warfare in the Ruinstars setting.
+                  This section collects the missions and battlefields that define warfare in the Ruinstars setting.
                   Within these pages, commanders will find everything they need to wage battle, from quick-play engagements and solo challenges to full three-part operations and sprawling, multi-stage campaigns.
                   Every victory and defeat shapes the next confrontation; every decision carries the weight of survival.
                 </p>
                 <p className="mb-4">
                   Each mission offers unique tactical puzzles and narrative flavor, challenging you to adapt your strategy to shifting objectives and hostile environments.
-                  Scripted Operations weave these battles into connected arcs: mini-campaigns that tell stories of ambition, corruption, and sacrifice.
                   Whether you fight for the glory of the Human Hegemony, the hunger of the Swarm, or the whispers of the Silent Choir, every operation offers a chance to carve your name into the scars of the galaxy.
                 </p>
                 <p>

@@ -71,14 +71,6 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
       </div>
 
       <div className="max-w-7xl mx-auto">
-        {/*
-        squadType.squadTypeId != 'NPC' && (
-          <div className="p-2 justify-center gap-4 flex flex-center">
-            <FactionLink factionId={squadType.factionId} factionName={squadType.faction.factionName} />
-
-            <OperationsLink factionId={squadType.factionId} />
-          </div>
-        )*/}
         {tabs.length > 1 && (
           <div className="flex items-center justify-center gap-8 border-b border-border mb-4 px-2">
             {tabs.map(tab => (
