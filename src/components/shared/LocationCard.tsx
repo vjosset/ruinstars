@@ -1,5 +1,3 @@
-'use client'
-
 import { FactionLink } from '../nav/Links'
 
 const FACTION_NAMES: Record<string, string> = {

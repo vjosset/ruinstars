@@ -1,37 +1,27 @@
-'use client'
-
-import GalaxyMap from '@/components/shared/GalaxyMap'
-import LocationCard, { Location } from '@/components/shared/LocationCard'
+import GalaxyMapClient from './GalaxyMapClient'
 import PageTitle from '@/components/ui/PageTitle'
-import { useState } from 'react'
 import locationsData from '@/data/galaxy/locations.json'
+import { generatePageMetadata } from '@/lib/utils/generateMetadata'
+import type { Location } from '@/components/shared/LocationCard'
 
-const locations = locationsData as Location[]
+export async function generateMetadata() {
+  return generatePageMetadata({
+    title: 'The Galaxy',
+    description: 'A living map of the dying galaxy. Track faction control across every contested location as players report their victories and losses in the campaign.',
+    keywords: ['galaxy map', 'campaign', 'faction control', 'locations'],
+    pagePath: '/galaxy',
+  })
+}
 
-export default function LocationsTestPage() {
-  const [selected, setSelected] = useState<Location>(locations[0])
+const locations = locationsData as unknown as Location[]
 
+export default function GalaxyPage() {
   return (
     <div className="px-2 py-8 max-w-6xl mx-auto">
       <div className="text-center mb-6">
         <PageTitle>The Galaxy</PageTitle>
       </div>
-
-      <div className="flex flex-col lg:flex-row gap-6 items-start">
-        {/* Galaxy map — fills available width, scales via viewBox */}
-        <div className="w-full lg:flex-1 min-w-0">
-          <GalaxyMap
-            locations={locations}
-            selected={selected}
-            onSelect={setSelected}
-          />
-        </div>
-
-        {/* Selected location detail card */}
-        <div className="w-full lg:w-80 xl:w-96 flex-shrink-0">
-          <LocationCard location={selected} />
-        </div>
-      </div>
+      <GalaxyMapClient locations={locations} />
     </div>
   )
 }
