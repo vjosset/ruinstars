@@ -1,4 +1,10 @@
 import { FactionLink } from '../nav/Links'
+import { PveBattlefields } from '@/data/pve_battlefields'
+
+/** Lookup battlefield display title by ID (e.g. 'FAC' → 'The Facility') */
+const BATTLEFIELD_TITLE: Record<string, string> = Object.fromEntries(
+  PveBattlefields.map(b => [b.battlefieldId, b.title])
+)
 
 const FACTION_NAMES: Record<string, string> = {
   HEG: 'Hegemony',
@@ -39,14 +45,6 @@ const FACTION_COLORS_DIM: Record<string, string> = {
   EIR: 'bg-cyan-700',
 }
 
-const BATTLEFIELD_LABELS: Record<string, string> = {
-  facility: 'Facility',
-  ruined_city: 'Ruined City',
-  alien_hive: 'Alien Hive',
-  jungle: 'Jungle',
-  cursed_temple: 'Cursed Temple',
-  rift: 'Rift',
-}
 
 export type SectorLocation = {
   id: string
@@ -193,7 +191,7 @@ export default function SectorCard({ sector }: SectorCardProps) {
                 <div className="flex items-baseline justify-between gap-2 mb-1">
                   <span className="text-xs font-mono text-zinc-200 leading-tight">{loc.name}</span>
                   <span className="text-xs font-mono text-zinc-600 shrink-0">
-                    {BATTLEFIELD_LABELS[loc.battlefield] ?? loc.battlefield}
+                    {BATTLEFIELD_TITLE[loc.battlefield] ?? loc.battlefield}
                   </span>
                 </div>
                 <ControlBar factionScores={loc.faction_scores} pipHeight="h-2" />
