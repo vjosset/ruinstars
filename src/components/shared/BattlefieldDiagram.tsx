@@ -212,7 +212,10 @@ export default function BattlefieldDiagram({
 
   const widthPx = widthIn * pixelsPerInch
   const heightPx = heightIn * pixelsPerInch
-  const inToPx = (valueIn: number) => valueIn * pixelsPerInch
+  // Round to 2 decimal places to prevent sub-ULP float differences between
+  // Node (SSR) and browser V8 from producing hydration attribute mismatches.
+  const inToPx = (valueIn: number) => Math.round(valueIn * pixelsPerInch * 100) / 100
+  const r2 = (n: number) => Math.round(n * 100) / 100
 
   return (
     <div className={className}>
@@ -437,18 +440,21 @@ export default function BattlefieldDiagram({
                 const textOffset = inToPx(
                   element.textOffsetIn ?? DEFAULT_LABEL_SIZE_IN
                 )
-                const textX = (x1 + x2) / 2 + nx * textOffset
-                const textY = (y1 + y2) / 2 + ny * textOffset
+                // Round all unit-vector-derived coords to 2dp — Math.hypot and
+                // trig functions are implementation-defined and can differ between
+                // Node (SSR) and browser V8, causing hydration attribute mismatches.
+                const textX = r2((x1 + x2) / 2 + nx * textOffset)
+                const textY = r2((y1 + y2) / 2 + ny * textOffset)
                 const calloutStroke = element.strokeColor ?? calloutColor
 
                 const end1Style = element.end1Style ?? 'nub'
                 const end2Style = element.end2Style ?? 'nub'
 
                 // Shorten the main line at any arrow ends so it doesn't protrude
-                const lineX1 = end1Style === 'arrow' ? x1 + ux * arrowLen : x1
-                const lineY1 = end1Style === 'arrow' ? y1 + uy * arrowLen : y1
-                const lineX2 = end2Style === 'arrow' ? x2 - ux * arrowLen : x2
-                const lineY2 = end2Style === 'arrow' ? y2 - uy * arrowLen : y2
+                const lineX1 = r2(end1Style === 'arrow' ? x1 + ux * arrowLen : x1)
+                const lineY1 = r2(end1Style === 'arrow' ? y1 + uy * arrowLen : y1)
+                const lineX2 = r2(end2Style === 'arrow' ? x2 - ux * arrowLen : x2)
+                const lineY2 = r2(end2Style === 'arrow' ? y2 - uy * arrowLen : y2)
 
                 // Renders a nub, arrow, or nothing at a given endpoint.
                 // dirX/dirY is the unit vector pointing outward from the line at that end.
@@ -461,10 +467,10 @@ export default function BattlefieldDiagram({
                   if (style === 'nub') {
                     return (
                       <line
-                        x1={px - nx * tickSize}
-                        y1={py - ny * tickSize}
-                        x2={px + nx * tickSize}
-                        y2={py + ny * tickSize}
+                        x1={r2(px - nx * tickSize)}
+                        y1={r2(py - ny * tickSize)}
+                        x2={r2(px + nx * tickSize)}
+                        y2={r2(py + ny * tickSize)}
                         stroke={calloutStroke}
                         strokeWidth={inToPx(DEFAULT_STROKE_IN)}
                       />
@@ -476,9 +482,9 @@ export default function BattlefieldDiagram({
                   return (
                     <polygon
                       points={[
-                        `${px},${py}`,
-                        `${baseX + nx * tickSize},${baseY + ny * tickSize}`,
-                        `${baseX - nx * tickSize},${baseY - ny * tickSize}`,
+                        `${r2(px)},${r2(py)}`,
+                        `${r2(baseX + nx * tickSize)},${r2(baseY + ny * tickSize)}`,
+                        `${r2(baseX - nx * tickSize)},${r2(baseY - ny * tickSize)}`,
                       ].join(' ')}
                       fill={calloutStroke}
                       stroke="none"
