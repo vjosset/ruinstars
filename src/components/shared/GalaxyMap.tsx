@@ -1,7 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { Location } from './LocationCard'
+import { type Sector } from './SectorCard'
 
 // GalaxyBackground uses Math.sin/cos/exp/sqrt in rejection-sampling loops.
 // These transcendental functions are implementation-defined and can produce
@@ -16,7 +16,7 @@ const SIZE = COLS * CELL  // 560
 const CENTER = SIZE / 2   // 280
 
 /**
- * SVG hex values — kept in sync with FACTION_COLORS in LocationCard.tsx.
+ * SVG hex values — kept in sync with FACTION_COLORS in SectorCard.tsx.
  * SVG fill attributes can't use Tailwind class names, so we duplicate these here.
  *   HEG blue-500, SWM green-500, OCL amber-500, CRS purple-500, GRU red-500, EIR cyan-500
  */
@@ -44,19 +44,19 @@ function px(coord: number) {
 }
 
 type Props = {
-  locations: Location[]
-  selected: Location | null
-  onSelect: (loc: Location) => void
+  sectors: Sector[]
+  selected: Sector | null
+  onSelect: (sector: Sector) => void
 }
 
-export default function GalaxyMap({ locations, selected, onSelect }: Props) {
+export default function GalaxyMap({ sectors, selected, onSelect }: Props) {
   return (
     <svg
       viewBox={`0 0 ${SIZE} ${SIZE}`}
       width="100%"
       className="block"
       role="img"
-      aria-label="Galaxy map showing all campaign locations"
+      aria-label="Galaxy map showing all campaign sectors"
     >
       <defs>
         <clipPath id="galaxy-clip">
@@ -85,21 +85,46 @@ export default function GalaxyMap({ locations, selected, onSelect }: Props) {
         ))}
       </g>
 
-      {/* Location dots */}
-      {locations.map(loc => {
-        const cx = px(loc.x)
-        const cy = px(loc.y)
-        const dominantFaction = Object.entries(loc.faction_scores)
+      {/* Influence disks — rendered before dots so they sit underneath */}
+      {sectors.map(sector => {
+        const [dominantFaction, dominantScore] = Object.entries(sector.faction_scores)
+          .sort(([, a], [, b]) => b - a)[0] ?? ['', 0]
+
+        // Sectors with a majority score below the threshold are too hotly contested to have real influence
+        if (dominantScore <= 2) return null
+
+        const color = FACTION_HEX[dominantFaction] ?? '#71717a'
+        // Radius scales linearly with control score; score 10 = 1 full cell radius
+        const r = dominantScore * (CELL / 5)
+
+        return (
+          <circle
+            key={`influence-${sector.id}`}
+            cx={px(sector.x)}
+            cy={px(sector.y)}
+            r={r}
+            fill={color}
+            opacity={0.25}
+            style={{ pointerEvents: 'none' }}
+          />
+        )
+      })}
+
+      {/* Sector dots */}
+      {sectors.map(sector => {
+        const cx = px(sector.x)
+        const cy = px(sector.y)
+        const dominantFaction = Object.entries(sector.faction_scores)
           .sort(([, a], [, b]) => b - a)[0]?.[0] ?? ''
         const color = FACTION_HEX[dominantFaction] ?? '#71717a'
         const factionLabel = FACTION_LABELS[dominantFaction] ?? dominantFaction
-        const isSelected = selected?.id === loc.id
+        const isSelected = selected?.id === sector.id
 
         return (
           <g
-            key={loc.id}
+            key={sector.id}
             transform={`translate(${cx}, ${cy})`}
-            onClick={() => onSelect(loc)}
+            onClick={() => onSelect(sector)}
             className="cursor-pointer group"
           >
             {/* Selected: orange ring */}
@@ -119,7 +144,7 @@ export default function GalaxyMap({ locations, selected, onSelect }: Props) {
               className="opacity-0 group-hover:opacity-50 transition-opacity duration-150"
             />
 
-            {/* Hover labels: location name + dominant faction — shown above the dot */}
+            {/* Hover labels: sector name + dominant faction — shown above the dot */}
             <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none">
               <text
                 y={-13}
@@ -132,7 +157,7 @@ export default function GalaxyMap({ locations, selected, onSelect }: Props) {
                 fill="white"
                 style={{ paintOrder: 'stroke' } as React.CSSProperties}
               >
-                {loc.name}
+                {sector.name}
               </text>
               <text
                 y={-4}
