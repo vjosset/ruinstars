@@ -13,7 +13,7 @@ export class SpecialRepository extends BaseRepository {
         scope: row.scope,
         code: row.code,
         specialName: row.specialName,
-        description: row.description ?? ''
+        description: row.description
       })
       : null
   }
@@ -29,7 +29,7 @@ export class SpecialRepository extends BaseRepository {
         scope: row.scope,
         code: row.code,
         specialName: row.specialName,
-        description: row.description ?? ''
+        description: row.description
       })
       : null
   }

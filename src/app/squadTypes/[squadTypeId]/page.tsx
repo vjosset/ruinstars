@@ -187,14 +187,6 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
             </div>
           </div>
         )}
-
-        {/*
-        {activeTab === 'ops' && hasOps && (
-          <div className="p-2">
-            <ScriptedOperationsList operations={scriptedOps} factions={factionsPlain} />
-          </div>
-        )}
-        */}
       </div>
     </div>
   )

@@ -48,24 +48,18 @@ export class GearRepository extends BaseRepository {
     gearCategory?: {
       gearCategoryId: string
       gearCategoryName: string
+      description: string | null
       seq: number
       isNarrative: boolean
     }
   ): Gear {
     return new Gear({
       ...row,
-      flavor: row.flavor ?? undefined,
-      TYP: row.TYP ?? undefined,
-      ROA: row.ROA ?? undefined,
-      ATT: row.ATT ?? undefined,
-      ACT: row.ACT ?? undefined,
-      TO: row.TO ?? undefined,
-      effects: row.effects ?? undefined,
-      special: row.special ?? undefined,
       gearCategory: gearCategory
         ? new GearCategory({
           gearCategoryId: gearCategory.gearCategoryId,
           gearCategoryName: gearCategory.gearCategoryName,
+          description: gearCategory.description,
           seq: gearCategory.seq,
           isNarrative: gearCategory.isNarrative,
           gears: []

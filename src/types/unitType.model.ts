@@ -5,7 +5,7 @@ export type UnitTypePlain = {
   squadTypeId: string
   seq: number
   unitTypeName: string
-  description?: string | null
+  description: string | null
   ACT: number
   MOV: number
   MSK: number
@@ -15,7 +15,7 @@ export type UnitTypePlain = {
   special: string
   GP: number
   nameType: string
-  gearIds?: string
+  gearIds: string | null
   isUnitType: true
   gears?: GearPlain[] | null
   weapons?: GearPlain[] | null
@@ -33,7 +33,7 @@ export class UnitType {
   squadTypeId: string
   seq: number
   unitTypeName: string
-  description?: string | null
+  description: string | null
   ACT: number
   MOV: number
   MSK: number
@@ -43,7 +43,7 @@ export class UnitType {
   special: string
   GP: number
   nameType: string
-  gearIds?: string
+  gearIds: string | null
   isUnitType: boolean = true
   gears?: Gear[] | null
   weapons?: Gear[] | null
@@ -55,7 +55,7 @@ export class UnitType {
     squadTypeId: string
     seq: number
     unitTypeName: string
-    description?: string | null
+    description: string | null
     ACT: number
     MOV: number
     MSK: number
@@ -65,7 +65,7 @@ export class UnitType {
     special: string
     GP: number
     nameType: string
-    gearIds?: string
+    gearIds: string | null
     gears?: Gear[] | null
     weapons?: Gear[] | null
     skills?: Gear[] | null

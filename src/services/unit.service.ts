@@ -164,7 +164,7 @@ export class UnitService {
 
     unit.special = unit.special?.trim()
     unit.gears?.forEach(gear => {
-      gear.special = gear.special?.trim()
+      gear.special = gear.special?.trim() ?? null
     })
   }
 
@@ -181,7 +181,7 @@ export class UnitService {
       break
     case 'SPECIAL':
       if (value.startsWith('-')) {
-        weapon.special = weapon.special?.replace(value.substring(1), '').trim()
+        weapon.special = weapon.special?.replace(value.substring(1), '').trim() ?? null
       } else {
         if (!weapon.special?.includes(value)) {
           weapon.special = `${weapon.special || ''} ${value}`.trim()

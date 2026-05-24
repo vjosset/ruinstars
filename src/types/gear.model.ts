@@ -4,19 +4,19 @@ export type GearPlain = {
   gearId: string
   gearName: string
   description: string
-  flavor?: string
+  flavor: string | null
   gearType: string
   gearCategoryId: string
   seq: number
   GP: number
-  TYP?: string
-  ROA?: number
+  TYP: string | null
+  ROA: number | null
   SKL?: number
-  ATT?: number
-  ACT?: number
-  TO?: number
-  effects?: string
-  special?: string
+  ATT: number | null
+  ACT: number | null
+  TO: number | null
+  effects: string | null
+  special: string | null
   isDefault: boolean
   gearCategory?: GearCategoryPlain
 }
@@ -25,19 +25,19 @@ export class Gear {
   gearId: string
   gearName: string
   description: string
-  flavor?: string
+  flavor: string | null
   gearType: string
   gearCategoryId: string
   seq: number
   GP: number
-  TYP?: string
-  ROA?: number
+  TYP: string | null
+  ROA: number | null
   SKL?: number
-  ATT?: number
-  ACT?: number
-  TO?: number
-  effects?: string
-  special?: string
+  ATT: number | null
+  ACT: number | null
+  TO: number | null
+  effects: string | null
+  special: string | null
   isDefault: boolean
   gearCategory?: GearCategory
 
@@ -45,19 +45,19 @@ export class Gear {
     gearId: string,
     gearName: string,
     description: string,
-    flavor?: string
+    flavor: string | null
     gearType: string,
     gearCategoryId: string,
     seq: number,
     GP: number,
-    TYP?: string,
-    ROA?: number,
+    TYP: string | null,
+    ROA: number | null,
     SKL?: number,
-    ATT?: number,
-    ACT?: number,
-    TO?: number,
-    effects?: string,
-    special?: string,
+    ATT: number | null,
+    ACT: number | null,
+    TO: number | null,
+    effects: string | null,
+    special: string | null,
     isDefault?: boolean,
     gearCategory?: GearCategory
   }) {

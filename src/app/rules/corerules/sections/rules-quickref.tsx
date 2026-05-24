@@ -353,7 +353,7 @@ export default async function RulesQuickRef() {
                   key={s.specialId}
                   code={renderWithX(s.code)}
                   name={renderWithX(s.specialName)}
-                  effect={<SpecialEffect text={s.description} />}
+                  effect={<SpecialEffect text={s.description ?? ''} />}
                   last={i === weaponSpecials.length - 1}
                 />
               ))}

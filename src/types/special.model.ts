@@ -3,7 +3,7 @@ export type SpecialPlain = {
   scope: string;
   code: string;
   specialName: string;
-  description: string;
+  description: string | null;
 };
 
 export class Special {
@@ -11,14 +11,14 @@ export class Special {
   scope: string
   code: string
   specialName: string
-  description: string
+  description: string | null
 
   constructor(data: {
     specialId: string
     scope: string
     code: string
     specialName: string
-    description: string
+    description: string | null
   }) {
     this.specialId = data.specialId
     this.scope = data.scope

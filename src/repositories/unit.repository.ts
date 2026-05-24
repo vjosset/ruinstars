@@ -70,19 +70,19 @@ export class UnitRepository extends BaseRepository {
       squad: 'squad' in row && row.squad
         ? new Squad({
           ...row.squad,
-          description: row.squad.description ?? undefined,
-          notes: row.squad.notes ?? undefined,
-          spawnTable: row.squad.spawnTable ?? undefined,
+          description: row.squad.description,
+          notes: row.squad.notes,
+          spawnTable: row.squad.spawnTable,
           portraitUpdatedAt: row.squad.portraitUpdatedAt ?? undefined,
           eloRating: row.squad.eloRating ?? undefined,
-          campaign: row.squad.campaign ?? undefined
+          campaign: row.squad.campaign
         })
         : null,
       unitType: 'unitType' in row && row.unitType
         ? new UnitType({
           ...row.unitType,
-          description: row.unitType.description ?? null,
-          gearIds: row.unitType.gearIds ?? undefined
+          description: row.unitType.description,
+          gearIds: row.unitType.gearIds
         })
         : null
     }

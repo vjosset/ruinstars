@@ -27,7 +27,7 @@ const EditSquadForm = forwardRef(function EditSquadForm(
     squad: SquadPlain,
     initialName: string
     initialMaxGP: number
-    initialNotes: string | undefined
+    initialNotes: string | null | undefined
     squadId: string
     hasCustomPortrait: boolean
     onSave: (name: string, maxGP: number, notes: string) => void
@@ -37,7 +37,7 @@ const EditSquadForm = forwardRef(function EditSquadForm(
   ref
 ) {
   const [name, setName] = useState(initialName)
-  const [maxGP, setMaxGP] = useState(initialMaxGP.toString())
+  const [maxGP] = useState(initialMaxGP.toString())
   const [notes, setNotes] = useState(initialNotes ?? '')
 
   const [activeTab, setActiveTab] = useState<'details' | 'portrait'>('details')

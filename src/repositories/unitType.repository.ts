@@ -10,8 +10,8 @@ export class UnitTypeRepository extends BaseRepository {
     return row
       ? new UnitType({
         ...row,
-        description: row.description ?? null,
-        gearIds: row.gearIds ?? undefined,
+        description: row.description,
+        gearIds: row.gearIds,
         gears: null,
         weapons: null,
         skills: null,
@@ -36,8 +36,8 @@ export class UnitTypeRepository extends BaseRepository {
 
     return new UnitType({
       ...row,
-      description: row.description ?? null,
-      gearIds: row.gearIds ?? undefined,
+      description: row.description,
+      gearIds: row.gearIds,
       gears: null,
       weapons: null,
       skills: null,
@@ -61,8 +61,8 @@ export class UnitTypeRepository extends BaseRepository {
     const rows = await this.prisma.unitType.findMany()
     return rows.map(row => new UnitType({
       ...row,
-      description: row.description ?? null,
-      gearIds: row.gearIds ?? undefined,
+      description: row.description,
+      gearIds: row.gearIds,
       gears: null,
       weapons: null,
       skills: null,

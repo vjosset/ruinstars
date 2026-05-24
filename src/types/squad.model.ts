@@ -6,9 +6,9 @@ export type SquadPlain = {
   squadTypeId: string
   seq: number
   squadName: string
-  description?: string
-  notes?: string
-  spawnTable?: string
+  description: string | null
+  notes: string | null
+  spawnTable: string | null
   isSpotlight: boolean
   hasCustomPortrait: boolean
   portraitUpdatedAt?: Date
@@ -21,7 +21,7 @@ export type SquadPlain = {
   TO: number
   maxGP: number
   eloRating?: number
-  campaign?: string
+  campaign: string | null
   units?: UnitPlain[]
   user?: UserPlain
   squadType?: SquadTypePlain
@@ -35,9 +35,9 @@ export class Squad {
   squadTypeId: string
   seq: number
   squadName: string
-  description?: string
-  notes?: string
-  spawnTable?: string
+  description: string | null
+  notes: string | null
+  spawnTable: string | null
   isSpotlight: boolean
   hasCustomPortrait: boolean
   portraitUpdatedAt?: Date
@@ -50,7 +50,7 @@ export class Squad {
   TO: number
   maxGP: number
   eloRating?: number
-  campaign?: string
+  campaign: string | null
   units?: Unit[] | null
   user?: User | null
   squadType?: SquadType | null
@@ -61,9 +61,9 @@ export class Squad {
     squadTypeId: string
     seq: number
     squadName: string
-    description?: string
-    notes?: string
-    spawnTable?: string
+    description: string | null
+    notes: string | null
+    spawnTable: string | null
     isSpotlight: boolean
     hasCustomPortrait: boolean
     portraitUpdatedAt?: Date
@@ -76,7 +76,7 @@ export class Squad {
     TO: number
     maxGP: number
     eloRating?: number
-    campaign?: string
+    campaign: string | null
     units?: Unit[] | null
     user?: User | null
     squadType?: SquadType | null

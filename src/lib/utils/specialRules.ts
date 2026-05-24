@@ -3,7 +3,7 @@ export type SpecialRule = {
   scope?: string
   code?: string
   specialName: string
-  description: string
+  description: string | null
 }
 
 export function parseSpecialRules(
@@ -33,7 +33,7 @@ export function parseSpecialRules(
         : undefined
 
       const code = matched.code.replaceAll('_', param || '')
-      const description =  matched.description.replaceAll('_', param || '')
+      const description = matched.description?.replaceAll('_', param || '') ?? null
       const specialName = matched.specialName.replaceAll('_', param || '')
 
       parsed.push({

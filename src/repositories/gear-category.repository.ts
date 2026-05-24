@@ -11,6 +11,7 @@ export class GearCategoryRepository extends BaseRepository {
       ? new GearCategory({
         gearCategoryId: row.gearCategoryId,
         gearCategoryName: row.gearCategoryName,
+        description: row.description,
         seq: row.seq,
         isNarrative: row.isNarrative,
         gears: []
@@ -32,18 +33,11 @@ export class GearCategoryRepository extends BaseRepository {
       ? new GearCategory({
         gearCategoryId: row.gearCategoryId,
         gearCategoryName: row.gearCategoryName,
+        description: row.description,
         seq: row.seq,
         isNarrative: row.isNarrative,
         gears: row.gears.map(gear => new Gear({
           ...gear,
-          flavor: gear.flavor ?? undefined,
-          TYP: gear.TYP ?? undefined,
-          ROA: gear.ROA ?? undefined,
-          ATT: gear.ATT ?? undefined,
-          ACT: gear.ACT ?? undefined,
-          TO: gear.TO ?? undefined,
-          effects: gear.effects ?? undefined,
-          special: gear.special ?? undefined,
           gearCategory: undefined
         }))
       })
@@ -55,6 +49,7 @@ export class GearCategoryRepository extends BaseRepository {
     return rows.map(row => new GearCategory({
       gearCategoryId: row.gearCategoryId,
       gearCategoryName: row.gearCategoryName,
+      description: row.description,
       seq: row.seq,
       isNarrative: row.isNarrative,
       gears: []

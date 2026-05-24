@@ -155,7 +155,7 @@ export class SquadTypeRepository extends BaseRepository {
       squadTypeId: row.squadTypeId,
       seq: row.seq,
       unitTypeName: row.unitTypeName,
-      description: row.description ?? null,
+      description: row.description,
       ACT: row.ACT,
       MOV: row.MOV,
       MSK: row.MSK,
@@ -165,7 +165,7 @@ export class SquadTypeRepository extends BaseRepository {
       special: row.special,
       GP: row.GP,
       nameType: row.nameType,
-      gearIds: row.gearIds ?? undefined,
+      gearIds: row.gearIds,
       gears: null,
       weapons: null,
       skills: null,
@@ -247,6 +247,7 @@ export class SquadTypeRepository extends BaseRepository {
     seq: number
     squadName: string
     description: string | null
+    notes: string | null
     spawnTable: string | null
     isSpotlight: boolean
     hasCustomPortrait: boolean
@@ -299,8 +300,9 @@ export class SquadTypeRepository extends BaseRepository {
       squadTypeId: row.squadTypeId,
       seq: row.seq,
       squadName: row.squadName,
-      description: row.description ?? undefined,
-      spawnTable: row.spawnTable ?? undefined,
+      description: row.description,
+      notes: row.notes,
+      spawnTable: row.spawnTable,
       isSpotlight: row.isSpotlight,
       hasCustomPortrait: row.hasCustomPortrait,
       portraitUpdatedAt: row.portraitUpdatedAt ?? undefined,
@@ -313,7 +315,7 @@ export class SquadTypeRepository extends BaseRepository {
       TO: row.TO,
       maxGP: row.maxGP,
       eloRating: row.eloRating ?? undefined,
-      campaign: row.campaign ?? undefined,
+      campaign: row.campaign,
       units: row.units?.map(unit => this.toUnit(unit)) ?? [],
       user: row.user ? this.toUser(row.user) : null,
       squadType: null

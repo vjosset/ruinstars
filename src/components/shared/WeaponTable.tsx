@@ -75,7 +75,7 @@ export default function WeaponTable({
                           {parsed.map((special, idx) => (
                             <div key={idx}>
                               <strong className="text-muted">({special.code}) {special.specialName}:</strong>
-                              <Markdown className="ml-4">{special.description}</Markdown>
+                              <Markdown className="ml-4">{special.description ?? ''}</Markdown>
                             </div>
                           ))}
                         </div>
