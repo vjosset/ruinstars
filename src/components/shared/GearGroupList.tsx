@@ -1,6 +1,8 @@
 'use client'
 
 import GearItem from '@/components/shared/GearItem'
+import Markdown from '@/components/ui/Markdown'
+import { showInfoModal } from '@/lib/utils/showInfoModal'
 import { GearPlain } from '@/types'
 import { Checkbox } from '../ui'
 
@@ -73,7 +75,22 @@ export default function GearGroupList({
           <div key={categoryId} className="border-t border-border">
             <div className="grid grid-cols-2">
               <h6 className={`text-muted flex items-center ${isEvenCount ? 'col-span-2' : ''}`}>
-                {sortedGears[0].gearCategory?.gearCategoryName}
+                {(() => {
+                  const cat = sortedGears[0].gearCategory
+                  if (cat?.description) {
+                    return (
+                      <span className="cursor-pointer text-muted hover:text-main hastip"
+                        onClick={() => showInfoModal({
+                          title: cat.gearCategoryName,
+                          body: <Markdown>{cat.description ?? ''}</Markdown>,
+                        })}
+                      >
+                        {cat.gearCategoryName} <sup>?</sup>
+                      </span>
+                    )
+                  }
+                  return cat?.gearCategoryName
+                })()}
               </h6>
               {!isEvenCount && firstGear && renderGear(firstGear)}
               {(isEvenCount ? sortedGears : restGears).map(renderGear)}
