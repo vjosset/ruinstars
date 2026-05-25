@@ -9,7 +9,7 @@
       },
       {
         "roll": 2,
-        "text": "A key figure — a commander, a conduit, an elder — was killed before the mission could begin. Someone else gave the orders you're running on."
+        "text": "A key figure - a commander, a conduit, an elder - was killed before the mission could begin. Someone else gave the orders you're running on."
       },
       {
         "roll": 3,
@@ -17,7 +17,7 @@
       },
       {
         "roll": 4,
-        "text": "A world your side needed is gone — not taken, destroyed. Scorched, consumed, or silenced. The objective hasn't changed. The reason for it has."
+        "text": "A world your side needed is gone - not taken, destroyed. Scorched, consumed, or silenced. The objective hasn't changed. The reason for it has."
       },
       {
         "roll": 5,
@@ -62,7 +62,7 @@
             { "roll": 1, "text": "A choir cell that went silent to its own hierarchy six months ago. They operate on doctrine, not instruction." },
             { "roll": 2, "text": "Missionaries who arrived on a world that was already turning. What they found there changed their doctrine." },
             { "roll": 3, "text": "A cell built around a relic that has since stopped resonating. They carry it anyway." },
-            { "roll": 4, "text": "Converts from another faction — recent enough that some of them still remember who they were." },
+            { "roll": 4, "text": "Converts from another faction - recent enough that some of them still remember who they were." },
             { "roll": 5, "text": "The survivors of a ritual that succeeded beyond what anyone intended. The hierarchy doesn't know what to do with them." },
             { "roll": 6, "text": "A cell that was sent to observe and report. At some point they stopped reporting." }
           ]
@@ -71,7 +71,7 @@
           "label": "Outer Claim",
           "entries": [
             { "roll": 1, "text": "Scouts from the advance wave who returned to find the fleet had not followed. They kept moving." },
-            { "roll": 2, "text": "Exiles from an exile colony — people who were already cast out once and were cast out again." },
+            { "roll": 2, "text": "Exiles from an exile colony - people who were already cast out once and were cast out again." },
             { "roll": 3, "text": "A warband assembled from two clans who were blood enemies before a common loss made cooperation necessary." },
             { "roll": 4, "text": "The remnant of a reclamation team that arrived to find the world already gone. They never went home." },
             { "roll": 5, "text": "Volunteers who left the fleet without authorization. The fleet didn't come after them." },
@@ -82,7 +82,7 @@
           "label": "Eidolon Revenants",
           "entries": [
             { "roll": 1, "text": "Wardens who predate the empire that sent them. The orders they follow are older than the faction that wrote them." },
-            { "roll": 2, "text": "A court in miniature — ancient rivals bound together by a compact that none of them agreed to willingly." },
+            { "roll": 2, "text": "A court in miniature - ancient rivals bound together by a compact that none of them agreed to willingly." },
             { "roll": 3, "text": "The last functional unit from a domain that no longer exists. They do not yet know this." },
             { "roll": 4, "text": "Revenants who were dormant for an era and woke to find the world they were guarding had become something else entirely." },
             { "roll": 5, "text": "A unit whose Prime was destroyed before they could be given purpose. They have been selecting their own objectives ever since." },

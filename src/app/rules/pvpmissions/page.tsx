@@ -1,8 +1,8 @@
 import { PDFLink } from '@/components/nav/Links'
-import MissionCard from '@/components/shared/MissionCard'
 import Markdown from '@/components/ui/Markdown'
-import missions_pvp from '@/data/missions_pvp'
-import missions_pvp_climax from '@/data/missions_pvp_climax'
+import { MissionDeployments } from '@/data/mission_deployments'
+import { MissionObjectives } from '@/data/mission_objectives'
+import { MissionBattlefields } from '@/data/mission_battlefields'
 import { GAME } from '@/lib/config/game_config'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
@@ -95,7 +95,6 @@ export default async function PvPMissions() {
                 <br/>
                 Alternatively, you can use these missions to build your own <a className="underline" href="#campaigns">Campaign</a>.
                 A full Campaign is structured into three distinct Operations, and each Operation is composed of three Missions, totaling nine confrontations.
-                In Campaign play, the winning Squad selects one of the Mission rewards to apply to their Squad, while the losing Squad gains the remaining reward.
                 These missions offer unique tactical puzzles and narrative flavor, challenging you to adapt your strategy to shifting objectives and hostile environments.
               </p>
               <br/><br/>
@@ -103,24 +102,74 @@ export default async function PvPMissions() {
                 Whether you are playing a quick one-off mission or a long, epic <a className="underline" href="#campaigns">campaign</a>, the rules for playing each Mission are the same:
               </p>
               <ol>
-                <li>Select a Mission</li>
-                {/* <li>(Optional) Select a Secondary Mission</li>*/}
                 <li>Select a Battlefield</li>
-                <li>Set up your Squads</li>
+                <li>Each Squad secretly rolls their Objective (1D6 Archetype + 1D6 Variation)</li>
+                <li>Reveal Objectives simultaneously</li>
+                <li>Set up your Squads (place markers per each Squad's Objective)</li>
+                <li>Roll a random Deployment</li>
                 <li>Play!</li>
               </ol>
             </div>
             
+            {/* Battlefields */}
             <div className="section">
-              <h4>Deployment</h4>
+              <h3>Battlefields (D6)</h3>
+              {MissionBattlefields.map((b) => (
+                <div key={b.battlefieldId}>
+                  <strong>{b.battlefieldId}: {b.title}</strong>
+                  <div className="ml-4">
+                    <strong>{b.effectName}</strong>
+                    <Markdown>{b.effect}</Markdown>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Deployments */}
+            <div className="section">
+              <h3>Deployments</h3>
+              Each mission is played on one of the following standard deployments.
+              At the start of each mission, before objectives are revealed, roll 1D6 to select a deployment.
+              Each deployment defines two positions: <em>Squad A</em> and <em>Squad B</em>.
+              Both players roll off; the winner chooses which squad they are.<br/>
               When a mission instructs both Squads to deploy at the same time (e.g. "before Turn 1"), players alternate placing one Unit at a time.
               The player without Turn 1 initiative deploys their first Unit, then the player with initiative deploys one Unit, and so on until all Units are deployed.
               The player with initiative activates first in Turn 1.
+              {MissionDeployments.map((d) => (
+                <div key={d.deploymentId}>
+                  <strong>{d.deploymentId}: {d.title}</strong>
+                  <div className="ml-4">{d.description}</div>
+                </div>
+              ))}
             </div>
+
             <div className="section">
-              <h4>Activations</h4>
-              If one squad has at least 2 more Standing units than the other at any point during a turn, the squad with fewer units may choose to delay one of their activations once per turn.
-              In that case, the squad with more units activates two units in a row before alternating resumes normally.
+              <h3>Objectives (2D6)</h3>
+              <p className="mb-4">
+                At mission start, each Squad secretly rolls their Objective using 2D6: roll 1D6 for the <strong>Archetype</strong>, then 1D6 for the <strong>Variation</strong>.
+                Both Squads reveal their Objectives simultaneously. Each Squad pursues their own Objective independently.
+              </p>
+              <div className="twocols">
+                {MissionObjectives.map((archetype) => (
+                  <div key={archetype.objectiveArchetypeId}>
+                    <h4>{archetype.objectiveArchetypeId}: {archetype.title}</h4>
+                    <div className="ml-4">
+                      {archetype.variations.map((v) => {
+                        const rollRange = v.objectiveId.split(' ').slice(1).join(' ')
+                        return (
+                          <div key={v.objectiveId} className="mb-2">
+                            <strong>{rollRange}: {v.title}</strong>
+                            <div className="ml-4">
+                              {v.setup && <Markdown>{`**Setup:** ${v.setup}`}</Markdown>}
+                              {v.special && <Markdown>{`**Special:** ${v.special}`}</Markdown>}
+                              {v.victory && <Markdown>{`**Victory:** ${v.victory}`}</Markdown>}
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -129,49 +178,47 @@ export default async function PvPMissions() {
           <h2>Campaigns</h2>
           <div className="twocols">
             <div className="section">
-              <p className="mb-4">
-                Two squads. Nine missions. One climax. Whatever happened before the final battle is prologue.
-              </p>
-              <p className="mb-4">
-                A PvP Campaign tracks the consequences of every fight across three Operations. Units get stronger. Units get hurt. Units die. What you arrive at the climax with depends on how well you fought to get there - but the climax decides everything.
-              </p>
-
               <h3>Campaign Structure</h3>
               <p className="mb-4">
-                A Campaign is composed of three Operations, each composed of three Missions, followed by a Climax that determines the winner. At the end of each Operation, both Squads return to Homebase to heal injuries and spend their earned Spoils of War.
+                A Campaign is composed of three Operations, each composed of three Missions.
+                At the end of each Operation, both Squads return to Homebase to heal injuries and spend their earned Spoils of War.
               </p>
               <ol>
                 <li>Operation 1 - Missions 1.1, 1.2, 1.3 - Homebase</li>
                 <li>Operation 2 - Missions 2.1, 2.2, 2.3 - Homebase</li>
                 <li>Operation 3 - Missions 3.1, 3.2, 3.3 - Homebase</li>
-                <li>Climax Mission</li>
               </ol>
-
+            </div>
+            <div className="section">
               <h3>Operations</h3>
               <p className="mb-4">
-                An Operation is three sequential Missions. Once an Operation begins, Squads cannot change their Units or Gear between Missions. Missions may be agreed upon or rolled randomly from the PvP Mission pool.
-              </p>
-              <p className="mb-4">
-                The Squad that won more Missions wins the Operation.
-              </p>
-
-              <h3>Campaign Rewards</h3>
-              <p className="mb-4">
-                Each Mission lists two Campaign Rewards. After each Mission, the winning Squad picks one reward first. The losing Squad receives the other. Both rewards apply immediately and last until the end of the next Mission, unless stated otherwise.
+                An Operation is three sequential Missions. When the Operation begins, both Squads are considered in the field.
+                While deployed in the field, Squads cannot change their Units or Gear between Missions, and any Mission Points (MP) earned during these Missions cannot be spent on new Units or Gear.<br/>
+                Once the third Mission of an Operation is complete, both Squads return to Homebase to heal Injuries, make new Gear selections, and recruit new Units by spending their hard-earned MP.
               </p>
             </div>
-
             <div className="section">
-              <h3>Spoils of War</h3>
+              <h3>Mission Scoring</h3>
               <p className="mb-4">
-                At the end of each Operation, both Squads receive Spoils of War based on the Operation result. Each Spoil of War is assigned permanently to one specific Unit.
-                Each Mission won in the Operation grants the Squad one Spoil of War to apply to one Unit.
-              </p>
-              <ul>
-                <li>3-0 sweep: winning Squad receives 3 Spoils of War, losing Squad receives none.</li>
-                <li>2-1 result: winning Squad receives 2 Spoils of War, losing Squad receives 1.</li>
-              </ul>
+                At the end of each Mission, both Squads score MP as follows:
+                <ul>
+                  <li><strong>+2 MP</strong> for completing the mission (both Squads)</li>
+                  <li><strong>+2 MP</strong> if your Squad achieved your Objective's Victory condition</li>
+                  <li><strong>+2 MP</strong> if all enemy Units were Taken Out</li>
+                </ul>
 
+                If both Squads have all their Units Taken Out at the end of the Mission, both Squads score the +2 MP bonus.
+                Each Squad's Objective is evaluated independently: it is possible for both, one, or neither Squad to score the Objective MP.
+              </p>
+            </div>
+            <div className="section">
+              <h3>Between Missions</h3>
+              <p className="mb-4">
+                After completing a Mission but before beginning the next one in the same Operation, each Squad may remove one Injury from any one of its Units (not one per Unit,  one total across the Squad).
+                Deceased is not an Injury and cannot be removed this way; a Deceased Unit remains out of action and cannot be replaced until the Squad returns to Homebase.
+              </p>
+            </div>
+            <div className="section">
               <h3>Homebase</h3>
               <p className="mb-4">
                 At the end of each Operation, after the third Mission, both Squads return to Homebase simultaneously.
@@ -183,26 +230,14 @@ export default async function PvPMissions() {
                 <li>Make changes to your Squad's selected Gear.</li>
                 <li>Assign all earned Spoils of War to Units in your Squad.</li>
               </ol>
-
-              <h3>The Climax</h3>
+            </div>
+            <div className="section">
+              <h3>Spoils of War</h3>
               <p className="mb-4">
-                After the third Homebase, both Squads play one final Mission drawn from the Climax Mission pool. The winner of the Climax Mission wins the Campaign.
-              </p>
-              <p className="mb-4">
-                The Squad that won the most Operations receives the following advantages:
-              </p>
-              <ul>
-                <li>They select which Climax Mission is played</li>
-                <li>They choose their Deployment Zone first</li>
-                <li>They gain +2 TO at the start of the mission</li>
-              </ul>
-              <p>
-                No Campaign Rewards are earned from the Climax. No Injuries are rolled after it. The Climax is the end.
+                When the Squad returns to Homebase, it can purchase Spoils of War by spending MP earned during the previous Operations.
+                Each Spoil of War costs 3 MP and applies to one specific Unit.
               </p>
             </div>
-          </div>
-
-          <div className="section twocols">
             <div className="section">
               <h3>Injuries</h3>
               <p>
@@ -213,67 +248,39 @@ export default async function PvPMissions() {
                 At the end of each Mission, for each Player Unit that was Taken Out, roll <code>1D6</code> to determine the Injury this Unit received.<br/>
                 If the Injury is one that the Unit already had, that Unit is Deceased. Remove the Unit from the Squad. That Unit cannot be replaced until the Squad returns to Homebase at the end of the Operation.
               </p>
-              <ul>
-                {/* Injuries List */}
-                {
-                  injuries?.gears.map((injury) => (
-                    <li key={`inj_${injury.gearId}`}>
-                      <h6>{injury.gearName}</h6>
-                      <Markdown>{injury.description}</Markdown>
-                    </li>
-                  ))
-                }
-              </ul>
             </div>
+          </div>
+          <div className="twocols section">
+            <h3>Injuries List</h3>
+            <ul>
+              {/* Injuries List */}
+              {
+                injuries?.gears.map((injury) => (
+                  <li key={`inj_${injury.gearId}`}>
+                    <h6>{injury.gearName}</h6>
+                    <Markdown>{injury.description}</Markdown>
+                  </li>
+                ))
+              }
+            </ul>
 
-            <div className="section">
-              <h3>Spoils Of War</h3>
-              When the Squad returns to Homebase, it can purchase Spoils of War according to its win record for the Operation's Missions.
-              Each Mission won in the Operation grants the Squad one Spoil of War to apply to one Unit.
-              <ul>
-                {/* Spoils Of War List */}
-                {
-                  spoilsOfWar?.gears.map((sow) => (
-                    <li key={`sow_${sow.gearId}`}>
-                      <h6>{sow.gearName}</h6>
-                      <Markdown>{sow.description}</Markdown>
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
+            <h3>Spoils Of War List</h3>
+            When the Squad returns to Homebase, it can purchase Spoils of War by spending its earned MP in previous Missions.
+            Each Spoil of War costs <strong>3MP</strong> and applies to one Unit.
+            <ul>
+              {/* Spoils Of War List */}
+              {
+                spoilsOfWar?.gears.map((sow) => (
+                  <li key={`sow_${sow.gearId}`}>
+                    <h6>{sow.gearName}</h6>
+                    <Markdown>{sow.description}</Markdown>
+                  </li>
+                ))
+              }
+            </ul>
           </div>
         </div>
         
-        <div className="section">
-          <div className="section">
-            <h3 className="text-center">Mission List</h3>
-            <div className='twocols'>
-              {
-                missions_pvp.filter((mission) => mission.active).map((mission) => (
-                  <div className="section" key={mission.missionId}>
-                    <MissionCard mission={mission} showDescription={true} />
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-        
-        <div className="section">
-          <div className="section">
-            <h3 className="text-center">Campaign Climax Missions</h3>
-            <div className='twocols'>
-              {
-                missions_pvp_climax.filter((mission) => mission.active).map((mission) => (
-                  <div className="section" key={mission.missionId}>
-                    <MissionCard mission={mission} showDescription={true} />
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-        </div>
       </div>
     </>
   )

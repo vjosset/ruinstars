@@ -2,9 +2,9 @@ import BattlefieldDiagram from '@/components/shared/BattlefieldDiagram'
 import Markdown from '@/components/ui/Markdown'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import { PveBattlefields } from '@/data/pve_battlefields'
-import { PveDeployments } from '@/data/pve_deployments'
-import { PveObjectives } from '@/data/pve_objectives'
+import { MissionBattlefields } from '@/data/mission_battlefields'
+import { MissionDeployments } from '@/data/mission_deployments'
+import { MissionObjectives } from '@/data/mission_objectives'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -38,7 +38,7 @@ export default function CardsPage() {
         <div className="section">
           <div className="flex flex-wrap gap-0">
 
-            {PveBattlefields.map((b) => (
+            {MissionBattlefields.map((b) => (
               <div key={b.battlefieldId} className="flex">
                 <CardBack deck="Battlefield" />
                 <div className="refcard border border-main p-2 flex flex-col overflow-hidden">
@@ -50,7 +50,7 @@ export default function CardsPage() {
               </div>
             ))}
 
-            {PveDeployments.map((d) => (
+            {MissionDeployments.map((d) => (
               <div key={d.deploymentId} className="flex">
                 <CardBack deck="Deployment" />
                 <div className="refcard border border-main p-2 flex flex-col overflow-hidden">
@@ -61,7 +61,7 @@ export default function CardsPage() {
               </div>
             ))}
 
-            {PveObjectives.map((archetype) =>
+            {MissionObjectives.map((archetype) =>
               archetype.variations.map((v) => (
                 <div key={v.objectiveId} className="flex">
                   <CardBack deck="Objective" />

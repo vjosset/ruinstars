@@ -40,7 +40,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <div>
-      {/* Hero image — full width with gradient overlay and title */}
+      {/* Hero image - full width with gradient overlay and title */}
       {post.coverImage && (
         <div className="relative w-full overflow-hidden">
           <img

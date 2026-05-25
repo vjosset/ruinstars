@@ -3,18 +3,18 @@ import { BattlefieldDiagramConfig } from '@/components/shared/BattlefieldDiagram
 const PS  = '#2563eb' // player deployment
 const NPC = '#dc2626' // NPC deployment
 
-export type PveDeployment = {
+export type MissionDeployment = {
   deploymentId: string;
   title: string;
   description: string;
   diagram: BattlefieldDiagramConfig;
 };
 
-export const PveDeployments: PveDeployment[] = [
+export const MissionDeployments: MissionDeployment[] = [
   {
     deploymentId: '1',
     title: 'Standard Insertion',
-    description: 'Player Squad Adjacent to the SW, S, or SE Anchors. NPC Squad Adjacent to the NW, N, or NE Anchors (split evenly), in Cover or out of sight where possible.',
+    description: 'Squad A Adjacent to the SW, S, or SE Anchors. Squad B Adjacent to the NW, N, or NE Anchors (split evenly), in Cover or out of sight where possible.',
     diagram: {
       showCenterLines: true,
       elements: [
@@ -30,7 +30,7 @@ export const PveDeployments: PveDeployment[] = [
   {
     deploymentId: '2',
     title: 'Hot Drop',
-    description: 'The insertion was faster than expected. Player Squad deploys Adjacent to the N, S, E, or W Anchors. NPC Squad deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover or out of sight where possible.',
+    description: 'The insertion was faster than expected. Squad A deploys Adjacent to the N, S, E, or W Anchors. Squad B deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover or out of sight where possible.',
     diagram: {
       showCenterLines: true,
       elements: [
@@ -48,7 +48,7 @@ export const PveDeployments: PveDeployment[] = [
   {
     deploymentId: '3',
     title: 'Flanked',
-    description: 'Intel was wrong. The enemy is coming from two directions. NPC Squad deploys Adjacent to the NW or NE Anchors (split evenly), in Cover or out of sight where possible. Player Squad deploys within 4" of the S Anchor.',
+    description: 'Intel was wrong. The enemy is coming from two directions. Squad B deploys Adjacent to the NW or NE Anchors (split evenly), in Cover or out of sight where possible. Squad A deploys within 4" of the S Anchor.',
     diagram: {
       showCenterLines: true,
       elements: [
@@ -61,7 +61,7 @@ export const PveDeployments: PveDeployment[] = [
   {
     deploymentId: '4',
     title: 'Deep Strike',
-    description: 'Both sides arrived at the same time. Player Squad deploys within 4" of the SE anchor. NPC Squad deploys within 4" of the NW anchor, in Cover if possible.',
+    description: 'Both sides arrived at the same time. Squad A deploys within 4" of the SE anchor. Squad B deploys within 4" of the NW anchor, in Cover if possible.',
     diagram: {
       showCenterLines: true,
       elements: [
@@ -73,7 +73,7 @@ export const PveDeployments: PveDeployment[] = [
   {
     deploymentId: '5',
     title: 'Overwatch',
-    description: 'The enemy holds the high ground and saw you coming. NPC Squad deploys Adjacent to the W, N, or E Anchors (split evenly), in Cover or out of sight where possible. Player Squad deploys Adjacent to the SW, S, or SE Anchors.',
+    description: 'The enemy holds the high ground and saw you coming. Squad B deploys Adjacent to the W, N, or E Anchors (split evenly), in Cover or out of sight where possible. Squad A deploys Adjacent to the SW, S, or SE Anchors.',
     diagram: {
       showCenterLines: true,
       elements: [
@@ -89,7 +89,7 @@ export const PveDeployments: PveDeployment[] = [
   {
     deploymentId: '6',
     title: 'Encircled',
-    description: 'Extraction just got complicated. Player Squad deploys within 4" of the Center anchor. NPC Squad deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover or out of sight where possible.',
+    description: 'Extraction just got complicated. Squad A deploys within 4" of the Center anchor. Squad B deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover or out of sight where possible.',
     diagram: {
       showCenterLines: true,
       elements: [

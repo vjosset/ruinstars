@@ -1,11 +1,11 @@
-export type PveObjectiveArchetype = {
+export type MissionObjectiveArchetype = {
   objectiveArchetypeId: string
   title: string
   description: string
-  variations: PveObjective[]
+  variations: MissionObjective[]
 }
 
-export type PveObjective = {
+export type MissionObjective = {
   objectiveId: string
   title: string
   setup?: string
@@ -13,7 +13,7 @@ export type PveObjective = {
   victory?: string
 }
 
-export const PveObjectives : PveObjectiveArchetype[] = [
+export const MissionObjectives : MissionObjectiveArchetype[] = [
   {
     objectiveArchetypeId: '1-2',
     title: 'Control',

@@ -1,11 +1,11 @@
-export type PveBattlefield = {
+export type MissionBattlefield = {
   battlefieldId: string;
   title: string;
   effectName: string;
   effect: string;
 };
 
-export const PveBattlefields: PveBattlefield[] = [
+export const MissionBattlefields: MissionBattlefield[] = [
   {
     battlefieldId: 'CITY',
     title: 'The Ruined City',

@@ -6,7 +6,7 @@ import { GAME } from '@/lib/config/game_config'
 export async function generateMetadata() {
   return generatePageMetadata({
     title: 'Bespoke Campaigns',
-    description: `Narrative bespoke campaigns for ${GAME.NAME} — faction-specific multi-operation PvE missions with branching objectives and lore.`,
+    description: `Narrative bespoke campaigns for ${GAME.NAME} - faction-specific multi-operation PvE missions with branching objectives and lore.`,
     images: [{ url: '/icons/icon-big.png', width: 512, height: 512 }],
     keywords: ['campaigns', 'pve', 'rules', 'narrative'],
     pagePath: '/rules/pvecampaigns'
@@ -40,14 +40,14 @@ export default function PvECampaigns() {
               <h4>Each Mission</h4>
               <p className="mb-4">
                 Every Mission presents two simultaneous Objectives. You do not need to complete both
-                to win — but completing both earns the best outcome. Read both Objectives before
+                to win - but completing both earns the best outcome. Read both Objectives before
                 deployment and plan accordingly.
               </p>
               <h4>Homebase</h4>
               <p className="mb-4">
                 Between Operations, your Squad returns to Homebase. Heal injuries, consolidate
                 what you have learned, and prepare for the next escalation. The narrative context
-                at each Homebase reflects what the Operation revealed — read it before moving on.
+                at each Homebase reflects what the Operation revealed - read it before moving on.
               </p>
             </div>
           </div>

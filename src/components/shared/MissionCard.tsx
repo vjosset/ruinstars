@@ -38,13 +38,13 @@ function MissionDetails({ mission }: { mission: MissionPlain }) {
       )}
       {mission.objectiveA && (
         <>
-          <h6 className="text-main">Objective A — {mission.objectiveA.type}</h6>
+          <h6 className="text-main">Objective A - {mission.objectiveA.type}</h6>
           <div className="ml-2"><Markdown>{mission.objectiveA.description}</Markdown></div>
         </>
       )}
       {mission.objectiveB && (
         <>
-          <h6 className="text-main">Objective B — {mission.objectiveB.type}</h6>
+          <h6 className="text-main">Objective B - {mission.objectiveB.type}</h6>
           <div className="ml-2"><Markdown>{mission.objectiveB.description}</Markdown></div>
         </>
       )}

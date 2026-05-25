@@ -13,7 +13,7 @@ export default function GalaxyMapClient({ sectors }: Props) {
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 items-start">
-      {/* Galaxy map — fills available width, scales via viewBox */}
+      {/* Galaxy map - fills available width, scales via viewBox */}
       <div className="w-full lg:flex-1 min-w-0">
         <GalaxyMap
           sectors={sectors}

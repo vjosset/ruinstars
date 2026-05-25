@@ -7,7 +7,7 @@ import { type Sector } from './SectorCard'
 // These transcendental functions are implementation-defined and can produce
 // slightly different results on Node (SSR) vs browser V8, which shifts the
 // star array indices and causes hydration mismatches. Skipping SSR entirely
-// is the correct fix — the background is purely decorative.
+// is the correct fix - the background is purely decorative.
 const GalaxyBackground = dynamic(() => import('./GalaxyBackground'), { ssr: false })
 
 const CELL = 35
@@ -16,7 +16,7 @@ const SIZE = COLS * CELL  // 560
 const CENTER = SIZE / 2   // 280
 
 /**
- * SVG hex values — kept in sync with FACTION_COLORS in SectorCard.tsx.
+ * SVG hex values - kept in sync with FACTION_COLORS in SectorCard.tsx.
  * SVG fill attributes can't use Tailwind class names, so we duplicate these here.
  *   HEG blue-500, SWM green-500, OCL amber-500, CRS purple-500, GRU red-500, EIR cyan-500
  */
@@ -66,7 +66,7 @@ export default function GalaxyMap({ sectors, selected, onSelect }: Props) {
 
       <rect width={SIZE} height={SIZE} fill="transparent" />
 
-      {/* Decorative background — edit GalaxyBackground.tsx to change this layer */}
+      {/* Decorative background - edit GalaxyBackground.tsx to change this layer */}
       <GalaxyBackground />
 
       {/* Galaxy boundary */}
@@ -85,7 +85,7 @@ export default function GalaxyMap({ sectors, selected, onSelect }: Props) {
         ))}
       </g>
 
-      {/* Influence disks — rendered before dots so they sit underneath */}
+      {/* Influence disks - rendered before dots so they sit underneath */}
       {sectors.map(sector => {
         const [dominantFaction, dominantScore] = Object.entries(sector.faction_scores)
           .sort(([, a], [, b]) => b - a)[0] ?? ['', 0]
@@ -144,7 +144,7 @@ export default function GalaxyMap({ sectors, selected, onSelect }: Props) {
               className="opacity-0 group-hover:opacity-50 transition-opacity duration-150"
             />
 
-            {/* Hover labels: sector name + dominant faction — shown above the dot */}
+            {/* Hover labels: sector name + dominant faction - shown above the dot */}
             <g className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none">
               <text
                 y={-13}

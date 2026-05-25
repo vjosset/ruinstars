@@ -5,12 +5,11 @@ import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { GearCategoryService, SpecialService, UserService } from '@/services'
 import UnitCard from '@/components/unit/UnitCard'
-import RulesAnchors from '../sections/rules-anchors'
 import { PDFLink } from '@/components/nav/Links'
 import PvEMissionsQuickRef from './sections/rules-pvemissions-quickref'
-import { PveDeployments } from '@/data/pve_deployments'
-import { PveObjectives } from '@/data/pve_objectives'
-import { PveBattlefields } from '@/data/pve_battlefields'
+import { MissionDeployments } from '@/data/mission_deployments'
+import { MissionObjectives } from '@/data/mission_objectives'
+import { MissionBattlefields } from '@/data/mission_battlefields'
 
 
 export async function generateMetadata() {
@@ -95,10 +94,6 @@ export default async function PvEMissions() {
             </div>
           </div>
 
-          <div className="section">
-            <RulesAnchors />
-          </div>
-
           <PageBreak />
           <div className="section">
             <h2>Mission Setup</h2>
@@ -147,11 +142,11 @@ export default async function PvEMissions() {
             {/* Objectives */}
             <div className="section">
               <h3>Objectives (2D6)</h3>
-              Roll <code>1D6</code> for the <strong>Archetype</strong>, then <code>1D6</code> for the <strong>Variation</strong>. Repeat for a second Objective — re-roll if the Archetype matches the first.
+              Roll <code>1D6</code> for the <strong>Archetype</strong>, then <code>1D6</code> for the <strong>Variation</strong>. Repeat for a second Objective - re-roll if the Archetype matches the first.
               <br/>
               Objectives score as described in their "Victory" condition based on their completion state, unless the Objective explicitly states that extraction is required.
               In bespoke campaigns, individual mission objectives may specify additional extraction requirements.
-              {PveObjectives.map((archetype) => (
+              {MissionObjectives.map((archetype) => (
                 <div key={archetype.objectiveArchetypeId} className="border-t border-border">
                   <h4>{archetype.objectiveArchetypeId}: {archetype.title}</h4>
                   <div className="ml-4">
@@ -175,7 +170,7 @@ export default async function PvEMissions() {
             {/* Battlefields */}
             <div className="section">
               <h3>Battlefields (D6)</h3>
-              {PveBattlefields.map((b) => (
+              {MissionBattlefields.map((b) => (
                 <div key={b.battlefieldId}>
                   <strong>{b.battlefieldId}: {b.title}</strong>
                   <div className="ml-4">
@@ -188,7 +183,12 @@ export default async function PvEMissions() {
             {/* Deployments */}
             <div className="section">
               <h3>Deployments (D6)</h3>
-              {PveDeployments.map((d) => (
+              Each mission is played on one of the following standard deployments.
+              At the start of each mission, roll 1D6 to select a deployment.
+              Each deployment defines two positions: <em>Squad A</em> and <em>Squad B</em>.
+              Roll <code>1D6</code> to determine squad assignment:
+              on a <code>1-3</code>, the Player Squad is Squad A; on a <code>4-6</code>, the Player Squad is Squad B.
+              {MissionDeployments.map((d) => (
                 <div key={d.deploymentId}>
                   <strong>{d.deploymentId}: {d.title}</strong>
                   <div className="ml-4">{d.description}</div>
@@ -360,7 +360,7 @@ export default async function PvEMissions() {
                 <h3>Injuries</h3>
                 <p>
                   At the end of each Mission, each of your Units that was Taken Out during the mission may have a persistent injury.
-                  Between Missions within an Operation, the Squad may remove one Injury from a single Unit of their choice (not one per Unit — one total).
+                  Between Missions within an Operation, the Squad may remove one Injury from a single Unit of their choice (not one per Unit - one total).
                   At Homebase at the end of each Operation, one Injury may be removed from each Unit.
                   Note that Deceased is not an Injury, it is permanent, and cannot be removed by either recovery step.
                 </p>

@@ -471,7 +471,7 @@ The last order was always this. You just did not know it until now.`,
             legend: {
               PS:     { label: 'Player Deployment', color: PS  },
               NPC:    { label: 'Corrupted Squad (Obj A)',   color: NPC },
-              Leader: { label: 'Leader — protect (Obj B)',  color: B   },
+              Leader: { label: 'Leader - Protect (Obj B)',  color: B   },
             },
             elements: [
               // Player: within 4" of S
@@ -479,7 +479,7 @@ The last order was always this. You just did not know it until now.`,
               // Corrupted squad: NW, N, NE
               { id: 'NPC-1',   type: 'circle', anchor: 'NW', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
               { id: 'NPC-2',   type: 'circle', anchor: 'NE', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-              // Leader at N (Obj B target — protect)
+              // Leader at N (Obj B target - protect)
               { id: 'Leader',  type: 'marker', anchor: 'N',  label: 'Leader', color: B,   showInLegend: false },
             ],
           },

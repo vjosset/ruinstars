@@ -1,10 +1,10 @@
 'use client'
 
 /**
- * GalaxyBackground — procedurally generated spiral galaxy background.
+ * GalaxyBackground - procedurally generated spiral galaxy background.
  *
  * Renders as a React Fragment (defs + g) to be composed as the first child
- * inside GalaxyMap's <svg>. Contains no interaction logic — replace this
+ * inside GalaxyMap's <svg>. Contains no interaction logic - replace this
  * file entirely to swap the visual style without touching the map.
  *
  * Technique:
@@ -13,7 +13,7 @@
  *  - Arm glow via blurred SVG stroke paths following each spiral
  *  - Core glow via radial gradient + blurred disc
  *
- * Coordinate system (mirrors GalaxyMap.tsx — update if grid size changes):
+ * Coordinate system (mirrors GalaxyMap.tsx - update if grid size changes):
  *   560 × 560 canvas, center (280, 280), galaxy boundary r = 224
  *
  * All element IDs are prefixed "galbg-" to avoid collisions with GalaxyMap.
@@ -27,7 +27,7 @@ const SIZE = COLS * CELL  // 560
 const CENTER = SIZE / 2   // 280
 const GALAXY_R = 224
 
-// Spiral shape — tweak these to change arm geometry
+// Spiral shape - tweak these to change arm geometry
 const SPIRAL_A = 10     // starting radius (px from center)
 const SPIRAL_B = 0.16   // winding tightness; higher = arms open faster
 const MAX_THETA = 10 * Math.PI  // how far each arm sweeps (~2.5 full turns)
@@ -38,7 +38,7 @@ const BACKGROUND_COUNT = 180
 const ARM_COUNT = 1500   // stars per arm; raise for more density
 const CORE_COUNT = 110
 
-// Overall brightness — single knob to dim the whole background so dots stay readable
+// Overall brightness - single knob to dim the whole background so dots stay readable
 const BACKGROUND_OPACITY = 0.45
 
 // ─── Seeded PRNG ──────────────────────────────────────────────────────────────
@@ -64,7 +64,7 @@ function inGalaxy(x: number, y: number): boolean {
 
 // ─── Star population generators ──────────────────────────────────────────────
 
-/** Sparse background disk — thin, dim, distributed across the whole galaxy. */
+/** Sparse background disk - thin, dim, distributed across the whole galaxy. */
 function generateBackground(rng: () => number, count: number): Star[] {
   const out: Star[] = []
   let attempts = 0
@@ -74,7 +74,7 @@ function generateBackground(rng: () => number, count: number): Star[] {
     if (!inGalaxy(cx, cy)) continue
     const dx = cx - CENTER, dy = cy - CENTER
     const dist = Math.sqrt(dx * dx + dy * dy)
-    // Flat density — but thin toward the very edge
+    // Flat density - but thin toward the very edge
     if (rng() > 0.12 + 0.5 * Math.pow(1 - dist / GALAXY_R, 0.4)) continue
     out.push({
       cx, cy,
@@ -104,7 +104,7 @@ function generateArm(rng: () => number, startAngle: number, count: number): Star
 
     // Scatter width grows with radius so outer arm is fuzzier
     const scatterWidth = 12 + 80 * (r / GALAXY_R)
-    // Uniform bilateral scatter — glow path provides the visual taper
+    // Uniform bilateral scatter - glow path provides the visual taper
     const scatter = (rng() * 2 - 1) * scatterWidth
 
     const cx = CENTER + r * Math.cos(armAngle) + scatter * Math.cos(perpAngle)
@@ -122,7 +122,7 @@ function generateArm(rng: () => number, startAngle: number, count: number): Star
   return out
 }
 
-/** Dense core bulge — heavily concentrated at the galactic centre. */
+/** Dense core bulge - heavily concentrated at the galactic centre. */
 function generateCore(rng: () => number, count: number): Star[] {
   const out: Star[] = []
   let attempts = 0
@@ -178,7 +178,7 @@ export default function GalaxyBackground() {
   return (
     <>
       <defs>
-        {/* Galactic core — warm orange that fades out to the mid-ring */}
+        {/* Galactic core - warm orange that fades out to the mid-ring */}
         <radialGradient id="galbg-core-grad" cx="50%" cy="50%" r="50%">
           <stop offset="0%"   stopColor="#f97316" stopOpacity="0.28" />
           <stop offset="20%"  stopColor="#f97316" stopOpacity="0.13" />
@@ -204,7 +204,7 @@ export default function GalaxyBackground() {
 
       <g clipPath="url(#galbg-clip)" opacity={BACKGROUND_OPACITY}>
 
-        {/* ── Arm glow — blurred strokes tracing each spiral ── */}
+        {/* ── Arm glow - blurred strokes tracing each spiral ── */}
         {/* Outer diffuse halo (wide, very dim) */}
         <path d={ARM_PATH_1} fill="none" stroke="white"   strokeWidth="55"
           opacity="0.055" strokeLinecap="round" filter="url(#galbg-arm-blur)" />

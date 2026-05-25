@@ -10,7 +10,6 @@ import hordemaps from '@/data/hordemaps'
 import { GearCategoryService, SpecialService, SquadService } from '@/services'
 import HordeModeQuickRef from './sections/rules-horde-quickref'
 import { PDFLink } from '@/components/nav/Links'
-import RulesAnchors from '../sections/rules-anchors'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -218,7 +217,6 @@ export default async function Rules() {
           </div>
 
           <PageBreak />
-          <RulesAnchors />
           <div className="section">
             <h3>Spawning Horde Units</h3>
             At the start of each wave, roll <code>3D6</code>. Each die result maps to a Horde Unit and its quantity to Spawn.

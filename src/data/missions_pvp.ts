@@ -9,6 +9,28 @@ const dedent = (value: string) => {
   return lines.map((line) => line.slice(minIndent)).join('\n')
 }
 
+const STANDARD_DEPLOYMENT = 'Both Squads deploy before Turn 1. One Squad deploys Adjacent to the NW, N, and NE Anchors; the other deploys Adjacent to the SW, S, and SE Anchors.'
+
+// Deployment zone colors
+const A   = '#dc2626' // Squad A / Attacker
+const B   = '#2563eb' // Squad B / Defender
+const OBJ = '#2b7c2b' // Objectives
+
+// Standard deployment zone circles: Squad A on north anchors, Squad B on south anchors
+const STD_DEPLOY = [
+  { id: 'A-NW', type: 'circle' as const, anchor: 'NW' as const, rIn: 2, color: A, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+  { id: 'A-N',  type: 'circle' as const, anchor: 'N'  as const, rIn: 2, color: A, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+  { id: 'A-NE', type: 'circle' as const, anchor: 'NE' as const, rIn: 2, color: A, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+  { id: 'B-SW', type: 'circle' as const, anchor: 'SW' as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+  { id: 'B-S',  type: 'circle' as const, anchor: 'S'  as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+  { id: 'B-SE', type: 'circle' as const, anchor: 'SE' as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+]
+
+const STD_LEGEND = {
+  DA: { label: 'Deployment Zone A', color: A },
+  DB: { label: 'Deployment Zone B', color: B },
+}
+
 const missions_pvp = [
   {
     missionId: '1',
@@ -21,8 +43,8 @@ const missions_pvp = [
 
 Throughout the battle, both sides contest key areas of the warzone. Whoever can consistently secure ground will dictate the flow of the fight.
 `),
-    setup: 'Place 3 Objective markers equally spaced (6" apart) along the center line.',
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    setup: 'Place 3 Objectives at the W, C, and E Anchors.',
+    deployment: STANDARD_DEPLOYMENT,
     victory: 'At the end of each Turn, Squads score 1 MP per Objective they control.',
     special: 'If a Squad controls all 3 Objectives at the end of any Turn, they gain +1 MP immediately (max once per mission).',
     rewards: [
@@ -36,91 +58,19 @@ Throughout the battle, both sides contest key areas of the warzone. Whoever can 
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_4_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_2_7_2_7',
-          type: 'rect',
-          xIn: 5.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_2_7_7_7_7',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_3_12_7_12_7',
-          type: 'rect',
-          xIn: 17.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        { type: 'callout', id: 'o2-x', x1In: 6, y1In: 13, x2In: 12, y2In: 13, text: '6"', labelSizeIn: 1 },
-        { type: 'callout', id: 'o3-x', x1In: 12, y1In: 13, x2In: 18, y2In: 13, text: '6"', labelSizeIn: 1 },
+        ...STD_DEPLOY,
+        { id: 'W', type: 'marker' as const, anchor: 'W' as const, label: 'W', color: OBJ, showInLegend: false },
+        { id: 'C', type: 'marker' as const, anchor: 'C' as const, label: 'C', color: OBJ, showInLegend: false },
+        { id: 'E', type: 'marker' as const, anchor: 'E' as const, label: 'E', color: OBJ, showInLegend: false },
       ],
       legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        },
-        O1: {
-          label: 'Objective 1',
-          color: '#2b7c2b'
-        },
-        O2: {
-          label: 'Objective 2',
-          color: '#2b7c2b'
-        },
-        O3: {
-          label: 'Objective 3',
-          color: '#2b7c2b'
-        }
+        ...STD_LEGEND,
+        W: 'West Objective',
+        C: 'Center Objective',
+        E: 'East Objective',
       }
     }
   },
@@ -135,8 +85,8 @@ Throughout the battle, both sides contest key areas of the warzone. Whoever can 
 
 Victory favors the steadfast. The longer you hold, the stronger your claim.
 `),
-    setup: 'Place two Objective markers 6" from the North and South battlefield edges.',
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    setup: 'Place two Objectives at the N and S Anchors.',
+    deployment: STANDARD_DEPLOYMENT,
     victory: 'At the end of each turn after the first, Squads score 2 MP per Objective they control.',
     special: 'Units in cover Adjacent to an Objective gain +1 ARM against ranged attacks.',
     rewards: [
@@ -150,76 +100,17 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_7_2_7_2',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 5.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_2_7_12_7_12',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 17.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_3_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        { type: 'callout', id: 'o1-Y', x1In: 11, y1In: 0, x2In: 11, y2In: 6, text: '6"', labelSizeIn: 1 },
-        { type: 'callout', id: 'o2-Y', x1In: 11, y1In: 24, x2In: 11, y2In: 18, text: '6"', labelSizeIn: 1 }
+        ...STD_DEPLOY,
+        { id: 'N', type: 'marker' as const, anchor: 'N' as const, label: 'N', color: OBJ, showInLegend: false },
+        { id: 'S', type: 'marker' as const, anchor: 'S' as const, label: 'S', color: OBJ, showInLegend: false },
       ],
       legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        },
-        O1: {
-          label: 'Objective 1',
-          color: '#2b7c2b'
-        },
-        O2: {
-          label: 'Objective 2',
-          color: '#2b7c2b'
-        }
+        ...STD_LEGEND,
+        N: 'North Objective',
+        S: 'South Objective',
       }
     }
   },
@@ -234,8 +125,8 @@ Victory favors the steadfast. The longer you hold, the stronger your claim.
 
 A dormant facility flickers to life. Reactors surge, systems fail, and both sides fight to keep control of unstable nodes.
 `),
-    setup: 'Place 3 Power Node markers 6" apart along the battlefield center line. All Power Nodes start the mission as "Inactive".',
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    setup: 'Place 3 Power Nodes at the W, C, and E Anchors. All Power Nodes start the mission as "Inactive".',
+    deployment: STANDARD_DEPLOYMENT,
     victory: 'At the end of each Turn, Squads score 1 MP per Active Node they control.',
     special: dedent(`
 At the start of each Turn, all Power Nodes are reset to "Inactive" state.
@@ -253,91 +144,19 @@ At the start of each Turn, all Power Nodes are reset to "Inactive" state.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_2_7_2_7',
-          type: 'rect',
-          xIn: 5.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_2_7_7_7_7',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_3_12_7_12_7',
-          type: 'rect',
-          xIn: 17.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_4_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        { type: 'callout', id: 'o2-x', x1In: 6, y1In: 13, x2In: 12, y2In: 13, text: '6"', labelSizeIn: 1 },
-        { type: 'callout', id: 'o3-x', x1In: 12, y1In: 13, x2In: 18, y2In: 13, text: '6"', labelSizeIn: 1 },
+        ...STD_DEPLOY,
+        { id: 'W', type: 'marker' as const, anchor: 'W' as const, label: 'W', color: OBJ, showInLegend: false },
+        { id: 'C', type: 'marker' as const, anchor: 'C' as const, label: 'C', color: OBJ, showInLegend: false },
+        { id: 'E', type: 'marker' as const, anchor: 'E' as const, label: 'E', color: OBJ, showInLegend: false },
       ],
       legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        },
-        O1: {
-          label: 'Power Node 1',
-          color: '#2b7c2b'
-        },
-        O2: {
-          label: 'Power Node 2',
-          color: '#2b7c2b'
-        },
-        O3: {
-          label: 'Power Node 3',
-          color: '#2b7c2b'
-        }
+        ...STD_LEGEND,
+        W: 'Power Node (W)',
+        C: 'Power Node (C)',
+        E: 'Power Node (E)',
       }
     }
   },
@@ -355,11 +174,11 @@ A vital structure powers the enemy advance. One force must destroy it; the other
     setup: dedent(`
 Select one Squad to be the Defender, the other the Attacker.
 
-Place two larger structures in the West and East sides and one Sabotage marker at each corner of each structure.
+Place two large terrain pieces centered on the W and E Anchors.
 `),
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
-    victory: 'At the end of Turn 4, the Attacker scores 3 MP for each destroyed structure. Defender scores 3 MP for each remaining intact.',
-    special: '**Mission Action: Sabotage (1 ACT):** An Attacker Unit that controls a Sabotage marker may perform this Action. Remove the sabotaged structure from the battlefield. All Units within or Adjacent to that structure take 2 Damage.',
+    deployment: 'Both Squads deploy before Turn 1. The Attacker deploys Adjacent to the NW, N, and NE Anchors; the Defender deploys Adjacent to the SW, S, and SE Anchors.',
+    victory: 'At the end of Turn 4, the Attacker scores 3 MP for each destroyed terrain piece. Defender scores 3 MP for each remaining terrain piece.',
+    special: '**Mission Action: Sabotage (1 ACT):** An Attacker Unit that Controls the W or E Anchor may perform this Action. Remove that terrain piece from the battlefield. All Units within 4" of that Anchor take 2 Damage.',
     rewards: [
       {
         name: 'Demo Expert',
@@ -371,78 +190,23 @@ Place two larger structures in the West and East sides and one Sabotage marker a
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_0_5_4_9',
-          type: 'rect',
-          xIn: 0,
-          yIn: 8,
-          wIn: 8,
-          hIn: 8,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_10_5_14_9',
-          type: 'rect',
-          xIn: 16,
-          yIn: 8,
-          wIn: 8,
-          hIn: 8,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_2_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        { type: 'callout', id: 'o1-x', x1In: 0, y1In: 7, x2In: 8, y2In: 7, text: '8"', labelSizeIn: 1 },
-        { type: 'callout', id: 'o1-y', x1In: 9, y1In: 8, x2In: 9, y2In: 16, text: '8"', labelSizeIn: 1 },
-        { type: 'callout', id: 'o2-x', x1In: 16, y1In: 7, x2In: 24, y2In: 7, text: '8"', labelSizeIn: 1 },
-        { type: 'callout', id: 'o2-y', x1In: 15, y1In: 8, x2In: 15, y2In: 16, text: '8"', labelSizeIn: 1 },
+        { id: 'AT-NW', type: 'circle' as const, anchor: 'NW' as const, rIn: 2, color: A, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-N',  type: 'circle' as const, anchor: 'N'  as const, rIn: 2, color: A, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-NE', type: 'circle' as const, anchor: 'NE' as const, rIn: 2, color: A, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'DE-SW', type: 'circle' as const, anchor: 'SW' as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'DE-S',  type: 'circle' as const, anchor: 'S'  as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'DE-SE', type: 'circle' as const, anchor: 'SE' as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'W', type: 'marker' as const, anchor: 'W' as const, label: 'W', color: '#b45309', showInLegend: false },
+        { id: 'E', type: 'marker' as const, anchor: 'E' as const, label: 'E', color: '#b45309', showInLegend: false },
       ],
       legend: {
-        DA: {
-          label: 'Attacker Deployment Zone',
-          color: '#dc2626'
-        },
-        DD: {
-          label: 'Defender Deployment Zone',
-          color: '#2563eb'
-        },
-        S1: {
-          label: 'Sabotage Target 1',
-          color: '#dc2626'
-        },
-        S2: {
-          label: 'Sabotage Target 2',
-          color: '#dc2626'
-        }
+        DA: { label: 'Attacker Deployment Zone', color: A },
+        DD: { label: 'Defender Deployment Zone', color: B },
+        W: 'Sabotage Target (W Anchor)',
+        E: 'Sabotage Target (E Anchor)',
       }
     }
   },
@@ -457,9 +221,9 @@ Place two larger structures in the West and East sides and one Sabotage marker a
 
 Advance across the battlefield and seize ground from the enemy.
 `),
-    setup: 'Place 3 Objectives: one centered on each Squad\'s Deployment edge and one at the exact center.',
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
-    victory: 'At the end of each Turn, score 1 MP if you control your own Objective, 2 MP if you control the center, and 3 MP if you control the enemy\'s.',
+    setup: 'Place 3 Objectives at the N, C, and S Anchors.',
+    deployment: STANDARD_DEPLOYMENT,
+    victory: 'At the end of each Turn, score 1 MP if you control the Objective at your own deployment edge, 2 MP if you control the Center, and 3 MP if you control the Objective at the enemy\'s deployment edge.',
     special: 'If you control the enemy Objective at the end of Turn 3 or earlier, gain an additional +1 MP bonus (once per game).',
     rewards: [
       {
@@ -472,89 +236,19 @@ Advance across the battlefield and seize ground from the enemy.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        {
-          id: 'mrect_0_0_0_6_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_7_0_7_0',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 0,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_2_7_7_7_7',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_3_0_14_6_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_4_7_14_7_14',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 23,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        }
+        ...STD_DEPLOY,
+        { id: 'N', type: 'marker' as const, anchor: 'N' as const, label: 'N', color: OBJ, showInLegend: false },
+        { id: 'C', type: 'marker' as const, anchor: 'C' as const, label: 'C', color: OBJ, showInLegend: false },
+        { id: 'S', type: 'marker' as const, anchor: 'S' as const, label: 'S', color: OBJ, showInLegend: false },
       ],
       legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        },
-        O1: {
-          label: 'Objective 1',
-          color: '#2b7c2b'
-        },
-        O2: {
-          label: 'Objective 2',
-          color: '#2b7c2b'
-        },
-        O3: {
-          label: 'Objective 3',
-          color: '#2b7c2b'
-        }
+        ...STD_LEGEND,
+        N: 'North Objective',
+        C: 'Center Objective',
+        S: 'South Objective',
       }
     }
   },
@@ -569,9 +263,9 @@ Advance across the battlefield and seize ground from the enemy.
 
 The battle converges on a single decisive location.
 `),
-    setup: 'Place 1 Objective at the exact center of the Battlefield.',
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
-    victory: 'At the end of Turn 4, the Squad controlling the central Objective scores 6 MP.',
+    setup: 'Place 1 Objective at the C Anchor.',
+    deployment: STANDARD_DEPLOYMENT,
+    victory: 'At the end of Turn 4, the Squad controlling the C Anchor scores 6 MP.',
     special: null,
     rewards: [
       {
@@ -584,59 +278,15 @@ The battle converges on a single decisive location.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_7_7_7_7',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_2_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        }
+        ...STD_DEPLOY,
+        { id: 'C', type: 'marker' as const, anchor: 'C' as const, label: 'C', color: OBJ, showInLegend: false },
       ],
       legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        },
-        O1: {
-          label: 'Objective',
-          color: '#2b7c2b'
-        }
+        ...STD_LEGEND,
+        C: 'Objective',
       }
     }
   },
@@ -651,8 +301,8 @@ The battle converges on a single decisive location.
 
 Valuable intel lies scattered among the ruins.
 `),
-    setup: 'Place 3 Data Core markers along the center line of the battlefield.',
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    setup: 'Place 3 Data Core markers at the W, C, and E Anchors.',
+    deployment: STANDARD_DEPLOYMENT,
     victory: 'At the end of Turn 4, score 2 MP per Data Core carried by your Units.',
     special: '**Mission Action: Collect Intel (1 ACT):** A Unit that controls a Data Core may perform this action. That Unit now carries the Data Core. Units may only carry one Data Core each. If a carrier is Taken Out, the Data Core drops on that Unit\'s position.',
     rewards: [
@@ -666,91 +316,19 @@ Valuable intel lies scattered among the ruins.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_2_7_2_7',
-          type: 'rect',
-          xIn: 5.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_2_7_7_7_7',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_3_12_7_12_7',
-          type: 'rect',
-          xIn: 17.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_4_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        { type: 'callout', id: 'o2-x', x1In: 6, y1In: 13, x2In: 12, y2In: 13, text: '6"', labelSizeIn: 1 },
-        { type: 'callout', id: 'o3-x', x1In: 12, y1In: 13, x2In: 18, y2In: 13, text: '6"', labelSizeIn: 1 },
+        ...STD_DEPLOY,
+        { id: 'W', type: 'marker' as const, anchor: 'W' as const, label: 'W', color: OBJ, showInLegend: false },
+        { id: 'C', type: 'marker' as const, anchor: 'C' as const, label: 'C', color: OBJ, showInLegend: false },
+        { id: 'E', type: 'marker' as const, anchor: 'E' as const, label: 'E', color: OBJ, showInLegend: false },
       ],
       legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        },
-        O1: {
-          label: 'Intel 1',
-          color: '#2b7c2b'
-        },
-        O2: {
-          label: 'Intel 2',
-          color: '#2b7c2b'
-        },
-        O3: {
-          label: 'Intel 3',
-          color: '#2b7c2b'
-        }
+        ...STD_LEGEND,
+        W: 'Intel 1',
+        C: 'Intel 2',
+        E: 'Intel 3',
       }
     }
   },
@@ -770,7 +348,7 @@ Select one Squad to be the Defender, the other the Attacker.
 
 Defender secretly selects one Unit (excluding the Leader) to be the carrier of the Intel.
 `),
-    deployment: 'Both Squads deploy before Turn 1. Defender deploys all their Units on the Western battlefield edge first. Then Attacker Squad deploys all their Units on the Northern or Southern edge of the battlefield, at least 8" from the Western edge.',
+    deployment: 'Both Squads deploy before Turn 1. The Defender deploys all their Units Adjacent to the NW, W, or SW Anchors. The Attacker deploys all their Units Adjacent to the N, NE, S, or SE Anchors.',
     victory: 'At the end of Turn 4, if the Defender Squad is carrying the Intel and the carrier is on the Eastern edge of the battlefield, Defender wins the mission. Attacker wins in all other cases.',
     special: 'When a Unit carrying the Intel is Taken Out, place the Core on its position. It can be recovered and carried off by any Unit.',
     rewards: [
@@ -784,59 +362,20 @@ Defender secretly selects one Unit (excluding the Leader) to be the carrier of t
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        {
-          id: 'mrect_0_0_0_0_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 1,
-          hIn: 24,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_5_0_14_0',
-          type: 'rect',
-          xIn: 8,
-          yIn: 0,
-          wIn: 16,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_5_14_14_14',
-          type: 'rect',
-          xIn: 8,
-          yIn: 23,
-          wIn: 16,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        { type: 'callout', id: 'dn1', x1In: 8, y1In: 2, x2In: 24, y2In: 2, text: '16"', labelSizeIn: 1 },
-        { type: 'callout', id: 'dn2', x1In: 0, y1In: 2, x2In: 8, y2In: 2, text: '8"', labelSizeIn: 1 },
-        { type: 'callout', id: 'ds1', x1In: 8, y1In: 22, x2In: 24, y2In: 22, text: '16"', labelSizeIn: 1 },
-        { type: 'callout', id: 'ds2', x1In: 0, y1In: 22, x2In: 8, y2In: 22, text: '8"', labelSizeIn: 1 },
+        { id: 'DE-NW', type: 'circle' as const, anchor: 'NW' as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'DE-W',  type: 'circle' as const, anchor: 'W'  as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'DE-SW', type: 'circle' as const, anchor: 'SW' as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-N',  type: 'circle' as const, anchor: 'N'  as const, rIn: 2, color: A, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-NE', type: 'circle' as const, anchor: 'NE' as const, rIn: 2, color: A, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-S',  type: 'circle' as const, anchor: 'S'  as const, rIn: 2, color: A, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-SE', type: 'circle' as const, anchor: 'SE' as const, rIn: 2, color: A, fillOpacity: 0.15, showLabel: false, showInLegend: false },
       ],
       legend: {
-        DA: {
-          label: 'Attacker Deployment Zone',
-          color: '#dc2626'
-        },
-        DD: {
-          label: 'Defender Deployment Zone',
-          color: '#2563eb'
-        }
+        DA: { label: 'Attacker Deployment Zone', color: A },
+        DD: { label: 'Defender Deployment Zone', color: B },
       }
     }
   },
@@ -851,8 +390,8 @@ Defender secretly selects one Unit (excluding the Leader) to be the carrier of t
 
 A beacon must be secured and relayed back to command.
 `),
-    setup: 'Place one Beacon Objective at the Battlefield center.',
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    setup: 'Place one Beacon at the C Anchor.',
+    deployment: STANDARD_DEPLOYMENT,
     victory: 'A Squad scores 6 MP if any Unit exits their own Battlefield edge carrying the Beacon.',
     special: 'The Beacon is a marker that can be Picked Up. While carrying the Beacon, Units have -1 ACT (minimum 1).',
     rewards: [
@@ -866,59 +405,15 @@ A beacon must be secured and relayed back to command.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_7_7_7_7',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_2_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        }
+        ...STD_DEPLOY,
+        { id: 'C', type: 'marker' as const, anchor: 'C' as const, label: 'C', color: OBJ, showInLegend: false },
       ],
       legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        },
-        O1: {
-          label: 'Beacon',
-          color: '#2b7c2b'
-        }
+        ...STD_LEGEND,
+        C: 'Beacon',
       }
     }
   },
@@ -933,11 +428,11 @@ A beacon must be secured and relayed back to command.
 
 You don't know where it is, but the longer you search, the better your odds.
 `),
-    setup: 'Place 3 Search markers 6" apart along the center line of the battlefield.',
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    setup: 'Place 3 Search markers at the W, C, and E Anchors.',
+    deployment: STANDARD_DEPLOYMENT,
     victory: 'At the end of each Turn, the Squad carrying the artifact scores 2 MP.',
     special: dedent(`
-**Mission Action: Search (2ACT)**  
+**Mission Action: Search (2ACT)**
 A Unit that Controls a Search Marker may spend 2ACT to search it.
 Roll 1D6. This roll cannot be modified or re-rolled by using TOs.
 
@@ -955,91 +450,19 @@ After searching a marker, remove it from the Battlefield.`),
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_2_7_2_7',
-          type: 'rect',
-          xIn: 5.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_2_7_7_7_7',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_3_12_7_12_7',
-          type: 'rect',
-          xIn: 17.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_4_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        { type: 'callout', id: 'o2-x', x1In: 6, y1In: 13, x2In: 12, y2In: 13, text: '6"', labelSizeIn: 1 },
-        { type: 'callout', id: 'o3-x', x1In: 12, y1In: 13, x2In: 18, y2In: 13, text: '6"', labelSizeIn: 1 },
+        ...STD_DEPLOY,
+        { id: 'W', type: 'marker' as const, anchor: 'W' as const, label: 'W', color: OBJ, showInLegend: false },
+        { id: 'C', type: 'marker' as const, anchor: 'C' as const, label: 'C', color: OBJ, showInLegend: false },
+        { id: 'E', type: 'marker' as const, anchor: 'E' as const, label: 'E', color: OBJ, showInLegend: false },
       ],
       legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        },
-        O1: {
-          label: 'Search 1',
-          color: '#2b7c2b'
-        },
-        O2: {
-          label: 'Search 2',
-          color: '#2b7c2b'
-        },
-        O3: {
-          label: 'Search 3',
-          color: '#2b7c2b'
-        }
+        ...STD_LEGEND,
+        W: 'Search 1',
+        C: 'Search 2',
+        E: 'Search 3',
       }
     }
   },
@@ -1054,8 +477,8 @@ After searching a marker, remove it from the Battlefield.`),
 
 Energy charges build throughout the fight until a decisive moment of release.
 `),
-    setup: 'Place 2 Uplink Node markers 6" from the center of the battlefield. Place one Transmit Beacon in the center of the battlefield. Set up a tracker for each Squad\'s Data Packets, starting at zero.',
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    setup: 'Place 2 Uplink Nodes at the W and E Anchors. Place 1 Transmit Beacon at the C Anchor. Set up a tracker for each Squad\'s Data Packets, starting at zero.',
+    deployment: STANDARD_DEPLOYMENT,
     victory: 'At the end of Turn 4, the Squad with the most MP wins the Mission. In case of a tie, the Squad with the highest remaining Data Packets wins the mission.',
     special: dedent(`
 **Mission Action: Uplink (1ACT):** A Unit that Controls an Uplink Node increases its Squad's Data Packets by 1.
@@ -1073,91 +496,19 @@ Energy charges build throughout the fight until a decisive moment of release.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_2_7_2_7',
-          type: 'rect',
-          xIn: 5.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_2_7_7_7_7',
-          type: 'rect',
-          xIn: 11.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_3_12_7_12_7',
-          type: 'rect',
-          xIn: 17.5,
-          yIn: 11.5,
-          wIn: 1,
-          hIn: 1,
-          color: '#2b7c2b',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_4_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        { type: 'callout', id: 'o2-x', x1In: 6, y1In: 13, x2In: 12, y2In: 13, text: '6"', labelSizeIn: 1 },
-        { type: 'callout', id: 'o3-x', x1In: 12, y1In: 13, x2In: 18, y2In: 13, text: '6"', labelSizeIn: 1 },
+        ...STD_DEPLOY,
+        { id: 'W', type: 'marker' as const, anchor: 'W' as const, label: 'W', color: OBJ,      showInLegend: false },
+        { id: 'C', type: 'marker' as const, anchor: 'C' as const, label: 'C', color: '#7c3aed', showInLegend: false },
+        { id: 'E', type: 'marker' as const, anchor: 'E' as const, label: 'E', color: OBJ,      showInLegend: false },
       ],
       legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        },
-        UA: {
-          label: 'UA',
-          color: '#2b7c2b'
-        },
-        UB: {
-          label: 'UB',
-          color: '#2b7c2b'
-        },
-        TB: {
-          label: 'TB',
-          color: '#2b7c2b'
-        }
+        ...STD_LEGEND,
+        W: 'Uplink Node (W)',
+        C: 'Transmit Beacon (C)',
+        E: 'Uplink Node (E)',
       }
     }
   },
@@ -1173,7 +524,7 @@ Energy charges build throughout the fight until a decisive moment of release.
 Your orders are simple: outkill the enemy.
 `),
     setup: null,
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    deployment: STANDARD_DEPLOYMENT,
     victory: 'Each time a Unit is Taken Out, the enemy Squad scores MPs equal to that Unit\'s starting HIT.',
     special: null,
     rewards: [
@@ -1187,45 +538,10 @@ Your orders are simple: outkill the enemy.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
-      elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        }
-      ],
-      legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        }
-      }
+      elements: [ ...STD_DEPLOY ],
+      legend: { ...STD_LEGEND }
     }
   },
   {
@@ -1240,7 +556,7 @@ Your orders are simple: outkill the enemy.
 The battle grinds to dust. Only the unbroken remain.
 `),
     setup: null,
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    deployment: STANDARD_DEPLOYMENT,
     victory: 'At the end of each Turn, the squad with the highest total remaining HIT of Standing Units scores 2 MP.',
     special: null,
     rewards: [
@@ -1254,45 +570,10 @@ The battle grinds to dust. Only the unbroken remain.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
-      elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        }
-      ],
-      legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        }
-      }
+      elements: [ ...STD_DEPLOY ],
+      legend: { ...STD_LEGEND }
     }
   },
   {
@@ -1307,7 +588,7 @@ The battle grinds to dust. Only the unbroken remain.
 Hunt down the enemy commander.
 `),
     setup: null,
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    deployment: STANDARD_DEPLOYMENT,
     victory: 'If the enemy Leader is Taken Out, your Squad immediately scores 6 MP.',
     special: 'Leaders gain +1 ACT for this mission.',
     rewards: [
@@ -1321,45 +602,10 @@ Hunt down the enemy commander.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
-      elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        }
-      ],
-      legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        }
-      }
+      elements: [ ...STD_DEPLOY ],
+      legend: { ...STD_LEGEND }
     }
   },
   {
@@ -1374,7 +620,7 @@ Hunt down the enemy commander.
 Two Units meet on the battlefield, bound by vengeance or destiny.
 `),
     setup: 'Each Squad secretly selects one Rival Unit (not the Leader). Reveal simultaneously after deployment.',
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    deployment: STANDARD_DEPLOYMENT,
     victory: 'If your Rival Takes Out the enemy Rival, score 6 MP. If both Rivals are still Standing at the end of the mission, the mission is a draw (randomly select rewards).',
     special: 'Rivals\' weapons gain +1 ATT and +1 SKL against each other. In addition, Rivals may only be targeted in combat by the enemy Rival.',
     rewards: [
@@ -1388,45 +634,10 @@ Two Units meet on the battlefield, bound by vengeance or destiny.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
-      elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        }
-      ],
-      legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        }
-      }
+      elements: [ ...STD_DEPLOY ],
+      legend: { ...STD_LEGEND }
     }
   },
   {
@@ -1441,7 +652,7 @@ Two Units meet on the battlefield, bound by vengeance or destiny.
 Dominate enemy territory with strength of arms.
 `),
     setup: null,
-    deployment: 'Both Squads deploy on their battlefield edge (North or South) before Turn 1.',
+    deployment: STANDARD_DEPLOYMENT,
     victory: 'At the end of each Turn, the Squad with the highest total remaining HIT of Standing Units that are not Adjacent to any enemies and that are closer to the enemy deployment edge than their own deployment edge scores 2 MP.',
     special: null,
     rewards: [
@@ -1455,45 +666,10 @@ Dominate enemy territory with strength of arms.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
-      elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        }
-      ],
-      legend: {
-        DA: {
-          label: 'Deployment Zone A',
-          color: '#dc2626'
-        },
-        DB: {
-          label: 'Deployment Zone B',
-          color: '#2563eb'
-        }
-      }
+      elements: [ ...STD_DEPLOY ],
+      legend: { ...STD_LEGEND }
     }
   },
   {
@@ -1508,21 +684,21 @@ Dominate enemy territory with strength of arms.
 The dropship waits only moments. Reach it before the storm consumes the battlefield.
 `),
     setup: dedent(`
-Set up the Evac Zone as an 8" square at the center of the battlefield.
+Set up the Evac Zone within 4" of the C Anchor.
 
 Select one Squad to be the Attacker, the other is the Defender.
 `),
     deployment: dedent(`
-Squads deploy before Turn 1. First, Defender Squad deploys all Units anywhere in the Evac Zone.
+Squads deploy before Turn 1. The Defender deploys all Units within the Evac Zone (within 4" of the C Anchor).
 
-Then Attacker Squad deploys all Units on any battlefield edge.
+The Attacker deploys all Units Adjacent to any Anchor on any battlefield edge.
 `),
-    victory: 'At the end of Turn 4, if the total remaining HIT of Standing Defender Units that are on the Evac Zone is equal to or higher than the total remaining HIT of Standing Attacker Units on the Evac Zone, Defender Squad wins the mission. Attacker Squad wins in all other cases.',
+    victory: 'At the end of Turn 4, if the total remaining HIT of Standing Defender Units within 4" of the C Anchor is equal to or higher than the total remaining HIT of Standing Attacker Units within 4" of the C Anchor, Defender Squad wins the mission. Attacker Squad wins in all other cases.',
     special: null,
     rewards: [
       {
         name: 'Extraction Gear',
-        effect: 'One Unit gains Grappling  Hook (ignore vertical distance when climbing up or down) in the next mission.'
+        effect: 'One Unit gains Grappling Hook (ignore vertical distance when climbing up or down) in the next mission.'
       },
       {
         name: 'Resourceful Salvage',
@@ -1530,79 +706,23 @@ Then Attacker Squad deploys all Units on any battlefield edge.
       }
     ],
     diagram: {
-      board: {
-        widthIn: 24,
-        heightIn: 24
-      },
+      board: { widthIn: 24, heightIn: 24 },
       showCenterLines: true,
       elements: [
-        {
-          id: 'mrect_0_0_0_14_0',
-          type: 'rect',
-          xIn: 0,
-          yIn: 0,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_0_0_14_14_14',
-          type: 'rect',
-          xIn: 0,
-          yIn: 23,
-          wIn: 24,
-          hIn: 1,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_0_0_1_0_13',
-          type: 'rect',
-          xIn: 0,
-          yIn: 1,
-          wIn: 1,
-          hIn: 22,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_0_14_1_14_13',
-          type: 'rect',
-          xIn: 23,
-          yIn: 1,
-          wIn: 1,
-          hIn: 22,
-          color: '#2563eb',
-          showLabel: false,
-          showInLegend: false
-        },
-        {
-          id: 'mrect_1_5_5_9_9',
-          type: 'rect',
-          xIn: 8,
-          yIn: 8,
-          wIn: 8,
-          hIn: 8,
-          color: '#dc2626',
-          showLabel: false,
-          showInLegend: false
-        },
-        { type: 'callout', id: 'boxn', x1In: 8, y1In: 7, x2In: 16, y2In: 7, text: '8"', labelSizeIn: 1 },
-        { type: 'callout', id: 'boxw', x1In: 7, y1In: 8, x2In: 7, y2In: 16, text: '8"', labelSizeIn: 1 },
+        { id: 'AT-NW', type: 'circle' as const, anchor: 'NW' as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-N',  type: 'circle' as const, anchor: 'N'  as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-NE', type: 'circle' as const, anchor: 'NE' as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-E',  type: 'circle' as const, anchor: 'E'  as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-SE', type: 'circle' as const, anchor: 'SE' as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-S',  type: 'circle' as const, anchor: 'S'  as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-SW', type: 'circle' as const, anchor: 'SW' as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'AT-W',  type: 'circle' as const, anchor: 'W'  as const, rIn: 2, color: B, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'evac',  type: 'circle' as const, anchor: 'C'  as const, rIn: 4, color: A, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'C',     type: 'marker' as const, anchor: 'C'  as const, label: 'C', color: A, showInLegend: false },
       ],
       legend: {
-        DD: {
-          label: 'Defender Deployment Zone',
-          color: '#dc2626'
-        },
-        DA: {
-          label: 'Attacker Deployment Zone',
-          color: '#2563eb'
-        }
+        DD: { label: 'Evac Zone (Defender Deploys Here)', color: A },
+        DA: { label: 'Attacker Deployment Zone',         color: B },
       }
     }
   }

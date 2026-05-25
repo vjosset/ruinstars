@@ -1,4 +1,4 @@
-// Named anchor positions on the battlefield — 4" from edges, center of each edge, and board center.
+// Named anchor positions on the battlefield - 4" from edges, center of each edge, and board center.
 // Used in diagram elements as an alternative to raw inch coordinates.
 export type AnchorName = 'N' | 'NE' | 'E' | 'SE' | 'S' | 'SW' | 'W' | 'NW' | 'C'
 

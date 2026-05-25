@@ -153,7 +153,7 @@ export default function PvEMissionsQuickRef() {
         <Card className="col-span-3">
           <SH>Objectives</SH>
           <p className="text-xs text-muted mb-1">
-            For each objective: roll 1D6 for <Hi>Archetype</Hi>, then 1D6 for <Hi>Variation</Hi>. Both objectives must have different Archetypes — re-roll if they match.
+            For each objective: roll 1D6 for <Hi>Archetype</Hi>, then 1D6 for <Hi>Variation</Hi>. Both objectives must have different Archetypes - re-roll if they match.
           </p>
           <p className="text-xs mb-1.5">
             <Br>Archetype (D6):</Br> <span className="text-muted">1-2 Control · 3-4 Activate · 5-6 Destroy</span>
@@ -161,7 +161,7 @@ export default function PvEMissionsQuickRef() {
           <Divider />
           <div className="grid grid-cols-3 gap-4 mt-1.5">
             <div>
-              <SH>Control — Variations (D6)</SH>
+              <SH>Control - Variations (D6)</SH>
               <P className="text-xs text-muted">Setup: 3 Objectives on random Anchors.</P>
               <table className="w-full border-collapse">
                 <tbody>
@@ -172,7 +172,7 @@ export default function PvEMissionsQuickRef() {
               </table>
             </div>
             <div>
-              <SH>Activate — Variations (D6)</SH>
+              <SH>Activate - Variations (D6)</SH>
               <P className="text-xs text-muted">Activate (2ACT): Unit Controls an Objective to activate it. Remove from battlefield.</P>
               <table className="w-full border-collapse">
                 <tbody>
@@ -183,7 +183,7 @@ export default function PvEMissionsQuickRef() {
               </table>
             </div>
             <div>
-              <SH>Destroy — Variations (D6)</SH>
+              <SH>Destroy - Variations (D6)</SH>
               <P className="text-xs text-muted">Objectives on random Anchors. Can be targeted in combat.</P>
               <table className="w-full border-collapse">
                 <tbody>

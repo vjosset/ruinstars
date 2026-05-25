@@ -303,7 +303,7 @@ export default async function RulesQuickRef() {
 
           {/* Row 4: Anchors diagram + reference */}
           <Card className="col-span-2">
-            <SH>Anchors — 2&apos; × 2&apos; Battlefield (Standard)</SH>
+            <SH>Anchors - 2&apos; × 2&apos; Battlefield (Standard)</SH>
             <div className="flex gap-4 items-start">
               <div className="w-48 shrink-0">
                 <BattlefieldDiagram diagram={anchors24Diagram} />

@@ -1,9 +1,9 @@
 import { FactionLink } from '../nav/Links'
-import { PveBattlefields } from '@/data/pve_battlefields'
+import { MissionBattlefields } from '@/data/mission_battlefields'
 
 /** Lookup battlefield display title by ID (e.g. 'FAC' → 'The Facility') */
 const BATTLEFIELD_TITLE: Record<string, string> = Object.fromEntries(
-  PveBattlefields.map(b => [b.battlefieldId, b.title])
+  MissionBattlefields.map(b => [b.battlefieldId, b.title])
 )
 
 const FACTION_NAMES: Record<string, string> = {
@@ -15,7 +15,7 @@ const FACTION_NAMES: Record<string, string> = {
   EIR: 'Eidolon Revenants',
 }
 
-// Tailwind bg classes for each faction — kept explicit so Tailwind purge retains them
+// Tailwind bg classes for each faction - kept explicit so Tailwind purge retains them
 const FACTION_COLORS: Record<string, string> = {
   HEG: 'bg-blue-500',
   SWM: 'bg-green-500',

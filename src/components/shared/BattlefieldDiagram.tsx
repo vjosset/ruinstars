@@ -440,7 +440,7 @@ export default function BattlefieldDiagram({
                 const textOffset = inToPx(
                   element.textOffsetIn ?? DEFAULT_LABEL_SIZE_IN
                 )
-                // Round all unit-vector-derived coords to 2dp — Math.hypot and
+                // Round all unit-vector-derived coords to 2dp - Math.hypot and
                 // trig functions are implementation-defined and can differ between
                 // Node (SSR) and browser V8, causing hydration attribute mismatches.
                 const textX = r2((x1 + x2) / 2 + nx * textOffset)

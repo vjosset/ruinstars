@@ -37,7 +37,7 @@ type RawSector = {
  * normalized to a total of 10 using the largest-remainder method so that
  * rounded integers always sum to exactly 10.
  *
- * Example — The Kethara Corridor (3 locations):
+ * Example - The Kethara Corridor (3 locations):
  *   Raw sums: HEG 18, OCL 9, GRU 3  (total 30)
  *   Normalized: HEG 6, OCL 3, GRU 1
  */
