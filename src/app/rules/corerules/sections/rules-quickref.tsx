@@ -1,6 +1,8 @@
 import { SpecialService } from '@/services'
 import Markdown from '@/components/ui/Markdown'
 import { Fragment } from 'react'
+import BattlefieldDiagram from '@/components/shared/BattlefieldDiagram'
+import { anchors24Diagram } from '@/app/rules/sections/rules-anchors'
 
 /** Replace `_` param placeholder with a styled <code>x</code> element */
 function renderWithX(str: string): React.ReactNode {
@@ -55,17 +57,6 @@ function SubLabel({ children, className = '' }: { children: React.ReactNode; cla
     <p className={`text-xs text-muted uppercase tracking-wider mb-1 ${className}`}>
       {children}
     </p>
-  )
-}
-
-// ─── Dice box ───────────────────────────────────────────────────────────────
-
-function DiceBox({ value, label, valueClass }: { value: string; label: string; valueClass: string }) {
-  return (
-    <div className="border border-border rounded p-1.5 text-center flex-1">
-      <span className={`font-heading font-bold text-2xl block leading-none ${valueClass}`}>{value}</span>
-      <span className="text-[10px] text-muted uppercase tracking-wider">{label}</span>
-    </div>
   )
 }
 
@@ -157,25 +148,10 @@ export default async function RulesQuickRef() {
     <div className="section" id="quick-reference">
       <div className="grid grid-cols-3 gap-2">
 
-        {/* ── Left 2/3: 4 paired rows ───────────────────────── */}
+        {/* ── Left 2/3: 4 rows ─────────────────────────────── */}
         <div className="col-span-2 grid grid-cols-2 gap-2">
 
-          {/* Row 1: Dice & Rolls | Game Cycle */}
-          <Card>
-            <SH>Dice &amp; Rolls</SH>
-            <div className="flex gap-1 mb-2">
-              <DiceBox value="1"   label="Critical"   valueClass="text-green-600" />
-              <DiceBox value="2-5" label="Normal"      valueClass="text-main" />
-              <DiceBox value="6"   label="Always Fail" valueClass="text-red-600" />
-            </div>
-            <P><Br>Success:</Br> Roll equal to or lower than the target stat.</P>
-            <P><Br>Always fails:</Br> A roll of <Hi>6</Hi> is always a failure regardless of modifiers.</P>
-            <P><Br>Critical:</Br> A roll of <Hi>1</Hi> is a critical success with bonus effects.</P>
-            <P><Br>Re-rolls:</Br> Each die may only be re-rolled once. Result is final.</P>
-            <Divider />
-            <P><Br>D3:</Br> Roll D6 ÷ 2 rounding up. (1-2 = 1, 3-4 = 2, 5-6 = 3)</P>
-          </Card>
-
+          {/* Row 1: Game Cycle | Tactical Orders */}
           <Card>
             <SH>Game Cycle</SH>
             <SubLabel>Mission Start</SubLabel>
@@ -202,7 +178,28 @@ export default async function RulesQuickRef() {
             <p className="text-xs text-muted mt-1">MP &amp; Injury rules defined in your play mode.</p>
           </Card>
 
-          {/* Row 2: Actions | Tactical Orders */}
+          <Card>
+            <SH>Tactical Orders (TO)</SH>
+            <P className="mb-2">Roll TO dice each turn. Each <Hi>1-3</Hi> = 1 TO. Unused TO are lost end of turn.</P>
+            <table className="w-full border-collapse">
+              <thead>
+                <tr><TH>Condition</TH><TH>Dice</TH></tr>
+              </thead>
+              <tbody>
+                <LabelRow label="Leader Standing"    text="5 dice" />
+                <LabelRow label="Leader Taken Out"   text="3 dice" />
+                <LabelRow label="Per Unit Taken Out" text="+1 TO" last />
+              </tbody>
+            </table>
+            <Divider />
+            <p className="text-xs text-muted uppercase tracking-wider mb-1">Spend TO to:</p>
+            <P>· Perform a Unit's TO Skill</P>
+            <P>· Re-roll any one die</P>
+            <P>· Change a die result by <Hi>±1</Hi> (stackable)</P>
+            <P>· Perform an extra Basic or Mission Action</P>
+          </Card>
+
+          {/* Row 2: Actions | Movement & Positioning */}
           <Card>
             <SH>Actions</SH>
             <p className="text-xs text-muted mb-1">
@@ -226,24 +223,25 @@ export default async function RulesQuickRef() {
           </Card>
 
           <Card>
-            <SH>Tactical Orders (TO)</SH>
-            <P className="mb-2">Roll TO dice each turn. Each <Hi>1-3</Hi> = 1 TO. Unused TO are lost end of turn.</P>
+            <SH>Movement &amp; Positioning</SH>
             <table className="w-full border-collapse">
               <thead>
-                <tr><TH>Condition</TH><TH>Dice</TH></tr>
+                <tr><TH>Rule</TH><TH>Detail</TH></tr>
               </thead>
               <tbody>
-                <LabelRow label="Leader Standing"    text="5 dice" />
-                <LabelRow label="Leader Taken Out"   text="3 dice" />
-                <LabelRow label="Per Unit Taken Out" text="+1 TO" last />
+                <LabelRow label="Move"       text='Up to 6" per action' />
+                <LabelRow label="Adjacent"   text='Bases within 1", same elevation, no wall between' />
+                <LabelRow label="Control"    text="Adjacent to item, not adjacent to any enemy" />
+                <LabelRow label="Climb Up"   text='1" per inch of height + 1" to crest top' />
+                <LabelRow label="Climb Down" text='Same but vertical costs 2" less (min 0")' />
+                <LabelRow label="Range"      text="Horizontal only - ignore vertical distance" last />
               </tbody>
             </table>
             <Divider />
-            <p className="text-xs text-muted uppercase tracking-wider mb-1">Spend TO to:</p>
-            <P>· Perform a Unit's TO Skill</P>
-            <P>· Re-roll any one die</P>
-            <P>· Change a die result by <Hi>±1</Hi> (stackable)</P>
-            <P>· Perform an extra Basic or Mission Action</P>
+            <P>
+              <Br>Attack of Opportunity:</Br> When a unit moves out of Adjacency to an enemy, that enemy may make a free Melee attack.
+            </P>
+            <P>Spend 2&quot; of movement to reduce enemy ATT dice by 1. Max 1 AoO per unit per turn.</P>
           </Card>
 
           {/* Row 3: Ranged Combat | Melee Combat */}
@@ -303,39 +301,36 @@ export default async function RulesQuickRef() {
             </table>
           </Card>
 
-          {/* Row 4: Movement & Positioning | Squad Building */}
-          <Card>
-            <SH>Movement &amp; Positioning</SH>
-            <table className="w-full border-collapse">
-              <thead>
-                <tr><TH>Rule</TH><TH>Detail</TH></tr>
-              </thead>
-              <tbody>
-                <LabelRow label="Move"       text='Up to 6" per action' />
-                <LabelRow label="Adjacent"   text='Bases within 1", same elevation, no wall between' />
-                <LabelRow label="Control"    text="Adjacent to item, not adjacent to any enemy" />
-                <LabelRow label="Climb Up"   text='1" per inch of height + 1" to crest top' />
-                <LabelRow label="Climb Down" text='Same but vertical costs 2" less (min 0")' />
-                <LabelRow label="Range"      text="Horizontal only - ignore vertical distance" last />
-              </tbody>
-            </table>
-            <Divider />
-            <P>
-              <Br>Attack of Opportunity:</Br> When a unit moves out of Adjacency to an enemy, that enemy may make a free Melee attack.
-            </P>
-            <P>Spend 2&quot; of movement to reduce enemy ATT dice by 1. Max 1 AoO per unit per turn.</P>
-          </Card>
-
-          <Card>
-            <SH>Squad Building</SH>
-            <P><Br>Budget:</Br> 100 GP total (units + gear).</P>
-            <P><Br>Size:</Br> 4-10 Units.</P>
-            <P><Br>Leader:</Br> Exactly one per Squad.</P>
-            <P><Br>Unique (*)</Br> Units and gear: max one per squad.</P>
-            <Divider />
-            <p className="text-xs text-muted uppercase tracking-wider mb-1">Co-op Mini Squads</p>
-            <P>2P → 50 GP each &nbsp;·&nbsp; 3P → 34 GP each &nbsp;·&nbsp; 4P → 25 GP each</P>
-            <P className="mt-1">Only one Leader across all mini-squads.</P>
+          {/* Row 4: Anchors diagram + reference */}
+          <Card className="col-span-2">
+            <SH>Anchors — 2&apos; × 2&apos; Battlefield (Standard)</SH>
+            <div className="flex gap-4 items-start">
+              <div className="w-48 shrink-0">
+                <BattlefieldDiagram diagram={anchors24Diagram} />
+              </div>
+              <div className="flex-1">
+                <P>
+                  Anchors are nine fixed reference points on the battlefield used to place units,
+                  objectives, and markers, and to apply battlefield effects.
+                </P>
+                <table className="w-full border-collapse mt-1">
+                  <thead>
+                    <tr><TH>Anchor</TH><TH>Position</TH></tr>
+                  </thead>
+                  <tbody>
+                    <LabelRow label="NW / NE / SW / SE" text='4" from each adjacent edge' />
+                    <LabelRow label="N / S / E / W"     text='4" from edge, centered on that edge' />
+                    <LabelRow label="C"                 text="Center of the battlefield" last />
+                  </tbody>
+                </table>
+                <Divider />
+                <P>
+                  To place a marker on a <Hi>random Anchor</Hi>, roll <Hi>1D10</Hi>.
+                  On a <Hi>10</Hi>, choose any unoccupied Anchor.
+                  If already occupied, re-roll.
+                </P>
+              </div>
+            </div>
           </Card>
 
         </div>

@@ -1,41 +1,41 @@
 import BattlefieldDiagram, { type BattlefieldDiagramConfig } from '@/components/shared/BattlefieldDiagram'
 
+export const anchors24Diagram: BattlefieldDiagramConfig = {
+  board: { widthIn: 24, heightIn: 24 },
+  elements: [
+    { type: 'marker', id: 'C',  xIn: 12, yIn: 12, label: 'C',  showInLegend: false },
+
+    { type: 'marker', id: 'NW', xIn: 4,  yIn: 4,  label: 'NW', showInLegend: false },
+    { type: 'callout', id: 'h1', x1In: 0, y1In: 4,  x2In: 4,  y2In: 4,  text: '4"' },
+    { type: 'callout', id: 'v1', x1In: 4, y1In: 0,  x2In: 4,  y2In: 4,  text: '4"' },
+
+    { type: 'marker', id: 'NE', xIn: 20, yIn: 4,  label: 'NE', showInLegend: false },
+    { type: 'callout', id: 'h4', x1In: 20, y1In: 4,  x2In: 24, y2In: 4,  text: '4"' },
+    { type: 'callout', id: 'v4', x1In: 20, y1In: 0,  x2In: 20, y2In: 4,  text: '4"' },
+
+    { type: 'marker', id: 'SW', xIn: 4,  yIn: 20, label: 'SW', showInLegend: false },
+    { type: 'callout', id: 'h3', x1In: 0,  y1In: 20, x2In: 4,  y2In: 20, text: '4"' },
+    { type: 'callout', id: 'v3', x1In: 4,  y1In: 20, x2In: 4,  y2In: 24, text: '4"' },
+
+    { type: 'marker', id: 'SE', xIn: 20, yIn: 20, label: 'SE', showInLegend: false },
+    { type: 'callout', id: 'h6', x1In: 20, y1In: 20, x2In: 24, y2In: 20, text: '4"' },
+    { type: 'callout', id: 'v6', x1In: 20, y1In: 20, x2In: 20, y2In: 24, text: '4"' },
+
+    { type: 'marker', id: 'N',  xIn: 12, yIn: 4,  label: 'N',  showInLegend: false },
+    { type: 'callout', id: 'v2', x1In: 12, y1In: 0,  x2In: 12, y2In: 4,  text: '4"' },
+
+    { type: 'marker', id: 'W',  xIn: 4,  yIn: 12, label: 'W',  showInLegend: false },
+    { type: 'callout', id: 'h2', x1In: 0,  y1In: 12, x2In: 4,  y2In: 12, text: '4"' },
+
+    { type: 'marker', id: 'E',  xIn: 20, yIn: 12, label: 'E',  showInLegend: false },
+    { type: 'callout', id: 'h5', x1In: 20, y1In: 12, x2In: 24, y2In: 12, text: '4"' },
+
+    { type: 'marker', id: 'S',  xIn: 12, yIn: 20, label: 'S',  showInLegend: false },
+    { type: 'callout', id: 'v5', x1In: 12, y1In: 24, x2In: 12, y2In: 20, text: '4"' },
+  ],
+}
+
 export default async function RulesAnchors() {
-
-  const anchors24Diagram = {
-    board: { widthIn: 24, heightIn: 24 },
-    elements: [
-      { type: 'marker', id: 'C', xIn: 12, yIn: 12, label: 'C', showInLegend: false },
-
-      { type: 'marker', id: 'NW', xIn: 4, yIn: 4, label: 'NW', showInLegend: false },
-      { type: 'callout', id: 'h1', x1In: 0, y1In: 4, x2In: 4, y2In: 4, text: '4"' },
-      { type: 'callout', id: 'v1', x1In: 4, y1In: 0, x2In: 4, y2In: 4, text: '4"' },
-
-      { type: 'marker', id: 'NE', xIn: 20, yIn: 4, label: 'NE', showInLegend: false },
-      { type: 'callout', id: 'h4', x1In: 20, y1In: 4, x2In: 24, y2In: 4, text: '4"' },
-      { type: 'callout', id: 'v4', x1In: 20, y1In: 0, x2In: 20, y2In: 4, text: '4"' },
-
-      { type: 'marker', id: 'SW', xIn: 4, yIn: 20, label: 'SW', showInLegend: false },
-      { type: 'callout', id: 'h3', x1In: 0, y1In: 20, x2In: 4, y2In: 20, text: '4"' },
-      { type: 'callout', id: 'v3', x1In: 4, y1In: 20, x2In: 4, y2In: 24, text: '4"' },
-
-      { type: 'marker', id: 'SE', xIn: 20, yIn: 20, label: 'SE', showInLegend: false },
-      { type: 'callout', id: 'h6', x1In: 20, y1In: 20, x2In: 24, y2In: 20, text: '4"' },
-      { type: 'callout', id: 'v6', x1In: 20, y1In: 20, x2In: 20, y2In: 24, text: '4"' },
-
-      { type: 'marker', id: 'N', xIn: 12, yIn: 4, label: 'N', showInLegend: false },
-      { type: 'callout', id: 'v2', x1In: 12, y1In: 0, x2In: 12, y2In: 4, text: '4"' },
-
-      { type: 'marker', id: 'W', xIn: 4, yIn: 12, label: 'W', showInLegend: false },
-      { type: 'callout', id: 'h2', x1In: 0, y1In: 12, x2In: 4, y2In: 12, text: '4"' },
-
-      { type: 'marker', id: 'E', xIn: 20, yIn: 12, label: 'E', showInLegend: false },
-      { type: 'callout', id: 'h5', x1In: 20, y1In: 12, x2In: 24, y2In: 12, text: '4"' },
-
-      { type: 'marker', id: 'S', xIn: 12, yIn: 20, label: 'S', showInLegend: false },
-      { type: 'callout', id: 'v5', x1In: 12, y1In: 24, x2In: 12, y2In: 20, text: '4"' },
-    ]
-  } satisfies BattlefieldDiagramConfig
   
   const anchors30Diagram = {
     board: { widthIn: 30, heightIn: 22 },
