@@ -94,7 +94,6 @@ export default async function PvEMissions() {
             </div>
           </div>
 
-          <PageBreak />
           <div className="section">
             <h2>Mission Setup</h2>
             <div className="section twocols">
@@ -119,81 +118,84 @@ export default async function PvEMissions() {
                 </ol>
               </div>
             </div>
-          </div>
-
-          <div className="twocols">
-            {/* NPC Squads + TL */}
-            <div className="section">
-              <h3>NPC Squads</h3>
-              Each mission is opposed by a single NPC faction.
-              Select a faction from the NPC Units section at the back of this book, or choose one randomly.
-              For variety, we recommend using the same faction for all three missions within an Operation, then switching factions for the next Operation.
-              <br/>
-              Each NPC Squad has a Spawn Table that determines which Units are deployed for a given mission.
-              Before deploying the NPC Squad, select a Threat Level from 1 to 3.
-              Threat Level represents the intensity of the opposition your Squad faces.
-              Higher Threat Levels produce more dangerous Units and larger groups.
-              If playing a Campaign, the Threat Level should match the current Operation number:
-              TL1 for Operation 1, TL2 for Operation 2, TL3 for Operation 3.
-              <br/>
-              Once you have selected a faction and Threat Level, roll <code>3D6</code> and consult that faction's Spawn Table.
-              Each die is resolved individually - look up each result in the column matching your current Threat Level to identify the Units spawned by that die.
+            <div className="twocols">
+              {/* NPC Squads + TL */}
+              <div className="section">
+                <h3>NPC Squads</h3>
+                Each mission is opposed by a single NPC faction.
+                Select a faction from the NPC Units section at the back of this book, or choose one randomly.
+                For variety, we recommend using the same faction for all three missions within an Operation, then switching factions for the next Operation.
+                <br/>
+                Each NPC Squad has a Spawn Table that determines which Units are deployed for a given mission.
+                Before deploying the NPC Squad, select a Threat Level from 1 to 3.
+                Threat Level represents the intensity of the opposition your Squad faces.
+                Higher Threat Levels produce more dangerous Units and larger groups.
+                If playing a Campaign, the Threat Level should match the current Operation number:
+                TL1 for Operation 1, TL2 for Operation 2, TL3 for Operation 3.
+                <br/>
+                Once you have selected a faction and Threat Level, roll <code>3D6</code> and consult that faction's Spawn Table.
+                Each die is resolved individually - look up each result in the column matching your current Threat Level to identify the Units spawned by that die.
+              </div>
+              {/* Deployments */}
+              <div className="section">
+                <h3>Deployments</h3>
+                Each mission is played on one of the following standard deployments.
+                At the start of each mission, roll 1D6 to select a deployment.
+                Each deployment defines two positions: <em>Squad A</em> and <em>Squad B</em>.
+                Roll <code>1D6</code> to determine squad assignment:
+                on a <code>1-3</code>, the Player Squad is Squad A; on a <code>4-6</code>, the Player Squad is Squad B.
+                {MissionDeployments.map((d) => (
+                  <div key={d.deploymentId}>
+                    <strong>{d.deploymentId}: {d.title}</strong>
+                    <div className="ml-4">{d.description}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-            {/* Objectives */}
-            <div className="section">
-              <h3>Objectives (2D6)</h3>
-              Roll <code>1D6</code> for the <strong>Archetype</strong>, then <code>1D6</code> for the <strong>Variation</strong>. Repeat for a second Objective - re-roll if the Archetype matches the first.
-              <br/>
-              Objectives score as described in their "Victory" condition based on their completion state, unless the Objective explicitly states that extraction is required.
-              In bespoke campaigns, individual mission objectives may specify additional extraction requirements.
-              {MissionObjectives.map((archetype) => (
-                <div key={archetype.objectiveArchetypeId} className="border-t border-border">
-                  <h4>{archetype.objectiveArchetypeId}: {archetype.title}</h4>
-                  <div className="ml-4">
-                    {archetype.variations.map((v) => {
-                      const rollRange = v.objectiveId.split(' ').slice(1).join(' ')
-                      return (
-                        <div key={v.objectiveId}>
-                          <strong>{rollRange}: {v.title}</strong>
-                          <div className="ml-4">
-                            {v.setup && <Markdown>{`**Setup:** ${v.setup}`}</Markdown>}
-                            {v.special && <Markdown>{`**Special:** ${v.special}`}</Markdown>}
-                            {v.victory && <Markdown>{`**Victory:** ${v.victory}`}</Markdown>}
+            <div className="twocols">
+              {/* Objectives */}
+              <div className="section">
+                <div className="section">
+                  <h3>Objectives (2D6)</h3>
+                  Roll <code>1D6</code> for the <strong>Archetype</strong>, then <code>1D6</code> for the <strong>Variation</strong>. Repeat for a second Objective - re-roll if the Archetype matches the first.
+                  <br/>
+                  Objectives score as described in their "Victory" condition based on their completion state, unless the Objective explicitly states that extraction is required.
+                  In bespoke campaigns, individual mission objectives may specify additional extraction requirements.
+                </div>
+                {MissionObjectives.map((archetype) => (
+                  <div key={archetype.objectiveArchetypeId} className="section">
+                    <h4>{archetype.objectiveArchetypeId}: {archetype.title}</h4>
+                    <div className="ml-4">
+                      {archetype.variations.map((v) => {
+                        const rollRange = v.objectiveId.split(' ').slice(1).join(' ')
+                        return (
+                          <div key={v.objectiveId}>
+                            <strong>{rollRange}: {v.title}</strong>
+                            <div className="ml-4">
+                              {v.setup && <Markdown>{`**Setup:** ${v.setup}`}</Markdown>}
+                              {v.special && <Markdown>{`**Special:** ${v.special}`}</Markdown>}
+                              {v.victory && <Markdown>{`**Victory:** ${v.victory}`}</Markdown>}
+                            </div>
                           </div>
-                        </div>
-                      )
-                    })}
+                        )
+                      })}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-            {/* Battlefields */}
-            <div className="section">
-              <h3>Battlefields (D6)</h3>
-              {MissionBattlefields.map((b) => (
-                <div key={b.battlefieldId}>
-                  <strong>{b.battlefieldId}: {b.title}</strong>
-                  <div className="ml-4">
-                    <strong>{b.effectName}</strong>
-                    <Markdown>{b.effect}</Markdown>
+                ))}
+              </div>
+              {/* Battlefields */}
+              <div className="section">
+                <h3>Battlefields</h3>
+                {MissionBattlefields.map((b) => (
+                  <div key={b.battlefieldId}>
+                    <strong>{b.battlefieldId}: {b.title}</strong>
+                    <div className="ml-4">
+                      <strong>{b.effectName}</strong>
+                      <Markdown>{b.effect}</Markdown>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-            {/* Deployments */}
-            <div className="section">
-              <h3>Deployments (D6)</h3>
-              Each mission is played on one of the following standard deployments.
-              At the start of each mission, roll 1D6 to select a deployment.
-              Each deployment defines two positions: <em>Squad A</em> and <em>Squad B</em>.
-              Roll <code>1D6</code> to determine squad assignment:
-              on a <code>1-3</code>, the Player Squad is Squad A; on a <code>4-6</code>, the Player Squad is Squad B.
-              {MissionDeployments.map((d) => (
-                <div key={d.deploymentId}>
-                  <strong>{d.deploymentId}: {d.title}</strong>
-                  <div className="ml-4">{d.description}</div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 

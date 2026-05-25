@@ -63,11 +63,13 @@ function Steps({ items }: { items: StepItem[] }) {
 
 function TableRow({
   roll, label, effect, last = false,
-}: { roll: string; label: string; effect: string; last?: boolean }) {
+}: { roll?: string; label: string; effect: string; last?: boolean }) {
   return (
     <>
       <tr>
-        <td className="px-1 pt-1 font-stat text-main w-6 text-center font-bold text-xs align-top" rowSpan={2}>{roll}</td>
+        {roll !== undefined && (
+          <td className="px-1 pt-1 font-stat text-main w-6 text-center font-bold text-xs align-top" rowSpan={2}>{roll}</td>
+        )}
         <td className="px-1 pt-1 font-heading font-bold text-xs">{label}</td>
       </tr>
       <tr className={last ? '' : 'border-b border-border/30'}>
@@ -204,30 +206,33 @@ export default function PvEMissionsQuickRef() {
           <div>
             <table className="w-full border-collapse">
               <tbody>
-                <TableRow roll="1" label="Standard Insertion" effect='Player: within 4" of SW, S, or SE Anchors. NPC: within 4" of NW, N, or NE Anchors (split evenly), in Cover/out of sight.' />
-                <TableRow roll="2" label="Hot Drop"           effect='Player: Adjacent to N, S, E, or W Anchors. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' />
-                <TableRow roll="3" label="Flanked"            effect='Player: within 4" of S Anchor. NPC: Adjacent to NW or NE Anchors (split evenly), in Cover/out of sight.' />
-                <TableRow roll="4" label="Deep Strike"        effect='Player: within 4" of SE Anchor. NPC: within 4" of NW Anchor, in Cover/out of sight.' />
-                <TableRow roll="5" label="Overwatch"          effect='Player: Adjacent to SW, S, or SE Anchors. NPC: Adjacent to W, N, or E Anchors (split evenly), in Cover/out of sight.' />
-                <TableRow roll="6" label="Encircled"          effect='Player: within 4" of Center Anchor. NPC: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' last />
+                <TableRow roll="1" label="Standard Insertion" effect='Squad A: Adjacent to the SW, S, or SE Anchors. Squad B: Adjacent to the NW, N, or NE Anchors (split evenly), in Cover/out of sight.' />
+                <TableRow roll="2" label="Hot Drop"           effect='Squad A: Adjacent to the N, S, E, or W Anchors. Squad B: Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' />
+                <TableRow roll="3" label="Flanked"            effect='Squad A: within 4" of the S Anchor. Squad B: Adjacent to the NW or NE Anchors (split evenly), in Cover/out of sight.' />
+                <TableRow roll="4" label="Deep Strike"        effect='Squad A: within 4" of the SE Anchor. Squad B: within 4" of the NW Anchor, in Cover/out of sight.' />
+                <TableRow roll="5" label="Overwatch"          effect='Squad A: Adjacent to the SW, S, or SE Anchors. Squad B: Adjacent to the W, N, or E Anchors (split evenly), in Cover/out of sight.' />
+                <TableRow roll="6" label="Encircled"          effect='Squad A: within 4" of the Center Anchor. Squad B: Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' last />
               </tbody>
             </table>
           </div>
         </Card>
 
         <Card>
-          <SH>Battlefields (D6)</SH>
+          <SH>Battlefields</SH>
           <p className="text-xs text-muted mb-1">
             Roll at Mission start. Skip for your first mission.
           </p>
           <table className="w-full border-collapse">
             <tbody>
-              <TableRow roll="1" label="The Ruined City - Collapse"           effect='Start of each Turn after the first: roll a random Anchor. All terrain within 4" of it is removed; all Units within 4" take 2 Damage.' />
-              <TableRow roll="2" label="The Facility - Darkness"              effect='Start of each Turn after the first: select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.' />
-              <TableRow roll="3" label="The Jungle - Miasmic Mist"            effect='Start of each Turn after the first: select a random Standing Unit from each Squad. That Unit moves 2" three times in random directions (no AoO). If blocked by a wall or obstacle, it takes 1 Melee Damage.' />
-              <TableRow roll="4" label="The Alien Hive - Noxious Gas"         effect='Start of each Turn after the first: select a random Anchor. All Units within 4" take 1 Damage.' />
-              <TableRow roll="5" label="The Cursed Temple - Haunting Spirits" effect="Start of each Turn after the first: select a random Unit from each Squad. That Unit immediately attacks the closest Unit in Combat, Squadmate or enemy." />
-              <TableRow roll="6" label="The Rift - Shifting Realities"        effect='Start of each Turn after the first: select one random Anchor, then roll 1D6. 1-3: All units within 4" move 2" directly toward it (no AoO). 4-6: All units within 4" move 2" directly away from it (no AoO).' last />
+              <TableRow label="The Ruined City - Collapse"           effect='Start of each Turn after the first: roll a random Anchor. All terrain within 4" of it is removed; all Units within 4" take 2 Damage.' />
+              <TableRow label="The Facility - Darkness"              effect='Start of each Turn after the first: select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.' />
+              <TableRow label="The Jungle - Miasmic Mist"            effect='Start of each Turn after the first: select a random Standing Unit from each Squad. That Unit moves 2" three times in random directions (no AoO). If blocked, it takes 1 Melee Damage.' />
+              <TableRow label="The Alien Hive - Noxious Gas"         effect='Start of each Turn after the first: select a random Anchor. All Units within 4" take 1 Damage.' />
+              <TableRow label="The Cursed Temple - Haunting Spirits" effect="Start of each Turn after the first: select a random Unit from each Squad. That Unit immediately attacks the closest Unit in Combat, Squadmate or enemy." />
+              <TableRow label="The Rift - Shifting Realities"        effect='Start of each Turn after the first: select a random Anchor, then roll 1D6. 1-3: All Units within 4" move 2" toward it (no AoO). 4-6: All Units within 4" move 2" away from it (no AoO).' />
+              <TableRow label="The Trenches - Artillery Strike"      effect='Start of each Turn after the first: select a random Anchor. All Units not in Cover within 4" are immediately Pinned. Pinned Units must spend 1 additional ACT to Move this Turn.' />
+              <TableRow label="Badlands - Rad Exposure"              effect='Start of each Turn after the first: each Standing Unit rolls 1D6. Results above ARM gain 1 Rad Counter. At the start of each Turn, all Units take Damage equal to their Rad Counters.' />
+              <TableRow label="Void Derelict - Hull Breach"          effect='Start of each Turn after the first: select a random Anchor. All Units within 3" must pass an ARM test or be dragged 3" toward it (no AoO). Units dragged into a wall or Unit take 1 Damage.' last />
             </tbody>
           </table>
         </Card>

@@ -46,8 +46,7 @@ export const MissionBattlefields: MissionBattlefield[] = [
     battlefieldId: 'TRENCH',
     title: 'The Trenches',
     effectName: 'Artillery Strike',
-    effect: 'At the start of each Turn after the first, select one random Anchor. All Units not in Cover that are within 4" of that Anchor are immediately Pinned. Pinned Units cannot must spend one additional `ACT` each time they perform the Move action during this Turn.',
-  },
+    effect: 'At the start of each Turn after the first, select one random Anchor. All Units not in Cover that are within 4" of that Anchor are immediately Pinned. Pinned Units must spend one additional `ACT` each time they perform the Move action during this Turn.',  },
   {
     battlefieldId: 'BAD',
     title: 'Badlands',

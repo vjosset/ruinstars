@@ -64,7 +64,7 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
         title: 'Search and Recover',
         setup: 'Place 3 Objectives on random anchors',
         special: '**Activate - Mission Action (2 ACT):** A Unit Activates an Objective it controls. On Activation, roll `1D6`: First activation: The item is found on `1`. Second activation: The item is found on `1-2`. Third activation: The item is found automatically. This roll cannot be modified or re-rolled using TO. The Unit that finds the item now carries it (can be dropped or passed to a Squadmate for 1 ACT).',
-        victory: 'The carrying Unit must extract successfully to complete the Objective.'
+        victory: 'In PvE: The carrying Unit must extract successfully to complete the Objective.\r\n\r\nIn PvP: The item must be carried by a Standing Unit at the end of the mission.'
       },
     ]
   },

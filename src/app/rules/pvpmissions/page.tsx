@@ -85,45 +85,43 @@ export default async function PvPMissions() {
             </div>
           </div>
 
-          <h2 className="mt-4">Playing a Mission</h2>
           <div className="section twocols">
-            <div className="section">
-              <p>
-                These missions are designed to be played as quick, one-off skirmishes perfect for pick-up or competitive play.
-                <br/>
-                Each Mission is a single battle between two Squads, typically lasting 4 Turns. Victory in these engagements is decided by calculating the total Mission Points (MP) scored by each Squad at the end of Turn 4.
-                <br/>
-                Alternatively, you can use these missions to build your own <a className="underline" href="#campaigns">Campaign</a>.
-                A full Campaign is structured into three distinct Operations, and each Operation is composed of three Missions, totaling nine confrontations.
-                These missions offer unique tactical puzzles and narrative flavor, challenging you to adapt your strategy to shifting objectives and hostile environments.
-              </p>
-              <br/><br/>
-              <p>
-                Whether you are playing a quick one-off mission or a long, epic <a className="underline" href="#campaigns">campaign</a>, the rules for playing each Mission are the same:
-              </p>
-              <ol>
-                <li>Select a Battlefield</li>
-                <li>Each Squad secretly rolls their Objective (1D6 Archetype + 1D6 Variation)</li>
-                <li>Reveal Objectives simultaneously</li>
-                <li>Set up your Squads (place markers per each Squad's Objective)</li>
-                <li>Roll a random Deployment</li>
-                <li>Play!</li>
-              </ol>
-            </div>
-            
+            <h2 className="mt-4">Playing a Mission</h2>
+            <p>
+              These missions are designed to be played as quick, one-off skirmishes perfect for pick-up or competitive play.
+              <br/>
+              Each Mission is a single battle between two Squads, typically lasting 4 Turns. Victory in these engagements is decided by calculating the total Mission Points (MP) scored by each Squad at the end of Turn 4.
+              <br/>
+              Alternatively, you can use these missions to build your own <a className="underline" href="#campaigns">Campaign</a>.
+              A full Campaign is structured into three distinct Operations, and each Operation is composed of three Missions, totaling nine confrontations.
+              These missions offer unique tactical puzzles and narrative flavor, challenging you to adapt your strategy to shifting objectives and hostile environments.
+            </p>
+            <br/><br/>
+            <p>
+              Whether you are playing a quick one-off mission or a long, epic <a className="underline" href="#campaigns">campaign</a>, the rules for playing each Mission are the same:
+            </p>
+            <ol>
+              <li>Select a Battlefield</li>
+              <li>Roll a random Deployment</li>
+              <li>Each Squad secretly rolls their Objective (1D6 Archetype + 1D6 Variation)</li>
+              <li>Reveal Objectives simultaneously</li>
+              <li>Set up your Squads (place markers per each Squad's Objective)</li>
+              <li>Play!</li>
+            </ol>
+          
             {/* Battlefields */}
-            <div className="section">
-              <h3>Battlefields (D6)</h3>
-              {MissionBattlefields.map((b) => (
-                <div key={b.battlefieldId}>
-                  <strong>{b.battlefieldId}: {b.title}</strong>
-                  <div className="ml-4">
-                    <strong>{b.effectName}</strong>
-                    <Markdown>{b.effect}</Markdown>
-                  </div>
+            <h3>Battlefields</h3>
+            {MissionBattlefields.map((b) => (
+              <div key={b.battlefieldId} className="section">
+                <strong>{b.battlefieldId}: {b.title}</strong>
+                <div className="ml-4">
+                  <strong>{b.effectName}</strong>
+                  <Markdown>{b.effect}</Markdown>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
+          <div className="section twocols">
             {/* Deployments */}
             <div className="section">
               <h3>Deployments</h3>
@@ -135,14 +133,12 @@ export default async function PvPMissions() {
               The player without Turn 1 initiative deploys their first Unit, then the player with initiative deploys one Unit, and so on until all Units are deployed.
               The player with initiative activates first in Turn 1.
               {MissionDeployments.map((d) => (
-                <div key={d.deploymentId}>
+                <div key={d.deploymentId} className="section">
                   <strong>{d.deploymentId}: {d.title}</strong>
                   <div className="ml-4">{d.description}</div>
                 </div>
               ))}
-            </div>
 
-            <div className="section">
               <h3>Objectives (2D6)</h3>
               <p className="mb-4">
                 At mission start, each Squad secretly rolls their Objective using 2D6: roll 1D6 for the <strong>Archetype</strong>, then 1D6 for the <strong>Variation</strong>.
@@ -150,7 +146,7 @@ export default async function PvPMissions() {
               </p>
               <div className="twocols">
                 {MissionObjectives.map((archetype) => (
-                  <div key={archetype.objectiveArchetypeId}>
+                  <div key={archetype.objectiveArchetypeId} className="section">
                     <h4>{archetype.objectiveArchetypeId}: {archetype.title}</h4>
                     <div className="ml-4">
                       {archetype.variations.map((v) => {
@@ -181,7 +177,6 @@ export default async function PvPMissions() {
               <h3>Campaign Structure</h3>
               <p className="mb-4">
                 A Campaign is composed of three Operations, each composed of three Missions.
-                At the end of each Operation, both Squads return to Homebase to heal injuries and spend their earned Spoils of War.
               </p>
               <ol>
                 <li>Operation 1 - Missions 1.1, 1.2, 1.3 - Homebase</li>
@@ -242,7 +237,9 @@ export default async function PvPMissions() {
               <h3>Injuries</h3>
               <p>
                 At the end of each Mission, each of your Units that was Taken Out during the mission may have a persistent injury.
-                Note that when playing a campaign, one Injury may be removed from each Unit (except Deceased) when they return to Homebase at the end of each Operation.
+                Between Missions within an Operation, the Squad may remove one Injury from a single Unit of their choice (not one per Unit - one total).
+                At Homebase at the end of each Operation, one Injury may be removed from each Unit.
+                Note that Deceased is not an Injury, it is permanent, and cannot be removed by either recovery step.
               </p>
               <p>
                 At the end of each Mission, for each Player Unit that was Taken Out, roll <code>1D6</code> to determine the Injury this Unit received.<br/>
