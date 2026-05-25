@@ -9,17 +9,6 @@ export default async function RulesMovement({ num }: {num?: number | null}) {
       </h2>
       <div className="section twocols">
         <div className="section">
-          <h3>Battlefield</h3>
-          <p>
-            The Battlefield is typically 2' by 2', or 60cm x 60cm. Other valid formats include 3' x 3', 2' x 3', and 30" x 22".
-            {/*All movement and distance/range measurements are done by counting <strong>Paces</strong>.<br/>*/}
-            You can bring your own battlefield, or use our print-at-home <a className="underline" href="/tools">Battlefields</a> with a pre-marked grid.
-          </p>
-          <p>
-            If you prefer to play with a grid, see <a className="underline" href="#playingonagrid">Playing on a Grid</a> for details.
-          </p>
-
-          <h4 id="movement">Movement</h4>
           <p>
             When a Unit performs a Move Action, the maximum distance it can travel is <code>6"</code>.
           </p>

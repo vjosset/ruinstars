@@ -17,6 +17,7 @@ import RulesQuickRef from './sections/rules-quickref'
 import PageBreak from '@/components/ui/PageBreak'
 import PageTitle from '@/components/ui/PageTitle'
 import RulesPlayingOnAGrid from './sections/rules-playingonagrid'
+import RulesBattlefield from './sections/rules-battlefield'
 
 export async function generateMetadata() {
   return generatePageMetadata({
@@ -59,20 +60,22 @@ export default async function CoreRules() {
 
         <RulesGameCycle num={3} />
 
-        <RulesStatCards num={4} />
+        <RulesBattlefield num={4} />
 
-        <RulesActions num={5} />
+        <RulesStatCards num={5} />
 
-        <RulesMovement num={6} />
+        <RulesActions num={6} />
 
-        <RulesCombat num={7} />
+        <RulesMovement num={7} />
 
-        <RulesYourSquad num={8} />
+        <RulesCombat num={8} />
+
+        <RulesYourSquad num={9} />
 
         <PageBreak />
-        <RulesPlayingOnAGrid num={9} />
+        <RulesPlayingOnAGrid num={10} />
 
-        <RulesFirstMission num={10} />
+        <RulesFirstMission num={11} />
 
         <PageBreak />
         <PageTitle>Quick Reference</PageTitle>

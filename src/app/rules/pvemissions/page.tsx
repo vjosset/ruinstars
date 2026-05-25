@@ -278,7 +278,7 @@ export default async function PvEMissions() {
           <div>
             <h2>Campaigns</h2>
             <div className="twocols">
-              <div className="">
+              <div>
                 <h3>Campaign Structure</h3>
                 A Campaign is composed of three Operations, and each Operation is composed of three Missions.<br/>
                 At the end of each Operation, your Squad returns to Homebase to heal injuries, resupply, and recruit new Units into the Squad.

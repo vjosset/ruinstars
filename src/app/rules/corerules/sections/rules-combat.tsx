@@ -9,7 +9,7 @@ export default async function RulesCombat({ num }: {num?: number | null}) {
         {num && `${num}. `}Combat
       </h2>
       <div className="twocols">
-        <div className="">
+        <div>
           <h3>Ranged Combat</h3>
           <h4>Sequence</h4>
           <ol>

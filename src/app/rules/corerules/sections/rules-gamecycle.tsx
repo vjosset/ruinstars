@@ -8,46 +8,46 @@ export default async function RulesGameCycle({ num }: {num?: number | null}) {
       <div className="section">
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="border border-main rounded-md p-2">
-            <h3 className="text-center font-title tracking-wide mb-2">MISSION START</h3>
+            <h4 className="text-center font-title tracking-wide mb-2">MISSION START</h4>
             
             <div className="grid gap-y-4 px-8">
-              <div className="rounded-md bg-main px-3 py-2 text-center text-sm uppercase tracking-wide">
+              <div className="rounded-md bg-main px-3 py-1 text-center text-sm uppercase tracking-wide">
                 Select Mission
               </div>
-              <div className="rounded-md bg-main px-3 py-2 text-center text-sm uppercase tracking-wide">
+              <div className="rounded-md bg-main px-3 py-1 text-center text-sm uppercase tracking-wide">
                 Prepare Battlefield
               </div>
-              <div className="rounded-md bg-main px-3 py-2 text-center text-sm uppercase tracking-wide">
+              <div className="rounded-md bg-main px-3 py-1 text-center text-sm uppercase tracking-wide">
                 Deploy Units
               </div>
             </div>
           </div>
           <div className="border border-main rounded-md p-2">
-            <h3 className="text-center font-title tracking-wide mb-2">TURNS (1-4)</h3>
+            <h4 className="text-center font-title tracking-wide mb-2">TURNS (1-4)</h4>
             
             <div className="grid gap-4 px-8">
-              <div className="rounded-md bg-main px-3 py-2 text-center text-sm uppercase tracking-wide">
+              <div className="rounded-md bg-main px-3 py-1 text-center text-sm uppercase tracking-wide">
                 Start of Turn
               </div>
-              <div className="rounded-md bg-main px-3 py-2 text-center text-sm uppercase tracking-wide">
+              <div className="rounded-md bg-main px-3 py-1 text-center text-sm uppercase tracking-wide">
                 Activate Units
               </div>
-              <div className="rounded-md bg-main px-3 py-2 text-center text-sm uppercase tracking-wide">
+              <div className="rounded-md bg-main px-3 py-1 text-center text-sm uppercase tracking-wide">
                 End of Turn
               </div>
             </div>
           </div>
           <div className="border border-main rounded-md p-2">
-            <h3 className="text-center font-title tracking-wide mb-2">MISSION END</h3>
+            <h4 className="text-center font-title tracking-wide mb-2">MISSION END</h4>
             
             <div className="grid gap-4 px-8">
-              <div className="rounded-md bg-main px-3 py-2 text-center text-sm uppercase tracking-wide">
+              <div className="rounded-md bg-main px-3 py-1 text-center text-sm uppercase tracking-wide">
                 Victory
               </div>
-              <div className="rounded-md bg-main px-3 py-2 text-center text-sm uppercase tracking-wide">
+              <div className="rounded-md bg-main px-3 py-1 text-center text-sm uppercase tracking-wide">
                 Earn MP
               </div>
-              <div className="rounded-md bg-main px-3 py-2 text-center text-sm uppercase tracking-wide">
+              <div className="rounded-md bg-main px-3 py-1 text-center text-sm uppercase tracking-wide">
                 Apply Injuries
               </div>
             </div>

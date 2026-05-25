@@ -73,40 +73,36 @@ export default async function RulesAnchors() {
   } satisfies BattlefieldDiagramConfig
 
   return (
-    <>
-      <h2>Anchors</h2>
-      <div className="section">
-        <div className="twocols">
-          <div className="section">
-            Some Objectives and Events include placing markers or tokens on "Anchors".
-            Anchors are nine fixed reference points arranged across the battlefield by compass direction:
-            the four corners (NW, NE, SW, SE),
-            the four edge midpoints (N, S, E, W),
-            and the Center (C), as illustrated below.
-            <br/>
-            When an Objective or Event instructs you to place a marker on a random Anchor, roll <code>1D10</code> and consult the Anchor diagram.
-            On a roll of 10, select any unoccupied Anchor of your choice. If an Anchor is already occupied, re-roll that placement.<br/>
-            Note that these Anchor positions work the same on any battlefield size.
-          </div>
-          <div className="section">
-            To place your Anchors, use the following measurements from the battlefield edges:
-            <ul>
-              <li>Corner Anchors (NW, NE, SW, SE): 4" from each adjacent edge</li>
-              <li>Cardinal Anchors (N, S, E, W): 4" from their adjacent edge, centered on that edge</li>
-              <li>Center (C): The center of the battlefield</li>
-            </ul>
-          </div>
+    <div>
+      <div>
+        <div>
+          Anchors are used to place units, objectives, and markers, and to apply battlefield effects or special Unit skills.
+          Anchors are nine fixed reference points arranged across the battlefield by compass direction:
+          the four corners (NW, NE, SW, SE),
+          the four edge midpoints (N, S, E, W),
+          and the Center (C), as illustrated below.<br/>
+          When an Objective or Event instructs you to place a marker on a random Anchor, roll <code>1D10</code> and consult the Anchor diagram.
+          On a roll of <code>10</code>, select any unoccupied Anchor of your choice. If an Anchor is already occupied, re-roll that placement.<br/>
+          Note that these Anchor positions work the same on any battlefield size.
         </div>
-        <div style={{ display: 'flex', alignItems: 'flex-start', width: '100%' }}>
-          <div style={{ flex: 4 }}>
-            <strong>2' x 2' Battlefield (Standard)</strong>
-            <BattlefieldDiagram diagram={anchors24Diagram} className="max-w" />
-          </div>
-          <div style={{ flex: 5 }}>
-            <strong>30" x 22" Battlefield</strong>
-            <BattlefieldDiagram diagram={anchors30Diagram} className="max-w" />
-          </div>
+        <div>
+          To place your Anchors, use the following measurements from the battlefield edges:
+          <ul>
+            <li>Corner Anchors (NW, NE, SW, SE): 4" from each adjacent edge</li>
+            <li>Cardinal Anchors (N, S, E, W): 4" from their adjacent edge, centered on that edge</li>
+            <li>Center (C): The center of the battlefield</li>
+          </ul>
         </div>
       </div>
-    </>
+      <div style={{ display: 'flex', alignItems: 'flex-start', width: '100%' }}>
+        <div style={{ flex: 4 }}>
+          <strong>2' x 2' Battlefield (Standard)</strong>
+          <BattlefieldDiagram diagram={anchors24Diagram} className="max-w" />
+        </div>
+        <div style={{ flex: 5 }}>
+          <strong>30" x 22" Battlefield</strong>
+          <BattlefieldDiagram diagram={anchors30Diagram} className="max-w" />
+        </div>
+      </div>
+    </div>
   )}
