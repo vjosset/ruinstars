@@ -18,8 +18,9 @@ import { Menu, MenuButton } from '@headlessui/react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { FiDownload, FiEdit2, FiMoreVertical, FiShare2 } from 'react-icons/fi'
+import { FiDownload, FiMoreVertical, FiShare2 } from 'react-icons/fi'
 import { toast } from 'sonner'
+import { FaPencil } from 'react-icons/fa6'
 
 export default function SquadPageClient({
   initialSquad,
@@ -259,11 +260,11 @@ export default function SquadPageClient({
             </PageTitle>
             {isOwner && (
               <sup 
-                className="text-sm flex items-center w-6 h-6 jutify-top"
+                className="text-xs flex items-center w-6 h-6 jutify-top"
                 onClick={handleEditSquadClick}
                 aria-label="Edit squad info"
               >
-                <FiEdit2/>
+                <FaPencil />
               </sup>
             )}
           </div>
