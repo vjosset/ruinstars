@@ -126,7 +126,7 @@ body {
 
 .statbox {
   /*@apply flex flex-col items-center border border-border rounded px-2 py-1 flex-1;*/
-	@apply flex flex-col items-center bg-black rounded px-2 pt-1 pb-0 flex-1 border border-main;;
+	@apply flex flex-col items-center bg-black rounded px-2 pt-1 pb-0 flex-1 border border-main;
 }
 .statbox-label {
   @apply text-xs font-heading text-muted uppercase leading-none;
@@ -453,8 +453,8 @@ code {
     height: 9.5in;
     */
     /* Tarot vertical 66% dimensions */
-    width: 4.2in;
-    height: 7.2in;
+    width: 4.4in;
+    height: 7in;
     page-break-inside: avoid;
     break-inside: avoid;
   }

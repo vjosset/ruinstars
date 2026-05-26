@@ -22,6 +22,7 @@ type UnitCardProps = {
   seq: number
   isOwner: boolean
   allSpecials: SpecialRule[]
+  showUnitType?: boolean
   onUnitUpdated?: (u: UnitPlain) => void
   onMoveUp?: () => void
   onMoveFirst?: () => void
@@ -37,6 +38,7 @@ export default function UnitCard({
   seq,
   isOwner,
   allSpecials,
+  showUnitType = true,
   onUnitUpdated,
   onMoveUp,
   onMoveFirst,
@@ -220,8 +222,8 @@ export default function UnitCard({
         </div>
 
         {/* Footer */}
-        {/* Note we hide this for UnitType cards since we moved all Unit specials to Abilities for clarity */}
-        {!unit.isUnitType && (
+        {/* Note we hide this for UnitType cards */}
+        {!unit.isUnitType && showUnitType && (
           <div className="border-t border-border mt-auto p-1">
             <div className="flex justify-between items-center">
               <div className="text-sm">

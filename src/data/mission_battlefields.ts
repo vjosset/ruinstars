@@ -42,6 +42,7 @@ export const MissionBattlefields: MissionBattlefield[] = [
     effectName: 'Shifting Realities',
     effect: 'At the start of each Turn after the first, select one random Anchor, then roll `1D6`. **1-3:** All Units within 4" of that Anchor immediately move 2" directly toward it. **4-6:** All Units within 4" of that Anchor immediately move 2" directly away from it. This does not trigger Attacks of Opportunity.',
   },
+  /*
   {
     battlefieldId: 'TRENCH',
     title: 'The Trenches',
@@ -59,4 +60,5 @@ export const MissionBattlefields: MissionBattlefield[] = [
     effectName: 'Hull Breach',
     effect: 'At the start of each Turn after the first, select one random Anchor. A hull breach opens: all Units within 3" of that Anchor must pass an ARM test or be dragged 3" directly toward that Anchor. Units dragged into a wall or other Unit take 1 Damage. This does not trigger Attacks of Opportunity.',
   },
+  */
 ]
