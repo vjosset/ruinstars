@@ -163,7 +163,7 @@ export default function MissionsQuickRef() {
               <TableRow roll="2" label="The Facility — Darkness"              effect='Select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.' />
               <TableRow roll="3" label="The Jungle — Miasmic Mist"            effect='Select one random Standing Unit from each Squad. That Unit moves 2" three times in random directions (no AoO). If blocked, it takes 1 Melee Damage.' />
               <TableRow roll="4" label="The Alien Hive — Noxious Gas"         effect='Select a random Anchor. All Units within 4" take 1 Damage.' />
-              <TableRow roll="5" label="The Cursed Temple — Haunting Spirits" effect="Select one random Unit from each Squad. That Unit immediately attacks the closest Unit in Combat, Squadmate or enemy." />
+              <TableRow roll="5" label="The Cursed Temple — Haunting Spirits" effect="Select one random Unit from each Squad. That Unit immediately attacks the closest valid target in Combat, Squadmate or enemy." />
               <TableRow roll="6" label="The Rift — Shifting Realities"        effect='Select a random Anchor, then roll 1D6. 1–3: All Units within 4" move 2" toward it (no AoO). 4–6: All Units within 4" move 2" away from it (no AoO).' last />
             </tbody>
           </table>

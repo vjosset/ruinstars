@@ -34,7 +34,7 @@ export const MissionBattlefields: MissionBattlefield[] = [
     battlefieldId: 'TEMPLE',
     title: 'The Cursed Temple',
     effectName: 'Haunting Spirits',
-    effect: 'At the start of each Turn after the first, select one random Unit from each Squad. That Unit is overtaken by the temple\'s restless spirits and immediately attacks the closest Unit in Combat, Squadmate or enemy.',
+    effect: 'At the start of each Turn after the first, select one random Unit from each Squad. That Unit is overtaken by the temple\'s restless spirits and immediately attacks the closest valid target in Combat, Squadmate or enemy.',
   },
   {
     battlefieldId: 'RIFT',
