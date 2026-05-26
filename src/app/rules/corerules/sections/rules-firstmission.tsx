@@ -36,12 +36,12 @@ export default async function RulesFirstMission({ num }: {num?: number | null}) 
               Ruinstars is designed around three distinct ways to play, each with its own book that builds on these Core Rules:
               <ul>
                 <li>
-                  <PDFLink href="/assets/books/PvE Missions - Ruinstars.pdf" title="PvE Missions" /> is the recommended next step for most players.
+                  PvE <PDFLink href="/assets/books/Missions - Ruinstars.pdf" title="Missions" /> is the recommended next step for most players.
                   It adds procedurally generated missions, cooperative or solo squad play, campaign structure with persistent injuries and rewards, and a roster of NPC factions to fight against.
                   Pick this up if you want solo or co-op play with narrative progression.
                 </li>
                 <li>
-                  <PDFLink href="/assets/books/PvP Missions - Ruinstars.pdf" title="PvP Missions" /> pits two players head-to-head with their own custom squads across a set of competitive missions with their own campaign structure.
+                  PvP/competitive <PDFLink href="/assets/books/Missions - Ruinstars.pdf" title="Missions" /> pit two players head-to-head with their own custom squads across a set of competitive missions with their own campaign structure.
                   Pick this up if you want to test your squad-building and tactics against another player.
                 </li>
                 <li>

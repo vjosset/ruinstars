@@ -21,8 +21,7 @@ export async function GET() {
     '/blog',
     '/assets/books/Core Rules - Ruinstars.pdf',
     '/assets/books/Factions - Ruinstars.pdf',
-    '/assets/books/PvE Missions - Ruinstars.pdf',
-    '/assets/books/PvP Missions - Ruinstars.pdf',
+    '/assets/books/Missions - Ruinstars.pdf',
     '/assets/books/Horde Mode - Ruinstars.pdf',
   ]
 
