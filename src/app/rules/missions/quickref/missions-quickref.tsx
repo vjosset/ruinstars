@@ -195,7 +195,7 @@ export default function MissionsQuickRef() {
             <tbody>
               <TableRow roll="1-2" label="Hold the Line"  effect="Control all 3 Objectives at the end of any one Turn." />
               <TableRow roll="3-4" label="Sustained Hold" effect="Control 2+ Objectives at the end of two consecutive Turns." />
-              <TableRow roll="5-6" label="Clear and Move" effect="Control 1+ Objective at end of three consecutive Turns. Remove each controlled Objective at end of Turn." last />
+              <TableRow roll="5-6" label="Clear and Move" effect="Control 1+ Objective at end of three consecutive Turns. Remove one controlled Objective at end of Turn." last />
             </tbody>
           </table>
           <Divider />
