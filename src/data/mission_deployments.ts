@@ -1,16 +1,16 @@
 import { BattlefieldDiagramConfig } from '@/components/shared/BattlefieldDiagram'
 
-const PS  = '#2563eb' // player deployment
-const NPC = '#dc2626' // NPC deployment
+const SA = '#2563eb' // Squad A deployment
+const SB = '#dc2626' // Squad B deployment
 
-export type MissionDeployment = {
+export type Deployment = {
   deploymentId: string;
   title: string;
   description: string;
   diagram: BattlefieldDiagramConfig;
 };
 
-export const MissionDeployments: MissionDeployment[] = [
+export const MissionDeployments: Deployment[] = [
   {
     deploymentId: '1',
     title: 'Standard Insertion',
@@ -18,12 +18,12 @@ export const MissionDeployments: MissionDeployment[] = [
     diagram: {
       showCenterLines: true,
       elements: [
-        { id: 'PS-SW', type: 'circle', anchor: 'SW', rIn: 2, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'PS-S',  type: 'circle', anchor: 'S',  rIn: 2, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'PS-SE', type: 'circle', anchor: 'SE', rIn: 2, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-NW', type: 'circle', anchor: 'NW', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-N',  type: 'circle', anchor: 'N',  rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-NE', type: 'circle', anchor: 'NE', rIn: 2, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-SW', type: 'circle', anchor: 'SW', rIn: 2, color: SA, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-S',  type: 'circle', anchor: 'S',  rIn: 2, color: SA, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-SE', type: 'circle', anchor: 'SE', rIn: 2, color: SA, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-NW', type: 'circle', anchor: 'NW', rIn: 2, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-N',  type: 'circle', anchor: 'N',  rIn: 2, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-NE', type: 'circle', anchor: 'NE', rIn: 2, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
       ],
     },
   },
@@ -34,14 +34,14 @@ export const MissionDeployments: MissionDeployment[] = [
     diagram: {
       showCenterLines: true,
       elements: [
-        { id: 'PS-N', type: 'circle', anchor: 'N', rIn: 1.5, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'PS-S', type: 'circle', anchor: 'S', rIn: 1.5, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'PS-E', type: 'circle', anchor: 'E', rIn: 1.5, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'PS-W', type: 'circle', anchor: 'W', rIn: 1.5, color: PS, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-NW', type: 'circle', anchor: 'NW', rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-NE', type: 'circle', anchor: 'NE', rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-SW', type: 'circle', anchor: 'SW', rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-SE', type: 'circle', anchor: 'SE', rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-N', type: 'circle', anchor: 'N', rIn: 1.5, color: SA, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-S', type: 'circle', anchor: 'S', rIn: 1.5, color: SA, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-E', type: 'circle', anchor: 'E', rIn: 1.5, color: SA, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-W', type: 'circle', anchor: 'W', rIn: 1.5, color: SA, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-NW', type: 'circle', anchor: 'NW', rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-NE', type: 'circle', anchor: 'NE', rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-SW', type: 'circle', anchor: 'SW', rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-SE', type: 'circle', anchor: 'SE', rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
       ],
     },
   },
@@ -52,9 +52,9 @@ export const MissionDeployments: MissionDeployment[] = [
     diagram: {
       showCenterLines: true,
       elements: [
-        { id: 'PS-S',   type: 'circle', anchor: 'S',  rIn: 4,   color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-NW', type: 'circle', anchor: 'NW', rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-NE', type: 'circle', anchor: 'NE', rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-S',   type: 'circle', anchor: 'S',  rIn: 4,   color: SA,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-NW', type: 'circle', anchor: 'NW', rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-NE', type: 'circle', anchor: 'NE', rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
       ],
     },
   },
@@ -65,8 +65,8 @@ export const MissionDeployments: MissionDeployment[] = [
     diagram: {
       showCenterLines: true,
       elements: [
-        { id: 'PS-SE',  type: 'circle', anchor: 'SE', rIn: 4, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-NW', type: 'circle', anchor: 'NW', rIn: 4, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-SE',  type: 'circle', anchor: 'SE', rIn: 4, color: SA,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-NW', type: 'circle', anchor: 'NW', rIn: 4, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
       ],
     },
   },
@@ -77,12 +77,12 @@ export const MissionDeployments: MissionDeployment[] = [
     diagram: {
       showCenterLines: true,
       elements: [
-        { id: 'PS-SW', type: 'circle', anchor: 'SW', rIn: 1.5, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'PS-S',  type: 'circle', anchor: 'S',  rIn: 1.5, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'PS-SE', type: 'circle', anchor: 'SE', rIn: 1.5, color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-W', type: 'circle', anchor: 'W',  rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-N', type: 'circle', anchor: 'N',  rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-E', type: 'circle', anchor: 'E',  rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-SW', type: 'circle', anchor: 'SW', rIn: 1.5, color: SA,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-S',  type: 'circle', anchor: 'S',  rIn: 1.5, color: SA,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-SE', type: 'circle', anchor: 'SE', rIn: 1.5, color: SA,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-W', type: 'circle', anchor: 'W',  rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-N', type: 'circle', anchor: 'N',  rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-E', type: 'circle', anchor: 'E',  rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
       ],
     },
   },
@@ -93,11 +93,11 @@ export const MissionDeployments: MissionDeployment[] = [
     diagram: {
       showCenterLines: true,
       elements: [
-        { id: 'PS-C',   type: 'circle', anchor: 'C',  rIn: 4,   color: PS,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-NW', type: 'circle', anchor: 'NW', rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-NE', type: 'circle', anchor: 'NE', rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-SW', type: 'circle', anchor: 'SW', rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
-        { id: 'NPC-SE', type: 'circle', anchor: 'SE', rIn: 1.5, color: NPC, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'PS-C',   type: 'circle', anchor: 'C',  rIn: 4,   color: SA,  fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-NW', type: 'circle', anchor: 'NW', rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-NE', type: 'circle', anchor: 'NE', rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-SW', type: 'circle', anchor: 'SW', rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
+        { id: 'NPC-SE', type: 'circle', anchor: 'SE', rIn: 1.5, color: SB, fillOpacity: 0.15, showLabel: false, showInLegend: false },
       ],
     },
   },

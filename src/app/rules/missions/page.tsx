@@ -119,7 +119,7 @@ export default async function Missions() {
                 </ul>
               </div>
               <div className="section border border-main rounded-md px-6 py-2 mx-16">
-                <h4>Mission Setup</h4>
+                <h4>Mission Sequence</h4>
                 <ol className="ml-4">
                   <li>Select Squads</li>
                   <li>Roll Battlefield</li>

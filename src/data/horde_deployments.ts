@@ -1,6 +1,6 @@
 import { MissionPlain } from '@/types'
 
-const hordemaps = [
+const HordeDeployments = [
   {
     missionId: '1',
     missionType: 'Primary',
@@ -157,4 +157,4 @@ const hordemaps = [
   },
 ] satisfies MissionPlain[]
 
-export default hordemaps
+export default HordeDeployments
