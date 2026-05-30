@@ -103,7 +103,6 @@ export default async function Missions() {
           </div>
         </div>
 
-        <PageBreak />
         {/* Mission Setup */}
         <div className="section">
           <div className="section">
@@ -133,6 +132,7 @@ export default async function Missions() {
           </div>
         </div>
 
+        <PageBreak />
         {/* PvP Missions */}
         <div className="section">
           <h2>PvP Missions</h2>
