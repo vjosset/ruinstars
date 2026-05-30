@@ -38,10 +38,10 @@ export default function Modal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-2 border-b border-border sticky top-0 z-10">
+        <div className="flex items-center justify-between py-1 px-2 border-b border-border sticky top-0 z-10">
           <h5 className="text-main font-bold font-heading">{title}</h5>
           <button
-            className="text-muted hover:text-main w-8 h-8 flex items-center justify-center"
+            className="text-muted hover:text-main w-4 h-4 flex items-center justify-center"
             onClick={onClose}
             aria-label="Close modal"
           >
