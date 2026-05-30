@@ -214,8 +214,8 @@ export default function HordeModeQuickRef() {
         <Card>
           <SH>Wave End Scoring</SH>
           <div className="text-xs space-y-0.5 mb-1.5">
-            <div><Br>+1 MP</Br> <span className="text-muted">per TL (base)</span></div>
-            <div><Br>+1 MP</Br> <span className="text-muted">per TL per Player-Controlled Objective</span></div>
+            <div><Hi>Base:</Hi> <Br>+1 MP</Br> <span className="text-muted">per TL (base)</span></div>
+            <div><Hi>Wave Speed Bonus:</Hi> <span className="text-muted">If the Wave ends on Turn 3 or earlier, gain +1 MP per Turn under 4 (Turn 3: +1 MP, Turn 2: +2 MP, Turn 1: +3 MP)</span></div>
           </div>
           <Divider />
           <SH>MP Rewards</SH>
@@ -224,7 +224,7 @@ export default function HordeModeQuickRef() {
             <div><Br>1 MP</Br> <span className="text-muted">+2 TO for next Wave</span></div>
             <div><Br>1 MP</Br> <span className="text-muted">1 free Action before next Wave</span></div>
             <div><Br>2 MP</Br> <span className="text-muted">One Unit regains 1 lost HIT</span></div>
-            <div><Br>3 MP</Br> <span className="text-muted">Downed Unit returns (1 HIT + Injury)</span></div>
+            <div><Br>3 MP</Br> <span className="text-muted">Revive downed Unit (1/2 HIT + Injury)</span></div>
             <div><Br>3 MP</Br> <span className="text-muted">One Standing Unit gains Spoil of War</span></div>
           </div>
         </Card>
@@ -249,7 +249,7 @@ export default function HordeModeQuickRef() {
               <P>
                 A <Hi>Standing Unit</Hi> that Controls a Downed Squadmate may revive it.
                 A <Hi>Downed Unit</Hi> may revive itself if it Controls a Standing Squadmate.
-                Returns with <Hi>1 HIT</Hi> + 1 random Injury.
+                Returns with <Hi>1/2 HIT</Hi> + 1 random Injury.
               </P>
               <P className="text-muted">
                 If all Player Units are Downed simultaneously: session ends in failure.

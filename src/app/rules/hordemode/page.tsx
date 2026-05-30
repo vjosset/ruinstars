@@ -5,8 +5,8 @@ import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { GearCategoryService, SpecialService, UserService } from '@/services'
 import UnitCard from '@/components/unit/UnitCard'
 import { PDFLink } from '@/components/nav/Links'
-import BattlefieldDiagram from '@/components/shared/BattlefieldDiagram'
 import { MissionDeployments } from '@/data/mission_deployments'
+import { HordeTurnEvents } from '@/data/horde_events'
 import HordeModeQuickRef from './quickref/hordemode-quickref'
 
 export async function generateMetadata() {
@@ -58,7 +58,7 @@ export default async function HordeMode() {
 
       <div className="rules px-3 max-w-7xl mx-auto">
 
-        {/* ── Title + Intro ───────────────────────────────────────────────── */}
+        {/* Title + Intro */}
         <div className="section">
           <h1 className="text-center pt-48 mb-12 font-title" id="hordemode" style={{position: 'relative', top: '50%'}}>
             Horde Mode
@@ -97,91 +97,50 @@ export default async function HordeMode() {
           </div>
         </div>
 
-        {/* ── The Game Cycle ──────────────────────────────────────────────── */}
+        {/* The Game Cycle */}
         <div className="section">
           <h2>The Game Cycle</h2>
           <div className="section twocols">
-            <div className="section border border-main rounded-md px-6 py-2 mx-16">
-              <div className="space-y-3">
-                <div>
-                  <div className="text-muted uppercase tracking-wider text-xs mb-1 font-heading">Session Start</div>
-                  <div className="font-heading font-bold text-sm tracking-wider">
-                    SELECT DEPLOYMENT › SELECT NPC FACTION › DEPLOY SQUAD
-                  </div>
-                </div>
-                <div className="w-full h-px bg-border" />
-                <div>
-                  <div className="text-muted uppercase tracking-wider text-xs mb-1 font-heading">Each Act <span className="normal-case">(3 Acts per Session)</span></div>
-                  <div className="font-heading font-bold text-sm tracking-wider">
-                    PLACE OBJECTIVES › SET THREAT LEVEL › PLAY 3 WAVES
-                  </div>
-                </div>
-                <div className="w-full h-px bg-border" />
-                <div>
-                  <div className="text-muted uppercase tracking-wider text-xs mb-1 font-heading">Each Wave</div>
-                  <div className="font-heading font-bold text-sm tracking-wider">
-                    SPAWN NPC UNITS › PLAY TURNS › WAVE END
-                  </div>
-                </div>
-                <div className="w-full h-px bg-border" />
-                <div>
-                  <div className="text-muted uppercase tracking-wider text-xs mb-1 font-heading">Each Turn</div>
-                  <div className="font-heading font-bold text-sm tracking-wider">
-                    ROLL TO › ROLL TURN EVENT › ACTIVATIONS › END OF TURN
-                  </div>
-                </div>
-                <div className="w-full h-px bg-border" />
-                <div>
-                  <div className="text-muted uppercase tracking-wider text-xs mb-1 font-heading">Session End</div>
-                  <div className="font-heading font-bold text-sm tracking-wider">
-                    SCORE › CALCULATE RESULT
-                  </div>
-                </div>
-              </div>
-            </div>
             <div className="section">
               <p>
                 A Horde Mode session is divided into <strong>3 Acts</strong>, each containing <strong>3 Waves</strong>.
                 Each Wave lasts until all NPC units are Taken Out, after which players score MP, spend it on rewards, and prepare the next Wave.
               </p>
               <p>
-                The session ends when all 9 Waves are completed — or when a Failure condition is met.
+                The session ends when all 9 Waves are completed - or when a Failure condition is met.
               </p>
+            </div>
+            <div className="section border border-main rounded-md px-6 py-2 mx-16">
+              <h4>Mission Sequence</h4>
+              <ol className="ml-4">
+                <li>Select Squads</li>
+                <li>Select Deployment</li>
+                <li>Place Objectives</li>
+                <li>Play Acts and Waves</li>
+                <li>Mission Scoring</li>
+              </ol>
             </div>
           </div>
         </div>
 
-        {/* ── Setup ──────────────────────────────────────────────────────── */}
+        {/* Setup */}
         <div className="section">
           <h2>Setup</h2>
           <div className="section twocols">
             <div className="">
-              <h3>Deployment</h3>
-              <p>
-                Select or roll a Deployment. The Deployment defines the player deployment zone and all NPC spawn points,
-                and remains fixed for the entire session.
-              </p>
-              <p>
-                In Horde Mode, the Player Squad is always <strong>Squad A</strong>, and the NPC Squad is always <strong>Squad B</strong>.
-              </p>
-              <p>
-                Deploy all Player Units in the player deployment zone before the first Wave begins.
-              </p>
-            </div>
-            <div className="">
-              <h3>Squad Formats</h3>
+              <h3>Player Squads</h3>
               <p>
                 In Horde Mode, players deploy a standard <strong>100 GP Squad</strong>.
                 When playing cooperatively, players may choose one of the following formats:
               </p>
-              <p className="mb-2"><strong>Shared Squad:</strong> Players share control of one full 100 GP Squad, taking turns activating Units.</p>
-              <p className="mb-2"><strong>Mini Squads:</strong> Each player builds a reduced Squad.</p>
-              <ul className="mb-4">
+              <p><strong>Shared Squad:</strong> Players share control of one full 100 GP Squad, taking turns activating Units.</p>
+              <p><strong>Mini Squads:</strong> Each player builds a reduced Squad.</p>
+              <ul>
                 <li>2 Players: 50 GP each</li>
                 <li>3 Players: 34 GP each</li>
                 <li>4 Players: 25 GP each</li>
               </ul>
-              <p className="mb-1">Notes:</p>
+              <p>Notes:</p>
               <ul>
                 <li>Units in different Mini Squads are considered Squadmates.</li>
                 <li>
@@ -193,6 +152,34 @@ export default async function HordeMode() {
                   If the Squad Leader is Taken Out, roll 3 TO dice, regardless of whether other Leaders are Standing.
                 </li>
               </ul>
+            </div>
+            <div className="">
+              <h3>NPC Squads</h3>
+              <p>
+                NPC Squads are deployed at the start of each Wave according to the Act's Threat Level. 
+                These NPC Squads use the same Units as PvE Missions and are listed along with their Spawn Table at the end of this book.
+              </p>
+            </div>
+            <div className="section">
+              <h3>Deployment</h3>
+              <p>
+                Select or roll a Deployment. The Deployment defines the player deployment zone and all NPC spawn points,
+                and remains fixed for the entire session.
+              </p>
+              <p>
+                In Horde Mode, the Player Squad is always <strong>Squad A</strong>, and the NPC Squad is always <strong>Squad B</strong>.
+              </p>
+              <p>
+                Deploy all Player Units in the player deployment zone before the first Wave begins.
+              </p>
+              <div className="section">
+                {MissionDeployments.map((d) => (
+                  <div key={d.deploymentId} className="section">
+                    <strong>{d.deploymentId}: {d.title}</strong>
+                    <div className="ml-4">{d.description}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -208,7 +195,7 @@ export default async function HordeMode() {
               <p>
                 A session is composed of 3 Acts. Each Act is composed of 3 Waves.
               </p>
-              <p className="mb-2">At the start of each Act:</p>
+              <p>At the start of each Act:</p>
               <ol>
                 <li>
                   <strong>Select NPC Faction.</strong> Roll or select a random NPC Faction.
@@ -231,11 +218,26 @@ export default async function HordeMode() {
                 </p>
               </div>
             </div>
+            
+            {/* Failure */}
+            <div className="section">
+              <h4>Failure</h4>
+              <p>
+                The session ends immediately if either of the following conditions is met:
+              </p>
+              <ul>
+                <li>All Player Units are Downed simultaneously, or</li>
+                <li>All three Objectives have been destroyed (reached 6 NPC Control Score and removed from play).</li>
+              </ul>
+              <p>
+                Score is calculated based on the number of Waves completed when the session ended.
+              </p>
+            </div>
 
             {/* Waves */}
-            <div className="section">
+            <div>
               <h3>Waves</h3>
-              <p className="mb-2">Each Wave follows this sequence:</p>
+              <p>Each Wave follows this sequence:</p>
               <ol>
                 <li>
                   <strong>Spawn NPC Units:</strong> Roll <code>3D6</code> and spawn NPC units per the current Threat Level Spawn Table.
@@ -248,23 +250,39 @@ export default async function HordeMode() {
                   <strong>Wave End:</strong> Score MP, spend MP on rewards, and prepare the next Wave.
                 </li>
               </ol>
-              <h4>NPC Spawn Points</h4>
-              <p>
-                When placing Spawned Units, place the first Unit Adjacent to the first Spawn Point,
-                the second Adjacent to the second Spawn Point, and so on.
-                When Spawn Points are exhausted, return to the first.
-              </p>
-              <h4>Reinforcements</h4>
-              <p>
-                From Turn 5 onward, roll <code>1D6</code> at the start of each Turn and spawn NPC reinforcements
-                per the current Threat Level Spawn Table (ignore quantity; spawn one Unit per die result).
-              </p>
+              <div className="section">
+                <h4>Reinforcements</h4>
+                <p>
+                  From Turn 5 onward, roll <code>1D6</code> at the start of each Turn and spawn NPC reinforcements
+                  per the current Threat Level Spawn Table (ignore quantity; spawn one Unit per die result).
+                </p>
+              </div>
+              <div className="section">
+                {/* Wave End */}
+                <h4>Wave End</h4>
+                <p>
+                  When all NPC Units are Taken Out, the Player Squad finishes the current Turn, then the Wave ends.
+                </p>
+                <h4>Score MP</h4>
+                <ul>
+                  <li><strong>Base: 1 MP</strong> per current Threat Level (base)</li>
+                  <li><strong>Wave Speed Bonus: +1 MP</strong> If the Wave ends on Turn 3 or earlier, gain +1 MP per Turn under 4 (Turn 3: +1 MP, Turn 2: +2 MP, Turn 1: +3 MP)</li>
+                </ul>
+                <h4>Spend MP</h4>
+                <p>
+                  Players may spend earned MP on Rewards (see MP and Rewards below).
+                </p>
+                <h4>Prepare Next Wave</h4>
+                <p>
+                  If this was Wave 3 of the current Act, prepare the next Act. Otherwise, prepare the next Wave.
+                </p>
+              </div>
             </div>
 
             {/* Turns */}
             <div className="section">
               <h3>Turns</h3>
-              <p className="mb-2">Each Turn follows this sequence:</p>
+              <p>Each Turn follows this sequence:</p>
               <ol>
                 <li><strong>Roll Tactical Orders (TO)</strong></li>
                 <li>
@@ -285,42 +303,6 @@ export default async function HordeMode() {
                   If no Standing NPC Units remain, the Wave ends.
                 </li>
               </ol>
-            </div>
-            
-            {/* Wave End */}
-            <div className="section">
-              <h3>Wave End</h3>
-              <p>
-                When all NPC Units are Taken Out, the Player Squad finishes the current Turn, then the Wave ends.
-              </p>
-              <h4>Score MP</h4>
-              <ul className="mb-4">
-                <li><strong>1 MP</strong> per current Threat Level (base)</li>
-                <li><strong>+1 MP</strong> for each Objective the Player Squad Controls at Wave end</li>
-              </ul>
-              <h4>Spend MP</h4>
-              <p>
-                Players may spend earned MP on Rewards (see MP and Rewards below).
-              </p>
-              <h4>Prepare Next Wave</h4>
-              <p>
-                If this was Wave 3 of the current Act, prepare the next Act. Otherwise, prepare the next Wave.
-              </p>
-            </div>
-            
-            {/* Failure */}
-            <div className="section">
-              <h3>Failure</h3>
-              <p className="mb-2">
-                The session ends immediately if either of the following conditions is met:
-              </p>
-              <ul className="mb-4">
-                <li>All Player Units are Downed simultaneously, or</li>
-                <li>All three Objectives have been destroyed (reached 6 NPC Control Score and removed from play).</li>
-              </ul>
-              <p>
-                Score is calculated based on the number of Waves completed when the session ended.
-              </p>
             </div>
           </div>
         </div>
@@ -354,29 +336,17 @@ export default async function HordeMode() {
             
             {/* NPC Behavior */}
             <div className="section">
-              <h3>NPC Behavior</h3>
+              <h3>NPC Spawn Points</h3>
               <p>
-                NPC units follow their faction&apos;s Behavior card. All NPC units in Horde Mode also follow
-                the <strong>Objective Drive</strong> behavior:
-              </p>
-              <h4>Objective Drive</h4>
-              <ul className="mb-2">
-                <li>If there is an Objective not Controlled by the Player Squad, move toward the nearest one.</li>
-                <li>
-                  If a Player Unit is in the way (within 6&quot; of the direct path to that Objective),
-                  engage it in combat before continuing.
-                </li>
-                <li>If all Objectives are Controlled by the Player Squad, engage the nearest Player Unit.</li>
-              </ul>
-              <p className="text-sm italic">
-                &ldquo;In the way&rdquo; means a Player Unit whose base falls within 6&quot; of the direct path
-                between this NPC Unit and its target Objective, measured horizontally.
+                When placing Spawned Units, place the first Unit Adjacent to the first Spawn Point,
+                the second Adjacent to the second Spawn Point, and so on.
+                When Spawn Points are exhausted, return to the first.
               </p>
             </div>
           </div>
         </div>
 
-        {/* ── Downed Units ────────────────────────────────────────────────── */}
+        {/* Downed Units */}
         <div className="section">
           <div className="twocols">
             <div className="section">
@@ -385,7 +355,7 @@ export default async function HordeMode() {
                 When a Player Unit reaches 0 HIT, it is <strong>Downed</strong> instead of being Taken Out.
                 Do not remove it from the battlefield. Place it on its side to indicate its Downed status.
               </p>
-              <p className="mb-2">Downed Units:</p>
+              <p>Downed Units:</p>
               <ul>
                 <li>Are ignored by NPC Units and cannot be targeted in combat.</li>
                 <li>Take no Damage.</li>
@@ -397,10 +367,9 @@ export default async function HordeMode() {
 
               <h4>Reviving a Downed Unit</h4>
               <p>
-                <strong>Mission Action — Revive — 2 ACT:</strong> A Standing Unit that Controls a Downed Squadmate may revive it.
-                A Downed Unit may also revive itself if it Controls a Standing Squadmate.
-                The revived Unit returns as Standing with 1 HIT remaining.
-                Apply one random Injury (see Injuries below).
+                <strong>Mission Action - Revive (2 ACT):</strong> A Standing Unit that Controls a Downed Squadmate may revive it.
+                A Downed Unit may also revive itself if it Controls a Standing Squadmate.<br/>
+                The revived Unit returns to Standing with one new Injury (see Injuries below) and half its HIT remaining (round up).
               </p>
               <p>
                 If all Player Units are Downed simultaneously, the session ends in failure.
@@ -411,23 +380,28 @@ export default async function HordeMode() {
               <h2>Turn Events</h2>
               <p>
                 At the start of each Turn, roll on the Turn Events table.
-                On Turn 5 or later, do not roll; apply Enemy Reinforcements automatically.
+                This roll can be modified by spending your <code>TO</code>.
+                On Turns 5 or later, do not roll; apply Enemy Reinforcements automatically.
               </p>
-              <div className="border border-dashed border-border rounded-md p-4 text-muted italic">
-                Turn Events table — coming soon. All events will be instantaneous or self-tracking,
-                drawn from a curated subset of the Missions Battlefield Effects.
+              <div className="section">
+                {HordeTurnEvents.map((e) => (
+                  <div key={e.eventId}>
+                    <strong>{e.eventId}: {e.title}</strong>
+                    <Markdown className="ml-2">{e.description}</Markdown>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
 
-        {/* ── MP and Rewards ──────────────────────────────────────────────── */}
+        {/* MP and Rewards */}
         <div className="section">
           <h2>Injuries and Rewards</h2>
           <div className="twocols">
             <div className="section">
               <h3>Rewards</h3>
-              <p>MP is spent at the end of any Wave.</p>
+              <p>MP can be spent at the end of any Wave.</p>
               <table>
                 <thead>
                   <tr>
@@ -450,7 +424,7 @@ export default async function HordeMode() {
                   </tr>
                   <tr>
                     <td><code>3 MP</code></td>
-                    <td>One Downed Unit returns to Standing with 1 HIT + 1 random Injury</td>
+                    <td>One Downed Unit returns to Standing with half its HIT (round up) + 1 random Injury</td>
                   </tr>
                   <tr>
                     <td><code>3 MP</code></td>
@@ -488,29 +462,11 @@ export default async function HordeMode() {
           </div>
         </div>
 
-        {/* ── Deployments ─────────────────────────────────────────────────── */}
-        <div className="section">
-          <h2>Deployments</h2>
-          <p>
-            Select or roll a Deployment before the session begins. The Deployment defines the player deployment zone
-            and all NPC spawn points for the entire session.
-          </p>
-          <div className="grid gap-0 grid-cols-3">
-            {MissionDeployments.map((d) => (
-              <div key={d.deploymentId} className="bg-card border border-main p-1 rounded section">
-                <h3 className="text-main font-semibold mb-1">{d.deploymentId} — {d.title}</h3>
-                <p className="mb-2">{d.description}</p>
-                <BattlefieldDiagram diagram={d.diagram} className="max-w-full" />
-              </div>
-            ))}
-          </div>
-        </div>
-
         <PageBreak />
         <h2>Quick Reference</h2>
         <HordeModeQuickRef />
 
-        {/* ── NPC Squads ──────────────────────────────────────────────────── */}
+        {/* NPC Squads */}
         <PageBreak />
         <div className="section">
           <h2>NPC Squads</h2>
@@ -520,7 +476,7 @@ export default async function HordeMode() {
               <div className="grid gap-0 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {squad.spawnTable && (
                   <div className="bg-card border border-main p-1 mx-1 rounded relative flex flex-col h-full unitcard">
-                    <h4>Spawn Table — {squad.squadName}</h4>
+                    <h4>Spawn Table - {squad.squadName}</h4>
                     <Markdown>{squad.spawnTable}</Markdown>
                   </div>
                 )}
