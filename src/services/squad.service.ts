@@ -149,27 +149,32 @@ export class SquadService {
         : Promise.resolve(new Set<string>()),
     ])
 
-    // Reset all units
+    // Phase 1: Remove gear and reset activation for all units
     await Promise.all(squad.units.map(async unit => {
-      const updates: { currHIT?: number; isActivated?: boolean; gearIds?: string | null } = { isActivated: false }
+      const updates: { isActivated?: boolean; gearIds?: string | null } = { isActivated: false }
 
-      // Filter out gear belonging to removed categories
-      let gearIds = unit.gearIds ?? null
       if (removeInjuries || removeSpoils) {
-        const ids = gearIds ? gearIds.split(',').map(id => id.trim()).filter(Boolean) : []
+        const ids = unit.gearIds ? unit.gearIds.split(',').map(id => id.trim()).filter(Boolean) : []
         const filtered = ids.filter(id => !injGearIds.has(id) && !sowGearIds.has(id))
-        gearIds = filtered.length > 0 ? filtered.join(',') : null
-        updates.gearIds = gearIds
+        updates.gearIds = filtered.length > 0 ? filtered.join(',') : null
       }
-
-      // After gear removal, check if unit is still Deceased (INJ-DC present)
-      const isDeceased = gearIds ? gearIds.split(',').some(id => id.trim() === 'INJ-DC') : false
-      updates.currHIT = isDeceased ? 0 : (unit.HIT ?? unit.currHIT)
 
       await UnitService.updateUnit(unit.unitId, updates)
     }))
 
-    // Return the updated squad
+    // Phase 2: Reload squad so gear mods (including any HIT reductions from injuries) are
+    // recalculated before we restore currHIT to the correct max.
+    const updatedSquad = await this.getSquad(squadId)
+    if (!updatedSquad?.units?.length) return updatedSquad
+
+    // Phase 3: Restore currHIT to each unit's now-correct max HIT
+    await Promise.all(updatedSquad.units.map(async unit => {
+      const isDeceased = unit.gearIds ? unit.gearIds.split(',').some(id => id.trim() === 'INJ-DC') : false
+      const currHIT = isDeceased ? 0 : (unit.HIT ?? unit.currHIT)
+      await UnitService.updateUnit(unit.unitId, { currHIT })
+    }))
+
+    // Return the final squad
     return await this.getSquad(squadId)
   }
 
