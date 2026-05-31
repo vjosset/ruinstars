@@ -336,107 +336,159 @@ export default async function Missions() {
           </div>
         </div>
 
-        {/* Reference Lists/Cards */}
-        <div className="section twocols">
-          <div className="section">
-            {/* Battlefields */}
-            <h3>Battlefields</h3>
+        {/* Horde Mode */}
+        <div className="section">
+          <h2>Horde Mode</h2>
+          <div className="twocols">
             <div className="section">
-              {MissionBattlefields.map((b) => (
-                <div key={b.battlefieldId}>
-                  <strong>{b.battlefieldId}: {b.title}</strong>
-                  <div className="ml-4">
-                    <strong>{b.effectName}</strong>
-                    <Markdown>{b.effect}</Markdown>
-                  </div>
-                </div>
-              ))}
+              <p>
+                <strong>Horde Mode</strong> is a solo or cooperative survival mode for Ruinstars.
+                It uses the PvE rules above, with the modifications below.
+                One Squad fights across 3 Acts, each composed of 3 Waves of enemy forces.
+                The horde never stops coming. The only questions are how long you last, and how many you take with you.
+              </p>
+              <h3>Rules Modifications</h3>
+              <ul>
+                <li>Each Wave is a reduced PvE mission with only one Objective.</li>
+                <li>A Wave is completed when all NPC Units have been Taken Out.</li>
+                <li>Horde Mode doesn't use Battlefields or their effects</li>
+                <li>The Player Squad gains <strong>1 MP per TL</strong> for completing a Wave, plus <strong>1 MP per TL</strong> for completing the Objective.</li>
+                <li>If the Objective is not completed by the end of the Wave, it is removed.</li>
+                <li>Every three Waves, select a new random NPC Squad and increase TL by 1.</li>
+                <li>No extraction is required for Wave completion. For the "Search and Recover" objective, the objective is completed if the carrying Unit is still standing.</li>
+                <li>Player Units do <strong>not</strong> regain HIT between Waves. Units may use any remaining ACT during the Turn a Wave ends to act before the next Wave begins.</li>
+                <li>The Player Squad may spend MP on Spoils of War at the end of each Wave.</li>
+              </ul>
             </div>
-          </div>
-          
-          <div className="section">
-            {/* Deployments */}
-            <h3>Deployments</h3>
             <div className="section">
-              {MissionDeployments.map((d) => (
-                <div key={d.deploymentId} className="section">
-                  <strong>{d.deploymentId}: {d.title}</strong>
-                  <div className="ml-4">{d.description}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="section">
-            {/* Objectives */}
-            <h3>Objectives</h3>
-            <div className="section">
-              {MissionObjectives.map((archetype) => (
-                <div key={archetype.objectiveArchetypeId} className="section">
-                  <h4>{archetype.objectiveArchetypeId}: {archetype.title}</h4>
-                  <div className="ml-4">
-                    {archetype.variations.map((v) => {
-                      const rollRange = v.objectiveId.split(' ').slice(1).join(' ')
-                      return (
-                        <div key={v.objectiveId}>
-                          <strong>{rollRange}: {v.title}</strong>
-                          <div className="ml-4">
-                            {v.setup && <Markdown>{`**Setup:** ${v.setup}`}</Markdown>}
-                            {v.special && <Markdown>{`**Special:** ${v.special}`}</Markdown>}
-                            {v.victory && <Markdown>{`**Victory:** ${v.victory}`}</Markdown>}
-                          </div>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </div>
-              ))}
+              <h3>Downed Units</h3>
+              <p>
+                When a Player Unit reaches 0 <code>HIT</code>, it is <strong>Downed</strong> instead of being Taken Out.
+                Do not remove it from the battlefield. Place it on its side to indicate its Downed status.
+              </p>
+              <p>Downed Units:</p>
+              <ul>
+                <li>Are ignored by NPC Units and cannot be targeted in combat.</li>
+                <li>Take no Damage.</li>
+                <li>May only perform the Move, Dash, or Revive actions during their activation. Move and Dash do not trigger Attacks of Opportunity.</li>
+              </ul>
+              <p>
+                If all Player Units are Downed simultaneously, the session ends in defeat.
+              </p>
+              <h4>Reviving a Downed Unit</h4>
+              <p>
+                <strong>Mission Action — Revive (2 ACT):</strong> A Standing Unit that Controls a Downed Squadmate may revive it.
+                A Downed Unit may also revive itself if it Controls a Standing Squadmate.
+                The revived Unit returns to Standing with one new Injury and half its <code>HIT</code> remaining (round up).
+              </p>
             </div>
           </div>
         </div>
 
-        <div className="section twocols">
-          <div className="section">
-            <h3>Injuries</h3>
-            <p>
-              At the end of each Mission, each of your Units that was Taken Out during the mission may have a persistent Injury.
-              Between Missions within an Operation, the Squad may remove one Injury from a single Unit of their choice (not one per Unit - one total).
-              At Homebase at the end of each Operation, one Injury may be removed from each Unit.
-              Note that Deceased is not an Injury, it is permanent, and cannot be removed by either recovery step.
-            </p>
-            <p>
-              At the end of each Mission, for each Player Unit that was Taken Out, roll <code>1D6</code> to determine the Injury this Unit received.<br/>
-              If the Injury is one that the Unit already had, or if the Injury would take that Unit to 0 max <code>HIT</code>, that Unit is Deceased.
-              Remove the Unit from the Squad. That Unit cannot be replaced until the Squad returns to Homebase at the end of the Operation.
-            </p>
-            <ul>
-              {/* Injuries List */}
-              {
-                injuries?.gears.map((injury) => (
-                  <li key={`inj_${injury.gearId}`}>
-                    <h6>{injury.gearName}</h6>
-                    <Markdown>{injury.description}</Markdown>
-                  </li>
-                ))
-              }
-            </ul>
+        {/* Reference Lists/Cards */}
+        <div className="section">
+          <h2>Tables</h2>
+          <div className="section twocols">
+            <div className="section">
+              {/* Battlefields */}
+              <h3>Battlefields</h3>
+              <div className="section">
+                {MissionBattlefields.map((b) => (
+                  <div key={b.battlefieldId}>
+                    <strong>{b.battlefieldId}: {b.title}</strong>
+                    <div className="ml-4">
+                      <strong>{b.effectName}</strong>
+                      <Markdown>{b.effect}</Markdown>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="section">
+              {/* Deployments */}
+              <h3>Deployments</h3>
+              <div className="section">
+                {MissionDeployments.map((d) => (
+                  <div key={d.deploymentId} className="section">
+                    <strong>{d.deploymentId}: {d.title}</strong>
+                    <div className="ml-4">{d.description}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="section">
+              {/* Objectives */}
+              <h3>Objectives</h3>
+              <div className="section">
+                {MissionObjectives.map((archetype) => (
+                  <div key={archetype.objectiveArchetypeId} className="section">
+                    <h4>{archetype.objectiveArchetypeId}: {archetype.title}</h4>
+                    <div className="ml-4">
+                      {archetype.variations.map((v) => {
+                        const rollRange = v.objectiveId.split(' ').slice(1).join(' ')
+                        return (
+                          <div key={v.objectiveId}>
+                            <strong>{rollRange}: {v.title}</strong>
+                            <div className="ml-4">
+                              {v.setup && <Markdown>{`**Setup:** ${v.setup}`}</Markdown>}
+                              {v.special && <Markdown>{`**Special:** ${v.special}`}</Markdown>}
+                              {v.victory && <Markdown>{`**Victory:** ${v.victory}`}</Markdown>}
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div className="section">
-            <h3>Spoils Of War</h3>
-            When the Squad returns to Homebase, it can purchase Spoils of War by spending MP earned during the previous Operation.
-            Each Spoil of War costs <code>3 MP</code> and applies to one specific Player Unit.
-            <ul>
-              {/* Spoils Of War List */}
-              {
-                spoilsOfWar?.gears.map((sow) => (
-                  <li key={`sow_${sow.gearId}`}>
-                    <h6>{sow.gearName}</h6>
-                    <Markdown>{sow.description}</Markdown>
-                  </li>
-                ))
-              }
-            </ul>
+          <div className="section twocols">
+            <div className="section">
+              <h3>Injuries</h3>
+              <p>
+                At the end of each Mission, each of your Units that was Taken Out during the mission may have a persistent Injury.
+                Between Missions within an Operation, the Squad may remove one Injury from a single Unit of their choice (not one per Unit - one total).
+                At Homebase at the end of each Operation, one Injury may be removed from each Unit.
+                Note that Deceased is not an Injury, it is permanent, and cannot be removed by either recovery step.
+              </p>
+              <p>
+                At the end of each Mission, for each Player Unit that was Taken Out, roll <code>1D6</code> to determine the Injury this Unit received.<br/>
+                If the Injury is one that the Unit already had, or if the Injury would take that Unit to 0 max <code>HIT</code>, that Unit is Deceased.
+                Remove the Unit from the Squad. That Unit cannot be replaced until the Squad returns to Homebase at the end of the Operation.
+              </p>
+              <ul>
+                {/* Injuries List */}
+                {
+                  injuries?.gears.map((injury) => (
+                    <li key={`inj_${injury.gearId}`}>
+                      <h6>{injury.gearName}</h6>
+                      <Markdown>{injury.description}</Markdown>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <div className="section">
+              <h3>Spoils Of War</h3>
+              When the Squad returns to Homebase, it can purchase Spoils of War by spending MP earned during the previous Operation.
+              Each Spoil of War costs <code>3 MP</code> and applies to one specific Player Unit.
+              <ul>
+                {/* Spoils Of War List */}
+                {
+                  spoilsOfWar?.gears.map((sow) => (
+                    <li key={`sow_${sow.gearId}`}>
+                      <h6>{sow.gearName}</h6>
+                      <Markdown>{sow.description}</Markdown>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
           </div>
         </div>
         

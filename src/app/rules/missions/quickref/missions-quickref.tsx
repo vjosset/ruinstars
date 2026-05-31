@@ -19,7 +19,7 @@ function SH({ children }: { children: React.ReactNode }) {
 }
 
 function Divider() {
-  return <div className="w-full h-px bg-border my-1.5" />
+  return <div className="w-full h-px bg-border my-0.5" />
 }
 
 function Hi({ children }: { children: React.ReactNode }) {
@@ -31,12 +31,12 @@ function Br({ children }: { children: React.ReactNode }) {
 }
 
 function P({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  return <p className={`text-xs mb-1 ${className}`}>{children}</p>
+  return <p className={`text-xs mb-0.5 ${className}`}>{children}</p>
 }
 
 function SubLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-xs text-muted uppercase tracking-wider mb-0.5">{children}</p>
+    <p className="text-xs text-muted uppercase tracking-wider">{children}</p>
   )
 }
 
@@ -83,8 +83,8 @@ function TableRow({
 
 export default function MissionsQuickRef() {
   return (
-    <div className="section" id="missions-quick-reference">
-      <div className="grid grid-cols-3 gap-2">
+    <div className="section p-0 m-0" id="missions-quick-reference">
+      <div className="grid grid-cols-3 gap-1">
 
         {/* ── Row 1: Mission Setup (col 1+2) | Mission Scoring (col 3) ────── */}
 
@@ -262,6 +262,57 @@ export default function MissionsQuickRef() {
               </P>
               <P className="text-muted">
                 Units that fail both conditions are left behind — treat as Taken Out for Injury purposes.
+              </P>
+            </div>
+
+          </div>
+        </Card>
+
+        {/* ── Row 4: Horde Mode Notes (full width, 3 internal cols) ────────── */}
+
+        <Card className="col-span-3">
+          <SH>Horde Mode Notes</SH>
+          <div className="grid grid-cols-3 gap-4 mt-1">
+
+            <div>
+              <SubLabel>Structure</SubLabel>
+              <P>
+                <Hi>3 Acts × 3 Waves.</Hi> Each Wave is a reduced PvE mission with <Hi>one Objective</Hi>.
+                A Wave ends when all NPC Units are Taken Out.
+              </P>
+              <P className="text-muted">
+                No Battlefields or their effects. No Extraction required for Wave completion.
+                HIT does not reset between Waves. Every 3 Waves: select a new random NPC faction and increase TL by 1.
+                Spend MP on Spoils of War at the end of each Wave.
+              </P>
+              <Divider />
+              <SubLabel>Wave Scoring</SubLabel>
+              <P><Br>+1 MP</Br> <span className="text-muted">per TL for completing the Wave</span></P>
+              <P><Br>+1 MP</Br> <span className="text-muted">for completing the Objective</span></P>
+            </div>
+
+            <div>
+              <SubLabel>Downed Units</SubLabel>
+              <P>
+                When a Player Unit reaches <Hi>0 HIT</Hi>, it is <Hi>Downed</Hi> instead of Taken Out.
+                Place it on its side. Do not remove it from the battlefield.
+              </P>
+              <div className="text-xs text-muted space-y-0.5 mb-1">
+                <div>· Ignored by NPC Units; cannot be targeted in combat.</div>
+                <div>· Takes no Damage.</div>
+                <div>· May only perform <Br>Move</Br>, <Br>Dash</Br>, or <Br>Revive</Br> (no Attacks of Opportunity).</div>
+              </div>
+              <P className="text-muted">If all Player Units are Downed simultaneously, the session ends in defeat.</P>
+            </div>
+
+            <div>
+              <SubLabel>Revive (2 ACT)</SubLabel>
+              <P>
+                A <Hi>Standing Unit</Hi> that Controls a <Hi>Downed</Hi> Squadmate may revive it.
+                A Downed Unit may also revive itself if it Controls a Standing Squadmate.
+              </P>
+              <P>
+                The revived Unit returns to Standing with <Hi>1 new Injury</Hi> and <Hi>half its HIT</Hi> remaining (round up).
               </P>
             </div>
 
