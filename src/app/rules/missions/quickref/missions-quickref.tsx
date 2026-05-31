@@ -288,7 +288,8 @@ export default function MissionsQuickRef() {
               <Divider />
               <SubLabel>Wave Scoring</SubLabel>
               <P><Br>+1 MP</Br> <span className="text-muted">per TL for completing the Wave</span></P>
-              <P><Br>+1 MP</Br> <span className="text-muted">for completing the Objective</span></P>
+              <P><Br>+1 MP</Br> <span className="text-muted">per TL for completing the Objective</span></P>
+              <P><Br>+1 MP</Br> <span className="text-muted">per Turn before Turn 4 the Wave was completed (Turn 1: +3, Turn 2: +2, Turn 3: +1)</span></P>
             </div>
 
             <div>

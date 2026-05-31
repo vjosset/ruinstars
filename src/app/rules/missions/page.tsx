@@ -353,6 +353,7 @@ export default async function Missions() {
                 <li>A Wave is completed when all NPC Units have been Taken Out.</li>
                 <li>Horde Mode doesn't use Battlefields or their effects</li>
                 <li>The Player Squad gains <strong>1 MP per TL</strong> for completing a Wave, plus <strong>1 MP per TL</strong> for completing the Objective.</li>
+                <li><strong>Early Completion Bonus:</strong> For each Turn before Turn 4 in which the Wave was completed, the Player Squad gains <strong>+1 MP</strong> (e.g. +3 MP if completed in Turn 1, +2 MP in Turn 2, +1 MP in Turn 3).</li>
                 <li>If the Objective is not completed by the end of the Wave, it is removed.</li>
                 <li>Every three Waves, select a new random NPC Squad and increase TL by 1.</li>
                 <li>No extraction is required for Wave completion. For the "Search and Recover" objective, the objective is completed if the carrying Unit is still standing.</li>
