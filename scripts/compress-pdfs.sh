@@ -10,7 +10,7 @@
 set -euo pipefail
 
 ASSETS_DIR="public/assets"
-GS_SETTINGS="/printer"
+GS_SETTINGS="/printer" # ebook is smaller, but printer is more easily parseable. Negligible file size difference.
 DEV_URL="dev.ruinstars.com"
 PROD_URL="ruinstars.com"
 
