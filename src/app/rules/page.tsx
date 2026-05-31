@@ -147,7 +147,10 @@ export default async function Rules() {
                   className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
                 >
                   <item.icon className="shrink-0" />
-                  <span className="flex-1 font-heading uppercase">{item.title}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-heading uppercase">{item.title}</div>
+                    <div className="text-sm font-main normal-case text-muted">{item.desc}</div>
+                  </div>
                   <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
                 </Link>
               ))}

@@ -60,7 +60,8 @@ export default async function RulesIntro({ num, showTitle }: {num?: number | nul
           </div>
           <div className="section">
             <h3>The App</h3>
-            Draft a Squad, manage your GP budget, and share it with a link.<br/>
+            Build your squad, track GP budget, browse faction units and gear, then take it to the table.
+            The app tracks Hit Points, Tactical Orders, and Mission Points mid-game, and carries injuries and Spoils of War forward into your campaign.<br/>
             <Link className="section underline" href="/auth/signup">Create a free account</Link> to get started.
           </div>
         </div>
