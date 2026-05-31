@@ -22,7 +22,6 @@ export async function GET() {
     '/assets/books/Core Rules - Ruinstars.pdf',
     '/assets/books/Factions - Ruinstars.pdf',
     '/assets/books/Missions - Ruinstars.pdf',
-    '/assets/books/Horde Mode - Ruinstars.pdf',
   ]
 
   // Fetch factions
