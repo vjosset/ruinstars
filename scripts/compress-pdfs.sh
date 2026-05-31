@@ -10,7 +10,7 @@
 set -euo pipefail
 
 ASSETS_DIR="public/assets"
-GS_SETTINGS="/ebook"
+GS_SETTINGS="/printer"
 DEV_URL="dev.ruinstars.com"
 PROD_URL="ruinstars.com"
 
