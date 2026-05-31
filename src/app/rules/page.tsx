@@ -20,14 +20,12 @@ export async function generateMetadata() {
 const RULE_BOOKS = [
   { num: '01', title: 'Core Rules', desc: 'Everything you need to start playing.', href: '/assets/books/Core Rules - Ruinstars.pdf', icon: BsFilePdf, highlight: true },
   { num: '02', title: 'Factions', desc: 'Choose a faction and build your squad.', href: '/assets/books/Factions - Ruinstars.pdf', icon: BsFilePdf },
-  { num: '03', title: 'Missions', desc: 'PvP and PvE solo/co-op missions.', href: '/assets/books/Missions - Ruinstars.pdf', icon: BsFilePdf },
-  { num: '04', title: 'Horde Mode', desc: 'Solo/coop survival mode.', href: '/assets/books/Horde Mode - Ruinstars.pdf', icon: BsFilePdf },
+  { num: '03', title: 'Missions', desc: 'PvP, PvE, and Horde Mode solo/co-op missions.', href: '/assets/books/Missions - Ruinstars.pdf', icon: BsFilePdf },
 ]
 
 const QUICK_REFS: { title: string; href: string; icon: IconType }[] = [
   { title: 'Core Rules Quick Ref', href: '/assets/books/Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
   { title: 'Missions Quick Ref', href: '/assets/books/Missions - Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
-  { title: 'Horde Mode Quick Ref', href: '/assets/books/Horde Mode - Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
 ]
 
 const TOOLS: { title: string; href: string; icon: IconType }[] = [
