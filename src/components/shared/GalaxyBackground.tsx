@@ -14,7 +14,7 @@
  *  - Core glow via radial gradient + blurred disc
  *
  * Coordinate system (mirrors GalaxyMap.tsx - update if grid size changes):
- *   560 × 560 canvas, center (280, 280), galaxy boundary r = 224
+ *   560 x 560 canvas, center (280, 280), galaxy boundary r = 224
  *
  * All element IDs are prefixed "galbg-" to avoid collisions with GalaxyMap.
  */

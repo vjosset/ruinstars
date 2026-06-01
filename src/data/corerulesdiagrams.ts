@@ -19,7 +19,7 @@ const C = {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // RANGE
-//    4"×4" board. Attacker center-left. RNG 2" circle around attacker.
+//    4"x4" board. Attacker center-left. RNG 2" circle around attacker.
 //    One enemy in range (right, within circle). One enemy out of range (far right).
 //    Callout shows the 2" radius.
 // ─────────────────────────────────────────────────────────────────────────────

@@ -281,8 +281,8 @@ export default function MissionsQuickRef() {
                 A Wave ends when all NPC Units are Taken Out.
               </P>
               <P className="text-muted">
-                No Battlefields or their effects. No Extraction required for Wave completion.
-                HIT does not reset between Waves. Every 3 Waves: select a new random NPC faction and increase TL by 1.
+                No Extraction required for Wave completion.
+                HIT does not reset between Waves. Every 3 Waves: select a new random battlefield and NPC faction and increase TL by 1.
                 Spend MP on Spoils of War at the end of each Wave.
               </P>
               <Divider />

@@ -19,7 +19,7 @@ const C = {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // MOVEMENT
-//    7×5 grid. Unit at col 1, row 3.
+//    7x5 grid. Unit at col 1, row 3.
 //    Two paths, both labeled "3 Sq":
 //      - Straight: 3 right  → ghost at col 4, row 3.
 //      - Diagonal: 3 up-right → ghost at col 4, row 0.
@@ -85,7 +85,7 @@ export const movementDiagram = {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // RANGE
-//    8×5 grid. Attacker at col 1, row 2.
+//    8x5 grid. Attacker at col 1, row 2.
 //    Target 1: col 3, row 1 - 2 right, 1 up - IN RANGE (green).
 //    Target 2: col 5, row 2 - 4 right - OUT OF RANGE (red).
 // ─────────────────────────────────────────────────────────────────────────────
@@ -169,7 +169,7 @@ export const rangeDiagram = {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // COVER
-//    5×4 grid. Wall between col 2 and col 3, rows 0-1.
+//    5x4 grid. Wall between col 2 and col 3, rows 0-1.
 //    C (green): col 3 row 0 - wall on left edge → In Cover.
 //    NC (red): col 3 row 2 - no wall on any edge → Not in Cover.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -217,7 +217,7 @@ export const coverDiagram = {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // LINE OF SIGHT
-//    5×5 grid. Wall: cols 2-4 rows 0-1 (upper-right block).
+//    5x5 grid. Wall: cols 2-4 rows 0-1 (upper-right block).
 //    Blue attacker: col 0 row 1. Green target: col 4 row 3.
 //    Two green LoS lines from attacker corner (1,2) to target corners - both clear.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -274,7 +274,7 @@ export const lineOfSightDiagram = {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // LINE OF SIGHT - SPECIAL
-//    5×5 grid. Same wall. Blue unit: col 4 row 3. Red unit: col 0 row 1.
+//    5x5 grid. Same wall. Blue unit: col 4 row 3. Red unit: col 0 row 1.
 //    From blue's perspective looking toward red:
 //      Line 1: (4,3)→(1,1) - blocked by wall (red, no arrow)
 //      Line 2: (4,3)→(1,2) - clear (green, arrow)
@@ -458,7 +458,7 @@ export const verticalMovementDiagram = {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // ADJACENCY
-//    7×5 grid. Blue unit at col 3, row 2. Full-height wall between col 2 and col 3.
+//    7x5 grid. Blue unit at col 3, row 2. Full-height wall between col 2 and col 3.
 //    5 adjacent squares (green): above, below, right, diag-NE, diag-SE.
 //    3 not adjacent (red): left, diag-NW, diag-SW - all blocked by wall.
 // ─────────────────────────────────────────────────────────────────────────────
