@@ -116,7 +116,7 @@ export default function UnitCard({
             {/* Name and Type */}
             <div className="flex justify-between">
               <div className="flex justify-between gap-x-2 min-w-0">
-                {!unit.isUnitType && isOwner && unit.currHIT !== 0 && (
+                {!unit.isUnitType && isOwner && (
                   <Checkbox
                     checked={!!unit.isActivated}
                     onChange={toggleActivated}
