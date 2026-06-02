@@ -80,7 +80,7 @@ export default function UnitCard({
   }, [unit.currHIT])
 
   const toggleActivated = async () => {
-    if (!isOwner || unit.isUnitType || unit.currHIT === 0) return
+    if (!isOwner || unit.isUnitType) return
 
     const res = await fetch(`/api/units/${unit.unitId}`, {
       method: 'PATCH',
