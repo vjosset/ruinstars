@@ -29,11 +29,13 @@ export async function GET() {
   // Fetch factions
   const factions = await prisma.faction.findMany({
     select: { factionId: true },
+    where: { NOT: { factionId: 'SPEC' }}
   })
 
   // Fetch squadTypes
   const squadTypes = await prisma.squadType.findMany({
     select: { squadTypeId: true },
+    where: { isPublished: true}
   })
 
   // Fetch squads
