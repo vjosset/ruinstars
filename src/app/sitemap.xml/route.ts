@@ -22,6 +22,8 @@ export async function GET() {
     '/assets/books/Core Rules - Ruinstars.pdf',
     '/assets/books/Factions - Ruinstars.pdf',
     '/assets/books/Missions - Ruinstars.pdf',
+    '/assets/books/QuickRef - Ruinstars.pdf',
+    '/assets/books/Missions - Quick Ref - Ruinstars.pdf',
   ]
 
   // Fetch factions
