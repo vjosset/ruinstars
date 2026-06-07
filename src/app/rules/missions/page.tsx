@@ -354,10 +354,11 @@ export default async function Missions() {
                 <li>The Player Squad gains <strong>1 MP per TL</strong> for completing a Wave, plus <strong>1 MP per TL</strong> for completing the Objective.</li>
                 <li><strong>Early Completion Bonus:</strong> For each Turn before Turn 4 in which the Wave was completed, the Player Squad gains <strong>+1 MP</strong> (e.g. +3 MP if completed in Turn 1, +2 MP in Turn 2, +1 MP in Turn 3).</li>
                 <li>If the Objective is not completed by the end of the Wave, it is removed.</li>
-                <li>Every three Waves, select a new random battlefield and NPC Squad and increase TL by 1.</li>
+                <li>At the end of every third Wave, select a new random battlefield, deployment, and NPC Squad and increase TL by 1.</li>
                 <li>No extraction is required for Wave completion. For the "Search and Recover" objective, the objective is completed if the carrying Unit is still standing.</li>
                 <li>Player Units do <strong>not</strong> regain HIT between Waves. Units may use any remaining ACT during the Turn a Wave ends to act before the next Wave begins.</li>
                 <li>The Player Squad may spend MP on Spoils of War at the end of each Wave.</li>
+                <li>Single-use "Limited" weapons and "once per mission" skills can be used once per <strong>Wave</strong></li>
               </ul>
             </div>
             <div className="section">
@@ -379,8 +380,18 @@ export default async function Missions() {
               <p>
                 <strong>Mission Action — Revive (2 ACT):</strong> A Standing Unit that Controls a Downed Squadmate may revive it.
                 A Downed Unit may also revive itself if it Controls a Standing Squadmate.
-                The revived Unit returns to Standing with one new Injury and half its <code>HIT</code> remaining (round up).
+                The revived Unit returns to Standing with one new Injury and all its <code>HIT</code> remaining.
               </p>
+            </div>
+            <div className="section">
+              <h3>Horde Rewards</h3>
+              At the end of each Wave, after collecting MP, the Player Sauad may spend MP on rewards:
+              <ul>
+                <li><strong>3MP: Spoil of War</strong></li>
+                <li><strong>2MP: Medpack</strong> One Player Unit gains a single-use Medpack. For 1ACT, that Unit or a Unit is Controls regains <code>1D3</code> lost HIT</li>
+                <li><strong>2MP: Field Dressing</strong> One Player Unit regains 1 lost HIT</li>
+                <li><strong>6MP: Surgery</strong> Remove one Injury from one Player Unit</li>
+              </ul>
             </div>
           </div>
         </div>

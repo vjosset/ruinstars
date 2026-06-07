@@ -313,7 +313,7 @@ export default function MissionsQuickRef() {
                 A Downed Unit may also revive itself if it Controls a Standing Squadmate.
               </P>
               <P>
-                The revived Unit returns to Standing with <Hi>1 new Injury</Hi> and <Hi>half its HIT</Hi> remaining (round up).
+                The revived Unit returns to Standing with <Hi>1 new Injury</Hi> and <Hi>all its HIT</Hi> remaining
               </P>
             </div>
 
