@@ -315,6 +315,14 @@ export default function MissionsQuickRef() {
               <P>
                 The revived Unit returns to Standing with <Hi>1 new Injury</Hi> and <Hi>all its HIT</Hi> remaining
               </P>
+              <Divider />
+              <SubLabel>Horde Rewards (end of each Wave)</SubLabel>
+              <div className="text-xs space-y-0.5">
+                <div><Br>3 MP</Br> <span className="text-muted">Spoil of War</span></div>
+                <div><Br>2 MP</Br> <span className="text-muted">Medpack — one Unit gains a single-use item: 1 ACT to restore 1D3 lost HIT to self or a Controlled Unit</span></div>
+                <div><Br>2 MP</Br> <span className="text-muted">Field Dressing — one Unit regains 1 lost HIT</span></div>
+                <div><Br>6 MP</Br> <span className="text-muted">Surgery — remove one Injury from one Unit</span></div>
+              </div>
             </div>
 
           </div>
