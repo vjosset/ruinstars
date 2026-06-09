@@ -205,7 +205,7 @@ export default function MissionsQuickRef() {
             <tbody>
               <TableRow roll="1-2" label="Full Access"        effect="Place all 3 at mission start. Activate all three in any order." />
               <TableRow roll="3-4" label="Sequence"           effect="Place only the first Objective. Each activation places the next on a random unoccupied Anchor." />
-              <TableRow roll="5-6" label="Search and Recover" effect="Place 3 Objectives. On Activation, roll 1D6: found if result ≤ current Turn number. No TO re-rolls. Finder carries item (drop/pass for 1ACT). PvE: carrier must extract. PvP: carrier must be Standing at mission end." last />
+              <TableRow roll="5-6" label="Search and Recover" effect="Place 3 Objectives. On Activation, roll 1D6: found if result ≤ current Turn number. Each objective can only be searched once per Turn. No TO re-rolls. Finder carries item (drop/pass for 1ACT). PvE: carrier must extract. PvP: carrier must be Standing at mission end." last />
             </tbody>
           </table>
           <Divider />
