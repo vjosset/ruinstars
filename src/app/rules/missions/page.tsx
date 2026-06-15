@@ -141,9 +141,8 @@ export default async function Missions() {
               <h3>Squad Selection and TL</h3>
               <p>
                 Each player fields one Squad built to a maximum of 100 GP. Squads are built following the standard squad composition rules in the Core Rules.
-                Each Squad has a <strong>Threat Level (TL)</strong> from 1 to 3, reflecting its campaign history.
-                A new Squad begins at TL1. Each completed Operation (whether PvE or PvP) advances the Squad's TL by 1, to a maximum of TL3.
-                In PvP, both Squads should be at the same TL. Agree on a TL before selecting your Squad.
+                In PvP, both Squads must be at the same TL. Agree on a TL before selecting your Squad.
+                See Campaigns for Squad TL rules.
                 Mission scoring scales with TL: the higher the TL, the more MP each Squad can earn per mission.
               </p>
               <p>
@@ -188,8 +187,7 @@ export default async function Missions() {
               <h3>Squad Selection and TL</h3>
               <p>
                 Each mission is opposed by a single NPC faction. Select a faction from the NPC Units section at the back of this book, or choose one randomly. In campaign play, we recommend using the same faction for all three missions within an Operation, then switching factions for the next Operation.
-                Each NPC Squad has a Spawn Table that determines which Units are deployed for a given mission. Before deploying the NPC Squad, select a <strong>Threat Level</strong> ("TL") from 1 to 3. Threat Level represents the intensity of the opposition your Squad faces. Higher Threat Levels produce more dangerous Units and larger groups.
-                If playing a Campaign, the Threat Level should match the current Operation number: TL1 for Operation 1, TL2 for Operation 2, TL3 for Operation 3.
+                Each NPC Squad has a Spawn Table that determines which Units are deployed for a given mission. Before deploying the NPC Squad, select a Threat Level (TL). See Campaigns for Squad TL rules.
                 Once you have selected a faction and Threat Level, roll <code>3D6</code> and consult that faction's Spawn Table. Each die is resolved individually - look up each result in the column matching your current Threat Level to identify the Units spawned by that die.
               </p>
             </div>
@@ -244,9 +242,73 @@ export default async function Missions() {
         </div>
 
         <PageBreak />
+        {/* Horde Mode */}
+        <div className="section">
+          <h2>Horde Mode</h2>
+          <div className="twocols">
+            <div className="section">
+              <p>
+                <strong>Horde Mode</strong> is a solo or cooperative survival mode for Ruinstars.
+                It uses the PvE rules above, with the modifications below.
+                One Squad fights across 3 Operations, each composed of 3 Waves of enemy forces.
+                The horde never stops coming. The only questions are how long you last, and how many you take with you.
+              </p>
+              <h3>Rules Modifications</h3>
+              <ul>
+                <li>Each Wave is a reduced PvE mission with only one Objective.</li>
+                <li>A Wave is completed when all NPC Units have been Taken Out.</li>
+                <li>The Player Squad gains <strong>1 MP per TL</strong> for completing a Wave, plus <strong>1 MP per TL</strong> for completing the Objective.</li>
+                <li><strong>Early Completion Bonus:</strong> For each Turn before Turn 4 in which the Wave was completed, the Player Squad gains <strong>+1 MP</strong> (e.g. +3 MP if completed in Turn 1, +2 MP in Turn 2, +1 MP in Turn 3).</li>
+                <li>If the Objective is not completed by the end of the Wave, it is removed.</li>
+                <li>At the end of each Operation, select a new random battlefield, deployment, and NPC Squad and increase TL by 1.</li>
+                <li>No extraction is required for Wave completion. For the "Search and Recover" objective, the objective is completed if the carrying Unit is still standing.</li>
+                <li>Player Units do <strong>not</strong> regain HIT between Waves. Units may use any remaining ACT during the Turn a Wave ends to act before the next Wave begins.</li>
+                <li>The Player Squad may spend MP on Spoils of War at the end of each Wave.</li>
+                <li>Single-use "Limited" weapons and "once per mission" skills can be used once per <strong>Wave</strong></li>
+              </ul>
+            </div>
+            <div className="section">
+              <h3>Downed Units</h3>
+              <p>
+                When a Player Unit reaches 0 <code>HIT</code>, it is <strong>Downed</strong> instead of being Taken Out.
+                Do not remove it from the battlefield. Place it on its side to indicate its Downed status.
+              </p>
+              <p>Downed Units:</p>
+              <ul>
+                <li>Are ignored by NPC Units and cannot be targeted in combat.</li>
+                <li>Take no Damage.</li>
+                <li>May only perform the Move, Dash, or Revive actions during their activation. Move and Dash do not trigger Attacks of Opportunity.</li>
+              </ul>
+              <p>
+                If all Player Units are Downed simultaneously, the session ends in defeat.
+              </p>
+              <h4>Reviving a Downed Unit</h4>
+              <p>
+                <strong>Mission Action — Revive (2 ACT):</strong> A Standing Unit that Controls a Downed Squadmate may revive it.
+                A Downed Unit may also revive itself if it Controls a Standing Squadmate.
+                The revived Unit returns to Standing with one new Injury and all its <code>HIT</code> remaining.
+              </p>
+            </div>
+            <div className="section">
+              <h3>Horde Rewards</h3>
+              At the end of each Wave, after collecting MP, the Player Sauad may spend MP on rewards:
+              <ul>
+                <li><strong>3MP: Spoil of War</strong></li>
+                <li><strong>2MP: Medpack</strong> One Player Unit gains a single-use Medpack. For 1ACT, that Unit or a Unit is Controls regains <code>1D3</code> lost HIT</li>
+                <li><strong>2MP: Field Dressing</strong> One Player Unit regains 1 lost HIT</li>
+                <li><strong>6MP: Surgery</strong> Remove one Injury from one Player Unit</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         {/* Campaigns */}
-        <div>
+        <div id="campaigns">
           <h2>Campaigns</h2>
+          <h3>Threat Level (TL)</h3>
+          <p>
+            TL is a property of the Squad, ranging from 1 to 3. A new Squad begins at TL1. Each completed Operation advances the Squad's TL by 1, to a maximum of TL3. The Squad's TL equals the current Operation number. TL governs MP scaling in all modes and NPC spawn difficulty in PvE and Horde.
+          </p>
           <div className="twocols">
             <div>
               <h3>Campaign Structure</h3>
@@ -287,6 +349,16 @@ export default async function Missions() {
                 </li>
               </ul>
 
+              <div className="border border-main rounded-md px-4 py-3 my-4">
+                <h4>Mixed Campaigns</h4>
+                <p>
+                  A Campaign can combine PvE, PvP, and Horde Operations in any order. Agree on the full structure before the campaign begins. Each completed Operation advances the Squad's TL by 1, regardless of mode. A Horde Operation follows Horde Mode rules: it uses Waves instead of Missions. Homebase follows at the end of the Operation, as normal.
+                </p>
+                <p>
+                  <strong>Example:</strong> Operation 1 (TL1): PvE / Homebase. Operation 2 (TL2): Horde / Homebase. Operation 3 (TL3): PvP / Homebase.
+                </p>
+              </div>
+
               <h3>Operations</h3>
               <p>
                 An Operation represents a critical deployment arc within the larger Campaign structure, and is composed of three sequential Missions.
@@ -313,7 +385,7 @@ export default async function Missions() {
                 <h6>Destroy</h6>
                 These are things that cannot be allowed to survive. Spawn nodes. Weapons caches. A relay broadcasting enemy coordinates. Whatever they are, they can take damage and they must be brought down. The variation determines how many and how hard, and whether taking them out wakes something up.
               </div>
-              
+
               <h4>Between Missions</h4>
               After completing a Mission but before beginning the next one in the same Operation, the Squad may remove <strong>one Injury</strong> from any one Unit (not one per Unit, one total across the Squad).
               Deceased is not an Injury and cannot be removed this way; a Deceased Unit remains out of action and cannot be replaced until the Squad returns to Homebase.
@@ -326,72 +398,13 @@ export default async function Missions() {
                 <li>Recruit new Units into the Squad (to maximum 100 GP).</li>
                 <li>Make changes to your Squad's selected Gear and Spoils Of War.</li>
               </ol>
-              
+
+              {/* FLAG: First sentence below restates the TL=Operation number rule now covered by the authoritative TL definition at the top of Campaigns. Consider simplifying if this section is revisited. */}
               <h4>PvE Enemy Faction and Threat Level</h4>
               <p>
                 The Threat Level to use when building NPC Squads should be the same as the Operation number (i.e. TL1 for Missions in Operation 1, TL2 for Operation 2, TL3 for Operation 3).
                 For simplicity, we also recommend using the same faction for all Missions in a given Operation but you may choose to change factions for each Mission.
               </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Horde Mode */}
-        <div className="section">
-          <h2>Horde Mode</h2>
-          <div className="twocols">
-            <div className="section">
-              <p>
-                <strong>Horde Mode</strong> is a solo or cooperative survival mode for Ruinstars.
-                It uses the PvE rules above, with the modifications below.
-                One Squad fights across 3 Acts, each composed of 3 Waves of enemy forces.
-                The horde never stops coming. The only questions are how long you last, and how many you take with you.
-              </p>
-              <h3>Rules Modifications</h3>
-              <ul>
-                <li>Each Wave is a reduced PvE mission with only one Objective.</li>
-                <li>A Wave is completed when all NPC Units have been Taken Out.</li>
-                <li>The Player Squad gains <strong>1 MP per TL</strong> for completing a Wave, plus <strong>1 MP per TL</strong> for completing the Objective.</li>
-                <li><strong>Early Completion Bonus:</strong> For each Turn before Turn 4 in which the Wave was completed, the Player Squad gains <strong>+1 MP</strong> (e.g. +3 MP if completed in Turn 1, +2 MP in Turn 2, +1 MP in Turn 3).</li>
-                <li>If the Objective is not completed by the end of the Wave, it is removed.</li>
-                <li>At the end of every third Wave, select a new random battlefield, deployment, and NPC Squad and increase TL by 1.</li>
-                <li>No extraction is required for Wave completion. For the "Search and Recover" objective, the objective is completed if the carrying Unit is still standing.</li>
-                <li>Player Units do <strong>not</strong> regain HIT between Waves. Units may use any remaining ACT during the Turn a Wave ends to act before the next Wave begins.</li>
-                <li>The Player Squad may spend MP on Spoils of War at the end of each Wave.</li>
-                <li>Single-use "Limited" weapons and "once per mission" skills can be used once per <strong>Wave</strong></li>
-              </ul>
-            </div>
-            <div className="section">
-              <h3>Downed Units</h3>
-              <p>
-                When a Player Unit reaches 0 <code>HIT</code>, it is <strong>Downed</strong> instead of being Taken Out.
-                Do not remove it from the battlefield. Place it on its side to indicate its Downed status.
-              </p>
-              <p>Downed Units:</p>
-              <ul>
-                <li>Are ignored by NPC Units and cannot be targeted in combat.</li>
-                <li>Take no Damage.</li>
-                <li>May only perform the Move, Dash, or Revive actions during their activation. Move and Dash do not trigger Attacks of Opportunity.</li>
-              </ul>
-              <p>
-                If all Player Units are Downed simultaneously, the session ends in defeat.
-              </p>
-              <h4>Reviving a Downed Unit</h4>
-              <p>
-                <strong>Mission Action — Revive (2 ACT):</strong> A Standing Unit that Controls a Downed Squadmate may revive it.
-                A Downed Unit may also revive itself if it Controls a Standing Squadmate.
-                The revived Unit returns to Standing with one new Injury and all its <code>HIT</code> remaining.
-              </p>
-            </div>
-            <div className="section">
-              <h3>Horde Rewards</h3>
-              At the end of each Wave, after collecting MP, the Player Sauad may spend MP on rewards:
-              <ul>
-                <li><strong>3MP: Spoil of War</strong></li>
-                <li><strong>2MP: Medpack</strong> One Player Unit gains a single-use Medpack. For 1ACT, that Unit or a Unit is Controls regains <code>1D3</code> lost HIT</li>
-                <li><strong>2MP: Field Dressing</strong> One Player Unit regains 1 lost HIT</li>
-                <li><strong>6MP: Surgery</strong> Remove one Injury from one Player Unit</li>
-              </ul>
             </div>
           </div>
         </div>
@@ -504,7 +517,6 @@ export default async function Missions() {
         </div>
         
         <PageBreak />
-        <h2>Quick Reference</h2>
         <MissionsQuickRef />
 
         {/* NPC SQUAD CARDS + SPAWN TABLES */}
