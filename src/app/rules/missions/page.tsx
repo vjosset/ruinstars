@@ -263,7 +263,7 @@ export default async function Missions() {
                 <li>At the end of each Operation, select a new random battlefield, deployment, and NPC Squad and increase TL by 1.</li>
                 <li>No extraction is required for Wave completion. For the "Search and Recover" objective, the objective is completed if the carrying Unit is still standing.</li>
                 <li>Player Units do <strong>not</strong> regain HIT between Waves. Units may use any remaining ACT during the Turn a Wave ends to act before the next Wave begins.</li>
-                <li>The Player Squad may spend MP on Spoils of War at the end of each Wave.</li>
+                <li>The Player Squad may spend MP on Rewards and Spoils of War at the end of each Wave.</li>
                 <li>Single-use "Limited" weapons and "once per mission" skills can be used once per <strong>Wave</strong></li>
               </ul>
             </div>
@@ -291,7 +291,7 @@ export default async function Missions() {
             </div>
             <div className="section">
               <h3>Horde Rewards</h3>
-              At the end of each Wave, after collecting MP, the Player Sauad may spend MP on rewards:
+              At the end of each Wave, after collecting MP, the Player Squad may spend MP on Rewards:
               <ul>
                 <li><strong>3MP: Spoil of War</strong></li>
                 <li><strong>2MP: Medpack</strong> One Player Unit gains a single-use Medpack. For 1ACT, that Unit or a Unit is Controls regains <code>1D3</code> lost HIT</li>
