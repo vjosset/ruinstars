@@ -277,12 +277,12 @@ export default function MissionsQuickRef() {
             <div>
               <SubLabel>Structure</SubLabel>
               <P>
-                <Hi>3 Acts × 3 Waves.</Hi> Each Wave is a reduced PvE mission with <Hi>one Objective</Hi>.
+                <Hi>3 Operations × 3 Waves.</Hi> Each Wave is a reduced PvE mission with <Hi>one Objective</Hi>.
                 A Wave ends when all NPC Units are Taken Out.
               </P>
               <P className="text-muted">
                 No Extraction required for Wave completion.
-                HIT does not reset between Waves. Every 3 Waves: select a new random battlefield and NPC faction and increase TL by 1.
+                HIT does not reset between Waves. At the end of each Operation: select a new random battlefield and NPC faction and increase TL by 1.
                 Spend MP on Spoils of War at the end of each Wave.
               </P>
               <Divider />
