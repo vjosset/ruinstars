@@ -4,6 +4,7 @@ import Markdown from '@/components/ui/Markdown'
 import PageTitle from '@/components/ui/PageTitle'
 import UnitCard from '@/components/unit/UnitCard'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
+import { squadHasRealart } from '@/lib/utils/imageUrls'
 import { SpecialService, SquadTypeService } from '@/src/services'
 import { UnitType } from '@/src/types'
 import Link from 'next/link'
@@ -155,6 +156,16 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
               <div className="space-y-3">
                 <Markdown className="flavor">{squadType.lore}</Markdown>
                 <Markdown>{squadType.description}</Markdown>
+                <img
+                  src={`/img/squadTypes/${squadType.squadTypeId}.webp`}
+                  alt={`${squadType.squadTypeName} Portrait`}
+                  className="rounded-xl border border-main"
+                  loading="lazy"
+                  decoding="async"
+                />
+                {squadHasRealart(squadType.squadTypeId) && 
+                  <em className="text-xs text-muted">Art by <Link className="underline" href="https://helgecbalzer.com/" target="_blank">Helge C. Balzer</Link></em>
+                }
               </div>
               <div className="space-y-3">
                 <Link href={`/factions/${squadType.factionId}`} className="inline-flex items-center gap-2">

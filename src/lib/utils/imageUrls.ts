@@ -13,3 +13,7 @@ export function toEpochMs(d?: Date | string | number | null) {
   const t = Date.parse(d) // string
   return Number.isFinite(t) ? t : (new Date()).getTime()
 }
+
+export function squadHasRealart(squadTypeId: string) {
+  return [ 'DRN' ].includes(squadTypeId)
+}

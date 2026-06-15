@@ -4,6 +4,7 @@ import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { FactionService } from '@/src/services'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { squadHasRealart } from '@/lib/utils/imageUrls'
 
 export async function generateMetadata({ params }: { params: Promise<{ factionId: string }>  }) {
   const { factionId } = await params
@@ -40,6 +41,7 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
 
           {faction.squadTypes.map((squadType, index) => {
             const isEven = index % 2 === 1
+
             return (
               <div
                 key={squadType.squadTypeId}
@@ -51,16 +53,20 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
                 </h2>
                 <em>{squadType.tagline}</em>
                 <div className={`flex flex-col md:flex-row ${isEven ? 'md:flex-row-reverse' : ''} items-start gap-4`}>
-                  <Link href={`/squadTypes/${squadType.squadTypeId}`}
-                    className="w-full md:w-1/2">
-                    <img
-                      src={`/img/squadTypes/${squadType.squadTypeId}.webp`}
-                      alt={`${squadType.squadTypeName} Portrait`}
-                      className="rounded-xl border border-main"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </Link>
+                  <div className="w-full md:w-1/2">
+                    <Link href={`/squadTypes/${squadType.squadTypeId}`}>
+                      <img
+                        src={`/img/squadTypes/${squadType.squadTypeId}.webp`}
+                        alt={`${squadType.squadTypeName} Portrait`}
+                        className="rounded-xl border border-main"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </Link>
+                    {squadHasRealart(squadType.squadTypeId) && 
+                      <em className="text-xs text-muted">Art by <Link className="underline" href="https://helgecbalzer.com/" target="_blank">Helge C. Balzer</Link></em>
+                    }
+                  </div>
                   <div className="w-full md:w-1/2">
                     <SquadTypeLink squadTypeId={squadType.squadTypeId} squadTypeName={squadType.squadTypeName} />
                     <Markdown className="flavor">{squadType.lore}</Markdown>
