@@ -217,8 +217,8 @@ export default async function Missions() {
               </p>
               <h3>Reinforcements</h3>
               <p>
-                From Turn 5 onward, at the start of each Turn, roll <code>1D6</code> and consult the Spawn Table for the current Threat Level.
-                Spawn the indicated Units Adjacent to a random Anchor (one per Anchor).
+                From Turn 5 onward, at the start of each odd-numbered Turn (5, 7, 9, etc.), roll <code>1D6</code> and consult the Spawn Table for the current Threat Level.
+                Spawn the indicated Units Adjacent to a random Anchor (one Unit per Anchor).
               </p>
             </div>
             <div className="section">

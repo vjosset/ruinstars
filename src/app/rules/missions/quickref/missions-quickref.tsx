@@ -247,8 +247,8 @@ export default function MissionsQuickRef() {
               <Divider />
               <SubLabel>Reinforcements (Turn 5+)</SubLabel>
               <P>
-                At the start of Turn 5 and each subsequent Turn, roll <Hi>1D6</Hi> and consult the Spawn Table for the current TL.
-                Spawn the indicated Units Adjacent to a random Anchor — one Unit per Anchor.
+                At the start of Turn 5 and each subsequent odd-numbered Turn (5, 7, 9, etc.), roll <Hi>1D6</Hi> and consult the Spawn Table for the current TL.
+                Spawn the indicated Units Adjacent to a random Anchor - one Unit per Anchor.
               </P>
             </div>
 
