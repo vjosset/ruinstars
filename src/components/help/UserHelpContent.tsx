@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function HelpContent() {
   return (
     <div className="space-y-2">
@@ -28,6 +30,13 @@ export default function HelpContent() {
         <h6 className="text-main">Managing your Squads</h6>
         <p>
           Use each Squad's menu (⋮) to edit, delete, clone, or rearrange your Squads.
+        </p>
+      </div>
+
+      <div>
+        <h6 className="text-main">Staying Up To Date</h6>
+        <p>
+          Visit the <Link className="underline" href="/blog">Blog</Link> for updates on game play, rules, squad balance tweaks, and news.
         </p>
       </div>
     </div>
