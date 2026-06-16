@@ -1,3 +1,4 @@
+import HelpButton from '@/components/help/HelpButton'
 import PageTitle from '@/components/ui/PageTitle'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
@@ -44,8 +45,9 @@ export async function generateMetadata({ params }: { params: Promise<{ userName:
   })
 }
 
-export default async function UserPage({ params }: { params: Promise<{ userName: string }> }) {
+export default async function UserPage({ params, searchParams }: { params: Promise<{ userName: string }>, searchParams: Promise<{ welcome?: string }> }) {
   const { userName } = await params
+  const { welcome } = await searchParams
   let lookupName = userName
   try { lookupName = decodeURIComponent(userName) } catch {}
 
@@ -70,6 +72,7 @@ export default async function UserPage({ params }: { params: Promise<{ userName:
                 <FiActivity size={20} />
               </Link>
             )}
+            <HelpButton autoOpen={welcome === '1'} />
             <Link href="/settings" className="text-muted hover:text-main transition-colors" title="Settings">
               <FiSettings size={20} />
             </Link>

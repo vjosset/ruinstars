@@ -1,5 +1,6 @@
 'use client'
 
+import SquadHelpContent from '@/components/help/SquadHelpContent'
 import { SquadTypeLink, UserLink } from '@/components/nav/Links'
 import EditSquadForm from '@/components/squad/EditSquadForm'
 import SquadCardMenu from '@/components/squad/SquadCardMenu'
@@ -40,6 +41,7 @@ export default function SquadPageClient({
   const formRef = useRef<{ handleSubmit: () => void }>(null)
   const [editSquadSaveDisabled, setEditSquadSaveDisabled] = useState(false)
   const [activeTab, setActiveTab] = useState<'units' | 'battles'>('units')
+  const [showHelpModal, setShowHelpModal] = useState<boolean>(false)
   const [showResetModal, setShowResetModal] = useState<boolean>(false)
   const [resetOptMP, setResetOptMP] = useState(false)
   const [resetOptInjuries, setResetOptInjuries] = useState(false)
@@ -48,6 +50,16 @@ export default function SquadPageClient({
   const [showImportModal, setShowImportModal] = useState<boolean>(false)
   const [carouselIsOpen, setCarouselIsOpen] = useState(false)
   const [carouselStartIndex, setCarouselStartIndex] = useState(0)
+
+  // Automatically show the Squad Help content the first time a user looks at one of their Squads
+  // Maintain "seen" state in localStorage
+  useEffect(() => {
+    if (!isOwner) return
+    if (!localStorage.getItem('ruinstars.squadHelpSeen')) {
+      setShowHelpModal(true)
+      localStorage.setItem('ruinstars.squadHelpSeen', '1')
+    }
+  }, [isOwner])
 
   useEffect(() => {
     fetch('/api/specials')
@@ -357,6 +369,7 @@ export default function SquadPageClient({
                         onEdit={handleEditSquadClick}
                         onReset={handleResetClick}
                         onPrint={handleSquadPrint}
+                        onHelp={() => setShowHelpModal(true)}
                       />
                     </Menu>
                   </div>
@@ -449,6 +462,12 @@ export default function SquadPageClient({
                   This will add a copy of {squad.squadName} to your squads.
                   Field them as-is, or make them your own.
                 </p>
+              </Modal>
+            )}
+
+            {showHelpModal && (
+              <Modal title="Using Your Squad" onClose={() => setShowHelpModal(false)}>
+                <SquadHelpContent />
               </Modal>
             )}
 

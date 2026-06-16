@@ -3,7 +3,7 @@ import { SquadPlain } from '@/types'
 import { MenuItem, MenuItems } from '@headlessui/react'
 import clsx from 'clsx'
 import { useRouter } from 'next/navigation'
-import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiCopy, FiEdit, FiPrinter, FiRotateCcw, FiShare2, FiTrash } from 'react-icons/fi'
+import { FiChevronDown, FiChevronsDown, FiChevronsUp, FiChevronUp, FiCopy, FiEdit, FiHelpCircle, FiPrinter, FiRotateCcw, FiShare2, FiTrash } from 'react-icons/fi'
 import { toast } from 'sonner'
 
 export default function SquadCardMenu({
@@ -17,6 +17,7 @@ export default function SquadCardMenu({
   onMoveLast,
   onPrint,
   onReset,
+  onHelp,
 }: {
   squad: SquadPlain
   isOwner: boolean,
@@ -28,6 +29,7 @@ export default function SquadCardMenu({
   onMoveLast?: () => void
   onPrint?: () => void
   onReset?: () => void
+  onHelp?: () => void
 }) {
 
   const router = useRouter()
@@ -147,6 +149,17 @@ export default function SquadCardMenu({
                       onClick={onPrint}
                     >
                       <FiPrinter /> Print
+                    </button>
+                  )}
+                </MenuItem>
+              }
+              {onHelp &&
+                <MenuItem>
+                  {({ focus }) => (
+                    <button className={clsx('m-1 text-left text-sm w-full flex items-center gap-2', focus ? 'text-main' : 'text-foreground')}
+                      onClick={onHelp}
+                    >
+                      <FiHelpCircle /> Help
                     </button>
                   )}
                 </MenuItem>
