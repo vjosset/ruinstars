@@ -13,7 +13,7 @@ export default function HelpContent() {
         <h6 className="text-main">Adding a Squad</h6>
         <p>
           Use the <strong>"New Squad"</strong> button to create a new Squad.
-          Select your faction and optionally import the default Squad for that faction as a starting point.
+          Select your Squad Type and optionally import the default setup for that Squad Type as a starting point.
         </p>
       </div>
 
