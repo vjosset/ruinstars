@@ -1,5 +1,7 @@
 import { Gear, Unit, UnitType } from '@/types'
 import { GearRepository } from '@/src/repositories/gear.repository'
+import { SpecialService } from './special.service'
+import { resolveGearDescription } from '@/lib/utils/gearDescriptions'
 
 export class GearService {
   private static repository = new GearRepository()
@@ -9,11 +11,22 @@ export class GearService {
   }
 
   static async getGear(gearId: string): Promise<Gear | null> {
-    return this.repository.getGear(gearId)
+    const gear = await this.repository.getGear(gearId)
+    if (!gear) return null
+
+    const allSpecials = await SpecialService.getAllSpecials()
+    gear.description = resolveGearDescription(gear.description, allSpecials)
+    return gear
   }
 
   static async getAllGears(): Promise<Gear[]> {
-    return this.repository.getAllGears()
+    const gears = await this.repository.getAllGears()
+    const allSpecials = await SpecialService.getAllSpecials()
+
+    return gears.map(gear => {
+      gear.description = resolveGearDescription(gear.description, allSpecials)
+      return gear
+    })
   }
 
   static async loadUnitGear(unit: Unit): Promise<Gear[]> {
