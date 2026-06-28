@@ -791,8 +791,8 @@
     {
       "gearId": "CWB-SSP-DIS",
       "gearName": "Disengage",
-      "description": "_THE EXILE'S VOW_\n\nEnemy Units get `-1 ATT` when performing Attacks of Opportunity.",
-      "flavor": null,
+      "description": "Enemy Units get `-1 ATT` when performing Attacks of Opportunity.",
+      "flavor": "_THE EXILE'S VOW_\n\nStrike and move, stay mobile, keep them guessing.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -809,8 +809,8 @@
     {
       "gearId": "CWB-SSP-PAIN",
       "gearName": "Pain Is Strength",
-      "description": "_THE SCAR VOW_\n\nEach time this Unit performs the Melee or Ranged Combat action, it may re-roll a number of Attack dice equal to its lost HIT. Each time this Unit Takes Out an enemy in Melee combat, it regains 1 lost HIT.",
-      "flavor": null,
+      "description": "Each time this Unit performs the Melee or Ranged Combat action, it may re-roll a number of Attack dice equal to its lost HIT. Each time this Unit Takes Out an enemy in Melee combat, it regains 1 lost HIT.",
+      "flavor": "_THE SCAR VOW_\n\nCut me and I will not slow. I return every wound twice over.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -827,8 +827,8 @@
     {
       "gearId": "CWB-SSP-VGF",
       "gearName": "Vengeful",
-      "description": "_THE DEBT VOW_\n\nEach time this Unit performs a Combat action, it may reroll a number of attack dice equal to the number of Squadmates that have been Taken Out (max 3).",
-      "flavor": null,
+      "description": "Each time this Unit performs a Combat action, it may reroll a number of attack dice equal to the number of Squadmates that have been Taken Out (max 2).",
+      "flavor": "_THE DEBT VOW_\n\nA death dealt is a death owed. Our fallen brethren will be avenged.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -1007,7 +1007,7 @@
     {
       "gearId": "DES-BST-BST",
       "gearName": "Beast",
-      "description": "This Unit cannot carry anything (e.g. Intel Markers), cannot take Spoils of War, never gets Injuries (treat it as \"Healed\" each time you roll for Injuries), cannot gain XP, and cannot perform Mission Actions or Control Objectives.",
+      "description": "{{NEQ}}",
       "flavor": null,
       "gearType": "S",
       "gearCategoryId": "SKL",
@@ -1331,8 +1331,8 @@
     {
       "gearId": "DES-SSP-DIS",
       "gearName": "Disengage",
-      "description": "_THE EXILE'S VOW_\n\nEnemy Units get `-1 ATT` when performing Attacks of Opportunity.",
-      "flavor": null,
+      "description": "Enemy Units get `-1 ATT` when performing Attacks of Opportunity.",
+      "flavor": "_THE EXILE'S VOW_\n\nStrike and move, stay mobile, keep them guessing.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -1349,8 +1349,8 @@
     {
       "gearId": "DES-SSP-PAIN",
       "gearName": "Pain Is Strength",
-      "description": "_THE SCAR VOW_\n\nEach time this Unit performs the Melee or Ranged Combat action, it may re-roll a number of Attack dice equal to its lost HIT. Each time this Unit Takes Out an enemy in Melee combat, it regains 1 lost HIT.",
-      "flavor": null,
+      "description": "Each time this Unit performs the Melee or Ranged Combat action, it may re-roll a number of Attack dice equal to its lost HIT. Each time this Unit Takes Out an enemy in Melee combat, it regains 1 lost HIT.",
+      "flavor": "_THE SCAR VOW_\n\nCut me and I will not slow. I return every wound twice over.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -1367,8 +1367,8 @@
     {
       "gearId": "DES-SSP-VGF",
       "gearName": "Vengeful",
-      "description": "_THE DEBT VOW_\n\nEach time this Unit performs a Combat action, it may reroll a number of attack dice equal to the number of Squadmates that have been Taken Out (max 3).",
-      "flavor": null,
+      "description": "Each time this Unit performs a Combat action, it may reroll a number of attack dice equal to the number of Squadmates that have been Taken Out (max 2).",
+      "flavor": "_THE DEBT VOW_\n\nA death dealt is a death owed. Our fallen brethren will be avenged.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -1637,8 +1637,8 @@
     {
       "gearId": "DRN-SSP-AB",
       "gearName": "Acid Blood",
-      "description": "_STRAIN CAUSTIC_\n\nWhen this Unit reaches 0 HIT, all Adjacent enemies take 1 Melee damage.",
-      "flavor": null,
+      "description": "{{DDM}}",
+      "flavor": "_STRAIN CAUSTIC_\n\nDon't get close to the dead ones. They're not finished yet.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -1655,8 +1655,8 @@
     {
       "gearId": "DRN-SSP-FF",
       "gearName": "Feeding Frenzy",
-      "description": "_STRAIN RAVENOUS_\n\nEach time this Unit performs the Melee Combat Action, it may choose for its Melee Support to give +1 ATT instead of an attack re-roll. Make the choice before rolling attack dice.",
-      "flavor": null,
+      "description": "Each time this Unit performs the Melee Combat Action, it may choose for its Melee Support to give +1 ATT instead of an attack re-roll (does not stack for multiple supporting Squadmates). Make the choice before rolling attack dice.",
+      "flavor": "_STRAIN RAVENOUS_\n\nOne bite and every one of them comes running, no matter how far out it started.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -1673,8 +1673,8 @@
     {
       "gearId": "DRN-SSP-HM",
       "gearName": "Hive Mind",
-      "description": "_STRAIN RESONANT_\n\nThis Squad gets its leader's Leader effect even if the leader is Taken Out.",
-      "flavor": null,
+      "description": "This Squad gets its leader's Leader effect even if the leader is Taken Out.",
+      "flavor": "_STRAIN RESONANT_\r \r We took out the one giving the orders but they just keep coming.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -2231,8 +2231,8 @@
     {
       "gearId": "HK-SSP-AB",
       "gearName": "Acid Blood",
-      "description": "_STRAIN CAUSTIC_\n\nWhen this Unit reaches 0 HIT, all Adjacent enemies take 1 Melee damage.",
-      "flavor": null,
+      "description": "{{DDM}}",
+      "flavor": "_STRAIN CAUSTIC_\n\nDon't get close to the dead ones. They're not finished yet.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -2249,8 +2249,8 @@
     {
       "gearId": "HK-SSP-FF",
       "gearName": "Feeding Frenzy",
-      "description": "_STRAIN RAVENOUS_\n\nEach time this Unit performs the Melee Combat Action, it may choose for its Melee Support to give +1 ATT instead of an attack re-roll. Make the choice before rolling attack dice.",
-      "flavor": null,
+      "description": "Each time this Unit performs the Melee Combat Action, it may choose for its Melee Support to give +1 ATT instead of an attack re-roll (does not stack for multiple supporting Squadmates). Make the choice before rolling attack dice.",
+      "flavor": "_STRAIN RAVENOUS_\n\nOne bite and every one of them comes running, no matter how far out it started.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -2267,8 +2267,8 @@
     {
       "gearId": "HK-SSP-HM",
       "gearName": "Hive Mind",
-      "description": "_STRAIN RESONANT_\n\nThis Squad gets its leader's Leader effect even if the leader is Taken Out.",
-      "flavor": null,
+      "description": "This Squad gets its leader's Leader effect even if the leader is Taken Out.",
+      "flavor": "_STRAIN RESONANT_\r \r We took out the one giving the orders but they just keep coming.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -4085,8 +4085,8 @@
     {
       "gearId": "INT-SSP-DBD",
       "gearName": "Duty Before Death",
-      "description": "_DOCTRINE TERMINUS_\n\nWhen this Unit reaches 0 HIT, it may perform one free basic or mission action before losing its last HIT. That action must be 1 ACT or less.",
-      "flavor": null,
+      "description": "When this Unit reaches 0 HIT, it may perform one free basic or mission action before losing its last HIT. That action must be 1 ACT or less.",
+      "flavor": "_DOCTRINE TERMINUS_\n\nThe mission comes first, complete it at all costs.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -4103,8 +4103,8 @@
     {
       "gearId": "INT-SSP-ID",
       "gearName": "Iron Discipline",
-      "description": "_DOCTRINE FERRUM_\r \r {{CTR}}",
-      "flavor": null,
+      "description": "{{CTR}}",
+      "flavor": "_DOCTRINE FERRUM_\n\nAn unanswered strike is a debt and is always repaid in kind.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -4121,8 +4121,8 @@
     {
       "gearId": "INT-SSP-IG",
       "gearName": "Concentrated Fire",
-      "description": "_DOCTRINE IGNIS_\n\nEach time this Unit targets an enemy in Ranged Combat, if a Squadmate has Line Of Sight on that same target, the target does not benefit from Cover.",
-      "flavor": null,
+      "description": "Each time this Unit targets an enemy in Ranged Combat, if a Squadmate has Line Of Sight on that same target, the target does not benefit from Cover.",
+      "flavor": "_DOCTRINE IGNIS_\n\nCoordination is efficiency. Efficiency is victory.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -4463,8 +4463,8 @@
     {
       "gearId": "KF-SSP-CTR",
       "gearName": "Call Dat a Krump?",
-      "description": "_CLAN IRONJAW_\r \r {{CTR}}",
-      "flavor": null,
+      "description": "{{CTR}}",
+      "flavor": "_CLAN IRONJAW_\n\nDat all ya got? My turn now.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 10,
@@ -4481,8 +4481,8 @@
     {
       "gearId": "KF-SSP-GU",
       "gearName": "Gang Up!",
-      "description": "_CLAN WARHERD_\n\nEach time this Unit performs the Melee Combat Action, if it is Adjacent to at least one Squadmate that is also Adjacent to the primary target, this Unit gets `+1 ATT` on its Melee Weapon.",
-      "flavor": null,
+      "description": "Each time this Unit performs the Melee Combat Action, if it is Adjacent to at least one Squadmate that is also Adjacent to the primary target, this Unit gets `+1 ATT` on its Melee Weapon.",
+      "flavor": "_CLAN WARHERD_\n\nYa brought one mate. We brought ours too. Count's still ours.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -4499,8 +4499,8 @@
     {
       "gearId": "KF-SSP-HAS",
       "gearName": "Hard As Nails",
-      "description": "_CLAN BONEPLATE_\r \r {{TGH1}}",
-      "flavor": null,
+      "description": "{{TGH1}}",
+      "flavor": "_CLAN BONEPLATE_\n\nTook worse than dat and kept walkin'. Try again.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -4625,7 +4625,7 @@
     {
       "gearId": "KF-WD-WD",
       "gearName": "Weirdo",
-      "description": "This Unit cannot carry anything (e.g. Intel Markers), cannot take Spoils of War, never gets Injuries (treat it as \"Healed\" each time you roll for Injuries), cannot gain XP, and cannot perform Mission Actions or Control Objectives.",
+      "description": "{{NEQ}}",
       "flavor": null,
       "gearType": "S",
       "gearCategoryId": "SKL",
@@ -5687,8 +5687,8 @@
     {
       "gearId": "REL-SSP-AR",
       "gearName": "Arise!",
-      "description": "_UNDYING DYNASTY_\n\nAt the start of each Turn, roll 1D6. On a 1 or 2, this Unit recovers 1 lost HIT.",
-      "flavor": null,
+      "description": "At the start of each Turn, roll 1D6. On a 1 or 2, this Unit recovers 1 lost HIT.",
+      "flavor": "_UNDYING DYNASTY_\n\nWe have been buried and unburied more times than the histories bothered to record.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -5705,8 +5705,8 @@
     {
       "gearId": "REL-SSP-DW",
       "gearName": "Defensive Weave",
-      "description": "_BALEFUL DYNASTY_\r \r Each time an enemy Unit moves within 1\" or ends a move Adjacent to this Unit, inflict 1 Damage on that enemy Unit.",
-      "flavor": null,
+      "description": "Each time an enemy Unit moves within 1\" or ends a move Adjacent to this Unit, inflict 1 Damage on that enemy Unit.",
+      "flavor": "_BALEFUL DYNASTY_\n\nWe have answered every uninvited hand for longer than our House has had a name.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -5723,8 +5723,8 @@
     {
       "gearId": "REL-SSP-PS",
       "gearName": "Phase Shift",
-      "description": "_VEILED DYNASTY_\r \r {{DOD1}}",
-      "flavor": null,
+      "description": "{{DOD1}}",
+      "flavor": "_VEILED DYNASTY_\n\nWhat strikes this House strikes only what we allow to be seen.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -6173,8 +6173,8 @@
     {
       "gearId": "SCH-SSP-ME",
       "gearName": "Mind's Eye",
-      "description": "_HOUSE OF THE EYE_\n\nThis Unit's Ranged Weapons gain `NCV` - No Cover.",
-      "flavor": null,
+      "description": "This Unit's Ranged Weapons gain `NCV` - No Cover.",
+      "flavor": "_HOUSE OF THE EYE_\n\nHide if it comforts you. We do not need to see you to find you.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -6191,8 +6191,8 @@
     {
       "gearId": "SCH-SSP-SCH",
       "gearName": "Silent Choir",
-      "description": "_HOUSE OF FATE_\n\nWhenever its Leader is in its Line of Sight, this Unit's Melee weapons gain Brutal 1 (re-roll one Melee attack die).",
-      "flavor": null,
+      "description": "Whenever its Leader is in its Line of Sight, this Unit's Melee weapons gain Brutal 1 (re-roll one Melee attack die).",
+      "flavor": "_HOUSE OF FATE_\r \r You won't hear the order, but you'll feel the blade move truer for it.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -6209,8 +6209,8 @@
     {
       "gearId": "SCH-SSP-ST",
       "gearName": "Stealthy",
-      "description": "_HOUSE OF SHADOWS_\n\nEach time this Unit is the target of Ranged Combat and it is in Cover, it may re-roll one additional Save die.",
-      "flavor": null,
+      "description": "{{STL}}",
+      "flavor": "_HOUSE OF SHADOWS_\n\nStay in the dark long enough, and it stops being something you're hiding in.",
       "gearType": "S",
       "gearCategoryId": "SSP",
       "seq": 100,
@@ -7940,6 +7940,14 @@
       "offsetGP": 0
     },
     {
+      "specialId": "U-DDM",
+      "scope": "U",
+      "code": "DDM",
+      "specialName": "Deadly Demise",
+      "description": "When this Unit reaches 0 HIT, all Adjacent enemies take 1 Melee damage.",
+      "offsetGP": 0
+    },
+    {
       "specialId": "U-DEV",
       "scope": "U",
       "code": "DEV",
@@ -8040,7 +8048,7 @@
       "scope": "U",
       "code": "NEQ",
       "specialName": "No Equipment",
-      "description": "This Unit cannot be equipped with gear that costs Gear Points (GP), does not gain XP, never get Injuries, and cannot take any Spoils Of War.",
+      "description": "This Unit cannot carry anything (e.g. Intel Markers), cannot take Spoils of War, never gets Injuries (treat it as \"Recovered\" each time you roll for Injuries), and cannot perform Mission Actions or Control Objectives.",
       "offsetGP": 0
     },
     {
@@ -8080,7 +8088,7 @@
       "scope": "U",
       "code": "STL",
       "specialName": "Stealthy",
-      "description": "This Unit gets one additional auto-save as a result of Cover.",
+      "description": "Each time this Unit is the target of Ranged Combat and it is in Cover, it may re-roll one additional Save die.",
       "offsetGP": 0
     },
     {
