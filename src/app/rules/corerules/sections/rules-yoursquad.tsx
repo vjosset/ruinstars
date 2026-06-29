@@ -55,7 +55,8 @@ export default async function RulesYourSquad({ num }: {num?: number | null}) {
             <li>
               <strong>Select Gear, Weapons, and Skills</strong><br/>
               Each unit card lists its available gear, weapons, and skills. Items with a GP cost are optional: add that cost to your total if selected.
-              Items marked with an asterisk (<code>*</code>) are optional and Unique: only one unit in your squad may have it.
+              Items marked with an asterisk (<code>*</code>) are optional and Unique: only one unit in your squad may have it.<br/>
+              <strong>Squad Specialties</strong> are are common skills for all Units within a Squad. If your Squad has multiple options, select one and apply it to all Units.<br/>
               All other items can be included at no cost except <strong>Spoils Of War</strong>, which are rewards earned in Campaign Play.
             </li>
           </ul>

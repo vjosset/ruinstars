@@ -101,8 +101,9 @@ export default async function RulesSquadTypes() {
               <li>
                 <strong>Select Gear, Weapons, and Skills</strong><br/>
                 Each unit card lists its available gear, weapons, and skills. Items with a GP cost are optional: add that cost to your total if selected.
-                Items marked with an asterisk (<code>*</code>) are optional and Unique: only one unit in your squad may have it.
-              All other items can be included at no cost except <strong>Spoils Of War</strong>, which are rewards earned in Campaign Play.
+                Items marked with an asterisk (<code>*</code>) are optional and Unique: only one unit in your squad may have it.<br/>
+                <strong>Squad Specialties</strong> are are common skills for all Units within a Squad. If your Squad has multiple options, select one and apply it to all Units.<br/>
+                All other items can be included at no cost except <strong>Spoils Of War</strong>, which are rewards earned in Campaign Play.
               </li>
             </ul>
           </div>
@@ -165,36 +166,53 @@ export default async function RulesSquadTypes() {
                   ))}
                 </div>
 
-                {/* Show the distinct skills for units in this squadType */}
-                <div className="section">
-                  <h4>Skills</h4>
-                  <ul className="twocols">
-                    {(() => {
-                      // Gather all skills across unit types
-                      const allSkills = squadType.unitTypes
-                        .flatMap(u => u.skills || [])
+                {/* Show the distinct skills for units in this squadType, grouped by gear category */}
+                <div className="section twocols">
+                  {(() => {
+                    // Gather all skills across unit types
+                    const allSkills = squadType.unitTypes
+                      .flatMap(u => u.skills || [])
 
-                      // Keep only skills with a gearId and exclude narrative-only skills
-                      const nonNarrativeSkills = allSkills
-                        .filter(s => s?.gearId && !s?.gearCategory?.isNarrative)
+                    // Keep only skills with a gearId and exclude narrative-only skills
+                    const nonNarrativeSkills = allSkills
+                      .filter(s => s?.gearId && !s?.gearCategory?.isNarrative)
 
-                      // De-duplicate by gearId (Map keeps last seen, order not important before sorting)
-                      const uniqueSkills = Array.from(
-                        new Map(nonNarrativeSkills.map(s => [s.gearId, s])).values()
-                      )
+                    // De-duplicate by gearId
+                    const uniqueSkills = Array.from(
+                      new Map(nonNarrativeSkills.map(s => [s.gearId, s])).values()
+                    )
 
-                      // Sort alphabetically by gearName for display
-                      uniqueSkills.sort((a, b) => (a?.gearName || '').localeCompare(b?.gearName || ''))
+                    // Sort alphabetically by gearName within each category
+                    uniqueSkills.sort((a, b) => (a?.gearName || '').localeCompare(b?.gearName || ''))
 
-                      // Render the sorted, unique list
-                      return uniqueSkills.map(skill => (
-                        <li key={`squadTypeSkill_${skill?.gearId}`} className="section">
-                          {skill?.gearName}<br/>
-                          <Markdown className="text-sm text-muted" children={skill?.description ?? ''} />
-                        </li>
-                      ))
-                    })()}
-                  </ul>
+                    // Group by gear category, keyed by gearCategoryId to preserve seq for sorting
+                    const groupedById = new Map<string, { categoryName: string; seq: number; skills: typeof uniqueSkills }>()
+                    for (const skill of uniqueSkills) {
+                      const catId = skill?.gearCategory?.gearCategoryId ?? 'other'
+                      const catName = skill?.gearCategory?.gearCategoryName ?? 'Other'
+                      const catSeq = skill?.gearCategory?.seq ?? 999
+                      if (!groupedById.has(catId)) groupedById.set(catId, { categoryName: catName, seq: catSeq, skills: [] })
+                      groupedById.get(catId)!.skills.push(skill)
+                    }
+
+                    // Sort categories by seq so SSP (Squad Specialties) and others appear in DB-defined order
+                    const sortedGroups = Array.from(groupedById.values())
+                      .sort((a, b) => a.seq - b.seq)
+
+                    return sortedGroups.map(({ categoryName, skills }) => (
+                      <div key={categoryName}>
+                        <h4>{categoryName}</h4>
+                        <ul>
+                          {skills.map(skill => (
+                            <li key={`squadTypeSkill_${skill?.gearId}`} className="section">
+                              <strong>{skill?.gearName}</strong><br/>
+                              <Markdown className="text-sm text-muted" children={skill?.description ?? ''} />
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))
+                  })()}
                 </div>
               </div>
             )})}
