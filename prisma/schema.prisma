@@ -188,6 +188,7 @@ model WebEvent {
   datestamp   DateTime @default(now())
   sessionType String   @db.VarChar(50)
   userId      String?  @db.VarChar(45)
+  visitId     String?  @db.VarChar(36)
   eventType   String?  @db.VarChar(50)
   action      String?  @db.VarChar(45)
   label       String?  @db.VarChar(45)
@@ -202,6 +203,7 @@ model WebEvent {
   @@index([userId, eventType, action, label], name: "IX_TAL")
   @@index([var1, eventType, action, label], name: "IX_VAR1")
   @@index([userId], name: "IX_USER")
+  @@index([visitId], name: "IX_visitId")
   @@index([datestamp], name: "IX_datestamp")
 }
 
