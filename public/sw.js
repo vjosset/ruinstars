@@ -1,4 +1,4 @@
-const VERSION = '2.0.1'
+const VERSION = '2.0.5'
 const CACHE_NAME = `cache-v${VERSION}`
 const STATIC_ASSETS = [
   '/manifest.json',
