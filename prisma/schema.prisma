@@ -188,7 +188,7 @@ model WebEvent {
   datestamp   DateTime @default(now())
   sessionType String   @db.VarChar(50)
   userId      String?  @db.VarChar(45)
-  visitId     String?  @db.VarChar(36)
+  visitId     String?  @db.VarChar(50)
   eventType   String?  @db.VarChar(50)
   action      String?  @db.VarChar(45)
   label       String?  @db.VarChar(45)
