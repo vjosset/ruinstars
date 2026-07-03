@@ -3,8 +3,18 @@ import { getToken } from 'next-auth/jwt'
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 
+// Permanently removed pages — respond 410 so crawlers stop retrying them,
+// rather than a bare 404 (which search engines keep re-checking indefinitely).
+const RETIRED_PATHS = new Set([
+  '/scriptedoperations',
+])
+
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl
+
+  if (RETIRED_PATHS.has(pathname)) {
+    return new NextResponse('Gone', { status: 410 })
+  }
 
   // Only rewrite for /me route
   if (pathname === '/me') {
@@ -27,5 +37,5 @@ export async function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/me'],
+  matcher: ['/me', '/scriptedoperations'],
 }
