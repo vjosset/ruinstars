@@ -17,15 +17,16 @@ export function Tracker() {
     // on first load, so only send explicit page_view events on subsequent SPA navigations.
     if (isFirstRender.current) {
       isFirstRender.current = false
-    } else {
-      const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '')
-
-      sendGAEvent('event', 'page_view', {
-        page_path: url,
-        page_location: window.location.href,
-        page_title: document.title,
-      })
+      return
     }
+    
+    const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '')
+
+    sendGAEvent('event', 'page_view', {
+      page_path: url,
+      page_location: window.location.href,
+      page_title: document.title,
+    })
 
     trackEvent('page', 'view')
 
