@@ -11,12 +11,6 @@ export function Tracker() {
   useEffect(() => {
     if (!pathname) return
 
-    const url = pathname + searchParams?.toString()
-
-    window.gtag?.('config', 'G-18BMJ4QB5X', {
-      page_path: url,
-    })
-
     trackEvent('page', 'view')
 
   }, [pathname, searchParams])
