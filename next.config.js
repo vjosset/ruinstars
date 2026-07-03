@@ -2,7 +2,7 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  allowedDevOrigins: ['dev.ruinstars.com'],
+  allowedDevOrigins: ['dev.ruinstars.com', 'node304', 'node304:5000'],
   turbopack: {},
 
   async redirects() {

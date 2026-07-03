@@ -11,7 +11,8 @@ set -euo pipefail
 
 ASSETS_DIR="public/assets"
 GS_SETTINGS="/printer" # ebook is smaller, but printer is more easily parseable. Negligible file size difference.
-DEV_URL="dev.ruinstars.com"
+#DEV_URL="dev.ruinstars.com"
+DEV_URL="node304:5000"
 PROD_URL="ruinstars.com"
 
 # Replaces dev.ruinstars.com links with ruinstars.com in a PDF.
