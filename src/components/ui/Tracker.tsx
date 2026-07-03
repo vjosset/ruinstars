@@ -13,13 +13,15 @@ export function Tracker() {
   useEffect(() => {
     if (!pathname) return
 
+    trackEvent('page', 'view')
+
     // The initial page_view is already sent by GoogleAnalytics' gtag('config', ...)
     // on first load, so only send explicit page_view events on subsequent SPA navigations.
     if (isFirstRender.current) {
       isFirstRender.current = false
       return
     }
-    
+
     const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '')
 
     sendGAEvent('event', 'page_view', {
@@ -27,8 +29,6 @@ export function Tracker() {
       page_location: window.location.href,
       page_title: document.title,
     })
-
-    trackEvent('page', 'view')
 
   }, [pathname, searchParams])
 
