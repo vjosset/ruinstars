@@ -21,9 +21,9 @@ const missions_intro = [
     deployment: 'Player Units deploy anywhere within 4" of the center of the battlefield',
     victory: 'At the end of Turn 4, if all Nests have been Taken Out, your Squad wins the mission.',
     special: dedent(`
-At the start of each Turn, spawn \`x\` Bugs (max 4) Adjacent to each Nest, where \`x\` is the Turn number (i.e. one bug in Turn 1, two bugs in Turn 2, etc.).
+At the start of each Turn, spawn 2 Bugs Adjacent to each remaining Nest. For each Nest that was Taken Out, spawn an additional 1 Bug next to each remaining Nest.
 
-Bug Units are activated after each player Unit activation, alternating player control.
+Bug Units are activated after each player Unit activation.
 
 |**Unit**|**ACT**|**ARM**|**HIT**|
 |-----|:---:|:---:|:---:|
