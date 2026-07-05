@@ -262,7 +262,7 @@ export default function SquadPageClient({
           }}
         />
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/80 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-background/40 to-background" />
 
         {/* Foreground content */}
         <div className="relative z-10 flex flex-col items-center justify-end text-center h-full pt-28 md:pt-20 pb-6 px-4 print:pt-1 print:pb-1">

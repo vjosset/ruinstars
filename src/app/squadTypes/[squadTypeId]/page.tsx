@@ -58,10 +58,8 @@ export default async function SquadTypePage({ params, searchParams }: { params: 
     <div className="max-w-full mb-8">
       <div className="relative min-h-[200px] flex items-center justify-center mb-4"
         style={{ backgroundImage: `url(/img/squadTypes/${squadType.squadTypeId}.webp)`, backgroundAttachment: '', backgroundPosition: 'top', backgroundSize: 'cover' }}>
-        <div 
-          className="absolute inset-0 bg-cover bg-top"
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
+        <div className="absolute inset-0 bg-cover bg-top">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background" />
         </div>
         <div className="relative flex flex-col items-center justify-center px-8 pt-36 w-full">
           <div className="flex items-center gap-x-4 mb-4">
