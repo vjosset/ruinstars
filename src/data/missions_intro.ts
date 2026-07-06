@@ -17,11 +17,11 @@ const missions_intro = [
     title: 'Survive',
     active: true,
     description: '',
-    setup: '',
+    setup: 'Place three Nests on the S, NE, and NW Anchors. Spawn 2 Bugs Adjacent to each Nest.',
     deployment: 'Player Units deploy anywhere within 4" of the center of the battlefield',
     victory: 'At the end of Turn 4, if all Nests have been Taken Out, your Squad wins the mission.',
     special: dedent(`
-At the start of each Turn, spawn 2 Bugs Adjacent to each remaining Nest. For each Nest that was Taken Out, spawn an additional 1 Bug next to each remaining Nest.
+At the start of each Turn (except the first), spawn 1 Bug Adjacent to each remaining Nest.
 
 Bug Units are activated after each player Unit activation.
 
@@ -29,7 +29,7 @@ Bug Units are activated after each player Unit activation.
 |-----|:---:|:---:|:---:|
 |Bug|2|3|1|
 |**Weapon**||**ATT**|**SKL**|
-|(M) Bite||3|4|
+|(M) Bite||3|3|
 
 Nests are treated as items and can be targeted in combat. Nests cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Nest.
 
