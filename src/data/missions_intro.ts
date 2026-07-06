@@ -29,7 +29,7 @@ Bug Units are activated after each player Unit activation.
 |-----|:---:|:---:|:---:|
 |Bug|2|3|1|
 |**Weapon**||**ATT**|**SKL**|
-|(M) Bite||3|3|
+|(M) Bite||3|4|
 
 Nests are treated as items and can be targeted in combat. Nests cannot be targeted in ranged combat if there is at least one Bug Adjacent to that Nest.
 
@@ -57,16 +57,16 @@ Nests are treated as items and can be targeted in combat. Nests cannot be target
         {
           type: 'marker',
           id: 'N1',
-          xIn: 3,
-          yIn: 3,
+          xIn: 4,
+          yIn: 4,
           label: 'N1',
           color: '#dc2626'
         },
         {
           type: 'marker',
           id: 'N2',
-          xIn: 21,
-          yIn: 3,
+          xIn: 20,
+          yIn: 4,
           label: 'N2',
           color: '#dc2626'
         },
@@ -74,7 +74,7 @@ Nests are treated as items and can be targeted in combat. Nests cannot be target
           type: 'marker',
           id: 'N3',
           xIn: 12,
-          yIn: 21,
+          yIn: 20,
           label: 'N3',
           color: '#dc2626'
         },
@@ -82,37 +82,37 @@ Nests are treated as items and can be targeted in combat. Nests cannot be target
           type: 'callout',
           id: 'N1-x',
           x1In: 0,
-          y1In: 3.7,
-          x2In: 3,
-          y2In: 3.7,
-          text: '3"'
+          y1In: 4.7,
+          x2In: 4,
+          y2In: 4.7,
+          text: '4"'
         },
         {
           type: 'callout',
           id: 'N1-y',
-          x1In: 3.7,
+          x1In: 4.7,
           y1In: 0,
-          x2In: 3.7,
-          y2In: 3,
-          text: '3"'
+          x2In: 4.7,
+          y2In: 4,
+          text: '4"'
         },
         {
           type: 'callout',
           id: 'N2-x',
           x1In: 24,
-          y1In: 3.7,
-          x2In: 21,
-          y2In: 3.7,
-          text: '3"'
+          y1In: 4.7,
+          x2In: 20,
+          y2In: 4.7,
+          text: '4"'
         },
         {
           type: 'callout',
           id: 'N2-y',
-          x1In: 20.3,
+          x1In: 19.3,
           y1In: 0,
-          x2In: 20.3,
-          y2In: 3,
-          text: '3"'
+          x2In: 19.3,
+          y2In: 4,
+          text: '4"'
         },
         {
           type: 'callout',
@@ -120,8 +120,8 @@ Nests are treated as items and can be targeted in combat. Nests cannot be target
           x1In: 12.7,
           y1In: 24,
           x2In: 12.7,
-          y2In: 21,
-          text: '3"'
+          y2In: 20,
+          text: '4"'
         },
         {
           type: 'callout',
@@ -134,7 +134,7 @@ Nests are treated as items and can be targeted in combat. Nests cannot be target
         }
       ],
       legend: {
-        DU: 'Player Squad Deployment Zone',
+        DU: 'Player Squad',
         N1: 'Nest 1',
         N2: 'Nest 2',
         N3: 'Nest 3'
