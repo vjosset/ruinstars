@@ -27,7 +27,7 @@ export default async function Home() {
       <div
         className="relative m-0 p-0"
         style={{
-          backgroundImage: 'url(\'/img/hero01_wideB.webp\')',
+          backgroundImage: 'url(\'/img/ui/mech02.png\')',
           backgroundPosition: 'center top',
           WebkitBackgroundSize: 'cover',
           MozBackgroundSize: 'cover',
@@ -36,7 +36,7 @@ export default async function Home() {
         {/* Add an overlay div for the gradient */}
         <div className="absolute inset-0" 
           style={{
-            background: 'linear-gradient(to bottom, rgba(16, 16, 16, 0.1), rgba(16, 16, 16, 0.75), rgba(16, 16, 16, 1))',
+            background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 1))',
             pointerEvents: 'none',
           }}
         />
