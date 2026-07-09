@@ -139,6 +139,7 @@ export default async function RulesCombat({ num }: {num?: number | null}) {
                       <ul>
                         <li>Block 2 points of Damage, or</li>
                         <li>Block 1 point of Damage and inflict 1 point of Damage on the Attacker (see <a className="underline" href="#retaliation">Retaliation</a>)</li>
+                        <li>Block 1 point of Damage and push the Attacker back (see <a className="underline" href="#pushback">Pushback</a>)</li>
                       </ul>
                     </li>
                     <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
@@ -181,6 +182,20 @@ export default async function RulesCombat({ num }: {num?: number | null}) {
               <li>A Critical Save reflects 1 point of Damage back to the original defender, who then rolls one Armor Save. This continues until one combatant rolls a normal Save or a failure.</li>
             </ul>
             <p>During Retaliation, Critical Saves only reflect Damage. The block decision does not apply.</p>
+          </div>
+
+          <div className="section">
+            <h4 id="pushback">Pushback</h4>
+            <p>
+              This option is only available to the primary target of the Melee attack.
+              Secondary targets (e.g. from Chain Reaction/CHR) cannot choose Pushback.
+            </p>
+            <ul>
+              <li>Move the Attacker directly away from the Target, in a straight line, up to 2". This follows normal Movement rules: the Attacker cannot be moved through terrain or other Units' bases. If there is not enough room to move the full 2", move the Attacker as far as the space allows. This may be 0".</li>
+              <li>This movement does not trigger an Attack of Opportunity.</li>
+              <li>If this movement causes the Attacker to fall off terrain, it takes Damage equal to the vertical distance it fell, in inches, divided by 2.</li>
+              <li>Pushback can only happen once per Melee attack. If the Target rolls more than one Critical Save in the same attack and chooses Pushback on more than one of them, each still blocks 1 point of Damage as normal, but the Attacker is only moved once.</li>
+            </ul>
           </div>
         </div>
 
