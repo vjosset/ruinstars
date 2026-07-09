@@ -286,7 +286,7 @@ export default async function RulesQuickRef() {
               </thead>
               <tbody>
                 <LabelRow label="ATT roll 1" text="Critical Strike - 2 Damage" />
-                <LabelRow label="ARM roll 1" text="Critical Save - blocks 2 dmg OR blocks 1 dmg + returns 1 dmg to attacker (chainable)" last />
+                <LabelRow label="ARM roll 1" text='Critical Save - blocks 2 dmg OR blocks 1 dmg + returns 1 dmg to attacker OR blocks 1 dmg + pushes attacker back 2" (max once)' last />
               </tbody>
             </table>
             <Divider />
