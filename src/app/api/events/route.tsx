@@ -6,6 +6,9 @@ import { headers, cookies } from 'next/headers'
 const VISIT_COOKIE = 'rs_visit'
 const VISIT_TTL_SECONDS = 30 * 60 // 30-minute inactivity window
 
+const VISITOR_COOKIE = 'rs_visitor'
+const VISITOR_TTL_SECONDS = 400 * 24 * 60 * 60 // 400 days — persistent visitor id (Safari ITP caps cookie lifetime at 400 days)
+
 // Allow only POST requests
 export async function POST(req: Request) {
   try {
@@ -17,6 +20,7 @@ export async function POST(req: Request) {
 
     const cookieStore = await cookies()
     const visitId = cookieStore.get(VISIT_COOKIE)?.value ?? crypto.randomUUID()
+    const visitorId = cookieStore.get(VISITOR_COOKIE)?.value ?? crypto.randomUUID()
 
     const event = await prisma.webEvent.create({
       data: {
@@ -33,6 +37,7 @@ export async function POST(req: Request) {
         userIp: userIp,
         userId: userId,
         visitId: visitId,
+        visitorId: visitorId,
       },
     })
 
@@ -45,6 +50,15 @@ export async function POST(req: Request) {
       sameSite: 'lax',
       path: '/',
       maxAge: VISIT_TTL_SECONDS,
+    })
+
+    // Refresh the visitor cookie on every request to keep active returning visitors alive
+    response.cookies.set(VISITOR_COOKIE, visitorId, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'lax',
+      path: '/',
+      maxAge: VISITOR_TTL_SECONDS,
     })
 
     return response
