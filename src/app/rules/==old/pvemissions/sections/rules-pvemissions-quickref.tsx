@@ -168,8 +168,8 @@ export default function PvEMissionsQuickRef() {
               <table className="w-full border-collapse">
                 <tbody>
                   <TableRow roll="1-2" label="Hold the Line"    effect="Control all three Objectives at the end of any one Turn." />
-                  <TableRow roll="3-4" label="Sustained Hold"   effect="Control two or more Objectives at the end of two consecutive Turns." />
-                  <TableRow roll="5-6" label="Clear and Move"   effect="Control one or more Objective at the end of three consecutive Turns. Remove controlled Objectives at end of each Turn." last />
+                  <TableRow roll="3-4" label="Sustained Hold"   effect="Control two or more Objectives at the end of two Turns." />
+                  <TableRow roll="5-6" label="Clear and Move"   effect="Control one or more Objective at the end of three Turns. Remove one controlled Objective at end of each Turn." last />
                 </tbody>
               </table>
             </div>

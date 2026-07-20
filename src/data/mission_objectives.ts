@@ -29,7 +29,7 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
         objectiveId: 'Control 3-4',
         title: 'Sustained Hold',
         setup: 'Place 3 Objectives on random anchors',
-        victory: 'Control two or more Objectives at the end of two consecutive Turns.'
+        victory: 'Control two or more Objectives at the end of two different Turns.'
       },
       {
         objectiveId: 'Control 5-6',
