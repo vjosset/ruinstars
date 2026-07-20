@@ -23,9 +23,10 @@ const RULE_BOOKS = [
   { num: '03', title: 'Missions', desc: 'PvP, PvE, and Horde Mode solo/co-op missions.', href: '/assets/books/Missions - Ruinstars.pdf', icon: BsFilePdf },
 ]
 
-const QUICK_REFS: { title: string; href: string; icon: IconType }[] = [
+const QUICK_REFS = [
   { title: 'Core Rules Quick Ref', href: '/assets/books/Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
   { title: 'Missions Quick Ref', href: '/assets/books/Missions - Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
+  { title: 'Reference Cards', desc: 'Printable objective, deployment, and battlefield cards', href: '/assets/books/Reference Cards - Ruinstars.pdf', icon: BsFilePdf },
 ]
 
 const TOOLS: { title: string; href: string; icon: IconType }[] = [
@@ -125,7 +126,12 @@ export default async function Rules() {
                   className="flex items-center gap-3 px-3 py-2.5 hover:text-main transition-colors group"
                 >
                   <item.icon className="shrink-0" />
-                  <span className="flex-1 font-heading uppercase">{item.title}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex-1 font-heading uppercase">{item.title}</div>
+                    {item.desc && (
+                      <div className="text-sm font-main normal-case">{item.desc}</div>
+                    )}
+                  </div>
                   <FiDownload className="text-muted shrink-0 group-hover:text-main transition-colors" />
                 </Link>
               ))}
