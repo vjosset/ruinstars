@@ -396,6 +396,7 @@ export default async function Missions() {
                 <li>Remove all Deceased Units from your Squad.</li>
                 <li>Remove one Injury from each remaining Unit (Deceased Units are already removed in step 1).</li>
                 <li>Recruit new Units into the Squad (to maximum 100 GP).</li>
+                <li>Change your Squad's selected Specialty (optional)</li>
                 <li>Make changes to your Squad's selected Gear and Spoils Of War.</li>
               </ol>
 

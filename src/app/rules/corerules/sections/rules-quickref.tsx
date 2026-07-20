@@ -260,6 +260,16 @@ export default async function RulesQuickRef() {
             <Divider />
             <table className="w-full border-collapse">
               <thead>
+                <tr><TH>Roll Result</TH><TH>Effect</TH></tr>
+              </thead>
+              <tbody>
+                <LabelRow label="ATT roll 1" text="Critical Strike - 2 Damage" />
+                <LabelRow label="ARM roll 1" text="Critical Save - blocks 2 dmg OR blocks 1 dmg + free Dash Action" last />
+              </tbody>
+            </table>
+            <Divider />
+            <table className="w-full border-collapse">
+              <thead>
                 <tr><TH>Modifier</TH><TH>Effect</TH></tr>
               </thead>
               <tbody>

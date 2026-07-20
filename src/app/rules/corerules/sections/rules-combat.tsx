@@ -44,38 +44,42 @@ export default async function RulesCombat({ num }: {num?: number | null}) {
             <li>
               <strong>Roll Armor Saves</strong>
               <ol>
-                <li>The Target rolls one die per sucessful attack die. Note that a Critical Strike counts as <b>one</b> successful attack die.</li>
+                <li>The Target rolls one die per successful attack die. Note that a Critical Strike counts as <b>one</b> successful attack die.</li>
                 <li>
-                  Each result equal to or less than the Target's <code>ARM</code> (Armor) is a successful Save.
+                  Each result equal to or less than the Target's <code>ARM</code> (Armor) is a successful Save.<br/>
+                  A roll of <code>1</code> is a <strong>Critical Save</strong>. The Target immediately chooses one of the following:
                   <ul>
-                    <li>A roll of <code>1</code> is a <strong>Critical Save</strong> and counts as 2 Saves</li>
-                    <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
+                    <li><strong>Block 2: </strong>Block 2 points of Damage</li>
+                    <li><strong>Sidestep: </strong>Block 1 point of Damage and Target performs a free Dash Action</li>
                   </ul>
                 </li>
+                <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
                 <li>Each unsaved point of Damage causes the Target to lose 1 <code>HIT</code></li>
                 <li>If a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield.</li>
               </ol>
             </li>
           </ol>
-          <h4>Modifiers</h4>
-          <table>
-            <thead>
-              <tr className="border-b border-border">
-                <th className="px-1">Condition</th>
-                <th className="px-1">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th className="px-1">Cover</th>
-                <td className="px-1">If the Target is in <a className="underline" href="#cover">cover</a>, the Target may re-roll one Save die.</td>
-              </tr>
-              <tr>
-                <th className="px-1">High&nbsp;Ground</th>
-                <td className="px-1">If the Attacker is at least 4" higher than its Target, the Target does not benefit from Cover</td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="section">
+            <h4>Modifiers</h4>
+            <table>
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="px-1">Condition</th>
+                  <th className="px-1">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th className="px-1">Cover</th>
+                  <td className="px-1">If the Target is in <a className="underline" href="#cover">cover</a>, the Target may re-roll one Save die.</td>
+                </tr>
+                <tr>
+                  <th className="px-1">High&nbsp;Ground</th>
+                  <td className="px-1">If the Attacker is at least 4" higher than its Target, the Target does not benefit from Cover</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           
           <div className="section">
             <h4 id="line-of-sight">Line of Sight</h4>
@@ -130,21 +134,17 @@ export default async function RulesCombat({ num }: {num?: number | null}) {
             <li>
               <strong>Roll Armor Saves</strong>
               <ol>
-                <li>The Target rolls one die per sucessful attack die. Note that a Critical Strike counts as <b>one</b> successful attack die.</li>
+                <li>The Target rolls one die per successful attack die. Note that a Critical Strike counts as <b>one</b> successful attack die.</li>
                 <li>
-                  Each result equal to or less than the Target's <code>ARM</code> (Armor) is a successful Save.
+                  Each result equal to or less than the Target's <code>ARM</code> (Armor) is a successful Save.<br/>
+                  A roll of <code>1</code> is a <strong>Critical Save</strong>. The target immediately chooses one of the following:
                   <ul>
-                    <li>
-                      A roll of <code>1</code> is a <strong>Critical Save</strong>. The target immediately chooses one of the following:
-                      <ul>
-                        <li>Block 2 points of Damage, or</li>
-                        <li>Block 1 point of Damage and inflict 1 point of Damage on the Attacker (see <a className="underline" href="#retaliation">Retaliation</a>)</li>
-                        <li>Block 1 point of Damage and push the Attacker back (see <a className="underline" href="#pushback">Pushback</a>)</li>
-                      </ul>
-                    </li>
-                    <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
+                    <li><strong>Block 2: </strong>Block 2 points of Damage</li>
+                    <li><strong>Retaliate: </strong>Block 1 point of Damage and inflict 1 point of Damage on the Attacker (see <a className="underline" href="#retaliation">Retaliation</a>)</li>
+                    <li><strong>Pushback: </strong>Block 1 point of Damage and push the Attacker back (see <a className="underline" href="#pushback">Pushback</a>)</li>
                   </ul>
                 </li>
+                <li>A roll of <code>{GAME.DICE_BASIS}</code> is always a failure</li>
                 <li>Each unsaved point of Damage causes the Target to lose 1 <code>HIT</code></li>
                 <li>If a Unit reaches zero <code>HIT</code>, it is Taken Out and removed from the battlefield.</li>
               </ol>
