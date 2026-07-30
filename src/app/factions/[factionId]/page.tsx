@@ -37,7 +37,9 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
         </div>
         <em>{faction.tagline}</em>
         <div className="text-foreground">
-          <Markdown className="flavor">{faction.lore}</Markdown>
+          {faction.lore && 
+            <Markdown className="flavor">{faction.lore}</Markdown>
+          }
 
           {faction.squadTypes.map((squadType, index) => {
             const isEven = index % 2 === 1
@@ -69,8 +71,12 @@ export default async function FactionPage({ params }: { params: Promise<{ factio
                   </div>
                   <div className="w-full md:w-1/2">
                     <SquadTypeLink squadTypeId={squadType.squadTypeId} squadTypeName={squadType.squadTypeName} />
-                    <Markdown className="flavor">{squadType.lore}</Markdown>
-                    <Markdown>{squadType.description}</Markdown>
+                    {squadType.lore && 
+                      <Markdown className="flavor">{squadType.lore}</Markdown>
+                    }
+                    {squadType.description &&
+                      <Markdown>{squadType.description}</Markdown>
+                    }
                   </div>
                 </div>
               </div>
