@@ -43,7 +43,6 @@ export default function CardsPage() {
                 <CardBack deck="Battlefield" />
                 <div className="refcard border border-main p-2 flex flex-col overflow-hidden">
                   <h2 className="flex-shrink-0">{b.title}</h2>
-                  <em className="flex-shrink-0">Battlefield {b.battlefieldId}</em>
                   <h4>{b.effectName}</h4>
                   <Markdown>{b.effect}</Markdown>
                 </div>
@@ -67,7 +66,7 @@ export default function CardsPage() {
                   <CardBack deck="Objective" />
                   <div className="refcard border border-main p-2 flex flex-col overflow-hidden">
                     <h2 className="flex-shrink-0">{v.title}</h2>
-                    <em className="flex-shrink-0">PvE Objective - {v.objectiveId}</em>
+                    <em className="flex-shrink-0">Objective - {v.objectiveId}</em>
                     {v.setup && (
                       <div>
                         <h6>Setup</h6>
