@@ -32,7 +32,6 @@ NPC and Horde forces.
 
 I hope this fills a gap for the minis you want to get on the battlefield!
 
-As always, feedback is welcome and appreciated — especially from anyone who
-breaks it.
+As always, feedback is welcome and appreciated!
 
 _Fight how you want._
