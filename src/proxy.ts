@@ -9,11 +9,24 @@ const RETIRED_PATHS = new Set([
   '/scriptedoperations',
 ])
 
+// Moved pages — respond 301 so crawlers transfer link equity to the new URL
+// and stop requesting the old one. Keys must also be listed in `config.matcher`
+// below, otherwise the proxy never runs for them.
+const REDIRECTS = new Map<string, string>([
+  ['/factions/SWARM', '/factions/SWM'],
+])
+
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl
 
   if (RETIRED_PATHS.has(pathname)) {
     return new NextResponse('Gone', { status: 410 })
+  }
+  const redirectTo = REDIRECTS.get(pathname)
+  if (redirectTo) {
+    const url = req.nextUrl.clone()
+    url.pathname = redirectTo
+    return NextResponse.redirect(url, 301)
   }
 
   // Only rewrite for /me route
@@ -37,5 +50,7 @@ export async function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/me', '/scriptedoperations'],
+  // Must be static string literals — Next.js parses this at build time, so it
+  // cannot be derived from RETIRED_PATHS / REDIRECTS. Keep the three in sync.
+  matcher: ['/me', '/scriptedoperations', '/factions/SWARM'],
 }
