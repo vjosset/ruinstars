@@ -22,7 +22,7 @@ function resultLabel(match: MatchResultPlain, squadId: string): { label: string;
   const won = (isA && match.result === 'A') || (!isA && match.result === 'B')
   return won
     ? { label: 'W', className: 'text-main' }
-    : { label: 'L', className: 'text-foregruond' }
+    : { label: 'L', className: 'text-foreground' }
 }
 
 function opponentInfo(match: MatchResultPlain, squadId: string) {
