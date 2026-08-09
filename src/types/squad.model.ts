@@ -1,5 +1,15 @@
 import { SquadType, SquadTypePlain, Unit, UnitPlain, User, UserPlain } from '.'
 
+/** Who a squad is, in one flat object: its name, its owner, and its archetype. */
+export type SquadIdentity = {
+  squadId: string
+  userId: string
+  squadName: string
+  userName: string
+  squadTypeId: string
+  squadTypeName: string
+}
+
 export type SquadPlain = {
   squadId: string
   userId: string

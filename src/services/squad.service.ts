@@ -1,5 +1,5 @@
 import { SquadRepository } from '@/src/repositories/squad.repository'
-import { Squad } from '@/types'
+import { Squad, SquadIdentity } from '@/types'
 import fs from 'fs/promises'
 import { generateId } from '@/lib/id'
 import path from 'path'
@@ -13,6 +13,14 @@ export class SquadService {
   static async getSquadRow(squadId: string): Promise<Squad | null> {
     const row = await this.repository.getSquadRow(squadId)
     return row ? new Squad(row) : null
+  }
+
+  static async getSquadIdentity(squadId: string): Promise<SquadIdentity | null> {
+    return this.repository.getSquadIdentity(squadId)
+  }
+
+  static async searchSquads(query: string): Promise<SquadIdentity[]> {
+    return this.repository.searchSquads(query)
   }
 
   static async getSquad(squadId: string): Promise<Squad | null> {

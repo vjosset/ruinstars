@@ -6,64 +6,69 @@ export const MATCH_OUTCOME = {
 
 export type MatchOutcome = typeof MATCH_OUTCOME[keyof typeof MATCH_OUTCOME]
 
+/**
+ * One side of a match, as displayed. Resolved from the live Squad relation when the
+ * squad still exists, otherwise from the snapshot columns on the MatchResult row.
+ * `squadId` / `userId` are null when the squad has been deleted - the names still
+ * render, but there is nothing left to link to.
+ */
 export type MatchResultSquadInfo = {
-  squadId: string
+  squadId: string | null
   squadName: string
-  userId: string
+  userId: string | null
   userName: string
+  squadTypeId: string
+  squadTypeName: string
 }
 
 export type MatchResultPlain = {
-  missionResultId: number
-  squadAId: string
-  squadBId: string
-  result: string
-  squadAConfirmed: boolean
+  matchResultId: number
+  squadAId: string | null
+  squadBId: string | null
+  result: MatchOutcome
   squadBConfirmed: boolean
   matchDate: Date
-  eloBeforeA?: number | null
-  eloBeforeB?: number | null
-  eloAfterA?: number | null
-  eloAfterB?: number | null
-  squadA?: MatchResultSquadInfo | null
-  squadB?: MatchResultSquadInfo | null
+  eloBeforeA: number | null
+  eloBeforeB: number | null
+  eloAfterA: number | null
+  eloAfterB: number | null
+  squadA: MatchResultSquadInfo
+  squadB: MatchResultSquadInfo
 }
 
 export class MatchResult {
-  missionResultId: number
-  squadAId: string
-  squadBId: string
-  result: string
-  squadAConfirmed: boolean
+  matchResultId: number
+  squadAId: string | null
+  squadBId: string | null
+  result: MatchOutcome
   squadBConfirmed: boolean
   matchDate: Date
-  eloBeforeA?: number | null
-  eloBeforeB?: number | null
-  eloAfterA?: number | null
-  eloAfterB?: number | null
-  squadA?: MatchResultSquadInfo | null
-  squadB?: MatchResultSquadInfo | null
+  eloBeforeA: number | null
+  eloBeforeB: number | null
+  eloAfterA: number | null
+  eloAfterB: number | null
+  // Not optional relations: always resolvable from the row's snapshot columns
+  squadA: MatchResultSquadInfo
+  squadB: MatchResultSquadInfo
 
   constructor(data: {
-    missionResultId: number
-    squadAId: string
-    squadBId: string
-    result: string
-    squadAConfirmed: boolean
+    matchResultId: number
+    squadAId: string | null
+    squadBId: string | null
+    result: MatchOutcome
     squadBConfirmed: boolean
     matchDate: Date
-    eloBeforeA?: number | null
-    eloBeforeB?: number | null
-    eloAfterA?: number | null
-    eloAfterB?: number | null
-    squadA?: MatchResultSquadInfo | null
-    squadB?: MatchResultSquadInfo | null
+    eloBeforeA: number | null
+    eloBeforeB: number | null
+    eloAfterA: number | null
+    eloAfterB: number | null
+    squadA: MatchResultSquadInfo
+    squadB: MatchResultSquadInfo
   }) {
-    this.missionResultId = data.missionResultId
+    this.matchResultId = data.matchResultId
     this.squadAId = data.squadAId
     this.squadBId = data.squadBId
     this.result = data.result
-    this.squadAConfirmed = data.squadAConfirmed
     this.squadBConfirmed = data.squadBConfirmed
     this.matchDate = data.matchDate
     this.eloBeforeA = data.eloBeforeA
@@ -79,16 +84,15 @@ export class MatchResult {
   }
 
   get isConfirmed(): boolean {
-    return this.squadAConfirmed && this.squadBConfirmed
+    return this.squadBConfirmed
   }
 
   toPlain(): MatchResultPlain {
     return {
-      missionResultId: this.missionResultId,
+      matchResultId: this.matchResultId,
       squadAId: this.squadAId,
       squadBId: this.squadBId,
       result: this.result,
-      squadAConfirmed: this.squadAConfirmed,
       squadBConfirmed: this.squadBConfirmed,
       matchDate: this.matchDate,
       eloBeforeA: this.eloBeforeA,
@@ -99,4 +103,9 @@ export class MatchResult {
       squadB: this.squadB,
     }
   }
+}
+
+/** Runtime narrowing for the `result` column, which Prisma types as a bare string. */
+export function isMatchOutcome(value: string): value is MatchOutcome {
+  return value === MATCH_OUTCOME.A || value === MATCH_OUTCOME.B || value === MATCH_OUTCOME.D
 }

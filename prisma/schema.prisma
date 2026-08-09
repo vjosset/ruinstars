@@ -119,15 +119,15 @@ model Squad {
   MP                Int       @default(0)
   TO                Int       @default(0)
   maxGP             Int       @default(100)
-  eloRating         Int       @default(1000)
+  eloRating         Float     @default(1000)
   campaign          String?   @db.Text
   squadType         SquadType @relation(fields: [squadTypeId], references: [squadTypeId], onDelete: Cascade)
   user              User      @relation(fields: [userId], references: [userId], onDelete: Cascade)
 
-  matchesAsSquadA     MissionResult[] @relation("SquadA")
-  matchesAsSquadB     MissionResult[] @relation("SquadB")
+  matchesAsSquadA     MatchResult[] @relation("SquadA")
+  matchesAsSquadB     MatchResult[] @relation("SquadB")
   units               Unit[]
-  defaultForSquadType SquadType?      @relation("SquadTypeDefaultSquad")
+  defaultForSquadType SquadType?    @relation("SquadTypeDefaultSquad")
 
   @@index([squadTypeId], map: "Squad_squadTypeId_fkey")
   @@index([userId], map: "Squad_userId_fkey")
@@ -209,21 +209,38 @@ model WebEvent {
   @@index([datestamp], name: "IX_datestamp")
 }
 
-model MissionResult {
-  missionResultId Int      @id @default(autoincrement())
-  squadAId        String   @db.VarChar(20)
-  squadBId        String   @db.VarChar(20)
+// A confirmed match is shared history between two players, so it must outlive the
+// deletion of either squad. The FKs are therefore nullable + SetNull, and every
+// value needed to render the row is snapshotted at report time. Display prefers
+// the live relation when it is still there and falls back to the snapshot.
+model MatchResult {
+  matchResultId   Int      @id @default(autoincrement())
+  squadAId        String?  @db.VarChar(20)
+  squadBId        String?  @db.VarChar(20)
   result          String   @db.VarChar(1) // "A" = Squad A won, "B" = Squad B won, "D" = Draw
-  squadAConfirmed Boolean  @default(true)
+  // Slot A is always the reporter, so their confirmation is implicit and this one
+  // boolean is the whole state machine: false = pending, true = confirmed.
+  // Disputed and withdrawn are both expressed by the row not existing.
   squadBConfirmed Boolean  @default(false)
   matchDate       DateTime @default(now())
+
+  // Snapshots taken at report time - survive deletion of the squad, user, or squad type
+  squadANameSnap     String  @db.VarChar(250)
+  squadAUserNameSnap String  @db.VarChar(250)
+  squadATypeIdSnap   String  @db.VarChar(20)
+  squadATypeNameSnap String  @db.VarChar(250)
+  squadBNameSnap     String  @db.VarChar(250)
+  squadBUserNameSnap String  @db.VarChar(250)
+  squadBTypeIdSnap   String  @db.VarChar(20)
+  squadBTypeNameSnap String  @db.VarChar(250)
+
   eloBeforeA      Float?
   eloBeforeB      Float?
   eloAfterA       Float?
   eloAfterB       Float?
-  squadA          Squad    @relation("SquadA", fields: [squadAId], references: [squadId], onDelete: Cascade)
-  squadB          Squad    @relation("SquadB", fields: [squadBId], references: [squadId], onDelete: Cascade)
+  squadA          Squad?   @relation("SquadA", fields: [squadAId], references: [squadId], onDelete: SetNull)
+  squadB          Squad?   @relation("SquadB", fields: [squadBId], references: [squadId], onDelete: SetNull)
 
-  @@index([squadAId], map: "MissionResult_squadAId_fkey")
-  @@index([squadBId], map: "MissionResult_squadBId_fkey")
+  @@index([squadAId], map: "MatchResult_squadAId_fkey")
+  @@index([squadBId], map: "MatchResult_squadBId_fkey")
 }

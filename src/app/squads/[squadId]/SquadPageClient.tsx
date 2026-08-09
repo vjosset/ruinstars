@@ -8,7 +8,7 @@ import { Button, Modal } from '@/components/ui'
 import Checkbox from '@/components/ui/Checkbox'
 import CarouselModal, { CarouselItem } from '@/components/ui/CarouselModal'
 import PageTitle from '@/components/ui/PageTitle'
-import BattlesTab from '@/components/squad/BattlesTab'
+import MatchResultsTab from '@/components/squad/MatchResultsTab'
 import AddUnitForm from '@/components/unit/AddUnitForm'
 import UnitCard from '@/components/unit/UnitCard'
 import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
@@ -402,7 +402,7 @@ export default function SquadPageClient({
       {/* Battles tab */}
       {process.env.NEXT_PUBLIC_FEATURE_BATTLES === 'true' && activeTab === 'battles' && (
         <div className="max-w-xl mx-auto px-2">
-          <BattlesTab
+          <MatchResultsTab
             squadId={squad.squadId}
             squadName={squad.squadName}
             isOwner={isOwner}

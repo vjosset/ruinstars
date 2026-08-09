@@ -1,5 +1,5 @@
 import type { Prisma } from '@prisma/client'
-import { Squad, User } from '@/types'
+import { Squad, SquadIdentity, User } from '@/types'
 import { BaseRepository } from './base.repository'
 
 type PrismaSquadWithRelations = Prisma.SquadGetPayload<{
@@ -23,6 +23,16 @@ type PrismaSquadWithRelations = Prisma.SquadGetPayload<{
         seq: 'asc'
       }
     }
+  }
+}>
+
+type PrismaSquadIdentity = Prisma.SquadGetPayload<{
+  select: {
+    squadId: true
+    userId: true
+    squadName: true
+    user: { select: { userName: true } }
+    squadType: { select: { squadTypeId: true; squadTypeName: true } }
   }
 }>
 
@@ -63,6 +73,62 @@ export class SquadRepository extends BaseRepository {
 
     if (!row) return null
     return new Squad(this.toSquadCtorInput(row))
+  }
+
+  /**
+   * Lightweight projection of the fields that identify a squad to a human:
+   * its name, its owner, and its archetype. Used where a full Squad (with units)
+   * would be wasteful - e.g. snapshotting a squad onto a match result.
+   */
+  async getSquadIdentity(squadId: string): Promise<SquadIdentity | null> {
+    const row = await this.prisma.squad.findUnique({
+      where: { squadId },
+      select: this.squadIdentitySelect(),
+    })
+
+    return row ? this.toSquadIdentity(row) : null
+  }
+
+  /**
+   * Squads whose id, name, or owner's user name contains `query`. Used by the
+   * opponent picker, so it returns identities rather than full squads.
+   */
+  async searchSquads(query: string, take = 20): Promise<SquadIdentity[]> {
+    const rows = await this.prisma.squad.findMany({
+      where: {
+        OR: [
+          { squadId: { contains: query } },
+          { squadName: { contains: query } },
+          { user: { userName: { contains: query } } },
+        ],
+      },
+      select: this.squadIdentitySelect(),
+      take,
+      orderBy: { squadName: 'asc' },
+    })
+
+    return rows.map(row => this.toSquadIdentity(row))
+  }
+
+  private squadIdentitySelect() {
+    return {
+      squadId: true,
+      userId: true,
+      squadName: true,
+      user: { select: { userName: true } },
+      squadType: { select: { squadTypeId: true, squadTypeName: true } },
+    } as const
+  }
+
+  private toSquadIdentity(row: PrismaSquadIdentity): SquadIdentity {
+    return {
+      squadId: row.squadId,
+      userId: row.userId,
+      squadName: row.squadName,
+      userName: row.user.userName,
+      squadTypeId: row.squadType.squadTypeId,
+      squadTypeName: row.squadType.squadTypeName,
+    }
   }
 
   async createSquad(data: Partial<Squad>): Promise<Squad> {
