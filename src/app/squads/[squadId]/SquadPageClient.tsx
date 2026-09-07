@@ -194,7 +194,18 @@ export default function SquadPageClient({
   const handleEditSquadClick = () => { setShowEditSquadModal(true)}
 
   const handleSquadPrint = () => {
-    window.print()
+    // Close any open dialogs so they don't end up in the printed output.
+    // The Headless UI menu closes itself on item click, but that unmount only
+    // happens on the next React commit - print after a paint so the DOM is clean.
+    setShowHelpModal(false)
+    setShowResetModal(false)
+    setShowEditSquadModal(false)
+    setShowImportModal(false)
+    setCarouselIsOpen(false)
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => window.print())
+    })
   }
 
   const resetSquad = async () => {
