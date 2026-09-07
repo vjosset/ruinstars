@@ -1,0 +1,17 @@
+# Normalize all text files to LF in the repository.
+# Working-tree checkout is LF everywhere too, which keeps scripted edits and
+# formatters from silently rewriting a whole file's line endings.
+* text=auto eol=lf
+
+# Shell scripts break with CRLF - be explicit.
+*.sh text eol=lf
+
+# Binary assets: never touch, never diff as text.
+*.webp binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.svg  text eol=lf
+*.pdf  binary
+*.ttf  binary
+*.stl  binary
