@@ -420,9 +420,8 @@ export default async function Missions() {
               <div className="section">
                 {MissionBattlefields.map((b) => (
                   <div key={b.battlefieldId}>
-                    <strong>{b.battlefieldId}: {b.title}</strong>
+                    <h4 className="inline">{b.title}:</h4> <strong>{b.effectName}</strong>
                     <div className="ml-4">
-                      <strong>{b.effectName}</strong>
                       <Markdown>{b.effect}</Markdown>
                     </div>
                   </div>
@@ -436,7 +435,7 @@ export default async function Missions() {
               <div className="section">
                 {MissionDeployments.map((d) => (
                   <div key={d.deploymentId} className="section">
-                    <strong>{d.deploymentId}: {d.title}</strong>
+                    <h4>{d.deploymentId}: {d.title}</h4>
                     <div className="ml-4">{d.description}</div>
                   </div>
                 ))}
