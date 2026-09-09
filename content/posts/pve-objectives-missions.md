@@ -114,7 +114,7 @@ Some examples:
 - Objectives must be destroyed in order
 - Objectives auto-heal at the start of each turn
 
-This would mean that Search and Recover would be retired as standalone types and folded into Activate variations where they fit naturally.
+This would mean that Search And Recover would be retired as standalone types and folded into Activate variations where they fit naturally.
 
 #### Narrative Reskinning
 

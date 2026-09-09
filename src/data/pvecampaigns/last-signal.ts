@@ -124,7 +124,7 @@ The core is intact, which is the only piece of luck this station has offered. Wh
           description: 'Recover the transmission record from the communication core and cut the Despoilers\' remote access.',
           deployment: 'Deep Strike. Player within 4" of SE Anchor. NPCs within 4" of NW Anchor.',
           objectiveA: {
-            type: 'Activate - Search and Recover',
+            type: 'Activate - Search And Recover',
             description: 'Three markers placed at N, Center, NW Anchors. Search until the record is found; the carrying unit must extract.',
           },
           objectiveB: {
@@ -259,7 +259,7 @@ Pull the data and get out.`,
           description: 'Recover the fragmented transmission data and extract before the Hunter Killers converge.',
           deployment: 'Overwatch. Player adjacent to SW, S, or SE Anchors. NPCs adjacent to W, N, E Anchors.',
           objectiveA: {
-            type: 'Activate - Search and Recover',
+            type: 'Activate - Search And Recover',
             description: 'Three markers at NW, N, NE Anchors. Search until the data is found; the carrying unit must extract.',
           },
           objectiveB: {
