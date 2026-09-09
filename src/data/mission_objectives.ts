@@ -21,7 +21,7 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
     variations: [
       {
         objectiveId: 'Control 1-2',
-        title: 'Hold The Line',
+        title: 'Hold the Line',
         setup: 'Place 3 Objectives on random anchors',
         victory: 'Control all three Objectives at the end of any one Turn.'
       },
@@ -33,7 +33,7 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
       },
       {
         objectiveId: 'Control 5-6',
-        title: 'Clear And Move',
+        title: 'Clear and Move',
         setup: 'Place 3 Objectives on random anchors',
         special: 'At the end of each Turn, remove one Objective you control.',
         victory: 'All three Objectives removed.'
@@ -61,7 +61,7 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
       },
       {
         objectiveId: 'Activate 5-6',
-        title: 'Search And Recover',
+        title: 'Search and Recover',
         setup: 'Place 3 Objectives on random anchors',
         special: '**Activate - Mission Action (2 ACT):** A Unit Activates an Objective it controls. On Activation, roll `1D6`: if the result is equal to or lower than the current Turn number, the item is found and you can remove all Objectives. Each objective can only be searched once per Turn. This roll cannot be modified or re-rolled using TO. The Unit that finds the item now carries it (can be dropped or passed to a Squadmate for 1 ACT).',
         victory: '**In PvE:** The carrying Unit must extract successfully to complete the Objective. **In PvP:** The item must be carried by a Standing Unit at the end of the mission.'

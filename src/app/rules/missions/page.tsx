@@ -261,7 +261,7 @@ export default async function Missions() {
                 <li><strong>Early Completion Bonus:</strong> For each Turn before Turn 4 in which the Wave was completed, the Player Squad gains <strong>+1 MP</strong> (e.g. +3 MP if completed in Turn 1, +2 MP in Turn 2, +1 MP in Turn 3).</li>
                 <li>If the Objective is not completed by the end of the Wave, it is removed.</li>
                 <li>At the end of each Operation, select a new random battlefield, deployment, and NPC Squad and increase TL by 1.</li>
-                <li>No extraction is required for Wave completion. For the "Search And Recover" objective, the objective is completed if the carrying Unit is still standing.</li>
+                <li>No extraction is required for Wave completion. For the "Search and Recover" objective, the objective is completed if the carrying Unit is still standing.</li>
                 <li>Player Units do <strong>not</strong> regain HIT between Waves. Units may use any remaining ACT during the Turn a Wave ends to act before the next Wave begins.</li>
                 <li>The Player Squad may spend MP on Rewards and Spoils of War at the end of each Wave.</li>
                 <li>Single-use "Limited" weapons and "once per mission" skills can be used once per <strong>Wave</strong></li>

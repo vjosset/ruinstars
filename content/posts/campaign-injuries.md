@@ -32,7 +32,7 @@ Three changes are already in the rules.
 
 #### MP scoring no longer requires extraction
 
-Previously, completing objectives only scored MP if the squad extracted. That gate was too punishing: squads that fought hard and got wiped still walked away with nothing. Now, Destroy and Control and Activate objectives score MP regardless of extraction. Only Search And Recover still requires extraction, because you have to actually carry the thing out.
+Previously, completing objectives only scored MP if the squad extracted. That gate was too punishing: squads that fought hard and got wiped still walked away with nothing. Now, Destroy and Control and Activate objectives score MP regardless of extraction. Only Search and Recover still requires extraction, because you have to actually carry the thing out.
 
 Extraction is now a survival gate, not a scoring gate. Units that don't extract still roll for injury.
 
