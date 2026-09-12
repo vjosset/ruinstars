@@ -3,11 +3,6 @@ import { MissionBattlefields } from '@/data/mission_battlefields'
 import { MissionDeployments } from '@/data/mission_deployments'
 import { MissionObjectives } from '@/data/mission_objectives'
 
-/** 'Control 1-2' -> '1-2' (the D6 range rolled for that variation) */
-function variationRoll(objectiveId: string): string {
-  return objectiveId.split(' ').slice(1).join(' ')
-}
-
 // ─── Primitive helpers ────────────────────────────────────────────────────────
 
 function Card({ children, className = '' }: { children: React.ReactNode; className?: string }) {
@@ -120,14 +115,14 @@ export default function MissionsQuickRef() {
               <SubLabel>PvP</SubLabel>
               <P>
                 Both Squads build to <Hi>100 GP</Hi> at the same <Hi>TL</Hi>. Roll off to assign Squad A / B.
-                Each Squad secretly rolls <Hi>2D6</Hi> for their Objective; both reveal simultaneously and pursue their own Objective independently.
+                Each Squad secretly rolls <Hi>2D3</Hi> for their Objective archetype and variation; both reveal simultaneously and pursue their own Objective independently.
               </P>
               <Divider />
               <SubLabel>PvE</SubLabel>
               <P>
                 Select an enemy faction and a <Hi>Threat Level (1–3)</Hi>. Roll <Hi>3D6</Hi> on the faction Spawn Table — each die resolved independently.
                 Roll <Hi>1D6</Hi> for Squad A/B assignment: <Hi>1–3</Hi> = Player is Squad A; <Hi>4–6</Hi> = Player is Squad B.
-                Roll <Hi>2D6</Hi> for two Objectives with different Archetypes (re-roll if they match).
+                Roll <Hi>2D3</Hi> for two Objectives with different Archetypes (re-roll if they match).              
               </P>
             </div>
           </div>
@@ -200,7 +195,7 @@ export default function MissionsQuickRef() {
 
         <Card>
           <SH>Objectives</SH>
-          <P className="text-muted">Roll 1D6 for <Hi>Archetype</Hi>, then 1D6 for <Hi>Variation</Hi>.</P>
+          <P className="text-muted">Roll <code>1D3</code> for <Hi>Archetype</Hi>, then <code>1D3</code> for <Hi>Variation</Hi>.</P>
           <P className="mb-1.5">
             {MissionObjectives.map((archetype, i) => (
               <Fragment key={archetype.objectiveArchetypeId}>
@@ -219,7 +214,7 @@ export default function MissionsQuickRef() {
                   {archetype.variations.map((v, i) => (
                     <TableRow
                       key={v.objectiveId}
-                      roll={variationRoll(v.objectiveId)}
+                      roll={v.objectiveId}
                       label={v.title}
                       effect={v.quickref ?? v.victory ?? ''}
                       last={i === archetype.variations.length - 1}

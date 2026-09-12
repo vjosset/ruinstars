@@ -19,27 +19,27 @@ export type MissionObjective = {
 
 export const MissionObjectives : MissionObjectiveArchetype[] = [
   {
-    objectiveArchetypeId: '1-2',
+    objectiveArchetypeId: '1',
     title: 'Control',
     description: '',
     quickref: 'Setup: 3 Objectives on random Anchors.',
     variations: [
       {
-        objectiveId: 'Control 1-2',
+        objectiveId: 'C1',
         title: 'Hold the Line',
         setup: 'Place 3 Objectives on random anchors',
         victory: 'Control all three Objectives at the end of any one Turn.',
         quickref: 'Control all 3 Objectives at the end of any one Turn.'
       },
       {
-        objectiveId: 'Control 3-4',
+        objectiveId: 'C2',
         title: 'Sustained Hold',
         setup: 'Place 3 Objectives on random anchors',
         victory: 'Control two or more Objectives at the end of two different Turns.',
         quickref: 'Control 2+ Objectives at the end of two different Turns.'
       },
       {
-        objectiveId: 'Control 5-6',
+        objectiveId: 'C3',
         title: 'Clear and Move',
         setup: 'Place 3 Objectives on random anchors',
         special: 'At the end of each Turn, remove one Objective you control.',
@@ -49,21 +49,21 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
     ]
   },
   {
-    objectiveArchetypeId: '3-4',
+    objectiveArchetypeId: '2',
     title: 'Activate',
     description: '',
     quickref: 'Activate (2 ACT): a Unit Activates an Objective it Controls.',
     variations: [
       {
-        objectiveId: 'Activate 1-2',
+        objectiveId: 'A1',
         title: 'Full Access',
         setup: 'Place three Objective markers on three random anchors',
         special: '**Activate - Mission Action (2 ACT):** A Unit Activates an Objective it controls',
-        victory: 'Activate all three Objectives in any order. Place all three at mission start.',
+        victory: 'Activate all three Objectives in any order.',
         quickref: 'Place all 3 at mission start. Activate all three in any order.'
       },
       {
-        objectiveId: 'Activate 3-4',
+        objectiveId: 'A2',
         title: 'Sequence',
         setup: 'Place one Objective marker on a random anchor',
         special: '**Activate - Mission Action (2 ACT):** A Unit Activates an Objective it controls. Each time an Objective is activated, place the next one on a different random unoccupied Anchor.',
@@ -71,7 +71,7 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
         quickref: 'Place only the first Objective. Each Activation places the next on a different random unoccupied Anchor. Activate three in order.'
       },
       {
-        objectiveId: 'Activate 5-6',
+        objectiveId: 'A3',
         title: 'Search and Recover',
         setup: 'Place 3 Objectives on random anchors',
         special: '**Activate - Mission Action (2 ACT):** A Unit Activates an Objective it controls. On Activation, roll `1D6`: if the result is equal to or lower than the current Turn number, the item is found and you can remove all Objectives. Each objective can only be searched once per Turn. This roll cannot be modified or re-rolled using TO. The Unit that finds the item now carries it (can be dropped or passed to a Squadmate for 1 ACT).',
@@ -81,13 +81,13 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
     ]
   },
   {
-    objectiveArchetypeId: '5-6',
+    objectiveArchetypeId: '3',
     title: 'Destroy',
     description: '',
     quickref: 'Objectives on random Anchors. Can be targeted in Combat.',
     variations: [
       {
-        objectiveId: 'Destroy 1-2',
+        objectiveId: 'D1',
         title: 'Full Denial',
         setup: 'Place three Objectives on three random Anchors.',
         special: 'Objectives are items with `ARM 4 HIT 3`.',
@@ -95,7 +95,7 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
         quickref: 'Place 3 Objectives. ARM 4 HIT 3. Destroy all three.'
       },
       {
-        objectiveId: 'Destroy 3-4',
+        objectiveId: 'D2',
         title: 'High-Value Target',
         setup: 'Place one Objective on a random Anchor.',
         special: 'Objective is an item with `ARM 4 HIT 6`.',
@@ -103,7 +103,7 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
         quickref: 'Place 1 Objective. ARM 4 HIT 6. Destroy it.'
       },
       {
-        objectiveId: 'Destroy 5-6',
+        objectiveId: 'D3',
         title: 'Attrition',
         setup: 'Place three Objectives on three random Anchors.',
         special: 'Objectives are items with `ARM 4 HIT 3`. At the end of each Turn, remaining Objectives regain 1 lost `HIT`.',

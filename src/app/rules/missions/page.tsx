@@ -167,8 +167,8 @@ export default async function Missions() {
             <div className="section">
               <h3>Objectives</h3>
               <p>
-                At mission start, each Squad secretly rolls their Objective using <code>2D6</code>:
-                roll <code>1D6</code> for the <strong>Archetype</strong>, then <code>1D6</code> for the <strong>Variation</strong>.
+                At mission start, each Squad secretly rolls their Objective using <code>2D3</code>:
+                roll <code>1D3</code> for the <strong>Archetype</strong>, then <code>1D3</code> for the <strong>Variation</strong>.
                 Both Squads reveal their Objectives simultaneously.
                 Each Squad pursues their own Objective independently.<br/>
                 See <Link className="underline" href="#objectives">Objectives</Link> below for the list of objectives.
@@ -209,7 +209,7 @@ export default async function Missions() {
             <div className="section">
               <h3>Objectives</h3>
               <p>
-                Roll 1D6 for the Archetype, then 1D6 for the Variation. Repeat for a second Objective, and re-roll if the second objective's Archetype matches the first.
+                Roll <code>1D3</code> for the Archetype, then <code>1D3</code> for the Variation. Repeat for a second Objective, and re-roll if the second objective's Archetype matches the first.
                 Objectives score as described in their "Victory" condition based on their completion state, unless the Objective explicitly states that extraction is required. In bespoke campaigns, individual mission objectives may specify additional extraction requirements.<br/>
                 See <Link className="underline" href="#objectives">Objectives</Link> below for the list of objectives.
               </p>
@@ -475,10 +475,9 @@ export default async function Missions() {
                     <h4>{archetype.objectiveArchetypeId}: {archetype.title}</h4>
                     <div className="ml-4">
                       {archetype.variations.map((v) => {
-                        const rollRange = v.objectiveId.split(' ').slice(1).join(' ')
                         return (
                           <div key={v.objectiveId}>
-                            <strong>{rollRange}: {v.title}</strong>
+                            <strong>{v.objectiveId}: {v.title}</strong>
                             <div className="ml-4">
                               {v.setup && <Markdown>{`**Setup:** ${v.setup}`}</Markdown>}
                               {v.special && <Markdown>{`**Special:** ${v.special}`}</Markdown>}
