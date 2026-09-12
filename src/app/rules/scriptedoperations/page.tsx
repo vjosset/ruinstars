@@ -96,7 +96,7 @@ export default async function RuleBookOperations() {
                 Roll a second, random <strong>Secondary Objective</strong> at the start of the Mission. That Secondary Objective must be of a different Archetype than the Primary Objective.
               </p>
               <p>
-                Set up each Mission as described in the Missions book, using the provided Battlefield, Objective, and Deployment isntead of the usual rolls.
+                Set up each Mission as described in the Missions book, using the provided Battlefield, Objective, and Deployment instead of the usual rolls.
                 All other rules are unchanged: Battlefield effects still trigger each Turn, Objectives are scored normally, and Mission scoring works as it does in any PvE Mission.
               </p>
               <p>
