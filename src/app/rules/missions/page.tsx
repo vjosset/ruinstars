@@ -114,7 +114,13 @@ export default async function Missions() {
                 <ul>
                   <li>a <strong>Battlefield</strong> that alters mission conditions,</li>
                   <li>a <strong>Deployment</strong> variant that determines where both squads begin, and</li>
-                  <li>two random <strong>Objectives</strong> that determine victory conditions.</li>
+                  <li>
+                    two random <strong>Objectives</strong> that determine victory conditions.
+                    <ul>
+                      <li>In PvE, the Player has two Objectives to complete</li>
+                      <li>In PvP, each Player has one Objective to complete.</li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
               <div className="section border border-main rounded-md px-6 py-2 mx-16">
@@ -305,11 +311,15 @@ export default async function Missions() {
         {/* Campaigns */}
         <div id="campaigns">
           <h2>Campaigns</h2>
-          <h3>Threat Level (TL)</h3>
-          <p>
-            TL is a property of the Squad, ranging from 1 to 3. A new Squad begins at TL1. Each completed Operation advances the Squad's TL by 1, to a maximum of TL3. The Squad's TL equals the current Operation number. TL governs MP scaling in all modes and NPC spawn difficulty in PvE and Horde.
-          </p>
           <div className="twocols">
+            <div>
+              <h3>Threat Level (TL)</h3>
+              <p>
+                TL is a property of the Squad, ranging from 1 to 3. A new Squad begins at TL1.
+                Each completed Operation advances the Squad's TL by 1, to a maximum of TL3.
+                The Squad's TL equals the current Operation number. TL governs MP scaling in all modes and NPC spawn difficulty in PvE and Horde.
+              </p>
+            </div>
             <div>
               <h3>Campaign Structure</h3>
               A Campaign is composed of three Operations, and each Operation is composed of three Missions.<br/>
@@ -349,6 +359,7 @@ export default async function Missions() {
                 </li>
               </ul>
 
+              {/*
               <div className="border border-main rounded-md px-4 py-3 my-4">
                 <h4>Mixed Campaigns</h4>
                 <p>
@@ -358,54 +369,67 @@ export default async function Missions() {
                   <strong>Example:</strong> Operation 1 (TL1): PvE / Homebase. Operation 2 (TL2): Horde / Homebase. Operation 3 (TL3): PvP / Homebase.
                 </p>
               </div>
-
-              <h3>Operations</h3>
-              <p>
-                An Operation represents a critical deployment arc within the larger Campaign structure, and is composed of three sequential Missions.
-                When the Operation begins, your Squad is considered to be deployed in the field, meaning it cannot change its Units or Gear selections, and any Mission Points (MP) earned during these missions cannot be spent on new Units or Gear.<br/>
-                Once the third Mission of an Operation is complete, your Squad returns to Homebase to heal Injuries, make new Gear selections, and recruit new Units by spending their hard-earned MP.
-              </p>
-
-              <h4>Missions and Objectives</h4>
-              <p>
-                Each Mission in the campaign should move the story forward.
-                In most cases, this means using the three Objective Archetypes and re-skinning them to fit the narrative.
-                Here are some examples of reframing the core Objectives to fit <em>your</em> story:
-              </p>
+              */}
 
               <div className="section">
-                <h6>Control</h6>
-                The markers could be anything worth holding: a comm relay that must stay live, a breach point that cannot be ceded, a position that commands the only viable extraction route. The story reason matters less than the pressure it creates. If the enemy controls it, you lose.
-              </div>
-              <div className="section">
-                <h6>Activate</h6>
-                Think of these as things that must be done, not held. Purging corrupted data cores. Triggering demolition charges. Sealing breaches in a containment perimeter. The squad moves through, does the work, and leaves. The Search variation works for anything that might be here, or might not: intelligence, a weapon, a body, a signal source. The squad finds it or doesn't.
-              </div>
-              <div className="section">
-                <h6>Destroy</h6>
-                These are things that cannot be allowed to survive. Spawn nodes. Weapons caches. A relay broadcasting enemy coordinates. Whatever they are, they can take damage and they must be brought down. The variation determines how many and how hard, and whether taking them out wakes something up.
+                <h3>Operations</h3>
+                <p>
+                  An Operation represents a critical deployment arc within the larger Campaign structure, and is composed of three sequential Missions.
+                  When the Operation begins, your Squad is considered to be deployed in the field, meaning it cannot change its Units or Gear selections, and any Mission Points (MP) earned during these missions cannot be spent on new Units or Gear.<br/>
+                  Once the third Mission of an Operation is complete, your Squad returns to Homebase to heal Injuries, make new Gear selections, and recruit new Units by spending their hard-earned MP.
+                </p>
               </div>
 
-              <h4>Between Missions</h4>
-              After completing a Mission but before beginning the next one in the same Operation, the Squad may remove <strong>one Injury</strong> from any one Unit (not one per Unit, one total across the Squad).
-              Deceased is not an Injury and cannot be removed this way; a Deceased Unit remains out of action and cannot be replaced until the Squad returns to Homebase.
+              {/*
+                <div className="section">
+                  <h4>Missions and Objectives</h4>
+                  <p>
+                    Each Mission in the campaign should move the story forward.
+                    In most cases, this means using the three Objective Archetypes and re-skinning them to fit the narrative.
+                    Here are some examples of reframing the core Objectives to fit <em>your</em> story:
+                  </p>
+                </div>
 
-              <h4>Homebase</h4>
-              At the end of each Operation, after the third Mission, your Squad returns to Homebase to heal injuries, resupply, and utilize accrued resources.
-              <ol>
-                <li>Remove all Deceased Units from your Squad.</li>
-                <li>Remove one Injury from each remaining Unit (Deceased Units are already removed in step 1).</li>
-                <li>Recruit new Units into the Squad (to maximum 100 GP).</li>
-                <li>Change your Squad's selected Specialty (optional)</li>
-                <li>Make changes to your Squad's selected Gear and Spoils Of War.</li>
-              </ol>
+                <div className="section">
+                  <h6>Control</h6>
+                  The markers could be anything worth holding: a comm relay that must stay live, a breach point that cannot be ceded, a position that commands the only viable extraction route. The story reason matters less than the pressure it creates. If the enemy controls it, you lose.
+                </div>
+                <div className="section">
+                  <h6>Activate</h6>
+                  Think of these as things that must be done, not held. Purging corrupted data cores. Triggering demolition charges. Sealing breaches in a containment perimeter. The squad moves through, does the work, and leaves. The Search variation works for anything that might be here, or might not: intelligence, a weapon, a body, a signal source. The squad finds it or doesn't.
+                </div>
+                <div className="section">
+                  <h6>Destroy</h6>
+                  These are things that cannot be allowed to survive. Spawn nodes. Weapons caches. A relay broadcasting enemy coordinates. Whatever they are, they can take damage and they must be brought down. The variation determines how many and how hard, and whether taking them out wakes something up.
+                </div>
+              */}
+
+              <div className="section">
+                <h4>Between Missions</h4>
+                After completing a Mission but before beginning the next one in the same Operation, the Squad may remove <strong>one Injury</strong> from any one Unit (not one per Unit, one total across the Squad).
+                Deceased is not an Injury and cannot be removed this way; a Deceased Unit remains out of action and cannot be replaced until the Squad returns to Homebase.
+              </div>
+
+              <div className="section">
+                <h4>Homebase</h4>
+                At the end of each Operation, after the third Mission, your Squad returns to Homebase to heal injuries, resupply, and utilize accrued resources.
+                <ol>
+                  <li>Remove all Deceased Units from your Squad.</li>
+                  <li>Remove one Injury from each remaining Unit (Deceased Units are already removed in step 1).</li>
+                  <li>Recruit new Units into the Squad (to maximum 100 GP).</li>
+                  <li>Change your Squad's selected Specialty (optional)</li>
+                  <li>Make changes to your Squad's selected Gear and Spoils Of War.</li>
+                </ol>
+              </div>
 
               {/* FLAG: First sentence below restates the TL=Operation number rule now covered by the authoritative TL definition at the top of Campaigns. Consider simplifying if this section is revisited. */}
-              <h4>PvE Enemy Faction and Threat Level</h4>
-              <p>
+              <div className="section">
+                <h4>PvE Enemy Faction and Threat Level</h4>
+                <p>
                 The Threat Level to use when building NPC Squads should be the same as the Operation number (i.e. TL1 for Missions in Operation 1, TL2 for Operation 2, TL3 for Operation 3).
                 For simplicity, we also recommend using the same faction for all Missions in a given Operation but you may choose to change factions for each Mission.
-              </p>
+                </p>
+              </div>
             </div>
           </div>
         </div>
