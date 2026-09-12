@@ -11,7 +11,7 @@ export default function AdminTools() {
   const [stats, setStats] = useState<any | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [showSignups, setShowSignups] = useState<{ date: string; usernames: string[] } | null>(null)
+  const [showUsers, setShowUsers] = useState<{ title: string; usernames: string[] } | null>(null)
   
   const refreshStats = useCallback(async () => {
     setLoading(true)
@@ -87,8 +87,9 @@ export default function AdminTools() {
         <thead>
           <tr className="font-bold">
             <td>Date</td>
-            <td className="text-right">Users (L/A)</td>
+            <td className="text-right">Users</td>
             <td className="text-right">Signups</td>
+            <td className="text-right">Visits</td>
             <td className="text-right">Views</td>
           </tr>
         </thead>
@@ -96,12 +97,28 @@ export default function AdminTools() {
           {stats.dailyStats.map((dat: any) => (
             <tr key={`dailyStats_${dat.date}`}>
               <td>{dat.date}</td>
-              <td className="text-right">{(dat.uniqueLoggedInUsers ?? 0).toLocaleString()} | {(dat.uniqueAnonymousUsers ?? 0).toLocaleString()}</td>
+              <td className="text-right">
+                {(dat.uniqueLoggedInUsers > 0 ) &&
+                  (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => setShowUsers({ title: `Logged in on ${dat.date}`, usernames: dat.loggedInUsernames || [] })}
+                        className="underline text-main hover:text-main/80"
+                      >
+                        {dat.uniqueLoggedInUsers.toLocaleString()}
+                      </button>
+                      { ' + ' }
+                    </>
+                  )
+                }
+                {(dat.uniqueAnonymousUsers ?? 0).toLocaleString()}
+              </td>
               <td className="text-right">
                 {dat.signups > 0 ? (
                   <button
                     type="button"
-                    onClick={() => setShowSignups({ date: dat.date, usernames: dat.signupUsernames || [] })}
+                    onClick={() => setShowUsers({ title: `Signups on ${dat.date}`, usernames: dat.signupUsernames || [] })}
                     className="underline text-main hover:text-main/80"
                   >
                     {dat.signups.toLocaleString()}
@@ -110,17 +127,18 @@ export default function AdminTools() {
                   dat.signups.toLocaleString()
                 )}
               </td>
+              <td className="text-right">{(dat.visits ?? 0).toLocaleString()}</td>
               <td className="text-right">{dat.views.toLocaleString()}</td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      {showSignups && (
-        <Modal title={`Signups on ${showSignups.date}`} onClose={() => setShowSignups(null)}>
-          <div className="flex flex-col gap-2">
-            {showSignups.usernames.length > 0 ? (
-              showSignups.usernames.map(username => (
+      {showUsers && (
+        <Modal title={showUsers.title} onClose={() => setShowUsers(null)}>
+          <div className="flex flex-col items-start gap-2">
+            {showUsers.usernames.length > 0 ? (
+              showUsers.usernames.map(username => (
                 <UserLink key={username} userName={username} newTab={true} />
               ))
             ) : (

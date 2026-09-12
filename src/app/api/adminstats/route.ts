@@ -10,7 +10,7 @@ export async function GET() {
     return new NextResponse('Unauthorized', { status: 401 })
   }
 
-  const days = getLastNDates(9)
+  const days = getLastNDates(16)
   const startDate = new Date(days[days.length - 1])
   const endDate = new Date()
   endDate.setDate(endDate.getDate() + 1) // to include today fully
@@ -21,11 +21,13 @@ export async function GET() {
     dailyStats: Array<{
       date: string
       views: number
+      visits: number
       signups: number
       uniqueUsers: number
       uniqueLoggedInUsers: number
       uniqueAnonymousUsers: number
       signupUsernames: string[]
+      loggedInUsernames: string[]
     }>
     portraitEvents: any[]
     activeUsers30min: number
@@ -83,10 +85,10 @@ export async function GET() {
           notIn: excludedUserIds
         }
       },
-      select: { datestamp: true, userId: true, userIp: true }
+      select: { datestamp: true, userId: true, userIp: true, visitorId: true, visitId: true }
     }),
     prisma.webEvent.groupBy({
-      by: ['userId', 'userIp'], // distinct concat equivalent
+      by: ['visitorId'],
       where: {
         datestamp: { gte: cutoff30m },
         userIp: { notIn: excludedIps },
@@ -109,21 +111,48 @@ export async function GET() {
 
   // Group into { 'YYYY-MM-DD': count }
   const pageViewsPerDay: Record<string, number> = {}
-  const distinctLoggedInUsersPerDay = new Map<string, Set<string>>()
-  const distinctAnonymousUsersPerDay = new Map<string, Set<string>>()
+  const visitorsPerDay = new Map<string, Set<string>>()
+  const loggedInVisitorsPerDay = new Map<string, Set<string>>()
+  const loggedInUserIdsPerDay = new Map<string, Set<string>>()
+  const visitsPerDay = new Map<string, Set<string>>()
 
   for (const e of pageViews) {
     const date = toLocalIsoDate(e.datestamp)
     pageViewsPerDay[date] = (pageViewsPerDay[date] || 0) + 1
 
+    // visitorId is null only for events predating the rs_visitor cookie; fall back
+    // to the IP so those rows still count as a single visitor rather than dropping out
+    const visitorKey = e.visitorId ?? e.userIp
+    if (!visitorKey) continue
+
+    if (!visitorsPerDay.has(date)) visitorsPerDay.set(date, new Set())
+    visitorsPerDay.get(date)!.add(visitorKey)
+
+    // A visitor who browses anonymously and then logs in the same day is one visitor,
+    // counted on the logged-in side — never once in each bucket
     if (e.userId && e.userId !== '[anon]') {
-      if (!distinctLoggedInUsersPerDay.has(date)) distinctLoggedInUsersPerDay.set(date, new Set())
-      distinctLoggedInUsersPerDay.get(date)!.add(e.userId)
-    } else if (e.userIp) {
-      if (!distinctAnonymousUsersPerDay.has(date)) distinctAnonymousUsersPerDay.set(date, new Set())
-      distinctAnonymousUsersPerDay.get(date)!.add(e.userIp)
+      if (!loggedInVisitorsPerDay.has(date)) loggedInVisitorsPerDay.set(date, new Set())
+      loggedInVisitorsPerDay.get(date)!.add(visitorKey)
+
+      if (!loggedInUserIdsPerDay.has(date)) loggedInUserIdsPerDay.set(date, new Set())
+      loggedInUserIdsPerDay.get(date)!.add(e.userId)
+    }
+
+    if (e.visitId) {
+      if (!visitsPerDay.has(date)) visitsPerDay.set(date, new Set())
+      visitsPerDay.get(date)!.add(e.visitId)
     }
   }
+
+  // WebEvent stores the userId; the drill-down links need the userName
+  const loggedInUserIds = Array.from(new Set(Array.from(loggedInUserIdsPerDay.values()).flatMap(ids => Array.from(ids))))
+  const loggedInUsers = loggedInUserIds.length > 0
+    ? await prisma.user.findMany({
+      where: { userId: { in: loggedInUserIds } },
+      select: { userId: true, userName: true }
+    })
+    : []
+  const userNamesById = new Map(loggedInUsers.map(u => [u.userId, u.userName]))
 
   const signupsPerDay: Record<string, number> = {}
   const signupUsernamesPerDay = new Map<string, Set<string>>()
@@ -139,17 +168,23 @@ export async function GET() {
 
   // Merge into array for frontend
   stats.dailyStats = days.map(date => {
-    const loggedIn = distinctLoggedInUsersPerDay.get(date)?.size ?? 0
-    const anonymous = distinctAnonymousUsersPerDay.get(date)?.size ?? 0
+    const visitors = visitorsPerDay.get(date)?.size ?? 0
+    const loggedInUserIds = loggedInUserIdsPerDay.get(date) ?? new Set<string>()
+    // Anonymous = visitors who never logged in that day, so a visitor who logs in
+    // mid-session lands on the logged-in side only
+    const anonymousVisitors = visitors - (loggedInVisitorsPerDay.get(date)?.size ?? 0)
 
     return {
       date,
       views: pageViewsPerDay[date] || 0,
+      visits: visitsPerDay.get(date)?.size ?? 0,
       signups: signupsPerDay[date] || 0,
-      uniqueUsers: loggedIn + anonymous,
-      uniqueLoggedInUsers: loggedIn,
-      uniqueAnonymousUsers: anonymous,
-      signupUsernames: Array.from(signupUsernamesPerDay.get(date) ?? [])
+      uniqueUsers: visitors,
+      uniqueLoggedInUsers: loggedInUserIds.size,
+      uniqueAnonymousUsers: anonymousVisitors,
+      signupUsernames: Array.from(signupUsernamesPerDay.get(date) ?? []),
+      // Fall back to the raw userId for accounts deleted since the event was logged
+      loggedInUsernames: Array.from(loggedInUserIds).map(id => userNamesById.get(id) ?? id).sort()
     }
   })
 
