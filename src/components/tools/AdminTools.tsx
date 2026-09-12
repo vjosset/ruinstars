@@ -89,7 +89,6 @@ export default function AdminTools() {
             <td>Date</td>
             <td className="text-right">Users</td>
             <td className="text-right">Signups</td>
-            <td className="text-right">Visits</td>
             <td className="text-right">Views</td>
           </tr>
         </thead>
@@ -127,7 +126,6 @@ export default function AdminTools() {
                   dat.signups.toLocaleString()
                 )}
               </td>
-              <td className="text-right">{(dat.visits ?? 0).toLocaleString()}</td>
               <td className="text-right">{dat.views.toLocaleString()}</td>
             </tr>
           ))}
