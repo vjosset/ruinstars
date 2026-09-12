@@ -11,11 +11,11 @@ import OperationCard from './operation-card'
 
 export async function generateMetadata() {
   return generatePageMetadata({
-    title: 'Operations',
+    title: 'Scripted Operations',
     description: `Authored PvE Operations for ${GAME.NAME}, a free miniatures sci-fi skirmish wargame.`,
     images: [{ url: '/icons/icon-big.png', width: 512, height: 512 }],
-    keywords: ['free', 'rules', 'operations', 'campaigns', 'missions', 'pdf'],
-    pagePath: '/rules/operations'
+    keywords: ['free', 'rules', 'operations', 'campaigns', 'missions', 'pdf', 'pve'],
+    pagePath: '/rules/scriptedoperations'
   })
 }
 
@@ -56,7 +56,7 @@ export default async function RuleBookOperations() {
       <img src="/img/rules/BookCoverAlt.webp" className="printonly fullpage overflow-y-hidden" style={{pageBreakAfter: 'always'}} loading="eager" decoding="async" />
       <div className="printonly absolute left-1/2 top-1/4 -translate-x-1/2">
         <div className="text-center text-white font-title text-2xl tracking-wide bg-black/70 px-6 py-3 rounded-lg shadow-lg">
-          <h1>Operations</h1>
+          <h1>Pve Scripted Operations</h1>
           <p className="text-md">
             2nd Edition <span className="text-sm">v{versionTimestamp}</span>
           </p>
@@ -67,27 +67,10 @@ export default async function RuleBookOperations() {
         {/* Intro */}
         <div className="section">
           <h1 className="text-center pt-48 mb-12 font-title" id="operations" style={{position: 'relative', top: '50%' }}>
-            Operations
+            PvE Scripted Operations
           </h1>
 
-          <h3>Authored Deployments for Every Faction</h3>
           <div className="section twocols">
-            <div className="section">
-              <div className="flavor">
-                <p className="mb-4">
-                  “Orders come down the chain stripped of everything but the essentials: where you are going, who is already there, and what has to be true when you leave.
-                  Nobody writes down why. The why burned up with the worlds that used to issue it.
-                </p>
-                <p className="mb-4">
-                  What follows are operations pulled from the archives intact - three deployments each, one after another, no resupply between them.
-                  Squads that ran these came back changed, or did not come back at all.
-                </p>
-                <p className="mb-4">
-                  Pick one. Read it once. Then go.”
-                </p>
-                <strong className="mb-4">Excerpt from the Warfront Archives, Cycle 2281.4</strong>
-              </div>
-            </div>
             <div className="section">
               <h2>About</h2>
               <p className="mb-4">
@@ -100,23 +83,20 @@ export default async function RuleBookOperations() {
                 Choose the Operation that matches the Faction you are playing and the enemy you want to fight, then run its three Missions in order.
               </p>
               <em>
-                Note you will need the <PDFLink href="/assets/books/Core Rules - Ruinstars.pdf" title='Core Rules' /> and the <PDFLink href="/assets/books/Missions - Ruinstars.pdf" title='Missions' /> book to play these Operations.
+                Note you will need the <PDFLink href="/assets/books/Core Rules - Ruinstars.pdf" title='Core Rules' /> and the <PDFLink href="/assets/books/Missions - Ruinstars.pdf" title='Missions' /> books to play these Operations.
               </em>
             </div>
-          </div>
-        </div>
-
-        {/* How to run */}
-        <div className="section">
-          <h2>Running an Operation</h2>
-          <div className="section twocols">
+          
             <div className="section">
+              <h2>Running an Operation</h2>
               <p>
                 Each Operation entry lists the enemy <strong>Faction</strong> and the <strong>Squad Type</strong> to build its NPC Squad from, a single <strong>Battlefield</strong> used for all three Missions, and, for each Mission, a fixed <strong>Objective</strong> and <strong>Deployment</strong>.
-                Nothing in an Operation is rolled for. Use the entry exactly as printed.
+                <br />
+                The listed objective is the <strong>Primary Objective</strong>; it must be completed to proceed to the next Mission in the Operation. 
+                Roll a second, random <strong>Secondary Objective</strong> at the start of the Mission. That Secondary Objective must be of a different Archetype than the Primary Objective.
               </p>
               <p>
-                Set up each Mission as described in the Missions book, substituting the printed Battlefield, Objective, and Deployment for the usual rolls.
+                Set up each Mission as described in the Missions book, using the provided Battlefield, Objective, and Deployment isntead of the usual rolls.
                 All other rules are unchanged: Battlefield effects still trigger each Turn, Objectives are scored normally, and Mission scoring works as it does in any PvE Mission.
               </p>
               <p>
@@ -124,6 +104,8 @@ export default async function RuleBookOperations() {
                 Expect each Operation to demand a Squad that can hold ground, work an objective, and break a target.
               </p>
             </div>
+          </div>
+          <div className="section twocols">
             <div className="section">
               <div className="section border border-main rounded-md px-6 py-2">
                 <h4>Operation Sequence</h4>
@@ -135,11 +117,8 @@ export default async function RuleBookOperations() {
                   <li>Return to Homebase</li>
                 </ol>
               </div>
-              <h3>Threat Level</h3>
-              <p>
-                Build the NPC Squad at the Threat Level matching the Operation's position in your Campaign (TL1 for your first Operation, TL2 for your second, and so on).
-                A one-off Operation played outside a Campaign should use TL1.
-              </p>
+            </div>
+            <div className="section">
               <h3>Between Missions</h3>
               <p>
                 The Squad stays deployed for all three Missions: it cannot change its Units or Gear, and MP earned during the Operation cannot be spent until it ends.
@@ -150,10 +129,9 @@ export default async function RuleBookOperations() {
           </div>
         </div>
 
-        <PageBreak />
-
         {/* Index */}
         {/*
+        <PageBreak />
         <div className="section">
           <h2>Operations Index</h2>
           <div className="section twocols">
