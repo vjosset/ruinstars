@@ -286,7 +286,7 @@ export default async function Missions() {
               <p>
                 <strong>Mission Action — Revive (2 ACT):</strong> A Standing Unit that Controls a Downed Squadmate may revive it.
                 A Downed Unit may also revive itself if it Controls a Standing Squadmate.
-                The revived Unit returns to Standing with one new Injury and all its <code>HIT</code> remaining.
+                The revived Unit returns to Standing with one random new Injury and all its <code>HIT</code> remaining.
               </p>
             </div>
             <div className="section">
