@@ -127,7 +127,7 @@ export const ScriptedOperations: ScriptedOperation[] = [
     npcSquadTypeId: 'SCH',
     title: 'Ritual',
     battlefieldId: 'RIFT',
-    description: 'The Crimson Shroud has found a Heliophage artifact in a place of mixed dimensions and shifting realities. They\'re preparing a ritual to summon a herald of the Heliophage. Stop them before they doom the whole sector.',
+    description: 'The Crimson Shroud has found a Heliophage artifact in a place of mixed dimensions and shifting realities. They\'re preparing a ritual to summon a herald of the Heliophage. Stop them.',
     missions: [
       {
         seq: 1,
@@ -799,7 +799,7 @@ export const ScriptedOperations: ScriptedOperation[] = [
     npcSquadTypeId: 'HK',
     title: 'The Unheard',
     battlefieldId: 'HIVE',
-    description: 'The Swarm\'s hive-mind is deaf to the Song. It cannot be turned. It must be silenced so the Song can reach those trapped behind its noise.',
+    description: 'The Swarm\'s hive-mind is deaf to the Song. It must be silenced so the Song can reach those trapped behind its noise.',
     missions: [
       {
         seq: 1,
@@ -895,7 +895,7 @@ export const ScriptedOperations: ScriptedOperation[] = [
     npcSquadTypeId: 'SCH',
     title: 'Schism',
     battlefieldId: 'TEMPLE',
-    description: 'A faction within the Choir claims to hear a different verse of the Song. Their interpretation fractures our unity. The heresy must be corrected.',
+    description: 'A faction within the Choir claims to hear a different verse of the Song. The heresy must be corrected.',
     missions: [
       {
         seq: 1,
@@ -991,7 +991,7 @@ export const ScriptedOperations: ScriptedOperation[] = [
     npcSquadTypeId: 'HK',
     title: 'The Sleeping Tomb',
     battlefieldId: 'HIVE',
-    description: 'The Swarm has infested an abandoned Hegemony outpost. Beneath the ruins, a tomb of slumbering dynastic ancestors is at risk of being disturbed by the Swarm\'s careless weakening of the city\'s infrastructure.',
+    description: 'The Swarm has infested an abandoned Hegemony outpost. Beneath the ruins, a tomb of dynastic ancestors is being disturbed by the Swarm\'s careless weakening of the city\'s infrastructure.',
     missions: [
       {
         seq: 1,
@@ -1003,7 +1003,7 @@ export const ScriptedOperations: ScriptedOperation[] = [
       {
         seq: 2,
         title: 'Destroy the Nests',
-        description: 'Destroy the Swarm nests that have been threatening the integrity of the above-ground infrastructure.',
+        description: 'Destroy the Swarm nests that threaten the integrity of the infrastructure.',
         objectiveId: 'D3',
         deploymentId: '2',
       },
@@ -1060,14 +1060,14 @@ export const ScriptedOperations: ScriptedOperation[] = [
       {
         seq: 1,
         title: 'Purge',
-        description: 'Destroy their crude fortifications. Nothing they have built here deserves to stand.',
+        description: 'Destroy their crude fortifications.',
         objectiveId: 'D3',
         deploymentId: '1',
       },
       {
         seq: 2,
         title: 'Reclaim',
-        description: 'Activate the facility\'s ancient systems. Our technology remembers its masters.',
+        description: 'Activate the facility\'s ancient systems.',
         objectiveId: 'A1',
         deploymentId: '2',
       },
@@ -1092,7 +1092,7 @@ export const ScriptedOperations: ScriptedOperation[] = [
       {
         seq: 1,
         title: 'The Threshold',
-        description: 'Secure the approaches to the prison. The Shroud has been careless with things they do not understand.',
+        description: 'Secure the prison\'s gates. The Shroud meddles with things they cannot grasp.',
         objectiveId: 'C1',
         deploymentId: '3',
       },
@@ -1119,19 +1119,19 @@ export const ScriptedOperations: ScriptedOperation[] = [
     npcSquadTypeId: 'REL',
     title: 'Dynastic Rivalries',
     battlefieldId: 'TEMPLE',
-    description: 'A rival dynasty is claiming to be the rightful heritors of the Galaxy. We will correct their audacity with the wrath of our ancestors.',
+    description: 'A rival dynasty is claiming to be the rightful inheritors of the Galaxy. Correct their audacity.',
     missions: [
       {
         seq: 1,
         title: 'Desecrate',
-        description: 'Their ancestral monuments stand in our temple. A desecration that will not be tolerated.',
+        description: 'Their ancestral monuments desecrates our temple Destroy them.',
         objectiveId: 'D1',
         deploymentId: '2',
       },
       {
         seq: 2,
         title: 'Rite of Succession',
-        description: 'Activate the sacred altars in the proper sequence. Our claim is older than theirs. The rites will confirm it.',
+        description: 'Activate the sacred altars in the proper sequence. Our claim is older than theirs.',
         objectiveId: 'A2',
         deploymentId: '6',
       },
@@ -1151,7 +1151,7 @@ export const ScriptedOperations: ScriptedOperation[] = [
     npcSquadTypeId: 'PRX',
     title: 'Usurpers',
     battlefieldId: 'JUNG',
-    description: 'The humans built their empire on foundations they did not lay. They occupy worlds that were ours before their species drew breath. This place was ours, and it will be again.',
+    description: 'The humans built their empire on foundations they did not lay. This place was ours, and it will be again.',
     missions: [
       {
         seq: 1,
