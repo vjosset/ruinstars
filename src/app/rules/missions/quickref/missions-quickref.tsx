@@ -1,4 +1,12 @@
 import { Fragment } from 'react'
+import { MissionBattlefields } from '@/data/mission_battlefields'
+import { MissionDeployments } from '@/data/mission_deployments'
+import { MissionObjectives } from '@/data/mission_objectives'
+
+/** 'Control 1-2' -> '1-2' (the D6 range rolled for that variation) */
+function variationRoll(objectiveId: string): string {
+  return objectiveId.split(' ').slice(1).join(' ')
+}
 
 // ─── Primitive helpers ────────────────────────────────────────────────────────
 
@@ -159,12 +167,15 @@ export default function MissionsQuickRef() {
           <P className="text-muted">Roll at Mission start. Effect triggers at the start of each Turn after the first.</P>
           <table className="w-full border-collapse">
             <tbody>
-              <TableRow roll="1" label="The Ruined City — Collapse"           effect='Roll a random Anchor. All terrain within 4" is removed; all Units within 4" take 2 Damage.' />
-              <TableRow roll="2" label="The Facility — Darkness"              effect='Select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.' />
-              <TableRow roll="3" label="The Jungle — Miasmic Mist"            effect='Select one random Standing Unit from each Squad. That Unit moves 2" three times in random directions (no AoO). If blocked, it takes 1 Melee Damage.' />
-              <TableRow roll="4" label="The Alien Hive — Noxious Gas"         effect='Select a random Anchor. All Units within 4" take 1 Damage.' />
-              <TableRow roll="5" label="The Cursed Temple — Haunting Spirits" effect="Select one random Unit from each Squad. That Unit immediately attacks the closest valid target in Combat, Squadmate or enemy." />
-              <TableRow roll="6" label="The Rift — Shifting Realities"        effect='Select a random Anchor, then roll 1D6. 1–3: All Units within 4" move 2" toward it (no AoO). 4–6: All Units within 4" move 2" away from it (no AoO).' last />
+              {MissionBattlefields.map((b, i) => (
+                <TableRow
+                  key={b.battlefieldId}
+                  roll={String(i + 1)}
+                  label={`${b.title} — ${b.effectName}`}
+                  effect={b.quickref ?? b.effect}
+                  last={i === MissionBattlefields.length - 1}
+                />
+              ))}
             </tbody>
           </table>
         </Card>
@@ -174,12 +185,15 @@ export default function MissionsQuickRef() {
           <P className="text-muted">Roll at Mission start. <Br>PvP:</Br> roll off for A/B. <Br>PvE:</Br> 1–3 = Squad A, 4–6 = Squad B.</P>
           <table className="w-full border-collapse">
             <tbody>
-              <TableRow roll="1" label="Standard Insertion" effect='Squad A: Adjacent to SW, S, or SE Anchors. Squad B: Adjacent to NW, N, or NE Anchors (split evenly), in Cover/out of sight.' />
-              <TableRow roll="2" label="Hot Drop"           effect='Squad A: Adjacent to N, S, E, or W Anchors. Squad B: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' />
-              <TableRow roll="3" label="Flanked"            effect='Squad A: within 4" of S Anchor. Squad B: Adjacent to NW or NE Anchors (split evenly), in Cover/out of sight.' />
-              <TableRow roll="4" label="Deep Strike"        effect='Squad A: within 4" of SE Anchor. Squad B: within 4" of NW Anchor, in Cover if possible.' />
-              <TableRow roll="5" label="Overwatch"          effect='Squad A: Adjacent to SW, S, or SE Anchors. Squad B: Adjacent to W, N, or E Anchors (split evenly), in Cover/out of sight.' />
-              <TableRow roll="6" label="Encircled"          effect='Squad A: within 4" of Center Anchor. Squad B: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.' last />
+              {MissionDeployments.map((d, i) => (
+                <TableRow
+                  key={d.deploymentId}
+                  roll={d.deploymentId}
+                  label={d.title}
+                  effect={d.quickref ?? d.description}
+                  last={i === MissionDeployments.length - 1}
+                />
+              ))}
             </tbody>
           </table>
         </Card>
@@ -187,37 +201,34 @@ export default function MissionsQuickRef() {
         <Card>
           <SH>Objectives</SH>
           <P className="text-muted">Roll 1D6 for <Hi>Archetype</Hi>, then 1D6 for <Hi>Variation</Hi>.</P>
-          <P className="mb-1.5"><Hi>1–2</Hi> Control · <Hi>3–4</Hi> Activate · <Hi>5–6</Hi> Destroy</P>
-          <Divider />
-          <SubLabel>Control</SubLabel>
-          <P className="text-muted">Setup: 3 Objectives on random Anchors.</P>
-          <table className="w-full border-collapse">
-            <tbody>
-              <TableRow roll="1-2" label="Hold the Line"  effect="Control all 3 Objectives at the end of any one Turn." />
-              <TableRow roll="3-4" label="Sustained Hold" effect="Control 2+ Objectives at the end of two consecutive Turns." />
-              <TableRow roll="5-6" label="Clear and Move" effect="Control 1+ Objective at end of three consecutive Turns. Remove one controlled Objective at end of Turn." last />
-            </tbody>
-          </table>
-          <Divider />
-          <SubLabel>Activate</SubLabel>
-          <P className="text-muted">Activate (2ACT): Unit Controls an Objective. Objective removed from battlefield.</P>
-          <table className="w-full border-collapse">
-            <tbody>
-              <TableRow roll="1-2" label="Full Access"        effect="Place all 3 at mission start. Activate all three in any order." />
-              <TableRow roll="3-4" label="Sequence"           effect="Place only the first Objective. Each activation places the next on a random unoccupied Anchor." />
-              <TableRow roll="5-6" label="Search and Recover" effect="Place 3 Objectives. On Activation, roll 1D6: found if result ≤ current Turn number. Each objective can only be searched once per Turn. No TO re-rolls. Finder carries item (drop/pass for 1ACT). PvE: carrier must extract. PvP: carrier must be Standing at mission end." last />
-            </tbody>
-          </table>
-          <Divider />
-          <SubLabel>Destroy</SubLabel>
-          <P className="text-muted">Objectives on random Anchors. Can be targeted in combat.</P>
-          <table className="w-full border-collapse">
-            <tbody>
-              <TableRow roll="1-2" label="Full Denial"       effect="Place 3 Objectives. ARM 4 HIT 3. Destroy all three." />
-              <TableRow roll="3-4" label="High-Value Target" effect="Place 1 Objective. ARM 4 HIT 6. Destroy it." />
-              <TableRow roll="5-6" label="Attrition"         effect="Place 3 Objectives. ARM 4 HIT 3. At end of each Turn, remaining Objectives regain 1 lost HIT. Destroy two of three." last />
-            </tbody>
-          </table>
+          <P className="mb-1.5">
+            {MissionObjectives.map((archetype, i) => (
+              <Fragment key={archetype.objectiveArchetypeId}>
+                {i > 0 && ' · '}
+                <Hi>{archetype.objectiveArchetypeId}</Hi> {archetype.title}
+              </Fragment>
+            ))}
+          </P>
+          {MissionObjectives.map((archetype) => (
+            <Fragment key={archetype.objectiveArchetypeId}>
+              <Divider />
+              <SubLabel>{archetype.title}</SubLabel>
+              {archetype.quickref && <P className="text-muted">{archetype.quickref}</P>}
+              <table className="w-full border-collapse">
+                <tbody>
+                  {archetype.variations.map((v, i) => (
+                    <TableRow
+                      key={v.objectiveId}
+                      roll={variationRoll(v.objectiveId)}
+                      label={v.title}
+                      effect={v.quickref ?? v.victory ?? ''}
+                      last={i === archetype.variations.length - 1}
+                    />
+                  ))}
+                </tbody>
+              </table>
+            </Fragment>
+          ))}
         </Card>
 
         {/* ── Row 3: PvE Notes (full width, 3 internal cols) ───────────────── */}

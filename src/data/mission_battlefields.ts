@@ -3,6 +3,8 @@ export type MissionBattlefield = {
   title: string;
   effectName: string;
   effect: string;
+  /** Condensed one-line form of `effect` for the Missions Quick Ref. Falls back to `effect` when absent. */
+  quickref?: string;
 };
 
 export const MissionBattlefields: MissionBattlefield[] = [
@@ -11,36 +13,42 @@ export const MissionBattlefields: MissionBattlefield[] = [
     title: 'The Ruined City',
     effectName: 'Collapse',
     effect: 'The battlefield itself is killing you. At the start of each Turn after the first, roll for a random Anchor. All terrain within 4" of that Anchor is removed from the battlefield, and all Units within 4" of that Anchor take 2 Damage.',
+    quickref: 'Roll a random Anchor. All terrain within 4" is removed; all Units within 4" take 2 Damage.',
   },
   {
     battlefieldId: 'FAC',
     title: 'The Facility',
     effectName: 'Darkness',
     effect: 'At the start of each Turn after the first, select one random Anchor. Until the end of the Turn, Units within 4" of that Anchor cannot be targeted in Ranged Combat.',
+    quickref: 'Select a random Anchor. Until end of Turn, Units within 4" cannot be targeted in Ranged Combat.',
   },
   {
     battlefieldId: 'JUNG',
     title: 'The Jungle',
     effectName: 'Miasmic Mist',
     effect: 'At the start of each Turn after the first, select one random Standing Unit from each Squad. That Unit moves 2" three times in random directions (roll three times). This does not trigger Attacks of Opportunity. If that Unit cannot make a valid move because of a wall or other obstacle, it takes 1 Melee Damage.',
+    quickref: 'Select one random Standing Unit from each Squad. That Unit moves 2" three times in random directions (no AoO). If blocked, it takes 1 Melee Damage.',
   },
   {
     battlefieldId: 'HIVE',
     title: 'The Alien Hive',
     effectName: 'Noxious Gas',
     effect: 'At the start of each Turn after the first, select one random Anchor. All Units within 4" of that Anchor take 1 Damage.',
+    quickref: 'Select a random Anchor. All Units within 4" take 1 Damage.',
   },
   {
     battlefieldId: 'TEMPLE',
     title: 'The Cursed Temple',
     effectName: 'Haunting Spirits',
     effect: 'At the start of each Turn after the first, select one random Unit from each Squad. That Unit is overtaken by the temple\'s restless spirits and immediately attacks the closest valid target in Combat, Squadmate or enemy.',
+    quickref: 'Select one random Unit from each Squad. That Unit immediately attacks the closest valid target in Combat, Squadmate or enemy.',
   },
   {
     battlefieldId: 'RIFT',
     title: 'The Rift',
     effectName: 'Shifting Realities',
     effect: 'At the start of each Turn after the first, select one random Anchor, then roll `1D6`. **1-3:** All Units within 4" of that Anchor immediately move 2" directly toward it. **4-6:** All Units within 4" of that Anchor immediately move 2" directly away from it. This does not trigger Attacks of Opportunity.',
+    quickref: 'Select a random Anchor, then roll 1D6. 1–3: All Units within 4" move 2" toward it. 4–6: All Units within 4" move 2" away from it. No AoO.',
   },
   /*
   {

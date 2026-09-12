@@ -2,6 +2,8 @@ export type MissionObjectiveArchetype = {
   objectiveArchetypeId: string
   title: string
   description: string
+  /** Shared setup/action note for this Archetype, shown once above its variations in the Missions Quick Ref. */
+  quickref?: string
   variations: MissionObjective[]
 }
 
@@ -11,6 +13,8 @@ export type MissionObjective = {
   setup?: string
   special?: string
   victory?: string
+  /** Condensed one-line form of setup/special/victory for the Missions Quick Ref. Falls back to `victory` when absent. */
+  quickref?: string
 }
 
 export const MissionObjectives : MissionObjectiveArchetype[] = [
@@ -18,25 +22,29 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
     objectiveArchetypeId: '1-2',
     title: 'Control',
     description: '',
+    quickref: 'Setup: 3 Objectives on random Anchors.',
     variations: [
       {
         objectiveId: 'Control 1-2',
         title: 'Hold the Line',
         setup: 'Place 3 Objectives on random anchors',
-        victory: 'Control all three Objectives at the end of any one Turn.'
+        victory: 'Control all three Objectives at the end of any one Turn.',
+        quickref: 'Control all 3 Objectives at the end of any one Turn.'
       },
       {
         objectiveId: 'Control 3-4',
         title: 'Sustained Hold',
         setup: 'Place 3 Objectives on random anchors',
-        victory: 'Control two or more Objectives at the end of two different Turns.'
+        victory: 'Control two or more Objectives at the end of two different Turns.',
+        quickref: 'Control 2+ Objectives at the end of two different Turns.'
       },
       {
         objectiveId: 'Control 5-6',
         title: 'Clear and Move',
         setup: 'Place 3 Objectives on random anchors',
         special: 'At the end of each Turn, remove one Objective you control.',
-        victory: 'All three Objectives removed.'
+        victory: 'All three Objectives removed.',
+        quickref: 'Remove one Objective you Control at the end of each Turn. Win when all three have been removed.'
       },
     ]
   },
@@ -44,27 +52,31 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
     objectiveArchetypeId: '3-4',
     title: 'Activate',
     description: '',
+    quickref: 'Activate (2 ACT): a Unit Activates an Objective it Controls.',
     variations: [
       {
         objectiveId: 'Activate 1-2',
         title: 'Full Access',
         setup: 'Place three Objective markers on three random anchors',
         special: '**Activate - Mission Action (2 ACT):** A Unit Activates an Objective it controls',
-        victory: 'Activate all three Objectives in any order. Place all three at mission start.'
+        victory: 'Activate all three Objectives in any order. Place all three at mission start.',
+        quickref: 'Place all 3 at mission start. Activate all three in any order.'
       },
       {
         objectiveId: 'Activate 3-4',
         title: 'Sequence',
         setup: 'Place one Objective marker on a random anchor',
         special: '**Activate - Mission Action (2 ACT):** A Unit Activates an Objective it controls. Each time an Objective is activated, place the next one on a different random unoccupied Anchor.',
-        victory: 'Activate three Objectives in order.'
+        victory: 'Activate three Objectives in order.',
+        quickref: 'Place only the first Objective. Each Activation places the next on a different random unoccupied Anchor. Activate three in order.'
       },
       {
         objectiveId: 'Activate 5-6',
         title: 'Search and Recover',
         setup: 'Place 3 Objectives on random anchors',
         special: '**Activate - Mission Action (2 ACT):** A Unit Activates an Objective it controls. On Activation, roll `1D6`: if the result is equal to or lower than the current Turn number, the item is found and you can remove all Objectives. Each objective can only be searched once per Turn. This roll cannot be modified or re-rolled using TO. The Unit that finds the item now carries it (can be dropped or passed to a Squadmate for 1 ACT).',
-        victory: '**In PvE:** The carrying Unit must extract successfully to complete the Objective. **In PvP:** The item must be carried by a Standing Unit at the end of the mission.'
+        victory: '**In PvE:** The carrying Unit must extract successfully to complete the Objective. **In PvP:** The item must be carried by a Standing Unit at the end of the mission.',
+        quickref: 'Place 3 Objectives. On Activation roll 1D6: found if ≤ Turn number. One search each per Turn, no TO re-rolls. Carrier must extract (PvE) or be Standing at end (PvP).'
       },
     ]
   },
@@ -72,27 +84,31 @@ export const MissionObjectives : MissionObjectiveArchetype[] = [
     objectiveArchetypeId: '5-6',
     title: 'Destroy',
     description: '',
+    quickref: 'Objectives on random Anchors. Can be targeted in Combat.',
     variations: [
       {
         objectiveId: 'Destroy 1-2',
         title: 'Full Denial',
         setup: 'Place three Objectives on three random Anchors.',
         special: 'Objectives are items with `ARM 4 HIT 3`.',
-        victory: 'Destroy all three Objectives.'
+        victory: 'Destroy all three Objectives.',
+        quickref: 'Place 3 Objectives. ARM 4 HIT 3. Destroy all three.'
       },
       {
         objectiveId: 'Destroy 3-4',
         title: 'High-Value Target',
         setup: 'Place one Objective on a random Anchor.',
         special: 'Objective is an item with `ARM 4 HIT 6`.',
-        victory: 'Destroy the Objective.'
+        victory: 'Destroy the Objective.',
+        quickref: 'Place 1 Objective. ARM 4 HIT 6. Destroy it.'
       },
       {
         objectiveId: 'Destroy 5-6',
         title: 'Attrition',
         setup: 'Place three Objectives on three random Anchors.',
         special: 'Objectives are items with `ARM 4 HIT 3`. At the end of each Turn, remaining Objectives regain 1 lost `HIT`.',
-        victory: 'Destroy two of three Objectives.'
+        victory: 'Destroy two of three Objectives.',
+        quickref: 'Place 3 Objectives. ARM 4 HIT 3. At the end of each Turn, remaining Objectives regain 1 lost HIT. Destroy two of three.'
       },
     ]
   },

@@ -7,6 +7,8 @@ export type Deployment = {
   deploymentId: string;
   title: string;
   description: string;
+  /** Condensed one-line form of `description` for the Missions Quick Ref. Falls back to `description` when absent. */
+  quickref?: string;
   diagram: BattlefieldDiagramConfig;
 };
 
@@ -15,6 +17,7 @@ export const MissionDeployments: Deployment[] = [
     deploymentId: '1',
     title: 'Standard Insertion',
     description: 'Squad A Adjacent to the SW, S, or SE Anchors. Squad B Adjacent to the NW, N, or NE Anchors (split evenly), in Cover or out of sight where possible.',
+    quickref: 'Squad A: Adjacent to SW, S, or SE Anchors. Squad B: Adjacent to NW, N, or NE Anchors (split evenly), in Cover/out of sight.',
     diagram: {
       showCenterLines: true,
       elements: [
@@ -31,6 +34,7 @@ export const MissionDeployments: Deployment[] = [
     deploymentId: '2',
     title: 'Hot Drop',
     description: 'Squad A deploys Adjacent to the N, S, E, or W Anchors. Squad B deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover or out of sight where possible.',
+    quickref: 'Squad A: Adjacent to N, S, E, or W Anchors. Squad B: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.',
     diagram: {
       showCenterLines: true,
       elements: [
@@ -49,6 +53,7 @@ export const MissionDeployments: Deployment[] = [
     deploymentId: '3',
     title: 'Flanked',
     description: 'Squad A deploys within 4" of the S Anchor. Squad B deploys Adjacent to the NW or NE Anchors (split evenly), in Cover or out of sight where possible.',
+    quickref: 'Squad A: within 4" of S Anchor. Squad B: Adjacent to NW or NE Anchors (split evenly), in Cover/out of sight.',
     diagram: {
       showCenterLines: true,
       elements: [
@@ -62,6 +67,7 @@ export const MissionDeployments: Deployment[] = [
     deploymentId: '4',
     title: 'Deep Strike',
     description: 'Squad A deploys within 4" of the SE anchor. Squad B deploys within 4" of the NW anchor, in Cover if possible.',
+    quickref: 'Squad A: within 4" of SE Anchor. Squad B: within 4" of NW Anchor, in Cover if possible.',
     diagram: {
       showCenterLines: true,
       elements: [
@@ -74,6 +80,7 @@ export const MissionDeployments: Deployment[] = [
     deploymentId: '5',
     title: 'Overwatch',
     description: 'Squad A deploys Adjacent to the SW, S, or SE Anchors. Squad B deploys Adjacent to the W, N, or E Anchors (split evenly), in Cover or out of sight where possible.',
+    quickref: 'Squad A: Adjacent to SW, S, or SE Anchors. Squad B: Adjacent to W, N, or E Anchors (split evenly), in Cover/out of sight.',
     diagram: {
       showCenterLines: true,
       elements: [
@@ -90,6 +97,7 @@ export const MissionDeployments: Deployment[] = [
     deploymentId: '6',
     title: 'Encircled',
     description: 'Squad A deploys within 4" of the Center anchor. Squad B deploys Adjacent to the NW, NE, SW, or SE Anchors (split evenly), in Cover or out of sight where possible.',
+    quickref: 'Squad A: within 4" of Center Anchor. Squad B: Adjacent to NW, NE, SW, or SE Anchors (split evenly), in Cover/out of sight.',
     diagram: {
       showCenterLines: true,
       elements: [
