@@ -2,7 +2,7 @@ import { getAuthSession } from '@/lib/auth'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
-import { FactionService, SquadService } from '@/services'
+import { CampaignService, FactionService, SquadService } from '@/services'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import SquadPageClient from './SquadPageClient'
@@ -44,6 +44,7 @@ export default async function SquadPage({ params }: { params: Promise<{ squadId:
   const { squadId } = await params
   const squad = (await SquadService.getSquad(squadId))
   const factions = await FactionService.getAllFactions()
+  const npcSquads = process.env.NEXT_PUBLIC_FEATURE_CAMPAIGNS === 'true' ? await CampaignService.getNpcSquads() : []
 
   if (!squad) notFound()
 
@@ -52,7 +53,7 @@ export default async function SquadPage({ params }: { params: Promise<{ squadId:
 
   return (
     <div className="mx-auto mb-8">
-      <SquadPageClient initialSquad={squad.toPlain()} isOwner={isOwner} factions={factions.map(f => f.toPlain())} />
+      <SquadPageClient initialSquad={squad.toPlain()} isOwner={isOwner} factions={factions.map(f => f.toPlain())} npcSquads={npcSquads} />
     </div>
   )
 }

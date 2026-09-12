@@ -196,7 +196,7 @@ export class SquadService {
       seq: -1,
       squadName: destSquadName,
       description: '', // Do not copy description from source
-      campaign: sourceSquad.campaign,
+      campaign: null, // Campaign progress belongs to the source squad
     })
 
     if (!createdSquad) {

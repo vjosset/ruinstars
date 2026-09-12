@@ -8,3 +8,4 @@ export { UnitService } from './unit.service'
 export { UnitTypeService } from './unitType.service'
 export { UserService } from './user.service'
 
+export { CampaignService } from './campaign.service'

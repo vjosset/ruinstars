@@ -110,6 +110,17 @@ export class SquadRepository extends BaseRepository {
     return rows.map(row => this.toSquadIdentity(row))
   }
 
+  /** A user's squads as identities, in the user's order. Used to list NPC Squads without loading units. */
+  async getSquadIdentitiesByUserId(userId: string): Promise<SquadIdentity[]> {
+    const rows = await this.prisma.squad.findMany({
+      where: { userId },
+      select: this.squadIdentitySelect(),
+      orderBy: { seq: 'asc' },
+    })
+
+    return rows.map(row => this.toSquadIdentity(row))
+  }
+
   private squadIdentitySelect() {
     return {
       squadId: true,

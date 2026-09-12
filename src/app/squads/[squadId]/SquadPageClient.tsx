@@ -1,5 +1,6 @@
 'use client'
 
+import CampaignTab from '@/components/campaign/CampaignTab'
 import SquadHelpContent from '@/components/help/SquadHelpContent'
 import { SquadTypeLink, UserLink } from '@/components/nav/Links'
 import EditSquadForm from '@/components/squad/EditSquadForm'
@@ -14,7 +15,7 @@ import UnitCard from '@/components/unit/UnitCard'
 import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { shareSquad } from '@/lib/utils/shareSquad'
 import { SpecialRule } from '@/lib/utils/specialRules'
-import { FactionPlain, SquadPlain, UnitPlain } from '@/types'
+import { FactionPlain, SquadIdentity, SquadPlain, UnitPlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
@@ -23,14 +24,30 @@ import { FiDownload, FiMoreVertical, FiShare2 } from 'react-icons/fi'
 import { toast } from 'sonner'
 import { FaPencil } from 'react-icons/fa6'
 
+type SquadTab = 'units' | 'campaign' | 'battles'
+
+const squadTabs: SquadTab[] = [
+  'units',
+  ...(process.env.NEXT_PUBLIC_FEATURE_CAMPAIGNS === 'true' ? ['campaign' as const] : []),
+  ...(process.env.NEXT_PUBLIC_FEATURE_BATTLES === 'true' ? ['battles' as const] : []),
+]
+
+const squadTabLabels: Record<SquadTab, string> = {
+  units: 'Units',
+  campaign: 'Campaign',
+  battles: 'Battles',
+}
+
 export default function SquadPageClient({
   initialSquad,
   isOwner,
   factions,
+  npcSquads,
 }: {
   initialSquad: SquadPlain
   isOwner: boolean
   factions: FactionPlain[]
+  npcSquads: SquadIdentity[]
 }) {
   const router = useRouter()
   const { status } = useSession()
@@ -40,7 +57,7 @@ export default function SquadPageClient({
   const [allSpecials, setSpecials] = useState<SpecialRule[] | null>(null)
   const formRef = useRef<{ handleSubmit: () => void }>(null)
   const [editSquadSaveDisabled, setEditSquadSaveDisabled] = useState(false)
-  const [activeTab, setActiveTab] = useState<'units' | 'battles'>('units')
+  const [activeTab, setActiveTab] = useState<SquadTab>('units')
   const [showHelpModal, setShowHelpModal] = useState<boolean>(false)
   const [showResetModal, setShowResetModal] = useState<boolean>(false)
   const [resetOptMP, setResetOptMP] = useState(false)
@@ -71,6 +88,20 @@ export default function SquadPageClient({
   useEffect(() => {
     setUnits(squad.units ?? [])
   }, [squad.units])
+
+  // Restore the tab from the URL (?tab=campaign) so a refresh at the table keeps your place
+  useEffect(() => {
+    const tab = new URLSearchParams(window.location.search).get('tab')
+    if (tab && squadTabs.includes(tab as SquadTab)) setActiveTab(tab as SquadTab)
+  }, [])
+
+  const selectTab = (tab: SquadTab) => {
+    setActiveTab(tab)
+    const url = new URL(window.location.href)
+    if (tab === 'units') url.searchParams.delete('tab')
+    else url.searchParams.set('tab', tab)
+    window.history.replaceState(null, '', url)
+  }
 
   const updateUnit = (updated: UnitPlain) => {
     setUnits(prev =>
@@ -202,6 +233,9 @@ export default function SquadPageClient({
     setShowEditSquadModal(false)
     setShowImportModal(false)
     setCarouselIsOpen(false)
+
+    // Only the Units tab prints
+    selectTab('units')
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => window.print())
@@ -391,22 +425,35 @@ export default function SquadPageClient({
         </>
       )}
 
-      {/* Tab bar */}
-      {process.env.NEXT_PUBLIC_FEATURE_BATTLES === 'true' && (
+      {/* Tab bar - hidden while Units is the only tab */}
+      {squadTabs.length > 1 && (
         <div className="flex items-center justify-center gap-8 border-b border-border mb-4 px-2 noprint">
-          {(['units', 'battles'] as const).map(tab => (
+          {squadTabs.map(tab => (
             <button
               key={tab}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => selectTab(tab)}
               className={`pb-2 text-sm uppercase tracking-wide transition-colors border-b-2 ${
                 activeTab === tab
                   ? 'text-main border-main'
                   : 'text-muted hover:text-foreground border-transparent'
               }`}
             >
-              {tab === 'units' ? 'Units' : 'Battles'}
+              {squadTabLabels[tab]}
             </button>
           ))}
+        </div>
+      )}
+
+      {/* Campaign tab */}
+      {process.env.NEXT_PUBLIC_FEATURE_CAMPAIGNS === 'true' && activeTab === 'campaign' && (
+        <div className="max-w-xl mx-auto px-2 noprint">
+          <CampaignTab
+            squadId={squad.squadId}
+            initialCampaign={squad.campaign}
+            npcSquads={npcSquads}
+            isOwner={isOwner}
+            onCampaignSaved={campaign => setSquad(prev => ({ ...prev, campaign }))}
+          />
         </div>
       )}
 
@@ -453,112 +500,112 @@ export default function SquadPageClient({
                 onUnitAdded={addUnit}
               />
             )}
-
-            {showImportModal && (
-              <Modal
-                title={`Import ${squad.squadName}`}
-                onClose={() => setShowImportModal(false)}
-                footer={
-                  <div className="flex justify-end gap-2">
-                    <Button variant="ghost" onClick={() => setShowImportModal(false)}>
-                      <h6>Cancel</h6>
-                    </Button>
-                    <Button onClick={handleImportConfirm}>
-                      <h6>Import</h6>
-                    </Button>
-                  </div>
-                }
-              >
-                <p>
-                  This will add a copy of {squad.squadName} to your squads.
-                  Field them as-is, or make them your own.
-                </p>
-              </Modal>
-            )}
-
-            {showHelpModal && (
-              <Modal title="Using Your Squad" onClose={() => setShowHelpModal(false)}>
-                <SquadHelpContent />
-              </Modal>
-            )}
-
-            {showResetModal && (
-              <Modal
-                title="Reset Squad"
-                onClose={() => setShowResetModal(false)}
-                footer={
-                  <div className="flex justify-end gap-2">
-                    <Button variant="ghost" onClick={() => setShowResetModal(false)}>
-                      <h6>Cancel</h6>
-                    </Button>
-                    <Button
-                      onClick={() => {
-                        resetSquad()
-                        setShowResetModal(false)
-                      }}
-                    >
-                      <h6>Reset</h6>
-                    </Button>
-                  </div>
-                }
-              >
-                <div className="space-y-4">
-                  <p>
-                    Reset the squad? This will set Turn to 1, set TO to zero, and restore all units&apos; HIT and activation.
-                  </p>
-                  <div className="space-y-2">
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <Checkbox checked={resetOptMP} onChange={e => setResetOptMP(e.target.checked)} />
-                      Reset MP to zero
-                    </label>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <Checkbox checked={resetOptInjuries} onChange={e => setResetOptInjuries(e.target.checked)} />
-                      Remove Injuries (including Deceased)
-                    </label>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <Checkbox checked={resetOptSpoils} onChange={e => setResetOptSpoils(e.target.checked)} />
-                      Remove Spoils of War
-                    </label>
-                  </div>
-                </div>
-              </Modal>
-            )}
-
-            {showEditSquadModal && (
-              <Modal
-                title={squad.squadName}
-                onClose={() => setShowEditSquadModal(false)}
-                footer={
-                  <div className="flex justify-end gap-2">
-                    <Button variant="ghost" onClick={() => setShowEditSquadModal(false)}>
-                      <h6>Cancel</h6>
-                    </Button>
-                    <Button onClick={() => formRef.current?.handleSubmit()} disabled={editSquadSaveDisabled}>
-                      <h6>Save</h6>
-                    </Button>
-                  </div>
-                }>
-                  
-                <EditSquadForm
-                  ref={formRef} // Pass formRef to EditSquadForm
-                  initialName={squad.squadName}
-                  initialMaxGP={squad.maxGP}
-                  initialNotes={squad.notes}
-                  hasCustomPortrait={squad.hasCustomPortrait}
-                  onCancel={() => setShowEditSquadModal(false)}
-                  squad={squad}
-                  squadId={squad.squadId}
-                  onSaveDisabledChange={setEditSquadSaveDisabled}
-                  onSave={(name, maxGP, notes) => {
-                    updateSquadInfo(name, maxGP, notes)
-                    setShowEditSquadModal(false)
-                  }}
-                />
-              </Modal>
-            )}
           </div>
-
         </div>
+      )}
+
+      {/* Squad modals - outside tab conditionals so the squad menu works from any tab */}
+      {showImportModal && (
+        <Modal
+          title={`Import ${squad.squadName}`}
+          onClose={() => setShowImportModal(false)}
+          footer={
+            <div className="flex justify-end gap-2">
+              <Button variant="ghost" onClick={() => setShowImportModal(false)}>
+                <h6>Cancel</h6>
+              </Button>
+              <Button onClick={handleImportConfirm}>
+                <h6>Import</h6>
+              </Button>
+            </div>
+          }
+        >
+          <p>
+            This will add a copy of {squad.squadName} to your squads.
+            Field them as-is, or make them your own.
+          </p>
+        </Modal>
+      )}
+
+      {showHelpModal && (
+        <Modal title="Using Your Squad" onClose={() => setShowHelpModal(false)}>
+          <SquadHelpContent />
+        </Modal>
+      )}
+
+      {showResetModal && (
+        <Modal
+          title="Reset Squad"
+          onClose={() => setShowResetModal(false)}
+          footer={
+            <div className="flex justify-end gap-2">
+              <Button variant="ghost" onClick={() => setShowResetModal(false)}>
+                <h6>Cancel</h6>
+              </Button>
+              <Button
+                onClick={() => {
+                  resetSquad()
+                  setShowResetModal(false)
+                }}
+              >
+                <h6>Reset</h6>
+              </Button>
+            </div>
+          }
+        >
+          <div className="space-y-4">
+            <p>
+              Reset the squad? This will set Turn to 1, set TO to zero, and restore all units&apos; HIT and activation.
+            </p>
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <Checkbox checked={resetOptMP} onChange={e => setResetOptMP(e.target.checked)} />
+                Reset MP to zero
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer">
+                <Checkbox checked={resetOptInjuries} onChange={e => setResetOptInjuries(e.target.checked)} />
+                Remove Injuries (including Deceased)
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer">
+                <Checkbox checked={resetOptSpoils} onChange={e => setResetOptSpoils(e.target.checked)} />
+                Remove Spoils of War
+              </label>
+            </div>
+          </div>
+        </Modal>
+      )}
+
+      {showEditSquadModal && (
+        <Modal
+          title={squad.squadName}
+          onClose={() => setShowEditSquadModal(false)}
+          footer={
+            <div className="flex justify-end gap-2">
+              <Button variant="ghost" onClick={() => setShowEditSquadModal(false)}>
+                <h6>Cancel</h6>
+              </Button>
+              <Button onClick={() => formRef.current?.handleSubmit()} disabled={editSquadSaveDisabled}>
+                <h6>Save</h6>
+              </Button>
+            </div>
+          }>
+            
+          <EditSquadForm
+            ref={formRef} // Pass formRef to EditSquadForm
+            initialName={squad.squadName}
+            initialMaxGP={squad.maxGP}
+            initialNotes={squad.notes}
+            hasCustomPortrait={squad.hasCustomPortrait}
+            onCancel={() => setShowEditSquadModal(false)}
+            squad={squad}
+            squadId={squad.squadId}
+            onSaveDisabledChange={setEditSquadSaveDisabled}
+            onSave={(name, maxGP, notes) => {
+              updateSquadInfo(name, maxGP, notes)
+              setShowEditSquadModal(false)
+            }}
+          />
+        </Modal>
       )}
 
       {/* Carousel Modal - outside tab conditionals so it works from Gallery tab too */}

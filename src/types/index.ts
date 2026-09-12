@@ -12,3 +12,4 @@ export * from './unit.model'
 export * from './unitType.model'
 export * from './user.model'
 
+export * from './campaign.model'
