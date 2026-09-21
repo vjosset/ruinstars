@@ -255,7 +255,7 @@ export const ScriptedOperations: ScriptedOperation[] = [
     npcSquadTypeId: 'DES',
     title: 'Harvest',
     battlefieldId: 'CITY',
-    description: 'A Claimant warband has fortified a ruined city above a biomass reserve. They stand between us and the feeding grounds. Remove them.',
+    description: 'A Despoiler warband has fortified a ruined city above a biomass reserve. They stand between us and the feeding grounds. Remove them.',
     missions: [
       {
         seq: 1,
@@ -1124,7 +1124,7 @@ export const ScriptedOperations: ScriptedOperation[] = [
       {
         seq: 1,
         title: 'Desecrate',
-        description: 'Their ancestral monuments desecrates our temple Destroy them.',
+        description: 'Their ancestral monuments desecrate our temple. Destroy them.',
         objectiveId: 'D1',
         deploymentId: '2',
       },

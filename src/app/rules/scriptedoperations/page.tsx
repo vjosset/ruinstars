@@ -90,17 +90,18 @@ export default async function RuleBookOperations() {
             <div className="section">
               <h2>Running an Operation</h2>
               <p>
-                Each Operation entry lists the enemy <strong>Faction</strong> and the <strong>Squad Type</strong> to build its NPC Squad from, a single <strong>Battlefield</strong> used for all three Missions, and, for each Mission, a fixed <strong>Objective</strong> and <strong>Deployment</strong>.
+                Each Operation entry lists the enemy <strong>Faction</strong> and the <strong>Squad Type</strong> to build its NPC Squad from, a single <strong>Battlefield</strong> used for all three Missions, and a fixed <strong>Objective</strong> and <strong>Deployment</strong> for each Mission.
                 <br />
-                The listed objective is the <strong>Primary Objective</strong>; it must be completed to proceed to the next Mission in the Operation. 
+                The listed objective is the <strong>Primary Objective</strong>. That is the Objective that progresses the Operation: it must be completed to proceed to the next Mission in the Operation. 
+                If the Squad does not complete the Primary Objective (including Extraction), replay the Mission with a new secondary Objective.
                 Roll a second, random <strong>Secondary Objective</strong> at the start of the Mission. That Secondary Objective must be of a different Archetype than the Primary Objective.
               </p>
               <p>
                 Set up each Mission as described in the Missions book, using the provided Battlefield, Objective, and Deployment instead of the usual rolls.
-                All other rules are unchanged: Battlefield effects still trigger each Turn, Objectives are scored normally, and Mission scoring works as it does in any PvE Mission.
+                All other rules are unchanged: Battlefield effects still trigger each Turn after the first, Objectives are scored normally, and Mission scoring works as it does in any PvE Mission.
               </p>
               <p>
-                Every Operation uses one <strong>Control</strong>, one <strong>Activate</strong>, and one <strong>Destroy</strong> Objective across its three Missions, and never repeats a Deployment.
+                Every Operation uses one <strong>Control</strong>, one <strong>Activate</strong>, and one <strong>Destroy</strong> Primary Objective across its three Missions, and never repeats a Deployment.
                 Expect each Operation to demand a Squad that can hold ground, work an objective, and break a target.
               </p>
             </div>
