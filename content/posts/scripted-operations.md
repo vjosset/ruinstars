@@ -1,5 +1,5 @@
 ---
-title: "Scripted Operations - Narrative PvE 3-mission operations"
+title: "Scripted Operations - Narrative PvE"
 date: "2026-09-21 12:00"
 description: "Scripted operations for PvE play for each faction vs each faction"
 tags: ["game design", "pve", "rules", "operations", "missions", "campaigns"]
