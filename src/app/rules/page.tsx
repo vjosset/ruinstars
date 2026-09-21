@@ -18,14 +18,15 @@ export async function generateMetadata() {
 }
 
 const RULE_BOOKS = [
-  { num: '01', title: 'Core Rules', desc: 'Everything you need to start playing.', href: '/assets/books/Core Rules - Ruinstars.pdf', icon: BsFilePdf, highlight: true },
-  { num: '02', title: 'Factions', desc: 'Choose a faction and build your squad.', href: '/assets/books/Factions - Ruinstars.pdf', icon: BsFilePdf },
-  { num: '03', title: 'Missions', desc: 'PvP, PvE, and Horde Mode solo/co-op missions.', href: '/assets/books/Missions - Ruinstars.pdf', icon: BsFilePdf },
+  { num: '01', title: 'Core Rules', desc: 'Everything you need to start playing', href: '/assets/books/Core Rules - Ruinstars.pdf', icon: BsFilePdf, highlight: true },
+  { num: '02', title: 'Factions', desc: 'Choose a faction and build your squad', href: '/assets/books/Factions - Ruinstars.pdf', icon: BsFilePdf },
+  { num: '03', title: 'Missions', desc: 'PvP, PvE, and Horde Mode solo/co-op missions', href: '/assets/books/Missions - Ruinstars.pdf', icon: BsFilePdf },
+  { num: '04', title: 'PvE Scripted Operations', desc: 'Narrative 3-mission PvE Operations for each faction', href: '/assets/books/Scripted Operations - Ruinstars.pdf', icon: BsFilePdf },
 ]
 
 const QUICK_REFS = [
-  { title: 'Core Rules Quick Ref', href: '/assets/books/Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
-  { title: 'Missions Quick Ref', href: '/assets/books/Missions - Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
+  { title: 'Core Rules Quick Ref', desc: 'One-page Core Rules summary', href: '/assets/books/Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
+  { title: 'Missions Quick Ref', desc: 'One-page Missions summary', href: '/assets/books/Missions - Quick Ref - Ruinstars.pdf', icon: BsFilePdf },
   { title: 'Reference Cards', desc: 'Printable objective, deployment, and battlefield cards', href: '/assets/books/Reference Cards - Ruinstars.pdf', icon: BsFilePdf },
 ]
 
