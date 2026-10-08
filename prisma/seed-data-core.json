@@ -5344,7 +5344,7 @@
       "gearType": "W",
       "gearCategoryId": "WEP",
       "seq": 13,
-      "GP": 4,
+      "GP": 3,
       "TYP": "R",
       "ROA": 1,
       "ATT": 2,
@@ -5398,7 +5398,7 @@
       "gearType": "W",
       "gearCategoryId": "WEP",
       "seq": 10,
-      "GP": 0,
+      "GP": 3,
       "TYP": "R",
       "ROA": 1,
       "ATT": 3,
@@ -6550,7 +6550,7 @@
       "gearType": "W",
       "gearCategoryId": "WEP",
       "seq": 1,
-      "GP": 0,
+      "GP": 3,
       "TYP": "M",
       "ROA": 1,
       "ATT": 3,
@@ -6928,7 +6928,7 @@
       "gearType": "W",
       "gearCategoryId": "WEP",
       "seq": 10,
-      "GP": 0,
+      "GP": 3,
       "TYP": "R",
       "ROA": 1,
       "ATT": 3,
@@ -8566,7 +8566,7 @@
       "ARM": 4,
       "HIT": 5,
       "special": "",
-      "GP": 15,
+      "GP": 12,
       "nameType": "GRAXNUHK",
       "gearIds": "KF-SSP-CTR,KF-SSP-GU,KF-SSP-HAS,LDR2,KF-BOSS-FRZ,KF-THP,KF-BS,KF-DRL,KF-BOSS-MAUL,KF-BOSS-SLAP,KF-TGH1,KF-RLT,SOW-ACC1,SOW-HRD,SOW-TCH,SOW-RDAM,SOW-TGH1,SOW-TO2,SOW-MDAM,SOW-MSKL,SOW-RSKL,SOW-DDG1,SOW-M-RLT,SOW-R-RLT,SOW-M-RND1,SOW-R-RND1,SOW-BLS,SOW-CHR1,SOW-SWF,SOW-BRU1,SOW-CTR,INJ-HI,INJ-BI,INJ-DA,INJ-WD,INJ-IM,INJ-DC,INJ-DM,INJ-NT,INJ-DR"
     },
@@ -8583,7 +8583,7 @@
       "ARM": 4,
       "HIT": 4,
       "special": "",
-      "GP": 10,
+      "GP": 7,
       "nameType": "GRAXNUHK",
       "gearIds": "KF-SSP-CTR,KF-SSP-GU,KF-SSP-HAS,KF-THP,KF-BS,KF-BL-LOB,KF-BL-BRN,KF-BL-HBRN,KF-BL-THD,KF-DRL,KF-TGH1,KF-RLT,SOW-ACC1,SOW-HRD,SOW-TCH,SOW-RDAM,SOW-TGH1,SOW-TO2,SOW-MDAM,SOW-MSKL,SOW-RSKL,SOW-DDG1,SOW-M-RLT,SOW-R-RLT,SOW-M-RND1,SOW-R-RND1,SOW-BLS,SOW-CHR1,SOW-SWF,SOW-BRU1,SOW-CTR,INJ-HI,INJ-BI,INJ-DA,INJ-WD,INJ-IM,INJ-DC,INJ-DM,INJ-NT,INJ-DR"
     },
@@ -8617,7 +8617,7 @@
       "ARM": 4,
       "HIT": 4,
       "special": "",
-      "GP": 10,
+      "GP": 7,
       "nameType": "GRAXNUHK",
       "gearIds": "KF-SSP-CTR,KF-SSP-GU,KF-SSP-HAS,KF-THP,KF-BS,KF-BR-DYN,STD-TECH,KF-BR-WS,KF-BR-MED,KF-TGH1,KF-RLT,SOW-ACC1,SOW-HRD,SOW-TCH,SOW-RDAM,SOW-TGH1,SOW-TO2,SOW-MDAM,SOW-MSKL,SOW-RSKL,SOW-DDG1,SOW-M-RLT,SOW-R-RLT,SOW-M-RND1,SOW-R-RND1,SOW-BLS,SOW-CHR1,SOW-SWF,SOW-BRU1,SOW-CTR,INJ-HI,INJ-BI,INJ-DA,INJ-WD,INJ-IM,INJ-DC,INJ-DM,INJ-NT,INJ-DR"
     },
@@ -8634,7 +8634,7 @@
       "ARM": 3,
       "HIT": 3,
       "special": "",
-      "GP": 8,
+      "GP": 5,
       "nameType": "GRAXNUHK",
       "gearIds": "KF-SSP-CTR,KF-SSP-GU,KF-SSP-HAS,KF-THP,KF-BS,KF-DRL,KF-TGH1,KF-RLT,SOW-ACC1,SOW-HRD,SOW-TCH,SOW-RDAM,SOW-TGH1,SOW-TO2,SOW-MDAM,SOW-MSKL,SOW-RSKL,SOW-DDG1,SOW-M-RLT,SOW-R-RLT,SOW-M-RND1,SOW-R-RND1,SOW-BLS,SOW-CHR1,SOW-SWF,SOW-BRU1,SOW-CTR,INJ-HI,INJ-BI,INJ-DA,INJ-WD,INJ-IM,INJ-DC,INJ-DM,INJ-NT,INJ-DR"
     },
@@ -8872,7 +8872,7 @@
       "ARM": 4,
       "HIT": 5,
       "special": "",
-      "GP": 16,
+      "GP": 13,
       "nameType": "CZIGHEO",
       "gearIds": "LDR3,REL-PB,REL-PA-DSM,REL-PA-PC,REL-PA-DS,REL-SSP-AR,REL-SSP-PS,REL-SSP-DW,REL-DW,REL-PROX,STD-TECH,REL-PA-ARC-MS,REL-PA-ARC-DEF,REL-IMP,SOW-BRU1,SOW-MDAM,SOW-MSKL,SOW-RSKL,SOW-HRD,SOW-RDAM,SOW-CTR,SOW-DDG1,SOW-M-RLT,SOW-R-RLT,SOW-M-RND1,SOW-R-RND1,SOW-BLS,SOW-CHR1,SOW-SWF,SOW-TGH1,SOW-TO2,SOW-TCH,SOW-ACC1,INJ-DM,INJ-DC,INJ-DR,INJ-BI,INJ-NT,INJ-IM,INJ-DA,INJ-WD,INJ-HI"
     },
@@ -8974,7 +8974,7 @@
       "ARM": 4,
       "HIT": 4,
       "special": "",
-      "GP": 12,
+      "GP": 9,
       "nameType": "FYHUCHO",
       "gearIds": "SCH-F,SCH-BW,SCH-RD,SCH-VN,SCH-RB,SCH-RL,SCH-MS,SCH-SHR,SCH-RND,SCH-CFL,SCH-AC,SCH-SB-CMP,SCH-SB-DS,SCH-SB-LDR,SCH-SB-MSD,SCH-SSP-SCH,SCH-SSP-ST,SCH-SSP-ME,SCH-DS,SCH-RES,SCH-HAR,SCH-UNR,INJ-BI,INJ-DA,INJ-WD,INJ-DC,INJ-HI,INJ-NT,INJ-IM,SOW-ACC1,SOW-BRU1,SOW-CTR,SOW-DDG1,SOW-M-RLT,SOW-R-RLT,SOW-M-RND1,SOW-R-RND1,SOW-BLS,SOW-CHR1,SOW-SWF,SOW-MDAM,SOW-MSKL,SOW-RSKL,SOW-RDAM,SOW-TCH,SOW-TGH1,SOW-TO2"
     },
@@ -8991,7 +8991,7 @@
       "ARM": 4,
       "HIT": 4,
       "special": "",
-      "GP": 10,
+      "GP": 7,
       "nameType": "FYHUCHO",
       "gearIds": "SCH-F,SCH-BW,SCH-RD,SCH-VN,SCH-RB,SCH-MS,SCH-SHR,SCH-RND,SCH-AC,SCH-CFL,SCH-SSP-SCH,SCH-SSP-ST,SCH-SSP-ME,SCH-ASP-DG,SCH-ASP-EXA,SCH-UNR,SCH-ASP-FOT,SCH-ASP-FS,SCH-DS,SCH-RES,SCH-HAR,INJ-BI,INJ-DA,INJ-WD,INJ-DC,INJ-HI,INJ-NT,INJ-IM,SOW-ACC1,SOW-BRU1,SOW-CTR,SOW-DDG1,SOW-M-RLT,SOW-R-RLT,SOW-M-RND1,SOW-R-RND1,SOW-BLS,SOW-CHR1,SOW-SWF,SOW-MDAM,SOW-MSKL,SOW-RSKL,SOW-RDAM,SOW-TCH,SOW-TGH1,SOW-TO2"
     },
@@ -9669,7 +9669,7 @@
       "isActivated": false,
       "hasCustomPortrait": false,
       "portraitUpdatedAt": "2025-08-25T16:26:07.700Z",
-      "gearIds": "SCH-MS,SCH-HF,SCH-SB-LDR,SCH-CMP,SCH-MSD,SCH-SB-DS,SCH-SB-CMP,SCH-SB-MSD,SCH-SB-RB,SCH-RD,SCH-SSP-SCH",
+      "gearIds": "SCH-MS,SCH-HF,SCH-SB-LDR,SCH-CMP,SCH-MSD,SCH-SB-DS,SCH-SB-CMP,SCH-SB-MSD,SCH-SB-RB,SCH-RD,SCH-SSP-SCH,SCH-CFL",
       "medalIds": ""
     },
     {
@@ -9890,7 +9890,7 @@
       "isActivated": false,
       "hasCustomPortrait": false,
       "portraitUpdatedAt": "2025-08-30T14:44:34.737Z",
-      "gearIds": "KF-THP,KF-SSP-CTR,KF-BL-LOB",
+      "gearIds": "KF-THP,KF-SSP-CTR,KF-BL-LOB,KF-BS",
       "medalIds": ""
     },
     {
@@ -10072,7 +10072,7 @@
       "isActivated": false,
       "hasCustomPortrait": false,
       "portraitUpdatedAt": "2025-08-30T14:44:34.816Z",
-      "gearIds": "KF-SSP-CTR,KF-SKL-CLV,KF-RLT",
+      "gearIds": "KF-SSP-CTR,KF-SKL-CLV,KF-RLT,KF-TGH1",
       "medalIds": ""
     },
     {
@@ -10349,16 +10349,16 @@
       "medalIds": null
     },
     {
-      "unitId": "l6eFHcZS",
+      "unitId": "q6yRXJqt",
       "squadId": "KF",
       "seq": 6,
-      "unitName": "Zogzog",
-      "unitTypeId": "KF-WD",
-      "currHIT": 6,
+      "unitName": "Gulgrokh",
+      "unitTypeId": "KF-GR",
+      "currHIT": 3,
       "isActivated": false,
       "hasCustomPortrait": false,
-      "portraitUpdatedAt": "2025-08-30T14:44:34.883Z",
-      "gearIds": "KF-THP,KF-SSP-CTR,KF-WD-HWL,KF-WD-PRD,KF-WD-SWF,KF-WD-DDG1,KF-WD-WD",
+      "portraitUpdatedAt": "2025-08-30T14:44:34.929Z",
+      "gearIds": "KF-THP,KF-SSP-CTR,KF-RLT,KF-DRL",
       "medalIds": ""
     },
     {
@@ -10427,16 +10427,16 @@
       "medalIds": null
     },
     {
-      "unitId": "q6yRXJqt",
+      "unitId": "l6eFHcZS",
       "squadId": "KF",
       "seq": 7,
-      "unitName": "Gulgrokh",
-      "unitTypeId": "KF-GR",
-      "currHIT": 3,
+      "unitName": "Zogzog",
+      "unitTypeId": "KF-WD",
+      "currHIT": 6,
       "isActivated": false,
       "hasCustomPortrait": false,
-      "portraitUpdatedAt": "2025-08-30T14:44:34.929Z",
-      "gearIds": "KF-THP,KF-BS,KF-SSP-CTR",
+      "portraitUpdatedAt": "2025-08-30T14:44:34.883Z",
+      "gearIds": "KF-THP,KF-SSP-CTR,KF-WD-HWL,KF-WD-PRD,KF-WD-SWF,KF-WD-DDG1,KF-WD-WD",
       "medalIds": ""
     },
     {
