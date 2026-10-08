@@ -302,8 +302,8 @@ export default function UnitEditorModal({
                             }
                           >
                             {({ selected }) => (
-                              <div className={`flex ${selected ? 'text-main': ''}`}>
-                                <span>{ut.unitTypeName}</span> {ut && ` (${ut.GP}GP)`}
+                              <div className={`flex gap-1 ${selected ? 'text-main': ''}`}>
+                                <span>{ut.unitTypeName}</span> {ut && `(${ut.GP}GP)`}
                               </div>
                             )}
                           </ListboxOption>
