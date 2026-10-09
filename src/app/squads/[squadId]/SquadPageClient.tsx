@@ -38,6 +38,12 @@ const squadTabLabels: Record<SquadTab, string> = {
   battles: 'Battles',
 }
 
+const trackers: { label: string; key: 'turn' | 'MP' | 'TO' }[] = [
+  { label: 'TURN', key: 'turn' },
+  { label: 'MP', key: 'MP' },
+  { label: 'TO', key: 'TO' },
+]
+
 export default function SquadPageClient({
   initialSquad,
   isOwner,
@@ -327,18 +333,19 @@ export default function SquadPageClient({
           </div>
 
           {/* Details under title */}
-          <div className="flex items-center justify-center gap-2 text-muted p-2">
+          <div className="flex items-center justify-center gap-2 p-2">
+            <span className="statvalue font-bold">{totalGP}GP</span>
+            
             <SquadTypeLink squadTypeId={squad.squadType?.squadTypeId ?? ''} squadTypeName={squad.squadType?.squadTypeName ?? ''} />
 
-            <span>by</span>
-
-            <UserLink userName={squad.user?.userName ?? ''} />
+            {!isOwner && (
+              <>
+                <span className="text-muted">by</span>
+                <UserLink userName={squad.user?.userName ?? ''} />
+              </>
+            )}
           </div>
           <div className="flex items-center justify-center gap-2 text-muted">
-            {!isOwner && (
-              <span className="text-sm">{totalGP}GP</span>
-            )}
-
             {!isOwner && (
               <>
                 <div className="flex items-center gap-2">
@@ -376,51 +383,41 @@ export default function SquadPageClient({
       {/* Trackers */}
       {isOwner && (
         <>
-          <div className="sticky top-0 lg:top-[3.5rem] max-w-xl mx-auto z-10 bg-background py-1 mt-0 mb-6 px-1 flex gap-2 items-center justify-between noprint">
-            {[
-              { label: 'TURN', key: 'turn' },
-              { label: 'MP', key: 'MP' },
-              { label: 'TO', key: 'TO' },
-            ].map(({ label, key }) => (
-              <div key={key} className="flex flex-col items-center gap-1">
-                <span className="statvalue font-bold">{label}:</span>
-                <div className="flex gap-1 items-center justify-center">
-                  <button
-                    className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
-                    onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] - 1)}
-                  >−</button>
-                  <h4 className="stat w-7 text-center text-main">{squad[key as 'turn' | 'MP' | 'TO']}</h4>
-                  <button
-                    className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
-                    onClick={() => updateSquadField(key, squad[key as 'turn' | 'MP' | 'TO'] + 1)}
-                  >+</button>
-                </div>
+          {/* Two rows: labels on top, values/controls below. Fourth column holds the squad menu. */}
+          <div className="sticky top-0 lg:top-[3.5rem] max-w-xl mx-auto z-10 bg-background py-1 mt-0 mb-6 px-1 grid grid-cols-[1fr_1fr_1fr_auto] gap-x-2 gap-y-1 items-center justify-items-center noprint">
+            {/* Labels row */}
+            {trackers.map(({ label, key }) => (
+              <span key={`${key}-label`} className="statvalue font-bold">{label}</span>
+            ))}
+            <span />
+
+            {/* Values/controls row */}
+            {trackers.map(({ key }) => (
+              <div key={`${key}-value`} className="flex gap-1 items-center justify-center">
+                <button
+                  className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
+                  onClick={() => updateSquadField(key, squad[key] - 1)}
+                >−</button>
+                <h4 className="stat w-7 text-center text-main">{squad[key]}</h4>
+                <button
+                  className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
+                  onClick={() => updateSquadField(key, squad[key] + 1)}
+                >+</button>
               </div>
             ))}
-            <div className="flex flex-col items-center gap-1">
-              <span className="statvalue font-bold gap1">{totalGP}GP</span>
-
-              {/* Info/tools */}
-              <div className="flex items-center">
-                <div className="flex gap-1 items-center justify-center">
-                  <div className="flex gap-2 items-center justify-center">
-                    <Menu as="div" className="relative justify-center flex-shrink-0 rounded border border-border w-6 h-6 text-lg">
-                      <MenuButton as="button" className="w-full h-full flex items-center justify-center">
-                        <FiMoreVertical />
-                      </MenuButton>
-                      <SquadCardMenu
-                        squad={squad}
-                        isOwner={isOwner}
-                        onEdit={handleEditSquadClick}
-                        onReset={handleResetClick}
-                        onPrint={handleSquadPrint}
-                        onHelp={() => setShowHelpModal(true)}
-                      />
-                    </Menu>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Menu as="div" className="relative flex-shrink-0 rounded border border-border w-6 h-6 text-lg">
+              <MenuButton as="button" className="w-full h-full flex items-center justify-center">
+                <FiMoreVertical />
+              </MenuButton>
+              <SquadCardMenu
+                squad={squad}
+                isOwner={isOwner}
+                onEdit={handleEditSquadClick}
+                onReset={handleResetClick}
+                onPrint={handleSquadPrint}
+                onHelp={() => setShowHelpModal(true)}
+              />
+            </Menu>
           </div>
         </>
       )}
