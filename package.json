@@ -55,5 +55,10 @@
     "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "allowScripts": {
+    "prisma@6.11.0": true,
+    "@prisma/engines@6.11.0": true,
+    "@prisma/client@6.6.0": true
   }
 }
