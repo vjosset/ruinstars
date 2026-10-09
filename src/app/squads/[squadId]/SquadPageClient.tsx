@@ -383,7 +383,7 @@ export default function SquadPageClient({
               { label: 'TO', key: 'TO' },
             ].map(({ label, key }) => (
               <div key={key} className="flex flex-col items-center gap-1">
-                <h6 className="font-bold">{label}:</h6>
+                <span className="statvalue font-bold">{label}:</span>
                 <div className="flex gap-1 items-center justify-center">
                   <button
                     className="flex items-center justify-center rounded border border-border w-6 h-6 text-lg"
@@ -398,7 +398,7 @@ export default function SquadPageClient({
               </div>
             ))}
             <div className="flex flex-col items-center gap-1">
-              <h6 className="font-bold" onClick={handleEditSquadClick}>{totalGP}GP</h6>
+              <span className="statvalue font-bold gap1">{totalGP}GP</span>
 
               {/* Info/tools */}
               <div className="flex items-center">
