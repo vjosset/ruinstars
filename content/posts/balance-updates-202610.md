@@ -60,7 +60,7 @@ Unit prices are now checked against a consistent set of rules:
 - **The Leader skill and Squad Specialties are free.** Every squad gets exactly one Leader and one Specialty, so they even out.
 - **Swift** on slow, melee-only Units mostly makes up for having to cross the table, so it doesn't add much to their price.
 - **Glass cannons** like the Gorebeast and the Stingcloud hit hard but go down fast. They often don't live long enough to use all that damage, so they're priced lower than their weapon alone would suggest.
-- **Each squad type has its own price level.** Specialties, synergies and play style are worth different amounts in different squads, so two Units with identical stats in different squad types can cost different amounts. That's intentional. Within a squad type, the same stats now cost the same.
+- **Each squad type has its own price level.** Specialties, synergies and play style are worth different amounts in different squads, so two Units with identical stats in different squad types can cost different amounts. That's intentional. Within a squad type, the same stats now cost the same (with some exceptions based on skills or leaders).
 
 ## Changes by Squad Type
 
@@ -86,6 +86,7 @@ Unit prices are now checked against a consistent set of rules:
 - Shroudbearer: 9 GP to 12 GP
 - Aspirant: 7 GP to 9 GP
 - Adept: 8 GP to 7 GP
+  - Moved from `3 ACT` to `2 ACT`
 - Disciple: 6 GP to 5 GP
 
 ### [Praxium Corps](/squadTypes/PRX)
@@ -99,6 +100,10 @@ Unit prices are now checked against a consistent set of rules:
 ### Default Squads
 
 Every default squad now adds up to exactly 100 GP. While rebuilding them, I also fixed a couple of lists that had the same unique (\*) item on two Units.
+
+### Your Squads
+
+Your own squads may be off from the 100 GP budget due to these adjustments. You should find yourself with more options and more budget to upgrade your squads to their fighting best.
 
 ## What's Next
 
