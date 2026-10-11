@@ -58,7 +58,7 @@ export default function NavBarBottom() {
   ]
 
   return (
-    <nav className="noprint lg:hidden fixed bottom-0 inset-x-0 bg-black border-t border-border flex justify-around items-center py-2 z-50">
+    <nav className="noprint lg:hidden fixed bottom-0 inset-x-0 bg-black rounded-lg border-t border-main flex justify-around items-center py-2 z-50">
       {links
         .filter((link) => link.show)
         .map((link) => {
