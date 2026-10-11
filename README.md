@@ -37,7 +37,7 @@ To contribute:
 
 To run the Ruinstars Companion App locally, you'll need:
 
-- Node.js 18+
+- Node.js 24+ (see `.nvmrc`)
 - MySQL database (local or remote)
 - A `.env` file with your database credentials
 - Seeded core game data (squadTypes, gear, unit types, etc.)
@@ -76,6 +76,14 @@ NEXTAUTH_URL="http://localhost:5000"
 
 ### 3. Install Dependencies
 
+If you use [nvm](https://github.com/nvm-sh/nvm), switch to the project's Node version first:
+
+```bash
+nvm use
+```
+
+Then install:
+
 ```bash
 npm install
 ```
@@ -111,7 +119,7 @@ This will start the app on `http://localhost:5000`.
 
 ## App Overview
 
-- Built with [Next.js 14 App Router](https://nextjs.org/)
+- Built with [Next.js App Router](https://nextjs.org/)
 - Uses [Prisma](https://www.prisma.io/) with a MySQL backend
 - Auth powered by [NextAuth](https://next-auth.js.org/)
 - Styled with [TailwindCSS](https://tailwindcss.com/)
@@ -126,6 +134,7 @@ This will start the app on `http://localhost:5000`.
 |--------|-------------|
 | `npm run seed` | Seeds core game content (Factions, SquadTypes, Gear, etc.) |
 | `npm run build` | Builds production app |
+| `npm run build-turbo` | Builds production app with Turbopack (used by `deploy.sh`) |
 | `npm run start` | Starts app on port `4000` by default |
 
 ## Production Deployment
@@ -140,6 +149,12 @@ Sample `deploy.sh`:
 
 set -e  # Exit on first error
 
+# Load nvm and pin Node — non-interactive shells don't source ~/.bashrc
+export NVM_DIR="$HOME/.nvm"
+. "$NVM_DIR/nvm.sh"
+nvm use 24
+echo "Using node $(node -v) at $(which node)"
+
 echo "Pulling latest code..."
 git pull origin main
 
@@ -150,11 +165,22 @@ echo "Generating Prisma client..."
 npx prisma generate
 
 echo "Building app..."
-npm run build
+npm run build-turbo
 
 echo "Starting app..."
-pm2 restart ruinstars-app || pm2 start npm --name ruinstars-app -- run start
+pm2 restart ruinstars --update-env || pm2 start npm --name ruinstars -- run start
 
 echo "Saving PM2 process list..."
 pm2 save
 ```
+
+After upgrading Node, move the pm2 daemon onto the new version once (from a shell already on the new Node):
+
+```bash
+nvm alias default 24
+pm2 update                     # restarts the pm2 daemon under the current Node
+pm2 unstartup && pm2 startup   # regenerates the boot service; run the sudo command it prints
+pm2 save
+```
+
+`pm2 restart` alone keeps the old Node interpreter.
