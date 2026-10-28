@@ -2,11 +2,16 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  allowedDevOrigins: ['dev.ruinstars.com', 'node304', 'node304:5000'],
+  allowedDevOrigins: ['dev.ruinstars.com'],
   turbopack: {},
 
   async redirects() {
     return [
+      {
+        source: '/factions/SWARM',
+        destination: '/factions/SWM',
+        permanent: true,
+      },
       {
         source: '/assets/Ruinstars%20-%20The%20Rules%20-%2020250708%20-%20FullColor.pdf',
         destination: '/rules',

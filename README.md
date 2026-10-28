@@ -70,6 +70,9 @@ DATABASE_URL="mysql://user:pass@host:3306/ruinstars"
 # Used by NextAuth.js
 NEXTAUTH_SECRET="your-secret-key"
 NEXTAUTH_URL="http://localhost:5000"
+
+# Local uploads (squad/unit portraits)
+UPLOADS_DIR=/path/to/user/uploads
 ```
 
 ---
@@ -135,7 +138,7 @@ This will start the app on `http://localhost:5000`.
 | `npm run seed` | Seeds core game content (Factions, SquadTypes, Gear, etc.) |
 | `npm run build` | Builds production app |
 | `npm run build-turbo` | Builds production app with Turbopack (used by `deploy.sh`) |
-| `npm run start` | Starts app on port `4000` by default |
+| `npm run start` | Starts app on port `4000` by default (override with `PORT`) |
 
 ## Production Deployment
 

@@ -16,7 +16,7 @@ export async function POST(req: Request) {
     const session = await getAuthSession()
     const userId = session?.user.userId ?? '[anon]'
     const headersList = await headers()
-    const userIp = headersList.get('x-forwarded-for') ?? ''
+    const userIp = headersList.get('x-forwarded-for')?.split(',')[0].trim() || ''
 
     const cookieStore = await cookies()
     const visitId = cookieStore.get(VISIT_COOKIE)?.value ?? crypto.randomUUID()
