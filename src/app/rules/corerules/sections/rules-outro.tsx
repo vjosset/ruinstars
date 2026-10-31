@@ -2,8 +2,6 @@
 import { getAllPosts } from '@/lib/posts'
 
 export default async function RulesOutro({ num }: {num?: number | null}) {
-  const posts = getAllPosts().slice(0, 8)
-
   return (
     <div className="section">
       <h2 className="text-center py-3 font-title"   id="outro">

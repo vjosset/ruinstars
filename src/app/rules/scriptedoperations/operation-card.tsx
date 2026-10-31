@@ -15,9 +15,7 @@ export type OperationCardMission = {
 }
 
 export type OperationCardProps = {
-  operationId: string
   title: string
-  npcFactionName: string
   npcSquadTypeName: string
   battlefieldTitle: string
   description: string
@@ -25,9 +23,7 @@ export type OperationCardProps = {
 }
 
 export default function OperationCard({
-  operationId,
   title,
-  npcFactionName,
   npcSquadTypeName,
   battlefieldTitle,
   description,

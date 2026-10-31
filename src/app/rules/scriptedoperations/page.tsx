@@ -176,9 +176,7 @@ export default async function RuleBookOperations() {
                 {operations.map((op) => (
                   <OperationCard
                     key={op.operationId}
-                    operationId={op.operationId}
                     title={op.title}
-                    npcFactionName={factionNames.get(op.npcFactionId) ?? op.npcFactionId}
                     npcSquadTypeName={squadTypeNames.get(op.npcSquadTypeId) ?? op.npcSquadTypeId}
                     battlefieldTitle={battlefieldTitles.get(op.battlefieldId) ?? op.battlefieldId}
                     description={op.description}

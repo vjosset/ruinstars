@@ -47,7 +47,6 @@ const trackers: { label: string; key: 'turn' | 'MP' | 'TO' }[] = [
 export default function SquadPageClient({
   initialSquad,
   isOwner,
-  factions,
   npcSquads,
 }: {
   initialSquad: SquadPlain

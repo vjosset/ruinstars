@@ -56,13 +56,6 @@ export default function UnitCard({
     ? 0
     : (unit.gears?.filter((gear) => gear.gearCategoryId === 'SOW').length ?? 0)
 
-  const forceValue = unit.isUnitType ? null :
-    Math.round(
-      ((unit?.totalGearGP + (unit?.unitType?.GP || 0.0)) / 100.0)
-      * 10.0
-    )
-    + spoilCount
-
   // Unit state tracking
   const [newHIT, setNewHIT] = useState(unit.currHIT ?? 0)
   const [, setIsActivated] = useState(unit.isActivated ?? false)
