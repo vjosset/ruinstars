@@ -6,7 +6,7 @@ import { GearCategoryService, SpecialService, UserService } from '@/services'
 import UnitCard from '@/components/unit/UnitCard'
 import { PDFLink } from '@/components/nav/Links'
 import { MissionDeployments } from '@/data/mission_deployments'
-import { HordeTurnEvents } from '@/data/==old/horde_events'
+import { HordeTurnEvents } from '@/data/_old/horde_events'
 import HordeModeQuickRef from './quickref/hordemode-quickref'
 
 export async function generateMetadata() {

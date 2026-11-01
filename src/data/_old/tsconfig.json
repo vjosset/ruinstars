@@ -1,0 +1,7 @@
+{
+  // Archived data is excluded from the root project (and so from the build); this
+  // lets the editor still resolve '@/...' imports when reading it
+  "extends": "../../../tsconfig.json",
+  "include": ["**/*", "../../../next-env.d.ts"],
+  "exclude": []
+}
