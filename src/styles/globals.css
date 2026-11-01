@@ -57,36 +57,21 @@ Font notes:
 
 */
 
-@font-face {
-  font-family: 'title';
-  src: url('/fonts/Russo_One/RussoOne-Regular.ttf');
-	/*src: url('/fonts/Rajdhani-Bold.ttf');*/
-  font-weight: bold;
-  font-style: normal;
-}
+/*
+	Fonts are loaded from Google Fonts in the root layout and mapped in tailwind.config.js:
+	title/stat = Russo One, heading = Rajdhani Bold, main = Rajdhani
+*/
+@layer utilities {
+	/* Headings always use the bold cut of Rajdhani */
+	.font-heading {
+		font-weight: 700;
+	}
 
-@font-face {
-  font-family: 'heading';
-  /*src: url('/fonts/Russo_One/RussoOne-Regular.ttf');*/
-	src: url('/fonts/Rajdhani-Bold.ttf');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'stat';
-  src: url('/fonts/Russo_One/RussoOne-Regular.ttf');
-	/*src: url('/fonts/Rajdhani-Bold.ttf');*/
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'main';
-  /*src: url('/fonts/Oswald.ttf');*/
-	src: url('/fonts/Rajdhani-Regular.ttf');
-  font-weight: normal;
-  font-style: normal;
+	/* Russo One only has one weight, never fake-bold it */
+	.font-title,
+	.font-stat {
+		font-synthesis: none;
+	}
 }
 
 html,
