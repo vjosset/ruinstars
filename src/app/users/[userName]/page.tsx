@@ -11,11 +11,16 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { FiActivity, FiSettings } from 'react-icons/fi'
 import UserPageClient from './UserPageClient'
+import { cache } from 'react'
+
+// generateMetadata and the page share one load per request
+const getUserByUsername = cache((userName: string) => UserService.getUserByUsername(userName))
+
 export async function generateMetadata({ params }: { params: Promise<{ userName: string }> }) {
   const { userName } = await params
   let lookupName = userName
   try { lookupName = decodeURIComponent(userName) } catch {}
-  const user = await UserService.getUserByUsername(lookupName)
+  const user = await getUserByUsername(lookupName)
 
   if (!user) {
     return {
@@ -53,7 +58,7 @@ export default async function UserPage({ params, searchParams }: { params: Promi
 
   const session = await getAuthSession()
 
-  const user = await UserService.getUserByUsername(lookupName)
+  const user = await getUserByUsername(lookupName)
 
   if (!user) return notFound()
 

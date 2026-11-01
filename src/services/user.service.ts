@@ -29,11 +29,13 @@ export class UserService {
   }
 
   private static async hydrateSquads(squads: Squad[]): Promise<Squad[]> {
+    // Load the gear table once for every unit across all squads
+    const allGears = squads.some(squad => squad.units?.length) ? await GearService.getAllGears() : []
     await Promise.all(
       squads.map(async squad => {
         if (!squad.units?.length) return
         await Promise.all(squad.units.map(async unit => {
-          await GearService.loadUnitGear(unit)
+          await GearService.loadUnitGear(unit, allGears)
           const gears = unit.gears ?? []
           unit.weapons = gears.filter(gear => gear.gearType === 'W')
           unit.skills = gears.filter(gear => gear.gearType !== 'W')

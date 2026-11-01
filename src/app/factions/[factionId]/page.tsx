@@ -5,10 +5,14 @@ import { FactionService } from '@/src/services'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { squadHasRealart } from '@/lib/utils/imageUrls'
+import { cache } from 'react'
+
+// generateMetadata and the page share one load per request
+const getFaction = cache((factionId: string) => FactionService.getFaction(factionId))
 
 export async function generateMetadata({ params }: { params: Promise<{ factionId: string }>  }) {
   const { factionId } = await params
-  const faction = await FactionService.getFaction(factionId)
+  const faction = await getFaction(factionId)
   
   if (!faction) return {}
 
@@ -23,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ factionId
 
 export default async function FactionPage({ params }: { params: Promise<{ factionId: string }> }) {
   const { factionId } = await params
-  const faction = await FactionService.getFaction(factionId)
+  const faction = await getFaction(factionId)
 
   if (!faction) notFound()
 

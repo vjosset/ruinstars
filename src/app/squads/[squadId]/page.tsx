@@ -2,14 +2,18 @@ import { getAuthSession } from '@/lib/auth'
 import { GAME } from '@/lib/config/game_config'
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
 import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
-import { CampaignService, FactionService, SquadService } from '@/services'
+import { CampaignService, SpecialService, SquadService } from '@/services'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import SquadPageClient from './SquadPageClient'
+import { cache } from 'react'
+
+// generateMetadata and the page share one load per request
+const getSquad = cache((squadId: string) => SquadService.getSquad(squadId))
 
 export async function generateMetadata({ params }: { params: Promise<{ squadId: string }> }): Promise<Metadata> {
   const { squadId } = await params
-  const squad = await SquadService.getSquad(squadId)
+  const squad = await getSquad(squadId)
 
   if (!squad) {
     return {
@@ -42,18 +46,21 @@ export async function generateMetadata({ params }: { params: Promise<{ squadId: 
 
 export default async function SquadPage({ params }: { params: Promise<{ squadId: string }> }) {
   const { squadId } = await params
-  const squad = (await SquadService.getSquad(squadId))
-  const factions = await FactionService.getAllFactions()
-  const npcSquads = process.env.NEXT_PUBLIC_FEATURE_CAMPAIGNS === 'true' ? await CampaignService.getNpcSquads() : []
+  // These are independent, so load them in parallel
+  const [squad, allSpecials, npcSquads, session] = await Promise.all([
+    getSquad(squadId),
+    SpecialService.getAllSpecials(),
+    process.env.NEXT_PUBLIC_FEATURE_CAMPAIGNS === 'true' ? CampaignService.getNpcSquads() : [],
+    getAuthSession(),
+  ])
 
   if (!squad) notFound()
 
-  const session = await getAuthSession()
   const isOwner = session?.user?.userId === squad.userId
 
   return (
     <div className="mx-auto mb-8">
-      <SquadPageClient initialSquad={squad.toPlain()} isOwner={isOwner} factions={factions.map(f => f.toPlain())} npcSquads={npcSquads} />
+      <SquadPageClient initialSquad={squad.toPlain()} isOwner={isOwner} allSpecials={allSpecials.map(s => s.toPlain())} npcSquads={npcSquads} />
     </div>
   )
 }

@@ -29,7 +29,8 @@ export class GearService {
     })
   }
 
-  static async loadUnitGear(unit: Unit): Promise<Gear[]> {
+  // Pass allGears when loading many units/unitTypes so the gear table is only fetched once
+  static async loadUnitGear(unit: Unit, allGears?: Gear[]): Promise<Gear[]> {
 
     if (!unit.gearIds) return []
     
@@ -37,7 +38,7 @@ export class GearService {
     
     if (gearIds.length === 0) return []
 
-    const allGears = await this.getAllGears()
+    allGears ??= await this.getAllGears()
 
     unit.gears = gearIds
       .map(gearId => allGears.find(gear => gear.gearId === gearId))
@@ -49,14 +50,14 @@ export class GearService {
     return unit.gears
   }
 
-  static async loadUnitTypeGear(unitType: UnitType): Promise<Gear[]> {
+  static async loadUnitTypeGear(unitType: UnitType, allGears?: Gear[]): Promise<Gear[]> {
     if (!unitType.gearIds) return []
     
     const gearIds = unitType.gearIds.split(',').filter(gearId => gearId.trim())
     
     if (gearIds.length === 0) return []
 
-    const allGears = await this.getAllGears()
+    allGears ??= await this.getAllGears()
     unitType.gears = gearIds
       .map(gearId => allGears.find(gear => gear.gearId === gearId))
       .filter((gear): gear is Gear => gear !== undefined)

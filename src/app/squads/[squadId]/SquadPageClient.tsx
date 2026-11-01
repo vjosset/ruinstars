@@ -15,7 +15,7 @@ import UnitCard from '@/components/unit/UnitCard'
 import { getSquadPortraitUrl, getUnitPortraitUrl, toEpochMs } from '@/lib/utils/imageUrls'
 import { shareSquad } from '@/lib/utils/shareSquad'
 import { SpecialRule } from '@/lib/utils/specialRules'
-import { FactionPlain, SquadIdentity, SquadPlain, UnitPlain } from '@/types'
+import { SquadIdentity, SquadPlain, UnitPlain } from '@/types'
 import { Menu, MenuButton } from '@headlessui/react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
@@ -47,11 +47,12 @@ const trackers: { label: string; key: 'turn' | 'MP' | 'TO' }[] = [
 export default function SquadPageClient({
   initialSquad,
   isOwner,
+  allSpecials,
   npcSquads,
 }: {
   initialSquad: SquadPlain
   isOwner: boolean
-  factions: FactionPlain[]
+  allSpecials: SpecialRule[]
   npcSquads: SquadIdentity[]
 }) {
   const router = useRouter()
@@ -59,7 +60,6 @@ export default function SquadPageClient({
 
   const [units, setUnits] = useState<UnitPlain[]>(initialSquad.units ?? [])
   const [squad, setSquad] = useState(initialSquad)
-  const [allSpecials, setSpecials] = useState<SpecialRule[] | null>(null)
   const formRef = useRef<{ handleSubmit: () => void }>(null)
   const [editSquadSaveDisabled, setEditSquadSaveDisabled] = useState(false)
   const [activeTab, setActiveTab] = useState<SquadTab>('units')
@@ -82,13 +82,6 @@ export default function SquadPageClient({
       localStorage.setItem('ruinstars.squadHelpSeen', '1')
     }
   }, [isOwner])
-
-  useEffect(() => {
-    fetch('/api/specials')
-      .then(res => res.json())
-      .then(data => setSpecials(data))
-      .catch(err => console.error('Failed to fetch specials', err))
-  }, [])
 
   useEffect(() => {
     setUnits(squad.units ?? [])
@@ -476,7 +469,7 @@ export default function SquadPageClient({
                   seq={idx + 1}
                   unit={unit}
                   isOwner={isOwner}
-                  allSpecials={allSpecials ?? []}
+                  allSpecials={allSpecials}
                   onUnitUpdated={updateUnit}
                   onUnitDeleted={deleteUnit}
                   onMoveUp={isOwner ? () => moveUnit(idx, idx - 1) : () => {}}
@@ -492,7 +485,7 @@ export default function SquadPageClient({
               <AddUnitForm
                 key="Add Unit"
                 squad={squad}
-                allSpecials={allSpecials ?? []}
+                allSpecials={allSpecials}
                 onUnitAdded={addUnit}
               />
             )}

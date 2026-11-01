@@ -1,5 +1,5 @@
 import { SquadRepository } from '@/src/repositories/squad.repository'
-import { Squad, SquadIdentity } from '@/types'
+import { Gear, Squad, SquadIdentity } from '@/types'
 import fs from 'fs/promises'
 import { generateId } from '@/lib/id'
 import path from 'path'
@@ -23,14 +23,16 @@ export class SquadService {
     return this.repository.searchSquads(query)
   }
 
-  static async getSquad(squadId: string): Promise<Squad | null> {
+  static async getSquad(squadId: string, allGears?: Gear[]): Promise<Squad | null> {
     const raw = await this.repository.getSquad(squadId)
     if (!raw) return null
     const squad = raw ? new Squad(raw) : null
 
     if (squad?.units && squad.units.length > 0) {
+      // Load the gear table once for all units
+      allGears ??= await GearService.getAllGears()
       await Promise.all(squad.units.map(async unit => {
-        await GearService.loadUnitGear(unit)
+        await GearService.loadUnitGear(unit, allGears)
         await UnitService.applyGearMods(unit)
       }))
     }
@@ -43,8 +45,9 @@ export class SquadService {
     const squad = new Squad(raw)
 
     if (squad.units && squad.units.length > 0) {
+      const allGears = await GearService.getAllGears()
       await Promise.all(squad.units.map(async unit => {
-        await GearService.loadUnitGear(unit)
+        await GearService.loadUnitGear(unit, allGears)
         await UnitService.applyGearMods(unit)
       }))
     }

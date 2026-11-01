@@ -16,8 +16,11 @@ export class SquadTypeService {
     
     if (!squadType) return null
 
+    // Load the gear table once and share it across every unitType and unit on the page
+    const allGears = await GearService.getAllGears()
+
     await Promise.all(squadType.unitTypes?.map(async unitType => {
-      await GearService.loadUnitTypeGear(unitType)
+      await GearService.loadUnitTypeGear(unitType, allGears)
     }))
 
     if (squadType.spotlights?.length) {
@@ -25,25 +28,18 @@ export class SquadTypeService {
         if (!squad.units?.length) return
 
         await Promise.all(squad.units.map(async unit => {
-          await GearService.loadUnitGear(unit)
+          await GearService.loadUnitGear(unit, allGears)
           await UnitService.applyGearMods(unit)
         }))
       }))
     }
 
-    // Ensure default squad is included first in spotlights
+    // Ensure default squad is included first in spotlights (getSquad already loads its units' gear)
     if (squadType.defaultSquadId && !squadType.spotlights?.some(s => s.squadId === squadType.defaultSquadId)) {
-      const defaultSquad = await SquadService.getSquad(squadType.defaultSquadId)
+      const defaultSquad = await SquadService.getSquad(squadType.defaultSquadId, allGears)
       if (defaultSquad) {
         if (!squadType.spotlights) squadType.spotlights = []
         squadType.spotlights = [defaultSquad, ...squadType.spotlights]
-
-        if (defaultSquad.units?.length) {
-          await Promise.all(defaultSquad.units.map(async unit => {
-            await GearService.loadUnitGear(unit)
-            await UnitService.applyGearMods(unit)
-          }))
-        }
       }
     }
 
