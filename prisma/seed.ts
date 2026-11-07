@@ -53,16 +53,33 @@ async function runSeed(seed: any) {
     }
   }
 
+  // Factions (must exist before SquadTypes)
+  if (seed.factions) {
+    console.log('  Seeding Factions...')
+    for (const faction of seed.factions) {
+      await prisma.faction.upsert({
+        where: { factionId: faction.factionId },
+        update: {},
+        create: {
+          ...faction
+        }
+      })
+    }
+  }
+
   // SquadTypes
+  // defaultSquadId references a Squad, and Squads reference SquadTypes, so create
+  // SquadTypes without it and link the default squads after Squads are seeded.
   if (seed.squadTypes) {
     console.log('  Seeding SquadTypes...')
     for (const squadType of seed.squadTypes) {
-      // Seed squadType
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { defaultSquadId, ...squadTypeData } = squadType
       await prisma.squadType.upsert({
         where: { squadTypeId: squadType.squadTypeId },
         update: {},
         create: {
-          ...squadType
+          ...squadTypeData
         },
       })
     }
@@ -97,6 +114,18 @@ async function runSeed(seed: any) {
     }
   }
   
+  // Link SquadTypes to their default Squads now that Squads exist
+  if (seed.squadTypes) {
+    console.log('  Linking SquadType default squads...')
+    for (const squadType of seed.squadTypes) {
+      if (!squadType.defaultSquadId) continue
+      await prisma.squadType.updateMany({
+        where: { squadTypeId: squadType.squadTypeId, defaultSquadId: null },
+        data: { defaultSquadId: squadType.defaultSquadId }
+      })
+    }
+  }
+
   // Units
   if (seed.units) {
     console.log('  Seeding Units...')
@@ -146,7 +175,7 @@ async function runSeed(seed: any) {
   }
   
   // Finally, update special users' passwords so they can't log in
-  prisma.user.updateMany(
+  await prisma.user.updateMany(
     {
       data: {
         password: 'NoCantLogInGetOutOfhere'
