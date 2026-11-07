@@ -42,7 +42,7 @@ export function GameToken({ label = 'A1', subtitle, size = 200, colorMode = 'mai
         y={labelY}
         textAnchor="middle"
         dominantBaseline="central"
-        fontFamily="title, ui-serif, system-ui"
+        fontFamily="'Russo One', ui-serif, system-ui"
         fontSize="25"
         fill={fgColor}
       >
@@ -56,7 +56,7 @@ export function GameToken({ label = 'A1', subtitle, size = 200, colorMode = 'mai
           y={r + 10 + i * 6}
           textAnchor="middle"
           dominantBaseline="central"
-          fontFamily="title, ui-serif, system-ui"
+          fontFamily="'Russo One', ui-serif, system-ui"
           fontSize="7"
           fill={fgColor}
         >

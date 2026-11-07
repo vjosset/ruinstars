@@ -36,30 +36,18 @@ const OBJECTIVES: { objectiveType: string; tokens: TokenDef[] }[] = [
   {
     objectiveType: 'Destroy',
     tokens: [
-      { label: 'D1', size: 150, colorMode: 'main', subtitle: 'ARM 4\nHIT 3' },
-      { label: 'D2', size: 150, colorMode: 'main', subtitle: 'ARM 4\nHIT 3' },
-      { label: 'D3', size: 150, colorMode: 'main', subtitle: 'ARM 4\nHIT 3' },
+      { label: 'D1', size: 150, colorMode: 'main' },
+      { label: 'D2', size: 150, colorMode: 'main' },
+      { label: 'D3', size: 150, colorMode: 'main' },
     ],
   },
-  {
-    objectiveType: 'Search',
-    tokens: [
-      { label: 'S1', size: 150, colorMode: 'alt' },
-      { label: 'S2', size: 150, colorMode: 'alt' },
-      { label: 'S3', size: 150, colorMode: 'alt' },
-    ],
-  },
-  {
-    objectiveType: 'Protect',
-    tokens: [
-      { label: 'P', size: 150, colorMode: 'main', subtitle: 'ARM 4\nHIT 3' },
-    ],
-  }
 ]
 
 export default function TokensPage() {
   return (
     <div className={styles.page}>
+      {/* Override the global Letter @page size so the print dialog's paper size (A4, Letter, ...) is respected */}
+      <style>{'@media print { @page { size: auto; margin: 0.5in; } }'}</style>
       <h3>Instructions</h3>
       <div>
         These tokens are intended to indicate control ranges for mission objectives and the Extraction Zone for PvE Missions.
