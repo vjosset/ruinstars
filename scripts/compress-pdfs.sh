@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Compresses staged PDFs under public/assets/ (recursively) using Ghostscript,
-# and replaces any dev.ruinstars.com links with ruinstars.com using qpdf.
-# Called by .git/hooks/pre-commit - do not run directly during a commit.
+# and replaces dev-server links (see DEV_URLS) with ruinstars.com using qpdf.
+# Called by scripts/pre-commit.sh (via .git/hooks/pre-commit).
+# Works on Linux and Windows Git Bash (finds gswin64c / qpdf under Program Files if not on PATH).
+# In pre-commit mode, a missing gs or qpdf aborts the commit so unprocessed PDFs never get committed.
 #
 # Usage: compress-pdfs.sh [--all]
 #   --all   Process all PDFs under public/assets/ (for manual runs)
@@ -11,16 +13,56 @@ set -euo pipefail
 
 ASSETS_DIR="public/assets"
 GS_SETTINGS="/printer" # ebook is smaller, but printer is more easily parseable. Negligible file size difference.
-#DEV_URL="dev.ruinstars.com"
-DEV_URL="node304:5000"
+# Hosts the PDFs may have been exported from; all are rewritten to PROD_URL.
+DEV_URLS=("dev.ruinstars.com" "node304:5000" "localhost:5000")
 PROD_URL="ruinstars.com"
 
-# Replaces dev.ruinstars.com links with ruinstars.com in a PDF.
+# Prints the first usable executable: a name on PATH, or a glob of install paths (highest version wins).
+find_tool() {
+  local name candidate match
+  for name in "$@"; do
+    if [[ "$name" == */* ]]; then
+      match=""
+      while IFS= read -r candidate; do
+        [ -x "$candidate" ] && match="$candidate"
+      done < <(compgen -G "$name" | sort -V)
+      if [ -n "$match" ]; then echo "$match"; return 0; fi
+    elif command -v "$name" &>/dev/null; then
+      command -v "$name"
+      return 0
+    fi
+  done
+  return 1
+}
+
+# Native Windows binaries need Windows paths; no-op elsewhere. Calls to them also set
+# MSYS_NO_PATHCONV=1 so Git Bash does not mangle args like -dPDFSETTINGS=/printer.
+native_path() {
+  if command -v cygpath &>/dev/null; then cygpath -w "$1"; else echo "$1"; fi
+}
+
+GS_BIN="$(find_tool gs gswin64c '/c/Program Files/gs/gs*/bin/gswin64c.exe' || true)"
+QPDF_BIN="$(find_tool qpdf '/c/Program Files/qpdf*/bin/qpdf.exe' || true)"
+
+# Build sed/grep patterns: "http(s)://dev" -> "https://prod", then bare "dev" -> "prod".
+URL_SED=""
+URL_GREP=""
+for dev in "${DEV_URLS[@]}"; do
+  esc="${dev//./\\.}"
+  URL_SED+="s#https\\?://${esc}#https://${PROD_URL}#g;s#${esc}#${PROD_URL}#g;"
+  URL_GREP+="${URL_GREP:+\\|}${esc}"
+done
+# Upgrade any remaining plain-http production links (with or without www.) to https.
+prod_esc="${PROD_URL//./\\.}"
+URL_SED+="s#http://\\(www\\.\\)\\?${prod_esc}#https://\\1${PROD_URL}#g;"
+URL_GREP+="\\|http://\\(www\\.\\)\\?${prod_esc}"
+
+# Replaces dev-server links with ruinstars.com in a PDF.
 # Returns 0 if the file was modified, 1 if unchanged or skipped.
 fix_pdf_urls() {
   local file="$1"
 
-  if ! command -v qpdf &>/dev/null; then
+  if [ -z "$QPDF_BIN" ]; then
     echo "    qpdf not found; skipping URL fix."
     return 1
   fi
@@ -31,27 +73,27 @@ fix_pdf_urls() {
   out="$(mktemp --suffix=.pdf)"
 
   # Decompress to QDF (plain-text editable format)
-  if ! qpdf --qdf --object-streams=disable "$file" "$qdf" 2>/dev/null; then
+  if ! MSYS_NO_PATHCONV=1 "$QPDF_BIN" --qdf --object-streams=disable "$(native_path "$file")" "$(native_path "$qdf")" 2>/dev/null; then
     echo "    qpdf decompression failed, skipping URL fix."
     rm -f "$qdf" "$patched" "$out"
     return 1
   fi
 
   # Skip if no dev URLs present
-  if ! grep -q "$DEV_URL" "$qdf"; then
+  if ! grep -aq "$URL_GREP" "$qdf"; then
     rm -f "$qdf" "$patched" "$out"
     return 1
   fi
 
-  sed "s/$DEV_URL/$PROD_URL/g" "$qdf" > "$patched"
+  sed "$URL_SED" "$qdf" > "$patched"
 
   # Exit code 0 = clean success; 3 = success with warnings (expected: sed shifts
   # byte offsets in the QDF, invalidating the xref table, which qpdf reconstructs).
   local qpdf_exit=0
-  qpdf "$patched" "$out" 2>/dev/null || qpdf_exit=$?
+  MSYS_NO_PATHCONV=1 "$QPDF_BIN" "$(native_path "$patched")" "$(native_path "$out")" 2>/dev/null || qpdf_exit=$?
   if [ $qpdf_exit -eq 0 ] || [ $qpdf_exit -eq 3 ]; then
     mv "$out" "$file"
-    echo "    Replaced $DEV_URL -> $PROD_URL"
+    echo "    Replaced dev links -> $PROD_URL"
     rm -f "$qdf" "$patched"
     return 0
   else
@@ -63,17 +105,23 @@ fix_pdf_urls() {
 
 compress_pdf() {
   local file="$1"
-  local tmp
-  tmp="$(mktemp --suffix=.pdf)"
 
   echo "  Compressing $file..."
 
-  if gs -sDEVICE=pdfwrite \
+  if [ -z "$GS_BIN" ]; then
+    echo "    Ghostscript not found, skipping."
+    return 1
+  fi
+
+  local tmp
+  tmp="$(mktemp --suffix=.pdf)"
+
+  if MSYS_NO_PATHCONV=1 "$GS_BIN" -sDEVICE=pdfwrite \
         -dCompatibilityLevel=1.4 \
         -dPDFSETTINGS="$GS_SETTINGS" \
         -dNOPAUSE -dQUIET -dBATCH \
-        -sOutputFile="$tmp" \
-        "$file" 2>/dev/null; then
+        -sOutputFile="$(native_path "$tmp")" \
+        "$(native_path "$file")" 2>/dev/null; then
 
     local orig_size compressed_size
     orig_size=$(stat -c%s "$file")
@@ -118,6 +166,15 @@ else
 
   if [ ${#staged_pdfs[@]} -eq 0 ]; then
     exit 0
+  fi
+
+  missing=()
+  [ -z "$GS_BIN" ] && missing+=("Ghostscript (gs / gswin64c)")
+  [ -z "$QPDF_BIN" ] && missing+=("qpdf")
+  if [ ${#missing[@]} -gt 0 ]; then
+    echo "[pre-commit] Cannot process ${#staged_pdfs[@]} staged PDF(s) - missing: ${missing[*]}" >&2
+    echo "[pre-commit] Install it (Windows: winget install QPDF.QPDF), or bypass once with: git commit --no-verify" >&2
+    exit 1
   fi
 
   echo "[pre-commit] Processing ${#staged_pdfs[@]} staged PDF(s)..."
