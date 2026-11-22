@@ -3,6 +3,7 @@ import Markdown from '@/components/ui/Markdown'
 import PageBreak from '@/components/ui/PageBreak'
 import UnitCard from '@/components/unit/UnitCard'
 import { FactionService, SpecialService, SquadTypeService } from '@/services'
+import { squadHasRealart } from '@/lib/utils/imageUrls'
 import Link from 'next/link'
 
 export default async function RulesSquadTypes() {
@@ -145,6 +146,9 @@ export default async function RulesSquadTypes() {
                         className="rounded-xl border border-main"
                       />
                     </Link>
+                    {squadHasRealart(squadType.squadTypeId) &&
+                      <em className="text-xs text-muted">Art by <Link className="underline" href="https://helgecbalzer.com/" target="_blank">Helge C. Balzer</Link></em>
+                    }
                   </div>
                   <div className="section">
                     <Markdown>{squadType.description}</Markdown>

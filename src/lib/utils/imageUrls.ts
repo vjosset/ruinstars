@@ -15,5 +15,5 @@ export function toEpochMs(d?: Date | string | number | null) {
 }
 
 export function squadHasRealart(squadTypeId: string) {
-  return [ 'DRN', 'HK', 'SCH', 'PRX', 'CWB', 'REL', 'KF', 'DES' ].includes(squadTypeId)
+  return [ 'INT', 'DRN', 'HK', 'SCH', 'PRX', 'CWB', 'REL', 'KF', 'DES' ].includes(squadTypeId)
 }
