@@ -9,7 +9,6 @@ import RulesMovement from './sections/rules-movement'
 import RulesStatCards from './sections/rules-statcards'
 
 import { generatePageMetadata } from '@/lib/utils/generateMetadata'
-import RulesAI from './sections/rules-ai'
 import RulesFirstMission from './sections/rules-firstmission'
 import RulesOutro from './sections/rules-outro'
 import RulesYourSquad from './sections/rules-yoursquad'
@@ -53,8 +52,6 @@ export default async function CoreRules() {
         <RulesHeader />
 
         <RulesIntro showTitle={true} num={1} />
-
-        <RulesAI />
 
         <RulesCoreMechanics num={2} />
 
