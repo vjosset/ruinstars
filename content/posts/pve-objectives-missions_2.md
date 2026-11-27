@@ -3,7 +3,7 @@ title: "PvE Missions and Objectives - Update"
 date: "2026-04-03 12:00"
 description: "Final updates on PvE Objectives."
 tags: ["game design", "solo play", "coop play", "pve"]
-coverImage: "/img/hero01_wideB.webp"
+coverImage: "/img/banner.jpg"
 ---
 
 _Read [Part 1 here](/blog/pve-objectives-missions)_

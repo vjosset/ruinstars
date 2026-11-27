@@ -12,7 +12,7 @@ export async function generateMetadata() {
   return generatePageMetadata({
     title: '',
     description: 'Free sci-fi skirmish wargame with solo and co-op PvE campaigns, PvP missions and campaigns, and Horde Mode. Miniatures-agnostic, D6 only, 45-90 minutes. Download the rules and start playing today.',
-    images: [{ url: '/img/hero01_wideB.webp', width: 1080, height: 506 }],
+    images: [{ url: '/img/banner.jpg', width: 1918, height: 536 }],
     keywords: ['home', 'squad builder', 'battle tracker'],
     pagePath: '/'
   })

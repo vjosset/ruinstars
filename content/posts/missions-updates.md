@@ -3,7 +3,7 @@ title: "Standardizing Missions in PvP, PvE, and Horde Mode"
 date: "2026-06-12 12:00"
 description: "How we simplified missions for all play modes."
 tags: ["game design", "solo play", "coop play", "pve", "pvp", "missions"]
-coverImage: "/img/hero01_wideB.webp"
+coverImage: "/img/banner.jpg"
 ---
 
 Second edition was built around PvE. That was the right call at the time., but it meant PvP and Horde Mode were left on older foundations, with different objectives, different structure, and enough friction between the three modes that switching between them felt like starting over.

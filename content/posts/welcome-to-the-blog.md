@@ -3,7 +3,7 @@ title: "New Blog!"
 date: "2026-03-26 12:00"
 description: "Updates, design notes, and dispatches from a dying galaxy."
 tags: ["news", "meta"]
-coverImage: "/img/hero01_wideB.webp"
+coverImage: "/img/banner.jpg"
 ---
 
 Welcome to the Ruinstars blog. This is where we'll post updates, design notes, playtest reports, and anything else worth sharing.
