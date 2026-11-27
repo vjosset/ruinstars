@@ -3,7 +3,7 @@ title: "2nd Edition is LIVE!"
 date: "2026-03-12 12:00"
 description: "The biggest update since launch is here!"
 tags: ["news", "meta"]
-coverImage: "/img/hero01_wideB.webp"
+coverImage: "/img/banner.jpg"
 ---
 
 The biggest update since launch is here! Measurements are now standard inches, PvE has its own dedicated book with procedurally generated missions and campaigns, and a lot of the table friction is gone.

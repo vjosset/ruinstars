@@ -3,7 +3,7 @@ title: "Scripted Operations - Narrative PvE"
 date: "2026-09-21 12:00"
 description: "Scripted operations for PvE play for each faction vs each faction"
 tags: ["game design", "pve", "rules", "operations", "missions", "campaigns"]
-coverImage: "/img/hero01_wideB.webp"
+coverImage: "/img/banner.jpg"
 ---
 
 The [Missions](/rules) book has everything you need to generate and play your own missions. But for players who want a little more flavor, I wrote up 36 three-Mission Operations for PvE play.
