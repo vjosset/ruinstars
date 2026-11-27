@@ -1,6 +1,4 @@
 
-import { getAllPosts } from '@/lib/posts'
-
 export default async function RulesOutro({ num }: {num?: number | null}) {
   return (
     <div className="section">

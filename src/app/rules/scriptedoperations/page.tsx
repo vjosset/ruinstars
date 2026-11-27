@@ -30,7 +30,6 @@ export default async function RuleBookOperations() {
   const squadTypes = await SquadTypeService.getAllSquadTypes()
 
   // Lookups to resolve the IDs stored on each Operation into printable titles.
-  const factionNames = new Map(factions.map((f) => [f.factionId, f.factionName]))
   const squadTypeNames = new Map(squadTypes.map((st) => [st.squadTypeId, st.squadTypeName]))
   const battlefieldTitles = new Map(MissionBattlefields.map((b) => [b.battlefieldId, b.title]))
   const deploymentTitles = new Map(MissionDeployments.map((d) => [d.deploymentId, d.title]))

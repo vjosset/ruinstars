@@ -52,10 +52,6 @@ export default function UnitCard({
   const [showUnitEditorModal, setShowUnitEditorModal] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
 
-  const spoilCount = unit.isUnitType
-    ? 0
-    : (unit.gears?.filter((gear) => gear.gearCategoryId === 'SOW').length ?? 0)
-
   // Unit state tracking
   const [newHIT, setNewHIT] = useState(unit.currHIT ?? 0)
   const [, setIsActivated] = useState(unit.isActivated ?? false)

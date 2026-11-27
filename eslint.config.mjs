@@ -1,7 +1,6 @@
 import nextPlugin from '@next/eslint-plugin-next'
 import tseslint from '@typescript-eslint/eslint-plugin'
 import tsparser from '@typescript-eslint/parser'
-import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import unusedImports from 'eslint-plugin-unused-imports'
 
@@ -21,7 +20,6 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      'react': reactPlugin,
       'react-hooks': reactHooksPlugin,
       'next': nextPlugin,
       'unused-imports': unusedImports,
@@ -38,8 +36,6 @@ export default [
       }],
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-empty-function': 'off',
-      'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'off',
       'indent': ['warn', 2],
       'eqeqeq': ['error', 'always', { null: 'ignore' }],
       'prefer-const': 'warn',
@@ -54,11 +50,6 @@ export default [
           argsIgnorePattern: '^_'
         }
       ]
-    },
-    settings: {
-      react: {
-        version: 'detect',
-      },
     },
   },
 ]
